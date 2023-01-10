@@ -36,3 +36,5 @@ jobs:
           --url "https://api.sleeper.app/v1/user/BigDaddyBurger" \
           --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
+          const data = await getData(url);
+          console.log({ data })
