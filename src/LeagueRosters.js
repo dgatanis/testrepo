@@ -9,8 +9,8 @@ async function getLeagueData() {
   const data = await response.json();
   const displayNames = data.map((user) => user.display_name);
   const usersElement = document.getElementById("myUsers");
-  usersElement.textContent = 'Users: ${users}';
-return
+  usersElement.textContent = 'Users: ${displayNames}';
+  return 
 }
 
 async function getUser(userId){
