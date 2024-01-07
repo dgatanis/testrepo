@@ -10,12 +10,12 @@ async function getLeagueData() {
   const users = data.map((user) => user.user_id);
   const displayNames = data.map((user) => user.metadata.team_name);
   const usersElement = document.getElementById("myUsers");
-  for (let userId of users) {
-    for (let team of displayNames) {
-      usersElement.append('User: ' + team);
-      getRosterForUser(userId);
-    }
-  }
+  // for (let userId of users) {
+  //   for (let team of displayNames) {
+  //     usersElement.append('User: ' + team);
+  //     getRosterForUser(userId);
+  //   }
+  // }
   //usersElement.textContent = 'User: ' + displayNames;
   return 
 }
