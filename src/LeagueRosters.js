@@ -8,7 +8,9 @@ async function getLeagueData() {
   const response = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/users`);
   const data = await response.json();
   const displayNames = data.map((user) => user.display_name);
-  return displayNames.join(", ");
+  const usersElement = document.getElementById("myUsers");
+  usersElement.textContent = 'Users: ${users}';
+return
 }
 
 async function getUser(userId){
