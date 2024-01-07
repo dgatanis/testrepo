@@ -11,10 +11,8 @@ async function getLeagueData() {
   const displayNames = data.map((user) => user.metadata.team_name);
   const usersElement = document.getElementById("myUsers");
   for (let userId of users) {
-    for (let team of displayNames) {
-      usersElement.append('User: ' + team);
+      //usersElement.append('User: ' displayNames.getAt(0));
       getRosterForUser(userId);
-    }
   }
   //usersElement.textContent = 'User: ' + displayNames;
   return 
@@ -23,7 +21,17 @@ async function getLeagueData() {
 async function getRosterForUser(userId){
   const userResponse = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`); 
   const userData = await userResponse.json(); 
-  const usersElement = document.getElementById("myUsers");
-  usersElement.append("test");
+  const userRoster = userData.map((userRost) => userRost.owner_id);
+  for (let userId of userRoster) {
+      rosterForUser()
+  }
+  
   //return
+}
+
+function rosterForUser(userId, userData){
+  if(userData.owner_id==userId)
+  {
+    return userData.players;
+  }
 }
