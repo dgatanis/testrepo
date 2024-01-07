@@ -20,7 +20,7 @@ async function getLeagueData() {
 
 async function getRosterForUser(userId){
   const userResponse = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`); 
-  const userData = await userResponse.json(); 
+  let userData = await userResponse.json(); 
   const userRoster = userData.map((userRost) => userRost.owner_id);
   for (let userId of userRoster) {
       rosterForUser()
