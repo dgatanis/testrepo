@@ -1,0 +1,22 @@
+<html>
+<script>
+  async function myFunction(){
+    const myTest = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`, {compress: true}).catch((err) => { console.error(err); });
+    console.log(myTest.toString());
+    return 
+}
+</script>
+  <title>
+    First Website
+  </title>
+  <body>
+    <span onclick="myFunction();">HELLO WORLD</span>
+  </body>
+<style>
+  body {
+    background-color:red;
+    color:#fff;
+    text-align:center;
+  }
+</style>
+</html>
