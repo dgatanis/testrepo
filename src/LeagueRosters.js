@@ -11,10 +11,20 @@ async function getLeagueData() {
       const userIDs = matchup.users; 
       const matchupUsers = userIDs.map(userID => { 
           const user = users.find(user => user.user_id === userID); 
-          const userResponse = await fetch(`https://api.sleeper.app/v1/user/${user.user_id}`); const userData = await userResponse.json(); 
+          const userResponse = await fetch(`https://api.sleeper.app/v1/user/${user.user_id}`); 
+          const userData = await userResponse.json(); 
           return { ...user, display_name: userData.display_name }; 
       }); 
       return matchupUsers; 
   }); 
   return { usersByMatchup, matchups }; 
 }
+
+// Call start
+(async() => {
+  console.log('before start');
+
+  await start();
+  
+  console.log('after start');
+})();
