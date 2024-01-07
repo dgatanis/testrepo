@@ -30,8 +30,7 @@ async function getRosterForUser(userId){
 }
 
 function rosterForUser(userId, userData){
-  if(userData.owner_id==userId)
-  {
-    return userData.players;
-  }
+  return userData.filter(
+    function(userData) { return userData.owner_id == userId}
+  )
 }
