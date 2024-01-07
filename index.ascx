@@ -1,5 +1,4 @@
-<html>
-  <script src="/src/LeagueRosters.js"></script>
+<script type="text/javascript" src="/src/LeagueRosters.js"></script>
   <title>
     First Website
   </title>
@@ -13,5 +12,3 @@
     text-align:center;
   }
 </style>
-  
-</html>
