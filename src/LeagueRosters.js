@@ -19,12 +19,3 @@ async function getLeagueData() {
   }); 
   return { usersByMatchup, matchups }; 
 }
-
-// Call start
-(async() => {
-  console.log('before start');
-
-  await start();
-  
-  console.log('after start');
-})();
