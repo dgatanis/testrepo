@@ -45,9 +45,9 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
             if(user.user_id==userid)
             {
                 var powerRanking = document.getElementById("PowerRanking1");
-                const avatarURL = user.avatar;
+                const avatarURL = user.metadata.avatar;
                 var img = document.createElement("img");
-                img.setAttribute('src', avatar);
+                img.setAttribute('src', avatarURL);
                 powerRanking.innerHTML+=img
             }
 
