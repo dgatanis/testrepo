@@ -48,6 +48,8 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
                 var img = document.createElement("img");
                 img.setAttribute('src', avatarURL);
                 img.setAttribute('class', "custom-avatar-list-group");
+                img.setAttribute('id', user.user_id);
+                img.setAttribute('onclick', 'MyTest(' + user.user_id + ');');
                 powerRanking.prepend(img);
             }
             powerRank++;
@@ -72,4 +74,8 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
     }
 
 
+}
+
+function MyTest() {
+    console.log("MyTest()");
 }
