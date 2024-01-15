@@ -8987,6 +8987,11 @@ a.custom-nav:hover {
 .custom-form {
   display: none;
 }
+
 .custom-list-group {
   max-width: 800px;
+}
+
+.custom-avatar-list-group {
+  max-width: 80px;
 }
