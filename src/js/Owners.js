@@ -14,7 +14,7 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
         {
             if(user.user_id==userid)
             {
-                var powerRanking = document.getElementById("PowerRanking1");
+                var powerRanking = document.getElementById("PowerRanking_1");
                 powerRanking.innerHTML=user.metadata.team_name
             }
         }
@@ -44,7 +44,7 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
         {
             if(user.user_id==userid)
             {
-                var powerRanking = document.getElementById("PowerRanking1");
+                var powerRanking = document.getElementById("PowerRanking_1");
                 const avatarURL = user.metadata.avatar;
                 var img = document.createElement("img");
                 img.setAttribute('src', avatarURL);
