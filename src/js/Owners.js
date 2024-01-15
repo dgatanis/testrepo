@@ -17,10 +17,6 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
                 var powerRanking = document.getElementById("PowerRanking1");
                 powerRanking.innerHTML=user.metadata.team_name
             }
-            else
-            {
-                console.log("error loading team name");
-            }
         }
         return "displayNames";
     }
