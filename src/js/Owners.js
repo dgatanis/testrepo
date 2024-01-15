@@ -50,7 +50,7 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
                 img.setAttribute('class', "custom-avatar-list-group");
                 img.setAttribute('id', user.user_id);
                 img.setAttribute('title', 'Look at their wack ass lineup.');
-                img.setAttribute('onclick', 'OpenTeamRoster(' + user.user_id + ', ' + user.metadata.team_name + ');');
+                img.setAttribute('onclick', 'OpenTeamRoster(' + user.user_id + ', "' + user.metadata.team_name + '");');
                 powerRanking.prepend(img);
             }
             powerRank++;
