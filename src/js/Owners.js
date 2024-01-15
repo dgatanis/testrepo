@@ -8,6 +8,16 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
     }
     else
     {
+        const users = usersData.map((user) => user);
+
+        for (let user of users)
+        {
+            if(user.user_id==userid)
+            {
+                var powerRanking = document.getElementById("PowerRanking1");
+                powerRanking.innerHTML=user.metadata.team_name
+            }
+        }
         return "displayNames";
     }
     
