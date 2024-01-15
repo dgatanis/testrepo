@@ -3,8 +3,15 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
     const usersData = await usersResponse.json();
     if(userid==-1)
     {
-        const displayNames = usersData.map((user) => user.metadata.team_name);
-        return displayNames;
+        const users = usersData.map((user) => user);
+        var powerRank = 1;
+        for (let user of users)
+        {
+            var powerRankingElementId = "PowerRanking_"+powerRank;
+            var powerRanking = document.getElementById(powerRankingElementId);
+            powerRanking.append(user.metadata.team_name);
+            powerRank++;
+        }
     }
     else
     {
