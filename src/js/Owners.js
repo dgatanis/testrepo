@@ -36,12 +36,18 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
 
     if(userid==-1)
     {    
-        const avatarURL = usersData.map((user) => user.metadata.avatar);
-        for (let avatar of avatarURL)
+        const users = usersData.map((user) => user);
+        var powerRank = 1;
+        for (let user of users)
         {
+            var powerRankingElementId = "PowerRanking_" + powerRank;
+            var powerRanking = document.getElementById(powerRankingElementId);
+            const avatarURL = user.metadata.avatar;
             var img = document.createElement("img");
-            img.setAttribute('src', avatar);
-            document.body.appendChild(img);
+            img.setAttribute('src', avatarURL);
+            img.setAttribute('class', "custom-avatar-list-group");
+            powerRanking.prepend(img);
+            powerRank++;
         }
     }
     else
