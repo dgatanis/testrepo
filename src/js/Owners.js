@@ -43,10 +43,13 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
             var powerRankingElementId = "PowerRanking_" + powerRank;
             var powerRanking = document.getElementById(powerRankingElementId);
             const avatarURL = user.metadata.avatar;
-            var img = document.createElement("img");
-            img.setAttribute('src', avatarURL);
-            img.setAttribute('class', "custom-avatar-list-group");
-            powerRanking.prepend(img);
+            if(avatarURL)
+            {
+                var img = document.createElement("img");
+                img.setAttribute('src', avatarURL);
+                img.setAttribute('class', "custom-avatar-list-group");
+                powerRanking.prepend(img);
+            }
             powerRank++;
         }
     }
