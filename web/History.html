@@ -1,19 +1,23 @@
 <!-- index.html -->
 <!DOCTYPE html>
   <html>
+    <head>
+      <link rel="stylesheet" href="../src/css/bootstrap.css">
+      <script src="../src/js/Rosters.js"></script>
+      <script src="../src/js/Owners.js"></script>
+    </head>
       <title>
         League History
       </title>
       <body>
-        <script src="../src/js/Rosters.js"></script>
-        <script src="../src/js/Owners.js"></script>
+
         <script>
           getRostersForLeague("1046222222567784448");
           //getTeamNamesForLeague("1046222222567784448");
           getOwnerAvatarForLeague("1046222222567784448");
         </script>
         <nav>
-          <a href="#">History tab</a>
+          <a href="#">History</a>
           <a href="../index.html">Home</a>
         </nav>
         <p id="myUsers"></p> 
