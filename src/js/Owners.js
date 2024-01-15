@@ -49,7 +49,7 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
                 var img = document.createElement("img");
                 img.setAttribute('src', avatarURL);
                 img.setAttribute('class', "custom-avatar-list-group");
-                powerRanking.append(img);
+                powerRanking.prepend(img);
             }
 
         }
