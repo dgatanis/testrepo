@@ -76,6 +76,6 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
 
 }
 
-function MyTest() {
-    console.log("MyTest()");
+function MyTest(userid) {
+    console.log("MyTest()" + userid);
 }
