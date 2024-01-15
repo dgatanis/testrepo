@@ -8975,11 +8975,15 @@ a.text-dark:hover, a.text-dark:focus {
 /*# sourceMappingURL=bootstrap.css.map */
 
 /*****Custom css below*****/
-  .custom-nav{
-    padding:5px;
-  }
+.custom-nav{
+  padding:5px;
+}
 
-  a.custom-nav:hover {
-    background: #d7d7d7;
-    border-radius: 10px;
+a.custom-nav:hover {
+  background: #d7d7d7;
+  border-radius: 10px;
+}
+
+.custom-form {
+  display: none;
 }
