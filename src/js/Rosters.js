@@ -15,7 +15,7 @@ async function OpenTeamRoster(userid,teamname) {
   var rosterDiv = document.querySelector('#Roster');
   var rosterTable = document.querySelector('#RosterTable');
   var tablebody = rosterTable.childNodes[3];
-  var tableName = rosterTable.childNodes[1];
+  var tableName = rosterDiv.childNodes[1];
   
   //show table and set team name
   tableName.innerText = teamname;
@@ -24,7 +24,7 @@ async function OpenTeamRoster(userid,teamname) {
   //Remove players in list
   while(tablebody.firstChild) {
     tablebody.removeChild(tablebody.firstChild);
-}
+  }
 
   //Create table rows for players
   const teams = rosterData.map((roster) => roster);
