@@ -9,10 +9,29 @@ async function getRostersForLeague(leagueId){
 }
 
 async function OpenTeamRoster(userid,teamname) {
-  console.log("MyTest()" + userid);
-
-  const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`); 
+  const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`); 
   const rosterData = await rosterResponse.json(); 
   
-  
+  var rosterDiv = document.querySelector('#Roster');
+  var rosterTable = document.querySelector('#RosterTable');
+  rosterDiv.setAttribute('style', 'display="block"');
+  var tablebody = rosterTable.childNodes[3];
+
+
+  const teams = rosterData.map((roster) => roster);
+  for(let roster of teams) {
+    if(roster.owner_id==userid)
+    {
+      for(let players of roster.players)
+        {
+          var th = document.createElement("th");
+          th.innerText="Position";
+          th.setAttribute('scope', 'row');
+          tablebody.append(th);
+          var td = document.createElement("td");
+          td.innerText=players;
+          tablebody.append(td);
+        }
+    }
+  }
 }
