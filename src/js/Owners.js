@@ -1,13 +1,6 @@
-async function getUsersForLeague(leagueId) {
+async function getTeamNamesForLeague(leagueId,userid=-1) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
-
-    return usersData;
-}
-
-async function getTeamNamesForLeague(leagueId,userid=-1) { 
-    const usersData = getUsersForLeague(1046222222567784448);
-    
     if(userid==-1)
     {
         const users = usersData.map((user) => user);
