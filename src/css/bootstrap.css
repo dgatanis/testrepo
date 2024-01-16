@@ -8990,8 +8990,17 @@ a.custom-nav:hover {
 
 .custom-list-group {
   max-width: 800px;
+  display: inline-table;
 }
 
 .custom-avatar-list-group {
   max-width: 50px;
+}
+
+table#PowerRankings {
+  float: left;
+}
+
+table#RosterTable {
+  float: right;
 }
