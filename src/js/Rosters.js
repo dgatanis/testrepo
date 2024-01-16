@@ -24,13 +24,15 @@ async function OpenTeamRoster(userid,teamname) {
     {
       for(let players of roster.players)
         {
+          var tr = document.createElement("tr");
           var th = document.createElement("th");
           th.innerText="Position";
           th.setAttribute('scope', 'row');
-          tablebody.append(th);
+          tr.appendChild(th);
           var td = document.createElement("td");
           td.innerText=players;
-          tablebody.append(td);
+          tr.appendChild(td);
+            tablebody.append(tr);
         }
     }
   }
