@@ -14,10 +14,19 @@ async function OpenTeamRoster(userid,teamname) {
   
   var rosterDiv = document.querySelector('#Roster');
   var rosterTable = document.querySelector('#RosterTable');
-  rosterDiv.setAttribute('style', 'display="block"');
   var tablebody = rosterTable.childNodes[3];
+  var tableName = rosterTable.childNodes[1];
+  
+  //show table and set team name
+  tableName.innerText = teamname;
+  rosterDiv.setAttribute('style', 'display="block"');
 
+  //Remove players in list
+  while(tablebody.firstChild) {
+    tablebody.removeChild(tablebody.firstChild);
+}
 
+  //Create table rows for players
   const teams = rosterData.map((roster) => roster);
   for(let roster of teams) {
     if(roster.owner_id==userid)
@@ -32,7 +41,7 @@ async function OpenTeamRoster(userid,teamname) {
           var td = document.createElement("td");
           td.innerText=players;
           tr.appendChild(td);
-            tablebody.append(tr);
+          tablebody.append(tr);
         }
     }
   }
