@@ -1,6 +1,13 @@
-async function getTeamNamesForLeague(leagueId,userid=-1) { 
+async function getUsersForLeague(leagueId) {
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
+
+    return usersData;
+}
+
+async function getTeamNamesForLeague(leagueId,userid=-1) { 
+    const usersData = getUsersForLeague(1046222222567784448);
+    
     if(userid==-1)
     {
         const users = usersData.map((user) => user);
@@ -16,7 +23,7 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
     else
     {
         const users = usersData.map((user) => user);
-
+        
         for (let user of users)
         {
             if(user.user_id==userid)
