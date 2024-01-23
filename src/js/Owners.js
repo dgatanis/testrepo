@@ -13,6 +13,10 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
             {
                 powerRanking.append(user.metadata.team_name);
             }
+            else
+            {
+                powerRanking.append(user.display_name)
+            }
             
             powerRank++;
         }
