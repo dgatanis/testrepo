@@ -10835,3 +10835,34 @@ textarea.form-control-lg {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+/*****Custom css below*****/
+.custom-nav{
+  padding:5px;
+}
+
+a.custom-nav:hover {
+  background: #d7d7d7;
+  border-radius: 10px;
+}
+
+.custom-form {
+  display: none;
+}
+
+.custom-list-group {
+  max-width: 800px;
+  display: inline-table;
+}
+
+.custom-avatar-list-group {
+  max-width: 50px;
+}
+
+table#PowerRankings {
+  float: left;
+}
+
+table#RosterTable {
+  float: right;
+}
