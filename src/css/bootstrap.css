@@ -10866,3 +10866,7 @@ table#PowerRankings {
 table#RosterTable {
   float: right;
 }
+
+.modal-dialog {
+  max-width: 800px;
+}
