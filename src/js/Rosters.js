@@ -1,3 +1,10 @@
+var myModal = document.getElementById('exampleModal')
+var myInput = document.getElementById('GetRosterButton')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})
+
 async function getRostersForLeague(leagueId){
   const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`); 
   const rosterData = await rosterResponse.json(); 
