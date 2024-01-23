@@ -22,7 +22,7 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
                 powerRanking.append(user.display_name);
                 rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.display_name + "')");
             }
-            
+            rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
             powerRank++;
         }
     }
