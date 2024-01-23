@@ -1,9 +1,4 @@
-var myModal = document.getElementById('exampleModal')
-var myInput = document.getElementById('GetRosterButton')
 
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
 
 async function getRostersForLeague(leagueId){
   const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`); 
@@ -18,6 +13,12 @@ async function getRostersForLeague(leagueId){
 async function OpenTeamRoster(userid,teamname) {
   const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`); 
   const rosterData = await rosterResponse.json(); 
+  var myModal = document.getElementById('exampleModal')
+  var myInput = document.getElementById('GetRosterButton')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+    myInput.focus()
+  })
   
   var rosterDiv = document.querySelector('#Roster');
   var rosterTable = document.querySelector('#RosterTable');
