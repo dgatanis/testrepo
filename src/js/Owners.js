@@ -15,13 +15,15 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
             if(user.metadata.team_name != undefined)
             {
                 powerRanking.append(user.metadata.team_name);
+                rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + "," + user.metadata.team_name + ")");
             }
             else
             {
                 powerRanking.append(user.display_name);
+                rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + "," + user.display_name + ")");
             }
             
-            rosterButton.setAttribute("id", "GetRosterButton_" + user.user_id);
+            
             powerRank++;
         }
     }

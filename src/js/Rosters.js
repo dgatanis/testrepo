@@ -10,24 +10,17 @@ async function getRostersForLeague(leagueId){
   console.log(rosterData);
 }
 
-async function OpenTeamRoster(userid,teamname) {
+async function OpenTeamRosterModal(userid,teamname) {
   const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`); 
   const rosterData = await rosterResponse.json(); 
-  var myModal = document.getElementById('exampleModal')
-  var myInput = document.getElementById('GetRosterButton')
-
-  myModal.addEventListener('shown.bs.modal', function () {
-    myInput.focus()
-  })
   
-  var rosterDiv = document.querySelector('#Roster');
+  var rosterDiv = document.querySelector('#ModalRosterTeamName');
   var rosterTable = document.querySelector('#RosterTable');
   var tablebody = rosterTable.childNodes[3];
-  var tableName = rosterDiv.childNodes[1];
+  var tableName = rosterDiv;
   
   //show table and set team name
   tableName.innerText = teamname;
-  rosterDiv.setAttribute('style', 'display="block"');
 
   //Remove players in list
   while(tablebody.firstChild) {
