@@ -10838,7 +10838,10 @@ textarea.form-control-lg {
 
 /*****Custom css below*****/
 .custom-nav{
-  padding:5px;
+  padding-bottom: 2.5px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
+  padding-top: 1.5px;
 }
 
 a.custom-nav:hover {
@@ -10858,6 +10861,7 @@ a.custom-nav:hover {
 .custom-avatar-list-group {
   max-width: 50px;
 }
+
 
 table#PowerRankings {
   float: left;
