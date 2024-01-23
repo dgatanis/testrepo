@@ -8,16 +8,20 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
         for (let user of users)
         {
             var powerRankingElementId = "PowerRanking_"+powerRank;
+            var rosterButtonId = "GetRosterButton_"+powerRank;
             var powerRanking = document.getElementById(powerRankingElementId);
+            var rosterButton = document.getElementById(rosterButtonId);
+
             if(user.metadata.team_name != undefined)
             {
                 powerRanking.append(user.metadata.team_name);
             }
             else
             {
-                powerRanking.append(user.display_name)
+                powerRanking.append(user.display_name);
             }
             
+            rosterButton.setAttribute("id", "GetRosterButton_" + user.user_id);
             powerRank++;
         }
     }
