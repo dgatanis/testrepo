@@ -9,7 +9,11 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
         {
             var powerRankingElementId = "PowerRanking_"+powerRank;
             var powerRanking = document.getElementById(powerRankingElementId);
-            powerRanking.append(user.metadata.team_name);
+            if(user.metadata.team_name != undefined)
+            {
+                powerRanking.append(user.metadata.team_name);
+            }
+            
             powerRank++;
         }
     }
