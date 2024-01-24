@@ -1,2 +1,2 @@
-//import getPlayers from '../util/GetPlayers.js';
-//console.log(getPlayers());
+import getPlayers from '../util/GetPlayers.js';
+localStorage.setItem("playersData", getPlayers());
