@@ -3,5 +3,5 @@ export default async function getPlayers() {
     const playersData = await playersResponse.json(); 
     // Convert the JSON object to a string
     const jsonString = JSON.stringify(playersData);
-    return playersData;
+    return jsonString;
 }
