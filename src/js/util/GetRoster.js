@@ -1,2 +1,2 @@
-import getPlayers from '../util/Players.js';
+import getPlayers from '../util/GetPlayers.js';
 console.log(getPlayers);
