@@ -3,7 +3,7 @@ export default async function getPlayers() {
     if(playersResponse.ok)
     {
         const playersData = await playersResponse.json();
-        playersData.then((value) => {
+        playersResponse.then((value) => {
             console.log("in then stmt");
             var jsonString = JSON.stringify(playersData);
             return jsonString;
