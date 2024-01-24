@@ -4,7 +4,7 @@ if(localStorage.getItem("playersData"))
     console.log("already here")}
 else
 {
-    localStorage.setItem("playersData", getPlayers());
+    localStorage.setItem("playersData", getPlayers);
 }
 
-console.log(JSON.parse(localStorage.getItem("playersData")));
+//console.log(JSON.parse(localStorage.getItem("playersData")));
