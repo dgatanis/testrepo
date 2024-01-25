@@ -7,7 +7,7 @@ async function getPlayers() {
     
     if(!playersInfo) {
     
-        const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`, {compress: true}); 
+        const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
         const data = await res.json();
         if(typeof window !== 'undefined') {
             const players = data.map((player) => player);
