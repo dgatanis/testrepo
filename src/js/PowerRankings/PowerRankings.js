@@ -2,13 +2,12 @@ async function loadModalPowerRank(leagueId) {
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
 
-    const users = usersData.map((user) => user);
+    var users = usersData.map((user) => user);
 
     for (let i=0; i<users.length; i++)
     {
         var updateForm = document.getElementById("UpdatePowerRankList");
         var newRow = createModalPowerRankList(i, users);
-        console.log(users);
         updateForm.append(newRow);
     }
     
