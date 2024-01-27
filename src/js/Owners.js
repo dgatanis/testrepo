@@ -95,7 +95,7 @@ async function getTeamNamesForPowerRank(leagueId) {
 
     const users = usersData.map((user) => user);
 
-    for (let user of users)
+    for (let user=0; user<users.size(); user++)
     {
         var powerRankingElementId = "PowerRankTeamList";
         var powerRanking = document.getElementById(powerRankingElementId);
@@ -103,7 +103,8 @@ async function getTeamNamesForPowerRank(leagueId) {
         if(user.metadata.team_name != undefined)
         {
             var teamList = document.createElement("option");
-            teamList.setAttribute("value", user.user_id);
+            teamList.setAttribute("id", user.user_id);
+            teamList.setAttribute("value", (user+1))
             teamList.innerText=user.metadata.team_name;
             powerRanking.prepend(teamList);
         }
