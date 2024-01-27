@@ -116,7 +116,7 @@ function createModalPowerRankList (rownum, usersList) {
     teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
-    teamList.setAttribute("onchange", 'hideShowSelectedOptions("' + teamList.id + "');");
+    teamList.setAttribute("onchange", 'hideShowSelectedOptions("' + teamList.id + '");');
     var defaultOption = document.createElement("option")
     defaultOption.setAttribute("selected", true);
     defaultOption.innerText="Choose Team";
