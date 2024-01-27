@@ -10879,7 +10879,16 @@ table#RosterTable {
   max-width: 80px;
   float: left;
 }
+
 .custom-powerrank-team {
   max-width: 300px;
   float: left;
+}
+
+.custom-powerrank-modal {
+  max-width:1000px;
+}
+
+.custom-powerrank-comments {
+  max-width: 100%;
 }
