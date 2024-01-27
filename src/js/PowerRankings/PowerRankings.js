@@ -9,22 +9,23 @@ async function loadModalPowerRank(leagueId) {
         var updateForm = document.getElementById("UpdatePowerRankList");
         var newRow = createModalPowerRankList(i, users[i].user_id);
         updateForm.append(newRow);
-        // if(users[i].metadata.team_name != undefined)
-        // {
-        //     var teamList = document.createElement("option");
-        //     teamList.setAttribute("id", users[i].user_id);
-        //     teamList.setAttribute("value", (i+1))
-        //     teamList.innerText=users[i].metadata.team_name;
-        //     powerRanking.prepend(teamList);
-        // }
-        // else
-        // {
-        //     var teamList = document.createElement("option");
-        //     teamList.setAttribute("value", users[i].user_id);
-        //     teamList.setAttribute("value", (i+1))
-        //     teamList.innerText=users[i].display_name;
-        //     powerRanking.prepend(teamList);
-        // }
+
+        if(users[i].metadata.team_name != undefined)
+        {
+            var teamList = document.getElementById("PowerRankTeamList_"+i)
+            teamList.setAttribute("id", users[i].user_id);
+            teamList.setAttribute("value", (i+1))
+            teamList.innerText=users[i].metadata.team_name;
+            powerRanking.prepend(teamList);
+        }
+        else
+        {
+            var teamList = document.getElementById("PowerRankTeamList_" + i);
+            teamList.setAttribute("value", users[i].user_id);
+            teamList.setAttribute("value", (i+1))
+            teamList.innerText=users[i].display_name;
+            powerRanking.prepend(teamList);
+        }
     }
     
 }
@@ -45,7 +46,7 @@ function createModalPowerRankList (rownum, userid) {
     ranking.value=rownum+1;
     ranking.setAttribute("readonly", true);
     var teamList = document.createElement("select");
-    teamList.setAttribute("id", "PowerRankTeamList");
+    teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
 
