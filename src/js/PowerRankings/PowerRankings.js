@@ -39,13 +39,11 @@ function createModalPowerRankList (rownum, usersList) {
         if(user.metadata.team_name != undefined)
         {
             teamList.setAttribute("id", user.user_id);
-            teamList.setAttribute("value", (i+1))
             teamList.innerText=user.metadata.team_name;
         }
         else
         {
             teamList.setAttribute("value", user.user_id);
-            teamList.setAttribute("value", (i+1))
             teamList.innerText=user.display_name;
         }
     }
