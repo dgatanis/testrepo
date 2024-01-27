@@ -33,7 +33,7 @@ function createModalPowerRankList (rownum, userid) {
 
     //Create the row
     var powerRankRow = document.createElement("div");
-    powerRankRow.setAttribute("id", "PowerRankRow_" + id);
+    powerRankRow.setAttribute("id", "PowerRankRow_" + rownum);
     powerRankRow.setAttribute("class", "row");
     var rankTeamGroup = document.createElement("div");
     rankTeamGroup.setAttribute("class", "col");
