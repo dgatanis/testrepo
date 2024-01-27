@@ -1,4 +1,4 @@
-async function loadPowerRankModal(leagueId) { 
+async function loadModalPowerRank(leagueId) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
 
@@ -7,7 +7,7 @@ async function loadPowerRankModal(leagueId) {
     for (let i=0; i<users.length; i++)
     {
         var updateForm = document.getElementById("UpdatePowerRankList");
-        var newRow = createPowerRankList(i, users[i].user_id);
+        var newRow = createModalPowerRankList(i, users[i].user_id);
         updateForm.append(newRow);
         // if(users[i].metadata.team_name != undefined)
         // {
@@ -29,39 +29,45 @@ async function loadPowerRankModal(leagueId) {
     
 }
 
-function createPowerRankList (id, userid) {
+function createModalPowerRankList (id, userid) {
+
+    //Create the row
     var powerRankRow = document.createElement("div");
     powerRankRow.setAttribute("id", "PowerRankRow_" + id);
     powerRankRow.setAttribute("class", "row");
-
     var rankTeamGroup = document.createElement("div");
     rankTeamGroup.setAttribute("class", "col");
 
+    //Create ranking # and Team list
     var ranking = document.createElement("input");
     ranking.setAttribute("type", "text");
     ranking.setAttribute("class", "form-control custom-powerrank")
     ranking.setAttribute("readonly", true);
+    var teamList = document.createElement("select");
+    teamList.setAttribute("id", "PowerRankList");
+    teamList.setAttribute("class", "form-select custom-powerrank-team");
+    teamList.setAttribute("aria-label", "PowerRankTeamList");
 
-    var selectList = document.createElement("select");
-    selectList.setAttribute("id", "PowerRankList");
-    selectList.setAttribute("class", "form-select custom-powerrank-team");
-    selectList.setAttribute("aria-label", "PowerRankTeamList");
-
-    powerRankRow.prepend(rankTeamGroup);
+    //Add ranking # and teamList to div from above
+    //Add that div to the row 
     rankTeamGroup.prepend(ranking);
-    rankTeamGroup.append(selectList);
+    rankTeamGroup.append(teamList);
+    powerRankRow.prepend(rankTeamGroup);
 
+    //Create comments input
     var comments = document.createElement("div");
     comments.setAttribute("class", "col");
-
     var commentText = document.createElement("textarea");
     commentText.setAttribute("class", "custom-powerrank-comments");
     commentText.setAttribute("type", "text");
     commentText.setAttribute("rows", 3);
     commentText.setAttribute("placeholder", "Comments");
 
+    //Add comments to div
+    //Add that div to the row
     comments.prepend(commentText);
     powerRankRow.append(comments);
+    powerRankRow.append(document.createElement("HR"));
 
     return powerRankRow;
 }
