@@ -169,15 +169,20 @@ function hideShowSelectedOptions () {
 
     for(let teamList of powerRankingTeamList)
     {
-        if(selectList.id != teamList.id)
+        if(teamList.value != -1) 
         {
             let options = teamList.options;
-
-            for(let option of options)
+            let selectedTeam = teamList.value;
+            
+            for(let otherTeamList of powerRankingTeamList)
             {
-                if(selectedTeam == option.value)
+                if(teamList.id != otherTeamList.id)
                 {
-                    console.log(selectedTeam);
+                    var x = document.querySelectorAll("#" + otherTeamList.id + " option[value='" + selectedTeam + "']");
+                    if(x[0])
+                    {
+                        x[0].remove();
+                    }
                 }
             }
         }
