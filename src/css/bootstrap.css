@@ -10876,8 +10876,9 @@ table#RosterTable {
 }
 
 .custom-powerrank {
-  max-width: 80px;
+  max-width: 60px;
   float: left;
+  text-align: center;
 }
 
 .custom-powerrank-team {
