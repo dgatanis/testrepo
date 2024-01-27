@@ -10875,6 +10875,11 @@ table#RosterTable {
   max-width: 800px;
 }
 
-.custom-rank-list {
+.custom-powerrank {
   max-width: 80px;
+  float: left;
+}
+.custom-powerrank-team {
+  max-width: 300px;
+  float: left;
 }

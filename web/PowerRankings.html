@@ -161,14 +161,14 @@
       </div>
 
       <button type="button" id="UpdPowerRankBtn"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PowerRankModal">
-        Roster
+        Update Power Rankings
       </button>
       
       <div class="modal fade" id="PowerRankModal" tabindex="-1" aria-labelledby="Team" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="ModalRosterTeamName">Team Name</h5>
+              <h5 class="modal-title" id="ModalRosterTeamName">Crush Cities FF Power Rankings</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="PowerRankModalBody">
@@ -176,15 +176,13 @@
               <form id="UpdatePowerRankList">
               <div id="PowerRankRow" class="row">
                 <div class="col">
-                  <input type="text" class="form-control custom-rank-list" placeholder="Rank" readonly>
-                </div>
-                <div class="col">
-                  <select class="form-select" aria-label="PowerRankTeamList">
+                  <input type="text" class="form-control custom-powerrank" placeholder="Rank" readonly>
+                  <select class="form-select custom-powerrank-team" aria-label="PowerRankTeamList">
                     <option selected>Choose Team</option>
                   </select>
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Comments">
+                  <textarea type="text" class="form-control" placeholder="Comments">
                 </div>
               </form>
             </div>
