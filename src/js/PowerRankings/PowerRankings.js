@@ -8,6 +8,7 @@ async function loadModalPowerRank(leagueId) {
     {
         var updateForm = document.getElementById("UpdatePowerRankList");
         var newRow = createModalPowerRankList(i, users);
+        console.log(users);
         updateForm.append(newRow);
     }
     
@@ -38,12 +39,12 @@ function createModalPowerRankList (rownum, usersList) {
     {
         if(user.metadata.team_name != undefined)
         {
-            teamList.setAttribute("id", user.user_id);
+            teamList.setAttribute("name", user.user_id);
             teamList.innerText=user.metadata.team_name;
         }
         else
         {
-            teamList.setAttribute("id", user.user_id);
+            teamList.setAttribute("name", user.user_id);
             teamList.innerText=user.display_name;
         }
     }
