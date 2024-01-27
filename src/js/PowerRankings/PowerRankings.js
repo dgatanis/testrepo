@@ -7,28 +7,13 @@ async function loadModalPowerRank(leagueId) {
     for (let i=0; i<users.length; i++)
     {
         var updateForm = document.getElementById("UpdatePowerRankList");
-        var newRow = createModalPowerRankList(i, users[i].user_id);
+        var newRow = createModalPowerRankList(i, users);
         updateForm.append(newRow);
-
-        if(users[i].metadata.team_name != undefined)
-        {
-            var teamList = document.getElementById("PowerRankTeamList_"+i)
-            teamList.setAttribute("id", users[i].user_id);
-            teamList.setAttribute("value", (i+1))
-            teamList.innerText=users[i].metadata.team_name;
-        }
-        else
-        {
-            var teamList = document.getElementById("PowerRankTeamList_" + i);
-            teamList.setAttribute("value", users[i].user_id);
-            teamList.setAttribute("value", (i+1))
-            teamList.innerText=users[i].display_name;
-        }
     }
     
 }
 
-function createModalPowerRankList (rownum, userid) {
+function createModalPowerRankList (rownum, usersList) {
 
     //Create the row
     var powerRankRow = document.createElement("div");
@@ -47,6 +32,23 @@ function createModalPowerRankList (rownum, userid) {
     teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
+
+    //Add teams to list
+    for(let user of usersList)
+    {
+        if(user.metadata.team_name != undefined)
+        {
+            teamList.setAttribute("id", user.user_id);
+            teamList.setAttribute("value", (i+1))
+            teamList.innerText=user.metadata.team_name;
+        }
+        else
+        {
+            teamList.setAttribute("value", user.user_id);
+            teamList.setAttribute("value", (i+1))
+            teamList.innerText=user.display_name;
+        }
+    }
 
     //Add ranking # and teamList to div from above
     //Add that div to the row 
