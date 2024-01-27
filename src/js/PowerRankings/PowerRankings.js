@@ -49,9 +49,9 @@ function createPowerRankList (id, userid) {
 
     powerRankRow.prepend(rankTeamGroup);
     rankTeamGroup.prepend(ranking);
-    rankTeamGroup.prepend(selectList);
+    rankTeamGroup.append(selectList);
 
-    var comments = document.createAttribute("div");
+    var comments = document.createElement("div");
     comments.setAttribute("class", "col");
 
     var commentText = document.createElement("textarea");
@@ -60,6 +60,7 @@ function createPowerRankList (id, userid) {
     commentText.setAttribute("rows", 3);
     commentText.setAttribute("placeholder", "Comments");
 
+    comments.prepend(commentText);
     powerRankRow.append(comments);
 
     return powerRankRow;
