@@ -10874,3 +10874,7 @@ table#RosterTable {
 .modal-dialog {
   max-width: 800px;
 }
+
+.custom-rank-list {
+  max-width: 80px;
+}
