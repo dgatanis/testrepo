@@ -41,9 +41,9 @@ function createModalPowerRankList (rownum, userid) {
     //Create ranking # and Team list
     var ranking = document.createElement("input");
     ranking.setAttribute("type", "text");
-    ranking.setAttribute("class", "form-control custom-powerrank")
+    ranking.setAttribute("class", "form-control custom-powerrank");
+    ranking.value=rownum+1;
     ranking.setAttribute("readonly", true);
-    ranking.innerText=rownum+1;
     var teamList = document.createElement("select");
     teamList.setAttribute("id", "PowerRankTeamList");
     teamList.setAttribute("class", "form-select custom-powerrank-team");
