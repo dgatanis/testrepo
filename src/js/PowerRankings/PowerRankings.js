@@ -36,20 +36,22 @@ function createModalPowerRankList (rownum, usersList) {
     //Add teams to list
     for(let user of usersList)
     {
+        var options = document.createElement("option");
         if(user.metadata.team_name != undefined)
         {
-            teamList.setAttribute("name", user.user_id);
-            teamList.innerText=user.metadata.team_name;
+            options.setAttribute("value", user.user_id);
+            options.innerText=user.metadata.team_name;
         }
         else
         {
-            teamList.setAttribute("name", user.user_id);
-            teamList.innerText=user.display_name;
+            options.setAttribute("value", user.user_id);
+            options.innerText=user.display_name;
         }
+        teamList.append(options);
     }
 
     //Add ranking # and teamList to div from above
-    //Add that div to the row 
+    //Add that div to the row
     rankTeamGroup.prepend(ranking);
     rankTeamGroup.append(teamList);
     powerRankRow.prepend(rankTeamGroup);
