@@ -29,7 +29,7 @@ async function loadModalPowerRank(leagueId) {
     
 }
 
-function createModalPowerRankList (id, userid) {
+function createModalPowerRankList (rownum, userid) {
 
     //Create the row
     var powerRankRow = document.createElement("div");
@@ -43,8 +43,9 @@ function createModalPowerRankList (id, userid) {
     ranking.setAttribute("type", "text");
     ranking.setAttribute("class", "form-control custom-powerrank")
     ranking.setAttribute("readonly", true);
+    ranking.innerText=rownum+1;
     var teamList = document.createElement("select");
-    teamList.setAttribute("id", "PowerRankList");
+    teamList.setAttribute("id", "PowerRankTeamList");
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
 
