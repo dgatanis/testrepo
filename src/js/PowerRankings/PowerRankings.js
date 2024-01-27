@@ -16,7 +16,6 @@ async function loadModalPowerRank(leagueId) {
             teamList.setAttribute("id", users[i].user_id);
             teamList.setAttribute("value", (i+1))
             teamList.innerText=users[i].metadata.team_name;
-            powerRanking.prepend(teamList);
         }
         else
         {
@@ -24,7 +23,6 @@ async function loadModalPowerRank(leagueId) {
             teamList.setAttribute("value", users[i].user_id);
             teamList.setAttribute("value", (i+1))
             teamList.innerText=users[i].display_name;
-            powerRanking.prepend(teamList);
         }
     }
     
