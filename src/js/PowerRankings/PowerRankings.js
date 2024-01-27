@@ -13,71 +13,6 @@ async function loadModalPowerRank(leagueId) {
     
 }
 
-function createModalPowerRankList (rownum, usersList) {
-
-    //Create the row
-    var powerRankRow = document.createElement("div");
-    powerRankRow.setAttribute("id", "PowerRankRow_" + rownum);
-    powerRankRow.setAttribute("class", "row");
-    var rankTeamGroup = document.createElement("div");
-    rankTeamGroup.setAttribute("class", "col");
-
-    //Create ranking # and Team list
-    var ranking = document.createElement("input");
-    ranking.setAttribute("type", "text");
-    ranking.setAttribute("class", "form-control custom-powerrank");
-    ranking.value=rownum+1;
-    ranking.setAttribute("readonly", true);
-    var teamList = document.createElement("select");
-    teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
-    teamList.setAttribute("class", "form-select custom-powerrank-team");
-    teamList.setAttribute("aria-label", "PowerRankTeamList");
-    var defaultOption = document.createElement("option")
-    defaultOption.setAttribute("selected", true);
-    defaultOption.innerText="Choose Team";
-
-    //Add teams to list
-    for(let user of usersList)
-    {
-        var options = document.createElement("option");
-        if(user.metadata.team_name != undefined)
-        {
-            options.setAttribute("value", user.user_id);
-            options.innerText=user.metadata.team_name;
-        }
-        else
-        {
-            options.setAttribute("value", user.user_id);
-            options.innerText=user.display_name;
-        }
-        teamList.append(options);
-    }
-    teamList.prepend(defaultOption);
-
-    //Add ranking # and teamList to div from above
-    //Add that div to the row
-    rankTeamGroup.prepend(ranking);
-    rankTeamGroup.append(teamList);
-    powerRankRow.prepend(rankTeamGroup);
-
-    //Create comments input
-    var comments = document.createElement("div");
-    comments.setAttribute("class", "col");
-    var commentText = document.createElement("textarea");
-    commentText.setAttribute("class", "custom-powerrank-comments");
-    commentText.setAttribute("type", "text");
-    commentText.setAttribute("rows", 3);
-    commentText.setAttribute("placeholder", "Comments");
-
-    //Add comments to div
-    //Add that div to the row
-    comments.prepend(commentText);
-    powerRankRow.append(comments);
-    powerRankRow.append(document.createElement("HR"));
-
-    return powerRankRow;
-}
-
 async function getTeamNamesForLeague(leagueId,userid=-1) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
@@ -158,5 +93,93 @@ async function OpenTeamRosterModal(userid,teamname) {
             tablebody.append(tr);
           }
       }
+    }
+}
+
+
+function createModalPowerRankList (rownum, usersList) {
+
+    //Create the row
+    var powerRankRow = document.createElement("div");
+    powerRankRow.setAttribute("id", "PowerRankRow_" + rownum);
+    powerRankRow.setAttribute("class", "row");
+    var rankTeamGroup = document.createElement("div");
+    rankTeamGroup.setAttribute("class", "col");
+
+    //Create ranking # and Team list
+    var ranking = document.createElement("input");
+    ranking.setAttribute("type", "text");
+    ranking.setAttribute("class", "form-control custom-powerrank");
+    ranking.value=rownum+1;
+    ranking.setAttribute("readonly", true);
+    var teamList = document.createElement("select");
+    teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
+    teamList.setAttribute("class", "form-select custom-powerrank-team");
+    teamList.setAttribute("aria-label", "PowerRankTeamList");
+    var defaultOption = document.createElement("option")
+    defaultOption.setAttribute("selected", true);
+    defaultOption.innerText="Choose Team";
+
+    //Add teams to list
+    for(let user of usersList)
+    {
+        var options = document.createElement("option");
+        if(user.metadata.team_name != undefined)
+        {
+            options.setAttribute("value", user.user_id);
+            options.innerText=user.metadata.team_name;
+        }
+        else
+        {
+            options.setAttribute("value", user.user_id);
+            options.innerText=user.display_name;
+        }
+        teamList.append(options);
+    }
+    teamList.prepend(defaultOption);
+
+    //Add ranking # and teamList to div from above
+    //Add that div to the row
+    rankTeamGroup.prepend(ranking);
+    rankTeamGroup.append(teamList);
+    powerRankRow.prepend(rankTeamGroup);
+
+    //Create comments input
+    var comments = document.createElement("div");
+    comments.setAttribute("class", "col");
+    var commentText = document.createElement("textarea");
+    commentText.setAttribute("class", "custom-powerrank-comments");
+    commentText.setAttribute("type", "text");
+    commentText.setAttribute("rows", 3);
+    commentText.setAttribute("placeholder", "Comments");
+
+    //Add comments to div
+    //Add that div to the row
+    comments.prepend(commentText);
+    powerRankRow.append(comments);
+    powerRankRow.append(document.createElement("HR"));
+
+    return powerRankRow;
+}
+
+function hideShowSelectedOptions (selectList) {
+    let selectedTeam = selectList.value;
+
+    let powerRankingTeamList = document.querySelectorAll("[id^=PowerRankTeamList_]");
+
+    for(let teamList of powerRankingTeamList)
+    {
+        if(selectList.id != teamList.id)
+        {
+            let options = teamList.options;
+
+            for(let option of options)
+            {
+                if(selectedTeam == option.value)
+                {
+                    console.log(selectedTeam);
+                }
+            }
+        }
     }
 }
