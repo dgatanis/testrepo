@@ -116,6 +116,7 @@ function createModalPowerRankList (rownum, usersList) {
     teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
+    teamList.setAttribute("onchange", "hideShowSelectedOptions(" + teamList.id + ");");
     var defaultOption = document.createElement("option")
     defaultOption.setAttribute("selected", true);
     defaultOption.innerText="Choose Team";
@@ -162,7 +163,8 @@ function createModalPowerRankList (rownum, usersList) {
     return powerRankRow;
 }
 
-function hideShowSelectedOptions (selectList) {
+function hideShowSelectedOptions (selectListId) {
+    let selectList = document.getElementById(selectListId);
     let selectedTeam = selectList.value;
 
     let powerRankingTeamList = document.querySelectorAll("[id^=PowerRankTeamList_]");
