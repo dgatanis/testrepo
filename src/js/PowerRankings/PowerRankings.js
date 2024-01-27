@@ -43,7 +43,7 @@ function createModalPowerRankList (rownum, usersList) {
         }
         else
         {
-            teamList.setAttribute("value", user.user_id);
+            teamList.setAttribute("id", user.user_id);
             teamList.innerText=user.display_name;
         }
     }
