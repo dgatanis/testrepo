@@ -32,6 +32,9 @@ function createModalPowerRankList (rownum, usersList) {
     teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
+    var defaultOption = document.createElement("option")
+    defaultOption.setAttribute("selected", true);
+    defaultOption.innerText="Choose Team";
 
     //Add teams to list
     for(let user of usersList)
@@ -49,6 +52,7 @@ function createModalPowerRankList (rownum, usersList) {
         }
         teamList.append(options);
     }
+    teamList.prepend(defaultOption);
 
     //Add ranking # and teamList to div from above
     //Add that div to the row
