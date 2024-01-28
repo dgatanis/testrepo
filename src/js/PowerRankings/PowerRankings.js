@@ -219,6 +219,6 @@ function validateComments() {
 } 
 
 function submitPowerRankings() {
-    var submitPowerRankings = document.getElementById("submitPowerRankings");
-    submitPowerRankings.setAttribute("data-bs-dismiss","modal");
+    //var submitPowerRankings = document.getElementById("submitPowerRankings");
+    //submitPowerRankings.setAttribute("data-bs-dismiss","modal");
 }
