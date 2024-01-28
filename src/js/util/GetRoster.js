@@ -7,12 +7,11 @@ async function getRostersForLeague(leagueID){
     if(localStorage.getItem("RosterData"))
     {
         localStorage.clear("RosterData");
+    }
+    
+    if(typeof window !== 'undefined') {
         localStorage.setItem("RosterData", JSON.stringify(rosterData));
     }
-    else
-    {
-        localStorage.clear("RosterData");
-        localStorage.setItem("RosterData", JSON.stringify(rosterData));
-    }
+
     
 }
