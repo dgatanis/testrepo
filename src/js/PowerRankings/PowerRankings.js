@@ -167,6 +167,7 @@ function createModalPowerRankList (rownum, usersList) {
 function validateModalPowerRankForm () {
     let powerRankingTeamList = document.querySelectorAll("[id^=PowerRankTeamList_]");
     
+    //Validate no duplicates
     for(let teamList of powerRankingTeamList)
     {
         if(teamList.value != -1) 
@@ -188,6 +189,17 @@ function validateModalPowerRankForm () {
                     }
                 }
             }
+        }
+    }
+
+    let commentsBox = document.querySelectorAll("[class^=custom-powerrank-comments]");
+
+    for(let comment of commentsBox)
+    {
+        if(comment.value == '')
+        {
+            alert("Please add comments to all rankings");
+            return
         }
     }
 }
