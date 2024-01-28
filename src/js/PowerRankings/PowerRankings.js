@@ -172,6 +172,7 @@ function createModalPowerRankList (rownum, usersList) {
 function validateModalPowerRankForm () {
     validateTeamList();
     validateComments();
+    submitPowerRankings();
 }
 
 function validateTeamList() {
@@ -216,3 +217,10 @@ function validateComments() {
         }
     }
 } 
+
+function submitPowerRankings() {
+    var x = document.getElementById("submitPowerRankings");
+    submitPowerRankings.setAttribute("data-bs-dismiss","modal);
+
+    
+}
