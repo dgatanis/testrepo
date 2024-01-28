@@ -161,8 +161,8 @@ function createModalPowerRankList (rownum, usersList) {
 
     //Add comments to div
     //Add that div to the row
-    commentText.append(validation);
     comments.prepend(commentText);
+    comments.append(validation);
     powerRankRow.append(comments);
     powerRankRow.append(document.createElement("HR"));
 
