@@ -6,7 +6,7 @@ function setBrowserData() {
     if(!localStorage.getItem("expiration"))
     {
         localStorage.setItem("expiration", expiration);
-        console.log("setExpiration");
+        console.log("IF setExpiration");
     }
     else
     {
@@ -14,7 +14,7 @@ function setBrowserData() {
         if(now < expirationDate)
         {
             localStorage.setItem("expiration", expiration);
-            console.log("setExpiration");
+            console.log("ELSE setExpiration");
         }
     }
 }
