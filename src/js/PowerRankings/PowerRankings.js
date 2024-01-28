@@ -178,7 +178,8 @@ function hideShowSelectedOptions () {
                 let otherInputsValue = otherTeamList.value;
                 if(otherInputsValue == selectedTeam)
                 {
-                    alert("Team " + teamList.value + " is listed twice in the rankings.")
+                    alert("Team " + teamList.value + " is listed twice in the rankings.");
+                    return
                 }
             }
         }
