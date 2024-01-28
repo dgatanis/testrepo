@@ -210,8 +210,8 @@ function validateComments() {
     {
         if(comment.value == '')
         {
-            alert("Please add comments to all rankings");
-            return
+            //alert("Please add comments to all rankings");
+            //return
         }
     }
 } 
