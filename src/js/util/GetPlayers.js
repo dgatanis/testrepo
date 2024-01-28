@@ -28,14 +28,12 @@ async function getPlayers() {
         {
             let playerObj = {};
             counter++;
-            if(counter < 11)
-            {
-                console.log(data[i]);
-                playerObj["player_id"] = i;
-                playerObj["position"] = data[i].position;
-                playerObj["firstname"] = data[i].first_name;
-                playerObj["lastname"] = data[i].last_name;
-            }
+
+            playerObj["player_id"] = i;
+            playerObj["position"] = data[i].position;
+            playerObj["firstname"] = data[i].first_name;
+            playerObj["lastname"] = data[i].last_name;
+            
             myPlayerMap.player.push(playerObj);
         }
     }
