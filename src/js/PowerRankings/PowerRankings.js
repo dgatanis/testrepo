@@ -220,7 +220,5 @@ function validateComments() {
 
 function submitPowerRankings() {
     var x = document.getElementById("submitPowerRankings");
-    submitPowerRankings.setAttribute("data-bs-dismiss","modal);
-
-    
+    submitPowerRankings.setAttribute("data-bs-dismiss","modal");
 }
