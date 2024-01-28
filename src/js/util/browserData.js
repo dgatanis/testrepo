@@ -11,7 +11,7 @@ function setBrowserData() {
     else
     {
         var expirationDate = localStorage.getItem("expiration");
-        if(now < expirationDate)
+        if(now > expirationDate)
         {
             localStorage.setItem("expiration", expiration);
             console.log("ELSE setExpiration");
