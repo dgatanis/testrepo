@@ -181,7 +181,9 @@ function validateModalPowerRankForm () {
     
                     if(otherInputsValue == selectedTeam)
                     {
-                        //alert("Team " + otherTeamList.innerText + " is listed twice in the rankings.");
+                        var txt = $("#" + teamList.id + " option[value='" + otherInputsValue + "']").innerText;
+
+                        alert("Team " + txt + " is listed twice in the rankings.");
                         //return
                     }
                 }
