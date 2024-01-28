@@ -7,54 +7,39 @@ function setPlayerData () {
 
     if(!localStorage.getItem("PlayerData"))
     {
-        getPlayers(leagueID);
+        getPlayers();
     }
 }
 
 
-async function getPlayers(leagueID) {
-    let playersInfo = {};
+async function getPlayers() {
 
+    var myPlayerMap = { 
+        player : []
+    };
+    let counter = 0;
     const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
     const data = await res.json();
     const players = Object.keys(data);
-    let counter = 0;
 
-    for(let player of players)
+    for(let i=1; i<players.length; i++)
     {
-        counter++;
-        if(counter < 11)
+        if(data[i])
         {
-            //console.log(data[player]);
-        }
-        
-        //localStorage.setItem("PlayerData", JSON.stringify(testing))
-    }
-
-
-    /*
-    var testingMap = { 
-        player : []
-        
-    };
-    let counter = 0;
-        const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
-        const data = await res.json();
-        const players = Object.keys(data);
-
-        for(let i=0; i<10; i++)
-        {
-            let test = {};
+            let playerObj = {};
             counter++;
             if(counter < 11)
             {
                 console.log(data[i]);
-                test["player_id"] = i;
-                test["position"] = "test";
+                playerObj["player_id"] = i;
+                playerObj["position"] = data[i].position;
+                playerObj["firstname"] = data[i].first_name;
+                playerObj["lastname"] = data[i].last_name;
             }
-        testingMap.player.push(test);
+            myPlayerMap.player.push(playerObj);
         }
-    testingMap;
-    */
-    
+    }
+
+localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
+
 }
