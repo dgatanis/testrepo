@@ -184,7 +184,7 @@ function validateModalPowerRankForm () {
                         var teamName = document.querySelector("[value='" + otherInputsValue + "']").innerText;
 
                         alert("Team " + teamName + " is listed twice in the rankings.");
-                        //return
+                        return
                     }
                 }
             }
