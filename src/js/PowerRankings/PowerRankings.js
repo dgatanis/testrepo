@@ -156,9 +156,12 @@ function createModalPowerRankList (rownum, usersList) {
     commentText.setAttribute("placeholder", "Comments");
     var validation = document.createElement("div");
     validation.setAttribute("class","invalid-tooltip");
-    validation.innerText='Please choose a unique and valid username.'
+    validation.innerText='Please choose a unique and valid username.';
+
+
     //Add comments to div
     //Add that div to the row
+    commentText.append(validation);
     comments.prepend(commentText);
     powerRankRow.append(comments);
     powerRankRow.append(document.createElement("HR"));
