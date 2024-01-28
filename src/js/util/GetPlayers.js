@@ -13,9 +13,16 @@ function setPlayerData () {
 
 
 async function getPlayers() {
+    /*
+    Need to figure out how to iterate over json created in this script
 
+    var x = localStorage.getItem("PlayerData");
+    let json = JSON.parse(x);
+    const playerData = json.map((player) => player);
+    playerData;
+    
     var myPlayerMap = { 
-        player : []
+        players : []
     };
     let counter = 0;
     const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
@@ -33,11 +40,11 @@ async function getPlayers() {
             playerObj["position"] = data[i].position;
             playerObj["firstname"] = data[i].first_name;
             playerObj["lastname"] = data[i].last_name;
-            
+
             myPlayerMap.player.push(playerObj);
         }
     }
 
 localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
-
+*/
 }
