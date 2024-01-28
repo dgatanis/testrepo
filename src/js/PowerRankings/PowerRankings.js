@@ -211,6 +211,7 @@ function validateComments() {
         if(comment.value == '')
         {
             comment.setCustomValidity("Please add comments to all rankings");
+            comment.reportValidity();
             return
         }
     }
