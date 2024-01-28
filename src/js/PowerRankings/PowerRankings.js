@@ -176,6 +176,9 @@ function hideShowSelectedOptions () {
             for(let otherTeamList of powerRankingTeamList)
             {
                 let otherInputsValue = otherTeamList.value;
+                console.log("otherInputsValue: " + otherInputsValue);
+                console.log("selectedTeam: " + selectedTeam);
+
                 if(otherInputsValue == selectedTeam)
                 {
                     alert("Team " + teamList.value + " is listed twice in the rankings.");
