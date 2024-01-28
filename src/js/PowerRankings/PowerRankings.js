@@ -116,7 +116,7 @@ function createModalPowerRankList (rownum, usersList) {
     teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
-    teamList.setAttribute("onchange", 'hideShowSelectedOptions();');
+    teamList.setAttribute("onchange", 'validateModalPowerRankForm();');
     var defaultOption = document.createElement("option")
     defaultOption.setAttribute("selected", true);
     defaultOption.innerText="Choose Team";
@@ -164,9 +164,9 @@ function createModalPowerRankList (rownum, usersList) {
     return powerRankRow;
 }
 
-function hideShowSelectedOptions () {
+function validateModalPowerRankForm () {
     let powerRankingTeamList = document.querySelectorAll("[id^=PowerRankTeamList_]");
-
+    
     for(let teamList of powerRankingTeamList)
     {
         if(teamList.value != -1) 
@@ -178,13 +178,11 @@ function hideShowSelectedOptions () {
                 if(otherTeamList.id != teamList.id)
                 {
                     let otherInputsValue = otherTeamList.value;
-                    console.log("otherInputsValue: " + otherInputsValue);
-                    console.log("selectedTeam: " + selectedTeam);
     
                     if(otherInputsValue == selectedTeam)
                     {
-                        alert("Team " + teamList.value + " is listed twice in the rankings.");
-                        return
+                        //alert("Team " + otherTeamList.innerText + " is listed twice in the rankings.");
+                        //return
                     }
                 }
             }
