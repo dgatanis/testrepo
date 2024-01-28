@@ -204,7 +204,7 @@ function validateTeamList() {
 }
 
 function validateComments() {
-    let commentsBox = document.querySelectorAll("[class^=custom-powerrank-comments]");
+    let commentsBox = document.querySelectorAll("[class*=custom-powerrank-comments]");
 
     for(let comment of commentsBox)
     {
