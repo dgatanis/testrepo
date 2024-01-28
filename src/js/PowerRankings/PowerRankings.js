@@ -193,8 +193,8 @@ function validateTeamList() {
                     if(otherInputsValue == selectedTeam)
                     {
                         var teamName = document.querySelector("[value='" + otherInputsValue + "']").innerText;
-
-                        alert("Team " + teamName + " is listed twice in the rankings.");
+                        otherTeamList.setCustomValidity(teamName + " listed more than once in the rankings.");
+                        otherTeamList.reportValidity();
                         return
                     }
                 }
