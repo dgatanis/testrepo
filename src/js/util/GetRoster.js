@@ -1,4 +1,4 @@
-import { leagueID } from 'js/utils/leagueInfo';
+import { leagueID } from './js/utils/leagueInfo';
 
 async function getRostersForLeague(leagueID){
     const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
