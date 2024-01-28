@@ -150,7 +150,7 @@ function createModalPowerRankList (rownum, usersList) {
     comments.setAttribute("class", "col");
     var commentText = document.createElement("textarea");
     commentText.setAttribute("required", true);
-    commentText.setAttribute("class", "custom-powerrank-comments");
+    commentText.setAttribute("class", "form-control custom-powerrank-comments");
     commentText.setAttribute("type", "text");
     commentText.setAttribute("rows", 3);
     commentText.setAttribute("placeholder", "Comments");
