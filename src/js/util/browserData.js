@@ -1,9 +1,13 @@
 setBrowserData();
 function setBrowserData() {
     const expiration = new Date().getTime() + (3*60*60*1000);
-    const now = newDate.getTime();
+    const now = new Date().getTime();
 
     if(!localStorage.getItem("expiration"))
+    {
+        localStorage.setItem("expiration", expiration);
+    }
+    else
     {
         var expirationDate = localStorage.getItem("expiration");
         if(now < expirationDate)
