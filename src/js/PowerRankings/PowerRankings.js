@@ -220,5 +220,8 @@ function validateComments() {
 
 function submitPowerRankings() {
     var powerRankingsTable = document.getElementById("PowerRankings");
-    //submitPowerRankings.setAttribute("data-bs-dismiss","modal");
+    
+    //update table with form submission
+    //Use powerRankingsTable.rows to iterate over each row
+    //Can use value of dropdown selection (=user.user_id) to populate images and roster button
 }
