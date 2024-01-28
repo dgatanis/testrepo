@@ -171,18 +171,14 @@ function hideShowSelectedOptions () {
     {
         if(teamList.value != -1) 
         {
-            let options = teamList.options;
             let selectedTeam = teamList.value;
             
             for(let otherTeamList of powerRankingTeamList)
             {
-                if(teamList.id != otherTeamList.id)
+                let otherInputsValue = otherTeamList.value;
+                if(otherInputsValue == selectedTeam)
                 {
-                    var x = document.querySelectorAll("#" + otherTeamList.id + " option[value='" + selectedTeam + "']");
-                    if(x[0])
-                    {
-                        x[0].remove();
-                    }
+                    alert("Team " + teamList.value + " is listed twice in the rankings.")
                 }
             }
         }
