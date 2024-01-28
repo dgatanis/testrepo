@@ -169,6 +169,8 @@ function validateModalPowerRankForm () {
 }
 
 function validateTeamList() {
+    let powerRankingTeamList = document.querySelectorAll("[id^=PowerRankTeamList_]");
+
     //Validate no duplicates
     for(let teamList of powerRankingTeamList)
     {
@@ -196,7 +198,6 @@ function validateTeamList() {
 }
 
 function validateComments() {
-
     let commentsBox = document.querySelectorAll("[class^=custom-powerrank-comments]");
 
     for(let comment of commentsBox)
