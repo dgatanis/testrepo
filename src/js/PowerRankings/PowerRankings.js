@@ -181,9 +181,9 @@ function validateModalPowerRankForm () {
     
                     if(otherInputsValue == selectedTeam)
                     {
-                        var txt = $("#" + teamList.id + " option[value='" + otherInputsValue + "']").innerText;
+                        var teamName = document.querySelector("[value='" + otherInputsValue + "']").innerText;
 
-                        alert("Team " + txt + " is listed twice in the rankings.");
+                        alert("Team " + teamName + " is listed twice in the rankings.");
                         //return
                     }
                 }
