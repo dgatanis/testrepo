@@ -116,7 +116,6 @@ function createModalPowerRankList (rownum, usersList) {
     teamList.setAttribute("id", "PowerRankTeamList_" + rownum);
     teamList.setAttribute("class", "form-select custom-powerrank-team");
     teamList.setAttribute("aria-label", "PowerRankTeamList");
-    teamList.setAttribute("onchange", 'validateModalPowerRankForm();');
     var defaultOption = document.createElement("option")
     defaultOption.setAttribute("selected", true);
     defaultOption.innerText="Choose Team";
@@ -165,8 +164,11 @@ function createModalPowerRankList (rownum, usersList) {
 }
 
 function validateModalPowerRankForm () {
-    let powerRankingTeamList = document.querySelectorAll("[id^=PowerRankTeamList_]");
-    
+    validateTeamList();
+    validateComments();
+}
+
+function validateTeamList() {
     //Validate no duplicates
     for(let teamList of powerRankingTeamList)
     {
@@ -191,6 +193,9 @@ function validateModalPowerRankForm () {
             }
         }
     }
+}
+
+function validateComments() {
 
     let commentsBox = document.querySelectorAll("[class^=custom-powerrank-comments]");
 
@@ -202,4 +207,4 @@ function validateModalPowerRankForm () {
             return
         }
     }
-}
+} 
