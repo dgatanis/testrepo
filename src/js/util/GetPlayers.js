@@ -18,7 +18,8 @@ async function getPlayers(leagueID) {
     const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
     const data = await res.json();
     const players = Object.keys(data)
-    const counter = 0;
+    let counter = 0;
+    
     for(let player of players)
     {
         counter++;
