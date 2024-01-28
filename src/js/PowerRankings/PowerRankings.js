@@ -188,11 +188,11 @@ function validateTeamList() {
             {
                 if(otherTeamList.id != teamList.id)
                 {
-                    let otherInputsValue = otherTeamList.value;
+                    let otherSelectedTeam = otherTeamList.value;
     
-                    if(otherInputsValue == selectedTeam)
+                    if(otherSelectedTeam == selectedTeam)
                     {
-                        var teamName = document.querySelector("[value='" + otherInputsValue + "']").innerText;
+                        var teamName = document.querySelector("[value='" + otherSelectedTeam + "']").innerText;
                         otherTeamList.setCustomValidity(teamName + " listed more than once in the rankings.");
                         otherTeamList.reportValidity();
                         return
