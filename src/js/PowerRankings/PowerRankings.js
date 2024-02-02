@@ -81,17 +81,22 @@ async function OpenTeamRosterModal(userid,teamname) {
       if(roster.owner_id==userid)
       {
         for(let players of roster.players)
-          {
-            var tr = document.createElement("tr");
-            var th = document.createElement("th");
-            th.innerText="Position";
-            th.setAttribute('scope', 'row');
-            tr.appendChild(th);
-            var td = document.createElement("td");
-            td.innerText=players;
-            tr.appendChild(td);
-            tablebody.append(tr);
-          }
+        {
+            if(localStorage.getItem("PlayerData"))
+            {
+                let playerDataStorage = localStorage.getItem("PlayerData");
+                let playerData = JSON.parse(playerDataStorage);
+                var tr = document.createElement("tr");
+                var th = document.createElement("th");
+                th.innerText=playerData.players[players].position;
+                th.setAttribute('scope', 'row');
+                tr.appendChild(th);
+                var td = document.createElement("td");
+                td.innerText=players;
+                tr.appendChild(td);
+                tablebody.append(tr);
+            }
+        }
       }
     }
 }
