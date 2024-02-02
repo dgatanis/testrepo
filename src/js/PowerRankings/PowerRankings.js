@@ -239,7 +239,7 @@ function submitPowerRankings() {
     //Can use value of dropdown selection (=user.user_id) to populate images and roster button
 }
 
-function isDataPresent(item){
+async function isDataPresent(item){
 
     if(localStorage.getItem(item))
     {
