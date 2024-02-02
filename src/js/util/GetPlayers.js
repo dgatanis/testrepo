@@ -13,8 +13,8 @@ function setPlayerData () {
 
 
 async function getPlayers() {
-    /*
-    Need to figure out how to iterate over json created in this script
+    
+    //Need to figure out how to iterate over json created in this script
 
     var x = localStorage.getItem("PlayerData");
     let json = JSON.parse(x);
@@ -46,5 +46,5 @@ async function getPlayers() {
     }
 
 localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
-*/
+
 }
