@@ -1,6 +1,6 @@
-import {leagueID as testing} from './leagueInfo.js';
+import { leagueID } from './leagueInfo.js';
 
-let leagueID = testing;
+//let leagueID = testing;
 setBrowserData();
 
 function setBrowserData() {
