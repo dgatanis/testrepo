@@ -10838,15 +10838,11 @@ textarea.form-control-lg {
 
 /*****Custom css below*****/
 .custom-nav{
-  padding-bottom: 2.5px;
-  padding-left: 2.5px;
-  padding-right: 2.5px;
-  padding-top: 1.5px;
+  color: white;
 }
 
 a.custom-nav:hover {
-  background: #d7d7d7;
-  border-radius: 10px;
+  color:black;
 }
 
 .custom-form {
