@@ -1,3 +1,10 @@
+function updSeason() {
+    const date = new Date().getFullYear();
+    let x = document.getElementById("seasonTitle")
+
+    x.innerText= date.toString() + " Season";
+}
+
 async function getTeamNamesForLeague(leagueId,userid=-1) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
