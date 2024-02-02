@@ -15,11 +15,6 @@ function setPlayerData () {
 async function getPlayers() {
     
     //Need to figure out how to iterate over json created in this script
-
-    var x = localStorage.getItem("PlayerData");
-    let json = JSON.parse(x);
-    const playerData = json.map((player) => player);
-    playerData;
     
     var myPlayerMap = { 
         players : []
