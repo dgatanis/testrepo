@@ -60,18 +60,7 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
 
 
 async function OpenTeamRosterModal(userid,teamname) {
-    
-    if(localStorage.getItem("RosterData"))
-    {
-        const rosterDataStorage = localStorage.getItem("RosterData")
-        const rosterData = JSON.parse(rosterDataStorage);
-    }
-    else
-    {
-        const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/rosters`); 
-        const rosterData = await rosterResponse.json(); 
-    }
-
+    const rosterData = isDataPresent("RosterData");
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     var rosterTable = document.querySelector('#RosterTable');
@@ -87,7 +76,10 @@ async function OpenTeamRosterModal(userid,teamname) {
   
     //Create table rows for players
     const teams = rosterData.map((roster) => roster);
-    for(let roster of teams) {
+
+    //Loop through each roster of team and display player data for selected team
+    for(let roster of teams) 
+    {
       if(roster.owner_id==userid)
       {
         for(let players of roster.players)
@@ -97,6 +89,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                 let playerDataStorage = localStorage.getItem("PlayerData");
                 let playerData = JSON.parse(playerDataStorage);
                 let player = playerData.players.find(e => e.player_id === parseInt(players));
+
                 if(player)
                 {
                     let playerName = player.firstname + " " + player.lastname;
@@ -114,7 +107,6 @@ async function OpenTeamRosterModal(userid,teamname) {
         }
       }
     }
-
 }
 
 
@@ -245,4 +237,20 @@ function submitPowerRankings() {
     //update table with form submission
     //Use powerRankingsTable.rows to iterate over each row
     //Can use value of dropdown selection (=user.user_id) to populate images and roster button
+}
+
+function isDataPresent(item){
+
+    if(localStorage.getItem(item))
+    {
+        const dataStorage = localStorage.getItem(item)
+        const jsonData = JSON.parse(dataStorage);
+        return jsonData;
+    }
+    else if(item == "RosterData")
+    {
+        const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
+        const rosterData = await rosterResponse.json(); 
+        return rosterData;
+    }
 }
