@@ -1,13 +1,3 @@
-$(document).ready(function () {
-    updSeason();
-  });
-  
-  function updSeason () {
-    var pageTitle = document.getElementById("seasonTitle");
-    var date = new Date();
-    pageTitle.innerText = date.getFullYear() + " Season";
-} 
-
 async function getTeamNamesForLeague(leagueId,userid=-1) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
