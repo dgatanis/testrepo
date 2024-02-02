@@ -1,4 +1,4 @@
-import { currentLeagueId } from './leagueInfo.js';
+import currentLeagueId  from './leagueInfo.js';
 
 const leagueID = currentLeagueId();
 setBrowserData();
