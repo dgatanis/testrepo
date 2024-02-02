@@ -59,8 +59,19 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
 }
 
 
-async function OpenTeamRosterModal(userid,teamname) {
-    const rosterData = isDataPresent("RosterData");
+async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
+
+    if(localStorage.getItem("RosterData"))
+    {
+        const dataStorage = localStorage.getItem("RosterData")
+        var rosterData = JSON.parse(dataStorage);
+            
+    }
+    else
+    {
+        const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
+        var rosterData = await rosterResponse.json(); 
+    }
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     var rosterTable = document.querySelector('#RosterTable');
@@ -237,20 +248,4 @@ function submitPowerRankings() {
     //update table with form submission
     //Use powerRankingsTable.rows to iterate over each row
     //Can use value of dropdown selection (=user.user_id) to populate images and roster button
-}
-
-async function isDataPresent(item){
-
-    if(localStorage.getItem(item))
-    {
-        const dataStorage = localStorage.getItem(item)
-        const jsonData = JSON.parse(dataStorage);
-        return jsonData;
-    }
-    else if(item == "RosterData")
-    {
-        const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
-        const rosterData = await rosterResponse.json(); 
-        return rosterData;
-    }
 }
