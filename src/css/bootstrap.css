@@ -10842,7 +10842,7 @@ textarea.form-control-lg {
 }
 
 a.custom-nav:hover {
-  color:grey;
+  color:black;
 }
 
 .custom-form {
@@ -10889,4 +10889,8 @@ table#RosterTable {
 .custom-powerrank-comments {
   width: 100%;
   height: 200px;
+}
+
+ul.nav.nav-tabs {
+  background: grey;
 }
