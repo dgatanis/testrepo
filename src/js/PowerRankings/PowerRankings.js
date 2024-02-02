@@ -60,17 +60,18 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
 
 
 async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
+    
+    var rosterData;
 
     if(localStorage.getItem("RosterData"))
     {
         const dataStorage = localStorage.getItem("RosterData")
-        var rosterData = JSON.parse(dataStorage);
-            
+        rosterData = JSON.parse(dataStorage);
     }
     else
     {
         const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
-        var rosterData = await rosterResponse.json(); 
+        rosterData = await rosterResponse.json(); 
     }
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
