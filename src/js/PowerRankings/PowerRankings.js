@@ -86,19 +86,22 @@ async function OpenTeamRosterModal(userid,teamname) {
             {
                 let playerDataStorage = localStorage.getItem("PlayerData");
                 let playerData = JSON.parse(playerDataStorage);
+                let player = playerData.players.find(e => e.player_id === players);
+                let playerName = player.firstname + " " + player.lastname;
                 var tr = document.createElement("tr");
                 var th = document.createElement("th");
-                th.innerText=playerData.players[players].position;
+                th.innerText=player.position;
                 th.setAttribute('scope', 'row');
                 tr.appendChild(th);
                 var td = document.createElement("td");
-                td.innerText=players;
+                td.innerText=playerName;
                 tr.appendChild(td);
                 tablebody.append(tr);
             }
         }
       }
     }
+
 }
 
 
