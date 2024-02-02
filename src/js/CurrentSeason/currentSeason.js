@@ -1,4 +1,8 @@
-function updSeason () {
+$(document).ready(function () {
+    updSeason();
+  });
+  
+  function updSeason () {
     var pageTitle = document.getElementById("seasonTitle");
     var date = new Date();
     pageTitle.innerText = date.getFullYear() + " Season";
