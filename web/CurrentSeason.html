@@ -1,7 +1,12 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+  <html>
     <head>
+      <link rel="stylesheet" href="../src/css/bootstrap.css">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script type="module" src="../src/js/util/browserData.js"></script>
+      <script src="../src/js/Owners.js"></script>
+      <script src="../src/js/PowerRankings/PowerRankings.js"></script>
       <script src="../src/js/bootstrap.js"></script>
       <script src="../src/js/bootstrap.bundle.js"></script>
     </head>
@@ -9,27 +14,34 @@
       Current Season
     </title>
     <body>
-    <ul class="nav nav-tabs">
+      <script>
+        //getRostersForLeague("1046222222567784448");
+        //getTeamNamesForLeague("1046222222567784448");
+        //getOwnerAvatarForLeague("1046222222567784448");
+      </script>
+      <ul class="nav nav-tabs">
         <li class="nav-item">
-        <a class="nav-link custom-nav" href="../index.html">Home</a>
+          <a class="nav-link custom-nav" href="../index.html">Home</a>
         </li>
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             History
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item active" href="#">Current Season</a></li>
-            <li><a class="dropdown-item" href="../web/LeagueChamps.html">League Champs</a></li>
-        </ul>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Current Season</a></li>
+            <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
+          </ul>
         </li>
         <li class="nav-item">
-        <a class="nav-link custom-nav" href="../web/PowerRankings.html">Power Rankings</a>
+          <a class="nav-link custom-nav" href="./web/PowerRankings.html">Power Rankings</a>
         </li>
-    </ul>
+      </ul>
+      <h1>Current Season</h1>
+      <p id="myUsers"></p> 
     </body>
     <style>
       body {
         background-color:green;
       }
     </style>
-</html>
+  </html>
