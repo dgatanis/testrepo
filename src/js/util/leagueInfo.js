@@ -4,7 +4,7 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 
 const firstYear = 2024;
 
-export async function currentLeagueId() {
+export default async function currentLeagueId() {
     const thisYear = new Date().getFullYear;
     const myUserId = '467550885086490624';
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
