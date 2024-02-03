@@ -1,7 +1,7 @@
 import currentLeagueId, { leagueID } from './leagueInfo.js';
 
 const testLeagueID = currentLeagueId();
-let leagueID;
+let leagueIDss;
 
 testLeagueID.then((currentLeagueId) => {
                 console.log(`Current timestamp: ${currentLeagueId}`);
