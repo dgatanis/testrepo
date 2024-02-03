@@ -10902,9 +10902,8 @@ ul.nav.nav-tabs {
 }
 
 .custom-section-group-r {
-  display: inline-block;
+  display: inline-table;
   width: fit-content;
   max-width: 900px;
-  min-width: 600px;
 }
 
