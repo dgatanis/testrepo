@@ -10907,3 +10907,8 @@ ul.nav.nav-tabs {
   max-width: 900px;
   min-width: 600px;
 }
+
+.custom-matchups {
+  float: right;
+  padding-right: 10%;
+}
