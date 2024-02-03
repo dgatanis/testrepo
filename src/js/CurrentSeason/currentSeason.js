@@ -2,10 +2,12 @@ async function loadConstants() {
     try {
         const leagueInfo = await import('../util/leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
+
         leagueInfoLeagueId.then((currentLeagueId) => {
-            console.log(currentLeagueId);
+            
             getTeamNamesForLeague(currentLeagueId);
             getOwnerAvatarForLeague(currentLeagueId);
+
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
@@ -68,11 +70,12 @@ async function loadMatchups(weekNumber) {
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const totalMatchups = matchups.length / 2;
-    const weekList = document.getElementById("matchupWeekList");
+    const idList = "matchupWeekList_" + weekNumber;
 
     for(let i =1; i <= totalMatchups; i++)
     {
         let matchupId = i;
+        var weekList = document.getElementById("idList");
         for(let matchup of matchups)
         {
             if(matchup.matchup_id == matchupId)
