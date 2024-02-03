@@ -68,7 +68,7 @@ async function loadMatchups(weekNumber) {
             {
                 var y = document.createElement("div");
                 let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
-                y.innerText = roster_id + " " + matchup.points;
+                y.innerText = matchup.roster_id + " " + matchup.points;
                 weekList.append(y);
             }
         }
