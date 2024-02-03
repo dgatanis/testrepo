@@ -10905,4 +10905,5 @@ ul.nav.nav-tabs {
   float: right;
   width: fit-content;
   max-width: 900px;
+  min-width: 600px;
 }
