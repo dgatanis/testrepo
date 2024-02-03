@@ -32,7 +32,8 @@ async function currentLeagueId(thisYear) {
 async function currentSeason() {
     const nflState = await getNFLState();
 
-    console.log("nflState " + nflState);
+    console.log("nflData.league_season " + nflData.league_season);
+    
 }
 
 
