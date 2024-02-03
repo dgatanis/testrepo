@@ -71,16 +71,17 @@ async function loadMatchups(weekNumber) {
     const matchups = matchupData.map((team) => team);
     const totalMatchups = matchups.length / 2;
     const idList = "matchupWeekList_" + weekNumber;
+    var weekList = document.getElementById(idList);
 
-    for(let i =1; i <= totalMatchups; i++)
+    if(weekList.childElementCount <= 4)
     {
-        let matchupId = i;
-        var weekList = document.getElementById(idList);
-        for(let matchup of matchups)
+        for(let i =1; i <= totalMatchups; i++)
         {
-            if(matchup.matchup_id == matchupId)
+            let matchupId = i;
+            
+            for(let matchup of matchups)
             {
-                if(!document.getElementById("rosterid_" + matchup.roster_id))
+                if(matchup.matchup_id == matchupId)
                 {
                     var y = document.createElement("div");
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
@@ -89,11 +90,11 @@ async function loadMatchups(weekNumber) {
                     weekList.append(y);
                 }
             }
+            
+            var x = document.createElement("li");
+            x.setAttribute("class", "list-group-item");
+            weekList.append(x);
         }
-        
-        var x = document.createElement("li");
-        x.setAttribute("class", "list-group-item");
-        weekList.append(x);
     }
 }
 
