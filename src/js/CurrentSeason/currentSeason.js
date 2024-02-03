@@ -216,9 +216,41 @@ function createMatchupsList(){
     var x = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
     {
-        var y = createAccordianItem(i);
-        x.append(y);
+        var y = createAccordionItem(i);
+        x.appendChild(y);
     }
+}
+
+function createAccordionItem(weekNumber) {
+    var headerId = "weekHeader_"+weekNumber
+    var accordionItem = document.createElement("div");
+    accordionItem.setAttribute("class", "accordion-item");
+
+    var accordionHeader = document.createElement("h2");
+    accordionHeader.setAttribute("class", "accordion-header");
+    accordionHeader.setAttribute("id", headerId);
+
+    var accordionCollapsible = document.createElement("div");
+    accordionCollapsible.setAttribute("class", "accordion-collapse collapse");
+    accordionCollapsible.setAttribute("aria-labelledby", headerId);
+    accordionCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
+
+    var accordionBody = document.createElement("div");
+    accordionBody.setAttribute("class", "accordion-body");
+    accordionBody.setAttribute("id","weekBody_"+weekNumber);
+
+    var button = createMatchupButtonElement(weekNumber);
+    var listItems = createMatchupListElement(weekNumber);
+
+    accordionBody.appendChild(listItems);
+    accordionHeader.appendChild(button);
+    accordionCollapsible.appendChild(accordionBody);
+    
+    //add header and collapsible with sub items to whole accordion
+    accordionItem.appendChild(accordionHeader);
+    accordionItem.appendChild(accordionCollapsible);
+
+    return accordionItem;
 }
 
 function createMatchupButtonElement(weekNumber){
@@ -234,28 +266,16 @@ function createMatchupButtonElement(weekNumber){
     return button;
 }   
 
-function createAccordianItem(weekNumber) {
-    var headerId = "weekHeader_"+weekNumber
-    var accordianItem = document.createElement("div");
-    accordianItem.setAttribute("class", "accordion-item");
+function createMatchupListElement(weekNumber) {
+    var list = document.createElement("ul");
+    list.setAttribute("id", "matchupWeekList_"+weekNumber);
+    list.setAttribute("class", "list-group list-group-flush");
 
-    var accordianHeader = document.createElement("h2");
-    accordianHeader.setAttribute("class", "accordion-header");
-    accordianHeader.setAttribute("id", headerId);
+    var firstListItem = document.createElement("li");
+    firstListItem.setAttribute("class", "list-group-item");
+    firstListItem.innerText="Matchups";
 
-    var accordianCollapsible = document.createElement("div");
-    accordianCollapsible.setAttribute("class", "accordion-collapse collapse");
-    accordianCollapsible.setAttribute("aria-labelledby", headerId);
-    accordianCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
+    list.appendChild(firstListItem);
 
-    var accordianBody = document.createElement("div");
-    accordianBody.setAttribute("class", "accordion-body");
-    accordianBody.setAttribute("id","weekBody_"+weekNumber);
-    
-    accordianCollapsible.appendChild(accordianBody);
-
-    accordianItem.appendChild(accordianHeader);
-    accordianItem.appendChild(accordianCollapsible);
-
-    return accordianItem;
+    return list;
 }
