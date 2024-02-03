@@ -1,10 +1,14 @@
 async function loadConstants() {
     try {
         const leagueInfo = await import('../util/leagueInfo.js');
-        var currentLeagueId = leagueInfo.default();
-        console.log(currentLeagueId);
-        getTeamNamesForLeague(currentLeagueId);
-        getOwnerAvatarForLeague(currentLeagueId);
+        var leagueInfoLeagueId = leagueInfo.default();
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            console.log(currentLeagueId);
+            getTeamNamesForLeague(currentLeagueId);
+            getOwnerAvatarForLeague(currentLeagueId);
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+        });
     }
     catch (error) {
         console.log(error);
