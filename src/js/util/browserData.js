@@ -1,10 +1,9 @@
 import currentLeagueId from './leagueInfo.js';
 
 const testLeagueID = currentLeagueId();
-
+console.log()
 testLeagueID.then((currentLeagueId) => {
-            const leagueID = currentLeagueId;
-            setBrowserData(leagueID);
+            console.log(currentLeagueId);
             }).catch((error) => {
                 console.error(`Error fetching currentLeagueID: ${error.message}`);
             });
