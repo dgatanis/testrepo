@@ -75,7 +75,7 @@ async function loadMatchups(weekNumber) {
     for(let i =1; i <= totalMatchups; i++)
     {
         let matchupId = i;
-        var weekList = document.getElementById("idList");
+        var weekList = document.getElementById(idList);
         for(let matchup of matchups)
         {
             if(matchup.matchup_id == matchupId)
