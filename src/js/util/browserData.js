@@ -1,6 +1,6 @@
 import getCurrentLeagueId from './leagueInfo.js';
 
-const currentLeague = getCurrentLeagueId();
+const currentLeague = await getCurrentLeagueId();
 
 currentLeague.then((currentLeagueIds) => {
             console.log(currentLeagueIds);
