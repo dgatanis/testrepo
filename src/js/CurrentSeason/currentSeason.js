@@ -7,7 +7,8 @@ async function loadConstants() {
             
             getTeamNamesForLeague(currentLeagueId);
             getOwnerAvatarForLeague(currentLeagueId);
-
+            createMatchupsList();
+            
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
@@ -209,4 +210,51 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
 
         }
     }
+}
+
+function createMatchupsList(){
+    var x = document.getElementById("matchupWeeks");
+    for(let i = 1; i<15; i++)
+    {
+        x.append(createAccordianItem(i));
+    }
+}
+
+function createMatchupButtonElement(weekNumber){
+    var button = document.createElement("button");
+    button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"')");
+    button.setAttribute("class", "accordion-button collapsed");
+    button.setAttribute("type", "button");
+    button.setAttribute("data-bs-toggle", "collapse");
+    button.setAttribute("data-bs-toggle", "#week"+weekNumber);
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-controls", "week"+weekNumber);
+
+    return button;
+}   
+
+function createAccordianItem(weekNumber) {
+    var headerId = "weekHeader_"+weekNumber
+    var accordianItem = document.createElement("div");
+    accordianItem.setAttribute("class", "accordion-item");
+
+    var accordianHeader = document.createElement("h2");
+    accordianHeader.setAttribute("class", "accordion-header");
+    accordianHeader.setAttribute("id", headerId);
+
+    var accordianCollapsible = document.createElement("div");
+    accordianCollapsible.setAttribute("class", "accordion-collapse collapse");
+    accordianCollapsible.setAttribute("aria-labelledby", headerId);
+    accordianCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
+
+    var accordianBody = document.createElement("div");
+    accordianBody.setAttribute("class", accordianBody);
+    accordianBody.setAttribute("id","weekBody_"+weekNumber);
+    
+    accordianCollapsible.appendChild(accordianBody);
+
+    accordianItem.appendChild(accordianHeader);
+    accordianItem.appendChild(accordianCollapsible);
+
+    return accordianItem;
 }
