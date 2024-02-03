@@ -1,5 +1,4 @@
 export const leagueID = "1046222222567784448"
- // your league name
 export const dues = 200; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 
@@ -7,8 +6,8 @@ export const inauguralSeason = 2024;
 
 export default async function getCurrentLeagueId() {
     const myTest = await currentSeason();
-
-        console.log("myTest  " + myTest);
+    
+    console.log("myTest  " + myTest);
 
 }
 
@@ -31,14 +30,9 @@ async function currentLeagueId(thisYear) {
 }
 
 async function currentSeason() {
-    const nflState = getNFLState();
+    const nflState = await getNFLState();
 
-    nflState.then((nflData) => {
-        console.log("nflData.league_season " + nflData.league_season);
-        return nflData.league_season;
-    }).catch((error) => {
-        console.error(`Error fetching currentLeagueID: ${error.message}`);
-    });
+    console.log("nflState " + nflState);
 }
 
 
