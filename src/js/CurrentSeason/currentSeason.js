@@ -57,7 +57,8 @@ async function loadMatchups(weekNumber) {
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const totalMatchups = matchups.length / 2;
-
+    const weekList = document.getElementById("matchupWeekList");
+    
     for(let i =1; i <= totalMatchups; i++)
     {
         let matchupId = i;
