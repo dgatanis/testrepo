@@ -5,10 +5,19 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 
 export const inauguralSeason = 2024;
 
+function currentSeason() {
+    const nflState = getNFLState();
+
+    nflState.then((nflData) => {
+        return nflData.league_season;
+    }).catch((error) => {
+        console.error(`Error fetching currentLeagueID: ${error.message}`);
+    });
+}
 
 export default async function currentLeagueId() {
     const nflState = getNFLState();
-    const thisYear = nflData.league_season;
+    const thisYear = currentSeason();
     const myUserId = '467550885086490624';
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
     const leagueData = await userLeagues.json();
