@@ -256,18 +256,9 @@ function createAccordionItem(weekNumber) {
     return accordionItem;
 }
 
-function hideMatchupWeek(weekNumber){
-    var matchupsBody = document.getElementById("week_" +weekNumber);
-    if(matchupsBody.classList.contains("show"))
-    {
-        matchupsBody.classList.remove("show");
-        matchupsBody.classList.add("hide");
-    }
-}
-
 function createMatchupButtonElement(weekNumber){
     var button = document.createElement("button");
-    button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"'); hideMatchupWeek('" + weekNumber +"');");
+    button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"');");
     button.setAttribute("class", "accordion-button collapsed");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
