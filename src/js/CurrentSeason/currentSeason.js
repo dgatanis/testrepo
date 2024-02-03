@@ -259,7 +259,7 @@ function createAccordionItem(weekNumber) {
 function createMatchupButtonElement(weekNumber){
     var button = document.createElement("button");
     button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"');");
-    button.setAttribute("class", "accordion-button");
+    button.setAttribute("class", "accordion-button collapsed");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
     button.setAttribute("data-bs-target", "#week_"+weekNumber);
