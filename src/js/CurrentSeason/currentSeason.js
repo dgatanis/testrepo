@@ -1,16 +1,10 @@
-const leagueInfo = await import('../util/leagueInfo.js');
-
-function updSeason() {
-    const date = new Date().getFullYear();
-    let x = document.getElementById("seasonTitle")
-
-    x.innerText= date.toString() + " Season";
-}
-
 async function loadConstants() {
     try {
+        const leagueInfo = await import('../util/leagueInfo.js');
         var currentLeagueId = leagueInfo.default();
         console.log(currentLeagueId);
+        getTeamNamesForLeague(currentLeagueId);
+        getOwnerAvatarForLeague(currentLeagueId);
     }
     catch (error) {
         console.log(error);
