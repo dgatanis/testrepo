@@ -4,10 +4,22 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 
 export const inauguralSeason = 2024;
 
+export default async function getCurrentLeagueId() {
+    try {
+        const thisSeason = await currentSeason();
+        const myLeagueId = await currentLeagueId(thisSeason);
+
+        return myLeagueId;
+    }
+    catch (error) {
+        console.log("Error: ", error);
+    }
+
+}
+
 async function currentSeason() {
     try {
         const nflState = await getNFLState();
-        console.log("nflData.league_season " + nflState.league_season);
         return nflState.league_season;
     } catch (error) {
         console.log("Error: ", error);
@@ -45,21 +57,3 @@ async function getNFLState() {
     }
 
 }
-
-
-export default async function getCurrentLeagueId() {
-    try {
-        const thisSeason = await currentSeason();
-        console.log(thisSeason);
-        const myLeagueId = await currentLeagueId(thisSeason);
-
-        console.log(myLeagueId);
-        return myLeagueId;
-    }
-    catch (error) {
-        console.log("Error: ", error);
-    }
-
-}
-
-

@@ -2,11 +2,11 @@ import getCurrentLeagueId from './leagueInfo.js';
 
 const currentLeague = getCurrentLeagueId();
 
-currentLeague.then((currentLeagueIds) => {
-            console.log(currentLeagueIds);
-            }).catch((error) => {
-                console.error(`Error fetching currentLeagueID: ${error.message}`);
-            });
+currentLeague.then((currentLeagueId) => {
+    setBrowserData(currentLeagueId)
+}).catch((error) => {
+    console.error(`Error fetching currentLeagueId: ${error.message}`);
+});
 
 function setBrowserData(leagueID) {
     const expiration = new Date().getTime() + (3*60*60*1000);
@@ -19,6 +19,8 @@ function setBrowserData(leagueID) {
         setPlayerData();
         setRosterData(leagueID);
     }
+    setPlayerData();
+    setRosterData(leagueID);
 }
 
 
