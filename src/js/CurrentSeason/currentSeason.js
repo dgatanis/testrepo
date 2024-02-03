@@ -8,7 +8,7 @@ async function loadConstants() {
             getTeamNamesForLeague(currentLeagueId);
             getOwnerAvatarForLeague(currentLeagueId);
             createMatchupsList();
-            
+
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
@@ -216,7 +216,8 @@ function createMatchupsList(){
     var x = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
     {
-        x.append(createAccordianItem(i));
+        var y = createAccordianItem(i);
+        x.append(y);
     }
 }
 
@@ -248,7 +249,7 @@ function createAccordianItem(weekNumber) {
     accordianCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
 
     var accordianBody = document.createElement("div");
-    accordianBody.setAttribute("class", accordianBody);
+    accordianBody.setAttribute("class", accordion-body);
     accordianBody.setAttribute("id","weekBody_"+weekNumber);
     
     accordianCollapsible.appendChild(accordianBody);
