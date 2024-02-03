@@ -262,7 +262,7 @@ function createMatchupButtonElement(weekNumber){
     button.setAttribute("data-bs-toggle", "#week"+weekNumber);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "week"+weekNumber);
-
+    button.innerText="Week #"+weekNumber;
     return button;
 }   
 
