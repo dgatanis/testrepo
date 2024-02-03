@@ -8,7 +8,7 @@ async function loadConstants() {
             getTeamNamesForLeague(currentLeagueId);
             getOwnerAvatarForLeague(currentLeagueId);
             createMatchupsList();
-
+            
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
@@ -213,11 +213,11 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
 }
 
 function createMatchupsList(){
-    var x = document.getElementById("matchupWeeks");
+    var matchupDiv = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
     {
-        var y = createAccordionItem(i);
-        x.appendChild(y);
+        var accordionItem = createAccordionItem(i);
+        matchupDiv.appendChild(accordionItem);
     }
 }
 
