@@ -13,7 +13,7 @@ export default async function getCurrentLeagueId() {
         return currentLeagueId;
     }
     catch (error) {
-        console.log("Error: ", error)
+        console.log("Error: ", error);
     }
 
 }
@@ -37,15 +37,27 @@ async function currentLeagueId(thisYear) {
 }
 
 async function currentSeason() {
-    const nflState = await getNFLState();
-    console.log("nflData.league_season " + nflState.league_season);
-    return nflState.league_season;
+    
+    try {
+        const nflState = await getNFLState();
+        console.log("nflData.league_season " + nflState.league_season);
+        return nflState.league_season;
+    } catch (error) {
+        console.log("Error: ", error);
+    }
+
 }
 
 
 async function getNFLState() {
-    const nfl = await fetch(`https://api.sleeper.app/v1/state/nfl`);
-    const nflData = await nfl.json(); 
+    try {
+        const nfl = await fetch(`https://api.sleeper.app/v1/state/nfl`);
+        const nflData = await nfl.json(); 
+    
+        return nflData;
+    }
+    catch(error) {
+        console.log("Error: ", error);
+    }
 
-    return nflData;
 }
