@@ -3,13 +3,13 @@ import getCurrentLeagueId from './leagueInfo.js';
 const currentLeague = getCurrentLeagueId();
 
 currentLeague.then((currentLeagueId) => {
-    setBrowserData(currentLeagueId)
+    setBrowserData(currentLeagueId);
 }).catch((error) => {
-    console.error(`Error fetching currentLeagueId: ${error.message}`);
+    console.error(`Error: ${error.message}`);
 });
 
 function setBrowserData(leagueID) {
-    const expiration = new Date().getTime() + (3*60*60*1000);
+    const expiration = new Date().getTime() + (3*60*60*1000); //3hrs
     const now = new Date().getTime();
     
     if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
@@ -25,7 +25,6 @@ function setBrowserData(leagueID) {
 
 
 function setPlayerData () {
-
     if(!localStorage.getItem("PlayerData"))
     {
         getPlayers();
@@ -33,7 +32,6 @@ function setPlayerData () {
 }
 
 function setRosterData (leagueID) {
-
     if(!localStorage.getItem("RosterData"))
     {
         getRostersForLeague(leagueID);
@@ -47,8 +45,6 @@ async function getRostersForLeague(leagueID){
 }
 
 async function getPlayers() {
-    
-    //Need to figure out how to iterate over json created in this script
     
     var myPlayerMap = { 
         "players" : []

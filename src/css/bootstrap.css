@@ -10894,3 +10894,11 @@ table#RosterTable {
 ul.nav.nav-tabs {
   background: grey;
 }
+
+.custom-section-group-l {
+  float: left;
+}
+
+.custom-section-group-r {
+  float: right;
+}

@@ -1,4 +1,4 @@
-export const leagueID = "1046222222567784448"
+export const leagueDisplayName = "Crush Cities";
 export const dues = 200; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 
@@ -6,7 +6,7 @@ export const inauguralSeason = 2024;
 
 export default async function getCurrentLeagueId() {
     try {
-        const thisSeason = await currentSeason();
+        const thisSeason = await getCurrentSeason();
         const myLeagueId = await currentLeagueId(thisSeason);
 
         return myLeagueId;
@@ -17,7 +17,7 @@ export default async function getCurrentLeagueId() {
 
 }
 
-async function currentSeason() {
+async function getCurrentSeason() {
     try {
         const nflState = await getNFLState();
         return nflState.league_season;
