@@ -257,8 +257,11 @@ function createAccordionItem(weekNumber) {
 }
 
 function hideMatchupWeek(weekNumber){
-    var button = document.getElementById("buttonWeek_" +weekNumber);
-    console.log(button);
+    var matchupsBody = document.getElementById("week_" +weekNumber);
+    if(matchupsBody.classList.contains("show"))
+    {
+        matchupsBody.classList.remove("show");
+    }
 }
 
 function createMatchupButtonElement(weekNumber){
