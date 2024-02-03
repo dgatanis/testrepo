@@ -58,7 +58,7 @@ async function loadMatchups(weekNumber) {
     const matchups = matchupData.map((team) => team);
     const totalMatchups = matchups.length / 2;
     const weekList = document.getElementById("matchupWeekList");
-    
+
     for(let i =1; i <= totalMatchups; i++)
     {
         let matchupId = i;
@@ -67,7 +67,8 @@ async function loadMatchups(weekNumber) {
             if(matchup.matchup_id == matchupId)
             {
                 var y = document.createElement("div");
-                y.innerText = matchup.points;
+                let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
+                y.innerText = roster_id + " " + matchup.points;
                 weekList.append(y);
             }
         }
