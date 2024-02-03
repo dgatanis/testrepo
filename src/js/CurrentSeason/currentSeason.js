@@ -66,10 +66,14 @@ async function loadMatchups(weekNumber) {
         {
             if(matchup.matchup_id == matchupId)
             {
-                var y = document.createElement("div");
-                let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
-                y.innerText = matchup.roster_id + " " + matchup.points;
-                weekList.append(y);
+                if(!document.getElementById("rosterid_" + matchup.roster_id))
+                {
+                    var y = document.createElement("div");
+                    let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
+                    y.id = "rosterid_" + matchup.roster_id;
+                    y.innerText = matchup.roster_id + " " + matchup.points;
+                    weekList.append(y);
+                }
             }
         }
         
