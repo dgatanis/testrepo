@@ -10905,5 +10905,6 @@ ul.nav.nav-tabs {
   display: inline-table;
   width: fit-content;
   max-width: 900px;
+  min-width: 30%;
 }
 
