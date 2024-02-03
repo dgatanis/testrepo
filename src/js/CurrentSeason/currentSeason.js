@@ -277,7 +277,7 @@ function createMatchupListElement(weekNumber) {
     list.setAttribute("class", "list-group custom-matchup-list list-group-flush");
 
     var firstListItem = document.createElement("li");
-    firstListItem.setAttribute("class", "list-group-item");
+    firstListItem.setAttribute("class", "list-group-item custom-matchup-list");
     firstListItem.innerText="Matchups";
 
     list.appendChild(firstListItem);
