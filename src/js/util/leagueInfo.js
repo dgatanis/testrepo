@@ -8,8 +8,9 @@ export const inauguralSeason = 2024;
 export default async function getCurrentLeagueId() {
     const myTest = currentSeason();
 
-    myTest.then((currentLeagueId) => {
-        console.log("currentLeagueId " + currentLeagueId);
+    myTest.then((thisYear) => {
+        console.log("thisYear " + thisYear);
+        return currentLeagueId(thisYear);
     }).catch((error) => {
         console.error(`Error fetching currentLeagueID: ${error.message}`);
     });
@@ -20,7 +21,7 @@ async function currentLeagueId(thisYear) {
     const leagueName = "Crush Cities ";
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
     const leagueData = await userLeagues.json();
-    console.log(leagueData);
+
     const leagues = leagueData.map((league) => league);
     
     for(let league of leagues)
@@ -38,7 +39,7 @@ async function currentSeason() {
 
     nflState.then((nflData) => {
         console.log("nflData.league_season " + nflData.league_season);
-        return currentLeagueId(nflData.league_season);
+        return nflData.league_season;
     }).catch((error) => {
         console.error(`Error fetching currentLeagueID: ${error.message}`);
     });
