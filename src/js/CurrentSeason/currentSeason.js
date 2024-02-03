@@ -261,6 +261,7 @@ function hideMatchupWeek(weekNumber){
     if(matchupsBody.classList.contains("show"))
     {
         matchupsBody.classList.remove("show");
+        matchupsBody.classList.add("hide");
     }
 }
 
