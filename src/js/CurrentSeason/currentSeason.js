@@ -249,7 +249,7 @@ function createAccordianItem(weekNumber) {
     accordianCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
 
     var accordianBody = document.createElement("div");
-    accordianBody.setAttribute("class", accordion-body);
+    accordianBody.setAttribute("class", "accordion-body");
     accordianBody.setAttribute("id","weekBody_"+weekNumber);
     
     accordianCollapsible.appendChild(accordianBody);
