@@ -1,5 +1,5 @@
 export const leagueID = "1046222222567784448"
-export const leagueName = "Crush Cities "; // your league name
+const leagueName = "Crush Cities "; // your league name
 export const dues = 200; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 
@@ -10,7 +10,7 @@ export default async function currentLeagueId() {
     const nflState = getNFLState();
 
     nflState.then((nflData) => {
-        
+
         const thisYear = nflData.league_season;
         const myUserId = '467550885086490624';
         const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
