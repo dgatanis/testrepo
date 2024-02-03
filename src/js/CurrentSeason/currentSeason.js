@@ -256,15 +256,21 @@ function createAccordionItem(weekNumber) {
     return accordionItem;
 }
 
+function hideMatchupWeek(weekNumber){
+    var button = document.getElementById("buttonWeek_" +weekNumber);
+    console.log(button);
+}
+
 function createMatchupButtonElement(weekNumber){
     var button = document.createElement("button");
-    button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"');");
+    button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"'); hideMatchupWeek('" + weekNumber +"');");
     button.setAttribute("class", "accordion-button collapsed");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
     button.setAttribute("data-bs-target", "#week_"+weekNumber);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "week_"+weekNumber);
+    button.setAttribute("id","buttonWeek_"+weekNumber)
     button.innerText="Week #"+weekNumber;
 
     return button;
