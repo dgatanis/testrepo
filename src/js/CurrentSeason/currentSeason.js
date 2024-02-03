@@ -49,6 +49,19 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
     
 }
 
+async function loadMatchups(weekNumber) {
+    const dataStorage = localStorage.getItem("RosterData")
+    rosterData = JSON.parse(dataStorage); 
+
+    const matchup = await fetch('https://api.sleeper.app/v1/league/1003692635549462528/matchups/2');
+    const matchupData = await matchups.json(); 
+
+    const matchups = matchupData.map((team) => team);
+    for(let matchup of matchups)
+    {
+        //
+    }
+}
 
 async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
     
