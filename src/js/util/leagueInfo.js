@@ -7,8 +7,9 @@ export const inauguralSeason = 2024;
 export default async function getCurrentLeagueId() {
     try {
         const currentSeason = await currentSeason();
+        console.log(currentSeason);
         const currentLeagueId = await currentLeagueId(currentSeason);
-    
+
         console.log(currentLeagueId);
         return currentLeagueId;
     }
@@ -37,7 +38,6 @@ async function currentLeagueId(thisYear) {
 }
 
 async function currentSeason() {
-    
     try {
         const nflState = await getNFLState();
         console.log("nflData.league_season " + nflState.league_season);
