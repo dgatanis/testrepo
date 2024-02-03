@@ -184,7 +184,7 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
             else
             {
                 var img = document.createElement("img");
-                img.setAttribute('src', 'dgatanis/testrepo/src/static/images/trashcan.jpg');
+                img.setAttribute('src', '../src/static/images/trashcan.jpg');
                 img.setAttribute('class', "custom-avatar-list-group");
                 img.setAttribute('id', user.user_id);
                 powerRanking.prepend(img);
