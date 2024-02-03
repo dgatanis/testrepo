@@ -262,7 +262,7 @@ function createMatchupButtonElement(weekNumber){
     button.setAttribute("class", "accordion-button");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
-    button.setAttribute("data-bs-toggle", "#week_"+weekNumber);
+    button.setAttribute("data-bs-target", "#week_"+weekNumber);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "week_"+weekNumber);
     button.innerText="Week #"+weekNumber;
