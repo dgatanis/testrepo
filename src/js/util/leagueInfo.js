@@ -51,10 +51,10 @@ export default async function getCurrentLeagueId() {
     try {
         const thisSeason = await currentSeason();
         console.log(thisSeason);
-        const currentLeagueId = await currentLeagueId(thisSeason);
+        const myLeagueId = await currentLeagueId(thisSeason);
 
-        console.log(currentLeagueId);
-        return currentLeagueId;
+        console.log(myLeagueId);
+        return myLeagueId;
     }
     catch (error) {
         console.log("Error: ", error);
