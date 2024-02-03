@@ -8,12 +8,6 @@ testLeagueID.then((currentLeagueId) => {
             }).catch((error) => {
                 console.error(`Error fetching timestamp: ${error.message}`);
             });
-
-timestampPromise.then((timestamp) => {
-                    console.log(`Current timestamp: ${timestamp}`);
-                }).catch((error) => {
-                    console.error(`Error fetching timestamp: ${error.message}`);
-                });
 setBrowserData();
 
 function setBrowserData() {
