@@ -1,3 +1,5 @@
+const leagueInfo = await import('../util/leagueInfo.js');
+
 function updSeason() {
     const date = new Date().getFullYear();
     let x = document.getElementById("seasonTitle")
@@ -7,8 +9,8 @@ function updSeason() {
 
 async function loadConstants() {
     try {
-        const myTest = await import('../util/leagueInfo.js');
-        console.log(myTest);
+        var currentLeagueId = leagueInfo.default();
+        console.log(currentLeagueId);
     }
     catch (error) {
         console.log(error);
