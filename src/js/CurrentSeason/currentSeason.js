@@ -155,7 +155,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
                     tr.appendChild(th);
                     var td = document.createElement("td");
                     td.innerText=playerName;
-                    td.prepend(playerImg);
+                    td.prepend(playerimg);
                     tr.appendChild(td);
                     tablebody.append(tr);
                 }
