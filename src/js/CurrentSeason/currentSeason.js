@@ -234,10 +234,10 @@ function createAccordionItem(weekNumber) {
     accordionCollapsible.setAttribute("class", "accordion-collapse collapse");
     accordionCollapsible.setAttribute("aria-labelledby", headerId);
     accordionCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
+    accordionCollapsible.setAttribute("id", "week_"+weekNumber)
 
     var accordionBody = document.createElement("div");
     accordionBody.setAttribute("class", "accordion-body");
-    accordionBody.setAttribute("id","weekBody_"+weekNumber);
 
     var button = createMatchupButtonElement(weekNumber);
     var listItems = createMatchupListElement(weekNumber);
@@ -259,7 +259,7 @@ function createMatchupButtonElement(weekNumber){
     button.setAttribute("class", "accordion-button collapsed");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
-    button.setAttribute("data-bs-toggle", "#week"+weekNumber);
+    button.setAttribute("data-bs-toggle", "week_"+weekNumber);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "week"+weekNumber);
     button.innerText="Week #"+weekNumber;
