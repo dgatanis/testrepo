@@ -54,7 +54,7 @@ async function loadMatchups(weekNumber) {
     rosterData = JSON.parse(dataStorage); 
 
     const matchup = await fetch('https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}');
-    const matchupData = await matchups.json(); 
+    const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const totalMatchups = matchups.length / 2;
 
