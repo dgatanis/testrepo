@@ -37,7 +37,7 @@ function currentSeason() {
 
     nflState.then((nflData) => {
         console.log("nflData.league_season " + nflData.league_season);
-        currentLeagueId(nflData.league_season);
+        return currentLeagueId(nflData.league_season);
     }).catch((error) => {
         console.error(`Error fetching currentLeagueID: ${error.message}`);
     });
