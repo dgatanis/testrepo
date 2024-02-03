@@ -1,7 +1,7 @@
 import currentLeagueId from './leagueInfo.js';
 
 const testLeagueID = currentLeagueId();
-console.log()
+
 testLeagueID.then((currentLeagueId) => {
             console.log(currentLeagueId);
             }).catch((error) => {
