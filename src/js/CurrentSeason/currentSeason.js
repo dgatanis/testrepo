@@ -7,7 +7,7 @@ function updSeason() {
 
 async function loadConstants() {
     try {
-        const myTest = await import('../src/js/util/leagueInfo');
+        const myTest = await import('../util/leagueInfo');
         console.log(myTest.getCurrentLeagueId());
     }
     catch (error) {
