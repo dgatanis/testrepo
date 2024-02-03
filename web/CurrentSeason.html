@@ -17,7 +17,7 @@
       <script>
         getTeamNamesForLeague("1046222222567784448");
         getOwnerAvatarForLeague("1046222222567784448");
-        //updSeason();
+        loadConstants();
       </script>
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -174,7 +174,7 @@
       <div class="custom-section-group-r accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button onclick="loadMatchups('2');" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week1" aria-expanded="false" aria-controls="week1">
+            <button onclick="loadMatchups('1');" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#week1" aria-expanded="false" aria-controls="week1">
               Week #1
             </button>
           </h2>
@@ -188,7 +188,7 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button onclick="loadMatchups('2');" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
               Week #2
             </button>
           </h2>
@@ -202,7 +202,7 @@
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <button onclick="loadMatchups('3');" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
               Week #3
             </button>
           </h2>

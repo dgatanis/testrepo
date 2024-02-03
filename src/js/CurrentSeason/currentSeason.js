@@ -5,6 +5,17 @@ function updSeason() {
     x.innerText= date.toString() + " Season";
 }
 
+async function loadConstants() {
+    try {
+        const myTest = await import('./leagueInfo');
+        console.log(myTest.getCurrentLeagueId());
+    }
+    catch (error) {
+        console.log(error);
+    }
+
+}
+
 async function getTeamNamesForLeague(leagueId,userid=-1) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
