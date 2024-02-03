@@ -3,27 +3,13 @@ export const dues = 200; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 
 export const inauguralSeason = 2024;
+
 async function currentSeason() {
     try {
         const nflState = await getNFLState();
         console.log("nflData.league_season " + nflState.league_season);
         return nflState.league_season;
     } catch (error) {
-        console.log("Error: ", error);
-    }
-
-}
-
-export default async function getCurrentLeagueId() {
-    try {
-        const thisSeason = await currentSeason();
-        console.log(thisSeason);
-        const currentLeagueId = await currentLeagueId(currentSeason);
-
-        console.log(currentLeagueId);
-        return currentLeagueId;
-    }
-    catch (error) {
         console.log("Error: ", error);
     }
 
@@ -47,9 +33,6 @@ async function currentLeagueId(thisYear) {
     }
 }
 
-
-
-
 async function getNFLState() {
     try {
         const nfl = await fetch(`https://api.sleeper.app/v1/state/nfl`);
@@ -62,3 +45,21 @@ async function getNFLState() {
     }
 
 }
+
+
+export default async function getCurrentLeagueId() {
+    try {
+        const thisSeason = await currentSeason();
+        console.log(thisSeason);
+        const currentLeagueId = await currentLeagueId(thisSeason);
+
+        console.log(currentLeagueId);
+        return currentLeagueId;
+    }
+    catch (error) {
+        console.log("Error: ", error);
+    }
+
+}
+
+
