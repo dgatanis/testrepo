@@ -53,13 +53,27 @@ async function loadMatchups(weekNumber) {
     const dataStorage = localStorage.getItem("RosterData")
     rosterData = JSON.parse(dataStorage); 
 
-    const matchup = await fetch('https://api.sleeper.app/v1/league/1003692635549462528/matchups/2');
+    const matchup = await fetch('https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}');
     const matchupData = await matchups.json(); 
-
     const matchups = matchupData.map((team) => team);
-    for(let matchup of matchups)
+    const totalMatchups = matchups.length / 2;
+
+    for(let i =1; i <= totalMatchups; i++)
     {
-        //
+        let matchupId = i;
+        for(let matchup of matchups)
+        {
+            if(matchup.matchup_id == matchupId)
+            {
+                var y = document.createElement("div");
+                y.innerText = matchup.points;
+                weekList.append(y);
+            }
+        }
+        
+        var x = document.createElement("li");
+        x.setAttribute("class", "list-group-item");
+        weekList.append(x);
     }
 }
 
