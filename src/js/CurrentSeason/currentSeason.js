@@ -222,7 +222,8 @@ function createMatchupsList(){
 }
 
 function createAccordionItem(weekNumber) {
-    var headerId = "weekHeader_"+weekNumber
+    var headerId = "weekHeader_" + weekNumber;
+
     var accordionItem = document.createElement("div");
     accordionItem.setAttribute("class", "accordion-item");
 
@@ -230,20 +231,22 @@ function createAccordionItem(weekNumber) {
     accordionHeader.setAttribute("class", "accordion-header");
     accordionHeader.setAttribute("id", headerId);
 
+    var button = createMatchupButtonElement(weekNumber);
+    accordionHeader.appendChild(button);
+
     var accordionCollapsible = document.createElement("div");
     accordionCollapsible.setAttribute("class", "accordion-collapse collapse");
     accordionCollapsible.setAttribute("aria-labelledby", headerId);
     accordionCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
-    accordionCollapsible.setAttribute("id", "week_"+weekNumber)
+    accordionCollapsible.setAttribute("id", "week_" + weekNumber);
 
     var accordionBody = document.createElement("div");
     accordionBody.setAttribute("class", "accordion-body");
 
-    var button = createMatchupButtonElement(weekNumber);
     var listItems = createMatchupListElement(weekNumber);
 
+    //Add list items to body and add them to the collapsible
     accordionBody.appendChild(listItems);
-    accordionHeader.appendChild(button);
     accordionCollapsible.appendChild(accordionBody);
     
     //add header and collapsible with sub items to whole accordion
@@ -256,12 +259,12 @@ function createAccordionItem(weekNumber) {
 function createMatchupButtonElement(weekNumber){
     var button = document.createElement("button");
     button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"');");
-    button.setAttribute("class", "accordion-button collapsed");
+    button.setAttribute("class", "accordion-button");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
-    button.setAttribute("data-bs-toggle", "week_"+weekNumber);
+    button.setAttribute("data-bs-toggle", "#week_"+weekNumber);
     button.setAttribute("aria-expanded", "false");
-    button.setAttribute("aria-controls", "week"+weekNumber);
+    button.setAttribute("aria-controls", "week_"+weekNumber);
     button.innerText="Week #"+weekNumber;
 
     return button;
