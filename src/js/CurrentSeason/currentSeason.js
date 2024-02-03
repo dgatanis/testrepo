@@ -84,16 +84,16 @@ async function loadMatchups(weekNumber) {
             {
                 if(matchup.matchup_id == matchupId)
                 {
-                    var y = document.createElement("div");
+                    var matchupDiv = document.createElement("div");
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
-                    y.id = "rosterid_" + matchup.roster_id;
-                    y.innerText = matchup.roster_id + " " + matchup.points;
-                    weekList.append(y);
+                    matchupDiv.id = "rosterid_" + matchup.roster_id;
+                    matchupDiv.innerText = matchup.roster_id + " " + matchup.points;
+                    weekList.append(matchupDiv);
                 }
             }
             
             var x = document.createElement("li");
-            x.setAttribute("class", "list-group-item");
+            x.setAttribute("class", "list-group-item custom-matchup-list-item");
             weekList.append(x);
         }
     }
@@ -277,7 +277,7 @@ function createMatchupListElement(weekNumber) {
     list.setAttribute("class", "list-group custom-matchup-list list-group-flush");
 
     var firstListItem = document.createElement("li");
-    firstListItem.setAttribute("class", "list-group-item custom-matchup-list");
+    firstListItem.setAttribute("class", "list-group-item custom-matchup-list-item");
     firstListItem.innerText="Matchups";
 
     list.appendChild(firstListItem);
