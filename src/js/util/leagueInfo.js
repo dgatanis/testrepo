@@ -3,7 +3,7 @@ export const leagueName = "Crush Cities "; // your league name
 export const dues = 200; // (optional) used in template constitution page
 export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
 
-export const firstYear = 2024;
+export const inauguralSeason = 2024;
 
 
 export default async function currentLeagueId() {
@@ -22,3 +22,28 @@ export default async function currentLeagueId() {
         }
     } 
 }
+
+/*
+async function getNFLState(currentSeason,lastSeason,week,leg) {
+    const nflState = await fetch(`https://api.sleeper.app/v1/state/nfl`);
+    const nflData = await nfl.json(); 
+
+    if(currentSeason == 'Y')
+    {
+        console.log("currentSeason");
+    }
+    else if(lastSeason == 'Y')
+    {
+        console.log("lastSeason");
+    }
+    else if(week == 'Y')
+    {
+        console.log("week");
+    }
+    else if(leg == 'Y')
+    {
+        console.log("leg");
+    }
+
+}
+*/

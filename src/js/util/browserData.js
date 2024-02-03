@@ -1,6 +1,19 @@
-import { leagueID } from './leagueInfo.js';
+import currentLeagueId, { leagueID } from './leagueInfo.js';
 
-//let leagueID = testing;
+const testLeagueID = currentLeagueId();
+let leagueID;
+
+testLeagueID.then((currentLeagueId) => {
+                console.log(`Current timestamp: ${currentLeagueId}`);
+            }).catch((error) => {
+                console.error(`Error fetching timestamp: ${error.message}`);
+            });
+
+timestampPromise.then((timestamp) => {
+                    console.log(`Current timestamp: ${timestamp}`);
+                }).catch((error) => {
+                    console.error(`Error fetching timestamp: ${error.message}`);
+                });
 setBrowserData();
 
 function setBrowserData() {
