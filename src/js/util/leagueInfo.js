@@ -5,11 +5,17 @@ export const dynasty = true; // true for dynasty leagues, false for redraft and 
 export const inauguralSeason = 2024;
 
 export default async function getCurrentLeagueId() {
-    const currentSeason = await currentSeason();
-    const currentLeagueId = await currentLeagueId(currentSeason);
+    try {
+        const currentSeason = await currentSeason();
+        const currentLeagueId = await currentLeagueId(currentSeason);
     
-    console.log(currentLeagueId);
-    return currentLeagueId;
+        console.log(currentLeagueId);
+        return currentLeagueId;
+    }
+    catch (error) {
+        console.log("Error: ", error)
+    }
+
 }
 
 async function currentLeagueId(thisYear) {
