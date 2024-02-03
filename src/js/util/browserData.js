@@ -1,16 +1,17 @@
 import currentLeagueId from './leagueInfo.js';
 
 const testLeagueID = currentLeagueId();
-let leagueID;
+
 testLeagueID.then((currentLeagueId) => {
-            leagueID = currentLeagueId;
+            const leagueID = currentLeagueId;
+            setBrowserData(leagueID);
             }).catch((error) => {
                 console.error(`Error fetching currentLeagueID: ${error.message}`);
             });
 
-setBrowserData();
 
-function setBrowserData() {
+
+function setBrowserData(leagueID) {
     const expiration = new Date().getTime() + (3*60*60*1000);
     const now = new Date().getTime();
     
@@ -19,7 +20,7 @@ function setBrowserData() {
         localStorage.clear();
         localStorage.setItem("expiration", expiration);
         setPlayerData();
-        setRosterData();
+        setRosterData(leagueID);
     }
 }
 
@@ -32,7 +33,7 @@ function setPlayerData () {
     }
 }
 
-function setRosterData () {
+function setRosterData (leagueID) {
 
     if(!localStorage.getItem("RosterData"))
     {
