@@ -7,7 +7,11 @@ export const inauguralSeason = 2024;
 
 export default async function currentLeagueId() {
     const thisYear = currentSeason();
-    console.log(thisYear);
+    thisYear.then((currentYear) => {
+            console.log(currentYear);
+    }).catch((error) => {
+        console.error(`Error fetching currentLeagueID: ${error.message}`);
+    });
     const myUserId = '467550885086490624';
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
     const leagueData = await userLeagues.json();
