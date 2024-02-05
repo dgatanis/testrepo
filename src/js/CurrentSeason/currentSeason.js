@@ -90,6 +90,7 @@ async function loadMatchups(weekNumber) {
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
+                    var teamImage = getOwnerAvatarImage(user.user_id);
                     if(user.metadata.team_name)
                     {
                         matchupDiv.innerText = user.metadata.team_name;
@@ -98,6 +99,7 @@ async function loadMatchups(weekNumber) {
                     {
                         matchupDiv.innerText = user.display_name; + ": " + matchup.points;
                     }
+                    matchupDiv.prepend(teamImage);
                     weekList.append(matchupDiv);
                 }
             }
@@ -268,6 +270,30 @@ function createAccordionItem(weekNumber) {
     accordionItem.appendChild(accordionCollapsible);
 
     return accordionItem;
+}
+
+async function getOwnerAvatarImage(userId) { 
+    const dataStorage = localStorage.getItem("UserData")
+    userData = JSON.parse(dataStorage);
+
+    let user = userData.find(x => x.user_id ===userId);
+    const avatarURL = user.metadata.avatar;
+    
+    if(avatarURL)
+    {
+        var img = document.createElement("img");
+        img.setAttribute('src', avatarURL);
+        img.setAttribute('class', "custom-avatar-list-group");
+        img.setAttribute('id', user.user_id);
+    }
+    else
+    {
+        var img = document.createElement("img");
+        img.setAttribute('src', '../src/static/images/trashcan.jpg');
+        img.setAttribute('class', "custom-avatar-list-group");
+        img.setAttribute('id', user.user_id);
+    }
+    return img;
 }
 
 function createMatchupButtonElement(weekNumber){
