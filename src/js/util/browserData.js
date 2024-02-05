@@ -40,6 +40,13 @@ function setRosterData (leagueID) {
     }
 }
 
+function setUserData (leagueID) {
+    if(!localStorage.getItem("UserData"))
+    {
+        getUserData(leagueID);
+    }
+}
+
 async function getRostersForLeague(leagueID){
     const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
     const rosterData = await rosterResponse.json(); 
@@ -72,15 +79,8 @@ async function getPlayers() {
 
 }
 
-function setUserData (leagueID) {
-    if(!localStorage.getItem("UserData"))
-    {
-        getUserData(leagueID);
-    }
-}
 
-
-function getUserData(leagueID){
+async function getUserData(leagueID){
     const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
     const data = await rosterResponse.json(); 
     localStorage.setItem("UserData", JSON.stringify(data));
