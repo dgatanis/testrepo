@@ -272,7 +272,7 @@ function createAccordionItem(weekNumber) {
     return accordionItem;
 }
 
-async function getOwnerAvatarImage(userId) { 
+function getOwnerAvatarImage(userId) { 
     const dataStorage = localStorage.getItem("UserData")
     userData = JSON.parse(dataStorage);
 
