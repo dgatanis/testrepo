@@ -10916,6 +10916,8 @@ ul.nav.nav-tabs {
 
 .custom-matchup-list {
   background-color: #b9b9b95e;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .custom-matchup-list-item {

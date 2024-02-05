@@ -96,7 +96,7 @@ async function loadMatchups(weekNumber) {
                     }
                     else
                     {
-                        matchupDiv.innerText = user.display_name;
+                        matchupDiv.innerText = user.display_name; + ": " + matchup.points;
                     }
                     weekList.append(matchupDiv);
                 }
