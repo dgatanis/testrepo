@@ -18,9 +18,11 @@ function setBrowserData(leagueID) {
         localStorage.setItem("expiration", expiration);
         setPlayerData();
         setRosterData(leagueID);
+        getUserData(leagueID);
     }
     setPlayerData();
     setRosterData(leagueID);
+    getUserData(leagueID);
 }
 
 
@@ -68,4 +70,18 @@ async function getPlayers() {
 
     localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
 
+}
+
+function setUserData (leagueID) {
+    if(!localStorage.getItem("UserData"))
+    {
+        getUserData(leagueID);
+    }
+}
+
+
+function getUserData(leagueID){
+    const userResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
+    const userData = await rosterResponse.json(); 
+    localStorage.setItem("UserData", JSON.stringify(userData));
 }
