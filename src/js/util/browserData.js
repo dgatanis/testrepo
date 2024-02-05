@@ -81,7 +81,7 @@ function setUserData (leagueID) {
 
 
 function getUserData(leagueID){
-    const userResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
-    const userData = await rosterResponse.json(); 
-    localStorage.setItem("UserData", JSON.stringify(userData));
+    const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
+    const data = await rosterResponse.json(); 
+    localStorage.setItem("UserData", JSON.stringify(data));
 }
