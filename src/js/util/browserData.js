@@ -82,6 +82,6 @@ async function getPlayers() {
 
 async function getUserData(leagueID){
     const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
-    const data = await rosterResponse.json(); 
+    const data = await res.json(); 
     localStorage.setItem("UserData", JSON.stringify(data));
 }
