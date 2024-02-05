@@ -64,8 +64,10 @@ async function getTeamNamesForLeague(leagueId,userid=-1) {
 }
 
 async function loadMatchups(weekNumber) {
-    const dataStorage = localStorage.getItem("RosterData")
-    rosterData = JSON.parse(dataStorage); 
+    const rosterDataStorage = localStorage.getItem("RosterData")
+    rosterData = JSON.parse(rosterDataStorage); 
+    const userDataStorage = localStorage.getItem("UserData")
+    userData = JSON.parse(userDataStorage); 
 
     const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
@@ -86,8 +88,16 @@ async function loadMatchups(weekNumber) {
                 {
                     var matchupDiv = document.createElement("div");
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
+                    let user = userData.find(x => x.user_id === roster.owner_id);
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
-                    matchupDiv.innerText = matchup.roster_id + " " + matchup.points;
+                    if(user.metadata.team_name)
+                    {
+                        matchupDiv.innerText = user.metadata.team_name;
+                    }
+                    else
+                    {
+                        matchupDiv.innerText = user.display_name;
+                    }
                     weekList.append(matchupDiv);
                 }
             }
