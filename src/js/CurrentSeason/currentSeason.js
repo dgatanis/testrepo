@@ -68,7 +68,7 @@ async function loadMatchups(weekNumber) {
     rosterData = JSON.parse(rosterDataStorage); 
     const userDataStorage = localStorage.getItem("UserData")
     userData = JSON.parse(userDataStorage); 
-    const playerDataStorage = localStorage.getItem("UserData")
+    const playerDataStorage = localStorage.getItem("PlayerData")
     playerData = JSON.parse(playerDataStorage); 
 
     //Need to change matchups to our league when go live
