@@ -10954,8 +10954,7 @@ ul.nav.nav-tabs {
 }
 
 @font-face {
-  font-family: F16;
-  src: url("../static/font/Lato-Black.ttf") format('truetype');
-  font-weight: bold;
+  font-family: F1;
+  src: url("../static/font/Lato-Thin.ttf") format('truetype');
   font-style: normal;
 }
