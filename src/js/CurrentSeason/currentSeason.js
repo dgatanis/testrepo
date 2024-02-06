@@ -91,7 +91,7 @@ async function loadMatchups(weekNumber) {
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
-                    var teamImage = getOwnerAvatarImage(user.user_id);
+                    var teamImage = createOwnerAvatarImage(user.user_id);
                     if(user.metadata.team_name)
                     {
                         matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
@@ -229,6 +229,11 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
     }
 }
 
+function highestScorersInMatchup(){
+
+}
+
+
 function createMatchupsList(){
     var matchupDiv = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
@@ -237,6 +242,8 @@ function createMatchupsList(){
         matchupDiv.appendChild(accordionItem);
     }
 }
+
+//HTML Create/edit elements functions below
 
 function createAccordionItem(weekNumber) {
     var headerId = "weekHeader_" + weekNumber;
@@ -273,7 +280,7 @@ function createAccordionItem(weekNumber) {
     return accordionItem;
 }
 
-function getOwnerAvatarImage(userId) { 
+function createOwnerAvatarImage(userId) { 
     const dataStorage = localStorage.getItem("UserData")
     userData = JSON.parse(dataStorage);
 
@@ -297,6 +304,22 @@ function getOwnerAvatarImage(userId) {
     return img;
 }
 
+function createPlayerNameImage(playerId) {
+    let playerDataStorage = localStorage.getItem("PlayerData");
+    let playerData = JSON.parse(playerDataStorage);
+    let player = playerData.players.find(e => e.player_id === parseInt(playerId));
+
+    if(player)
+    {
+        let playerName = player.firstname + " " + player.lastname;
+        var playerimg = document.createElement("img");
+        playerimg.setAttribute("src", "https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg");
+        playerimg.setAttribute('class', "custom-avatar-list-group");
+
+        return playerimg;
+    }
+}
+
 function createMatchupButtonElement(weekNumber){
     var button = document.createElement("button");
     button.setAttribute("onclick", "loadMatchups('"+ weekNumber +"');");
@@ -318,7 +341,7 @@ function createMatchupListElement(weekNumber) {
     list.setAttribute("class", "list-group custom-matchup-list list-group-flush");
 
     var firstListItem = document.createElement("li");
-    firstListItem.setAttribute("class", "list-group-item custom-matchup-list-item");
+    firstListItem.setAttribute("class", "list-group-item custom-matchup-list-item shadow p-3 mb-5 bg-body rounded");
     firstListItem.innerText="Matchups";
 
     list.appendChild(firstListItem);
