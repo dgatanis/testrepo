@@ -10905,7 +10905,7 @@ ul.nav.nav-tabs {
   display: inline-table;
   width: fit-content;
   max-width: 900px;
-  min-width: 30%;
+  min-width: 70%;
 }
 
 .custom-matchup-week:not(.collapsed) {
