@@ -10953,8 +10953,10 @@ ul.nav.nav-tabs {
   padding: 10px;
 }
 
+
 @font-face {
   font-family: F1;
-  src: url("../static/font/Lato-Thin.ttf") format('truetype');
+  src: url("../static/font/Lato-Black.ttf") format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
