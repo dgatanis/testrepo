@@ -89,18 +89,23 @@ async function loadMatchups(weekNumber) {
             {
                 if(matchup.matchup_id == matchupId)
                 {
-                    var matchupDiv = document.createElement("div");
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
                     let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                     let player = playerData.players.find(x => x.player_id === parseInt(highestScorer.player_id));
-                    var playerdiv = document.createElement("div");
-                    playerdiv.innerText = player.firstname + " " + player.lastname;
+                    let playerName = getFullPlayerName(player.player_id);
+
+                    var matchupDiv = document.createElement("div");
+                    var playerDiv = document.createElement("div");
                     var playerimg = createPlayerImage(highestScorer.player_id);
-                    playerdiv.prepend(playerimg);
-                    matchupDiv.id = "rosterid_" + matchup.roster_id;
-                    matchupDiv.setAttribute("class", "custom-matchup-row")
                     var teamImage = createOwnerAvatarImage(user.user_id);
+
+                    playerDiv.innerText = playerName;
+                    playerDiv.setAttribute("class", "custom-matchup-player");
+                    playerDiv.prepend(playerimg);
+                    matchupDiv.id = "rosterid_" + matchup.roster_id;
+                    matchupDiv.setAttribute("class", "custom-matchup-row");
+
                     if(user.metadata.team_name)
                     {
                         matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
@@ -110,7 +115,7 @@ async function loadMatchups(weekNumber) {
                         matchupDiv.innerText = user.display_name; + ": " + matchup.points;
                     }
                     matchupDiv.prepend(teamImage);
-                    matchupDiv.append(playerdiv);
+                    matchupDiv.append(playerDiv);
                     weekList.append(matchupDiv);
                 }
             }
@@ -261,6 +266,19 @@ function highScorerInMatchupStarters(starters, playerPoints){
         let highestScorer = startersPoints[0];
 
         return highestScorer;
+    }
+}
+
+function getFullPlayerName(playerid) {
+    const playerDataStorage = localStorage.getItem("PlayerData")
+    playerData = JSON.parse(playerDataStorage); 
+
+    let player = playerData.players.find(x => x.player_id === parseInt(playerid));
+    let playerName = player.firstname + " " + player.lastname;
+
+    if(playerName)
+    {
+        return playerName;
     }
 }
 
