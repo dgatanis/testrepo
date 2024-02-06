@@ -282,6 +282,17 @@ function getFullPlayerName(playerid) {
     }
 }
 
+function sortByPosition(players) {
+    const playerDataStorage = localStorage.getItem("PlayerData")
+    playerData = JSON.parse(playerDataStorage); 
+    let sortedPlayers = [];
+
+    for(let player of players)
+    {
+        
+    }
+}
+
 
 function createMatchupsList(){
     var matchupDiv = document.getElementById("matchupWeeks");
