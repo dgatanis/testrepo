@@ -391,7 +391,7 @@ function createMatchupListElement(weekNumber) {
 
     var firstListItem = document.createElement("li");
     firstListItem.setAttribute("class", "h4 list-group-item custom-matchup-list-item shadow p-3 mb-5 bg-body rounded");
-    firstListItem.innerText="Matchups";
+    firstListItem.innerText="Matchups and High Scorer";
 
     list.appendChild(firstListItem);
 
