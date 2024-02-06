@@ -10926,11 +10926,17 @@ ul.nav.nav-tabs {
 }
 
 .custom-rankings {
-  float: inline-end;
-  padding-left: 100px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .custom-matchups {
-  float: inline-end;
-  padding-right: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-body {
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
 }
