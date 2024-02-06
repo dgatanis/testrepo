@@ -10840,7 +10840,7 @@ textarea.form-control-lg {
 
 @font-face {
   font-family: F1;
-  src: url("../static/font/Lato-Black.ttf") format('truetype');
+  src: url("../../static/font/Lato-Black.ttf") format('truetype');
   font-weight: bold;
   font-style: normal;
 }
