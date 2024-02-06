@@ -10938,6 +10938,7 @@ ul.nav.nav-tabs {
 .custom-body {
   margin: 1rem;
   padding: 2rem 2rem;
+  overflow: hidden;
 }
 
 .bg-body {
