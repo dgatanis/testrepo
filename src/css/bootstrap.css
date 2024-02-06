@@ -10902,7 +10902,6 @@ ul.nav.nav-tabs {
 }
 
 .custom-section-group-r {
-  display: inline-table;
   width: fit-content;
   max-width: 900px;
   min-width: 70%;
@@ -10930,6 +10929,7 @@ ul.nav.nav-tabs {
   vertical-align: middle;
   float: left;
   width: 40%;
+  text-align: justify;
 }
 
 .custom-matchups {
