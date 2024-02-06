@@ -10837,6 +10837,14 @@ textarea.form-control-lg {
 /*# sourceMappingURL=bootstrap.css.map */
 
 /*****Custom css below*****/
+
+@font-face {
+  font-family: F1;
+  src: url("../static/font/Lato-Black.ttf") format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 .custom-nav{
   color: white;
 }
@@ -10953,17 +10961,15 @@ ul.nav.nav-tabs {
   padding: 10px;
 }
 
-
-@font-face {
-  font-family: F1;
-  src: url("../static/font/Lato-Black.ttf") format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
+/* Custom Mobile responsive display */
 
 @media screen and (max-width: 600px) {
   .custom-matchups {
     clear: left;
     float: left;
+    width: 100%;
+  }
+  .custom-rankings {
+    width: 100%;
   }
 }
