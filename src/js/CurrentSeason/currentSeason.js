@@ -300,8 +300,16 @@ function sortByPosition(players) {
         }
     }
 
-    //return by position
-    return sortedPlayers.sort((a,b) => a.position.localeCompare(b.position));
+    //return sorted by position
+    return sortedPlayers.sort(function (a, b) {
+        if (a.position == "QB" || a.position < b.position && a.position != "K" ) {
+          return -1;
+        }
+        if (a.position == "K" || a.position > b.position) {
+          return 1;
+        }
+        return 0;
+      });
 }
 
 
