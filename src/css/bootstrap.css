@@ -10855,6 +10855,7 @@ a.custom-nav:hover {
 
 .custom-avatar-list-group {
   max-width: 50px;
+  border-radius: 5px;
 }
 
 
