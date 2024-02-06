@@ -100,7 +100,7 @@ async function loadMatchups(weekNumber) {
                     var playerimg = createPlayerImage(highestScorer.player_id);
                     var teamImage = createOwnerAvatarImage(user.user_id);
 
-                    playerDiv.innerText = playerName + " " + playerPoints;
+                    playerDiv.innerText = playerName + ": " + playerPoints;
                     playerDiv.setAttribute("class", "custom-matchup-player");
                     playerDiv.prepend(playerimg);
                     matchupDiv.id = "rosterid_" + matchup.roster_id;

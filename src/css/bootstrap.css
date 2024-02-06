@@ -10945,9 +10945,10 @@ ul.nav.nav-tabs {
 }
 
 .custom-matchup-row {
-  padding: 3px;
+  padding: 10px;
 }
 
 .custom-matchup-player {
   float: right;
+  padding: 10px;
 }
