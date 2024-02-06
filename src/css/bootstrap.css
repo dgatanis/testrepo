@@ -10933,7 +10933,7 @@ ul.nav.nav-tabs {
   display: inline-block;
   width: 40%;
   text-align: justify;
-  clear: left;
+  /*clear: left;*/
 }
 
 .custom-body {
