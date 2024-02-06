@@ -10928,11 +10928,14 @@ ul.nav.nav-tabs {
 .custom-rankings {
   display: inline-block;
   vertical-align: middle;
+  float: left;
+  width: 40%;
 }
 
 .custom-matchups {
   display: inline-block;
   vertical-align: middle;
+  float: right;
 }
 
 .custom-body {
