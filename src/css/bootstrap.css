@@ -10952,3 +10952,10 @@ ul.nav.nav-tabs {
   float: right;
   padding: 10px;
 }
+
+@font-face {
+  font-family: F16;
+  src: url("../static/font/Lato-Black.ttf") format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
