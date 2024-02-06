@@ -106,7 +106,7 @@ async function loadMatchups(weekNumber) {
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
                     matchupDiv.setAttribute("class", "custom-matchup-row");
 
-                    if(user.metadata.team_name)
+                    if(user.metadata.team_name != undefined)
                     {
                         matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
                     }
