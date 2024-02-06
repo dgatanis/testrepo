@@ -10972,4 +10972,8 @@ ul.nav.nav-tabs {
   .custom-rankings {
     width: 100%;
   }
+
+  .custom-body {
+    padding: unset;
+  }
 }
