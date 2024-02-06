@@ -69,6 +69,7 @@ async function loadMatchups(weekNumber) {
     const userDataStorage = localStorage.getItem("UserData")
     userData = JSON.parse(userDataStorage); 
 
+    //Need to change matchups to our league when go live
     const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
@@ -93,7 +94,7 @@ async function loadMatchups(weekNumber) {
                     var teamImage = getOwnerAvatarImage(user.user_id);
                     if(user.metadata.team_name)
                     {
-                        matchupDiv.innerText = user.metadata.team_name;
+                        matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
                     }
                     else
                     {
