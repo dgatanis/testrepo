@@ -10960,3 +10960,10 @@ ul.nav.nav-tabs {
   font-weight: bold;
   font-style: normal;
 }
+
+@media screen and (max-width: 600px) {
+  .custom-matchups {
+    visibility: hidden;
+    display: none;
+  }
+}
