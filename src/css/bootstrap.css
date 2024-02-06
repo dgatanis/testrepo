@@ -10945,3 +10945,7 @@ ul.nav.nav-tabs {
   background: linear-gradient(0.25turn, #373737, #7b7a7a, #353535);
   color: whitesmoke;
 }
+
+.custom-matchup-row {
+  padding: 3px;
+}

@@ -91,6 +91,7 @@ async function loadMatchups(weekNumber) {
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
+                    matchupDiv.setAttribute("class", "custom-matchup-row")
                     var teamImage = createOwnerAvatarImage(user.user_id);
                     if(user.metadata.team_name)
                     {
