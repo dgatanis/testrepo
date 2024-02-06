@@ -162,7 +162,8 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     {
       if(roster.owner_id==userid)
       {
-        for(let players of roster.players)
+        let sortedPlayers = sortByPosition(roster.players);
+        for(let players of sortedPlayers)
         {
             if(localStorage.getItem("PlayerData"))
             {
@@ -289,8 +290,20 @@ function sortByPosition(players) {
 
     for(let player of players)
     {
-        
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        if(thisPlayer)
+        {
+            
+            sortedPlayers.push ({
+                "player_id": thisPlayer.player_id,
+                "position": thisPlayer.position
+            });
+
+        }
     }
+
+    //return by position
+    return sortedPlayers.sort((a,b) => a.position.localeCompare(b.position));
 }
 
 
