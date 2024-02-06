@@ -10963,7 +10963,7 @@ ul.nav.nav-tabs {
 
 @media screen and (max-width: 600px) {
   .custom-matchups {
-    visibility: hidden;
-    display: none;
+    clear: left;
+    float: left;
   }
 }
