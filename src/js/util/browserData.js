@@ -67,7 +67,7 @@ async function getPlayers() {
         if(data[i])
         {
             myPlayerMap.players.push({
-                "player_id": data[i].player_id,
+                "player_id": i,
                 "position": data[i].position,
                 "firstname": data[i].first_name,
                 "lastname": data[i].last_name
