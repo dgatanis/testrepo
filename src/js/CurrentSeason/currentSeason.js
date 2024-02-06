@@ -174,9 +174,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
                 if(player)
                 {
                     let playerName = player.firstname + " " + player.lastname;
-                    var playerimg = document.createElement("img");
-                    playerimg.setAttribute("src", "https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg");
-                    playerimg.setAttribute('class', "custom-avatar-list-group");
+                    var playerimg = createPlayerImage(player.player_id);
                     var tr = document.createElement("tr");
                     var th = document.createElement("th");
                     th.innerText=player.position;
