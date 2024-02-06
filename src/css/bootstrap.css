@@ -10933,13 +10933,12 @@ ul.nav.nav-tabs {
   display: inline-block;
   width: 40%;
   text-align: justify;
-  clear: inline-end;
+  clear: right;
 }
 
 .custom-body {
   margin: 1rem;
   padding: 2rem 2rem;
-  overflow: hidden;
 }
 
 .bg-body {
