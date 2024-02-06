@@ -93,7 +93,7 @@ async function loadMatchups(weekNumber) {
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
                     let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
-                    let player = playerData.players.find(x => x.player_id === highestScorer.player_id);
+                    let player = playerData.players.find(x => x.player_id === parseInt(highestScorer.player_id));
                     var playerdiv = document.createElement("div");
                     playerdiv.innerText = player.firstname + " " + player.lastname;
                     var playerimg = createPlayerImage(highestScorer.player_id);
