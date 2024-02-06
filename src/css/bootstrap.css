@@ -46,7 +46,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: F16;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -10957,11 +10957,5 @@ ul.nav.nav-tabs {
   font-family: F16;
   src: url("../static/font/Lato-Black.ttf") format('truetype');
   font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: F16;
-  src: url("../static/font/Lato-Black.ttf") format('truetype');
   font-style: normal;
 }
