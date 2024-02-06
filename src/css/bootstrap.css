@@ -10940,3 +10940,8 @@ ul.nav.nav-tabs {
   margin: 1rem;
   padding: 2rem 2rem;
 }
+
+.bg-body {
+  background: linear-gradient(0.25turn, #373737, #7b7a7a, #353535);
+  color: whitesmoke;
+}
