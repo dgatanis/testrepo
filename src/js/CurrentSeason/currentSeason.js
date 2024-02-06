@@ -68,6 +68,8 @@ async function loadMatchups(weekNumber) {
     rosterData = JSON.parse(rosterDataStorage); 
     const userDataStorage = localStorage.getItem("UserData")
     userData = JSON.parse(userDataStorage); 
+    const playerDataStorage = localStorage.getItem("UserData")
+    playerData = JSON.parse(playerDataStorage); 
 
     //Need to change matchups to our league when go live
     const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
@@ -90,6 +92,12 @@ async function loadMatchups(weekNumber) {
                     var matchupDiv = document.createElement("div");
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
+                    let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
+                    let player = playerData.find(x => x.player_id === highestScorer.player_id);
+                    var playerdiv = document.createElement("div");
+                    playerdiv.innerText = player.firstname + " " + player.lastname;
+                    var playerimg = createPlayerImage(highestScorer.player_id);
+                    playerdiv.prepend(playerimg);
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
                     matchupDiv.setAttribute("class", "custom-matchup-row")
                     var teamImage = createOwnerAvatarImage(user.user_id);
@@ -102,6 +110,7 @@ async function loadMatchups(weekNumber) {
                         matchupDiv.innerText = user.display_name; + ": " + matchup.points;
                     }
                     matchupDiv.prepend(teamImage);
+                    matchupDiv.append(playerdiv);
                     weekList.append(matchupDiv);
                 }
             }
@@ -230,8 +239,29 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
     }
 }
 
-function highestScorersInMatchup(){
+function highScorerInMatchupStarters(starters, playerPoints){
 
+    let startersPoints = [];
+
+    for(let starter of starters)
+    {
+        if(playerPoints[starter])
+        {
+            startersPoints.push({
+                "player_id": starter,
+                "points" : playerPoints[starter]
+            });
+        }
+    }
+
+    if(startersPoints)
+    {
+        startersPoints.sort((a, b) => b.points - a.points);
+
+        let highestScorer = startersPoints[0];
+
+        return highestScorer;
+    }
 }
 
 
@@ -285,7 +315,7 @@ function createOwnerAvatarImage(userId) {
     const dataStorage = localStorage.getItem("UserData")
     userData = JSON.parse(dataStorage);
 
-    let user = userData.find(x => x.user_id ===userId);
+    let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
     
     if(avatarURL)
@@ -305,7 +335,7 @@ function createOwnerAvatarImage(userId) {
     return img;
 }
 
-function createPlayerNameImage(playerId) {
+function createPlayerImage(playerId) {
     let playerDataStorage = localStorage.getItem("PlayerData");
     let playerData = JSON.parse(playerDataStorage);
     let player = playerData.players.find(e => e.player_id === parseInt(playerId));
