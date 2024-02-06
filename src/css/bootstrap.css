@@ -10936,6 +10936,8 @@ ul.nav.nav-tabs {
   display: inline-block;
   vertical-align: middle;
   float: right;
+  width: 40%;
+  text-align: justify;
 }
 
 .custom-body {
