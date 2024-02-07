@@ -31,11 +31,12 @@ function getTeamNamesForLeague(leagueId) {
     for(let team of sortedTeams)
     {
         let user = userData.find(x => x.user_id === team.owner_id);
+        var ownerImage = createOwnerAvatarImage(user.user_id);
         var powerRankingElementId = "PowerRanking_"+powerRank;
         var rosterButtonId = "GetRosterButton_"+powerRank;
         var powerRanking = document.getElementById(powerRankingElementId);
         var rosterButton = document.getElementById(rosterButtonId);
-
+        powerRanking.append(ownerImage);
         if(user.metadata.team_name != undefined)
         {
             powerRanking.append(user.metadata.team_name);
@@ -187,6 +188,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     }
 }
 
+/*
 async function getOwnerAvatarForLeague(leagueId,userid=-1) { 
     const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
     const usersData = await usersResponse.json();
@@ -237,7 +239,7 @@ async function getOwnerAvatarForLeague(leagueId,userid=-1) {
         }
     }
 }
-
+*/
 function highScorerInMatchupStarters(starters, playerPoints){
 
     let startersPoints = [];
