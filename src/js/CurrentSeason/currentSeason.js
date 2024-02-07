@@ -134,6 +134,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
+    var rosterBody = document.getElementById("ModalRosterBody");
     
     //show table and set team name
     modalRosterTeamName.innerText = teamname;
@@ -154,7 +155,8 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
             var record = getTeamRecord(roster.owner_id);
             var teamRecord = document.createElement("div");
             teamRecord.innerText = "Wins:" + teamRecord.wins + " Losses:" + teamRecord.losses + " Pts:" + teamRecord.fpts;
-            tablebody.append(teamRecord);
+            teamRecord.setAttribute("color", "white");
+            rosterBody.append(teamRecord);
             let sortedPlayers = sortByPosition(roster.players);
             for(let players of sortedPlayers)
             {
