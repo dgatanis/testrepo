@@ -329,7 +329,7 @@ function sortTeamRankings() {
               return 1;
             }
             return 0;
-          });
+        });
     }
 
 }
@@ -338,8 +338,21 @@ function getTeamRecord(rosterid) {
     const rosterDataStorage = localStorage.getItem("RosterData");
     rosterData = JSON.parse(rosterDataStorage);
 
-    rosterData.find(x => x.roster_id === parseInt(rosterid));
+    let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
+    const teamRecord = [];
 
+    if (roster)
+    {
+        teamRecord.push({
+            "owner_id": roster.owner_id,
+            "wins": roster.settings.wins,
+            "losses": roster.settings.losses,
+            "ties": roster.settings.ties,
+            "fpts": roster.settings.fpts
+        });
+    }
+
+    return console.log(teamRecord);
 }
 
 //HTML Create/edit elements functions below
