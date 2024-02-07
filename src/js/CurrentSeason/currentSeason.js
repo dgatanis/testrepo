@@ -19,48 +19,37 @@ async function loadConstants() {
 
 }
 
-async function getTeamNamesForLeague(leagueId,userid=-1) { 
-    const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
-    const usersData = await usersResponse.json();
-    if(userid==-1)
-    {
-        const users = usersData.map((user) => user);
-        var powerRank = 1;
-        for (let user of users)
-        {
-            var powerRankingElementId = "PowerRanking_"+powerRank;
-            var rosterButtonId = "GetRosterButton_"+powerRank;
-            var powerRanking = document.getElementById(powerRankingElementId);
-            var rosterButton = document.getElementById(rosterButtonId);
+async function getTeamNamesForLeague(leagueId) { 
+    const userDataStorage = localStorage.getItem("UserData");
+    userData = JSON.parse(userDataStorage);
 
-            if(user.metadata.team_name != undefined)
-            {
-                powerRanking.append(user.metadata.team_name);
-                rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.metadata.team_name + "')");
-            }
-            else
-            {
-                powerRanking.append(user.display_name);
-                rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.display_name + "')");
-            }
-            rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
-            powerRank++;
-        }
-    }
-    else
-    {
-        const users = usersData.map((user) => user);
-        
-        for (let user of users)
-        {
-            if(user.user_id==userid)
-            {
-                var powerRanking = document.getElementById("PowerRanking_1");
-                powerRanking.innerHTML=user.metadata.team_name
-            }
-        }
-    }
+
+    const users = usersData.map((user) => user);
+    var powerRank = 1;
+    const sortedTeams = sortTeamRankings();
     
+    for(let team of sortedTeams)
+    {
+        let user = userData.find(x => x.user_id === team.owner_id);
+        var powerRankingElementId = "PowerRanking_"+powerRank;
+        var rosterButtonId = "GetRosterButton_"+powerRank;
+        var powerRanking = document.getElementById(powerRankingElementId);
+        var rosterButton = document.getElementById(rosterButtonId);
+
+        if(user.metadata.team_name != undefined)
+        {
+            powerRanking.append(user.metadata.team_name);
+            rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.metadata.team_name + "')");
+        }
+        else
+        {
+            powerRanking.append(user.display_name);
+            rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.display_name + "')");
+        }
+        rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
+        powerRank++;
+        
+    }
 }
 
 async function loadMatchups(weekNumber) {
@@ -312,6 +301,48 @@ function sortByPosition(players) {
       });
 }
 
+function sortTeamRankings() {
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    rosterData = JSON.parse(rosterDataStorage);
+
+    const rosters = rosterData.map((x) => x);
+    const sortedList = [];
+
+    for(let roster of rosters)
+    {
+        sortedList.push({
+            "owner_id": roster.owner_id,
+            "wins": roster.settings.wins,
+            "losses": roster.settings.losses,
+            "ties": roster.settings.ties,
+            "fpts": roster.settings.fpts
+        });
+    }
+
+    if(sortedList)
+    {
+        return sortedList.sort(function (a, b) {
+            if (a.wins > b.wins) {
+              return -1;
+            }
+            if (a.wins < b.wins && a.fpts < b.fpts) {
+              return 1;
+            }
+            return 0;
+          });
+    }
+
+}
+
+function getTeamRecord(rosterid) {
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    rosterData = JSON.parse(rosterDataStorage);
+
+    rosterData.find(x => x.roster_id === parseInt(rosterid));
+
+}
+
+//HTML Create/edit elements functions below
 
 function createMatchupsList(){
     var matchupDiv = document.getElementById("matchupWeeks");
@@ -321,8 +352,6 @@ function createMatchupsList(){
         matchupDiv.appendChild(accordionItem);
     }
 }
-
-//HTML Create/edit elements functions below
 
 function createAccordionItem(weekNumber) {
     var headerId = "weekHeader_" + weekNumber;
