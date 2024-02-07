@@ -300,27 +300,14 @@ function getTeamRecord(rosterid) {
 
     if (roster)
     {
-        if(roster.fpts == undefined || roster.fpts == "0")
-        {
-            teamRecord.push({
-                "owner_id": roster.owner_id,
-                "wins": 0,
-                "losses": 0,
-                "ties": 0,
-                "fpts": 0
-            });
-        }
-        else
-        {
-            teamRecord.push({
-                "owner_id": roster.owner_id,
-                "wins": roster.settings.wins,
-                "losses": roster.settings.losses,
-                "ties": roster.settings.ties,
-                "fpts": roster.settings.fpts
-            });
-        }
-
+        teamRecord.push({
+            "owner_id": roster.owner_id,
+            "wins": roster.settings.wins,
+            "losses": roster.settings.losses,
+            "ties": roster.settings.ties,
+            "fpts": roster.settings.fpts
+        });
+    
     }
 
     return teamRecord;
