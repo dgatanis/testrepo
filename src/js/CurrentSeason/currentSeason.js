@@ -149,35 +149,39 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     //Loop through each roster of team and display player data for selected team
     for(let roster of teams) 
     {
-      if(roster.owner_id==userid)
-      {
-        let sortedPlayers = sortByPosition(roster.players);
-        for(let players of sortedPlayers)
+        if(roster.owner_id==userid)
         {
-            if(localStorage.getItem("PlayerData"))
+            var record = getTeamRecord(roster.owner_id);
+            var teamRecord = document.createElement("div");
+            teamRecord.innerText = "Wins:" + teamRecord.wins + " Losses:" + teamRecord.losses + " Pts:" + teamRecord.fpts;
+            tablebody.append(teamRecord);
+            let sortedPlayers = sortByPosition(roster.players);
+            for(let players of sortedPlayers)
             {
-                let playerDataStorage = localStorage.getItem("PlayerData");
-                let playerData = JSON.parse(playerDataStorage);
-                let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
-
-                if(player)
+                if(localStorage.getItem("PlayerData"))
                 {
-                    let playerName = player.firstname + " " + player.lastname;
-                    var playerimg = createPlayerImage(player.player_id);
-                    var tr = document.createElement("tr");
-                    var th = document.createElement("th");
-                    th.innerText=player.position;
-                    th.setAttribute('scope', 'row');
-                    tr.appendChild(th);
-                    var td = document.createElement("td");
-                    td.innerText=playerName;
-                    td.prepend(playerimg);
-                    tr.appendChild(td);
-                    tablebody.append(tr);
+                    let playerDataStorage = localStorage.getItem("PlayerData");
+                    let playerData = JSON.parse(playerDataStorage);
+                    let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+
+                    if(player)
+                    {
+                        let playerName = player.firstname + " " + player.lastname;
+                        var playerimg = createPlayerImage(player.player_id);
+                        var tr = document.createElement("tr");
+                        var th = document.createElement("th");
+                        th.innerText=player.position;
+                        th.setAttribute('scope', 'row');
+                        tr.appendChild(th);
+                        var td = document.createElement("td");
+                        td.innerText=playerName;
+                        td.prepend(playerimg);
+                        tr.appendChild(td);
+                        tablebody.append(tr);
+                    }
                 }
             }
         }
-      }
     }
 }
 
