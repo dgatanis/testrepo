@@ -294,7 +294,8 @@ function getTeamRecord(rosterid) {
     const rosterDataStorage = localStorage.getItem("RosterData");
     rosterData = JSON.parse(rosterDataStorage);
 
-    let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
+    const rosters = rosterData.map((x) => x);
+    let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
     const teamRecord = [];
 
     if (roster)
