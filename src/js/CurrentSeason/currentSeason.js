@@ -152,7 +152,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     {
         if(roster.owner_id==userid)
         {
-            var record = getTeamRecord(roster.owner_id);
+            var record = getTeamRecord(roster.roster_id);
             var teamRecord = document.createElement("div");
             teamRecord.innerText = "Wins:" + teamRecord.wins + " Losses:" + teamRecord.losses + " Pts:" + teamRecord.fpts;
             teamRecord.setAttribute("color", "black");
