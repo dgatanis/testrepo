@@ -19,12 +19,12 @@ async function loadConstants() {
 
 }
 
-async function getTeamNamesForLeague(leagueId) { 
+function getTeamNamesForLeague(leagueId) { 
     const userDataStorage = localStorage.getItem("UserData");
     userData = JSON.parse(userDataStorage);
 
 
-    const users = usersData.map((user) => user);
+    const users = userData.map((user) => user);
     var powerRank = 1;
     const sortedTeams = sortTeamRankings();
     
