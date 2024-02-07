@@ -302,7 +302,7 @@ function sortByPosition(players) {
 
     //return sorted by position
     return sortedPlayers.sort(function (a, b) {
-        if (a.position == "QB" || a.position < b.position && a.position != "K" ) {
+        if (a.position == "QB" || (b.position == "K" || b.position == "DEF") || a.position < b.position && a.position != "K" ) {
           return -1;
         }
         if (a.position == "K" || a.position > b.position) {
