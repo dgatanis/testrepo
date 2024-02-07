@@ -5,9 +5,8 @@ async function loadConstants() {
 
         leagueInfoLeagueId.then((currentLeagueId) => {
             
-            getTeamNamesForLeague(currentLeagueId);
-            //getOwnerAvatarForLeague(currentLeagueId);
-            createMatchupsList();
+            loadSeasonRankings(currentLeagueId);
+            loadMatchupsList();
 
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
@@ -19,7 +18,7 @@ async function loadConstants() {
 
 }
 
-function getTeamNamesForLeague(leagueId) { 
+function loadSeasonRankings(leagueId) { 
     const userDataStorage = localStorage.getItem("UserData");
     userData = JSON.parse(userDataStorage);
 
@@ -102,7 +101,7 @@ async function loadMatchups(weekNumber) {
                     }
                     else
                     {
-                        matchupDiv.innerText = user.display_name; + ": " + matchup.points;
+                        matchupDiv.innerText = user.display_name + ": " + matchup.points;
                     }
                     matchupDiv.prepend(teamImage);
                     matchupDiv.append(playerDiv);
@@ -188,58 +187,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     }
 }
 
-/*
-async function getOwnerAvatarForLeague(leagueId,userid=-1) { 
-    const usersResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`);
-    const usersData = await usersResponse.json();
 
-    if(userid==-1)
-    {    
-        const users = usersData.map((user) => user);
-        var powerRank = 1;
-        for (let user of users)
-        {
-            var powerRankingElementId = "PowerRanking_" + powerRank;
-            var powerRanking = document.getElementById(powerRankingElementId);
-            const avatarURL = user.metadata.avatar;
-            if(avatarURL)
-            {
-                var img = document.createElement("img");
-                img.setAttribute('src', avatarURL);
-                img.setAttribute('class', "custom-avatar-list-group");
-                img.setAttribute('id', user.user_id);
-                powerRanking.prepend(img);
-            }
-            else
-            {
-                var img = document.createElement("img");
-                img.setAttribute('src', '../src/static/images/trashcan.jpg');
-                img.setAttribute('class', "custom-avatar-list-group");
-                img.setAttribute('id', user.user_id);
-                powerRanking.prepend(img);
-            }
-            powerRank++;
-        }
-    }
-    else
-    {
-        const users = usersData.map((user) => user);
-        for (let user of users)
-        {
-            if(user.user_id==userid)
-            {
-                var powerRanking = document.getElementById("PowerRanking_1");
-                const avatarURL = user.metadata.avatar;
-                var img = document.createElement("img");
-                img.setAttribute('src', avatarURL);
-                img.setAttribute('class', "custom-avatar-list-group");
-                powerRanking.prepend(img);
-            }
-
-        }
-    }
-}
-*/
 function highScorerInMatchupStarters(starters, playerPoints){
 
     let startersPoints = [];
@@ -365,7 +313,7 @@ function getTeamRecord(rosterid) {
 
 //HTML Create/edit elements functions below
 
-function createMatchupsList(){
+function loadMatchupsList(){
     var matchupDiv = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
     {
