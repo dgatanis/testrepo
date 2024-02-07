@@ -305,7 +305,7 @@ function sortByPosition(players) {
         if (a.position == "QB" || (b.position == "K" || b.position == "DEF") || a.position < b.position && a.position != "K" ) {
           return -1;
         }
-        if (a.position == "K" || a.position > b.position) {
+        if (a.position > b.position) {
           return 1;
         }
         return 0;
