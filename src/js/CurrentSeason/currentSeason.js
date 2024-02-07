@@ -308,7 +308,7 @@ function getTeamRecord(rosterid) {
         });
     }
 
-    return console.log(teamRecord);
+    return teamRecord;
 }
 
 //HTML Create/edit elements functions below
