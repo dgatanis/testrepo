@@ -6,7 +6,7 @@ async function loadConstants() {
         leagueInfoLeagueId.then((currentLeagueId) => {
             
             getTeamNamesForLeague(currentLeagueId);
-            getOwnerAvatarForLeague(currentLeagueId);
+            //getOwnerAvatarForLeague(currentLeagueId);
             createMatchupsList();
 
         }).catch((error) => {
