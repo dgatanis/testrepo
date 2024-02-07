@@ -155,8 +155,8 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
             var record = getTeamRecord(roster.owner_id);
             var teamRecord = document.createElement("div");
             teamRecord.innerText = "Wins:" + teamRecord.wins + " Losses:" + teamRecord.losses + " Pts:" + teamRecord.fpts;
-            teamRecord.setAttribute("color", "white");
-            rosterBody.append(teamRecord);
+            teamRecord.setAttribute("color", "black");
+            rosterBody.appendChild(teamRecord);
             let sortedPlayers = sortByPosition(roster.players);
             for(let players of sortedPlayers)
             {
