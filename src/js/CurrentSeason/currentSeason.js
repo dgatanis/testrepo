@@ -156,16 +156,20 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
                     if(player)
                     {
                         let playerName = player.firstname + " " + player.lastname;
+                        let playerTeam = player.team;
                         var playerimg = createPlayerImage(player.player_id);
                         var tr = document.createElement("tr");
                         var th = document.createElement("th");
                         th.innerText=player.position;
                         th.setAttribute('scope', 'row');
                         tr.appendChild(th);
-                        var td = document.createElement("td");
-                        td.innerText=playerName;
-                        td.prepend(playerimg);
-                        tr.appendChild(td);
+                        var nameOfPlayer = document.createElement("td");
+                        nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                        nameOfPlayer.prepend(playerimg);
+                        tr.appendChild(nameOfPlayer);
+                        var yrsExp = document.createElement("td");
+                        yrsExp.innerText=player.age;
+                        tr.appendChild(yrsExp);
                         tablebody.append(tr);
                     }
                 }

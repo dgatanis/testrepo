@@ -77,13 +77,19 @@ async function getPlayers() {
         {
            if(data[i] && playerPositions.includes(data[i].position))
            {
+                let playerTeam = data[1].team;
+                
+                if(playerTeam === null)
+                {
+                    playerTeam = "FA";
+                }
                 myPlayerMap.players.push({
                     "player_id": parseInt(data[i].player_id),
                     "position": data[i].position,
                     "firstname": data[i].first_name,
                     "lastname": data[i].last_name,
                     "age": data[i].age,
-                    "team": data[i].team
+                    "team": playerTeam
                 });  
            }
         }
