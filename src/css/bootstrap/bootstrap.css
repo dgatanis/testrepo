@@ -11011,6 +11011,7 @@ ul.nav.nav-tabs {
   }
   .custom-body {
     padding: unset;
+    letter-spacing: 0px;
   }
   .custom-matchup-player {
     float: left;
