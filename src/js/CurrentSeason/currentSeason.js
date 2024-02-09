@@ -1,21 +1,25 @@
-
+var counter = 0;
 async function loadConstants() {
+    while(counter <= 2)
+    {
+        counter++;
+        const leagueInfo = await import('../util/leagueInfo.js');
+        var leagueInfoLeagueId = leagueInfo.default();
 
-    const leagueInfo = await import('../util/leagueInfo.js');
-    var leagueInfoLeagueId = leagueInfo.default();
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            
+            loadSeasonRankings(currentLeagueId);
+            loadMatchupsList();
+            if(counter == 0 || counter >=1)
+            {
+               return
+            }
 
-    leagueInfoLeagueId.then((currentLeagueId) => {
-        
-        loadSeasonRankings(currentLeagueId);
-        loadMatchupsList();
-        if(counter == 0 || counter >=1)
-        {
-            return
-        }
-
-    }).catch((error) => {
-        console.error(`Error: ${error.message}`);
-    });
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+        });
+    }
+    return
 }
 
 function loadSeasonRankings(leagueId) { 
