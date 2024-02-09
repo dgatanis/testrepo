@@ -36,6 +36,7 @@ function loadSeasonRankings(leagueId) {
         var powerRanking = document.getElementById(powerRankingElementId);
         var rosterButton = document.getElementById(rosterButtonId);
         powerRanking.append(ownerImage);
+
         if(user.metadata.team_name != undefined)
         {
             powerRanking.append(user.metadata.team_name);
@@ -46,6 +47,7 @@ function loadSeasonRankings(leagueId) {
             powerRanking.append(user.display_name);
             rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.display_name + "')");
         }
+        
         rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
         powerRank++;
         
