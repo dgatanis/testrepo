@@ -366,14 +366,14 @@ function createOwnerAvatarImage(userId) {
     {
         var img = document.createElement("img");
         img.setAttribute('src', avatarURL);
-        img.setAttribute('class', "custom-avatar-list-group");
+        img.setAttribute('class', "custom-user-avatar");
         img.setAttribute('id', user.user_id);
     }
     else
     {
         var img = document.createElement("img");
         img.setAttribute('src', '../src/static/images/trashcan.jpg');
-        img.setAttribute('class', "custom-avatar-list-group");
+        img.setAttribute('class', "custom-user-avatar");
         img.setAttribute('id', user.user_id);
     }
     return img;
@@ -389,7 +389,7 @@ function createPlayerImage(playerId) {
         let playerName = player.firstname + " " + player.lastname;
         var playerimg = document.createElement("img");
         playerimg.setAttribute("src", "https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg");
-        playerimg.setAttribute('class', "custom-avatar-list-group");
+        //playerimg.setAttribute('class', "custom-user-avatar");
 
         return playerimg;
     }

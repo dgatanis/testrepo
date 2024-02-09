@@ -10862,9 +10862,10 @@ a.custom-nav:hover {
   text-align: justify;
 }
 
-.custom-avatar-list-group {
+.custom-user-avatar {
   max-width: 50px;
   border-radius: 5px;
+  margin-right: .5rem;
 }
 
 
