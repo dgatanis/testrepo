@@ -10960,6 +10960,11 @@ ul.nav.nav-tabs {
   float: right;
   padding: 10px;
 }
+.custom-footer {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+}
 
 /* Custom Mobile responsive display */
 
