@@ -10859,6 +10859,7 @@ a.custom-nav:hover {
 
 .custom-list-group {
   max-width: 800px;
+  text-align: justify;
 }
 
 .custom-avatar-list-group {
