@@ -7423,7 +7423,7 @@ textarea.form-control-lg {
 }
 
 .bg-body {
-  background-color: #fff !important;
+  background-color: #c36300 !important;
 }
 
 .bg-white {
@@ -10948,7 +10948,6 @@ ul.nav.nav-tabs {
 }
 
 .bg-body {
-  background: linear-gradient(0.25turn, #af5900, #434343, #000000);
   color: whitesmoke;
 }
 
