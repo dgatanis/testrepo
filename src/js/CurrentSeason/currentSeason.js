@@ -10,7 +10,7 @@ async function loadConstants() {
             
             loadSeasonRankings(currentLeagueId);
             loadMatchupsList();
-            if(i == 0 || i >=1)
+            if(counter == 0 || counter >=1)
             {
                return
             }
