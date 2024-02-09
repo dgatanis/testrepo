@@ -10915,6 +10915,9 @@ ul.nav.nav-tabs {
   min-width: 70%;
 }
 
+.custom-matchup-week {
+  background-color: #e2e3e5;
+}
 
 .custom-matchup-week:not(.collapsed) {
   color: white;
