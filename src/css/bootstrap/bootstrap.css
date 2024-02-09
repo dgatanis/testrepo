@@ -11009,14 +11009,15 @@ ul.nav.nav-tabs {
   .custom-matchup-list {
     font-size: .7rem;
   }
-  .body {
-    letter-spacing: -.2rem;
-  }
+
   .custom-body {
     padding: unset;
-    //letter-spacing: -.2rem;
   }
   .custom-matchup-player {
     float: left;
+  }
+
+  table#RosterTable {
+    font-size: .8rem;
   }
 }
