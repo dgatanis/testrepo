@@ -72,21 +72,16 @@ async function getPlayers() {
 
         for(let i=1; i<players.length; i++)
         {
-            if(data[i])
-            {
-                myPlayerMap.players.push({
-                    "player_id": i,
-                    "position": data[i].position,
-                    "firstname": data[i].first_name,
-                    "lastname": data[i].last_name,
-                    "age": data[i].age,
-                    "team": data[i].team
-                });     
-            }
-            else
-            {
-                console.log(i);
-            }
+           
+            myPlayerMap.players.push({
+                "player_id": i,
+                "position": data[i].position,
+                "firstname": data[i].first_name,
+                "lastname": data[i].last_name,
+                "age": data[i].age,
+                "team": data[i].team
+            });     
+
         }
 
         localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
