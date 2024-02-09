@@ -10919,6 +10919,10 @@ ul.nav.nav-tabs {
   background-color: #e2e3e5;
 }
 
+.custom-matchup-week:hover {
+  background-color: #c36300;
+}
+
 .custom-matchup-week:not(.collapsed) {
   color: white;
   background-color: #c36300;
