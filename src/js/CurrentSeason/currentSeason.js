@@ -12,7 +12,7 @@ async function loadConstants() {
             loadMatchupsList();
             if(i == 0 || i >=1)
             {
-                break;
+               return
             }
 
         }).catch((error) => {
