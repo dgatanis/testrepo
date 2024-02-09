@@ -10971,7 +10971,7 @@ ul.nav.nav-tabs {
 }
 
 .custom-div-shadow {
-  box-shadow: 0 0.5rem 1.5rem 0 #537fab;
+  box-shadow: 0 0.5rem 1.5rem 0 black;
   border-radius: 10px;
 }
 
