@@ -71,7 +71,7 @@ async function getPlayers() {
         const players = Object.keys(data);
         const playerPositions = ["QB", "RB", "WR", "TE", "K"];
 
-        for(let i=1; i<players.length; i++)
+        for(let i=0; i<players.length; i++)
         {
            if(data[i] && playerPositions.includes(data[i].position))
            {
