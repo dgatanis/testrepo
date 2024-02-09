@@ -11012,4 +11012,7 @@ ul.nav.nav-tabs {
   .custom-body {
     padding: unset;
   }
+  .custom-matchup-player {
+    float: left;
+  }
 }
