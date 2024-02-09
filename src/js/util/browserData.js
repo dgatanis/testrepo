@@ -70,10 +70,10 @@ async function getPlayers() {
         };
         const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
         const data = await res.json();
-        const players = Object.keys(data);
+        let maxId = parseInt(Object.keys(data).sort((a, b) => b - a)); //organize by Id;
         const playerPositions = ["QB", "RB", "WR", "TE", "K"];
 
-        for(let i=0; i<players.length; i++)
+        for(let i=0; i<maxId; i++)
         {
            if(data[i] && playerPositions.includes(data[i].position))
            {
