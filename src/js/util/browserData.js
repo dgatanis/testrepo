@@ -68,6 +68,7 @@ async function getPlayers() {
         };
         const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
         const data = await res.json();
+        const players = Object.keys(data);
         const playerPositions = ["QB", "RB", "WR", "TE", "K"];
 
         for(let i=1; i<players.length; i++)

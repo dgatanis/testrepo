@@ -8,10 +8,6 @@ async function loadConstants() {
         
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
-        if(counter == 0 || counter >=1)
-        {
-            return
-        }
 
     }).catch((error) => {
         console.error(`Error: ${error.message}`);
