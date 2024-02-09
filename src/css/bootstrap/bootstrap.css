@@ -10914,6 +10914,7 @@ ul.nav.nav-tabs {
   min-width: 70%;
 }
 
+
 .custom-matchup-week:not(.collapsed) {
   color: white;
   background-color: #c36300;
@@ -10924,6 +10925,7 @@ ul.nav.nav-tabs {
   background-color: #b9b9b95e;
   border-radius: 8px;
   padding: 10px;
+  text-align: justify;
 }
 
 .custom-matchup-list-item {
@@ -10967,6 +10969,7 @@ ul.nav.nav-tabs {
 
 .custom-div-shadow {
   box-shadow: 0 0.5rem 1.5rem 0 #537fab;
+  border-radius: 10px;
 }
 /* Custom Mobile responsive display */
 
