@@ -10976,13 +10976,13 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, #537fab, #e2e3e5f2);
+  background: linear-gradient(180deg, #537fab, #537fabb5);
   height: 3rem;
 }
 
 .custom-footer {
   text-align: center;
-  color: black;
+  color: whitesmoke;
 }
 
 /* Custom Mobile responsive display */
