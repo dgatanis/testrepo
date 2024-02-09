@@ -77,8 +77,8 @@ async function getPlayers() {
         {
            if(data[i] && playerPositions.includes(data[i].position))
            {
-                let playerTeam = data[1].team;
-                
+                let playerTeam = data[i].team;
+
                 if(playerTeam === null)
                 {
                     playerTeam = "FA";
