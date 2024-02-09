@@ -3,23 +3,18 @@ async function loadConstants() {
     while(counter <= 2)
     {
         counter++;
-        try {
-            const leagueInfo = await import('../util/leagueInfo.js');
-            var leagueInfoLeagueId = leagueInfo.default();
+        const leagueInfo = await import('../util/leagueInfo.js');
+        var leagueInfoLeagueId = leagueInfo.default();
 
-            leagueInfoLeagueId.then((currentLeagueId) => {
-                
-                loadSeasonRankings(currentLeagueId);
-                loadMatchupsList();
-                return
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            
+            loadSeasonRankings(currentLeagueId);
+            loadMatchupsList();
+            return
 
-            }).catch((error) => {
-                console.error(`Error: ${error.message}`);
-            });
-        }
-        catch (error) {
-            console.log(error);
-        }
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+        });
     }
 }
 
