@@ -11,8 +11,10 @@ async function loadConstants() {
     var leagueInfoLeagueId = leagueInfo.default();
 
     leagueInfoLeagueId.then((currentLeagueId) => {
-        loadSeasonRankings(currentLeagueId);
-        loadMatchupsList();
+        setTimeout(() => {
+            loadSeasonRankings(currentLeagueId);
+            loadMatchupsList();
+          }, 1);
     }).catch((error) => {
         //setTimeout(loadConstants(),1000);
         console.error(`Error: ${error.message}`);
