@@ -385,7 +385,7 @@ function createPlayerImage(playerId) {
 
     if(player)
     {
-        let playerName = player.firstname + " " + player.lastname;
+        let playerName = player.firstname.toString().trim() + " " + player.lastname;
         var playerimg = document.createElement("img");
         playerimg.setAttribute("src", "https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg");
         playerimg.setAttribute('class', "custom-player-avatar");
