@@ -10969,11 +10969,6 @@ ul.nav.nav-tabs {
   float: right;
   padding: 10px;
 }
-.custom-footer {
-  position:fixed;
-  bottom: 0;
-  left: 0;
-}
 
 .custom-div-shadow {
   box-shadow: 0 0.5rem 1.5rem 0 #537fab;
@@ -10984,6 +10979,7 @@ ul.nav.nav-tabs {
   background-color: #537fab;
   height: 3rem;
 }
+
 .custom-footer {
   text-align: center;
   color: whitesmoke;
