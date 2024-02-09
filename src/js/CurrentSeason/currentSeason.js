@@ -1,3 +1,6 @@
+var testDataStorage = localStorage.getItem("RosterData");
+var testRosterData = JSON.parse(rosterDataStorage);
+
 async function loadConstants() {
 
     const leagueInfo = await import('../util/leagueInfo.js');
@@ -7,7 +10,7 @@ async function loadConstants() {
         
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
-
+        rosterStats("1");
     }).catch((error) => {
         console.error(`Error: ${error.message}`);
     });
@@ -305,7 +308,7 @@ function getTeamRecord(rosterid) {
 }
 
 function rosterStats (rosterid) {
-    
+    console.log(testRosterData);
 }
 
 //HTML Create/edit elements functions below
