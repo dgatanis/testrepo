@@ -1,4 +1,3 @@
-
 async function loadConstants() {
 
     const leagueInfo = await import('../util/leagueInfo.js');
@@ -305,9 +304,8 @@ function getTeamRecord(rosterid) {
     return teamRecord;
 }
 
-function rosterStats () {
-    const rosterDataStorage = localStorage.getItem("RosterData");
-    rosterData = JSON.parse(rosterDataStorage);
+function rosterStats (rosterid) {
+
 }
 
 //HTML Create/edit elements functions below
