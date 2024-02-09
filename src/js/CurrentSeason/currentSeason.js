@@ -10,12 +10,13 @@ async function loadConstants() {
             
             loadSeasonRankings(currentLeagueId);
             loadMatchupsList();
-            return
+            break
 
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
     }
+    return
 }
 
 function loadSeasonRankings(leagueId) { 
