@@ -18,11 +18,11 @@ function setBrowserData(leagueID) {
         localStorage.setItem("expiration", expiration);
         setPlayerData();
         setRosterData(leagueID);
-        getUserData(leagueID);
+        setUserData(leagueID);
     }
     setPlayerData();
     setRosterData(leagueID);
-    getUserData(leagueID);
+    setUserData(leagueID);
 }
 
 

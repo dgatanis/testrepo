@@ -305,7 +305,7 @@ function getTeamRecord(rosterid) {
 }
 
 function rosterStats (rosterid) {
-
+    
 }
 
 //HTML Create/edit elements functions below
