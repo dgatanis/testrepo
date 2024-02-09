@@ -58,6 +58,7 @@ async function loadMatchups(weekNumber) {
 
     //Need to change matchups to our league when go live
     const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
+    //const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const totalMatchups = matchups.length / 2;
@@ -140,6 +141,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
         if(roster.owner_id==userid)
         {
             var record = getTeamRecord(parseInt(roster.roster_id));
+            var starters = roster.starters;
             var teamRecord = document.getElementById("teamRecord");
             teamRecord.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
             teamRecord.setAttribute("color", "black");
