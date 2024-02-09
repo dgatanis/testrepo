@@ -68,20 +68,21 @@ async function getPlayers() {
         };
         const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
         const data = await res.json();
-        const players = Object.keys(data);
+        const playerPositions = ["QB", "RB", "WR", "TE", "K"];
 
         for(let i=1; i<players.length; i++)
         {
-           
-            myPlayerMap.players.push({
-                "player_id": i,
-                "position": data[i].position,
-                "firstname": data[i].first_name,
-                "lastname": data[i].last_name,
-                "age": data[i].age,
-                "team": data[i].team
-            });     
-
+           if(data[i] && playerPositions.includes(data[i].position))
+           {
+                myPlayerMap.players.push({
+                    "player_id": i,
+                    "position": data[i].position,
+                    "firstname": data[i].first_name,
+                    "lastname": data[i].last_name,
+                    "age": data[i].age,
+                    "team": data[i].team
+                });  
+           }
         }
 
         localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
