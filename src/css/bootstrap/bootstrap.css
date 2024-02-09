@@ -10988,7 +10988,7 @@ ul.nav.nav-tabs {
 
 /* Custom Mobile responsive display */
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 37.5rem) {
   .custom-matchups {
     clear: left;
     float: left;
