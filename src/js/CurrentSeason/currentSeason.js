@@ -1,21 +1,25 @@
+var counter = 0;
 async function loadConstants() {
-    try {
-        const leagueInfo = await import('../util/leagueInfo.js');
-        var leagueInfoLeagueId = leagueInfo.default();
+    while(counter <= 2)
+    {
+        counter++;
+        try {
+            const leagueInfo = await import('../util/leagueInfo.js');
+            var leagueInfoLeagueId = leagueInfo.default();
 
-        leagueInfoLeagueId.then((currentLeagueId) => {
-            
-            loadSeasonRankings(currentLeagueId);
-            loadMatchupsList();
+            leagueInfoLeagueId.then((currentLeagueId) => {
+                
+                loadSeasonRankings(currentLeagueId);
+                loadMatchupsList();
 
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
+            }).catch((error) => {
+                console.error(`Error: ${error.message}`);
+            });
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
-    catch (error) {
-        console.log(error);
-    }
-
 }
 
 function loadSeasonRankings(leagueId) { 
