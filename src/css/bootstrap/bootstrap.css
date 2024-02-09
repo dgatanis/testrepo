@@ -10965,6 +10965,9 @@ ul.nav.nav-tabs {
   left: 0;
 }
 
+.custom-div-shadow {
+  box-shadow: 0 0.5rem 1.5rem 0 #537fab;
+}
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 600px) {
