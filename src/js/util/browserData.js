@@ -83,6 +83,10 @@ async function getPlayers() {
                     "team": data[i].team
                 });     
             }
+            else
+            {
+                console.log(i);
+            }
         }
 
         localStorage.setItem("PlayerData", JSON.stringify(myPlayerMap));
