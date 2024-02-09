@@ -1,5 +1,5 @@
 var testDataStorage = localStorage.getItem("RosterData");
-var testRosterData = JSON.parse(rosterDataStorage);
+var testRosterData = JSON.parse(testDataStorage);
 
 async function loadConstants() {
 
