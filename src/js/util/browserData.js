@@ -70,7 +70,9 @@ async function getPlayers() {
                 "player_id": i,
                 "position": data[i].position,
                 "firstname": data[i].first_name,
-                "lastname": data[i].last_name
+                "lastname": data[i].last_name,
+                "age": data[i].age,
+                "team": data[i].team
             });     
         }
     }
