@@ -10982,6 +10982,11 @@ ul.nav.nav-tabs {
 
 .footer {
   background-color: #537fab;
+  height: 3rem;
+}
+.custom-footer {
+  text-align: center;
+  color: whitesmoke;
 }
 
 /* Custom Mobile responsive display */
