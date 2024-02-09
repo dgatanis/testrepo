@@ -11006,6 +11006,9 @@ ul.nav.nav-tabs {
     padding-bottom: 1rem;
   }
 
+  .custom-matchup-list {
+    font-size: .7rem;
+  }
   .custom-body {
     padding: unset;
   }
