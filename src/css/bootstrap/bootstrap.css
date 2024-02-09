@@ -10980,6 +10980,10 @@ ul.nav.nav-tabs {
   border-radius: 10px;
 }
 
+.footer {
+  background-color: #537fab;
+}
+
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 600px) {
