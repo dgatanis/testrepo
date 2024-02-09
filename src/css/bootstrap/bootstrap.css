@@ -10951,12 +10951,13 @@ ul.nav.nav-tabs {
 .custom-rankings {
   width: 40%;
   text-align: justify;
+  padding-bottom: 3rem;
 }
 
 .custom-matchups {
   width: 40%;
   text-align: justify;
-  /*clear: left;*/
+  padding-bottom: 3rem;
 }
 
 .custom-body {
@@ -11000,6 +11001,8 @@ ul.nav.nav-tabs {
     float: left;
     width: 100%;
     padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
   }
   .custom-rankings {
     width: 100%;
