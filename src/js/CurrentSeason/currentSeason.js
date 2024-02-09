@@ -5,15 +5,16 @@ async function loadConstants() {
 
     const leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
-
-    leagueInfoLeagueId.then((currentLeagueId) => {
-        
-        loadSeasonRankings(currentLeagueId);
-        loadMatchupsList();
-        rosterStats("1");
-    }).catch((error) => {
-        console.error(`Error: ${error.message}`);
-    });
+    if(leagueInfoLeagueId)
+    {
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            loadSeasonRankings(currentLeagueId);
+            loadMatchupsList();
+            rosterStats("1");
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+        });
+    }
 }
 
 function loadSeasonRankings(leagueId) { 
