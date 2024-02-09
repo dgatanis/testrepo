@@ -76,7 +76,7 @@ async function getPlayers() {
            if(data[i] && playerPositions.includes(data[i].position))
            {
                 myPlayerMap.players.push({
-                    "player_id": i,
+                    "player_id": data[i].player_id,
                     "position": data[i].position,
                     "firstname": data[i].first_name,
                     "lastname": data[i].last_name,
