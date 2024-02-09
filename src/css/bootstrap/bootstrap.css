@@ -10999,6 +10999,7 @@ ul.nav.nav-tabs {
     clear: left;
     float: left;
     width: 100%;
+    padding-bottom: 1rem;
   }
   .custom-rankings {
     width: 100%;
