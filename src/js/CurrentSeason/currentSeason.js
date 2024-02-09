@@ -14,7 +14,7 @@ async function loadConstants() {
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
     }).catch((error) => {
-        setTimeout(loadConstants(),1000);
+        //setTimeout(loadConstants(),1000);
         console.error(`Error: ${error.message}`);
     });
 }
