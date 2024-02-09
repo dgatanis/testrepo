@@ -284,7 +284,7 @@ function sortTeamRankings() {
 
 function getTeamRecord(rosterid) {
     const rosterDataStorage = localStorage.getItem("RosterData");
-    rosterData = JSON.parse(rosterDataStorage);
+    const rosterData = JSON.parse(rosterDataStorage);
 
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
@@ -303,6 +303,11 @@ function getTeamRecord(rosterid) {
     }
 
     return teamRecord;
+}
+
+function rosterStats () {
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    rosterData = JSON.parse(rosterDataStorage);
 }
 
 //HTML Create/edit elements functions below
