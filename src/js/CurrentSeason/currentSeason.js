@@ -15,7 +15,6 @@ async function loadConstants() {
         leagueInfoLeagueId.then((currentLeagueId) => {
             loadSeasonRankings(currentLeagueId);
             loadMatchupsList();
-            rosterStats("1");
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
@@ -293,7 +292,7 @@ function getTeamRecord(rosterid) {
 }
 
 function rosterStats (rosterid) {
-    console.log(testRosterData);
+    
 }
 
 //HTML Create/edit elements functions below
