@@ -10,15 +10,13 @@ async function loadConstants() {
     const leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
 
-    if(leagueInfoLeagueId)
-    {
-        leagueInfoLeagueId.then((currentLeagueId) => {
-            loadSeasonRankings(currentLeagueId);
-            loadMatchupsList();
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
-    }
+    leagueInfoLeagueId.then((currentLeagueId) => {
+        loadSeasonRankings(currentLeagueId);
+        loadMatchupsList();
+    }).catch((error) => {
+        setTimeout(loadConstants(),1000);
+        console.error(`Error: ${error.message}`);
+    });
 }
 
 function loadSeasonRankings(leagueId) { 
@@ -47,7 +45,7 @@ function loadSeasonRankings(leagueId) {
             powerRanking.append(user.display_name);
             rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.display_name + "')");
         }
-        
+
         rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
         powerRank++;
         
