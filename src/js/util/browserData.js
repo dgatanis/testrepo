@@ -61,6 +61,8 @@ async function getRostersForLeague(leagueID){
 }
 
 async function getPlayers() {
+
+    //NEED TO FIGURE OUT A BETTER WAY TO ITERATE IM MISSING PLAYERS
     try
     {    
         var myPlayerMap = { 
