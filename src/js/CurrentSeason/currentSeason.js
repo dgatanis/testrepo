@@ -452,7 +452,7 @@ function createAccordionItem(weekNumber) {
 
 function createOwnerAvatarImage(userId) { 
 
-    let user = userData.find(x => x.user_id === userId.toString());
+    let user = userData.find(x => x.user_id === parseInt(userId));
     const avatarURL = user.metadata.avatar;
     
     if(avatarURL)
