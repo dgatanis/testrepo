@@ -105,7 +105,7 @@ async function loadMatchups(weekNumber) {
                         {
                             var weeklyHighScorer = createMatchupWeekHighScorerImg();
                             teamImage.setAttribute("position", "relative");
-                            teamImage.prepend(weeklyHighScorer);
+                            matchupDiv.prepend(weeklyHighScorer);
                         }
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
