@@ -12,6 +12,7 @@ table#PowerRankings {
 
   .custom-roster-breakdown {
     background-color: #537fab;
+    color: whitesmoke;
   }
   
   .custom-matchup-list {
@@ -54,11 +55,14 @@ table#PowerRankings {
   
   .custom-stats-card-body {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-style: italic;
   }
   
   .custom-card-inner-body {
     font-size: .8rem;
+    font-style: normal;
+    padding: .2rem;
   }
 
 /* Custom Mobile responsive display */
