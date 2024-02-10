@@ -306,8 +306,8 @@ function rosterStats(rosterid) {
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
         var playerAge = calcPlayerAge(roster.players);
-        var playerAge = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K + " Average age of roster: " + playerAge[0].AvgAge;
-        return playerAge;
+        var myString = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K + " Average age of roster: " + playerAge[0].AvgAge;
+        return myString;
     }
 }
 
