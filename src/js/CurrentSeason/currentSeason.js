@@ -139,9 +139,9 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
         if(roster.owner_id==userid)
         {
             var record = getTeamRecord(parseInt(roster.roster_id));
+            var rosterStats = document.getElementById("accordionRosterBody");
             var stats
             var starters = roster.starters;
-            var teamRecord = document.getElementById("teamRecord");
             teamRecord.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
             teamRecord.setAttribute("color", "black");
             var teamStats = document.getElementById("teamStats");
@@ -321,8 +321,12 @@ function rosterStats(rosterid) {
         var playerPositionCount = calcPlayerPositions(roster.players);
         var playerAge = calcPlayerAge(roster.players);
 
-        var myString = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K + " Average age of roster: " + playerAge[0].AvgAge;
-        return myString;
+        let test = {
+            ...playerPositionCount,
+            ...playerAge
+        };
+        //var myString = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K + " Average age of roster: " + playerAge[0].AvgAge;
+        return test;
     }
 }
 
