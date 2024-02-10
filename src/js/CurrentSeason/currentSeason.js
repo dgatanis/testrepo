@@ -122,7 +122,7 @@ async function loadMatchups(weekNumber) {
                             var highScorerDiv = document.createElement("div");
                             var weeklyHighScorer = createMatchupWeekHighScorerImg();
 
-                            teamImage.append(weeklyHighScorer);
+                            matchupDiv.appendChild(weeklyHighScorer);
                         }
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(playerDiv);
