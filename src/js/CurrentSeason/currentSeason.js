@@ -288,45 +288,25 @@ function sortTeamRankings() {
 
 }
 
-function getTeamRecord(rosterid) {
-
-    const rosters = rosterData.map((x) => x);
-    let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
-    const teamRecord = [];
-
-    if (roster)
-    {
-        teamRecord.push({
-            "owner_id": roster.owner_id,
-            "wins": roster.settings.wins,
-            "losses": roster.settings.losses,
-            "ties": roster.settings.ties,
-            "fpts": roster.settings.fpts
-        });
-    
-    }
-
-    return teamRecord;
-}
-
 function rosterStats(rosterid) {
     //Need to figure out how to send an object with age and position together
     const rosters = rosterData.map((x) => x);
 
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
-    const rosterStatsArray = [];
 
     if(roster)
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
         var playerAge = calcPlayerAge(roster.players);
+        var teamRecord = getTeamRecord(rosterid);
 
-        let test = {
-            ...playerPositionCount,
-            ...playerAge
+        let rosterStatsArray = {
+            ...playerPositionCount[0],
+            ...playerAge[0],
+            ...teamRecord[0]
         };
-        //var myString = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K + " Average age of roster: " + playerAge[0].AvgAge;
-        return test;
+
+        return rosterStatsArray;
     }
 }
 
@@ -375,6 +355,27 @@ function calcPlayerPositions(players){
 
     return calculatedPositions;
 
+}
+
+function getTeamRecord(rosterid) {
+
+    const rosters = rosterData.map((x) => x);
+    let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
+    const teamRecord = [];
+
+    if (roster)
+    {
+        teamRecord.push({
+            "owner_id": roster.owner_id,
+            "wins": roster.settings.wins,
+            "losses": roster.settings.losses,
+            "ties": roster.settings.ties,
+            "fpts": roster.settings.fpts
+        });
+    
+    }
+
+    return teamRecord;
 }
 
 function calcPlayerAge(players) {
