@@ -362,7 +362,7 @@ function calcPlayerAge(players) {
         totalAge += parseInt(thisPlayer.age);
     }
     avgAge = totalAge / players.length;
-    return avgAge;
+    return avgAge.toFixed(2);
 }
 
 //HTML Create/edit elements functions below
