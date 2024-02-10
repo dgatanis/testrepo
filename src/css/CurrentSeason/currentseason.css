@@ -8,6 +8,7 @@ table#PowerRankings {
   
   .custom-matchup-week {
     background-color: #e2e3e5;
+    transition: .5s ease;
   }
 
   .custom-roster-breakdown {
