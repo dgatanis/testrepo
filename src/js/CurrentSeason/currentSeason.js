@@ -402,12 +402,29 @@ function calcPlayerAge(players) {
     return calculatedAge;
 }
 
-function getMatchupWeekHighScorer(matchups) {
+function getRosterHighScorerWeek(matchups) {
+
+    let rosters = [];
 
     for(let matchup of matchups)
     {
-        console.log(matchup);
+        rosters.push({
+            "roster_id": matchup.roster_id,
+            "points" : matchup.points
+        });
     }
+
+    rosters.sort(function (a, b) {
+        if (a.points > b.points) {
+          return -1;
+        }
+        if (a.points < b.points) {
+          return 1;
+        }
+        return 0;
+      });
+    
+    return matchups[0].roster_id;
 }
 
 function getMatchupWeekWinner(matchups) {
