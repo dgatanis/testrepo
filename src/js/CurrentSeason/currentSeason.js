@@ -586,7 +586,7 @@ function createMatchupListElement(weekNumber) {
 
 function createMatchupWeekHighScorerImg(){
     var img = document.createElement("img");
-    img.setAttribute('src', '../src/static/images/crown-2.png');
+    img.setAttribute('src', '../src/static/images/crown-icon.png');
     img.setAttribute('class', "custom-highscorer");
     
     return img;
