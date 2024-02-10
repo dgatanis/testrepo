@@ -144,7 +144,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
             const age = document.getElementById("rosterAge");
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
-            playerCount.innerText = "QB: " + rosterStats.QB + " RB: " + rosterStats.RB + " TE: " + rosterStats.TE + " WR: " + rosterStats.WR + " K: " + rosterStats.K;
+            playerCount.innerText = "QB:" + rosterStats.QB + " RB:" + rosterStats.RB + " TE:" + rosterStats.TE + " WR:" + rosterStats.WR + " K:" + rosterStats.K;
             age.innerText = rosterStats.AvgAge + "yrs";
 
             let sortedPlayers = sortByPosition(roster.players);
