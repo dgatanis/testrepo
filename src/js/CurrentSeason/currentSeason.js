@@ -122,7 +122,7 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
-    
+
     modalRosterTeamName.prepend(teamImage);
     modalRosterTeamName.innerText = teamname;
   
@@ -452,7 +452,7 @@ function createAccordionItem(weekNumber) {
 
 function createOwnerAvatarImage(userId) { 
 
-    let user = userData.find(x => x.user_id === userId);
+    let user = userData.find(x => x.user_id === userId.toString());
     const avatarURL = user.metadata.avatar;
     
     if(avatarURL)
