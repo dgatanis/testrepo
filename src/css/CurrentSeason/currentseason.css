@@ -9,7 +9,7 @@ table#PowerRankings {
   .custom-matchup-week {
     background-color: #e2e3e5;
   }
-  
+
   .custom-roster-breakdown {
     background-color: #e2e3e5;
   }
@@ -54,6 +54,7 @@ table#PowerRankings {
   
   .custom-stats-card-body {
     text-align: center;
+    font-size: 1.5rem;
   }
   
   .custom-card-inner-body {
