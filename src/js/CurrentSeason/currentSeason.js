@@ -138,11 +138,14 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     {
         if(roster.owner_id==userid)
         {
-            var record = getTeamRecord(parseInt(roster.roster_id));
             var rosterStats = getRosterStats(roster.roster_id);
-            var rosterStatsBody = document.getElementById("accordionRosterBody");
-            rosterStatsBody.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts + " Avg Age: " + rosterStats.AvgAge + " PlayerCount: " + rosterStats.QB;
-            rosterStatsBody.setAttribute("color", "black");
+            const record = document.getElementById("rosterRecord");
+            const playerCount = document.getElementById("rosterPlayerCount");
+            const age = document.getElementById("rosterAge");
+
+            record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
+            playerCount.innerText = "QB: " + rosterStats.QB + " RB: " + rosterStats.RB + " TE: " + rosterStats.TE + " WR: " + rosterStats.WR + " K: " + rosterStats.K;
+            age.innerText = rosterStats.AvgAge;
 
             let sortedPlayers = sortByPosition(roster.players);
 

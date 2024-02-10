@@ -10991,6 +10991,10 @@ ul.nav.nav-tabs {
 .custom-footer {
   text-align: center;
   color: whitesmoke;
+
+
+.custom-stats-card-body {
+  text-align: center;
 }
 
 /* Custom Mobile responsive display */
