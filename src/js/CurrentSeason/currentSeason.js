@@ -64,7 +64,6 @@ async function loadMatchups(weekNumber) {
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const highScoreTeam = getRosterHighScorerWeek(matchups);
-    const highScore = highScoreTeam.points;
     const totalMatchups = matchups.length / 2;
     const idList = "matchupWeekList_" + weekNumber;
     var weekList = document.getElementById(idList);
@@ -73,7 +72,7 @@ async function loadMatchups(weekNumber) {
 
     if(weekList.childElementCount <= 4)
     {
-        if(highScore.points > 0)
+        if(highScoreTeam.points > 0)
         {
             if(noMatchupClassList.contains('custom-block-display'))
             {
