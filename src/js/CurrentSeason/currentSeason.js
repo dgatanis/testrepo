@@ -110,11 +110,11 @@ async function loadMatchups(weekNumber) {
 
                         if(user.metadata.team_name != undefined)
                         {
-                            teamImage.innerText = user.metadata.team_name + ": " + matchup.points;
+                            matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
                         }
                         else
                         {
-                            teamImage.innerText = user.display_name + ": " + matchup.points;
+                            matchupDiv.innerText = user.display_name + ": " + matchup.points;
                         }
 
                         if(roster.roster_id == highScoringWeekRoster)
