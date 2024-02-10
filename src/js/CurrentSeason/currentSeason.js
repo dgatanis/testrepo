@@ -68,13 +68,19 @@ async function loadMatchups(weekNumber) {
     const totalMatchups = matchups.length / 2;
     const idList = "matchupWeekList_" + weekNumber;
     var weekList = document.getElementById(idList);
+    const noMatchup = document.getElementById("nomatchups_"+weekNumber);
+    var noMatchupClassList = noMatchup.classList;
 
     if(weekList.childElementCount <= 4)
     {
         if(highScore.points > 0)
         {
-            const noMatchup = document.getElementById("nomatchups_"+weekNumber);
-            
+            if(noMatchupClassList.contains('custom-block-display'))
+            {
+                noMatchup.classList.remove('custom-block-display');
+                noMatchup.classList.add('custom-none-display');
+            }
+
             for(let i =1; i <= totalMatchups; i++)
             {
                 let matchupId = i;
@@ -122,7 +128,11 @@ async function loadMatchups(weekNumber) {
         }
         else
         {
-
+            if(noMatchupClassList.contains('custom-none-display'))
+            {
+                noMatchup.classList.remove('custom-none-display');
+                noMatchup.classList.add('custom-block-display');
+            }
         }
     }
 }
@@ -556,8 +566,8 @@ function createMatchupListElement(weekNumber) {
     noMatchups.setAttribute("id", "nomatchups_"+weekNumber);
     noMatchups.innerText = "NO MATCHUPS TO DISPLAY";    
 
-    firstListItem.append(noMatchups);
     list.appendChild(firstListItem);
+    list.append(noMatchups);
 
     return list;
 }
