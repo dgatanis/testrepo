@@ -119,9 +119,8 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     let myUserId = userid.toString();
-    console.log("myUserId " + myUserId);
-    console.log("userid: " + userid);
-    console.log("var teamImage = createOwnerAvatarImage("+ myUserId + ")");
+
+    var teamImage = createOwnerAvatarImage("'" + myUserId +"'");
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
