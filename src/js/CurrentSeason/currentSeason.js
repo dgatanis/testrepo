@@ -300,12 +300,13 @@ function rosterStats(rosterid) {
     const rosters = rosterData.map((x) => x);
 
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
-    const rosterStats = [];
+    const rosterStatsArray = [];
 
     if(roster)
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
         var playerAge = calcPlayerAge(roster.players);
+
         var myString = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K + " Average age of roster: " + playerAge[0].AvgAge;
         return myString;
     }
