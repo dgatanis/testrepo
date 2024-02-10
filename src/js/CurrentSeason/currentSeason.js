@@ -300,6 +300,7 @@ function rosterStats (rosterid) {
     if(roster)
     {
         console.log(calcPlayerPositions(roster.players));
+        console.log(calcPlayerAge(roster.players));
     }
 }
 
@@ -347,6 +348,20 @@ function calcPlayerPositions(players){
 
     return calculatedPositions;
 
+}
+
+function calcPlayerAge(players) {
+
+    const calculatedPositions = [];
+    var totalAge = 0;
+
+    for(let player of players)
+    {
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+
+        totalAge += parseInt(thisPlayer.age);
+    }
+    return totalAge;
 }
 
 //HTML Create/edit elements functions below
