@@ -71,6 +71,14 @@ table#PowerRankings {
     padding: .2rem;
   }
 
+  .custom-none-display {
+    display: none;
+  }
+
+  .custom-block-display {
+    display: block;
+  }
+
 /* Custom Mobile responsive display */
 
   @media screen and (max-width: 37.5rem) {

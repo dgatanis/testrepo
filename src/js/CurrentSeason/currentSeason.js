@@ -59,8 +59,8 @@ function loadSeasonRankings(leagueId) {
 async function loadMatchups(weekNumber) {
 
     //Need to change matchups to our league when go live
-    //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-    const matchup = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/matchups/${weekNumber}`);
+    const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
+    //const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const highScoreTeam = getRosterHighScorerWeek(matchups);
@@ -68,11 +68,13 @@ async function loadMatchups(weekNumber) {
     const totalMatchups = matchups.length / 2;
     const idList = "matchupWeekList_" + weekNumber;
     var weekList = document.getElementById(idList);
-    console.log(highScore);
+
     if(weekList.childElementCount <= 4)
     {
         if(highScore.points > 0)
         {
+            const noMatchup = document.getElementById("nomatchups_"+weekNumber);
+            
             for(let i =1; i <= totalMatchups; i++)
             {
                 let matchupId = i;
@@ -120,9 +122,7 @@ async function loadMatchups(weekNumber) {
         }
         else
         {
-            var myDiv = document.createElement("div")
-            myDiv.innerText = "NO MATCHUPS TO DISPLAY";
-            weekList.append(myDiv);
+
         }
     }
 }
@@ -551,6 +551,12 @@ function createMatchupListElement(weekNumber) {
     firstListItem.setAttribute("class", "h4 list-group-item custom-matchup-list-item shadow p-3 mb-5 bg-body rounded");
     firstListItem.innerText="Matchups and High Scorer";
 
+    var noMatchups = document.createElement("div");
+    noMatchups.setAttribute("class", "custom-block-display");
+    noMatchups.setAttribute("id", "nomatchups_"+weekNumber);
+    noMatchups.innerText = "NO MATCHUPS TO DISPLAY";    
+
+    firstListItem.append(noMatchups);
     list.appendChild(firstListItem);
 
     return list;
