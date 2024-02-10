@@ -135,10 +135,15 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
         if(roster.owner_id==userid)
         {
             var record = getTeamRecord(parseInt(roster.roster_id));
+            var stats
             var starters = roster.starters;
             var teamRecord = document.getElementById("teamRecord");
             teamRecord.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
             teamRecord.setAttribute("color", "black");
+            var teamStats = createRosterStatsDiv(roster.roster_id);
+            teamStats.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
+            teamStats.setAttribute("color", "black");
+
             let sortedPlayers = sortByPosition(roster.players);
             for(let players of sortedPlayers)
             {
@@ -291,7 +296,7 @@ function getTeamRecord(rosterid) {
     return teamRecord;
 }
 
-function rosterStats (rosterid) {
+function createRosterStatsDiv(rosterid) {
     const rosters = rosterData.map((x) => x);
 
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
@@ -299,12 +304,16 @@ function rosterStats (rosterid) {
 
     if(roster)
     {
-        console.log(calcPlayerPositions(roster.players));
-        console.log(calcPlayerAge(roster.players));
+        var playerPositionCount = calcPlayerPositions(roster.players);
+        var playerAge = calcPlayerAge(roster.players);
+        var playerAge = document.getElementById("teamStats");
+        playerAge.innerText = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K; + " Average age of roster: " + playerAge[0].AvgAge;
+        return playerAge;
     }
 }
 
 function calcPlayerPositions(players){
+
     const calculatedPositions = [];
     var QB = 0;
     var RB = 0;
@@ -352,7 +361,7 @@ function calcPlayerPositions(players){
 
 function calcPlayerAge(players) {
 
-    const calculatedPositions = [];
+    const calculatedAge = [];
     var totalAge = 0;
     var avgAge;
     for(let player of players)
@@ -361,8 +370,14 @@ function calcPlayerAge(players) {
 
         totalAge += parseInt(thisPlayer.age);
     }
+    
     avgAge = totalAge / players.length;
-    return avgAge.toFixed(2);
+
+    calculatedAge.push ({
+        "AvgAge": avgAge.toFixed(2)
+    });
+
+    return calculatedAge;
 }
 
 //HTML Create/edit elements functions below
