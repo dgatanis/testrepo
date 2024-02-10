@@ -10917,13 +10917,7 @@ ul.nav.nav-tabs {
   background-color: #537fab;
 }
 
-.custom-roster-breakdown:not(.collapsed) {
-  color: white;
-  background-color: #c36300;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
-}
-
-.custom-matchup-week:not(.collapsed) {
+.accordion-button:not(.collapsed) {
   color: white;
   background-color: #c36300;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
