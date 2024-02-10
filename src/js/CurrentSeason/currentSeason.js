@@ -140,8 +140,8 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
             var teamRecord = document.getElementById("teamRecord");
             teamRecord.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
             teamRecord.setAttribute("color", "black");
-            var teamStats = createRosterStatsDiv(roster.roster_id);
-            teamStats.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
+            var teamStats = document.getElementById("teamStats");
+            teamStats.innerText = rosterStats(roster.roster_id);
             teamStats.setAttribute("color", "black");
 
             let sortedPlayers = sortByPosition(roster.players);
@@ -296,7 +296,7 @@ function getTeamRecord(rosterid) {
     return teamRecord;
 }
 
-function createRosterStatsDiv(rosterid) {
+function rosterStats(rosterid) {
     const rosters = rosterData.map((x) => x);
 
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
@@ -306,8 +306,7 @@ function createRosterStatsDiv(rosterid) {
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
         var playerAge = calcPlayerAge(roster.players);
-        var playerAge = document.getElementById("teamStats");
-        playerAge.innerText = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K; + " Average age of roster: " + playerAge[0].AvgAge;
+        var playerAge = "QB: " + playerPositionCount[0].QB + " RB: " + playerPositionCount[0].RB + " TE: " + playerPositionCount[0].TE + " WR: " + playerPositionCount[0].WR + " K: " + playerPositionCount[0].K; + " Average age of roster: " + playerAge[0].AvgAge;
         return playerAge;
     }
 }
