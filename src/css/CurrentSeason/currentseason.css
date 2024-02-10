@@ -9,6 +9,9 @@ table#PowerRankings {
   .custom-matchup-week {
     background-color: #e2e3e5;
   }
+  . custom-roster-breakdown {
+    background-color: #e2e3e5;
+  }
   
   .custom-matchup-list {
     background-color: #b9b9b95e;
