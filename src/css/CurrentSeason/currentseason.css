@@ -98,4 +98,7 @@ table#PowerRankings {
     table#RosterTable {
       font-size: .8rem;
     }
+    .custom-body {
+      padding: unset;
+    }
   }
