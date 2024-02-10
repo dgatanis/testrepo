@@ -354,14 +354,15 @@ function calcPlayerAge(players) {
 
     const calculatedPositions = [];
     var totalAge = 0;
-
+    var avgAge;
     for(let player of players)
     {
         let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
 
         totalAge += parseInt(thisPlayer.age);
     }
-    return totalAge;
+    avgAge = totalAge / players.length;
+    return avgAge;
 }
 
 //HTML Create/edit elements functions below
