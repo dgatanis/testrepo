@@ -10997,6 +10997,9 @@ ul.nav.nav-tabs {
   text-align: center;
 }
 
+.custom-card-inner-body {
+  font-size: .5rem;
+}
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 37.5rem) {
