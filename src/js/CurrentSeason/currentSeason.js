@@ -57,20 +57,21 @@ function loadSeasonRankings(leagueId) {
 
 async function loadMatchups(weekNumber) {
 
-    //Need to change matchups to our league when go live
-    const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-    //const matchup = await fetch(`https://api.sleeper.app/v1/league/${varLeagueId}/matchups/${weekNumber}`);
-    const matchupData = await matchup.json(); 
-    const matchups = matchupData.map((team) => team);
-    const highScoreTeam = getRosterHighScorerWeek(matchups);
-    const totalMatchups = matchups.length / 2;
-    const idList = "matchupWeekList_" + weekNumber;
-    var weekList = document.getElementById(idList);
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
     var noMatchupClassList = noMatchup.classList;
 
-    if(weekList.childElementCount <= 4)
+    if(noMatchupClassList.contains('custom-block-display'))
     {
+        //Need to change matchups to our league when go live
+        const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
+        //const matchup = await fetch(`https://api.sleeper.app/v1/league/${varLeagueId}/matchups/${weekNumber}`);
+        const matchupData = await matchup.json(); 
+        const matchups = matchupData.map((team) => team);
+        const highScoreTeam = getRosterHighScorerWeek(matchups);
+        const totalMatchups = matchups.length / 2;
+        const idList = "matchupWeekList_" + weekNumber;
+        var weekList = document.getElementById(idList);
+        
         if(highScoreTeam.points > 0)
         {
             if(noMatchupClassList.contains('custom-block-display'))
@@ -133,6 +134,7 @@ async function loadMatchups(weekNumber) {
             }
         }
     }
+
 }
 
 async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
