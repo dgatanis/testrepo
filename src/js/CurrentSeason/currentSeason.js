@@ -101,12 +101,6 @@ async function loadMatchups(weekNumber) {
                         var playerDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
-                        if(roster.roster_id == highScoringWeekRoster)
-                        {
-                            var weeklyHighScorer = createMatchupWeekHighScorerImg();
-                            teamImage.setAttribute("position", "relative");
-                            matchupDiv.prepend(weeklyHighScorer);
-                        }
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
@@ -121,6 +115,13 @@ async function loadMatchups(weekNumber) {
                         else
                         {
                             matchupDiv.innerText = user.display_name + ": " + matchup.points;
+                        }
+                        
+                        if(roster.roster_id == highScoringWeekRoster)
+                        {
+                            var weeklyHighScorer = createMatchupWeekHighScorerImg();
+                            teamImage.setAttribute("position", "relative");
+                            matchupDiv.prepend(weeklyHighScorer);
                         }
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(playerDiv);
