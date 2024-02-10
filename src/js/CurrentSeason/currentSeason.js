@@ -96,7 +96,7 @@ async function loadMatchups(weekNumber) {
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
                         let playerPoints = highestScorer.points;
-console.log(highScoringWeekRoster);
+                        console.log(highScoringWeekRoster);
                         var matchupDiv = document.createElement("div");
                         var playerDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
