@@ -4,14 +4,12 @@ const userDataStorage = localStorage.getItem("UserData");
 const userData = JSON.parse(userDataStorage);
 const playerDataStorage = localStorage.getItem("PlayerData")
 const playerData = JSON.parse(playerDataStorage); 
-var varLeagueId = 1003692635549462528;
 async function loadConstants() {
 
     const leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
 
     leagueInfoLeagueId.then((currentLeagueId) => {
-        //varLeagueId = currentLeagueId;
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
     }).catch((error) => {
@@ -60,8 +58,8 @@ function loadSeasonRankings(leagueId) {
 async function loadMatchups(weekNumber) {
 
     //Need to change matchups to our league when go live
-    //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-    const matchup = await fetch(`https://api.sleeper.app/v1/league/${varLeagueId}/matchups/${weekNumber}`);
+    const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
+    //const matchup = await fetch(`https://api.sleeper.app/v1/league/${varLeagueId}/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const highScoreTeam = getRosterHighScorerWeek(matchups);
