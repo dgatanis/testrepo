@@ -292,7 +292,61 @@ function getTeamRecord(rosterid) {
 }
 
 function rosterStats (rosterid) {
-    
+    const rosters = rosterData.map((x) => x);
+
+    let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
+    const rosterStats = [];
+
+    if(roster)
+    {
+        console.log(calcPlayerPositions(roster.players));
+    }
+}
+
+function calcPlayerPositions(players){
+    const calculatedPositions = [];
+    var QB = 0;
+    var RB = 0;
+    var WR = 0;
+    var TE = 0;
+    var K = 0;
+
+    for(let player of players)
+    {
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+
+        if(thisPlayer.position == "QB")
+        {
+            QB++;
+        }
+        if(thisPlayer.position == "RB")
+        {
+            RB++;
+        }
+        if(thisPlayer.position == "WR")
+        {
+            WR++;
+        }
+        if(thisPlayer.position == "TE")
+        {
+            TE++;
+        }
+        if(thisPlayer.position == "K")
+        {
+            K++;
+        }
+    }
+
+    calculatedPositions.push({ 
+        "QB": parseInt(QB),
+        "RB": parseInt(RB),
+        "WR": parseInt(WR),
+        "TE": parseInt(TE),
+        "K": parseInt(K)
+    }); 
+
+    return calculatedPositions;
+
 }
 
 //HTML Create/edit elements functions below
