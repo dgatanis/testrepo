@@ -52,6 +52,10 @@ function loadSeasonRankings(leagueId) {
     }
 }
 
+/*
+** Async functions **
+*/          
+
 async function loadMatchups(weekNumber) {
 
     //Need to change matchups to our league when go live
@@ -178,7 +182,16 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     }
 }
 
+async function statsByWeek() {
+    //Using specific week
+    //Need to pull in current season and week (../2023/2)
+    const res  = await fetch(`https://api.sleeper.app/v1/stats/nfl/regular/2023/2`); 
+    const data = await res.json();
+}
 
+/*
+** Helper functions **
+*/          
 function highScorerInMatchupStarters(starters, playerPoints){
 
     let startersPoints = [];
@@ -381,8 +394,13 @@ function calcPlayerAge(players) {
     return calculatedAge;
 }
 
-//HTML Create/edit elements functions below
+function highScorerByPosition () {
 
+}
+
+/*
+** HTML Create/edit elements functions **
+*/                                 
 function loadMatchupsList(){
     var matchupDiv = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
