@@ -94,6 +94,7 @@ table#PowerRankings {
 
     .custom-matchup-player {
       float: left;
+      clear: left;
     }
 
     .custom-user-avatar {
