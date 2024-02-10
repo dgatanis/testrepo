@@ -95,6 +95,10 @@ table#PowerRankings {
     .custom-matchup-player {
       float: left;
     }
+
+    .custom-user-avatar {
+      float: left;
+    }
   
     table#RosterTable {
       font-size: .8rem;

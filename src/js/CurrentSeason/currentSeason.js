@@ -118,11 +118,12 @@ async function loadMatchups(weekNumber) {
 async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
+    var teamImage = createOwnerAvatarImage(userid);
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
     
-    //show table and set team name
+    modalRosterTeamName.prepend(teamImage);
     modalRosterTeamName.innerText = teamname;
   
     //Remove players in list
