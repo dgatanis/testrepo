@@ -63,6 +63,7 @@ async function loadMatchups(weekNumber) {
     //const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
+    getMatchupWeekHighScorer(matchups);
     const totalMatchups = matchups.length / 2;
     const idList = "matchupWeekList_" + weekNumber;
     var weekList = document.getElementById(idList);
@@ -401,8 +402,16 @@ function calcPlayerAge(players) {
     return calculatedAge;
 }
 
-function highScorerByPosition () {
+function getMatchupWeekHighScorer(matchups) {
 
+    for(let matchup of matchups)
+    {
+        console.log(matchup);
+    }
+}
+
+function getMatchupWeekWinner(matchups) {
+    
 }
 
 /*
@@ -517,4 +526,8 @@ function createMatchupListElement(weekNumber) {
     list.appendChild(firstListItem);
 
     return list;
+}
+
+function createMatchupWeekHighScorerElement(){
+
 }
