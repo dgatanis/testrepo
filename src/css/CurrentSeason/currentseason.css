@@ -77,6 +77,7 @@ table#PowerRankings {
 
   .custom-block-display {
     display: block;
+    text-align: center;
   }
 
 /* Custom Mobile responsive display */
