@@ -119,13 +119,10 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     let myUserId = userid.toString();
-
-    var teamImage = createOwnerAvatarImage("'" + myUserId +"'");
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
 
-    //modalRosterTeamName.prepend(teamImage);
     modalRosterTeamName.innerText = teamname;
   
     //Remove players in list
@@ -141,6 +138,9 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
     {
         if(roster.owner_id==userid)
         {
+            var teamImage = createOwnerAvatarImage(roster.owner_id);
+            modalRosterTeamName.prepend(teamImage);
+
             var rosterStats = getRosterStats(roster.roster_id);
             const record = document.getElementById("rosterRecord");
             const playerCount = document.getElementById("rosterPlayerCount");
