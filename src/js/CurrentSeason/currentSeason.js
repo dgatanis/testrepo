@@ -116,14 +116,24 @@ async function loadMatchups(weekNumber) {
                         {
                             matchupDiv.innerText = user.display_name + ": " + matchup.points;
                         }
-                        
+
                         if(roster.roster_id == highScoringWeekRoster)
                         {
+                            var highScorerDiv = document.createElement("div");
                             var weeklyHighScorer = createMatchupWeekHighScorerImg();
+
                             teamImage.setAttribute("position", "relative");
+                            highScorerDiv.setAttribute("position", "absolute");
+
+                            newDiv.appendChild(teamImage);
+                            matchupDiv.prepend(newDiv);
                             matchupDiv.prepend(weeklyHighScorer);
                         }
-                        matchupDiv.prepend(teamImage);
+                        else
+                        {
+                            matchupDiv.prepend(teamImage);
+                        }
+                        
                         matchupDiv.append(playerDiv);
                         weekList.append(matchupDiv);
                     }
