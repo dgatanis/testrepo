@@ -1,0 +1,97 @@
+table#PowerRankings {
+    float: left;
+  }
+  
+  table#RosterTable {
+    float: right;
+  }
+  
+  .custom-matchup-week {
+    background-color: #e2e3e5;
+  }
+  
+  .custom-matchup-week:hover {
+    background-color: #537fab;
+  }
+  
+  .custom-matchup-week:not(.collapsed) {
+    color: white;
+    background-color: #c36300;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+  }
+  
+  .custom-matchup-list {
+    background-color: #b9b9b95e;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: justify;
+  }
+  
+  .custom-matchup-list-item {
+    background-color:#ffffff00;
+    text-align: center;
+  }
+  
+  .custom-rankings {
+    width: 40%;
+    text-align: justify;
+    padding-bottom: 3rem;
+  }
+  
+  .custom-matchups {
+    width: 40%;
+    text-align: justify;
+    padding-bottom: 3rem;
+  }
+  
+  .custom-body {
+    margin: 1rem;
+    padding: 2rem 2rem;
+  }
+  
+  .custom-matchup-row {
+    padding: 10px;
+  }
+  
+  .custom-matchup-player {
+    float: right;
+    padding: 10px;
+  }
+  
+  .custom-stats-card-body {
+    text-align: center;
+  }
+  
+  .custom-card-inner-body {
+    font-size: .5rem;
+  }
+
+/* Custom Mobile responsive display */
+
+  @media screen and (max-width: 37.5rem) {
+    .custom-matchups {
+      clear: left;
+      float: left;
+      width: 100%;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+    .custom-rankings {
+      width: 100%;
+      padding-bottom: 1rem;
+      font-size: .8rem;
+    }
+  
+    .custom-matchup-list {
+      font-size: .7rem;
+    }
+    
+    .custom-matchup-player {
+      float: left;
+    }
+  
+    table#RosterTable {
+      font-size: .8rem;
+    }
+  }
