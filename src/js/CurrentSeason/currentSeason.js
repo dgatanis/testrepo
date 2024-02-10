@@ -424,7 +424,7 @@ function getRosterHighScorerWeek(matchups) {
         return 0;
       });
     
-    return matchups[0].roster_id;
+    return rosters[0];
 }
 
 function getMatchupWeekWinner(matchups) {
