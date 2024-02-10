@@ -64,8 +64,8 @@ async function loadMatchups(weekNumber) {
     {
         console.log("click");
         //Need to change matchups to our league when go live
-        //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-        const matchup = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/matchups/${weekNumber}`);
+        const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
+        //const matchup = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/matchups/${weekNumber}`);
         const matchupData = await matchup.json(); 
         const matchups = matchupData.map((team) => team);
         const highScoreTeam = getRosterHighScorerWeek(matchups);
