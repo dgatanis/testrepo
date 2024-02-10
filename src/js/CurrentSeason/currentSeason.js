@@ -75,6 +75,7 @@ async function loadMatchups(weekNumber) {
 
         if(highScoreTeam.points > 0)
         {
+            var highScoringWeekRoster = highScoreTeam.roster_id;
             //hide no matchups div
             if(noMatchupClassList.contains('custom-block-display'))
             {
@@ -100,6 +101,12 @@ async function loadMatchups(weekNumber) {
                         var playerDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
+                        if(roster.roster_id == highScoringWeekRoster)
+                        {
+                            var weeklyHighScorer = createMatchupWeekHighScorerImg();
+                            teamImage.setAttribute("position", "relative");
+                            teamImage.append(weeklyHighScorer);
+                        }
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
@@ -575,6 +582,10 @@ function createMatchupListElement(weekNumber) {
     return list;
 }
 
-function createMatchupWeekHighScorerElement(){
-
+function createMatchupWeekHighScorerImg(){
+    var img = document.createElement("img");
+    img.setAttribute('src', '../src/static/images/crown.png');
+    img.setAttribute('class', "custom-user-avatar overlay");
+    
+    return img;
 }
