@@ -123,7 +123,7 @@ async function loadMatchups(weekNumber) {
                             var weeklyHighScorer = createMatchupWeekHighScorerImg();
 
                             teamImage.setAttribute("style", "position: absolute");
-                            weeklyHighScorer.setAttribute("position", "position: absolute");
+                            weeklyHighScorer.setAttribute("style", "position: absolute");
                             highScorerDiv.setAttribute("position", "relative");
 
                             highScorerDiv.appendChild(teamImage);
