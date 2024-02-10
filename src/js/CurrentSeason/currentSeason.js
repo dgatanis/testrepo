@@ -139,16 +139,13 @@ async function OpenTeamRosterModal(userid,teamname,leagueID = "10462222225677844
         if(roster.owner_id==userid)
         {
             var record = getTeamRecord(parseInt(roster.roster_id));
-            var rosterStats = document.getElementById("accordionRosterBody");
-            var stats
-            var starters = roster.starters;
-            teamRecord.innerText = "Wins:" + record[0].wins + " Losses:" + record[0].losses + " Pts:" + record[0].fpts;
-            teamRecord.setAttribute("color", "black");
-            var teamStats = document.getElementById("teamStats");
-            teamStats.innerText = rosterStats(roster.roster_id);
-            teamStats.setAttribute("color", "black");
+            var rosterStats = getRosterStats(roster.roster_id);
+            var rosterStatsBody = document.getElementById("accordionRosterBody");
+            rosterStatsBody.innerText = "Wins:" + rosterStats[0].wins + " Losses:" + rosterStats[0].losses + " Pts:" + rosterStats[0].fpts + " Avg Age: " + rosterStats[0].AvgAge + " PlayerPts: " + rosterStats[0].QB;
+            rosterStatsBody.setAttribute("color", "black");
 
             let sortedPlayers = sortByPosition(roster.players);
+
             for(let players of sortedPlayers)
             {
                 if(localStorage.getItem("PlayerData"))
@@ -288,10 +285,9 @@ function sortTeamRankings() {
 
 }
 
-function rosterStats(rosterid) {
-    //Need to figure out how to send an object with age and position together
-    const rosters = rosterData.map((x) => x);
+function getRosterStats(rosterid) {
 
+    const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
 
     if(roster)
