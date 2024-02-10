@@ -125,8 +125,8 @@ async function loadMatchups(weekNumber) {
                             teamImage.setAttribute("position", "relative");
                             highScorerDiv.setAttribute("position", "absolute");
 
-                            newDiv.appendChild(teamImage);
-                            matchupDiv.prepend(newDiv);
+                            highScorerDiv.appendChild(teamImage);
+                            matchupDiv.prepend(highScorerDiv);
                             matchupDiv.prepend(weeklyHighScorer);
                         }
                         else
