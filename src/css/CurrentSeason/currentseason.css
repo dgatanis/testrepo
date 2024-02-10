@@ -143,11 +143,11 @@ table#PowerRankings {
     .custom-matchup-row:nth-of-type(odd)  
     {   
       border-radius: 0.6rem;
-      background: linear-gradient(180deg,#537fab99, transparent);
+      background: linear-gradient(180deg, transparent,#537fab99);
     } 
 
     .custom-matchup-row:nth-of-type(even)  {        
-      background: linear-gradient(180deg, transparent,#537fab99);
+      background: linear-gradient(180deg,#537fab99, transparent);
       border-radius: 0.6rem;
     }  
   }
