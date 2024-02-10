@@ -59,60 +59,70 @@ function loadSeasonRankings(leagueId) {
 async function loadMatchups(weekNumber) {
 
     //Need to change matchups to our league when go live
-    const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-    //const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`);
+    //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
+    const matchup = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/matchups/${weekNumber}`);
     const matchupData = await matchup.json(); 
     const matchups = matchupData.map((team) => team);
     const highScoreTeam = getRosterHighScorerWeek(matchups);
-    const highScore = highScoreTeam[0].points;
+    const highScore = highScoreTeam.points;
     const totalMatchups = matchups.length / 2;
     const idList = "matchupWeekList_" + weekNumber;
     var weekList = document.getElementById(idList);
     console.log(highScore);
     if(weekList.childElementCount <= 4)
     {
-        for(let i =1; i <= totalMatchups; i++)
+        if(highScore.points > 0)
         {
-            let matchupId = i;
-            
-            for(let matchup of matchups)
+            for(let i =1; i <= totalMatchups; i++)
             {
-                if(matchup.matchup_id == matchupId)
+                let matchupId = i;
+                
+                for(let matchup of matchups)
                 {
-                    let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
-                    let user = userData.find(x => x.user_id === roster.owner_id);
-                    let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
-                    let playerName = getFullPlayerName(highestScorer.player_id);
-                    let playerPoints = highestScorer.points;
-
-                    var matchupDiv = document.createElement("div");
-                    var playerDiv = document.createElement("div");
-                    var playerimg = createPlayerImage(highestScorer.player_id);
-                    var teamImage = createOwnerAvatarImage(user.user_id);
-
-                    playerDiv.innerText = playerName + ": " + playerPoints;
-                    playerDiv.setAttribute("class", "custom-matchup-player");
-                    playerDiv.prepend(playerimg);
-                    matchupDiv.id = "rosterid_" + matchup.roster_id;
-                    matchupDiv.setAttribute("class", "custom-matchup-row");
-
-                    if(user.metadata.team_name != undefined)
+                    if(matchup.matchup_id == matchupId)
                     {
-                        matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
+                        let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
+                        let user = userData.find(x => x.user_id === roster.owner_id);
+                        let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
+                        let playerName = getFullPlayerName(highestScorer.player_id);
+                        let playerPoints = highestScorer.points;
+
+                        var matchupDiv = document.createElement("div");
+                        var playerDiv = document.createElement("div");
+                        var playerimg = createPlayerImage(highestScorer.player_id);
+                        var teamImage = createOwnerAvatarImage(user.user_id);
+
+                        playerDiv.innerText = playerName + ": " + playerPoints;
+                        playerDiv.setAttribute("class", "custom-matchup-player");
+                        playerDiv.prepend(playerimg);
+                        matchupDiv.id = "rosterid_" + matchup.roster_id;
+                        matchupDiv.setAttribute("class", "custom-matchup-row");
+
+                        if(user.metadata.team_name != undefined)
+                        {
+                            matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
+                        }
+                        else
+                        {
+                            matchupDiv.innerText = user.display_name + ": " + matchup.points;
+                        }
+                        matchupDiv.prepend(teamImage);
+                        matchupDiv.append(playerDiv);
+                        weekList.append(matchupDiv);
                     }
-                    else
-                    {
-                        matchupDiv.innerText = user.display_name + ": " + matchup.points;
-                    }
-                    matchupDiv.prepend(teamImage);
-                    matchupDiv.append(playerDiv);
-                    weekList.append(matchupDiv);
                 }
+                
+                var x = document.createElement("li");
+                x.setAttribute("class", "list-group-item custom-matchup-list-item");
+                weekList.append(x);
             }
-            
-            var x = document.createElement("li");
-            x.setAttribute("class", "list-group-item custom-matchup-list-item");
-            weekList.append(x);
+                    
+        }
+        else
+        {
+            var myDiv = document.createElement("div")
+            myDiv.innerText = "NO MATCHUPS TO DISPLAY";
+            weekList.append(myDiv);
         }
     }
 }
