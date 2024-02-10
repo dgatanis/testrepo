@@ -62,19 +62,20 @@ async function loadMatchups(weekNumber) {
 
     if(noMatchupClassList.contains('custom-block-display'))
     {
-        console.log("click");
         //Need to change matchups to our league when go live
         const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-        //const matchup = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/matchups/${weekNumber}`);
+        //const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`);
         const matchupData = await matchup.json(); 
         const matchups = matchupData.map((team) => team);
+
         const highScoreTeam = getRosterHighScorerWeek(matchups);
         const totalMatchups = matchups.length / 2;
-        const idList = "matchupWeekList_" + weekNumber;
-        var weekList = document.getElementById(idList);
+
+        var weekList = document.getElementById("matchupWeekList_" + weekNumber);
 
         if(highScoreTeam.points > 0)
         {
+            //hide no matchups div
             if(noMatchupClassList.contains('custom-block-display'))
             {
                 noMatchup.classList.remove('custom-block-display');
@@ -128,6 +129,7 @@ async function loadMatchups(weekNumber) {
         }
         else
         {
+            //show no matchups div
             if(noMatchupClassList.contains('custom-none-display'))
             {
                 noMatchup.classList.remove('custom-none-display');
