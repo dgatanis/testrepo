@@ -10913,6 +10913,10 @@ ul.nav.nav-tabs {
   color: whitesmoke;
 }
 
+.accordion-button:hover {
+  background-color: #537fab;
+}
+
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 37.5rem) {

@@ -10,10 +10,6 @@ table#PowerRankings {
     background-color: #e2e3e5;
   }
   
-  .custom-matchup-week:hover {
-    background-color: #537fab;
-  }
-  
   .custom-matchup-week:not(.collapsed) {
     color: white;
     background-color: #c36300;
@@ -63,7 +59,7 @@ table#PowerRankings {
   }
   
   .custom-card-inner-body {
-    font-size: .5rem;
+    font-size: .8rem;
   }
 
 /* Custom Mobile responsive display */
@@ -86,7 +82,7 @@ table#PowerRankings {
     .custom-matchup-list {
       font-size: .7rem;
     }
-    
+
     .custom-matchup-player {
       float: left;
     }
