@@ -143,4 +143,8 @@ table#PowerRankings {
       background: linear-gradient(180deg,#537fab99, transparent);
       border-radius: 0.6rem;
     }  
+
+    .list-group-item {
+      border: none;
+    }
   }
