@@ -118,7 +118,8 @@ async function loadMatchups(weekNumber) {
 async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
-    //var teamImage = createOwnerAvatarImage(parseInt(userid));
+    let myUserId = userid.toString();
+    var teamImage = createOwnerAvatarImage(myUserId);
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
