@@ -297,6 +297,7 @@ function getTeamRecord(rosterid) {
 }
 
 function rosterStats(rosterid) {
+    //Need to figure out how to send an object with age and position together
     const rosters = rosterData.map((x) => x);
 
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
