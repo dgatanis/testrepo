@@ -62,6 +62,7 @@ async function loadMatchups(weekNumber) {
 
     if(noMatchupClassList.contains('custom-block-display'))
     {
+        console.log("click");
         //Need to change matchups to our league when go live
         //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
         const matchup = await fetch(`https://api.sleeper.app/v1/league/1046222222567784448/matchups/${weekNumber}`);
