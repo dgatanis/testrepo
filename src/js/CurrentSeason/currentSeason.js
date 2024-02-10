@@ -118,12 +118,12 @@ async function loadMatchups(weekNumber) {
 async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
-    var teamImage = createOwnerAvatarImage(userid);
+    //var teamImage = createOwnerAvatarImage(parseInt(userid));
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
 
-    modalRosterTeamName.prepend(teamImage);
+    //modalRosterTeamName.prepend(teamImage);
     modalRosterTeamName.innerText = teamname;
   
     //Remove players in list
@@ -452,7 +452,7 @@ function createAccordionItem(weekNumber) {
 
 function createOwnerAvatarImage(userId) { 
 
-    let user = userData.find(x => x.user_id === parseInt(userId));
+    let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
     
     if(avatarURL)
