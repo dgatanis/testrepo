@@ -115,4 +115,15 @@ table#PowerRankings {
     .custom-card-inner-body {
       font-size: .7rem;
     }
+
+    .custom-matchup-row:nth-of-type(odd)  
+    {   
+      border-radius: 0.6rem;
+      background: linear-gradient(180deg,#537fab99, transparent);
+    } 
+
+    .custom-matchup-row:nth-of-type(even)  {        
+      background: linear-gradient(180deg, transparent,#537fab99);
+      border-radius: 0.6rem;
+    }  
   }
