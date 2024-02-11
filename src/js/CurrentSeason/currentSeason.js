@@ -99,25 +99,31 @@ async function loadMatchups(weekNumber) {
                         var playerDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
+                        var playerNamePoints = document.createElement('font');
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
                         playerDiv.prepend(playerimg);
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
-
+                        winningFont.innerText= user.display_name + ": " + matchup.points;
+                        // if(user.metadata.team_name != undefined)
+                        // {
+                        //     userName = user.metadata.team_name;
+                        // }
+                        // else
+                        // {
+                        //     userName = user.display_name;
+                        // }
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
-                            var winningFont = document.createElement('font');
-                            winningFont.setAttribute('color', 'green');
-                            winningFont.innerText= user.display_name + ": " + matchup.points;
+                            
+                            playerNamePoints.setAttribute('color', 'green');
                             matchupDiv.append(winningFont);
                         }
                         else
                         {
-                            var losingFont = document.createElement('font');
-                            losingFont.setAttribute('color', 'red');
-                            losingFont.innerText= user.display_name + ": Points"
+                            playerNamePoints.innerText= user.display_name + ": Points"
                             matchupDiv.append(winningFont);
                         }
 
