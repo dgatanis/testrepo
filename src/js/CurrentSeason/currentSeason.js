@@ -94,7 +94,8 @@ async function loadMatchups(weekNumber) {
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
-                        let userName = getOwnerName(roster.owner_id);
+                        let userName = getOwnerName(matchup.owner_id);
+                        console.log(userName);
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
                         let playerPoints = highestScorer.points;
@@ -502,18 +503,13 @@ function getOwnerName(userId) {
     let user = userData.find(x => x.user_id === userId);
     var ownerName;
 
-    if(user)
+    if(user.metadata.team_name != undefined)
     {
-        if(user.metadata.team_name != undefined)
-        {
-            ownerName = user.metadata.team_name;
-            console.log(ownerName);
-        }
-        else
-        {
-            ownerName = user.display_name;
-            console.log(ownerName);
-        }
+        ownerName = user.metadata.team_name;
+    }
+    else
+    {
+        ownerName = user.display_name;
     }
 
     return ownerName;
