@@ -106,7 +106,7 @@ async function loadMatchups(weekNumber) {
                         playerDiv.prepend(playerimg);
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
-                        winningFont.innerText= user.display_name + ": " + matchup.points;
+                        playerNamePoints.innerText= user.display_name + ": " + matchup.points;
                         // if(user.metadata.team_name != undefined)
                         // {
                         //     userName = user.metadata.team_name;
@@ -119,12 +119,12 @@ async function loadMatchups(weekNumber) {
                         {
                             
                             playerNamePoints.setAttribute('color', 'green');
-                            matchupDiv.append(winningFont);
+                            matchupDiv.append(playerNamePoints);
                         }
                         else
                         {
                             playerNamePoints.innerText= user.display_name + ": Points"
-                            matchupDiv.append(winningFont);
+                            matchupDiv.append(playerNamePoints);
                         }
 
                         if(roster.roster_id == highScoringWeekRoster)
