@@ -120,7 +120,7 @@ async function loadMatchups(weekNumber) {
                         else
                         {
                             var losingFont = document.createElement('font');
-                            losingFont.setAttribute('color', 'green');
+                            losingFont.setAttribute('color', 'red');
                             losingFont.innerText= userName + ": Points"
                             matchupDiv.append(winningFont);
                         }
@@ -498,7 +498,8 @@ function getMatchupWeekWinner(matchups,matchupid) {
 }
 
 function getOwnerName(userId) {
-    let user = userData.find(x => x.user_id === parseInt(userId));
+
+    let user = userData.find(x => x.user_id === userId);
     let username;
 
     if(user.metadata.team_name != undefined)
