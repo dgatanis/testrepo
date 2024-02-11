@@ -7,10 +7,10 @@ const playerData = JSON.parse(playerDataStorage);
 
 async function loadConstants() {
 
-    const { getCurrentWeek } , leagueInfo = await import('../util/leagueInfo.js');
+    const leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
-    var myTest = getCurrentWeek();
-    console.log(myTest);
+    //var myTest = getCurrentWeek();
+    //console.log(myTest);
     leagueInfoLeagueId.then((currentLeagueId) => {
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
