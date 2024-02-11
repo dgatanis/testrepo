@@ -500,16 +500,20 @@ function getMatchupWeekWinner(matchups,matchupid) {
 function getOwnerName(userId) {
 
     let user = userData.find(x => x.user_id === userId);
-    let username;
+    var username;
 
-    if(user.metadata.team_name != undefined)
+    if(user)
     {
-        username = user.metadata.team_name 
+        if(user.metadata.team_name != undefined)
+        {
+            username = user.metadata.team_name;
+        }
+        else
+        {
+            username = user.display_name;
+        }
     }
-    else
-    {
-        username = user.display_name
-    }
+
     
     return username;
 }
