@@ -105,26 +105,19 @@ async function loadMatchups(weekNumber) {
                         playerDiv.prepend(playerimg);
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
-                        if(user.metadata.team_name != undefined)
-                        {
-                            userName = user.metadata.team_name;
-                        }
-                        else
-                        {
-                            userName = user.display_name;
-                        }
+
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
                             var winningFont = document.createElement('font');
                             winningFont.setAttribute('color', 'green');
-                            winningFont.innerText= userName + ": " + matchup.points;
+                            winningFont.innerText= user.display_name + ": " + matchup.points;
                             matchupDiv.append(winningFont);
                         }
                         else
                         {
                             var losingFont = document.createElement('font');
                             losingFont.setAttribute('color', 'red');
-                            losingFont.innerText= userName + ": Points"
+                            losingFont.innerText= user.display_name + ": Points"
                             matchupDiv.append(winningFont);
                         }
 
