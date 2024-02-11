@@ -91,12 +91,14 @@ async function loadMatchups(weekNumber) {
                 {
                     if(matchup.matchup_id == matchupId)
                     {
+                        let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
+                        let userName = getOwnerName(user.user_id);
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
                         let playerPoints = highestScorer.points;
-                        console.log(highScoringWeekRoster);
+
                         var matchupDiv = document.createElement("div");
                         var playerDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
@@ -108,13 +110,19 @@ async function loadMatchups(weekNumber) {
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
 
-                        if(user.metadata.team_name != undefined)
+                        if(winningTeam[0].roster_id == roster.roster_id)
                         {
-                            matchupDiv.innerText = user.metadata.team_name + ": " + matchup.points;
+                            var winningFont = document.createElement('font');
+                            winningFont.setAttribute('color', 'green');
+                            winningFont.innerText= userName + ": Points"
+                            matchupDiv.append(winningFont);
                         }
                         else
                         {
-                            matchupDiv.innerText = user.display_name + ": " + matchup.points;
+                            var losingFont = document.createElement('font');
+                            losingFont.setAttribute('color', 'green');
+                            losingFont.innerText= userName + ": Points"
+                            matchupDiv.append(winningFont);
                         }
 
                         if(roster.roster_id == highScoringWeekRoster)
@@ -124,6 +132,7 @@ async function loadMatchups(weekNumber) {
 
                             matchupDiv.appendChild(weeklyHighScorer);
                         }
+
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(playerDiv);
                         weekList.append(matchupDiv);
@@ -460,9 +469,50 @@ function getRosterHighScorerWeek(matchups) {
     return rosters[0];
 }
 
-function getMatchupWeekWinner(matchups) {
-    
+function getMatchupWeekWinner(matchups,matchupid) {
+
+    let matchupScore = [];
+
+    for(let matchup of matchups)
+    {
+        if(matchup.matchup_id==matchupid)
+        {
+            matchupScore.push({
+                "roster_id" : test.roster_id,
+                "points": test.points,
+                "matchup_id": test.matchup_id
+            });
+        }
+    }
+
+
+    return matchupScore.sort(function (a, b) {
+                if (a.points > b.points) {
+                return -1;
+                }
+                if (a.points < b.points) {
+                return 1;
+                }
+                return 0;
+            });
 }
+
+function getOwnerName(userId) {
+    let user = userData.find(x => x.user_id === parseInt(userId));
+    let username;
+
+    if(user.metadata.team_name != undefined)
+    {
+        username = user.metadata.team_name 
+    }
+    else
+    {
+        username = user.display_name
+    }
+    
+    return username;
+}
+
 
 /*
 ** HTML Create/edit elements functions **
@@ -589,6 +639,6 @@ function createMatchupWeekHighScorerImg(){
     img.setAttribute('src', '../src/static/images/crown-icon.png');
     img.setAttribute('class', "custom-highscorer");
     img.setAttribute('title', 'This weeks high scorer');
-    
+
     return img;
 }
