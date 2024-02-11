@@ -99,33 +99,35 @@ async function loadMatchups(weekNumber) {
                         var playerDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
-                        var playerNamePoints = document.createElement('font');
+                        var teamPoints = document.createElement('font');
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
                         playerDiv.prepend(playerimg);
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
-                        
+                        teamPoints.innerText = matchup.points;
+
                         if(user.metadata.team_name != undefined)
                         {
-                            playerNamePoints.innerText= user.metadata.team_name + ": " + matchup.points;
+                            matchupDiv.innerText= user.metadata.team_name + ": "
                         }
                         else
                         {
-                            playerNamePoints.innerText= user.display_name + ": " + matchup.points;
+                            matchupDiv.innerText= user.display_name + ": "
                         }
+
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
                             
-                            playerNamePoints.setAttribute('color', '#006f00');
+                            teamPoints.setAttribute('color', '#006f00');
                         }
                         else
                         {
-                            playerNamePoints.setAttribute('color', '#cb1919');
+                            teamPoints.setAttribute('color', '#cb1919');
                         }
 
-                        matchupDiv.append(playerNamePoints);
+                        matchupDiv.append(teamPoints);
 
                         if(roster.roster_id == highScoringWeekRoster)
                         {
