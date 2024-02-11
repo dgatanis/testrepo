@@ -72,8 +72,7 @@ async function loadMatchups(weekNumber) {
         const totalMatchups = matchups.length / 2;
 
         var weekList = document.getElementById("matchupWeekList_" + weekNumber);
-        var userName;
-        
+
         if(highScoreTeam.points > 0)
         {
             var highScoringWeekRoster = highScoreTeam.roster_id;
@@ -84,12 +83,14 @@ async function loadMatchups(weekNumber) {
                 
                 for(let matchup of matchups)
                 {
+                    
                     if(matchup.matchup_id == matchupId)
                     {
+                        let userName;
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
-                        userName = getOwnerName(roster.owner_id);
+                        
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
                         let playerPoints = highestScorer.points;
@@ -104,7 +105,14 @@ async function loadMatchups(weekNumber) {
                         playerDiv.prepend(playerimg);
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
-
+                        if(user.metadata.team_name != undefined)
+                        {
+                            userName = user.metadata.team_name;
+                        }
+                        else
+                        {
+                            userName = user.display_name;
+                        }
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
                             var winningFont = document.createElement('font');
