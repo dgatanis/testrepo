@@ -76,12 +76,6 @@ async function loadMatchups(weekNumber) {
         if(highScoreTeam.points > 0)
         {
             var highScoringWeekRoster = highScoreTeam.roster_id;
-            //hide no matchups div
-            if(noMatchupClassList.contains('custom-block-display'))
-            {
-                noMatchup.classList.remove('custom-block-display');
-                noMatchup.classList.add('custom-none-display');
-            }
 
             for(let i =1; i <= totalMatchups; i++)
             {
@@ -143,6 +137,13 @@ async function loadMatchups(weekNumber) {
                 var x = document.createElement("li");
                 x.setAttribute("class", "list-group-item custom-matchup-list-item");
                 weekList.append(x);
+            }
+
+            //hide no matchups div
+            if(noMatchupClassList.contains('custom-block-display'))
+            {
+                noMatchup.classList.remove('custom-block-display');
+                noMatchup.classList.add('custom-none-display');
             }
                     
         }
@@ -500,7 +501,7 @@ function getMatchupWeekWinner(matchups,matchupid) {
 
 function getOwnerName(userId) {
 
-    let user = userData.find(x => x.user_id === userId);
+    let user = userData.find(x => x.user_id === userId.toString());
     var ownerName;
 
     if(user.metadata.team_name != undefined)
