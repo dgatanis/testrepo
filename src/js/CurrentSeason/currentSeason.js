@@ -118,11 +118,11 @@ async function loadMatchups(weekNumber) {
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
                             
-                            playerNamePoints.setAttribute('color', 'green');
+                            playerNamePoints.setAttribute('color', '#006f00');
                         }
                         else
                         {
-                            playerNamePoints.setAttribute('color', 'red');
+                            playerNamePoints.setAttribute('color', '#cb1919');
                         }
 
                         matchupDiv.append(playerNamePoints);
