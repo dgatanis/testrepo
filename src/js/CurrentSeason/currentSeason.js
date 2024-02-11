@@ -72,7 +72,8 @@ async function loadMatchups(weekNumber) {
         const totalMatchups = matchups.length / 2;
 
         var weekList = document.getElementById("matchupWeekList_" + weekNumber);
-
+        var userName;
+        
         if(highScoreTeam.points > 0)
         {
             var highScoringWeekRoster = highScoreTeam.roster_id;
@@ -88,8 +89,7 @@ async function loadMatchups(weekNumber) {
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
-                        let ownerId = roster.owner_id;
-                        let userName = getOwnerName(ownerId);
+                        userName = getOwnerName(roster.owner_id);
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
                         let playerPoints = highestScorer.points;
