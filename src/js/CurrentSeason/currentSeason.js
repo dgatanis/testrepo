@@ -119,12 +119,10 @@ async function loadMatchups(weekNumber) {
                         {
                             
                             playerNamePoints.setAttribute('color', 'green');
-                            matchupDiv.append(playerNamePoints);
                         }
                         else
                         {
                             playerNamePoints.setAttribute('color', 'red');
-                           
                         }
 
                         matchupDiv.append(playerNamePoints);
