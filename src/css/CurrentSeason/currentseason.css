@@ -87,7 +87,11 @@ table#PowerRankings {
     text-align: center;
   }
 
-/* Custom Mobile responsive display */
+/* Custom Mobile responsive display 
+.list-group-item {
+      border: none;
+    }
+*/
 
   @media screen and (max-width: 37.5rem) {
     .custom-matchups {
@@ -133,7 +137,5 @@ table#PowerRankings {
       font-size: .7rem;
     } 
 
-    .list-group-item {
-      border: none;
-    }
+    
   }
