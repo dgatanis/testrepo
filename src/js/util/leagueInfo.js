@@ -27,6 +27,17 @@ async function getCurrentSeason() {
 
 }
 
+//Figure out how to export this 
+export async function getCurrentWeek() {
+    try {
+        const nflState = await getNFLState();
+        return nflState.leg;
+    } catch (error) {
+        console.log("Error: ", error);
+    }
+
+}
+
 async function currentLeagueId(thisYear) {
     const myUserId = '467550885086490624';
     const leagueName = "Crush Cities ";

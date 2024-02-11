@@ -4,11 +4,13 @@ const userDataStorage = localStorage.getItem("UserData");
 const userData = JSON.parse(userDataStorage);
 const playerDataStorage = localStorage.getItem("PlayerData")
 const playerData = JSON.parse(playerDataStorage); 
+
 async function loadConstants() {
 
-    const leagueInfo = await import('../util/leagueInfo.js');
+    const { getCurrentWeek } , leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
-
+    var myTest = getCurrentWeek();
+    console.log(myTest);
     leagueInfoLeagueId.then((currentLeagueId) => {
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
