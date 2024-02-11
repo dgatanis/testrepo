@@ -93,7 +93,7 @@ async function loadMatchups(weekNumber) {
                         
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
-                        let playerPoints = highestScorer.points;
+                        let playerPoints = highestScorer.points +"pts";
 
                         var matchupDiv = document.createElement("div");
                         var playerDiv = document.createElement("div");
@@ -106,7 +106,7 @@ async function loadMatchups(weekNumber) {
                         playerDiv.prepend(playerimg);
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
-                        teamPoints.innerText = matchup.points;
+                        teamPoints.innerText = matchup.points + "pts";
 
                         if(user.metadata.team_name != undefined)
                         {
