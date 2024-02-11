@@ -478,9 +478,9 @@ function getMatchupWeekWinner(matchups,matchupid) {
         if(matchup.matchup_id==matchupid)
         {
             matchupScore.push({
-                "roster_id" : test.roster_id,
-                "points": test.points,
-                "matchup_id": test.matchup_id
+                "roster_id" : matchup.roster_id,
+                "points": matchup.points,
+                "matchup_id": matchup.matchup_id
             });
         }
     }
