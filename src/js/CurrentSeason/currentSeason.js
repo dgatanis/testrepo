@@ -584,19 +584,19 @@ function toggleStarters(rosterId) {
 
     if(hiddenRows.length > 0)
     {
-        for(let row of tableRows)
+        for(let row of hiddenRows)
         {
-            if(starters.includes(row.id))
-            {
-                row.setAttribute('class', 'custom-hidden-row');
-            }
+            row.setAttribute('class', 'custom-table-row');
         }
     }
     else
     {
-        for(let row of hiddenRows)
+        for(let row of tableRows)
         {
-            row.setAttribute('class', 'custom-table-row');
+            if(!starters.includes(row.id))
+            {
+                row.setAttribute('class', 'custom-hidden-row');
+            }
         }
     }
 }
