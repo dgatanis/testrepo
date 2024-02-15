@@ -82,6 +82,10 @@ table#PowerRankings {
     display: none;
   }
 
+  .custom-table-display {
+    display: table-row;
+  }
+
   .custom-block-display {
     display: block;
     text-align: center;
