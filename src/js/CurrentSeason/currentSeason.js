@@ -295,25 +295,64 @@ function sortByPosition(players) {
         let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
         if(thisPlayer)
         {
-            
-            sortedPlayers.push ({
+            if(thisPlayer.position == "QB")
+            {
+                qb.push ({
                 "player_id": thisPlayer.player_id,
                 "position": thisPlayer.position
-            });
-
+                });   
+            }
+             if(thisPlayer.position == "RB")
+            {
+                rb.push ({
+                "player_id": thisPlayer.player_id,
+                "position": thisPlayer.position
+                });   
+            }
+             if(thisPlayer.position == "WR")
+            {
+                wr.push ({
+                "player_id": thisPlayer.player_id,
+                "position": thisPlayer.position
+                });   
+            }
+            if(thisPlayer.position == "TE")
+            {
+                te.push ({
+                "player_id": thisPlayer.player_id,
+                "position": thisPlayer.position
+                });   
+            }
+            if(thisPlayer.position == "K")
+            {
+                k.push ({
+                "player_id": thisPlayer.player_id,
+                "position": thisPlayer.position
+                });   
+            }
         }
     }
 
-    //return sorted by position
-    return sortedPlayers.sort(function (a, b) {
-        if (a.position == "QB" || (b.position == "K" || b.position == "DEF") || a.position < b.position && a.position != "K" ) {
-          return -1;
+    sortedPositions.push([qb, rb, wr, te, k]);
+
+    for(let positions of sortedPositions)
+    {
+        for (let position of positions)
+        {
+            for (let player of position)
+            {
+                sortedPlayers.push ({
+                    "player_id": player.player_id,
+                    "position": player.position
+                });
+            }
         }
-        if (a.position > b.position) {
-          return 1;
-        }
-        return 0;
-      });
+    }
+
+    if(sortedPlayers)
+    {
+        return sortedPlayers;
+    }
 }
 
 function sortTeamRankings() {
