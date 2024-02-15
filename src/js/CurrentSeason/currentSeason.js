@@ -226,7 +226,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                         var th = document.createElement("th");
                         th.innerText=player.position;
                         th.setAttribute('scope', 'row');
-                        tr.setAttribute('class', 'custom-table-display')
+                        tr.setAttribute('class', 'custom-shown-row')
                         tr.setAttribute('id', player.player_id);
                         tr.appendChild(th);
                         var nameOfPlayer = document.createElement("td");
