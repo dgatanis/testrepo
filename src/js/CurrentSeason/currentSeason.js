@@ -582,15 +582,11 @@ function toggleStarters(rosterId) {
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
     let starters = roster.starters;
 
-    if(hiddenRows > 0)
+    if(hiddenRows.length > 0)
     {
         for(let row of tableRows)
         {
             if(starters.includes(row.id))
-            {
-                row.setAttribute('class', 'custom-table-display');
-            }
-            else
             {
                 row.setAttribute('class', 'custom-hidden-row');
             }
@@ -598,7 +594,7 @@ function toggleStarters(rosterId) {
     }
     else
     {
-        for(let row of tableRows)
+        for(let row of hiddenRows)
         {
             row.setAttribute('class', 'custom-table-row');
         }
