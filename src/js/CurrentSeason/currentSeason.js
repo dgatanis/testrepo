@@ -579,10 +579,12 @@ function toggleStarters(rosterId) {
 
     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-table-display');
-
+    let hiddenRows = document.querySelectorAll('.custom-hidden-row');
     let starters = roster.starters;
 
-    for(let row of tableRows)
+    if(hiddenRows > 0)
+    {
+        for(let row of tableRows)
         {
             if(starters.includes(row.id))
             {
@@ -590,10 +592,17 @@ function toggleStarters(rosterId) {
             }
             else
             {
-                row.setAttribute('class', 'custom-none-display');
+                row.setAttribute('class', 'custom-hidden-row');
             }
         }
-
+    }
+    else
+    {
+        for(let row of tableRows)
+        {
+            row.setAttribute('class', 'custom-table-row');
+        }
+    }
 }
 /*
 ** HTML Create/edit elements functions **
