@@ -289,7 +289,13 @@ function getFullPlayerName(playerid) {
 
 function sortByPosition(players) {
     let sortedPlayers = [];
-
+    const sortedPositions = [];
+    const qb = [];
+    const rb = [];
+    const wr = [];
+    const te = [];
+    const k = [];
+    
     for(let player of players)
     {
         let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));

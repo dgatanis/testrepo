@@ -43,13 +43,13 @@ table#PowerRankings {
   .custom-rankings {
     width: 40%;
     text-align: justify;
-    padding-bottom: 3rem;
+    padding-bottom: 5rem;
   }
   
   .custom-matchups {
     width: 40%;
     text-align: justify;
-    padding-bottom: 3rem;
+    padding-bottom: 5rem;
   }
   
   .custom-body {
