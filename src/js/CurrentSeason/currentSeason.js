@@ -201,11 +201,12 @@ async function OpenTeamRosterModal(userid,teamname) {
             const record = document.getElementById("rosterRecord");
             const playerCount = document.getElementById("rosterPlayerCount");
             const age = document.getElementById("rosterAge");
+            const starters = document.getElementById("toggleStarters");
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
             age.innerText = rosterStats.AvgAge + " yrs";
-
+            starters.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             let sortedPlayers = sortByPosition(roster.players);
 
             for(let players of sortedPlayers)
@@ -574,7 +575,26 @@ function getOwnerName(userId) {
     return ownerName;
 }
 
+function toggleStarters(rosterId) {
 
+    let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+    let tableRows = document.querySelectorAll('.custom-table-display');
+
+    let starters = roster.starters;
+
+    for(let row of tableRows)
+        {
+            if(starters.includes(row.id))
+            {
+                row.setAttribute('class', 'custom-table-display');
+            }
+            else
+            {
+                row.setAttribute('class', 'custom-none-display');
+            }
+        }
+
+}
 /*
 ** HTML Create/edit elements functions **
 */                                 
