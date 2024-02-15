@@ -171,7 +171,7 @@ async function loadMatchups(weekNumber) {
 
 }
 
-async function OpenTeamRosterModal(userid,teamname,leagueID = "1046222222567784448") {
+async function OpenTeamRosterModal(userid,teamname) {
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     let myUserId = userid.toString();
