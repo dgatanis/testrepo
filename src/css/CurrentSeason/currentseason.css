@@ -84,10 +84,14 @@ table#PowerRankings {
 
   .custom-hidden-row {
     display: none;
+    visibility: hidden;
+    transition: visibility 2s;
   }
 
   .custom-shown-row {
     display: table-row;
+    visibility: visible;
+    transition: visibility 2s;
   }
 
   .custom-block-display {
