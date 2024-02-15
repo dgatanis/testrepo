@@ -578,7 +578,7 @@ function getOwnerName(userId) {
 function toggleStarters(rosterId) {
 
     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-    let tableRows = document.querySelectorAll('.custom-table-display');
+    let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
     let starters = roster.starters;
 
