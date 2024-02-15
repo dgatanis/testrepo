@@ -91,6 +91,10 @@ table#PowerRankings {
     text-align: center;
   }
 
+  .custom-link {
+    text-align: center;
+  }
+
 /* Custom Mobile responsive display 
 .list-group-item {
       border: none;
