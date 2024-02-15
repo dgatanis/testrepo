@@ -203,7 +203,7 @@ async function OpenTeamRosterModal(userid,teamname) {
             const age = document.getElementById("rosterAge");
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
-            playerCount.innerText = "QB:" + rosterStats.QB + " RB:" + rosterStats.RB + " TE:" + rosterStats.TE + " WR:" + rosterStats.WR + " K:" + rosterStats.K;
+            playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
             age.innerText = rosterStats.AvgAge + " yrs";
 
             let sortedPlayers = sortByPosition(roster.players);
@@ -295,7 +295,7 @@ function sortByPosition(players) {
     const wr = [];
     const te = [];
     const k = [];
-    
+
     for(let player of players)
     {
         let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
