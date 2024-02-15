@@ -586,7 +586,7 @@ function toggleStarters(rosterId) {
     {
         for(let row of hiddenRows)
         {
-            row.setAttribute('class', 'custom-table-row');
+            row.setAttribute('class', 'custom-shown-row');
         }
     }
     else

@@ -86,7 +86,7 @@ table#PowerRankings {
     display: none;
   }
 
-  .custom-table-display {
+  .custom-shown-row {
     display: table-row;
   }
 
