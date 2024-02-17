@@ -74,19 +74,17 @@ async function loadMatchups(weekNumber) {
 
     try{
 
-    if(noMatchupClassList.contains('custom-block-display'))
-    {
         var arrayNum = parseInt(weekNumber) - 1;
         const matchups = matchupData[0].matchupWeeks[arrayNum];
-        const matchupsLength = Object.keys(matchups).length;
 
-        const highScoreTeam = getRosterHighScorerWeek(matchups);
-        const totalMatchups = matchupsLength / 2;
-
-        var weekList = document.getElementById("matchupWeekList_" + weekNumber);
-
-        if(highScoreTeam.points > 0)
+        if(matchups)
         {
+            const matchupsLength = Object.keys(matchups).length;
+
+            const highScoreTeam = getRosterHighScorerWeek(matchups);
+            const totalMatchups = matchupsLength / 2;
+
+            var weekList = document.getElementById("matchupWeekList_" + weekNumber);
             var highScoringWeekRoster = highScoreTeam.roster_id;
 
             for(let i =1; i <= totalMatchups; i++)
@@ -178,7 +176,6 @@ async function loadMatchups(weekNumber) {
                 noMatchup.classList.add('custom-block-display');
             }
         }
-    }
     }
     catch (error){
         console.log(error);
