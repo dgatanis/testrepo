@@ -71,9 +71,8 @@ async function loadMatchups(weekNumber) {
 
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
     var noMatchupClassList = noMatchup.classList;
-    
-    try{
 
+    try{
 
     if(noMatchupClassList.contains('custom-block-display'))
     {
@@ -82,7 +81,7 @@ async function loadMatchups(weekNumber) {
         const matchupsLength = Object.keys(matchups).length;
 
         const highScoreTeam = getRosterHighScorerWeek(matchups);
-        const totalMatchups = matchups.length / 2;
+        const totalMatchups = matchupsLength / 2;
 
         var weekList = document.getElementById("matchupWeekList_" + weekNumber);
 
