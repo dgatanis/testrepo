@@ -94,6 +94,7 @@ async function loadMatchups(weekNumber) {
                 for(let j=0; j<matchupsLength; j++)
                 {
                     let matchup = matchups[j];
+                    
                     if(matchup.matchup_id == matchupId)
                     {
                         let userName;
@@ -523,12 +524,13 @@ function calcPlayerAge(players) {
 function getRosterHighScorerWeek(matchups) {
 
     let rosters = [];
+    let matchupsLength = Object.keys(matchups).length;
 
-    for(let matchup of matchups)
+    for(let i =0; i<matchupsLength; i++)
     {
         rosters.push({
-            "roster_id": matchup.roster_id,
-            "points" : matchup.points
+            "roster_id": matchups[i].roster_id,
+            "points" : matchups[i].points
         });
     }
 
@@ -548,15 +550,16 @@ function getRosterHighScorerWeek(matchups) {
 function getMatchupWeekWinner(matchups,matchupid) {
 
     let matchupScore = [];
+    let matchupsLength = Object.keys(matchups).length;
 
-    for(let matchup of matchups)
+    for(let i =0; i<matchupsLength; i++)
     {
         if(matchup.matchup_id==matchupid)
         {
             matchupScore.push({
-                "roster_id" : matchup.roster_id,
-                "points": matchup.points,
-                "matchup_id": matchup.matchup_id
+                "roster_id" : matchups[i].roster_id,
+                "points": matchups[i].points,
+                "matchup_id": matchups[i].matchup_id
             });
         }
     }
