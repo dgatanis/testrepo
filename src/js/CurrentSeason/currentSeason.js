@@ -180,6 +180,7 @@ async function OpenTeamRosterModal(userid,teamname) {
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
+    const leaguePositionList = getLeaguePositions();
 
     modalRosterTeamName.innerText = teamname;
   
@@ -202,11 +203,13 @@ async function OpenTeamRosterModal(userid,teamname) {
             var rosterStats = getRosterStats(roster.roster_id);
             const record = document.getElementById("rosterRecord");
             const playerCount = document.getElementById("rosterPlayerCount");
+            const leaguePositions = document.getElementById("leaguePositions");
             const age = document.getElementById("rosterAge");
             const starters = document.getElementById("toggleStarters");
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
+            leaguePositions.innerText = "[" + leaguePositionList + "]";
             age.innerText = rosterStats.AvgAge + " yrs";
             starters.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             let sortedPlayers = sortByPosition(roster.players);
@@ -601,6 +604,29 @@ function toggleStarters(rosterId) {
             }
         }
     }
+}
+
+function getLeaguePositions(){
+
+    leaguePositions = leagueData.roster_positions;
+    const positions = [];
+
+    for(let starterPosition of leaguePositions)
+        {
+            if(starterPosition != "BN")
+            {
+                if(starterPosition == "SUPER_FLEX")
+                {
+                    positions.push("SF");
+                }
+                else
+                {
+                    positions.push(starterPosition);
+                }
+            }
+        }
+
+    return positions.toString();
 }
 /*
 ** HTML Create/edit elements functions **
