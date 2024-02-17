@@ -559,6 +559,7 @@ function getMatchupWeekWinner(matchups,matchupid) {
 
     for(let i =0; i<matchupsLength; i++)
     {
+        let matchup = matchups[i];
         if(matchup.matchup_id==matchupid)
         {
             matchupScore.push({
