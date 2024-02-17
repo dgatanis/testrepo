@@ -661,7 +661,7 @@ function getBankroll(currentWeek,dues) {
 function loadMatchupsList(){
     var currentWeek = matchupData[0].matchupWeeks.length;
     var matchupDiv = document.getElementById("matchupWeeks");
-    var currentWeek = document.getElementById("currentWeek");
+    var week = document.getElementById("currentWeek");
 
     for(let i = 1; i<15; i++)
     {
@@ -670,11 +670,11 @@ function loadMatchupsList(){
     }
     if(currentWeek > 0)
     {
-        currentWeek.innerText="Week: " + currentWeek;
+        week.innerText="Week: " + currentWeek;
     }
     else
     {
-        currentWeek.innerText="No matchups yet";
+        week.innerText="No matchups yet";
     }
 }
 
