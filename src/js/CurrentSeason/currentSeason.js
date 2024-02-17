@@ -227,7 +227,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                         th.innerText=player.position;
                         th.setAttribute('scope', 'row');
                         tr.setAttribute('class', 'custom-shown-row')
-                        tr.setAttribute('id', player.player_id);
+                        tr.setAttribute('data-playerid', player.player_id);
                         tr.appendChild(th);
                         var nameOfPlayer = document.createElement("td");
                         nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
@@ -593,7 +593,7 @@ function toggleStarters(rosterId) {
     {
         for(let row of tableRows)
         {
-            if(!starters.includes(row.id))
+            if(!starters.includes(row.dataset.playerid))
             {
                 row.setAttribute('class', 'custom-hidden-row');
             }
@@ -657,14 +657,14 @@ function createOwnerAvatarImage(userId) {
         var img = document.createElement("img");
         img.setAttribute('src', avatarURL);
         img.setAttribute('class', "custom-user-avatar");
-        img.setAttribute('id', user.user_id);
+        img.setAttribute('data-userid', user.user_id);
     }
     else
     {
         var img = document.createElement("img");
         img.setAttribute('src', '../src/static/images/trashcan.jpg');
         img.setAttribute('class', "custom-user-avatar");
-        img.setAttribute('id', user.user_id);
+        img.setAttribute('data-userid', user.user_id);
     }
     return img;
 }
@@ -721,6 +721,7 @@ function createMatchupListElement(weekNumber) {
 }
 
 function createMatchupWeekHighScorerImg(){
+
     var img = document.createElement("img");
     img.setAttribute('src', '../src/static/images/crown-icon.png');
     img.setAttribute('class', "custom-highscorer");
