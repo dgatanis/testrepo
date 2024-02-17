@@ -18,9 +18,9 @@ async function loadConstants() {
         loadSeasonRankings(currentLeagueId);
         loadMatchupsList();
     }).catch((error) => {
-        //setTimeout(loadConstants(),1000);
         console.error(`Error: ${error.message}`);
     });
+    
     currentWeek.then((thisWeek) => {
         getBankroll(thisWeek,dues);
     }).catch((error) => {

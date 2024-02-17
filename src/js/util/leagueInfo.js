@@ -27,7 +27,6 @@ async function getCurrentSeason() {
 
 }
 
-//Figure out how to export this 
 export async function getCurrentWeek() {
     try {
         const nflState = await getNFLState();
