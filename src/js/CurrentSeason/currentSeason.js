@@ -12,6 +12,7 @@ async function loadConstants() {
     const leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
     var currentWeek = leagueInfo.getCurrentWeek();
+    var dues = leagueInfo.dues;
 
     leagueInfoLeagueId.then((currentLeagueId) => {
         loadSeasonRankings(currentLeagueId);
@@ -21,7 +22,7 @@ async function loadConstants() {
         console.error(`Error: ${error.message}`);
     });
     currentWeek.then((thisWeek) => {
-        getBankroll(thisWeek);
+        getBankroll(thisWeek,dues);
     }).catch((error) => {
         console.error(`Error: ${error.message}`);
     });
@@ -644,8 +645,8 @@ function getLeaguePositions(){
     return positions.toString().replaceAll(",", ", ");
 }
 
-function getBankroll(currentWeek) {
-    console.log(currentWeek);
+function getBankroll(currentWeek,dues) {
+    console.log(currentWeek + " " + dues);
 }
 /*
 ** HTML Create/edit elements functions **
