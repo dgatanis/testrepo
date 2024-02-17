@@ -203,13 +203,14 @@ async function OpenTeamRosterModal(userid,teamname) {
             var rosterStats = getRosterStats(roster.roster_id);
             const record = document.getElementById("rosterRecord");
             const playerCount = document.getElementById("rosterPlayerCount");
-            const leaguePositions = document.getElementById("leaguePositions");
+            const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
             const starters = document.getElementById("toggleStarters");
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
-            leaguePositions.innerText = "(" + leaguePositionList + ")";
+            leaguePositionsLink.innerText = "(" + leaguePositionList + ")";
+            leaguePositionsLink.title = "Toggle Starters";
             age.innerText = rosterStats.AvgAge + " yrs";
             starters.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             let sortedPlayers = sortByPosition(roster.players);
