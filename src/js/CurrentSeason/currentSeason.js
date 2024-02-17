@@ -1,9 +1,11 @@
-const rosterDataStorage = localStorage.getItem("RosterData")
+const rosterDataStorage = localStorage.getItem("RosterData");
 const rosterData = JSON.parse(rosterDataStorage); 
 const userDataStorage = localStorage.getItem("UserData");
 const userData = JSON.parse(userDataStorage);
-const playerDataStorage = localStorage.getItem("PlayerData")
+const playerDataStorage = localStorage.getItem("PlayerData");
 const playerData = JSON.parse(playerDataStorage); 
+const leagueDataStorage = localStorage.getItem("LeagueData");
+const leagueData = JSON.parse(leagueDataStorage); 
 
 async function loadConstants() {
 
