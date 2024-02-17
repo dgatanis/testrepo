@@ -26,7 +26,7 @@ async function getMatchupData(leagueID, currentWeek) {
 
     let totalWeeksPlayed = parseInt(currentWeek);
     leagueID = '1003692635549462528'; //TESTING LEAGUE
-    let matchupWeeks = []
+    let matchupWeeks = [];
     let upToCurrentWeekMatchups = [];
 
     for(let i = 1; i<=totalWeeksPlayed; i++)
