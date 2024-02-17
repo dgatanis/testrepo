@@ -183,7 +183,9 @@ async function OpenTeamRosterModal(userid,teamname) {
     const leaguePositionList = getLeaguePositions();
 
     modalRosterTeamName.innerText = teamname;
-  
+    tablebody.classList.add('table-secondary');
+    tablebody.classList.remove('table-dark');
+    
     //Remove players in list
     while(tablebody.firstChild) {
       tablebody.removeChild(tablebody.firstChild);
