@@ -2011,6 +2011,10 @@ progress {
   --bs-table-hover-color: #000;
   color: #000;
   border-color: #cbccce;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
 }
 
 .table-success {
@@ -2083,6 +2087,10 @@ progress {
   --bs-table-hover-color: #fff;
   color: #fff;
   border-color: #373b3e;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
 }
 
 .table-responsive {
