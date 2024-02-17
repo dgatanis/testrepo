@@ -183,7 +183,7 @@ async function OpenTeamRosterModal(userid,teamname) {
     const leaguePositionList = getLeaguePositions();
 
     modalRosterTeamName.innerText = teamname;
-    
+
     rosterTable.classList.remove('table-dark');
     rosterTable.classList.add('table-secondary');
     
@@ -600,7 +600,7 @@ function toggleStarters(rosterId) {
             row.setAttribute('class', 'custom-shown-row');
         }
         rosterTable.classList.add('table-secondary');
-        rosterTable.classList.add('table-dark');
+        rosterTable.classList.remove('table-dark');
     }
     else
     {
