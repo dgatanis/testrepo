@@ -6,7 +6,7 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 const playerData = JSON.parse(playerDataStorage); 
 const leagueDataStorage = localStorage.getItem("LeagueData");
 const leagueData = JSON.parse(leagueDataStorage); 
-const matchupWeekStorage = localStorage.getItem("MatchupData");
+const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 const matchupData = JSON.parse(matchupWeekStorage); 
 
 async function loadConstants() {
