@@ -209,7 +209,7 @@ async function OpenTeamRosterModal(userid,teamname) {
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
-            leaguePositions.innerText = "[" + leaguePositionList + "]";
+            leaguePositions.innerText = "(" + leaguePositionList + ")";
             age.innerText = rosterStats.AvgAge + " yrs";
             starters.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             let sortedPlayers = sortByPosition(roster.players);
