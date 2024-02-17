@@ -71,6 +71,9 @@ async function loadMatchups(weekNumber) {
 
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
     var noMatchupClassList = noMatchup.classList;
+    
+    try{
+
 
     if(noMatchupClassList.contains('custom-block-display'))
     {
@@ -94,7 +97,7 @@ async function loadMatchups(weekNumber) {
                 for(let j=0; j<matchupsLength; j++)
                 {
                     let matchup = matchups[j];
-                    
+
                     if(matchup.matchup_id == matchupId)
                     {
                         let userName;
@@ -177,7 +180,10 @@ async function loadMatchups(weekNumber) {
             }
         }
     }
-
+    }
+    catch (error){
+        console.log(error);
+    }
 }
 
 async function OpenTeamRosterModal(userid,teamname) {
