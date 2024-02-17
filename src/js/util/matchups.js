@@ -31,7 +31,6 @@ async function getMatchupData(leagueID, currentWeek) {
 
     for(let i = 1; i<=totalWeeksPlayed; i++)
     {
-        //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/2`);
         const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`);
         const matchupData = await matchup.json(); 
 

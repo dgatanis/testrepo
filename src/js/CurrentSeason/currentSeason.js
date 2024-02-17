@@ -74,11 +74,8 @@ async function loadMatchups(weekNumber) {
 
     if(noMatchupClassList.contains('custom-block-display'))
     {
-        //Need to change matchups to our league when go live
-        const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/${weekNumber}`);
-        //const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/${weekNumber}`);
-        const matchupData = await matchup.json(); 
-        const matchups = matchupData.map((team) => team);
+        var arrayNum = parseInt(weekNumber) - 1;
+        const matchups = matchupData[0].matchupWeeks[arrayNum];
 
         const highScoreTeam = getRosterHighScorerWeek(matchups);
         const totalMatchups = matchups.length / 2;
