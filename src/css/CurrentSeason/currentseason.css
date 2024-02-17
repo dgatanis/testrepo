@@ -105,6 +105,11 @@ table#PowerRankings {
     font-size: .6rem;
     padding-bottom: .6rem;
   }
+  .custom-playoffs-bracket {
+    float: left;
+    clear: left;
+    padding-bottom: 4rem;
+  }
 
 /* Custom Mobile responsive display 
 .list-group-item {
