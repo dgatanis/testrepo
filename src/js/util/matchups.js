@@ -24,27 +24,31 @@ function setMatchupData(leagueID,currentWeek){
 
 async function getMatchupData(leagueID, currentWeek) {
 
-    totalWeeksPlayed = parseInt(currentWeek);
+    let totalWeeksPlayed = parseInt(currentWeek);
     leagueID = '1003692635549462528'; //TESTING LEAGUE
-    let matchups = {};
+    let matchupWeeks = []
+    let upToCurrentWeekMatchups = [];
 
     for(let i = 1; i<=totalWeeksPlayed; i++)
     {
         //const matchup = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/matchups/2`);
         const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`);
         const matchupData = await matchup.json(); 
-        //console.log(leagueID);
-        //console.log("week: " + currentWeek);
 
         if(matchupData)
         {
-            matchups.push({
-                ...matchupData[0]
+            matchupWeeks.push({
+                ...matchupData
             });
+
         }
         
     }
 
-    sessionStorage.setItem("MatchupData", JSON.stringify(matchups));
+    upToCurrentWeekMatchups.push({
+        matchupWeeks
+    });
+
+    sessionStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
 
 }
