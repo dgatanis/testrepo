@@ -1,10 +1,10 @@
 const leagueInfo = await import('../util/leagueInfo.js');
 
 const currentLeague = leagueInfo.default();
-const currentWeek = leagueInfo.getCurrentWeek();
 
 currentLeague.then((currentLeagueId) => {
-}).then((currentWeek) => {
+    const currentWeek = leagueInfo.getCurrentWeek();
+}).then(currentWeek => {
     setBrowserData(currentLeagueId,currentWeek);
 }).catch((error) => {
     console.error(`Error: ${error.message}`);
