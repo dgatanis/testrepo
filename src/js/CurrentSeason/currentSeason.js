@@ -23,11 +23,11 @@ async function loadConstants() {
         console.error(`Error: ${error.message}`);
     });
 
-    currentWeek.then((thisWeek) => {
-        getBankroll(thisWeek,dues);
-    }).catch((error) => {
-        console.error(`Error: ${error.message}`);
-    });
+    // currentWeek.then((thisWeek) => {
+    //     getBankroll(thisWeek,dues);
+    // }).catch((error) => {
+    //     console.error(`Error: ${error.message}`);
+    // });
 }
 
 function loadSeasonRankings(leagueId) { 
