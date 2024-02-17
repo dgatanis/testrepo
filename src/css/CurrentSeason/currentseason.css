@@ -111,6 +111,14 @@ table#PowerRankings {
     padding-bottom: 4rem;
   }
 
+  div#currentWeek {
+    color: black;
+    background: linear-gradient(#a9a9a9, #a9a9a900);
+    padding: .2rem;
+    border-top-left-radius: .4rem;
+    border-top-right-radius: .4rem;
+  }
+
 /* Custom Mobile responsive display 
 .list-group-item {
       border: none;
