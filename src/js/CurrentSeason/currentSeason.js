@@ -661,16 +661,20 @@ function getBankroll(currentWeek,dues) {
 function loadMatchupsList(){
     var currentWeek = matchupData[0].matchupWeeks.length;
     var matchupDiv = document.getElementById("matchupWeeks");
+    var currentWeek = document.getElementById("currentWeek");
+
     for(let i = 1; i<15; i++)
     {
         var accordionItem = createAccordionItem(i);
-
-        if(i == currentWeek)
-        {
-            accordionItem.setAttribute('color', 'white');
-            accordionItem.setAttribute('color', '#c36300');
-        }
         matchupDiv.appendChild(accordionItem);
+    }
+    if(currentWeek > 0)
+    {
+        currentWeek.innerText="Week: " + currentWeek;
+    }
+    else
+    {
+        currentWeek.innerText="No matchups yet";
     }
 }
 
