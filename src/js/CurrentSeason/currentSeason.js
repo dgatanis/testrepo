@@ -208,7 +208,7 @@ async function OpenTeamRosterModal(userid,teamname) {
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
-            leaguePositionsLink.innerText = "(" + leaguePositionList + ")";
+            leaguePositionsLink.innerText = "Starters: (" + leaguePositionList + ")";
             leaguePositionsLink.title = "Toggle Starters";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
@@ -585,6 +585,8 @@ function toggleStarters(rosterId) {
     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
+    let rosterTable = document.getElementById('RosterTable');
+
     let starters = roster.starters;
 
     if(hiddenRows.length > 0)
@@ -593,6 +595,8 @@ function toggleStarters(rosterId) {
         {
             row.setAttribute('class', 'custom-shown-row');
         }
+        rosterTable.classList.add('table-secondary');
+        rosterTable.classList.remove('table-dark');
     }
     else
     {
@@ -603,6 +607,8 @@ function toggleStarters(rosterId) {
                 row.setAttribute('class', 'custom-hidden-row');
             }
         }
+        rosterTable.classList.remove('table-secondary');
+        rosterTable.classList.add('table-dark');
     }
 }
 
