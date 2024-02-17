@@ -9,7 +9,7 @@ currentLeague.then((currentLeagueId) => {
 });
 
 function setBrowserData(leagueID) {
-    const expiration = new Date().getTime() + (3*60*60*1000); //3hrs
+    const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
     const now = new Date().getTime();
     
     if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
@@ -19,10 +19,12 @@ function setBrowserData(leagueID) {
         setPlayerData();
         setRosterData(leagueID);
         setUserData(leagueID);
+        setLeagueData(leagueID);
     }
     setPlayerData();
     setRosterData(leagueID);
     setUserData(leagueID);
+    setLeagueData(leagueID);
 }
 
 
@@ -44,6 +46,13 @@ function setUserData (leagueID) {
     if(!localStorage.getItem("UserData"))
     {
         getUserData(leagueID);
+    }
+}
+
+function setLeagueData (leagueID) {
+    if(!localStorage.getItem("LeagueData"))
+    {
+        getLeagueDetails(leagueID);
     }
 }
 
@@ -106,6 +115,18 @@ async function getUserData(leagueID){
         const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
         const data = await res.json(); 
         localStorage.setItem("UserData", JSON.stringify(data));
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+async function getLeagueDetails(leagueID) {
+    try {
+        const leagueData = await fetch(`https://api.sleeper.app/v1/league/${leagueID}`);
+        const league = await leagueData.json(); 
+
+        localStorage.setItem("LeagueData", JSON.stringify(league));
     }
     catch (error) {
         console.log(error);
