@@ -626,7 +626,7 @@ function getLeaguePositions(){
             }
         }
 
-    return positions.toString();
+    return positions.toString().replaceAll(",", ", ");
 }
 /*
 ** HTML Create/edit elements functions **
