@@ -76,6 +76,7 @@ async function loadMatchups(weekNumber) {
     {
         var arrayNum = parseInt(weekNumber) - 1;
         const matchups = matchupData[0].matchupWeeks[arrayNum];
+        const matchupsLength = Object.keys(matchups).length;
 
         const highScoreTeam = getRosterHighScorerWeek(matchups);
         const totalMatchups = matchups.length / 2;
@@ -90,9 +91,9 @@ async function loadMatchups(weekNumber) {
             {
                 let matchupId = i;
                 
-                for(let matchup of matchups)
+                for(let j=0; j<matchupsLength; j++)
                 {
-                    
+                    let matchup = matchups[j];
                     if(matchup.matchup_id == matchupId)
                     {
                         let userName;
