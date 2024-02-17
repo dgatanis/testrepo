@@ -1,6 +1,6 @@
 export const leagueDisplayName = "Crush Cities";
-export const dues = 200; // (optional) used in template constitution page
-export const dynasty = true; // true for dynasty leagues, false for redraft and keeper
+export const dues = 200; 
+export const dynasty = true; 
 
 export const inauguralSeason = 2024;
 

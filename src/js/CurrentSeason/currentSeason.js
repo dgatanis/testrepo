@@ -11,6 +11,10 @@ async function loadConstants() {
 
     const leagueInfo = await import('../util/leagueInfo.js');
     var leagueInfoLeagueId = leagueInfo.default();
+    var test = leagueInfo.getCurrentWeek();
+    console.log(test);
+    debugger;
+    leagueInfo.getCurrentWeek();
     //var myTest = getCurrentWeek();
     //console.log(myTest);
     leagueInfoLeagueId.then((currentLeagueId) => {
@@ -637,6 +641,10 @@ function getLeaguePositions(){
         }
 
     return positions.toString().replaceAll(",", ", ");
+}
+
+function getBankroll(dues, currentWeek) {
+
 }
 /*
 ** HTML Create/edit elements functions **
