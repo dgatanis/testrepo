@@ -659,10 +659,17 @@ function getBankroll(currentWeek,dues) {
 ** HTML Create/edit elements functions **
 */                                 
 function loadMatchupsList(){
+    var currentWeek = matchupData[0].matchupWeeks.length;
     var matchupDiv = document.getElementById("matchupWeeks");
     for(let i = 1; i<15; i++)
     {
         var accordionItem = createAccordionItem(i);
+
+        if(i == currentWeek)
+        {
+            accordionItem.setAttribute('color', 'white');
+            accordionItem.setAttribute('color', '#c36300');
+        }
         matchupDiv.appendChild(accordionItem);
     }
 }
@@ -767,7 +774,7 @@ function createMatchupListElement(weekNumber) {
     var noMatchups = document.createElement("div");
     noMatchups.setAttribute("class", "custom-block-display");
     noMatchups.setAttribute("id", "nomatchups_"+weekNumber);
-    noMatchups.innerText = "NO MATCHUPS TO DISPLAY";    
+    noMatchups.innerText = "Check back when this week has started...";    
 
     list.appendChild(firstListItem);
     list.append(noMatchups);
