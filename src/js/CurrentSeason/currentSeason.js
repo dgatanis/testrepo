@@ -658,10 +658,10 @@ function getLeaguePositions(){
 }
 
 function getBankroll(week,dues) {
-    console.log(currentWeek + " " + dues);
+    console.log(week + " " + dues);
 
-    let currentWeek = parseInt(week);
-    for(let i = 0; i < currentWeek; i++)
+    let thisWeek = parseInt(week);
+    for(let i = 0; i < thisWeek; i++)
     {
         console.log(matchupData[0].matchupWeeks[i]);
         let highScorer = getRosterHighScorerWeek(matchupData[0].matchupWeeks[i]);
