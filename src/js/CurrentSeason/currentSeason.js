@@ -10,8 +10,8 @@ const matchupData = JSON.parse(matchupWeekStorage);
 
 let tries = 0;
 async function loadConstants() {
-    while(tries <= 2)
-    {
+    //while(tries <= 2)
+//    {
         
         try{
             const leagueDataStorage = localStorage.getItem("LeagueData");
@@ -28,7 +28,7 @@ async function loadConstants() {
             tries++;
             console.error(`Error: ${error.message}`);
         }
-    }
+    //}
 }
 
 function loadSeasonRankings(leagueId) { 
@@ -634,7 +634,7 @@ function getLeaguePositions(){
 
     const leagueDataStorage = localStorage.getItem("LeagueData");
     const leagueData = JSON.parse(leagueDataStorage);
-    
+
     leaguePositions = leagueData.roster_positions;
     const positions = [];
 

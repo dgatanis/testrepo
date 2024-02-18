@@ -1,7 +1,9 @@
 import getCurrentLeagueId from './leagueInfo.js';
 import getCurrentWeek from './leagueInfo.js';
+
 const currentLeague = getCurrentLeagueId();
-const currentWeek = getCurrentWeek;
+const currentWeek = getCurrentWeek();
+
 let tries = 0;
 
 while(tries <= 2)
@@ -34,11 +36,13 @@ function setBrowserData(leagueID) {
             setRosterData(leagueID);
             setUserData(leagueID);
             setLeagueData(leagueID);
+            setMatchupData(leagueID,currentWeek)
         }
         setPlayerData();
         setRosterData(leagueID);
         setUserData(leagueID);
         setLeagueData(leagueID);
+        setMatchupData(leagueID,currentWeek)
     }
     catch(error){
         console.error(`Error: ${error.message}`);
