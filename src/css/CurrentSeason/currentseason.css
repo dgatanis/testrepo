@@ -166,6 +166,9 @@ table#PowerRankings {
   
   .custom-transaction {
     text-align: center;
+    padding-top: 50%;
+    background: black;
+    color: white;
   }
 
 /* Custom Mobile responsive display 
