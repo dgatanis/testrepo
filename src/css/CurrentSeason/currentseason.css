@@ -112,11 +112,17 @@ table#PowerRankings {
   }
 
   div#currentWeek {
+    color: white;
+    background: linear-gradient(#537fab82, #537fab82);
+    border-radius: .4rem;
+    padding-top: .4rem;
+    padding-bottom: .1rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
+    display: inline-flex;
+  }
+  div#currentWeek:hover {
     color: black;
-    background: linear-gradient(#a9a9a9, #a9a9a900);
-    padding: .2rem;
-    border-top-left-radius: .4rem;
-    border-top-right-radius: .4rem;
   }
 
 /* Custom Mobile responsive display 
