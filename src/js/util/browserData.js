@@ -42,7 +42,7 @@ function setBrowserData(leagueID) {
         setRosterData(leagueID);
         setUserData(leagueID);
         setLeagueData(leagueID);
-        setMatchupData(leagueID,currentWeek)
+        setMatchupData(leagueID,'5');
     }
     catch(error){
         console.error(`Error: ${error.message}`);
