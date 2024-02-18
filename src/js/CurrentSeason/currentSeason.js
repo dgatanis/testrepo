@@ -337,18 +337,18 @@ async function getLatestTransactions(week) {
                 carouselItem.classList.add('active');
             }
             counter++;
-            let addsString = "";
-            let dropsString = "";
 
             if(transaction.adds)
             {
-                addsString = transaction.adds;
+                let addedPlayersLength = Object.keys(transaction.adds).length;
             }
             if(transaction.drops)
             {
-                dropsString = transaction.drops;
+                let droppedPlayersLength = Object.keys(transaction.drops).length;
             }
-            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type + " ADDS: " + addsString + " DROPS: " + dropsString;
+
+            
+            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
