@@ -316,12 +316,39 @@ function loadBankroll(week,dues) {
 }
 
 async function getLatestTransactions(week) {
-    //Using specific week
-    //Need to pull in current season and week (../2023/2)
-    const res  = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/transactions/${week}`); 
-    const data = await res.json();
+    const transactions  = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/transactions/4`);
+    //const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
+    const transactionsData = await transactions.json();
+    //transactiontypes: waiver, free_agent, trade
+    
+    getFormattedTransactionData(transactionsData);
+    
+}
 
-    const trades = [];
+function getFormattedTransactionData(transactions){
+
+    const allTransactions = [];
+
+    for(let transaction of transactions)
+    {
+        if(transaction.status.toString().toLowerCase() == "complete")
+        {
+            console.log(transaction.type);
+            if(transaction.type.toString().toLowerCase() == "free_agent")
+            {
+                let roster_id = transaction.roster_ids[0];
+                let drops = transaction.drops;
+                let adds = transaction.adds;
+
+                allTransactions.push({
+                    "roster_id": roster_id,
+                    "drops": drops,
+                    "adds": adds
+                });
+            }
+        }   
+    }
+    console.log(allTransactions);
 }
 
 /*
