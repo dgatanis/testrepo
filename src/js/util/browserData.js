@@ -51,7 +51,7 @@ function setPlayerData () {
     {
         getPlayers();
     }
-    console.log(!localStorage.getItem("PlayerData"));
+    console.log(!localStorage.getItem("PlayerData") || localStorage.getItem("PlayerData") == null || localStorage.getItem("PlayerData") == undefined);
 }
 
 function setRosterData (leagueID) {
