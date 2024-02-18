@@ -657,19 +657,18 @@ function getLeaguePositions(){
     return positions.toString().replaceAll(",", ", ");
 }
 
-function getBankroll(currentWeek,dues) {
-    function getBankroll(week,dues) {
-        console.log(currentWeek + " " + dues);
-    
-        let currentWeek = parseInt(week);
-        for(let i = 0; i < currentWeek; i++)
-        {
-            console.log(matchupData[0].matchupWeeks[i]);
-            let highScorer = getRosterHighScorerWeek(matchupData[0].matchupWeeks[i]);
-            console.log(highScorer);
-        }
+function getBankroll(week,dues) {
+    console.log(currentWeek + " " + dues);
+
+    let currentWeek = parseInt(week);
+    for(let i = 0; i < currentWeek; i++)
+    {
+        console.log(matchupData[0].matchupWeeks[i]);
+        let highScorer = getRosterHighScorerWeek(matchupData[0].matchupWeeks[i]);
+        console.log(highScorer);
     }
 }
+
 /*
 ** HTML Create/edit elements functions **
 */                                 
