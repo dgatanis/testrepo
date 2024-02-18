@@ -316,13 +316,13 @@ function loadBankroll(week,dues) {
 }
 
 async function getLatestTransactions(week) {
-    const transactions  = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/transactions/4`);
+    const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
     //const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
     const transactionsData = await transactions.json();
     //transactiontypes: waiver, free_agent, trade
     
-    getFormattedTransactionData(transactionsData);
-    
+    var x = getFormattedTransactionData(transactionsData);
+    console.log(x);
 }
 
 function getFormattedTransactionData(transactions){
@@ -333,22 +333,46 @@ function getFormattedTransactionData(transactions){
     {
         if(transaction.status.toString().toLowerCase() == "complete")
         {
-            console.log(transaction.type);
-            if(transaction.type.toString().toLowerCase() == "free_agent")
+            if(transaction.type.toString().toLowerCase() == "free_agent" || transaction.type.toString().toLowerCase() == "waiver")
             {
-                let roster_id = transaction.roster_ids[0];
+                let roster_id = transaction.roster_ids;
                 let drops = transaction.drops;
                 let adds = transaction.adds;
+                let type = transaction.type;
 
                 allTransactions.push({
+                    "type": type,
                     "roster_id": roster_id,
                     "drops": drops,
-                    "adds": adds
+                    "adds": adds,
+                    "draft_picks": null,
+                    "consenter_ids": null,
+                    "waiver_budget": null
+                });
+            }
+            else if (transaction.type.toString().toLowerCase() == "trade")
+            {
+                let roster_id = transaction.roster_ids;
+                let drops = transaction.drops;
+                let adds = transaction.adds;
+                let draft_picks =  transaction.draft_picks;
+                let consenter_ids = transaction.consenter_ids;
+                let waiver_budget = transaction.waiver_budget;
+                let type = transaction.type;
+
+                allTransactions.push({
+                    "type": type,
+                    "roster_id": roster_id,
+                    "drops": drops,
+                    "adds": adds,
+                    "draft_picks": draft_picks,
+                    "consenter_ids": consenter_ids,
+                    "waiver_budget": waiver_budget,
                 });
             }
         }   
     }
-    console.log(allTransactions);
+    return allTransactions;
 }
 
 /*
