@@ -323,11 +323,18 @@ async function getLatestTransactions(week) {
     
     var allTransactions = getFormattedTransactionData(transactionsData);
     let transactionCarousel = document.getElementById("custom-transaction-inner");
+    let counter = 0;
 
     for(let transaction of allTransactions)
     {
         var carouselItem = createTransactionCarouselItem();
-        //carouselItem.innerText=transaction.type;
+        if(counter == 0)
+        {
+            carouselItem.classList.add('active');
+        }
+        counter++;
+        
+        carouselItem.children[0].innerText=transaction.type;
         transactionCarousel.append(carouselItem);
     }
 }
