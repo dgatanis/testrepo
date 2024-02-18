@@ -693,11 +693,28 @@ function loadBankroll(week,dues) {
         let rowBankRoll = row.getElementsByTagName('td');
 
         var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
+        var teamName = getTeamName(rosterBankrolls[i].user_id);
         rowTeam[0].append(ownerAvatar);
-        rowBankRoll[0].innerText = rosterBankrolls[i].bankroll;
+        rowBankRoll[0].innerText = teamName;
     }
 
 
+}
+
+function getTeamName(userid) {
+    let user = userData.find(x => x.user_id === userid.toString());
+    let userName = "";
+
+    if(user.metadata.team_name != undefined)
+    {
+        userName = user.metadata.team_name;
+    }
+    else
+    {
+        userName = user.display_name;
+    }
+
+    return userName.toString();
 }
 
 function getHighScorerCount(week) {
