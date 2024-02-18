@@ -10864,8 +10864,14 @@ a.custom-nav:hover {
   text-align: justify;
 }
 
-.custom-user-avatar {
+.custom-medium-avatar {
   max-width: 3.5rem;
+  border-radius: 5px;
+  margin-right: .5rem;
+}
+
+.custom-small-avatar {
+  max-width: 2.5rem;
   border-radius: 5px;
   margin-right: .5rem;
 }
