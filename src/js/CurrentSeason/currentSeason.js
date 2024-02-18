@@ -13,6 +13,7 @@ async function loadConstants() {
     let tries = 0;
     while(tries <= 1)
     {
+        
         try{
             const leagueInfo = await import('../util/leagueInfo.js');
             var leagueInfoLeagueId = leagueInfo.default();
@@ -22,6 +23,7 @@ async function loadConstants() {
             leagueInfoLeagueId.then((currentLeagueId) => {
                 loadSeasonRankings(currentLeagueId);
                 loadMatchupsList();
+                tries=9;
                 return 
             }).catch((error) => {
                 tries++;
