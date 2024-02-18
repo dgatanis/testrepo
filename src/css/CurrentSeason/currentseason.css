@@ -158,8 +158,8 @@ table#PowerRankings {
   }
 
   .custom-carousel {
-    clear:both;
-    float: right;
+    clear:inline-end;
+    float: left;
     max-width: 20rem;
     padding-bottom: 4rem;
   }
@@ -169,6 +169,11 @@ table#PowerRankings {
     padding-top: 50%;
     background: black;
     color: white;
+  }
+
+  .custom-playoffs-bracket{
+    clear: inline-end;
+    float: right;
   }
 
 /* Custom Mobile responsive display 
