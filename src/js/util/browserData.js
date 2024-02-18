@@ -10,8 +10,6 @@ while(tries <= 1)
             setBrowserData(currentLeagueId);
         });
         tries=9;
-        return -1;
-        
     }
     catch (error) {
         tries++;
