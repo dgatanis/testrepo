@@ -670,7 +670,7 @@ function loadMatchupsList(){
     }
     if(currentWeek > 0)
     {
-        week.innerText="Week: " + currentWeek;
+        week.innerText="Current Week of Season: " + currentWeek;
     }
     else
     {
