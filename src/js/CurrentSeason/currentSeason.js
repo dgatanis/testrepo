@@ -250,11 +250,79 @@ function OpenTeamRosterModal(userid,teamname) {
     }
 }
 
-async function statsByWeek() {
+function loadBankroll(week,dues) {
+
+    let thisWeek = parseInt(week);
+    let negDues = -Math.abs(dues);
+    let highScorers = getHighScorerCount(thisWeek);
+    let rosterBankrolls =[];
+
+    for(let roster of rosterData)
+    {
+        let highScoreCount = highScorers[roster.roster_id];
+        let weeksWon = 0;
+        var totalBankRoll = 0;
+
+        if(highScoreCount)
+        {
+           weeksWon = highScoreCount;
+        }
+        totalBankRoll = negDues + (weeksWon * 35);
+
+        rosterBankrolls.push({
+            "roster_id": roster.roster_id,
+            "user_id": roster.owner_id,
+            "bankroll": totalBankRoll,
+            "weeks_won": weeksWon
+        });
+    }
+
+    rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
+
+    for(let i = 0; i < rosterBankrolls.length; i++)
+    {
+        let row = document.getElementById("bankrollTeam_" + i);
+        let rowTeam = row.getElementsByTagName('th');
+        let rowBankRoll = row.getElementsByTagName('td');
+        let rowTeamName = rowTeam[0].getElementsByClassName('custom-teamname-small');
+
+        var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
+        var teamName = getTeamName(rosterBankrolls[i].user_id);
+        ownerAvatar.setAttribute('class', 'custom-small-avatar');
+        
+        rowTeamName[0].innerText = teamName;
+        rowTeam[0].prepend(ownerAvatar);
+        rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
+
+        if(rosterBankrolls[i].bankroll > 0)
+        {
+            rowBankRoll[0].setAttribute('style', 'color:#006f00; padding-top: 1rem;');
+        }
+        else
+        {
+            rowBankRoll[0].setAttribute('style', 'color:#cb1919; padding-top: 1rem;');
+        }
+
+        for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
+        {
+            var highScorerImg = createMatchupWeekHighScorerImg();
+            highScorerImg.setAttribute('class', 'custom-highscorer-small');
+            highScorerImg.setAttribute('style', 'padding-top: .5rem');
+
+            rowTeam[0].append(highScorerImg);
+        }
+    }
+
+}
+
+async function getLatestTransactions(week) {
     //Using specific week
     //Need to pull in current season and week (../2023/2)
-    const res  = await fetch(`https://api.sleeper.app/v1/stats/nfl/regular/2023/2`); 
+    const res  = await fetch(`https://api.sleeper.app/v1/league/1003692635549462528/transactions/${week}`); 
     const data = await res.json();
+
+    const trades = [];
+    const 
 }
 
 /*
@@ -626,70 +694,6 @@ function getLeaguePositions(){
     return positions.toString().replaceAll(",", ", ");
 }
 
-function loadBankroll(week,dues) {
-
-    let thisWeek = parseInt(week);
-    let negDues = -Math.abs(dues);
-    let highScorers = getHighScorerCount(thisWeek);
-    let rosterBankrolls =[];
-
-    for(let roster of rosterData)
-    {
-        let highScoreCount = highScorers[roster.roster_id];
-        let weeksWon = 0;
-        var totalBankRoll = 0;
-
-        if(highScoreCount)
-        {
-           weeksWon = highScoreCount;
-        }
-        totalBankRoll = negDues + (weeksWon * 35);
-
-        rosterBankrolls.push({
-            "roster_id": roster.roster_id,
-            "user_id": roster.owner_id,
-            "bankroll": totalBankRoll,
-            "weeks_won": weeksWon
-        });
-    }
-
-    rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
-
-    for(let i = 0; i < rosterBankrolls.length; i++)
-    {
-        let row = document.getElementById("bankrollTeam_" + i);
-        let rowTeam = row.getElementsByTagName('th');
-        let rowBankRoll = row.getElementsByTagName('td');
-        let rowTeamName = rowTeam[0].getElementsByClassName('custom-teamname-small');
-
-        var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
-        var teamName = getTeamName(rosterBankrolls[i].user_id);
-        ownerAvatar.setAttribute('class', 'custom-small-avatar');
-        
-        rowTeamName[0].innerText = teamName;
-        rowTeam[0].prepend(ownerAvatar);
-        rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
-
-        if(rosterBankrolls[i].bankroll > 0)
-        {
-            rowBankRoll[0].setAttribute('style', 'color:#006f00; padding-top: 1rem;');
-        }
-        else
-        {
-            rowBankRoll[0].setAttribute('style', 'color:#cb1919; padding-top: 1rem;');
-        }
-
-        for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
-        {
-            var highScorerImg = createMatchupWeekHighScorerImg();
-            highScorerImg.setAttribute('class', 'custom-highscorer-small');
-            highScorerImg.setAttribute('style', 'padding-top: .5rem');
-
-            rowTeam[0].append(highScorerImg);
-        }
-    }
-
-}
 
 function getTeamName(userid) {
     let user = userData.find(x => x.user_id === userid.toString());

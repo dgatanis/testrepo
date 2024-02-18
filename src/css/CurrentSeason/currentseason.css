@@ -157,6 +157,16 @@ table#PowerRankings {
     font-size: normal;
   }
 
+  .custom-carousel {
+    clear:both;
+    float: right;
+    max-width: 20rem;
+  }
+  
+  .custom-transaction {
+    text-align: center;
+  }
+
 /* Custom Mobile responsive display 
 .list-group-item {
       border: none;
