@@ -20,6 +20,7 @@ async function loadConstants() {
         var dues = leagueInfo.dues;
         loadSeasonRankings(leagueData.league_id);
         loadMatchupsList();
+        getBankroll(currentWeek,dues);
         return -1;
     }
     catch (error){
