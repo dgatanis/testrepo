@@ -129,6 +129,7 @@ table#PowerRankings {
     background: #537fab;
     color: white;
     transition: all .5s ease;
+    cursor: help;
   }
 
 /* Custom Mobile responsive display 
