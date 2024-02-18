@@ -5,11 +5,20 @@ const leagueData = JSON.parse(leagueDataStorage);
 
 const currentWeek = leagueInfo.getCurrentWeek();
 
-currentWeek.then((thisWeek) => {
-    setBrowserData(leagueData.league_id,thisWeek);
-}).catch((error) => {
-    console.error(`Error: ${error.message}`);
-});
+
+while(tries <= 1)
+{
+    try{
+        currentWeek.then((thisWeek) => {
+            setBrowserData(leagueData.league_id,thisWeek);
+        });
+        tries=9;
+    }
+    catch (error) {
+        tries++;
+        console.error(`Error: ${error.message}`);
+    }
+}
 
 function setBrowserData(leagueID,currentWeek){
     setMatchupData(leagueID,currentWeek);

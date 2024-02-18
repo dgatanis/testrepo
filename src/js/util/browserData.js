@@ -18,22 +18,28 @@ while(tries <= 1)
 }
 
 function setBrowserData(leagueID) {
-    const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
-    const now = new Date().getTime();
-    
-    if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
-    {
-        localStorage.clear();
-        localStorage.setItem("expiration", expiration);
+    try{
+        const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
+        const now = new Date().getTime();
+        
+        if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
+        {
+            localStorage.clear();
+            localStorage.setItem("expiration", expiration);
+            setPlayerData();
+            setRosterData(leagueID);
+            setUserData(leagueID);
+            setLeagueData(leagueID);
+        }
         setPlayerData();
         setRosterData(leagueID);
         setUserData(leagueID);
         setLeagueData(leagueID);
     }
-    setPlayerData();
-    setRosterData(leagueID);
-    setUserData(leagueID);
-    setLeagueData(leagueID);
+    catch(error){
+        console.error(`Error: ${error.message}`);
+    }
+
 }
 
 
