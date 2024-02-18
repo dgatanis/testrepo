@@ -118,6 +118,8 @@ table#PowerRankings {
     float: left;
     clear: left;
     padding-bottom: 4rem;
+    width: 25rem;
+    margin-right: 15rem;
   }
 
   div#currentWeek {
@@ -134,9 +136,8 @@ table#PowerRankings {
   }
 
   table#bankrollTable {
-    width: 40rem;
     clear: left;
-    max-width: fit-content;
+    max-width: 100%;
     text-align: center;
   }
 
