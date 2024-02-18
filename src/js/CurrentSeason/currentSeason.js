@@ -100,7 +100,7 @@ async function loadMatchups(weekNumber) {
                     {
                         let userName;
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
-                        let roster = localStorage.RosterData.find(x => x.roster_id === matchup.roster_id);
+                        let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
                         
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
