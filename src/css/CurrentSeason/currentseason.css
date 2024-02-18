@@ -142,7 +142,7 @@ table#PowerRankings {
 
   div#currentWeek:hover {
     background: #537fab;
-    color: white;
+    color: whitesmoke;
     transition: all .5s ease;
     cursor: help;
   }
@@ -156,6 +156,20 @@ table#PowerRankings {
     display: inline;
     font-size: normal;
   }
+
+  .custom-bankroll-helper {
+    display: none;
+  }
+
+  .custom-bankroll-helper:hover {
+    display: inline;
+    font-size: x-small;
+    border-radius: .5rem;
+    background: #537fab;
+    color: whitesmoke;
+    padding: .5rem;
+    transition: all 1s ease;
+}
 
 /* Custom Mobile responsive display 
 .list-group-item {
