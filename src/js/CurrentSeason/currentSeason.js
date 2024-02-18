@@ -19,16 +19,8 @@ async function loadConstants() {
             var leagueInfoLeagueId = leagueInfo.default();
             var currentWeek = leagueInfo.getCurrentWeek();
             var dues = leagueInfo.dues;
-        
-            leagueInfoLeagueId.then((currentLeagueId) => {
-                loadSeasonRankings(currentLeagueId);
-                loadMatchupsList();
-                 
-            }).catch((error) => {
-                tries++;
-                console.log(tries);
-            });
-            tries=9;
+            loadSeasonRankings(leagueData.league_id);
+            loadMatchupsList();
             console.log(tries);
             return -1;
         }
