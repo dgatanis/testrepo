@@ -47,17 +47,10 @@ function loadSeasonRankings(leagueId) {
         var powerRanking = document.getElementById(powerRankingElementId);
         var rosterButton = document.getElementById(rosterButtonId);
         powerRanking.append(ownerImage);
-
-        if(user.metadata.team_name != undefined)
-        {
-            powerRanking.append(user.metadata.team_name);
-            rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.metadata.team_name + "')");
-        }
-        else
-        {
-            powerRanking.append(user.display_name);
-            rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + user.display_name + "')");
-        }
+        var teamName = getTeamName(user.user_id);
+        
+        powerRanking.append(teamName);
+        rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamName + "')");
 
         rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
         powerRank++;
@@ -99,13 +92,14 @@ function loadMatchups(weekNumber) {
 
                     if(matchup.matchup_id == matchupId)
                     {
-                        let userName;
+                        
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
                         
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
+                        let userName = getTeamName(user.user_id);
                         let playerPoints = highestScorer.points + " pts";
 
                         var matchupDiv = document.createElement("div");
@@ -120,16 +114,8 @@ function loadMatchups(weekNumber) {
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
                         teamPoints.innerText = matchup.points + " pts";
-
-                        if(user.metadata.team_name != undefined)
-                        {
-                            matchupDiv.innerText= user.metadata.team_name + ": "
-                        }
-                        else
-                        {
-                            matchupDiv.innerText= user.display_name + ": "
-                        }
-
+                        matchupDiv.innerText= userName + ": "
+                    
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
                             
@@ -580,23 +566,6 @@ function getMatchupWeekWinner(matchups,matchupid) {
                 }
                 return 0;
             });
-}
-
-function getOwnerName(userId) {
-
-    let user = userData.find(x => x.user_id === userId.toString());
-    var ownerName;
-
-    if(user.metadata.team_name != undefined)
-    {
-        ownerName = user.metadata.team_name;
-    }
-    else
-    {
-        ownerName = user.display_name;
-    }
-
-    return ownerName;
 }
 
 function toggleStarters(rosterId) {
