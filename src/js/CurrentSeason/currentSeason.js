@@ -18,7 +18,7 @@ async function loadConstants() {
         var currentWeek = leagueInfo.getCurrentWeek();
         var dues = leagueInfo.dues;
         currentWeek.then((thisWeek) => {
-            getBankroll(currentWeek,dues);
+            getBankroll(thisWeek,dues);
         }).catch((error) => {
         });
         loadSeasonRankings(leagueData.league_id);
