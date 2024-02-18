@@ -47,7 +47,7 @@ function setBrowserData(leagueID) {
 
 
 function setPlayerData () {
-    if(!localStorage.getItem("PlayerData") || localStorage.getItem("PlayerData") == null || localStorage.getItem("PlayerData") == undefined)
+    if(!localStorage.getItem("PlayerData") || localStorage.getItem("PlayerData") === null || localStorage.getItem("PlayerData") === undefined)
     {
         getPlayers();
     }
@@ -55,7 +55,7 @@ function setPlayerData () {
 }
 
 function setRosterData (leagueID) {
-    if(!localStorage.getItem("RosterData") || localStorage.getItem("RosterData") == null || localStorage.getItem("RosterData") == undefined)
+    if(!localStorage.getItem("RosterData") || localStorage.getItem("RosterData") === null || localStorage.getItem("RosterData") === undefined)
     {
         getRostersForLeague(leagueID);
     }
@@ -63,7 +63,7 @@ function setRosterData (leagueID) {
 }
 
 function setUserData (leagueID) {
-    if(!localStorage.getItem("UserData") || localStorage.getItem("UserData") == null || localStorage.getItem("UserData") == undefined)
+    if(!localStorage.getItem("UserData") || localStorage.getItem("UserData") === null || localStorage.getItem("UserData") === undefined)
     {
         getUserData(leagueID);
     }
@@ -71,11 +71,18 @@ function setUserData (leagueID) {
 }
 
 function setLeagueData (leagueID) {
-    if(!localStorage.getItem("LeagueData") || localStorage.getItem("LeagueData") == null || localStorage.getItem("LeagueData") == undefined)
+    if(!localStorage.getItem("LeagueData") || localStorage.getItem("LeagueData") === null || localStorage.getItem("LeagueData") === undefined)
     {
         getLeagueDetails(leagueID);
     }
     console.log(localStorage.getItem("LeagueData"));
+}
+
+function setMatchupData(leagueID,currentWeek){
+    if(!sessionStorage.getItem("MatchupData") || localStorage.getItem("MatchupData") === null || localStorage.getItem("MatchupData") === undefined)
+    {
+        getMatchupData(leagueID, currentWeek);
+    }
 }
 
 async function getRostersForLeague(leagueID){
@@ -153,4 +160,41 @@ async function getLeagueDetails(leagueID) {
     catch (error) {
         console.log(error);
     }
+}
+
+async function getMatchupData(leagueID, currentWeek) {
+
+    let totalWeeksPlayed = parseInt(currentWeek);
+    //leagueID = '1003692635549462528'; //TESTING LEAGUE
+    let matchupWeeks = [];
+    let upToCurrentWeekMatchups = [];
+
+    for(let i = 1; i<=totalWeeksPlayed; i++)
+    {
+        let matchupsArray = [];
+        const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`);
+        const matchupData = await matchup.json(); 
+
+        if(matchupData)
+        {
+            for(let matchups of matchupData)
+            {
+                matchupsArray.push({
+                    ...matchups
+                });
+            }
+            matchupWeeks.push({
+                ...matchupsArray
+            });
+
+        }
+        
+    }
+
+    upToCurrentWeekMatchups.push({
+        matchupWeeks
+    });
+
+    sessionStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
+
 }

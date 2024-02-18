@@ -204,7 +204,7 @@ async function OpenTeamRosterModal(userid,teamname) {
     }
   
     //Create table rows for players
-    const teams = localStorage.RosterData.map((roster) => roster);
+    const teams = rosterData.map((roster) => roster);
 
     //Loop through each roster of team and display player data for selected team
     for(let roster of teams) 
