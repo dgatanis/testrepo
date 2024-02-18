@@ -112,18 +112,18 @@ table#PowerRankings {
   }
 
   div#currentWeek {
-    color: white;
-    background: linear-gradient(#537fab82, #537fab82);
+    color: black;
+    background: linear-gradient(#999999, #ffffff00);
     border-radius: .4rem;
-    padding-top: .4rem;
+    padding: .4rem;
     padding-bottom: .1rem;
-    padding-left: .3rem;
-    padding-right: .3rem;
-    display: inline-flex;
+    display: block;
     transition: color 1s ease;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
   }
   div#currentWeek:hover {
-    color: black;
+    color: #c36300;
     transition: color 1s ease;
   }
 
