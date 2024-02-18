@@ -4,8 +4,7 @@ const userDataStorage = localStorage.getItem("UserData");
 const userData = JSON.parse(userDataStorage);
 const playerDataStorage = localStorage.getItem("PlayerData");
 const playerData = JSON.parse(playerDataStorage); 
-const leagueDataStorage = localStorage.getItem("LeagueData");
-const leagueData = JSON.parse(leagueDataStorage); 
+ 
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 const matchupData = JSON.parse(matchupWeekStorage); 
 
@@ -15,13 +14,14 @@ async function loadConstants() {
     {
         
         try{
+            const leagueDataStorage = localStorage.getItem("LeagueData");
+            const leagueData = JSON.parse(leagueDataStorage);
             const leagueInfo = await import('../util/leagueInfo.js');
             var leagueInfoLeagueId = leagueInfo.default();
             var currentWeek = leagueInfo.getCurrentWeek();
             var dues = leagueInfo.dues;
             loadSeasonRankings(leagueData.league_id);
             loadMatchupsList();
-            console.log(tries);
             return -1;
         }
         catch (error){
@@ -632,6 +632,9 @@ function toggleStarters(rosterId) {
 
 function getLeaguePositions(){
 
+    const leagueDataStorage = localStorage.getItem("LeagueData");
+    const leagueData = JSON.parse(leagueDataStorage);
+    
     leaguePositions = leagueData.roster_positions;
     const positions = [];
 
