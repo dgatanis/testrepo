@@ -36,13 +36,17 @@ function setBrowserData(leagueID) {
             setRosterData(leagueID);
             setUserData(leagueID);
             setLeagueData(leagueID);
-            setMatchupData(leagueID,currentWeek)
+            //TESTING
+            //setMatchupData(leagueID,currentWeek);
+            setMatchupData('1003692635549462528','5');
         }
         setPlayerData();
         setRosterData(leagueID);
         setUserData(leagueID);
         setLeagueData(leagueID);
-        setMatchupData(leagueID,'5');
+        //TESTING
+        //setMatchupData(leagueID,'5');
+        setMatchupData('1003692635549462528','5');
     }
     catch(error){
         console.error(`Error: ${error.message}`);
