@@ -168,8 +168,9 @@ table#PowerRankings {
   .custom-transaction {
     text-align: center;
     padding-top: 50%;
-    background: black;
-    color: white;
+    background: linear-gradient(0deg, #777777a3, transparent);
+    color: black;
+    box-shadow: 0 0 0.5rem 0 black;
   }
 
   .custom-playoffs-bracket{
