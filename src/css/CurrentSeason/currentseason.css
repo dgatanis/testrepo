@@ -121,7 +121,9 @@ table#PowerRankings {
     transition: color 1s ease;
     border-bottom-left-radius: 0rem;
     border-bottom-right-radius: 0rem;
+    width: fit-content;
   }
+  
   div#currentWeek:hover {
     color: #c36300;
     transition: color 1s ease;
