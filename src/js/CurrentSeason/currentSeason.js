@@ -22,15 +22,10 @@ async function loadConstants() {
             leagueInfoLeagueId.then((currentLeagueId) => {
                 loadSeasonRankings(currentLeagueId);
                 loadMatchupsList();
-                tries=9;
-                return -1;
+                 
             });
-        
-            // currentWeek.then((thisWeek) => {
-            //     getBankroll(thisWeek,dues);
-            // }).catch((error) => {
-            //     console.error(`Error: ${error.message}`);
-            // });
+            tries=9;
+            return -1;
         }
         catch (error){
             tries++;
