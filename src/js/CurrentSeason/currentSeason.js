@@ -22,7 +22,7 @@ async function loadConstants() {
             leagueInfoLeagueId.then((currentLeagueId) => {
                 loadSeasonRankings(currentLeagueId);
                 loadMatchupsList();
-                return -
+                return 
             }).catch((error) => {
                 tries++;
                 console.error(`Error: ${error.message}`);
