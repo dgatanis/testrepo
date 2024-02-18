@@ -19,6 +19,7 @@ async function loadConstants() {
         var dues = leagueInfo.dues;
         currentWeek.then((thisWeek) => {
             loadBankroll('5',dues); //TESTING
+            getLatestTransactions('1')
         }).catch((error) => {
         });
         loadSeasonRankings(leagueData.league_id);
@@ -323,20 +324,23 @@ async function getLatestTransactions(week) {
     //transactiontypes: waiver, free_agent, trade
     
     var allTransactions = getFormattedTransactionData(transactionsData);
-    let transactionCarousel = document.getElementById("custom-transaction-inner");
+    let transactionCarousel = document.getElementById("custom_transaction_inner");
     let counter = 0;
 
-    for(let transaction of allTransactions)
+    if(transactionCarousel.children.length == 0)
     {
-        var carouselItem = createTransactionCarouselItem();
-        if(counter == 0)
+        for(let transaction of allTransactions)
         {
-            carouselItem.classList.add('active');
+            var carouselItem = createTransactionCarouselItem();
+            if(counter == 0)
+            {
+                carouselItem.classList.add('active');
+            }
+            counter++;
+            
+            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
+            transactionCarousel.append(carouselItem);
         }
-        counter++;
-        
-        carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
-        transactionCarousel.append(carouselItem);
     }
 }
 
