@@ -159,9 +159,10 @@ table#PowerRankings {
 
   .custom-bankroll-helper {
     display: none;
+    transition: all 1s ease;
   }
 
-  #bankrollTable:hover + .custom-bankroll-helper {
+  .custom-bankroll:hover .custom-bankroll-helper{
     display: inline;
     font-size: x-small;
     border-radius: .5rem;
