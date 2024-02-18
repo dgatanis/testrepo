@@ -660,9 +660,10 @@ function getLeaguePositions(){
 function loadBankroll(week,dues) {
 
     let thisWeek = parseInt(week);
+    let negDues = -Math.abs(dues);
     let highScorers = getHighScorerCount(thisWeek);
     let rosterBankrolls =[];
-    
+
     for(let roster of rosterData)
     {
         let highScoreCount = highScorers[roster.roster_id];
@@ -673,7 +674,7 @@ function loadBankroll(week,dues) {
         {
            weeksWon = highScoreCount;
         }
-        totalBankRoll = dues + (weeksWon * 35);
+        totalBankRoll = negDues + (weeksWon * 35);
 
         rosterBankrolls.push({
             "roster_id": roster.roster_id,
