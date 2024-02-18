@@ -8,9 +8,8 @@ const leagueDataStorage = localStorage.getItem("LeagueData");
 const leagueData = JSON.parse(leagueDataStorage); 
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 const matchupData = JSON.parse(matchupWeekStorage); 
-
+let tries = 0;
 async function loadConstants() {
-    let tries = 0;
     while(tries <= 1)
     {
         
@@ -24,10 +23,7 @@ async function loadConstants() {
                 loadSeasonRankings(currentLeagueId);
                 loadMatchupsList();
                 tries=9;
-                return 
-            }).catch((error) => {
-                tries++;
-                console.error(`Error: ${error.message}`);
+                return -1;
             });
         
             // currentWeek.then((thisWeek) => {
@@ -37,7 +33,8 @@ async function loadConstants() {
             // });
         }
         catch (error){
-
+            tries++;
+            console.error(`Error: ${error.message}`);
         }
     }
 }
