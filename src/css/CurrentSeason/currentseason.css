@@ -161,6 +161,7 @@ table#PowerRankings {
     clear:both;
     float: right;
     max-width: 20rem;
+    padding-bottom: 4rem;
   }
   
   .custom-transaction {
