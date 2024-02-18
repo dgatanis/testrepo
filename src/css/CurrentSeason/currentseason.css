@@ -125,7 +125,7 @@ table#PowerRankings {
   }
 
   div#currentWeek:hover {
-    background-color: #537fab;
+    background: #537fab;
     color: white;
     transition: all .5s ease;
   }
@@ -180,5 +180,7 @@ table#PowerRankings {
       font-size: .7rem;
     } 
 
-    
+    div#currentWeek {
+      margin-top: .5rem;
+    }
   }
