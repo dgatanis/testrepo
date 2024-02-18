@@ -210,4 +210,12 @@ table#PowerRankings {
     div#currentWeek {
       margin-top: .5rem;
     }
+
+    table#bankrollTable {
+      max-width: fit-content;
+    }
+
+    .custom-bankroll {
+      width: 100%;
+    }
   }
