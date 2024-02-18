@@ -321,8 +321,15 @@ async function getLatestTransactions(week) {
     const transactionsData = await transactions.json();
     //transactiontypes: waiver, free_agent, trade
     
-    var x = getFormattedTransactionData(transactionsData);
-    console.log(x);
+    var allTransactions = getFormattedTransactionData(transactionsData);
+    let transactionCarousel = document.getElementById("custom-transaction-inner");
+
+    for(let transaction of allTransactions)
+    {
+        var carouselItem = createTransactionCarouselItem();
+        
+        transactionCarousel.append(transactionCarousel);
+    }
 }
 
 function getFormattedTransactionData(transactions){
@@ -791,7 +798,18 @@ function getHighScorerCount(week) {
 
 /*
 ** HTML Create/edit elements functions **
-*/                                 
+*/      
+function createTransactionCarouselItem() {
+    var carouselItem = document.createElement("div");
+    carouselItem.setAttribute('class', 'carousel-item');
+    var customTransaction = document.createElement("div");
+    customTransaction.setAttribute('class', 'custom-transaction');
+
+    carouselItem.appendChild(customTransaction);
+
+    return carouselItem;
+}
+
 function loadMatchupsList(){
     var currentWeek = matchupData[0].matchupWeeks.length;
     var matchupDiv = document.getElementById("matchupWeeks");
