@@ -669,6 +669,7 @@ function loadBankroll(week,dues) {
         rowTeamName[0].innerText = teamName;
         rowTeam[0].prepend(ownerAvatar);
         rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
+        rowBankRoll[0].setAttribute('style', 'padding-top: 1rem');
 
         if(rosterBankrolls[i].bankroll > 0)
         {
@@ -683,7 +684,8 @@ function loadBankroll(week,dues) {
         {
             var highScorerImg = createMatchupWeekHighScorerImg();
             highScorerImg.setAttribute('class', 'custom-highscorer-small');
-            
+            highScorerImg.setAttribute('style', 'padding-top: .5rem');
+
             rowTeam[0].append(highScorerImg);
         }
     }
