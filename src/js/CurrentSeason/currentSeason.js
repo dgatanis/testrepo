@@ -661,7 +661,8 @@ function loadBankroll(week,dues) {
 
     let thisWeek = parseInt(week);
     let highScorers = getHighScorerCount(thisWeek);
-
+    let rosterBankrolls =[];
+    
     for(let roster of rosterData)
     {
         let highScoreCount = highScorers[roster.roster_id];
