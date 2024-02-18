@@ -660,11 +660,12 @@ function loadBankroll(week,dues) {
         let row = document.getElementById("bankrollTeam_" + i);
         let rowTeam = row.getElementsByTagName('th');
         let rowBankRoll = row.getElementsByTagName('td');
+        let rowTeamName = rowTeam[0].getElementsByClassName('custom-teamname');
 
         var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
         var teamName = getTeamName(rosterBankrolls[i].user_id);
-
-        ownerAvatar.innerText = teamName;
+        
+        rowTeamName[0].innerText = teamName;
         rowTeam[0].append(ownerAvatar);
         rowBankRoll[0].innerText = rosterBankrolls[i].bankroll;
     }
