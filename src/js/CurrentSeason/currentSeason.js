@@ -100,7 +100,7 @@ async function loadMatchups(weekNumber) {
                     {
                         let userName;
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
-                        let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
+                        let roster = localStorage.RosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
                         
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
@@ -204,7 +204,7 @@ async function OpenTeamRosterModal(userid,teamname) {
     }
   
     //Create table rows for players
-    const teams = rosterData.map((roster) => roster);
+    const teams = localStorage.RosterData.map((roster) => roster);
 
     //Loop through each roster of team and display player data for selected team
     for(let roster of teams) 
@@ -385,7 +385,7 @@ function sortByPosition(players) {
 
 function sortTeamRankings() {
 
-    const rosters = rosterData.map((x) => x);
+    const rosters = localStorage.RosterData.map((x) => x);
     const sortedList = [];
 
     for(let roster of rosters)
@@ -416,7 +416,7 @@ function sortTeamRankings() {
 
 function getRosterStats(rosterid) {
 
-    const rosters = rosterData.map((x) => x);
+    const rosters = localStorage.RosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
 
     if(roster)
@@ -484,7 +484,7 @@ function calcPlayerPositions(players){
 
 function getTeamRecord(rosterid) {
 
-    const rosters = rosterData.map((x) => x);
+    const rosters = localStorage.RosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
     const teamRecord = [];
 
@@ -600,7 +600,7 @@ function getOwnerName(userId) {
 
 function toggleStarters(rosterId) {
 
-    let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+    let roster = localStorage.RosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
     let rosterTable = document.getElementById('RosterTable');
