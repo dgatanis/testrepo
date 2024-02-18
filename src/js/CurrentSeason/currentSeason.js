@@ -25,8 +25,8 @@ async function loadConstants() {
                  
             }).catch((error) => {
                 tries++;
+                console.log(tries);
             });
-            console.log(tries);
             tries=9;
             return -1;
         }
