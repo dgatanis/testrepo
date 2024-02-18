@@ -6,7 +6,7 @@ const leagueData = JSON.parse(leagueDataStorage);
 const currentWeek = leagueInfo.getCurrentWeek();
 
 currentWeek.then((thisWeek) => {
-    setBrowserData(leagueData.league_id,5);
+    setBrowserData(leagueData.league_id,thisWeek);
 }).catch((error) => {
     console.error(`Error: ${error.message}`);
 });
@@ -25,7 +25,7 @@ function setMatchupData(leagueID,currentWeek){
 async function getMatchupData(leagueID, currentWeek) {
 
     let totalWeeksPlayed = parseInt(currentWeek);
-    leagueID = '1003692635549462528'; //TESTING LEAGUE
+    //leagueID = '1003692635549462528'; //TESTING LEAGUE
     let matchupWeeks = [];
     let upToCurrentWeekMatchups = [];
 
