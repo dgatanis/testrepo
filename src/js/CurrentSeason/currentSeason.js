@@ -337,8 +337,18 @@ async function getLatestTransactions(week) {
                 carouselItem.classList.add('active');
             }
             counter++;
-            
-            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
+            let addsString = "";
+            let dropsString = "";
+
+            if(transaction.adds)
+            {
+                addsString = transaction.adds;
+            }
+            if(transaction.drops)
+            {
+                dropsString = transaction.drops;
+            }
+            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type + " ADDS: " + addsString + " DROPS: " + dropsString;
             transactionCarousel.append(carouselItem);
         }
     }
