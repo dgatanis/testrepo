@@ -177,6 +177,10 @@ table#PowerRankings {
     float: right;
   }
 
+  #custom_transaction_inner {
+    border-radius: .7rem;
+}
+
 /* Custom Mobile responsive display 
 .list-group-item {
       border: none;
