@@ -289,34 +289,32 @@
           </tbody>
         </table>
       </div>
-      <div class="custom-carousel">
-        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="custom-transaction">
-                Carousel Item 1
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="custom-transaction">
-                Carousel Item 2
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="custom-transaction">
-                Carousel Item 3
-              </div>
+      <div id="carouselExampleInterval custom-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <div class="custom-transaction">
+              Carousel Item 1
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="carousel-item" data-bs-interval="2000">
+            <div class="custom-transaction">
+              Carousel Item 2
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="custom-transaction">
+              Carousel Item 3
+            </div>
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
     <footer class="footer fixed-bottom">
