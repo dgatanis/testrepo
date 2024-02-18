@@ -659,22 +659,25 @@ function getBankroll(currentWeek,dues) {
 ** HTML Create/edit elements functions **
 */                                 
 function loadMatchupsList(){
-    var currentWeek = matchupData[0].matchupWeeks.length;
-    var matchupDiv = document.getElementById("matchupWeeks");
-    var week = document.getElementById("currentWeek");
+    if(matchupData[0])
+    {
+        var currentWeek = matchupData[0].matchupWeeks.length;
+        var matchupDiv = document.getElementById("matchupWeeks");
+        var week = document.getElementById("currentWeek");
 
-    for(let i = 1; i<15; i++)
-    {
-        var accordionItem = createAccordionItem(i);
-        matchupDiv.appendChild(accordionItem);
-    }
-    if(currentWeek > 0)
-    {
-        week.innerText="Week: " + currentWeek;
-    }
-    else
-    {
-        week.innerText="No matchups yet";
+        for(let i = 1; i<15; i++)
+        {
+            var accordionItem = createAccordionItem(i);
+            matchupDiv.appendChild(accordionItem);
+        }
+        if(currentWeek > 0)
+        {
+            week.innerText="Week: " + currentWeek;
+        }
+        else
+        {
+            week.innerText="No matchups yet";
+        }
     }
 }
 
