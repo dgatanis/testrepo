@@ -322,7 +322,6 @@ async function getLatestTransactions(week) {
     const data = await res.json();
 
     const trades = [];
-    const 
 }
 
 /*
