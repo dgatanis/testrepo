@@ -672,11 +672,11 @@ function loadBankroll(week,dues) {
 
         if(rosterBankrolls[i].bankroll > 0)
         {
-            rowBankRoll[0].setAttribute('color', 'color:#cb1919');
+            rowBankRoll[0].setAttribute('color', 'color:#006f00');
         }
         else
         {
-            rowBankRoll[0].setAttribute('style', 'color:#006f00');
+            rowBankRoll[0].setAttribute('style', 'color:#cb1919');
         }
 
         for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
