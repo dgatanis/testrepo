@@ -385,7 +385,7 @@ function sortByPosition(players) {
 
 function sortTeamRankings() {
 
-    const rosters = localStorage.RosterData.map((x) => x);
+    const rosters = rosterData.map((x) => x);
     const sortedList = [];
 
     for(let roster of rosters)
@@ -416,7 +416,7 @@ function sortTeamRankings() {
 
 function getRosterStats(rosterid) {
 
-    const rosters = localStorage.RosterData.map((x) => x);
+    const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
 
     if(roster)
@@ -484,7 +484,7 @@ function calcPlayerPositions(players){
 
 function getTeamRecord(rosterid) {
 
-    const rosters = localStorage.RosterData.map((x) => x);
+    const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
     const teamRecord = [];
 
@@ -600,7 +600,7 @@ function getOwnerName(userId) {
 
 function toggleStarters(rosterId) {
 
-    let roster = localStorage.RosterData.find(x => x.roster_id === parseInt(rosterId));
+    let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
     let rosterTable = document.getElementById('RosterTable');
