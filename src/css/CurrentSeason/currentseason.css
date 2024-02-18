@@ -247,4 +247,9 @@ table#PowerRankings {
       float: unset;
       text-align: left;
     }
+
+    .custom-carousel {
+      width: 100%;
+      max-width: unset;
+    }
   }
