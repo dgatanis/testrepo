@@ -104,7 +104,9 @@ async function loadMatchups(weekNumber) {
                         let user = userData.find(x => x.user_id === roster.owner_id);
                         
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
+                        debugger;
                         let playerName = getFullPlayerName(highestScorer.player_id);
+                        debugger;
                         let playerPoints = highestScorer.points + " pts";
 
                         var matchupDiv = document.createElement("div");
