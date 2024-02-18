@@ -69,7 +69,7 @@ function loadSeasonRankings(leagueId) {
 ** Async functions **
 */          
 
-async function loadMatchups(weekNumber) {
+function loadMatchups(weekNumber) {
 
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
     var noMatchupClassList = noMatchup.classList;
@@ -184,7 +184,7 @@ async function loadMatchups(weekNumber) {
     }
 }
 
-async function OpenTeamRosterModal(userid,teamname) {
+function OpenTeamRosterModal(userid,teamname) {
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     let myUserId = userid.toString();
