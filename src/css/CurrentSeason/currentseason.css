@@ -137,8 +137,11 @@ table#PowerRankings {
     width: 40rem;
     clear: left;
     max-width: fit-content;
+    text-align: center;
   }
-
+  #bankrollTable td {
+    text-align: right;
+  }
   div#currentWeek:hover {
     background: #537fab;
     color: white;
