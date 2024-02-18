@@ -666,7 +666,7 @@ function loadBankroll(week,dues) {
         var teamName = getTeamName(rosterBankrolls[i].user_id);
         
         rowTeamName[0].innerText = teamName;
-        rowTeam[0].append(ownerAvatar);
+        rowTeam[0].prepend(ownerAvatar);
         rowBankRoll[0].innerText = rosterBankrolls[i].bankroll;
     }
 

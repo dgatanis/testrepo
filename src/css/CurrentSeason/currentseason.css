@@ -125,11 +125,20 @@ table#PowerRankings {
     position: absolute;
   }
 
+  table#bankrollTable {
+    width: 40rem;
+    clear: left;
+  }
+
   div#currentWeek:hover {
     background: #537fab;
     color: white;
     transition: all .5s ease;
     cursor: help;
+  }
+  
+  .custom-teamname {
+    display: inline;
   }
 
 /* Custom Mobile responsive display 
