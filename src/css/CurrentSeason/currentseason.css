@@ -128,6 +128,7 @@ table#PowerRankings {
   table#bankrollTable {
     width: 40rem;
     clear: left;
+    max-width: fit-content;
   }
 
   div#currentWeek:hover {
