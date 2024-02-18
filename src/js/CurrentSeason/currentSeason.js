@@ -664,7 +664,7 @@ function loadBankroll(week,dues) {
 
         var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
         var teamName = getTeamName(rosterBankrolls[i].user_id);
-        ownerAvatar.setAttribute('class', 'custom-small-avatar')
+        ownerAvatar.setAttribute('class', 'custom-small-avatar');
         
         rowTeamName[0].innerText = teamName;
         rowTeam[0].prepend(ownerAvatar);
@@ -673,7 +673,8 @@ function loadBankroll(week,dues) {
         for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
         {
             var highScorerImg = createMatchupWeekHighScorerImg();
-
+            highScorerImg.setAttribute('class', 'custom-highscorer-small');
+            
             rowTeam[0].append(highScorerImg);
         }
     }
@@ -859,7 +860,7 @@ function createMatchupWeekHighScorerImg(){
 
     var img = document.createElement("img");
     img.setAttribute('src', '../src/static/images/crown-icon.png');
-    img.setAttribute('class', "custom-highscorer");
+    img.setAttribute('class', "custom-highscorer-medium");
     img.setAttribute('title', 'Weekly high scorer');
 
     return img;

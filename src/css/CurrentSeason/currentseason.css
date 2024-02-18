@@ -11,8 +11,16 @@ table#PowerRankings {
     transition: all .5s ease;
     text-align: center !important;
   }
-  .custom-highscorer {
+
+  .custom-highscorer-medium {
     max-width: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    margin-left: .5rem;
+  }
+
+  .custom-highscorer-small {
+    max-width: 1.25rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     margin-left: .5rem;
@@ -138,8 +146,14 @@ table#PowerRankings {
     cursor: help;
   }
   
-  .custom-teamname {
+  .custom-teamname-small {
     display: inline;
+    font-size: small;
+  }
+
+  .custom-teamname-normal {
+    display: inline;
+    font-size: normal;
   }
 
 /* Custom Mobile responsive display 
