@@ -678,12 +678,25 @@ function loadBankroll(week,dues) {
 
         rosterBankrolls.push({
             "roster_id": roster.roster_id,
+            "user_id": roster.owner_id,
             "bankroll": totalBankRoll,
             "weeks_won": weeksWon
         });
     }
 
-    return rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
+    rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
+
+    for(let i = 0; i < rosterBankrolls.length; i++)
+    {
+        let row = document.getElementById("bankrollTeam_" + i);
+        let rowTeam = row.getElementsByTagName('th');
+        let rowBankRoll = row.getElementsByTagName('td');
+
+        var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
+        rowTeam[0].append(ownerAvatar);
+        rowBankRoll.innerText = rosterBankrolls[i].bankroll;
+    }
+
 
 }
 
