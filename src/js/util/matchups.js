@@ -12,6 +12,7 @@ while(tries <= 1)
         currentWeek.then((thisWeek) => {
             setBrowserData(leagueData.league_id,thisWeek);
         });
+        console.log(tries);
         tries=9;
     }
     catch (error) {

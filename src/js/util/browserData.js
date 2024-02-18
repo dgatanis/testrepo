@@ -9,6 +9,7 @@ while(tries <= 1)
         currentLeague.then((currentLeagueId) => {
             setBrowserData(currentLeagueId);
         });
+        console.log(tries);
         tries=9;
     }
     catch (error) {
