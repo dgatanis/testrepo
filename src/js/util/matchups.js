@@ -5,7 +5,7 @@ const leagueData = JSON.parse(leagueDataStorage);
 
 const currentWeek = leagueInfo.getCurrentWeek();
 
-
+let tries = 0;
 while(tries <= 1)
 {
     try{
