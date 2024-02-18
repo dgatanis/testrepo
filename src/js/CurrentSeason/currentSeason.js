@@ -17,10 +17,11 @@ async function loadConstants() {
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
         var dues = leagueInfo.dues;
-        currentWeek.then((thisWeek) => {
-            getBankroll(5,dues);
-        }).catch((error) => {
-        });
+        getBankroll(5,dues);
+        // currentWeek.then((thisWeek) => {
+        //     getBankroll(5,dues);
+        // }).catch((error) => {
+        // });
         loadSeasonRankings(leagueData.league_id);
         loadMatchupsList();
         
