@@ -10,24 +10,34 @@ const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 const matchupData = JSON.parse(matchupWeekStorage); 
 
 async function loadConstants() {
+    let tries = 0;
+    while(tries <= 1)
+    {
+        try{
+            const leagueInfo = await import('../util/leagueInfo.js');
+            var leagueInfoLeagueId = leagueInfo.default();
+            var currentWeek = leagueInfo.getCurrentWeek();
+            var dues = leagueInfo.dues;
+        
+            leagueInfoLeagueId.then((currentLeagueId) => {
+                loadSeasonRankings(currentLeagueId);
+                loadMatchupsList();
+                return -
+            }).catch((error) => {
+                tries++;
+                console.error(`Error: ${error.message}`);
+            });
+        
+            // currentWeek.then((thisWeek) => {
+            //     getBankroll(thisWeek,dues);
+            // }).catch((error) => {
+            //     console.error(`Error: ${error.message}`);
+            // });
+        }
+        catch (error){
 
-    const leagueInfo = await import('../util/leagueInfo.js');
-    var leagueInfoLeagueId = leagueInfo.default();
-    var currentWeek = leagueInfo.getCurrentWeek();
-    var dues = leagueInfo.dues;
-
-    leagueInfoLeagueId.then((currentLeagueId) => {
-        loadSeasonRankings(currentLeagueId);
-        loadMatchupsList();
-    }).catch((error) => {
-        console.error(`Error: ${error.message}`);
-    });
-
-    // currentWeek.then((thisWeek) => {
-    //     getBankroll(thisWeek,dues);
-    // }).catch((error) => {
-    //     console.error(`Error: ${error.message}`);
-    // });
+        }
+    }
 }
 
 function loadSeasonRankings(leagueId) { 
@@ -659,25 +669,22 @@ function getBankroll(currentWeek,dues) {
 ** HTML Create/edit elements functions **
 */                                 
 function loadMatchupsList(){
-    if(matchupData[0])
-    {
-        var currentWeek = matchupData[0].matchupWeeks.length;
-        var matchupDiv = document.getElementById("matchupWeeks");
-        var week = document.getElementById("currentWeek");
+    var currentWeek = matchupData[0].matchupWeeks.length;
+    var matchupDiv = document.getElementById("matchupWeeks");
+    var week = document.getElementById("currentWeek");
 
-        for(let i = 1; i<15; i++)
-        {
-            var accordionItem = createAccordionItem(i);
-            matchupDiv.appendChild(accordionItem);
-        }
-        if(currentWeek > 0)
-        {
-            week.innerText="Week: " + currentWeek;
-        }
-        else
-        {
-            week.innerText="No matchups yet";
-        }
+    for(let i = 1; i<15; i++)
+    {
+        var accordionItem = createAccordionItem(i);
+        matchupDiv.appendChild(accordionItem);
+    }
+    if(currentWeek > 0)
+    {
+        week.innerText="Week: " + currentWeek;
+    }
+    else
+    {
+        week.innerText="No matchups yet";
     }
 }
 
