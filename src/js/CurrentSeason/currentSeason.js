@@ -668,8 +668,14 @@ function loadBankroll(week,dues) {
         rowTeamName[0].innerText = teamName;
         rowTeam[0].prepend(ownerAvatar);
         rowBankRoll[0].innerText = rosterBankrolls[i].bankroll;
-    }
 
+        for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
+        {
+            var highScorerImg = createMatchupWeekHighScorerImg();
+
+            rowTeam[0].append(highScorerImg);
+        }
+    }
 
 }
 
