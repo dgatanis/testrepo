@@ -10,25 +10,23 @@ const matchupData = JSON.parse(matchupWeekStorage);
 
 let tries = 0;
 async function loadConstants() {
-    //while(tries <= 2)
-//    {
-        
-        try{
-            const leagueDataStorage = localStorage.getItem("LeagueData");
-            const leagueData = JSON.parse(leagueDataStorage);
-            const leagueInfo = await import('../util/leagueInfo.js');
-            var leagueInfoLeagueId = leagueInfo.default();
-            var currentWeek = leagueInfo.getCurrentWeek();
-            var dues = leagueInfo.dues;
-            loadSeasonRankings(leagueData.league_id);
-            loadMatchupsList();
-            return -1;
-        }
-        catch (error){
-            tries++;
-            console.error(`Error: ${error.message}`);
-        }
-    //}
+
+    try{
+        const leagueDataStorage = localStorage.getItem("LeagueData");
+        const leagueData = JSON.parse(leagueDataStorage);
+        const leagueInfo = await import('../util/leagueInfo.js');
+        var leagueInfoLeagueId = leagueInfo.default();
+        var currentWeek = leagueInfo.getCurrentWeek();
+        var dues = leagueInfo.dues;
+        loadSeasonRankings(leagueData.league_id);
+        loadMatchupsList();
+        return -1;
+    }
+    catch (error){
+        tries++;
+        console.error(`Error: ${error.message}`);
+    }
+
 }
 
 function loadSeasonRankings(leagueId) { 
