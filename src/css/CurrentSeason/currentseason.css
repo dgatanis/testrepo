@@ -212,10 +212,14 @@ table#PowerRankings {
     }
 
     table#bankrollTable {
-      max-width: fit-content;
+      max-width: 100%;
+      text-align: justify;
     }
 
     .custom-bankroll {
       width: 100%;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      text-align: left;
     }
   }
