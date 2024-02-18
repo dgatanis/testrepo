@@ -13,10 +13,8 @@ while(tries <= 2)
             setBrowserData(leagueData.league_id,thisWeek);
         }).catch((error) => {
             tries++;
-            console.log(tries);
             console.log(error);
         });
-        console.log(tries);
         tries=9;
     }
     catch (error) {
