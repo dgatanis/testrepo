@@ -670,6 +670,15 @@ function loadBankroll(week,dues) {
         rowTeam[0].prepend(ownerAvatar);
         rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
 
+        if(rosterBankrolls[i].bankroll > 0)
+        {
+            rowBankRoll[0].setAttribute('color', '#cb1919');
+        }
+        else
+        {
+            rowBankRoll[0].setAttribute('color', '#006f00');
+        }
+
         for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
         {
             var highScorerImg = createMatchupWeekHighScorerImg();
