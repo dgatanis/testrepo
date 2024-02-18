@@ -160,8 +160,9 @@ table#PowerRankings {
   .custom-carousel {
     clear:inline-end;
     float: left;
-    max-width: 20rem;
+    max-width: 25rem;
     padding-bottom: 4rem;
+    width: 25rem;
   }
   
   .custom-transaction {
