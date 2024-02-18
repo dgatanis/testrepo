@@ -316,7 +316,7 @@ function loadBankroll(week,dues) {
 }
 
 async function getLatestTransactions(week) {
-    
+
     const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
     //const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
     const transactionsData = await transactions.json();
@@ -335,7 +335,7 @@ async function getLatestTransactions(week) {
         }
         counter++;
         
-        carouselItem.children[0].innerText=transaction.type;
+        carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
         transactionCarousel.append(carouselItem);
     }
 }
