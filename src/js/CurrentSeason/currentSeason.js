@@ -815,10 +815,10 @@ function createTransactionCarouselItem() {
     customTransaction.setAttribute('class', 'custom-transaction');
 
     var card = document.createElement("div");
-    card.setAttribute('class', 'card custom-roster-breakdown-shadow')
+    card.setAttribute('class', 'card custom-roster-breakdown-shadow');
 
     var cardBody = document.createElement("div");
-    cardBody.setAttribute('class', 'custom-stats-card-body')
+    cardBody.setAttribute('class', 'card-body custom-stats-card-body');
     
     card.appendChild(cardBody);
     customTransaction.appendChild(card);
