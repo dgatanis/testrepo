@@ -239,12 +239,11 @@ table#PowerRankings {
     }
 
     table#bankrollTable {
-      max-width: fit-content;
       text-align: justify;
     }
 
     .custom-bankroll {
-      width: 15rem;
+      width: 100%;
       float: unset;
       text-align: left;
     }
