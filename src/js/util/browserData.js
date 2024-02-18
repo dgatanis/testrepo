@@ -51,7 +51,7 @@ function setPlayerData () {
     {
         getPlayers();
     }
-    console.log(localStorage.getItem("PlayerData"));
+    console.log(!localStorage.getItem("PlayerData"));
 }
 
 function setRosterData (leagueID) {
@@ -59,7 +59,7 @@ function setRosterData (leagueID) {
     {
         getRostersForLeague(leagueID);
     }
-    console.log(localStorage.getItem("RosterData"));
+    console.log(!localStorage.getItem("RosterData"));
 }
 
 function setUserData (leagueID) {
@@ -67,7 +67,7 @@ function setUserData (leagueID) {
     {
         getUserData(leagueID);
     }
-    console.log(localStorage.getItem("UserData"));
+    console.log(!localStorage.getItem("UserData"));
 }
 
 function setLeagueData (leagueID) {
@@ -75,7 +75,7 @@ function setLeagueData (leagueID) {
     {
         getLeagueDetails(leagueID);
     }
-    console.log(localStorage.getItem("LeagueData"));
+    console.log(!localStorage.getItem("LeagueData"));
 }
 
 async function getRostersForLeague(leagueID){

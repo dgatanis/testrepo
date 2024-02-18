@@ -675,7 +675,7 @@ function loadMatchupsList(){
     }
     else
     {
-        week.innerText="No matchups yet";
+        week.innerText="N/A";
     }
 }
 
