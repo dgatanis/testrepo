@@ -6,13 +6,14 @@ const leagueData = JSON.parse(leagueDataStorage);
 const currentWeek = leagueInfo.getCurrentWeek();
 
 let tries = 0;
-while(tries <= 1)
+while(tries <= 2)
 {
     try{
         currentWeek.then((thisWeek) => {
             setBrowserData(leagueData.league_id,thisWeek);
         }).catch((error) => {
             tries++;
+            console.log(tries);
             console.log(error);
         });
         console.log(tries);

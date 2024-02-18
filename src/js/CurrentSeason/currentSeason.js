@@ -11,7 +11,7 @@ const matchupData = JSON.parse(matchupWeekStorage);
 
 let tries = 0;
 async function loadConstants() {
-    while(tries <= 1)
+    while(tries <= 2)
     {
         
         try{
@@ -29,6 +29,7 @@ async function loadConstants() {
                 console.log(tries);
             });
             tries=9;
+            console.log(tries);
             return -1;
         }
         catch (error){

@@ -3,7 +3,7 @@ import getCurrentLeagueId from './leagueInfo.js';
 const currentLeague = getCurrentLeagueId();
 let tries = 0;
 
-while(tries <= 1)
+while(tries <= 2)
 {
     try{
         currentLeague.then((currentLeagueId) => {
@@ -13,6 +13,7 @@ while(tries <= 1)
             console.log(tries);
         });
         tries=9;
+        console.log(tries);
     }
     catch (error) {
         tries++;
