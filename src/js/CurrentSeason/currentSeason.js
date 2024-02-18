@@ -328,7 +328,7 @@ async function getLatestTransactions(week) {
     {
         var carouselItem = createTransactionCarouselItem();
         
-        transactionCarousel.append(transactionCarousel);
+        transactionCarousel.append(carouselItem);
     }
 }
 
