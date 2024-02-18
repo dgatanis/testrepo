@@ -816,7 +816,7 @@ function createTransactionCarouselItem() {
     carouselItem.setAttribute('class', 'carousel-item');
 
     var customTransaction = document.createElement("div");
-    customTransaction.setAttribute('class', 'custom-transaction');
+    customTransaction.setAttribute('class', 'test');
 
     var card = document.createElement("div");
     card.setAttribute('class', 'card');
