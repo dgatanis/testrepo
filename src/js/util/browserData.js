@@ -1,6 +1,7 @@
 import getCurrentLeagueId from './leagueInfo.js';
-
+import getCurrentWeek from './leagueInfo.js';
 const currentLeague = getCurrentLeagueId();
+const currentWeek = getCurrentWeek;
 let tries = 0;
 
 while(tries <= 2)
@@ -51,7 +52,6 @@ function setPlayerData () {
     {
         getPlayers();
     }
-    console.log(localStorage.getItem("PlayerData"));
 }
 
 function setRosterData (leagueID) {
@@ -59,7 +59,6 @@ function setRosterData (leagueID) {
     {
         getRostersForLeague(leagueID);
     }
-    console.log(localStorage.getItem("RosterData"));
 }
 
 function setUserData (leagueID) {
@@ -67,7 +66,6 @@ function setUserData (leagueID) {
     {
         getUserData(leagueID);
     }
-    console.log(localStorage.getItem("UserData"));
 }
 
 function setLeagueData (leagueID) {
@@ -75,7 +73,6 @@ function setLeagueData (leagueID) {
     {
         getLeagueDetails(leagueID);
     }
-    console.log(localStorage.getItem("LeagueData"));
 }
 
 function setMatchupData(leagueID,currentWeek){
