@@ -316,6 +316,7 @@ function loadBankroll(week,dues) {
 }
 
 async function getLatestTransactions(week) {
+    
     const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
     //const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
     const transactionsData = await transactions.json();
@@ -809,9 +810,18 @@ function getHighScorerCount(week) {
 function createTransactionCarouselItem() {
     var carouselItem = document.createElement("div");
     carouselItem.setAttribute('class', 'carousel-item');
+
     var customTransaction = document.createElement("div");
     customTransaction.setAttribute('class', 'custom-transaction');
 
+    var card = document.createElement("div");
+    card.setAttribute('class', 'card custom-roster-breakdown-shadow')
+
+    var cardBody = document.createElement("div");
+    cardBody.setAttribute('class', 'custom-stats-card-body')
+    
+    card.appendChild(cardBody);
+    customTransaction.appendChild(card);
     carouselItem.appendChild(customTransaction);
 
     return carouselItem;
