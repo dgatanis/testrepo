@@ -23,7 +23,10 @@ async function loadConstants() {
                 loadSeasonRankings(currentLeagueId);
                 loadMatchupsList();
                  
+            }).catch((error) => {
+                tries++;
             });
+            console.log(tries);
             tries=9;
             return -1;
         }

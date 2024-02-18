@@ -11,6 +11,9 @@ while(tries <= 1)
     try{
         currentWeek.then((thisWeek) => {
             setBrowserData(leagueData.league_id,thisWeek);
+        }).catch((error) => {
+            tries++;
+            console.log(error);
         });
         console.log(tries);
         tries=9;
