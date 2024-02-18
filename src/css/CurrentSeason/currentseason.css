@@ -237,7 +237,7 @@ table#PowerRankings {
     }
 
     .custom-bankroll {
-      width: 100%;
+      width: 15rem;
       float: unset;
       text-align: left;
     }
