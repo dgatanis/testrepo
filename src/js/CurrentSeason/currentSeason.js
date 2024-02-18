@@ -8,7 +8,6 @@ const playerData = JSON.parse(playerDataStorage);
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 const matchupData = JSON.parse(matchupWeekStorage); 
 
-let tries = 0;
 async function loadConstants() {
 
     try{
@@ -18,13 +17,16 @@ async function loadConstants() {
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
         var dues = leagueInfo.dues;
+        currentWeek.then((thisWeek) => {
+            getBankroll(currentWeek,dues);
+        }).catch((error) => {
+        });
         loadSeasonRankings(leagueData.league_id);
         loadMatchupsList();
-        getBankroll(currentWeek,dues);
+        
         return -1;
     }
     catch (error){
-        tries++;
         console.error(`Error: ${error.message}`);
     }
 
