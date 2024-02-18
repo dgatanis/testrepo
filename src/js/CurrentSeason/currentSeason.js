@@ -694,7 +694,7 @@ function loadBankroll(week,dues) {
 
         var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
         rowTeam[0].append(ownerAvatar);
-        rowBankRoll.innerText = rosterBankrolls[i].bankroll;
+        rowBankRoll[0].innerText = rosterBankrolls[i].bankroll;
     }
 
 
