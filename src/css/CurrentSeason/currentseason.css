@@ -120,9 +120,11 @@ table#PowerRankings {
     padding-left: .3rem;
     padding-right: .3rem;
     display: inline-flex;
+    transition: color 1s ease;
   }
   div#currentWeek:hover {
     color: black;
+    transition: color 1s ease;
   }
 
 /* Custom Mobile responsive display 
