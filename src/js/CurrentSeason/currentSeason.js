@@ -18,7 +18,7 @@ async function loadConstants() {
         var currentWeek = leagueInfo.getCurrentWeek();
         var dues = leagueInfo.dues;
         currentWeek.then((thisWeek) => {
-            getBankroll(5,dues);
+            loadBankroll(5,dues); //TESTING
         }).catch((error) => {
         });
         loadSeasonRankings(leagueData.league_id);
@@ -657,16 +657,60 @@ function getLeaguePositions(){
     return positions.toString().replaceAll(",", ", ");
 }
 
-function getBankroll(week,dues) {
-    console.log(week + " " + dues);
+function loadBankroll(week,dues) {
 
     let thisWeek = parseInt(week);
+    let highScorers = getHighScorerCount(thisWeek);
+
+    for(let roster of rosterData)
+    {
+        let highScoreCount = highScorers[roster.roster_id];
+        let weeksWon = 0;
+        var totalBankRoll = 0;
+
+        if(highScoreCount)
+        {
+           weeksWon = highScoreCount;
+        }
+        totalBankRoll = dues + (weeksWon * 35);
+
+        rosterBankrolls.push({
+            "roster_id": roster.roster_id,
+            "bankroll": totalBankRoll,
+            "weeks_won": weeksWon
+        });
+    }
+
+    return rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
+
+}
+
+function getHighScorerCount(week) {
+
+    let thisWeek = parseInt(week);
+    let rosterHighScorers = [];
+    const counter = {};
+
     for(let i = 0; i < thisWeek; i++)
     {
-        console.log(matchupData[0].matchupWeeks[i]);
-        let highScorer = getRosterHighScorerWeek(matchupData[0].matchupWeeks[i]);
-        console.log(highScorer);
+        let matchups = matchupData[0].matchupWeeks[i]
+        let highScorer = getRosterHighScorerWeek(matchups);
+        rosterHighScorers.push ({
+            "roster_id": highScorer.roster_id
+        });
     }
+
+    rosterHighScorers.forEach(x => {
+
+        if (counter[x.roster_id]) {
+        counter[x.roster_id] += 1;
+        } else {
+            counter[x.roster_id] = 1;
+        } 
+
+    });
+    
+    return counter;
 }
 
 /*
