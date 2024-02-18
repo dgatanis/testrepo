@@ -17,11 +17,10 @@ async function loadConstants() {
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
         var dues = leagueInfo.dues;
-        getBankroll(5,dues);
-        // currentWeek.then((thisWeek) => {
-        //     getBankroll(5,dues);
-        // }).catch((error) => {
-        // });
+        currentWeek.then((thisWeek) => {
+            getBankroll(thisWeek,dues);
+        }).catch((error) => {
+        });
         loadSeasonRankings(leagueData.league_id);
         loadMatchupsList();
         
@@ -658,15 +657,17 @@ function getLeaguePositions(){
     return positions.toString().replaceAll(",", ", ");
 }
 
-function getBankroll(week,dues) {
-    console.log(currentWeek + " " + dues);
-
-    let currentWeek = parseInt(week);
-    for(let i = 0; i < currentWeek; i++)
-    {
-        console.log(matchupData[0].matchupWeeks[i]);
-        let highScorer = getRosterHighScorerWeek(matchupData[0].matchupWeeks[i]);
-        console.log(highScorer);
+function getBankroll(currentWeek,dues) {
+    function getBankroll(week,dues) {
+        console.log(currentWeek + " " + dues);
+    
+        let currentWeek = parseInt(week);
+        for(let i = 0; i < currentWeek; i++)
+        {
+            console.log(matchupData[0].matchupWeeks[i]);
+            let highScorer = getRosterHighScorerWeek(matchupData[0].matchupWeeks[i]);
+            console.log(highScorer);
+        }
     }
 }
 /*
