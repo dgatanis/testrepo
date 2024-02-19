@@ -395,7 +395,7 @@ async function getLatestTransactions(week) {
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
                 teamName.innerText = getTeamName(roster.owner_id);
-
+                teamName.setAttribute('class', 'custom-teamname-small');
                 
                 cardBody.append(teamImg);
                 cardBody.append(teamName);
@@ -905,7 +905,7 @@ function createTransactionCarouselItem() {
     carouselItem.setAttribute('class', 'carousel-item');
 
     var card = document.createElement("div");
-    card.setAttribute('class', 'card');
+    card.setAttribute('class', 'card custom-card');
 
     var cardBody = document.createElement("div");
     cardBody.setAttribute('class', 'card-body');

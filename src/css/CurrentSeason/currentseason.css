@@ -87,6 +87,11 @@ table#PowerRankings {
     padding: .2rem;
   }
 
+  .custom-card {
+    background: transparent;
+    border: none;
+  }
+
   .custom-none-display {
     display: none;
   }
