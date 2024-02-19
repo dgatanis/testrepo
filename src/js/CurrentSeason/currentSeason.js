@@ -399,7 +399,11 @@ async function getLatestTransactions(week) {
             dateOfTransaction.classList.remove('custom-none-display');
             dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
 
+            transactionType.classList.remove('custom-none-display');
+            transactionType.classList.add('custom-block-display');
             transactionType.innerText = transaction.type;
+
+            
             transactionCarousel.append(carouselItem);
         }
     }
