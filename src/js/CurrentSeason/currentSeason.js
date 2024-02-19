@@ -394,7 +394,10 @@ async function getLatestTransactions(week) {
                 cardBody.append(teamImg);
                 cardBody.append(teamName);
             }
+            dateOfTransaction.classList.add('custom-block-display');
+            dateOfTransaction.classList.remove('custom-none-display');
             dateOfTransaction.innerText = transactionDate;
+            
             cardBody.title = transaction.type;
             transactionCarousel.append(carouselItem);
         }
