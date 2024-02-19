@@ -221,6 +221,10 @@ table#PowerRankings {
     clear:both;
   }
 
+  .custom-carousel-item {
+    height: fit-content;
+  }
+
 /* Custom Mobile responsive display 
 .list-group-item {
       border: none;

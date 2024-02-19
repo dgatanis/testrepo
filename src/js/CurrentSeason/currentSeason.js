@@ -899,7 +899,7 @@ function createAddDropImg(addDrop) {
 
 function createTransactionCarouselItem() {
     var carouselItem = document.createElement("div");
-    carouselItem.setAttribute('class', 'carousel-item');
+    carouselItem.setAttribute('class', 'carousel-item custom-carousel-item');
 
     var card = document.createElement("div");
     card.setAttribute('class', 'card custom-card');
