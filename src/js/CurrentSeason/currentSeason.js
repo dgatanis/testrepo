@@ -883,9 +883,7 @@ function createTransactionCarouselItem() {
     card.append(droppedPlayers);
     card.append(tradedPicks);
 
-    customTransaction.appendChild(card);
-
-    carouselItem.appendChild(customTransaction);
+    carouselItem.appendChild(card);
 
     return carouselItem;
 }
