@@ -10912,8 +10912,9 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, #537fab, #537fabb5);
+  background: linear-gradient(180deg, #537fab, #537fabf0, #537fab85);
   height: 4rem;
+  padding-top: 1rem;
 }
 
 .custom-footer {
