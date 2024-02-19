@@ -166,9 +166,8 @@ table#PowerRankings {
   .custom-carousel {
     clear:inline-end;
     float: left;
-    max-width: 25rem;
     padding-bottom: 4rem;
-    width: 25rem;
+    width: 30rem;
     text-align: center;
   }
   

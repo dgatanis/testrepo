@@ -353,13 +353,14 @@ async function getLatestTransactions(week) {
                 {
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(addedPlayers[i]);
-                    var playerName = getFullPlayerName(addedPlayers[i]);
+                    var playerName = document.createElement("div");
                     var addedIcon = createAddDropImg("add");
-                    
-                    playerDiv.innerText = "ADDED: " + playerName;
+
+                    playerName.innerText = getFullPlayerName(addedPlayers[i]);
+
+                    playerImg.append(playerName);
                     playerDiv.append(playerImg);
                     playerDiv.append(addedIcon);
-
                     addedPlayerDiv.append(playerDiv);
                 }
 
@@ -374,13 +375,14 @@ async function getLatestTransactions(week) {
                 {
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(droppedPlayers[i]);
-                    var playerName = getFullPlayerName(droppedPlayers[i]);
+                    var playerName = document.createElement("div");
                     var droppedIcon = createAddDropImg("drop");
  
-                    playerDiv.innerText = "DROPPED: " + playerName;
+                    playerName.innerText = getFullPlayerName(addedPlayers[i]);
+                    
+                    playerImg.append(playerName);
                     playerDiv.append(playerImg);
                     playerDiv.append(droppedIcon);
-
                     droppedPlayerDiv.append(playerDiv);
 
                 }
