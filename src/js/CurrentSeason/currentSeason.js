@@ -355,7 +355,8 @@ async function getLatestTransactions(week) {
                     var playerImg = createPlayerImage(addedPlayers[i]);
                     var playerName = document.createElement("div");
                     var addedIcon = createAddDropImg("add");
-
+                    
+                    playerName.setAttribute('class', 'custom-playername-normal');
                     playerName.innerText = getFullPlayerName(addedPlayers[i]);
              
                     playerDiv.append(playerImg);
@@ -377,7 +378,8 @@ async function getLatestTransactions(week) {
                     var playerImg = createPlayerImage(droppedPlayers[i]);
                     var playerName = document.createElement("div");
                     var droppedIcon = createAddDropImg("drop");
- 
+
+                    playerName.setAttribute('class', 'custom-playername-normal');
                     playerName.innerText = getFullPlayerName(droppedPlayers[i]);
                     
                     playerDiv.append(playerImg);
