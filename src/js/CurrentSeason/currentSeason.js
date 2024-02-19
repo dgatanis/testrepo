@@ -220,8 +220,7 @@ function OpenTeamRosterModal(userid,teamname) {
             {
                 if(localStorage.getItem("PlayerData"))
                 {
-                    let playerDataStorage = localStorage.getItem("PlayerData");
-                    let playerData = JSON.parse(playerDataStorage);
+
                     let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
 
                     if(player)
@@ -337,6 +336,8 @@ async function getLatestTransactions(week) {
             var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
             var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
 
+            var rosterId;
+
             if(counter == 0)
             {
                 carouselItem.classList.add('active');
@@ -386,7 +387,20 @@ async function getLatestTransactions(week) {
                 droppedPlayerDiv.classList.add('custom-block-display');
                 droppedPlayerDiv.classList.remove('custom-none-display');
             }
-            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
+            if(transaction.type.toString().toLowerCase() != "trade")
+            {
+                rosterId = transaction.roster_id[0];
+                let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+
+                var test = createOwnerAvatarImage(roster.owner_id);
+                var teamName = getTeamName(roster.owner_id);
+                test.setAttribute('title', teamName.toString());
+
+                carouselItem.append(test);
+                
+            }
+
+            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText = transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
