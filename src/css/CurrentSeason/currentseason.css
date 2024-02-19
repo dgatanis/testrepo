@@ -173,8 +173,9 @@ table#PowerRankings {
   
   .custom-transaction-carousel {
     text-align: center;
-    background: linear-gradient(0deg, #00000078, #0000003b, transparent);
+    background: linear-gradient(0deg, #b9b9b994, transparent);
     color: black;
+    padding: 2rem;
   }
 
   .custom-playoffs-bracket{
