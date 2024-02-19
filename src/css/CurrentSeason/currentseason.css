@@ -173,7 +173,7 @@ table#PowerRankings {
   
   .custom-transaction-carousel {
     text-align: center;
-    background: linear-gradient(0deg, transparent, #777777a3, transparent);
+    background: transparent;
     color: black;
   }
 
@@ -206,12 +206,14 @@ table#PowerRankings {
     margin-top: 3rem;
     background: linear-gradient(0deg, transparent, #00800036, transparent);
     padding: 1rem;
+    border-radius: 5rem;
   }
 
   .custom-dropped-players {
     margin-top: 3rem;
     background: linear-gradient(0deg, transparent, #80000042, transparent);
     padding: 1rem;
+    border-radius: 5rem;
   }
 
 /* Custom Mobile responsive display 
