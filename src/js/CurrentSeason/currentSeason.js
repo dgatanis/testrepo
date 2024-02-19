@@ -375,9 +375,7 @@ async function getLatestTransactions(week) {
                     
                 }
             }
-
-            
-            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
+            //carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
