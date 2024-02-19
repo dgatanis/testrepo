@@ -66,14 +66,13 @@ function loadSeasonRankings(leagueId) {
 function loadMatchups(weekNumber) {
 
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
-    var noMatchupClassList = noMatchup.classList;
 
     try{
 
         var arrayNum = parseInt(weekNumber) - 1;
         const matchups = matchupData[0].matchupWeeks[arrayNum];
 
-        if(matchups && noMatchupClassList.contains('custom-block-display'))
+        if(matchups && noMatchup.classList.contains('custom-block-display'))
         {
             const matchupsLength = Object.keys(matchups).length;
 
