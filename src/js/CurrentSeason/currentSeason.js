@@ -333,9 +333,9 @@ async function getLatestTransactions(week) {
         {  
             var carouselItem = createTransactionCarouselItem();
             var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
-            var addedPlayerDiv = carouselItem.children[0].getElementsByClassName("custom-added-players")[0];
-            var droppedPlayerDiv = carouselItem.children[0].getElementsByClassName("custom-dropped-players")[0];
-            var tradedPicksDiv = carouselItem.children[0].getElementsByClassName("custom-traded-picks")[0];
+            var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
+            var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
+            var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
 
             if(counter == 0)
             {
