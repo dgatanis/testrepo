@@ -340,19 +340,34 @@ async function getLatestTransactions(week) {
             }
             counter++;
 
+
             if(transaction.adds)
             {
-                var addedPlayersDiv = document.createElement("div");
                 let addedPlayers = Object.keys(transaction.adds);
 
                 for(let i = 0; i< addedPlayers.length; i++)
                 {
-                    transaction.adds[]
+                    var playerDiv = createPlayerImage(addedPlayers[i]);
+                    var playerName = getFullPlayerName(addedPlayers[i]);
+
+                    playerDiv.innerText = "ADDED: " + playerName;
+
+                    cardBody.appendChild(playerDiv);
                 }
             }
             if(transaction.drops)
             {
-                let droppedPlayersLength = Object.keys(transaction.drops).length;
+                let droppedPlayers = Object.keys(transaction.drops);
+                
+                for(let i = 0; i< droppedPlayers.length; i++)
+                {
+                    var playerDiv = createPlayerImage(droppedPlayers[i]);
+                    var playerName = getFullPlayerName(droppedPlayers[i]);
+
+                    cardBody.appendChild(playerDiv);
+
+                    playerDiv.innerText = "DROPPED: " + playerName;
+                }
             }
 
             
@@ -450,7 +465,7 @@ function getFullPlayerName(playerid) {
     {
         playerName = player.firstname + " " + player.lastname;
     }
-    
+
     return playerName;
     
 }
