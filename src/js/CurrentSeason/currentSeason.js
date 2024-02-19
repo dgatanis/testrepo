@@ -148,7 +148,7 @@ function loadMatchups(weekNumber) {
             }
 
             //hide no matchups div
-            if(noMatchupClassList.contains('custom-block-display'))
+            if(noMatchup.classList.contains('custom-block-display'))
             {
                 noMatchup.classList.remove('custom-block-display');
                 noMatchup.classList.add('custom-none-display');
@@ -158,7 +158,7 @@ function loadMatchups(weekNumber) {
         else
         {
             //show no matchups div
-            if(noMatchupClassList.contains('custom-none-display'))
+            if(noMatchup.classList.contains('custom-none-display'))
             {
                 noMatchup.classList.remove('custom-none-display');
                 noMatchup.classList.add('custom-block-display');
