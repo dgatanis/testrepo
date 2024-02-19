@@ -192,6 +192,14 @@ table#PowerRankings {
     max-width: 1rem;
   }
 
+  .custom-added-players {
+    padding-top: 3rem;
+  }
+
+  .custom-dropped-players {
+    padding-top: 3rem;
+  }
+
 /* Custom Mobile responsive display 
 .list-group-item {
       border: none;

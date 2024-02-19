@@ -344,7 +344,7 @@ async function getLatestTransactions(week) {
             }
             counter++;
 
-
+            //iterate through added/dropped players and create player images and append to their respective divs
             if(transaction.adds)
             {
                 let addedPlayers = Object.keys(transaction.adds);
@@ -387,6 +387,8 @@ async function getLatestTransactions(week) {
                 droppedPlayerDiv.classList.add('custom-block-display');
                 droppedPlayerDiv.classList.remove('custom-none-display');
             }
+
+            //
             if(transaction.type.toString().toLowerCase() != "trade")
             {
                 rosterId = transaction.roster_id[0];
@@ -401,7 +403,7 @@ async function getLatestTransactions(week) {
                 cardBody.append(teamName);
             }
 
-            //cardBody.innerText = transaction.type;
+            cardBody.title = transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
