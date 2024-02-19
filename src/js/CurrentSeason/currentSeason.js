@@ -401,7 +401,7 @@ async function getLatestTransactions(week) {
                 cardBody.append(teamImg);
             }
 
-            cardBody.innerText = transaction.type;
+            //cardBody.innerText = transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
@@ -421,9 +421,11 @@ function getFormattedTransactionData(transactions){
                 let drops = transaction.drops;
                 let adds = transaction.adds;
                 let type = transaction.type;
+                let date = transaction.status_updated;
 
                 allTransactions.push({
                     "type": type,
+                    "date": date,
                     "roster_id": roster_id,
                     "drops": drops,
                     "adds": adds,
@@ -441,9 +443,11 @@ function getFormattedTransactionData(transactions){
                 let consenter_ids = transaction.consenter_ids;
                 let waiver_budget = transaction.waiver_budget;
                 let type = transaction.type;
+                let date = transaction.status_updated;
 
                 allTransactions.push({
                     "type": type,
+                    "date": date,
                     "roster_id": roster_id,
                     "drops": drops,
                     "adds": adds,
