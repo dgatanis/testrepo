@@ -352,7 +352,7 @@ async function getLatestTransactions(week) {
 
                     playerDiv.innerText = "ADDED: " + playerName;
 
-                    cardBody.appendChild(playerDiv);
+                    cardBody.append(playerDiv);
                 }
             }
             if(transaction.drops)
@@ -364,7 +364,7 @@ async function getLatestTransactions(week) {
                     var playerDiv = createPlayerImage(droppedPlayers[i]);
                     var playerName = getFullPlayerName(droppedPlayers[i]);
 
-                    cardBody.appendChild(playerDiv);
+                    cardBody.append(playerDiv);
 
                     playerDiv.innerText = "DROPPED: " + playerName;
                 }
