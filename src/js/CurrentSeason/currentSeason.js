@@ -378,7 +378,7 @@ async function getLatestTransactions(week) {
  
                     playerDiv.innerText = "DROPPED: " + playerName;
                     playerDiv.append(playerImg);
-                    playerDiv.append(addedIcon);
+                    playerDiv.append(droppedIcon);
 
                     droppedPlayerDiv.append(playerDiv);
 
