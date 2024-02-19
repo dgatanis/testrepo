@@ -181,7 +181,11 @@ table#PowerRankings {
   #custom_transaction_inner {
     border-radius: .7rem;
     height: 30rem;
-}
+  }
+
+  .custom-add-drop-icon {
+    max-width: 1rem;
+  }
 
 /* Custom Mobile responsive display 
 .list-group-item {

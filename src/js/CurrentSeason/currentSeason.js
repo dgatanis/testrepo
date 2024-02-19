@@ -866,7 +866,7 @@ function getHighScorerCount(week) {
 function createAddDropImg(addDrop) {
 
     var img = document.createElement('img');
-    img.setAttribute('class', 'custom-small-avatar');
+    img.setAttribute('class', 'custom-add-drop-icon');
 
     if(addDrop.toString().toLowerCase() == "add")
     {
