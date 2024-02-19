@@ -357,9 +357,9 @@ async function getLatestTransactions(week) {
                     var addedIcon = createAddDropImg("add");
 
                     playerName.innerText = getFullPlayerName(addedPlayers[i]);
-
-                    playerImg.append(playerName);
+             
                     playerDiv.append(playerImg);
+                    playerDiv.append(playerName);
                     playerDiv.append(addedIcon);
                     addedPlayerDiv.append(playerDiv);
                 }
@@ -379,9 +379,9 @@ async function getLatestTransactions(week) {
                     var droppedIcon = createAddDropImg("drop");
  
                     playerName.innerText = getFullPlayerName(droppedPlayers[i]);
-
-                    playerImg.append(playerName);
+                    
                     playerDiv.append(playerImg);
+                    playerDiv.append(playerName);
                     playerDiv.append(droppedIcon);
                     droppedPlayerDiv.append(playerDiv);
 
