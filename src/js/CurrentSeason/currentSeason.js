@@ -353,10 +353,11 @@ async function getLatestTransactions(week) {
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(addedPlayers[i]);
                     var playerName = getFullPlayerName(addedPlayers[i]);
-
+                    var addedIcon = createAddDropImg("add");
                     
                     playerDiv.innerText = "ADDED: " + playerName;
                     playerDiv.append(playerImg);
+                    playerDiv.append(addedIcon);
 
                     addedPlayerDiv.append(playerDiv);
                 }
@@ -373,9 +374,11 @@ async function getLatestTransactions(week) {
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(droppedPlayers[i]);
                     var playerName = getFullPlayerName(droppedPlayers[i]);
+                    var droppedIcon = createAddDropImg("drop");
  
                     playerDiv.innerText = "DROPPED: " + playerName;
                     playerDiv.append(playerImg);
+                    playerDiv.append(addedIcon);
 
                     droppedPlayerDiv.append(playerDiv);
 
@@ -859,7 +862,25 @@ function getHighScorerCount(week) {
 
 /*
 ** HTML Create/edit elements functions **
-*/      
+*/     
+function createAddDropImg(addDrop) {
+
+    var img = document.createElement('img');
+    img.setAttribute('class', 'custom-small-avatar');
+
+    if(addDrop.toString().toLowerCase() == "add")
+    {
+        img.setAttribute('src', '../src/static/images/add-sign.png');
+    }
+    else if (addDrop.toString().toLowerCase() == "drop")
+    {
+        img.setAttribute('src', '../src/static/images/drop-sign.png');
+    }
+    
+    
+    return img
+}
+
 function createTransactionCarouselItem() {
     var carouselItem = document.createElement("div");
     carouselItem.setAttribute('class', 'carousel-item');
