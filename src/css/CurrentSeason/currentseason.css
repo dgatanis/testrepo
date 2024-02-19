@@ -234,11 +234,9 @@
     min-height: 30rem;
   }
 
-/* Custom Mobile responsive display 
-.list-group-item {
-      border: none;
-    }
-*/
+  legend {
+    font-size: small;
+  }
 
   @media screen and (max-width: 37.5rem) {
     .custom-matchups {
