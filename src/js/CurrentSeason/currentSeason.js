@@ -396,8 +396,8 @@ async function getLatestTransactions(week) {
             }
             dateOfTransaction.classList.add('custom-block-display');
             dateOfTransaction.classList.remove('custom-none-display');
-            dateOfTransaction.innerText = transactionDate;
-            
+            dateOfTransaction.innerText = transactionDate.toLocaleString();
+
             cardBody.title = transaction.type;
             transactionCarousel.append(carouselItem);
         }
