@@ -219,10 +219,13 @@ table#PowerRankings {
 
   .custom-date-transaction {
     clear:both;
+    position: absolute;
+    bottom: 0;
   }
 
   .custom-carousel-item {
     height: fit-content;
+    min-height: 30rem;
   }
 
 /* Custom Mobile responsive display 
