@@ -173,7 +173,7 @@ table#PowerRankings {
   
   .custom-transaction-carousel {
     text-align: center;
-    background: transparent;
+    background: linear-gradient(0deg, #00000078, #0000003b, transparent);
     color: black;
   }
 
@@ -214,6 +214,10 @@ table#PowerRankings {
     background: linear-gradient(0deg, transparent, #80000042, transparent);
     padding: 1rem;
     border-radius: 5rem;
+  }
+
+  .custom-date-transaction {
+    clear:both;
   }
 
 /* Custom Mobile responsive display 
