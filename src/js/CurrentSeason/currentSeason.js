@@ -313,7 +313,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
     }
 
     var legend = document.getElementById('bankrollLegend');
-    legend.innerText="Weekly Payouts: " + weeklyWinnerPayout + " Dues: " + dues;
+    legend.innerText="Weekly Payouts: $" + weeklyWinnerPayout + " Dues: $" + dues;
 
 }
 
