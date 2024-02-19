@@ -393,11 +393,10 @@ async function getLatestTransactions(week) {
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
-                var teamName = getTeamName(roster.owner_id);
+                var teamName = document.createElement("div");
+                teamName.innerText = getTeamName(roster.owner_id);
 
-                teamImg.setAttribute('title', teamName.toString());
-                teamImg.innerText = teamName;
-
+                teamImg.append(teamName);
                 cardBody.append(teamImg);
             }
 
