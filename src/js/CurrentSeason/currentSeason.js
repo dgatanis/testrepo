@@ -16,9 +16,10 @@ async function loadConstants() {
         const leagueInfo = await import('../util/leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
+        var weeklyWinnerPayout = leagueInfo.weeklyWinner;
         var dues = leagueInfo.dues;
         currentWeek.then((thisWeek) => {
-            loadBankroll('10',dues); //TESTING
+            loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
             getLatestTransactions('1');
         }).catch((error) => {
         });
@@ -236,7 +237,7 @@ function OpenTeamRosterModal(userid,teamname) {
     }
 }
 
-function loadBankroll(week,dues) {
+function loadBankroll(week,dues,weeklyWinnerPayout) {
 
     let thisWeek = parseInt(week);
     let negDues = -Math.abs(dues);
@@ -253,7 +254,7 @@ function loadBankroll(week,dues) {
         {
            weeksWon = highScoreCount;
         }
-        totalBankRoll = negDues + (weeksWon * 35);
+        totalBankRoll = negDues + (weeksWon * parseInt(weeklyWinnerPayout));
 
         rosterBankrolls.push({
             "roster_id": roster.roster_id,
