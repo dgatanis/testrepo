@@ -203,11 +203,15 @@ table#PowerRankings {
   }
 
   .custom-added-players {
-    padding-top: 3rem;
+    margin-top: 3rem;
+    background: linear-gradient(0deg, transparent, #00800036, transparent);
+    padding: 1rem;
   }
 
   .custom-dropped-players {
-    padding-top: 3rem;
+    margin-top: 3rem;
+    background: linear-gradient(0deg, transparent, #80000042, transparent);
+    padding: 1rem;
   }
 
 /* Custom Mobile responsive display 

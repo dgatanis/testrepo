@@ -321,8 +321,10 @@ async function getLatestTransactions(week) {
             var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
             var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
             var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
+            var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
 
             var rosterId;
+            var transactionDate = new Date(transaction.date);
 
             if(counter == 0)
             {
@@ -392,7 +394,7 @@ async function getLatestTransactions(week) {
                 cardBody.append(teamImg);
                 cardBody.append(teamName);
             }
-
+            dateOfTransaction.innerText = transactionDate;
             cardBody.title = transaction.type;
             transactionCarousel.append(carouselItem);
         }
@@ -911,12 +913,15 @@ function createTransactionCarouselItem() {
     var tradedPicks = document.createElement("div");
     tradedPicks.setAttribute('class', 'custom-traded-picks custom-none-display');
 
+    var dateTransaction = document.createElement("div");
+    dateTransaction.setAttribute('class', 'custom-date-transaction custom-none-display');
+
     card.appendChild(cardBody);
     carouselItem.appendChild(card);
     carouselItem.append(addedPlayers);
     carouselItem.append(droppedPlayers);
     carouselItem.append(tradedPicks);
-
+    carouselItem.append(dateTransaction);
     
 
     return carouselItem;
