@@ -280,6 +280,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
         rowTeamName[0].innerText = teamName;
         rowTeam[0].prepend(ownerAvatar);
         rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
+        rowBankRoll[0].setAttribute('style', 'padding-top:1rem');
 
         if(rosterBankrolls[i].weeks_won > 3)
         {
