@@ -147,12 +147,8 @@ function loadMatchups(weekNumber) {
                 weekList.append(x);
             }
 
-            //hide no matchups div
-            if(noMatchup.classList.contains('custom-block-display'))
-            {
-                noMatchup.classList.remove('custom-block-display');
-                noMatchup.classList.add('custom-none-display');
-            }
+            noMatchup.classList.remove('custom-block-display');
+            noMatchup.classList.add('custom-none-display');
                     
         }
         else
