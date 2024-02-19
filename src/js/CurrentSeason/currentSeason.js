@@ -151,15 +151,6 @@ function loadMatchups(weekNumber) {
             noMatchup.classList.add('custom-none-display');
                     
         }
-        else
-        {
-            //show no matchups div
-            if(noMatchup.classList.contains('custom-none-display'))
-            {
-                noMatchup.classList.remove('custom-none-display');
-                noMatchup.classList.add('custom-block-display');
-            }
-        }
     }
     catch (error){
         console.log(error);
