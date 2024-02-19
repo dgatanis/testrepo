@@ -68,6 +68,7 @@
   .custom-body {
     margin: 1rem;
     padding: 2rem 2rem;
+    clear: inline-end;
   }
   
   .custom-matchup-row {
