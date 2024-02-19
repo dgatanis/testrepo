@@ -436,11 +436,21 @@ function getFormattedTransactionData(transactions){
         {
             if(transaction.type.toString().toLowerCase() == "free_agent" || transaction.type.toString().toLowerCase() == "waiver")
             {
+                
                 let roster_id = transaction.roster_ids;
                 let drops = transaction.drops;
                 let adds = transaction.adds;
-                let type = transaction.type;
+                let type;
                 let date = transaction.status_updated;
+
+                if(transaction.type.toString().toLowerCase() == "free_agent")
+                {
+                    type = "Free Agent"
+                }
+                else
+                {
+                    type = "Waiver Claim"
+                }
 
                 allTransactions.push({
                     "type": type,
@@ -461,7 +471,7 @@ function getFormattedTransactionData(transactions){
                 let draft_picks =  transaction.draft_picks;
                 let consenter_ids = transaction.consenter_ids;
                 let waiver_budget = transaction.waiver_budget;
-                let type = transaction.type;
+                let type = "Trade";
                 let date = transaction.status_updated;
 
                 allTransactions.push({
