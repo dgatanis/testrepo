@@ -296,11 +296,11 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
         }
         else if(rosterBankrolls[i].weeks_won == 1)
         {
-            row.setAttribute('style', 'background:#d3571a94');
+            row.setAttribute('style', 'background:#d3571a94;');
         }
         else
         {
-            row.setAttribute('style', 'background:#cb19198c');
+            row.setAttribute('style', 'background:#cb19198c;');
         }
 
         for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
@@ -407,7 +407,7 @@ async function getLatestTransactions(week) {
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
                 teamName.innerText = getTeamName(roster.owner_id);
-                teamName.setAttribute('class', 'custom-teamname-small');
+                teamName.setAttribute('class', 'custom-teamname-normal');
                 
                 cardBody.append(teamImg);
                 cardBody.append(teamName);
