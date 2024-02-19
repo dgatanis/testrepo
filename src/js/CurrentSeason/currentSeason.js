@@ -73,7 +73,7 @@ function loadMatchups(weekNumber) {
         var arrayNum = parseInt(weekNumber) - 1;
         const matchups = matchupData[0].matchupWeeks[arrayNum];
 
-        if(matchups)
+        if(matchups && noMatchupClassList.contains('custom-block-display'))
         {
             const matchupsLength = Object.keys(matchups).length;
 
@@ -355,7 +355,7 @@ async function getLatestTransactions(week) {
                     var playerImg = createPlayerImage(addedPlayers[i]);
                     var playerName = document.createElement("div");
                     var addedIcon = createAddDropImg("add");
-                    
+
                     playerName.setAttribute('class', 'custom-playername-normal');
                     playerName.innerText = getFullPlayerName(addedPlayers[i]);
              
