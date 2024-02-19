@@ -184,7 +184,8 @@ table#PowerRankings {
 
   #custom_transaction_inner {
     border-radius: .7rem;
-    height: 30rem;
+    max-height: 40rem;
+    height: fit-content;
   }
 
   .custom-add-drop-icon {
