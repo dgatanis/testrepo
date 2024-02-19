@@ -300,4 +300,9 @@
       width: 100%;
       max-width: unset;
     }
+
+    div#carouselTransactions {
+      background: linear-gradient(0deg, #b9b9b994, transparent, #b9b9b994);
+      border-radius: 1rem;
+  }
   }
