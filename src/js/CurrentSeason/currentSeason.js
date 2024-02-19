@@ -879,11 +879,12 @@ function createTransactionCarouselItem() {
     tradedPicks.setAttribute('class', 'custom-traded-picks custom-none-display');
 
     card.appendChild(cardBody);
-    card.append(addedPlayers);
-    card.append(droppedPlayers);
-    card.append(tradedPicks);
-
     carouselItem.appendChild(card);
+    carouselItem.append(addedPlayers);
+    carouselItem.append(droppedPlayers);
+    carouselItem.append(tradedPicks);
+
+    
 
     return carouselItem;
 }
