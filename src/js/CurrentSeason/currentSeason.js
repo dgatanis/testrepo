@@ -280,9 +280,21 @@ function loadBankroll(week,dues) {
         rowTeam[0].prepend(ownerAvatar);
         rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
 
-        if(rosterBankrolls[i].bankroll > 0)
+        if(rosterBankrolls[i].weeks_won > 3)
         {
             rowBankRoll[0].setAttribute('style', 'color:#006f00; padding-top: 1rem;');
+        }
+        else if(rosterBankrolls[i].weeks_won == 3)
+        {
+            rowBankRoll[0].setAttribute('style', 'color:#ffc800; padding-top: 1rem;');
+        }
+        else if(rosterBankrolls[i].weeks_won == 2)
+        {
+            rowBankRoll[0].setAttribute('style', 'color:#ed9900; padding-top: 1rem;');
+        }
+        else if(rosterBankrolls[i].weeks_won == 1)
+        {
+            rowBankRoll[0].setAttribute('style', 'color:#d3571a; padding-top: 1rem;');
         }
         else
         {
@@ -403,7 +415,7 @@ async function getLatestTransactions(week) {
             transactionType.classList.add('custom-block-display');
             transactionType.innerText = transaction.type;
 
-            
+
             transactionCarousel.append(carouselItem);
         }
     }
