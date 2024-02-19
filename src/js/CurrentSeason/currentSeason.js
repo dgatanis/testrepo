@@ -347,9 +347,11 @@ async function getLatestTransactions(week) {
 
                 for(let i = 0; i< addedPlayers.length; i++)
                 {
-                    var playerDiv = createPlayerImage(addedPlayers[i]);
+                    var playerDiv = document.createElement("div");
+                    var playerImg = createPlayerImage(addedPlayers[i]);
                     var playerName = getFullPlayerName(addedPlayers[i]);
 
+                    playerDiv.append(playerImg);
                     playerDiv.innerText = "ADDED: " + playerName;
 
                     cardBody.append(playerDiv);
@@ -361,12 +363,16 @@ async function getLatestTransactions(week) {
                 
                 for(let i = 0; i< droppedPlayers.length; i++)
                 {
-                    var playerDiv = createPlayerImage(droppedPlayers[i]);
+                    var playerDiv = document.createElement("div");
+                    var playerImg = createPlayerImage(droppedPlayers[i]);
                     var playerName = getFullPlayerName(droppedPlayers[i]);
+
+                    playerDiv.append(playerImg);
+                    playerDiv.innerText = "DROPPED: " + playerName;
 
                     cardBody.append(playerDiv);
 
-                    playerDiv.innerText = "DROPPED: " + playerName;
+                    
                 }
             }
 
