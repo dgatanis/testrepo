@@ -283,23 +283,23 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 
         if(rosterBankrolls[i].weeks_won > 3)
         {
-            rowBankRoll[0].setAttribute('style', 'color:#006f00; padding-top: 1rem;');
+            row.setAttribute('style', 'background:#006f005c;');
         }
         else if(rosterBankrolls[i].weeks_won == 3)
         {
-            rowBankRoll[0].setAttribute('style', 'color:#ffc800; padding-top: 1rem;');
+            row.setAttribute('style', 'background:#ffc8003d;');
         }
         else if(rosterBankrolls[i].weeks_won == 2)
         {
-            rowBankRoll[0].setAttribute('style', 'color:#ed9900; padding-top: 1rem;');
+            row.setAttribute('style', 'background:#ed990069;');
         }
         else if(rosterBankrolls[i].weeks_won == 1)
         {
-            rowBankRoll[0].setAttribute('style', 'color:#d3571a; padding-top: 1rem;');
+            row.setAttribute('style', 'background:#d3571a94');
         }
         else
         {
-            rowBankRoll[0].setAttribute('style', 'color:#cb1919; padding-top: 1rem;');
+            row.setAttribute('style', 'background:#cb19198c');
         }
 
         for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
