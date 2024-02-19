@@ -396,8 +396,9 @@ async function getLatestTransactions(week) {
                 var teamName = document.createElement("div");
                 teamName.innerText = getTeamName(roster.owner_id);
 
-                teamImg.append(teamName);
+                
                 cardBody.append(teamImg);
+                cardBody.append(teamName);
             }
 
             //cardBody.innerText = transaction.type;
