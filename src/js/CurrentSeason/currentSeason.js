@@ -396,7 +396,7 @@ async function getLatestTransactions(week) {
             }
             dateOfTransaction.classList.add('custom-block-display');
             dateOfTransaction.classList.remove('custom-none-display');
-            dateOfTransaction.innerText = transactionDate.toLocaleString();
+            dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
 
             cardBody.title = transaction.type;
             transactionCarousel.append(carouselItem);
