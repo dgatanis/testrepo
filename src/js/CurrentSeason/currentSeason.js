@@ -343,6 +343,7 @@ async function getLatestTransactions(week) {
 
             var rosterId;
             var transactionDate = new Date(transaction.date);
+            let transType = "";
 
             if(counter == 0)
             {
@@ -416,9 +417,21 @@ async function getLatestTransactions(week) {
             dateOfTransaction.classList.remove('custom-none-display');
             dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
 
+            if(transaction.type.toString().toLowerCase() == "free_agent")
+            {
+                transType = "Free Agent";
+            }
+            else if(transaction.type.toString().toLowerCase() == "waiver")
+            {
+                transType = "Waiver Claim";
+            }
+            else if(transaction.type.toString().toLowerCase() == "waiver")
+            {
+                transType = "Trade";
+            }
             transactionType.classList.remove('custom-none-display');
             transactionType.classList.add('custom-block-display');
-            transactionType.innerText = transaction.type;
+            transactionType.innerText = transType;
 
 
             transactionCarousel.append(carouselItem);
