@@ -330,8 +330,10 @@ async function getLatestTransactions(week) {
     if(transactionCarousel.children.length == 0)
     {
         for(let transaction of allTransactions)
-        {
+        {  
             var carouselItem = createTransactionCarouselItem();
+            var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
+
             if(counter == 0)
             {
                 carouselItem.classList.add('active');
@@ -340,7 +342,13 @@ async function getLatestTransactions(week) {
 
             if(transaction.adds)
             {
-                let addedPlayersLength = Object.keys(transaction.adds).length;
+                var addedPlayersDiv = document.createElement("div");
+                let addedPlayers = Object.keys(transaction.adds);
+
+                for(let i = 0; i< addedPlayers.length; i++)
+                {
+                    transaction.adds[]
+                }
             }
             if(transaction.drops)
             {
@@ -435,12 +443,16 @@ function highScorerInMatchupStarters(starters, playerPoints){
 function getFullPlayerName(playerid) {
 
     let player = playerData.players.find(x => x.player_id === parseInt(playerid));
-    let playerName = player.firstname + " " + player.lastname;
 
-    if(playerName)
+    let playerName = playerid;
+
+    if(player.firstname && player.lastname)
     {
-        return playerName;
+        playerName = player.firstname + " " + player.lastname;
     }
+    
+    return playerName;
+    
 }
 
 function sortByPosition(players) {
