@@ -167,10 +167,9 @@ table#PowerRankings {
     text-align: center;
   }
   
-  .custom-transaction {
+  .custom-transaction-carousel {
     text-align: center;
-    padding-top: 50%;
-    background: linear-gradient(0deg, #777777a3, transparent);
+    background: linear-gradient(0deg, transparent, #777777a3, transparent);
     color: black;
   }
 

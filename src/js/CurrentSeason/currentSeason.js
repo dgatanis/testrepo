@@ -333,6 +333,9 @@ async function getLatestTransactions(week) {
         {  
             var carouselItem = createTransactionCarouselItem();
             var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
+            var addedPlayerDiv = carouselItem.children[0].getElementsByClassName("custom-added-players")[0];
+            var droppedPlayerDiv = carouselItem.children[0].getElementsByClassName("custom-dropped-players")[0];
+            var tradedPicksDiv = carouselItem.children[0].getElementsByClassName("custom-traded-picks")[0];
 
             if(counter == 0)
             {
@@ -354,8 +357,11 @@ async function getLatestTransactions(week) {
                     playerDiv.append(playerImg);
                     playerDiv.innerText = "ADDED: " + playerName;
 
-                    cardBody.append(playerDiv);
+                    addedPlayerDiv.append(playerDiv);
                 }
+
+                addedPlayerDiv.classList.add('custom-block-display');
+                addedPlayerDiv.classList.remove('custom-none-display');
             }
             if(transaction.drops)
             {
@@ -370,12 +376,13 @@ async function getLatestTransactions(week) {
                     playerDiv.append(playerImg);
                     playerDiv.innerText = "DROPPED: " + playerName;
 
-                    cardBody.append(playerDiv);
+                    droppedPlayerDiv.append(playerDiv);
 
-                    
                 }
+                droppedPlayerDiv.classList.add('custom-block-display');
+                droppedPlayerDiv.classList.remove('custom-none-display');
             }
-            //carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
+            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText =transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
@@ -856,17 +863,28 @@ function createTransactionCarouselItem() {
     var carouselItem = document.createElement("div");
     carouselItem.setAttribute('class', 'carousel-item');
 
-    var customTransaction = document.createElement("div");
-    customTransaction.setAttribute('class', 'test');
-
     var card = document.createElement("div");
     card.setAttribute('class', 'card');
 
     var cardBody = document.createElement("div");
     cardBody.setAttribute('class', 'card-body');
     
+    var addedPlayers = document.createElement("div");
+    addedPlayers.setAttribute('class', 'custom-added-players custom-none-display');
+
+    var droppedPlayers = document.createElement("div");
+    droppedPlayers.setAttribute('class', 'custom-dropped-players custom-none-display');
+
+    var tradedPicks = document.createElement("div");
+    tradedPicks.setAttribute('class', 'custom-traded-picks custom-none-display');
+
     card.appendChild(cardBody);
+    card.append(addedPlayers);
+    card.append(droppedPlayers);
+    card.append(tradedPicks);
+
     customTransaction.appendChild(card);
+
     carouselItem.appendChild(customTransaction);
 
     return carouselItem;
