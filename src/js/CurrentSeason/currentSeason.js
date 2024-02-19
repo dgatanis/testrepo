@@ -425,7 +425,7 @@ async function getLatestTransactions(week) {
             {
                 transType = "Waiver Claim";
             }
-            else if(transaction.type.toString().toLowerCase() == "waiver")
+            else if(transaction.type.toString().toLowerCase() == "trade")
             {
                 transType = "Trade";
             }
