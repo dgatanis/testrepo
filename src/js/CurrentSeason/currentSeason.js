@@ -392,15 +392,16 @@ async function getLatestTransactions(week) {
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
 
-                var test = createOwnerAvatarImage(roster.owner_id);
+                var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = getTeamName(roster.owner_id);
-                test.setAttribute('title', teamName.toString());
 
-                carouselItem.append(test);
-                
+                teamImg.setAttribute('title', teamName.toString());
+                teamImg.innerText = teamName;
+
+                cardBody.append(teamImg);
             }
 
-            carouselItem.children[0].getElementsByClassName("card-body")[0].innerText = transaction.type;
+            cardBody.innerText = transaction.type;
             transactionCarousel.append(carouselItem);
         }
     }
