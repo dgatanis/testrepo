@@ -461,7 +461,7 @@ function getFullPlayerName(playerid) {
 
     let playerName = playerid;
 
-    if(player.firstname && player.lastname)
+    if(player != undefined && player.firstname && player.lastname)
     {
         playerName = player.firstname + " " + player.lastname;
     }
