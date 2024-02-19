@@ -1,7 +1,7 @@
 export const leagueDisplayName = "Crush Cities";
 export const dues = 200; 
 export const dynasty = true; 
-export const weeklyWinner = 50; //Amount won for highest weekly scorer
+export const weeklyWinner = 35; //Amount won for highest weekly scorer
 
 export const inauguralSeason = 2024;
 
