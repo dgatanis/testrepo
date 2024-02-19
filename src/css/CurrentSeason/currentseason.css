@@ -1,4 +1,8 @@
-table#PowerRankings {
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color:#79797914;
+  }
+  
+  table#PowerRankings {
     float: left;
   }
   
