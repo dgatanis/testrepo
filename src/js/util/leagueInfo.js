@@ -18,7 +18,7 @@ export default async function getCurrentLeagueId() {
 
 }
 
-async function getCurrentSeason() {
+export async function getCurrentSeason() {
     try {
         const nflState = await getNFLState();
         return nflState.league_season;

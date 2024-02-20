@@ -16,6 +16,7 @@ async function loadConstants() {
         const leagueInfo = await import('../util/leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
+        var currentSeason = leagueInfo.getCurrentSeason();
         var weeklyWinnerPayout = leagueInfo.weeklyWinner;
         var dues = leagueInfo.dues;
         currentWeek.then((thisWeek) => {
@@ -23,6 +24,12 @@ async function loadConstants() {
             getLatestTransactions('1');
         }).catch((error) => {
         });
+
+        currentSeason.then((currentSeason) => {
+            setSeasonTitle(currentSeason);
+        }).catch((error) => {
+        });
+        
         loadSeasonRankings(leagueData.league_id);
         loadMatchupsList();
         
@@ -32,6 +39,12 @@ async function loadConstants() {
         console.error(`Error: ${error.message}`);
     }
 
+}
+
+function setSeasonTitle(season) {
+    var seasonTitle = document.getElementById('seasonTitle');
+
+    seasonTitle.innerText= season + " Season";
 }
 
 function loadSeasonRankings(leagueId) { 
