@@ -80,7 +80,25 @@ function loadSeasonRankings(leagueId) {
 function loadMatchups(weekNumber) {
 
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
+    let rosterDatas;
+    if(rosterData)
+    {
+        rosterDatas=rosterData;
+    }
+    else
+    {
+        rosterDatas = localStorage.getItem('RosterData');
+    }
 
+    let userDatas;
+    if(userDatas)
+    {
+        userDatas=userData;
+    }
+    else
+    {
+        userDatas = localStorage.getItem('UserData');
+    }
     try{
 
         var arrayNum = parseInt(weekNumber) - 1;
@@ -108,8 +126,8 @@ function loadMatchups(weekNumber) {
                     {
                         
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
-                        let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
-                        let user = userData.find(x => x.user_id === roster.owner_id);
+                        let roster = rosterDatas.find(x => x.roster_id === matchup.roster_id);
+                        let user = userDatas.find(x => x.user_id === roster.owner_id);
                         
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
