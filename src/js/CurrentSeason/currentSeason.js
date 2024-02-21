@@ -16,7 +16,7 @@ async function loadConstants() {
         try{
             const leagueDataStorage = localStorage.getItem("LeagueData");
             const leagueData = JSON.parse(leagueDataStorage);
-            const leagueInfo = await import('../util/leagueInfo.js');
+            const leagueInfo = import('../util/leagueInfo.js');
             var leagueInfoLeagueId = leagueInfo.default();
             var currentWeek = leagueInfo.getCurrentWeek();
             var currentSeason = leagueInfo.getCurrentSeason();
