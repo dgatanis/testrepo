@@ -14,6 +14,7 @@ while(tries <= 2)
         }).catch((error) => {
             tries++;
         });
+        console.log(tries);
         tries=9;
         
     }
