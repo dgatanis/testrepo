@@ -23,16 +23,19 @@ async function loadConstants() {
             loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
             getLatestTransactions('1');
         }).catch((error) => {
+            console.error(`Error: ${error.message}`);
         });
 
         currentSeason.then((currentSeason) => {
             setSeasonTitle(currentSeason);
         }).catch((error) => {
+            console.error(`Error: ${error.message}`);
         });
-        
+
         leagueInfoLeagueId.then((currentLeagueId) => {
             loadSeasonRankings(currentLeagueId);
         }).catch((error) => {
+            console.error(`Error: ${error.message}`);
         });
         
         loadMatchupsList();
