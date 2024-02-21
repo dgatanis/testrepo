@@ -30,7 +30,11 @@ async function loadConstants() {
         }).catch((error) => {
         });
         
-        loadSeasonRankings(leagueData.league_id);
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            loadSeasonRankings(currentLeagueId);
+        }).catch((error) => {
+        });
+        
         loadMatchupsList();
         
         return -1;
