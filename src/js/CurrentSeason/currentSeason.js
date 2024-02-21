@@ -7,43 +7,47 @@ const playerData = JSON.parse(playerDataStorage);
  
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 const matchupData = JSON.parse(matchupWeekStorage); 
-
+let tries = 0;
 async function loadConstants() {
+    
+    while(tries <= 2)
+    {
+        tries++;
+        try{
+            const leagueDataStorage = localStorage.getItem("LeagueData");
+            const leagueData = JSON.parse(leagueDataStorage);
+            const leagueInfo = await import('../util/leagueInfo.js');
+            var leagueInfoLeagueId = leagueInfo.default();
+            var currentWeek = leagueInfo.getCurrentWeek();
+            var currentSeason = leagueInfo.getCurrentSeason();
+            var weeklyWinnerPayout = leagueInfo.weeklyWinner;
+            var dues = leagueInfo.dues;
+            currentWeek.then((thisWeek) => {
+                loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
+                getLatestTransactions('1');
+            }).catch((error) => {
+                console.error(`Error: ${error.message}`);
+            });
 
-    try{
-        const leagueDataStorage = localStorage.getItem("LeagueData");
-        const leagueData = JSON.parse(leagueDataStorage);
-        const leagueInfo = await import('../util/leagueInfo.js');
-        var leagueInfoLeagueId = leagueInfo.default();
-        var currentWeek = leagueInfo.getCurrentWeek();
-        var currentSeason = leagueInfo.getCurrentSeason();
-        var weeklyWinnerPayout = leagueInfo.weeklyWinner;
-        var dues = leagueInfo.dues;
-        currentWeek.then((thisWeek) => {
-            loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
-            getLatestTransactions('1');
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
+            currentSeason.then((currentSeason) => {
+                setSeasonTitle(currentSeason);
+            }).catch((error) => {
+                console.error(`Error: ${error.message}`);
+            });
 
-        currentSeason.then((currentSeason) => {
-            setSeasonTitle(currentSeason);
-        }).catch((error) => {
+            leagueInfoLeagueId.then((currentLeagueId) => {
+                loadSeasonRankings(currentLeagueId);
+            }).catch((error) => {
+                console.error(`Error: ${error.message}`);
+            });
+            
+            loadMatchupsList();
+            
+            return -1;
+        }
+        catch (error){
             console.error(`Error: ${error.message}`);
-        });
-
-        leagueInfoLeagueId.then((currentLeagueId) => {
-            loadSeasonRankings(currentLeagueId);
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
-        
-        loadMatchupsList();
-        
-        return -1;
-    }
-    catch (error){
-        console.error(`Error: ${error.message}`);
+        }
     }
 
 }
