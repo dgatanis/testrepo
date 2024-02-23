@@ -222,15 +222,17 @@
   }
 
   .custom-team-div {
-    margin-top: 10rem;
+    margin-top: 1rem;
     clear: both;
+    float: inline-end;
   }
 
   .custom-dropped-players {
     margin-top: 2rem;
     padding: 1rem;
     border-radius: 5rem;
-    float: inline-end;
+    float: inline-start;
+    clear: inline-start;
     display: inline;
   }
 
@@ -251,6 +253,7 @@
   .custom-carousel-item:hover {
     background: #0000001a;
     color: #000000;
+    border-radius: .5rem;
 }
 
   legend {
