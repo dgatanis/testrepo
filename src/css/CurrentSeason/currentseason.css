@@ -166,7 +166,7 @@
 
   .custom-teamname-normal {
     display: inline;
-    font-size: normal;
+    font-size: unset;
   }
 
   .custom-carousel {
@@ -209,7 +209,7 @@
 
   .custom-playername-normal {
     display: inline;
-    font-size: normal;
+    font-size: unset;
   }
 
   .custom-added-players {
