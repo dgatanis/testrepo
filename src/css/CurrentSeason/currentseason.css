@@ -228,6 +228,7 @@
     clear:both;
     position: absolute;
     bottom: 0;
+    font-size: small;
   }
 
   .custom-carousel-item {

@@ -385,8 +385,8 @@ async function getLatestTransactions(week) {
                     playerName.innerText = getFullPlayerName(addedPlayers[i]);
              
                     playerDiv.append(playerImg);
-                    playerDiv.append(playerName);
                     playerDiv.append(addedIcon);
+                    playerDiv.append(playerName);
                     addedPlayerDiv.append(playerDiv);
                 }
 
