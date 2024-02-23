@@ -219,6 +219,7 @@
     border-radius: 5rem;
     float: inline-start;
     display: inline;
+    margin-left: 1.5rem;
   }
 
   .custom-team-div {
@@ -235,6 +236,7 @@
     float: inline-start;
     clear: inline-start;
     display: inline;
+    margin-left: 1.5rem;
   }
 
   .custom-date-transaction {
