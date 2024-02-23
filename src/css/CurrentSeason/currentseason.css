@@ -214,7 +214,7 @@
   }
 
   .custom-added-players {
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 1rem;
     border-radius: 5rem;
     float: inline-start;
@@ -228,7 +228,7 @@
   }
 
   .custom-dropped-players {
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 1rem;
     border-radius: 5rem;
     float: inline-start;
@@ -248,13 +248,13 @@
     min-height: 30rem;
     transition: all 1s ease;
     color: #5a5a5ade;
+    padding:1rem;
   }
 
   .custom-carousel-item:hover {
     background: #0000001a;
     color: #000000;
     border-radius: .5rem;
-    padding:1rem;
 }
 
   legend {
