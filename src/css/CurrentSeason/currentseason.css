@@ -243,6 +243,7 @@
   .custom-carousel-item {
     height: fit-content;
     min-height: 30rem;
+    transition: all 1s ease;
   }
 
   legend {
