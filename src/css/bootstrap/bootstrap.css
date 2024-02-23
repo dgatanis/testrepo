@@ -10866,13 +10866,13 @@ a.custom-nav:hover {
 
 .custom-medium-avatar {
   max-width: 3.5rem;
-  border-radius: 5px;
+  border-radius: 50%;
   margin-right: .5rem;
 }
 
 .custom-small-avatar {
   max-width: 2.5rem;
-  border-radius: 5px;
+  border-radius: 50%;
   margin-right: .5rem;
 }
 
