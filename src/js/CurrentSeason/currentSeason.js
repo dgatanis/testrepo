@@ -386,7 +386,7 @@ async function getLatestTransactions(week) {
                     var playerName = document.createElement("div");
                     var addedIcon = createAddDropImg("add");
 
-                    playerName.setAttribute('class', 'custom-playername-normal');
+                    playerName.setAttribute('class', 'custom-playername-small');
                     playerName.innerText = getFullPlayerName(addedPlayers[i]);
 
                     playerDiv.append(addedIcon);
