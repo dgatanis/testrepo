@@ -213,15 +213,24 @@
   }
 
   .custom-added-players {
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding: 1rem;
     border-radius: 5rem;
+    float: inline-start;
+    display: inline;
+  }
+
+  .custom-team-div {
+    margin-top: 10rem;
+    clear: both;
   }
 
   .custom-dropped-players {
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding: 1rem;
     border-radius: 5rem;
+    float: inline-end;
+    display: inline;
   }
 
   .custom-date-transaction {
