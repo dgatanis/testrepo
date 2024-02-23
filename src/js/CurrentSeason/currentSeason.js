@@ -410,7 +410,7 @@ async function getLatestTransactions(week) {
                     var playerName = document.createElement("div");
                     var droppedIcon = createAddDropImg("drop");
 
-                    playerName.setAttribute('class', 'custom-playername-normal');
+                    playerName.setAttribute('class', 'custom-playername-small');
                     playerName.innerText = getFullPlayerName(droppedPlayers[i]);
                     
                     playerDiv.append(droppedIcon);
@@ -1078,7 +1078,6 @@ function createPlayerImage(playerId) {
 
     if(player)
     {
-        let playerName = player.firstname.toString().trim() + " " + player.lastname;
         var playerimg = document.createElement("img");
         playerimg.setAttribute("src", "https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg");
         playerimg.setAttribute('class', "custom-player-avatar");
