@@ -278,11 +278,6 @@
     .custom-medium-avatar {
       float: left;
     }
-
-    custom-medium-avatar-trashcan {
-      border-radius: none;
-      float: left;
-    }
   
     table#RosterTable {
       font-size: .8rem;

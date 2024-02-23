@@ -10870,6 +10870,12 @@ a.custom-nav:hover {
   margin-right: .5rem;
 }
 
+custom-medium-avatar-trashcan {
+  max-width: 3.5rem;
+  margin-right: .5rem;
+  border-radius: none;
+}
+
 .custom-small-avatar {
   max-width: 2.5rem;
   border-radius: 50%;
