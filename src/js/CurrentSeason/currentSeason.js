@@ -973,15 +973,15 @@ function createTransactionCarouselItem() {
     var dateTransaction = document.createElement("div");
     dateTransaction.setAttribute('class', 'custom-date-transaction custom-none-display');
 
-    var transactionType = document.createElement("div");
-    transactionType.setAttribute('class', 'custom-team-div custom-none-display');
+    var teamDiv = document.createElement("div");
+    teamDiv.setAttribute('class', 'custom-team-div custom-none-display');
 
     card.appendChild(cardBody);
     carouselItem.appendChild(card);
-    carouselItem.append(transactionType);
     carouselItem.append(addedPlayers);
     carouselItem.append(droppedPlayers);
     carouselItem.append(tradedPicks);
+    carouselItem.append(teamDiv);
     carouselItem.append(dateTransaction);
     
 

@@ -95,6 +95,7 @@
   .custom-card {
     background: transparent;
     border: none;
+    margin-bottom: 2rem;
   }
 
   .custom-none-display {
