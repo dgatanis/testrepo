@@ -245,7 +245,13 @@
     height: fit-content;
     min-height: 30rem;
     transition: all 1s ease;
+    color: #5a5a5ade;
   }
+
+  .custom-carousel-item:hover {
+    background: #0000001a;
+    color: #000000;
+}
 
   legend {
     font-size: x-small;
@@ -314,6 +320,10 @@
     .custom-carousel {
       width: 100%;
       max-width: unset;
+    }
+
+    .custom-carousel-item {
+      color: black;
     }
 
     div#carouselTransactions {
