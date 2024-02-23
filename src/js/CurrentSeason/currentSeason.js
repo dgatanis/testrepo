@@ -66,7 +66,7 @@ function loadSeasonRankings(leagueId) {
         var teamName = document.createElement("div");
         teamName.setAttribute('class', 'custom-teamname-normal');
         teamName.innerText=teamNameDisplay;
-        
+
         var powerRankingElementId = "PowerRanking_"+powerRank;
         var rosterButtonId = "GetRosterButton_"+powerRank;
         var powerRanking = document.getElementById(powerRankingElementId);
@@ -1063,7 +1063,7 @@ function createOwnerAvatarImage(userId) {
     else
     {
         var img = document.createElement("img");
-        img.setAttribute('src', '../src/static/images/trashcan2.jpg');
+        img.setAttribute('src', '../src/static/images/trashcan2.png');
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('data-userid', user.user_id);
     }
