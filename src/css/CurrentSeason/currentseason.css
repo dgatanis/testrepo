@@ -267,7 +267,7 @@
 
   @media screen and (max-width: 85.375rem) {
     .custom-matchup-player {
-      float: left;
+      float: right;
       clear: left;
     }
 
