@@ -334,6 +334,27 @@
       color: black;
     }
 
+    .custom-transaction-carousel {
+      padding: unset;
+    }
+
+    .custom-added-players {
+      margin-left: unset;
+    }
+
+    .custom-dropped-players {
+      margin-left: unset;
+    }
+
+    .custom-date-transaction {
+      margin-left: unset;
+    }
+
+    .custom-team-div{
+      margin-right: unset;
+      margin-top: 3rem;
+    }
+
     div#carouselTransactions {
       background: linear-gradient(0deg, #b9b9b994, transparent, #b9b9b994);
       border-radius: 1rem;
