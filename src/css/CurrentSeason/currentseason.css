@@ -100,7 +100,7 @@
   }
 
   .custom-none-display {
-    display: none;
+    display: none !important;
   }
 
   .custom-hidden-row {
