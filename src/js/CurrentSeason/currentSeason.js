@@ -75,7 +75,7 @@ function loadSeasonRankings(leagueId) {
         powerRanking.append(ownerImage);
         powerRanking.append(teamName);
         
-        rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamName + "')");
+        rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamNameDisplay + "')");
 
         rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
         powerRank++;

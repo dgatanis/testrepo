@@ -131,7 +131,7 @@
     clear: left;
     padding-bottom: 4rem;
     width: 25rem;
-    margin-right: 15rem;
+    margin-right: 10rem;
   }
 
   div#currentWeek {
@@ -174,7 +174,7 @@
     clear:inline-end;
     float: left;
     padding-bottom: 4rem;
-    width: 30rem;
+    width: 35rem;
     text-align: center;
   }
   
@@ -225,6 +225,7 @@
     margin-top: 1rem;
     clear: both;
     float: inline-end;
+    margin-right: 2.5rem;
   }
 
   .custom-dropped-players {
