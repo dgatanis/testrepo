@@ -387,7 +387,7 @@ async function getLatestTransactions(week) {
                     playerDiv.append(addedIcon);
                     playerDiv.append(playerImg);
                     playerDiv.append(playerName);
-                    
+
                     addedPlayerDiv.append(playerDiv);
                 }
 
@@ -430,8 +430,9 @@ async function getLatestTransactions(week) {
                 teamName.innerText = getTeamName(roster.owner_id);
                 teamName.setAttribute('class', 'custom-teamname-normal');
                 
-                cardBody.append(teamImg);
-                cardBody.append(teamName);
+                transactionType.append(teamImg);
+                transactionType.append(teamName);
+                
             }
             dateOfTransaction.classList.add('custom-block-display');
             dateOfTransaction.classList.remove('custom-none-display');
@@ -449,11 +450,12 @@ async function getLatestTransactions(week) {
             {
                 transType = "Trade";
             }
+
             transactionType.classList.remove('custom-none-display');
             transactionType.classList.add('custom-block-display');
-            transactionType.innerText = transType;
+            //transactionType.innerText = transType;
 
-
+            cardBody.innerText = transType;
             transactionCarousel.append(carouselItem);
         }
     }

@@ -198,6 +198,7 @@
   .custom-add-drop-icon {
     max-width: 1rem;
     display: inline;
+    position: absolute;
   }
 
   .custom-playername-small {
