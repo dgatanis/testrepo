@@ -1064,7 +1064,8 @@ function createOwnerAvatarImage(userId) {
     {
         var img = document.createElement("img");
         img.setAttribute('src', '../src/static/images/trashcan.png');
-        img.setAttribute('class', "custom-medium-avatar-trashcan");
+        img.setAttribute('class', "custom-medium-avatar");
+        img.setAttribute('style', "border-radius: unset;");
         img.setAttribute('data-userid', user.user_id);
     }
     return img;
