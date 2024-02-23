@@ -383,10 +383,11 @@ async function getLatestTransactions(week) {
 
                     playerName.setAttribute('class', 'custom-playername-normal');
                     playerName.innerText = getFullPlayerName(addedPlayers[i]);
-             
-                    playerDiv.append(playerImg);
+
                     playerDiv.append(addedIcon);
+                    playerDiv.append(playerImg);
                     playerDiv.append(playerName);
+                    
                     addedPlayerDiv.append(playerDiv);
                 }
 
@@ -407,9 +408,10 @@ async function getLatestTransactions(week) {
                     playerName.setAttribute('class', 'custom-playername-normal');
                     playerName.innerText = getFullPlayerName(droppedPlayers[i]);
                     
+                    playerDiv.append(droppedIcon);
                     playerDiv.append(playerImg);
                     playerDiv.append(playerName);
-                    playerDiv.append(droppedIcon);
+                    
                     droppedPlayerDiv.append(playerDiv);
 
                 }
