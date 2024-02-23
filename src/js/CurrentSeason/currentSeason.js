@@ -62,14 +62,19 @@ function loadSeasonRankings(leagueId) {
     {
         let user = userData.find(x => x.user_id === team.owner_id);
         var ownerImage = createOwnerAvatarImage(user.user_id);
+        var teamNameDisplay = getTeamName(user.user_id);
+        var teamName = document.createElement("div");
+        teamName.setAttribute('class', 'custom-teamname-normal');
+        teamName.innerText=teamNameDisplay;
+        
         var powerRankingElementId = "PowerRanking_"+powerRank;
         var rosterButtonId = "GetRosterButton_"+powerRank;
         var powerRanking = document.getElementById(powerRankingElementId);
         var rosterButton = document.getElementById(rosterButtonId);
-        powerRanking.append(ownerImage);
-        var teamName = getTeamName(user.user_id);
         
+        powerRanking.append(ownerImage);
         powerRanking.append(teamName);
+        
         rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamName + "')");
 
         rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
