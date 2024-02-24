@@ -256,7 +256,7 @@
   }
 
   .custom-carousel-item:hover {
-    background: #0000001a;
+    background: linear-gradient(0deg, #0000001a, transparent);
     color: #000000;
     border-radius: .5rem;
 }
