@@ -274,6 +274,14 @@
     .custom-medium-avatar {
       float: left;
     }
+
+    .custom-rankings {
+      width: 45%
+    }
+
+    .custom-matchups {
+      width: 45%
+    }
   }
 
   @media screen and (max-width: 37.5rem) {
