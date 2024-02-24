@@ -282,6 +282,10 @@
     .custom-matchups {
       width: 45%
     }
+
+    .custom-bankroll {
+      margin-right: 5rem;
+    }
   }
 
   @media screen and (max-width: 37.5rem) {
