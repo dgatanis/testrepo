@@ -260,7 +260,11 @@
   .custom-carousel-item:hover {
     background: transparent;
     color: #000000;
-}
+  }
+
+  .custom-transaction-description {
+    clear: both;
+  }
 
   legend {
     font-size: x-small;
