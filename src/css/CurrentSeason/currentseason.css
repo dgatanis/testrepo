@@ -250,15 +250,16 @@
 
   .custom-carousel-item {
     height: fit-content;
+    background: #8080801f;
     transition: all 1s ease;
     color: #5a5a5ade;
     padding:1rem;
+    border-radius:.5rem;
   }
 
   .custom-carousel-item:hover {
-    background: linear-gradient(0deg, #0000001a, transparent);
+    background: transparent;
     color: #000000;
-    border-radius: .5rem;
 }
 
   legend {
