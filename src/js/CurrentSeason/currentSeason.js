@@ -349,13 +349,14 @@ async function getLatestTransactions(week) {
     //transactiontypes: waiver, free_agent, trade
     
     var allTransactions = getFormattedTransactionData(transactionsData);
-    let transactionCarousel = document.getElementById("custom_transaction_inner");
+    let noTransactions = document.getElementById("noTransactions");
     let counter = 0;
 
-    if(transactionCarousel.children.length == 0)
+    if(noTransactions.classList.contains('custom-block-display'))
     {
         for(let transaction of allTransactions)
         {  
+            //Create carousel item and get each of the divs that were created
             var carouselItem = createTransactionCarouselItem();
             var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
             var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
@@ -424,7 +425,7 @@ async function getLatestTransactions(week) {
                 droppedPlayerDiv.classList.remove('custom-none-display');
             }
 
-            //
+            //Handle trades differently than waiver/free agent
             if(transaction.type.toString().toLowerCase() != "trade")
             {
                 rosterId = transaction.roster_id[0];
@@ -462,6 +463,8 @@ async function getLatestTransactions(week) {
             cardBody.innerText = transType;
             transactionCarousel.append(carouselItem);
         }
+        noTransactions.classList.remove('custom-block-display');
+        noTransactions.classList.add('custom-none-display');
     }
 }
 
