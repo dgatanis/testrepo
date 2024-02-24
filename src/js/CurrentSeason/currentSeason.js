@@ -350,6 +350,7 @@ async function getLatestTransactions(week) {
     
     var allTransactions = getFormattedTransactionData(transactionsData);
     let noTransactions = document.getElementById("noTransactions");
+    let transactionCarousel = document.getElementById("custom_transaction_inner");
     let counter = 0;
 
     if(noTransactions.classList.contains('custom-block-display'))
