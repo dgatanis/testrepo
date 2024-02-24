@@ -21,7 +21,7 @@ async function loadConstants() {
         var dues = leagueInfo.dues;
         currentWeek.then((thisWeek) => {
             loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
-            getLatestTransactions(thisWeek);
+            getLatestTransactions('1');
         }).catch((error) => {
         });
 
@@ -341,7 +341,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 
 }
 
-async function getLatestTransactions(week,leagueId = '1046222222567784448') {
+async function getLatestTransactions(week) {
 
     //const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
     const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
