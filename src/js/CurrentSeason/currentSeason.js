@@ -465,6 +465,7 @@ async function getLatestTransactions(week) {
             transactionCarousel.append(carouselItem);
         }
         noTransactions.classList.remove('custom-block-display');
+        noTransactions.classList.remove('carousel-item');
         noTransactions.classList.add('custom-none-display');
     }
 }
