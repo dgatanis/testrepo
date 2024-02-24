@@ -363,6 +363,7 @@ async function getLatestTransactions(week) {
             var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
             var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
             var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
+            var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
             var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
             var transactionType = carouselItem.getElementsByClassName("custom-team-div")[0];
 
@@ -375,14 +376,15 @@ async function getLatestTransactions(week) {
                 carouselItem.classList.add('active');
             }
             counter++;
-
+            let description = "";
             //iterate through added/dropped players and create player images and append to their respective divs
             if(transaction.adds)
             {
                 let addedPlayers = Object.keys(transaction.adds);
-
+                description += "Added "
                 for(let i = 0; i< addedPlayers.length; i++)
                 {
+                    description += getFullPlayerName(addedPlayers[i]) + " ";
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(addedPlayers[i]);
                     var playerName = document.createElement("div");
@@ -457,7 +459,9 @@ async function getLatestTransactions(week) {
             {
                 transType = "Trade";
             }
-
+            transactionDescription.classList.remove('custom-none-display');
+            transactionDescription.classList.add('custom-block-display');
+            transactionDescription.innerText = description;
             transactionType.classList.remove('custom-none-display');
             transactionType.classList.add('custom-block-display');
 
@@ -983,6 +987,9 @@ function createTransactionCarouselItem() {
     var dateTransaction = document.createElement("div");
     dateTransaction.setAttribute('class', 'custom-date-transaction custom-none-display');
 
+    var transactionDescription = document.createElement("div");
+    transactionDescription.setAttribute('class', 'custom-transaction-description custom-none-display');
+
     var teamDiv = document.createElement("div");
     teamDiv.setAttribute('class', 'custom-team-div custom-none-display');
 
@@ -991,6 +998,7 @@ function createTransactionCarouselItem() {
     carouselItem.append(addedPlayers);
     carouselItem.append(droppedPlayers);
     carouselItem.append(tradedPicks);
+    carouselItem.append(transactionDescription);
     carouselItem.append(teamDiv);
     carouselItem.append(dateTransaction);
     
