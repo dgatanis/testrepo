@@ -227,6 +227,7 @@
     clear: both;
     float: inline-end;
     margin-right: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   .custom-dropped-players {
@@ -249,7 +250,6 @@
 
   .custom-carousel-item {
     height: fit-content;
-    min-height: 30rem;
     transition: all 1s ease;
     color: #5a5a5ade;
     padding:1rem;
