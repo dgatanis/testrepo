@@ -366,7 +366,7 @@ async function getLatestTransactions(week) {
             var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
             var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
             var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
-            var transactionType = carouselItem.getElementsByClassName("custom-team-div")[0];
+            var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0];
 
             var rosterId;
             var transactionDate = new Date(transaction.date);
@@ -399,8 +399,8 @@ async function getLatestTransactions(week) {
                 teamName.innerText = getTeamName(roster.owner_id);
                 teamName.setAttribute('class', 'custom-teamname-normal');
                 
-                transactionType.append(teamImg);
-                transactionType.append(teamName);
+                teamDiv.append(teamImg);
+                teamDiv.append(teamName);
                 
                 //iterate through added/dropped players and create player images and append to their respective divs
                 if(transaction.adds)
@@ -486,14 +486,24 @@ async function getLatestTransactions(week) {
             }
             else if(transaction.type.toString().toLowerCase() == "trade")
             { 
+                transType = "Trade";
                 var tradePartners = Object.keys(transaction.roster_id).length;
                 for(let i = 0; i < tradePartners; i++)
                 {
                     var rosterid = transaction.roster_id[i];
+                    let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
 
                     let addedPlayers = Object.keys(transaction.adds);
                     let droppedPlayers = Object.keys(transaction.drops);
                     description += "Added ";
+                    
+                    var teamImg = createOwnerAvatarImage(roster.owner_id);
+                    var teamName = document.createElement("div");
+                    teamName.innerText = getTeamName(roster.owner_id);
+                    teamName.setAttribute('class', 'custom-teamname-normal');
+                    
+                    teamDiv.append(teamImg);
+                    teamDiv.append(teamName);
                     if(transaction.adds)
                     {
                         for(let i = 0; i< addedPlayers.length; i++)
@@ -572,8 +582,8 @@ async function getLatestTransactions(week) {
         dateOfTransaction.classList.add('custom-block-display');
         dateOfTransaction.classList.remove('custom-none-display');
         dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
-        transactionType.classList.remove('custom-none-display');
-        transactionType.classList.add('custom-block-display');
+        teamDiv.classList.remove('custom-none-display');
+        teamDiv.classList.add('custom-block-display');
 
         cardBody.innerText = transType;
         transactionCarousel.append(carouselItem);
