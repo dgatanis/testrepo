@@ -358,16 +358,6 @@ async function getLatestTransactions(week) {
     {
         for(let transaction of allTransactions)
         {  
-            //Create carousel item and get each of the divs that were created
-            var carouselItem = createTransactionCarouselItem();
-            var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
-            var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
-            var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
-            var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
-            var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
-            var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
-            var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0];
-
             var rosterId;
             var transactionDate = new Date(transaction.date);
             let transType = "";
@@ -381,7 +371,17 @@ async function getLatestTransactions(week) {
 
             //Handle trades differently than waiver/free agent
             if(transaction.type.toString().toLowerCase() != "trade")
-            {  
+            { 
+                //Create carousel item and get each of the divs that were created
+                var carouselItem = createTransactionCarouselItem();
+                var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
+                var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
+                var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
+                var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
+                var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
+                var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
+                var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0]; 
+
                 if(transaction.type.toString().toLowerCase() == "free_agent")
                 {
                     transType = "Free Agent";
@@ -485,11 +485,22 @@ async function getLatestTransactions(week) {
                 transactionDescription.innerText = description;
             }
             else if(transaction.type.toString().toLowerCase() == "trade")
-            { 
+            {
+                //Create carousel item and get each of the divs that were created
+                var carouselItem = createTransactionCarouselItem();
+                var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
+                var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
+                var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
+                var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
+                var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
+                var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
+                var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0];
+
                 transType = "Trade";
                 var tradePartners = Object.keys(transaction.roster_id).length;
                 for(let i = 0; i < tradePartners; i++)
                 {
+                    
                     var rosterid = transaction.roster_id[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
 
@@ -502,18 +513,16 @@ async function getLatestTransactions(week) {
                     teamName.innerText = getTeamName(roster.owner_id);
                     teamName.setAttribute('class', 'custom-teamname-normal');
                     
-                    teamDiv.append(teamImg);
-                    teamDiv.append(teamName);
                     if(transaction.adds)
                     {
-                        for(let i = 0; i< addedPlayers.length; i++)
+                        for(let j = 0; j< addedPlayers.length; j++)
                         {                
-                            if(rosterid == transaction.adds[addedPlayers[i]])
+                            if(rosterid == transaction.adds[addedPlayers[j]])
                             {
-                                description += getFullPlayerName(addedPlayers[i]) + " ";
-                                var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
+                                description += getFullPlayerName(addedPlayers[j]) + " ";
+                                var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
                                 var playerDiv = document.createElement("div");
-                                var playerImg = createPlayerImage(addedPlayers[i]);
+                                var playerImg = createPlayerImage(addedPlayers[j]);
                                 var playerName = document.createElement("div");
                                 var addedIcon = createAddDropImg("add");
 
@@ -521,32 +530,43 @@ async function getLatestTransactions(week) {
 
                                 if(player) //Can Remove this once finished - just used for testing DEF
                                 {
-                                    playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
+                                    playerName.innerText = getFullPlayerName(addedPlayers[j]) + " ("+ player.position +")";
                                 }
                                 else
                                 {
-                                    playerName.innerText = getFullPlayerName(addedPlayers[i]);
+                                    playerName.innerText = getFullPlayerName(addedPlayers[j]);
                                 }
 
                                 playerDiv.append(addedIcon);
                                 playerDiv.append(playerImg);
                                 playerDiv.append(playerName);
 
-                                addedPlayerDiv.append(playerDiv);
+                                if(i >= 1)
+                                {
+                                    var addedPlayers = document.createElement("div");
+                                    addedPlayers.setAttribute('class', 'custom-added-players');
+
+                                    addedPlayers.append(playerDiv);
+                                    teamDiv.append(addedPlayers);
+                                }
+                                else
+                                {
+                                    addedPlayerDiv.append(playerDiv);
+                                }
+                                
                             }
                         }
                     }
                     if(transaction.drops)
-                    {
-                        
-                        for(let i = 0; i< droppedPlayers.length; i++)
+                    {  
+                        for(let j= 0; j< droppedPlayers.length; j++)
                         {
-                            if(rosterid == transaction.drops[droppedPlayers[i]] && !addedPlayers.includes('9756'))//!addedPlayers.includes(droppedPlayers[i]))
+                            if(rosterid == transaction.drops[droppedPlayers[j]] && !addedPlayers.includes(droppedPlayers[j]))
                             {
-                                description += getFullPlayerName(droppedPlayers[i]) + " ";
-                                var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
+                                description += getFullPlayerName(droppedPlayers[j]) + " ";
+                                var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[j]));
                                 var playerDiv = document.createElement("div");
-                                var playerImg = createPlayerImage(droppedPlayers[i]);
+                                var playerImg = createPlayerImage(droppedPlayers[j]);
                                 var playerName = document.createElement("div");
                                 var droppedIcon = createAddDropImg("drop");
 
@@ -554,18 +574,29 @@ async function getLatestTransactions(week) {
 
                                 if(player) //Can Remove this once finished - just used for testing DEF
                                 {
-                                    playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
+                                    playerName.innerText = getFullPlayerName(droppedPlayers[j]) + " (" + player.position +")";
                                 }
                                 else
                                 {
-                                    playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                                    playerName.innerText = getFullPlayerName(droppedPlayers[j]);
                                 }
                                 
                                 playerDiv.append(droppedIcon);
                                 playerDiv.append(playerImg);
                                 playerDiv.append(playerName);
                                 
-                                droppedPlayerDiv.append(playerDiv);
+                                if(i >= 1)
+                                {
+                                    var droppedPlayers = document.createElement("div");
+                                    droppedPlayers.setAttribute('class', 'custom-dropped-players'); 
+
+                                    droppedPlayers.append(playerDiv);
+                                    teamDiv.append(droppedPlayers);
+                                }
+                                else
+                                {
+                                    droppedPlayerDiv.append(playerDiv);
+                                }
                             }
 
                         }
@@ -573,24 +604,40 @@ async function getLatestTransactions(week) {
                     droppedPlayerDiv.classList.remove('custom-none-display');
                 
                     }
+
+                    if(i >= 1)
+                    {
+                        var team = document.createElement("div");
+                        team.setAttribute('class', 'custom-team-div');
+
+                        team.append(teamImg);
+                        team.append(teamName);
+                        teamDiv.append(team);
+                    }
+                    else
+                    {
+                        teamDiv.append(teamImg);
+                        teamDiv.append(teamName);
+                    }
+                    
                 }   
 
-            addedPlayerDiv.classList.add('custom-block-display');
-            addedPlayerDiv.classList.remove('custom-none-display');
-        }
+                addedPlayerDiv.classList.add('custom-block-display');
+                addedPlayerDiv.classList.remove('custom-none-display');
+            }
                 
-        dateOfTransaction.classList.add('custom-block-display');
-        dateOfTransaction.classList.remove('custom-none-display');
-        dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
-        teamDiv.classList.remove('custom-none-display');
-        teamDiv.classList.add('custom-block-display');
+            dateOfTransaction.classList.add('custom-block-display');
+            dateOfTransaction.classList.remove('custom-none-display');
+            dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
+            teamDiv.classList.remove('custom-none-display');
+            teamDiv.classList.add('custom-block-display');
 
-        cardBody.innerText = transType;
-        transactionCarousel.append(carouselItem);
+            cardBody.innerText = transType;
+            transactionCarousel.append(carouselItem);
         }
-    noTransactions.classList.remove('custom-block-display');
-    noTransactions.classList.remove('carousel-item');
-    noTransactions.classList.add('custom-none-display');
+        noTransactions.classList.remove('custom-block-display');
+        noTransactions.classList.remove('carousel-item');
+        noTransactions.classList.add('custom-none-display');
     }
 }
 
