@@ -399,7 +399,7 @@ async function getLatestTransactions(week) {
                     }
                     else
                     {
-                        playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                        playerName.innerText = getFullPlayerName(addedPlayers[i]);
                     }
 
                     playerDiv.append(addedIcon);
@@ -435,7 +435,7 @@ async function getLatestTransactions(week) {
                     var droppedIcon = createAddDropImg("drop");
 
                     playerName.setAttribute('class', 'custom-playername-small');
-                    
+
                     if(player.position) //Can Remove this once finished - just used for testing DEF
                     {
                         playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
