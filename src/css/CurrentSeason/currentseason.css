@@ -283,6 +283,7 @@
 
   .custom-team-record {
     font-size: x-small;
+    clear: both;
   }
   
   legend {
