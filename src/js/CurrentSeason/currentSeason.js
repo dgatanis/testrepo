@@ -576,7 +576,7 @@ async function getLatestTransactions(week) {
                                 
                             }
                         }
-                        description += addedPlayersArray.toString();
+                        description += addedPlayersArray.toString().replaceAll(",", ", ");
                         addedPlayerDiv.classList.add('custom-block-display');
                         addedPlayerDiv.classList.remove('custom-none-display');
                     }
@@ -624,6 +624,10 @@ async function getLatestTransactions(week) {
                                 droppedPlayerDiv.classList.remove('custom-none-display');
                             }
                         }
+                    }
+                    if(transaction.draft_picks)
+                    {
+                        
                     }
 
                     //append second+ teams additions/drops to the same carousel item
