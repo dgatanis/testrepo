@@ -378,88 +378,19 @@ async function getLatestTransactions(week) {
             }
             counter++;
             let description = "";
-            //iterate through added/dropped players and create player images and append to their respective divs
-            if(transaction.adds)
-            {
-                let addedPlayers = Object.keys(transaction.adds);
-                description += "Added "
-                for(let i = 0; i< addedPlayers.length; i++)
-                {
-                    description += getFullPlayerName(addedPlayers[i]) + " ";
-                    var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
-                    var playerDiv = document.createElement("div");
-                    var playerImg = createPlayerImage(addedPlayers[i]);
-                    var playerName = document.createElement("div");
-                    var addedIcon = createAddDropImg("add");
-
-                    playerName.setAttribute('class', 'custom-playername-small');
-
-                    if(player) //Can Remove this once finished - just used for testing DEF
-                    {
-                        playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
-                    }
-                    else
-                    {
-                        playerName.innerText = getFullPlayerName(addedPlayers[i]);
-                    }
-
-                    playerDiv.append(addedIcon);
-                    playerDiv.append(playerImg);
-                    playerDiv.append(playerName);
-
-                    addedPlayerDiv.append(playerDiv);
-                }
-
-                addedPlayerDiv.classList.add('custom-block-display');
-                addedPlayerDiv.classList.remove('custom-none-display');
-            }
-            if(transaction.drops)
-            {
-                if(transaction.adds)
-                {
-                    description += " and Dropped ";
-                }
-                else
-                {
-                    description += "Dropped ";
-                }
-
-                let droppedPlayers = Object.keys(transaction.drops);
-                
-                for(let i = 0; i< droppedPlayers.length; i++)
-                {
-                    description += getFullPlayerName(droppedPlayers[i]) + " ";
-                    var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
-                    var playerDiv = document.createElement("div");
-                    var playerImg = createPlayerImage(droppedPlayers[i]);
-                    var playerName = document.createElement("div");
-                    var droppedIcon = createAddDropImg("drop");
-
-                    playerName.setAttribute('class', 'custom-playername-small');
-
-                    if(player) //Can Remove this once finished - just used for testing DEF
-                    {
-                        playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
-                    }
-                    else
-                    {
-                        playerName.innerText = getFullPlayerName(droppedPlayers[i]);
-                    }
-                    
-                    playerDiv.append(droppedIcon);
-                    playerDiv.append(playerImg);
-                    playerDiv.append(playerName);
-                    
-                    droppedPlayerDiv.append(playerDiv);
-
-                }
-                droppedPlayerDiv.classList.add('custom-block-display');
-                droppedPlayerDiv.classList.remove('custom-none-display');
-            }
 
             //Handle trades differently than waiver/free agent
             if(transaction.type.toString().toLowerCase() != "trade")
-            {                   
+            {  
+                if(transaction.type.toString().toLowerCase() == "free_agent")
+                {
+                    transType = "Free Agent";
+                }
+                else if(transaction.type.toString().toLowerCase() == "waiver")
+                {
+                    transType = "Waiver Claim";
+                }
+
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
                 description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
@@ -472,23 +403,90 @@ async function getLatestTransactions(week) {
                 transactionType.append(teamImg);
                 transactionType.append(teamName);
                 
+                //iterate through added/dropped players and create player images and append to their respective divs
+                if(transaction.adds)
+                {
+                    let addedPlayers = Object.keys(transaction.adds);
+                    description += "Added "
+                    for(let i = 0; i< addedPlayers.length; i++)
+                    {
+                        description += getFullPlayerName(addedPlayers[i]) + " ";
+                        var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
+                        var playerDiv = document.createElement("div");
+                        var playerImg = createPlayerImage(addedPlayers[i]);
+                        var playerName = document.createElement("div");
+                        var addedIcon = createAddDropImg("add");
+
+                        playerName.setAttribute('class', 'custom-playername-small');
+
+                        if(player) //Can Remove this once finished - just used for testing DEF
+                        {
+                            playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
+                        }
+                        else
+                        {
+                            playerName.innerText = getFullPlayerName(addedPlayers[i]);
+                        }
+
+                        playerDiv.append(addedIcon);
+                        playerDiv.append(playerImg);
+                        playerDiv.append(playerName);
+
+                        addedPlayerDiv.append(playerDiv);
+                    }
+
+                    addedPlayerDiv.classList.add('custom-block-display');
+                    addedPlayerDiv.classList.remove('custom-none-display');
+                }
+                if(transaction.drops)
+                {
+                    if(transaction.adds)
+                    {
+                        description += " and Dropped ";
+                    }
+                    else
+                    {
+                        description += "Dropped ";
+                    }
+
+                    let droppedPlayers = Object.keys(transaction.drops);
+                    
+                    for(let i = 0; i< droppedPlayers.length; i++)
+                    {
+                        description += getFullPlayerName(droppedPlayers[i]) + " ";
+                        var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
+                        var playerDiv = document.createElement("div");
+                        var playerImg = createPlayerImage(droppedPlayers[i]);
+                        var playerName = document.createElement("div");
+                        var droppedIcon = createAddDropImg("drop");
+
+                        playerName.setAttribute('class', 'custom-playername-small');
+
+                        if(player) //Can Remove this once finished - just used for testing DEF
+                        {
+                            playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
+                        }
+                        else
+                        {
+                            playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                        }
+                        
+                        playerDiv.append(droppedIcon);
+                        playerDiv.append(playerImg);
+                        playerDiv.append(playerName);
+                        
+                        droppedPlayerDiv.append(playerDiv);
+
+                    }
+                    droppedPlayerDiv.classList.add('custom-block-display');
+                    droppedPlayerDiv.classList.remove('custom-none-display');
+                }
             }
+
             dateOfTransaction.classList.add('custom-block-display');
             dateOfTransaction.classList.remove('custom-none-display');
             dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
 
-            if(transaction.type.toString().toLowerCase() == "free_agent")
-            {
-                transType = "Free Agent";
-            }
-            else if(transaction.type.toString().toLowerCase() == "waiver")
-            {
-                transType = "Waiver Claim";
-            }
-            else if(transaction.type.toString().toLowerCase() == "trade")
-            {
-                transType = "Trade";
-            }
             transactionDescription.innerText = description;
             transactionType.classList.remove('custom-none-display');
             transactionType.classList.add('custom-block-display');
@@ -973,7 +971,7 @@ function getHighScorerCount(week) {
 }
 
 function getRandomString() {
-    
+
     var randomNumber = 0;
 
     var myArray = [
