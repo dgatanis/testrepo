@@ -514,6 +514,12 @@ async function getLatestTransactions(week) {
                         newdroppedPlayers.setAttribute('class', 'custom-dropped-players custom-none-display'); 
                         var newaddedPlayers = document.createElement("div");
                         newaddedPlayers.setAttribute('class', 'custom-added-players custom-none-display');
+
+                        description += " from " + getTeamName(roster.owner_id).toString() + " for ";
+                    }
+                    else
+                    {
+                        description += getTeamName(roster.owner_id).toString() + " received ";
                     }
                     
                     var rosterid = transaction.roster_id[i];
@@ -521,7 +527,7 @@ async function getLatestTransactions(week) {
 
                     let addedPlayers = Object.keys(transaction.adds);
                     let droppedPlayers = Object.keys(transaction.drops);
-                    description += "Added ";
+                    
                     
                     var teamImg = createOwnerAvatarImage(roster.owner_id);
                     var teamName = document.createElement("div");
@@ -639,6 +645,9 @@ async function getLatestTransactions(week) {
                     }
                     
                 }   
+
+                description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
+                transactionDescription.innerText = description;
             }
                 
             dateOfTransaction.classList.add('custom-block-display');
