@@ -10847,6 +10847,12 @@ textarea.form-control-lg {
   font-style: normal;
 }
 
+@font-face {
+  font-family: F2;
+  src: url("../../static/font/Lato-BlackItalic.ttf") format('truetype');
+  font-style: normal;
+}
+
 .custom-nav{
   color: white;
 }

@@ -266,8 +266,9 @@
     clear: both;
     color: transparent;
     background: transparent;
+    font-family: F2;
     font-size: x-small;
-    font-style: italic;
+    padding: .2rem;
     text-align: center;
     transition: all 1s ease;
   }
