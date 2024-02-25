@@ -480,14 +480,18 @@ async function getLatestTransactions(week) {
                     droppedPlayerDiv.classList.add('custom-block-display');
                     droppedPlayerDiv.classList.remove('custom-none-display');
                 }
+
+                description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
+                transactionDescription.innerText = description;
+            }
+            else if(transaction.type.toString().toLowerCase() == "trade")
+            {  
+
             }
             
-            description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
             dateOfTransaction.classList.add('custom-block-display');
             dateOfTransaction.classList.remove('custom-none-display');
             dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
-
-            transactionDescription.innerText = description;
             transactionType.classList.remove('custom-none-display');
             transactionType.classList.add('custom-block-display');
 
