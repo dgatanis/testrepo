@@ -507,7 +507,7 @@ async function getLatestTransactions(week) {
 
                 for(let i = 0; i < tradePartners; i++)
                 {
-
+                    //If its on the second+ team then create new divs and append these to current carousel item
                     if(i >= 1)
                     {
                         var newdroppedPlayers = document.createElement("div");
@@ -577,6 +577,7 @@ async function getLatestTransactions(week) {
                     {  
                         for(let j= 0; j< droppedPlayers.length; j++)
                         {
+                            //If a dropped player is not included in the additions
                             if(rosterid == transaction.drops[droppedPlayers[j]] && !addedPlayers.includes(droppedPlayers[j]))
                             {
                                 description += getFullPlayerName(droppedPlayers[j]) + " ";
@@ -611,7 +612,7 @@ async function getLatestTransactions(week) {
                                 {
                                     droppedPlayerDiv.append(playerDiv);
                                 }
-                                
+
                                 droppedPlayerDiv.classList.add('custom-block-display');
                                 droppedPlayerDiv.classList.remove('custom-none-display');
                             }
@@ -619,6 +620,7 @@ async function getLatestTransactions(week) {
                         }
                     }
 
+                    //append second+ teams additions/drops to the same carousel item
                     if(i >= 1)
                     {
                         var newteam = document.createElement("div");
