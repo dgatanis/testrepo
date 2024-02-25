@@ -629,7 +629,7 @@ async function getLatestTransactions(week) {
                             }
                         }
                     }
-                    if(transaction.draft_picks)
+                    if(transaction.draft_picks) //TODO
                     {
                         
                     }
