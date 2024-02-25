@@ -993,10 +993,10 @@ function createTransactionCarouselItem() {
 
     card.appendChild(cardBody);
     carouselItem.appendChild(card);
+    carouselItem.append(transactionDescription);
     carouselItem.append(addedPlayers);
     carouselItem.append(droppedPlayers);
     carouselItem.append(tradedPicks);
-    carouselItem.append(transactionDescription);
     carouselItem.append(teamDiv);
     carouselItem.append(dateTransaction);
     

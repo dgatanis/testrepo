@@ -273,9 +273,11 @@
     &:hover {
     .custom-transaction-description {
         color: black;
-        background: #80808082;
+        background: #8080801f;
+        font-size: small;
+        text-align: center;
         transition: all 1s ease;
-        }
+      }
     }
 }
 
