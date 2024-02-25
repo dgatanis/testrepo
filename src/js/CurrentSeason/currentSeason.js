@@ -361,8 +361,6 @@ async function getLatestTransactions(week) {
             var rosterId;
             var transactionDate = new Date(transaction.date);
             let transType = "";
-
-            counter++;
             let description = "";
 
             //Handle trades differently than waiver/free agent
@@ -382,6 +380,7 @@ async function getLatestTransactions(week) {
                 {
                     carouselItem.classList.add('active');
                 }
+                counter++;
 
                 if(transaction.type.toString().toLowerCase() == "free_agent")
                 {
@@ -501,8 +500,9 @@ async function getLatestTransactions(week) {
                 {
                     carouselItem.classList.add('active');
                 }
+                counter++;
                 transType = "Trade";
-                
+
                 var tradePartners = Object.keys(transaction.roster_id).length;
 
                 for(let i = 0; i < tradePartners; i++)
