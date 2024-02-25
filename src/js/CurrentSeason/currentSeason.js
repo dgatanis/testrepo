@@ -459,8 +459,6 @@ async function getLatestTransactions(week) {
             {
                 transType = "Trade";
             }
-            transactionDescription.classList.remove('custom-none-display');
-            transactionDescription.classList.add('custom-block-display');
             transactionDescription.innerText = description;
             transactionType.classList.remove('custom-none-display');
             transactionType.classList.add('custom-block-display');

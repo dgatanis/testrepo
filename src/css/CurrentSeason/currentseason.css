@@ -268,7 +268,7 @@
 
   .custom-carousel-item {
     &:hover {
-    .custom-date-transaction {
+    .custom-transaction-description {
         display:block;
         color: black;
         transition: all 1s ease;
