@@ -577,7 +577,10 @@ async function getLatestTransactions(week) {
                             }
                         }
                         addedPlayersArray[addedPlayersArray.length-1] = "and " + addedPlayersArray[addedPlayersArray.length-1];
-                        description += addedPlayersArray.toString().replaceAll(",", ", ");
+                        var lastComma = addedPlayersArray.toString().lastIndexOf(",");
+                        var newString = addedPlayersArray.toString().replaceAll(",", ", ");
+                        description += newString.slice(0,lastComma) + newString.slice(lastComma);
+
                         addedPlayerDiv.classList.add('custom-block-display');
                         addedPlayerDiv.classList.remove('custom-none-display');
                     }
