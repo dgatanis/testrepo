@@ -445,7 +445,7 @@ async function getLatestTransactions(week) {
                     }
                     else
                     {
-                        description += "Dropped ";
+                        description += "dropped ";
                     }
 
                     let droppedPlayers = Object.keys(transaction.drops);
