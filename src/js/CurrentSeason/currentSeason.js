@@ -385,13 +385,14 @@ async function getLatestTransactions(week) {
                 for(let i = 0; i< addedPlayers.length; i++)
                 {
                     description += getFullPlayerName(addedPlayers[i]) + " ";
+                    var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(addedPlayers[i]);
                     var playerName = document.createElement("div");
                     var addedIcon = createAddDropImg("add");
 
                     playerName.setAttribute('class', 'custom-playername-small');
-                    playerName.innerText = getFullPlayerName(addedPlayers[i]);
+                    playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
 
                     playerDiv.append(addedIcon);
                     playerDiv.append(playerImg);
@@ -413,19 +414,20 @@ async function getLatestTransactions(week) {
                 {
                     description += "Dropped ";
                 }
-                
+
                 let droppedPlayers = Object.keys(transaction.drops);
                 
                 for(let i = 0; i< droppedPlayers.length; i++)
                 {
                     description += getFullPlayerName(droppedPlayers[i]) + " ";
+                    var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(droppedPlayers[i]);
                     var playerName = document.createElement("div");
                     var droppedIcon = createAddDropImg("drop");
 
                     playerName.setAttribute('class', 'custom-playername-small');
-                    playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                    playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " ("+ player.position +")";
                     
                     playerDiv.append(droppedIcon);
                     playerDiv.append(playerImg);

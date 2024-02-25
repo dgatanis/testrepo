@@ -276,7 +276,7 @@
     &:hover {
     .custom-transaction-description {
         color: black;
-        background: #afafaf3d;
+        background: #afafaf2b;
         border-radius: 1rem;
         transition: all 1s ease;
       }
