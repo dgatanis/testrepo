@@ -406,9 +406,10 @@ async function getLatestTransactions(week) {
             if(transaction.drops)
             {
                 let droppedPlayers = Object.keys(transaction.drops);
-                
+                description += "Dropped ";
                 for(let i = 0; i< droppedPlayers.length; i++)
                 {
+                    description += getFullPlayerName(addedPlayers[i]) + " ";
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(droppedPlayers[i]);
                     var playerName = document.createElement("div");
@@ -430,7 +431,8 @@ async function getLatestTransactions(week) {
 
             //Handle trades differently than waiver/free agent
             if(transaction.type.toString().toLowerCase() != "trade")
-            {
+            {   
+                description = getTeamName(roster.owner_id).toString() + description;
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
 
