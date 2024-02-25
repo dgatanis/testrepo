@@ -362,10 +362,6 @@ async function getLatestTransactions(week) {
             var transactionDate = new Date(transaction.date);
             let transType = "";
 
-            if(counter == 0)
-            {
-                carouselItem.classList.add('active');
-            }
             counter++;
             let description = "";
 
@@ -381,6 +377,11 @@ async function getLatestTransactions(week) {
                 var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
                 var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
                 var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0]; 
+
+                if(counter == 0)
+                {
+                    carouselItem.classList.add('active');
+                }
 
                 if(transaction.type.toString().toLowerCase() == "free_agent")
                 {
@@ -496,8 +497,14 @@ async function getLatestTransactions(week) {
                 var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
                 var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0];
 
+                if(counter == 0)
+                {
+                    carouselItem.classList.add('active');
+                }
                 transType = "Trade";
+                
                 var tradePartners = Object.keys(transaction.roster_id).length;
+
                 for(let i = 0; i < tradePartners; i++)
                 {
                     
