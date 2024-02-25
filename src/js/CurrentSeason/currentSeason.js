@@ -485,22 +485,104 @@ async function getLatestTransactions(week) {
                 transactionDescription.innerText = description;
             }
             else if(transaction.type.toString().toLowerCase() == "trade")
-            {  
+            { 
+                var tradePartners = Object.keys(transaction.roster_id).length;
+                for(let i = 0; i < tradePartners; i++)
+                {
+                    var rosterid = transaction.roster_id[i];
 
-            }
-            
-            dateOfTransaction.classList.add('custom-block-display');
-            dateOfTransaction.classList.remove('custom-none-display');
-            dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
-            transactionType.classList.remove('custom-none-display');
-            transactionType.classList.add('custom-block-display');
+                    let addedPlayers = Object.keys(transaction.adds);
+                    let droppedPlayers = Object.keys(transaction.drops);
+                    description += "Added ";
+                    if(transaction.adds)
+                    {
+                        for(let i = 0; i< addedPlayers.length; i++)
+                        {                
+                            if(rosterid == transaction.adds[addedPlayers[i]])
+                            {
+                                description += getFullPlayerName(addedPlayers[i]) + " ";
+                                var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
+                                var playerDiv = document.createElement("div");
+                                var playerImg = createPlayerImage(addedPlayers[i]);
+                                var playerName = document.createElement("div");
+                                var addedIcon = createAddDropImg("add");
 
-            cardBody.innerText = transType;
-            transactionCarousel.append(carouselItem);
+                                playerName.setAttribute('class', 'custom-playername-small');
+
+                                if(player) //Can Remove this once finished - just used for testing DEF
+                                {
+                                    playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
+                                }
+                                else
+                                {
+                                    playerName.innerText = getFullPlayerName(addedPlayers[i]);
+                                }
+
+                                playerDiv.append(addedIcon);
+                                playerDiv.append(playerImg);
+                                playerDiv.append(playerName);
+
+                                addedPlayerDiv.append(playerDiv);
+                            }
+                        }
+                    }
+                    if(transaction.drops)
+                    {
+
+                        let droppedPlayers = Object.keys(transaction.drops);
+                        
+                        for(let i = 0; i< droppedPlayers.length; i++)
+                        {
+                            if(rosterid == transaction.adds[addedPlayers[i]])
+                            {
+                                description += getFullPlayerName(droppedPlayers[i]) + " ";
+                                var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
+                                var playerDiv = document.createElement("div");
+                                var playerImg = createPlayerImage(droppedPlayers[i]);
+                                var playerName = document.createElement("div");
+                                var droppedIcon = createAddDropImg("drop");
+
+                                playerName.setAttribute('class', 'custom-playername-small');
+
+                                if(player) //Can Remove this once finished - just used for testing DEF
+                                {
+                                    playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
+                                }
+                                else
+                                {
+                                    playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                                }
+                                
+                                playerDiv.append(droppedIcon);
+                                playerDiv.append(playerImg);
+                                playerDiv.append(playerName);
+                                
+                                droppedPlayerDiv.append(playerDiv);
+                            }
+
+                        }
+                    droppedPlayerDiv.classList.add('custom-block-display');
+                    droppedPlayerDiv.classList.remove('custom-none-display');
+                
+                    }
+                }   
+
+            addedPlayerDiv.classList.add('custom-block-display');
+            addedPlayerDiv.classList.remove('custom-none-display');
         }
-        noTransactions.classList.remove('custom-block-display');
-        noTransactions.classList.remove('carousel-item');
-        noTransactions.classList.add('custom-none-display');
+                
+        dateOfTransaction.classList.add('custom-block-display');
+        dateOfTransaction.classList.remove('custom-none-display');
+        dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
+        transactionType.classList.remove('custom-none-display');
+        transactionType.classList.add('custom-block-display');
+
+        cardBody.innerText = transType;
+        transactionCarousel.append(carouselItem);
+        }
+    noTransactions.classList.remove('custom-block-display');
+    noTransactions.classList.remove('carousel-item');
+    noTransactions.classList.add('custom-none-display');
     }
 }
 
@@ -988,7 +1070,9 @@ function getRandomString() {
         "https://www.nflshop.com/<enter jersey they're buying here>",
         "Wack",
         "Anyone else throw-up in their mouth a little",
-        "You're probably wondering how I got here"
+        "You're probably wondering how I got here",
+        "Softer than Charmin",
+        "Yea we're all thinking the same thing"
     ]
 
     randomNumber = Math.floor(Math.random()*myArray.length);
