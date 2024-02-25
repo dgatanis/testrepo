@@ -578,8 +578,8 @@ async function getLatestTransactions(week) {
                         }
                         addedPlayersArray[addedPlayersArray.length-1] = "and " + addedPlayersArray[addedPlayersArray.length-1];
                         var lastComma = addedPlayersArray.toString().lastIndexOf(",");
-                        var newString = addedPlayersArray.toString().replaceAll(",", ", ");
-                        description += newString.slice(0,lastComma) + newString.slice(lastComma);
+                        var newString = addedPlayersArray.toString().replaceAll(",", ", ").replace(", and", " and ");
+                        description += newString;
 
                         addedPlayerDiv.classList.add('custom-block-display');
                         addedPlayerDiv.classList.remove('custom-none-display');
