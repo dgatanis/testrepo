@@ -576,6 +576,7 @@ async function getLatestTransactions(week) {
                                 
                             }
                         }
+                        addedPlayersArray[addedPlayersArray.length-1] = "and " + [addedPlayersArray.length-1];
                         description += addedPlayersArray.toString().replaceAll(",", ", ");
                         addedPlayerDiv.classList.add('custom-block-display');
                         addedPlayerDiv.classList.remove('custom-none-display');
@@ -649,7 +650,7 @@ async function getLatestTransactions(week) {
                     }
                     
                 }   
-                transactionDescription.innerText = description + "... " + getRandomString();
+                transactionDescription.innerText = description + "... " + getRandomString() + ".";
             }
                 
             dateOfTransaction.classList.add('custom-block-display');
