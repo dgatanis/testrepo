@@ -507,6 +507,9 @@ async function getLatestTransactions(week) {
 
                 for(let i = 0; i < tradePartners; i++)
                 {
+                    var rosterid = transaction.roster_id[i];
+                    let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
+
                     //If its on the second+ team then create new divs and append these to current carousel item
                     if(i >= 1)
                     {
@@ -521,9 +524,6 @@ async function getLatestTransactions(week) {
                     {
                         description += getTeamName(roster.owner_id).toString() + " received ";
                     }
-                    
-                    var rosterid = transaction.roster_id[i];
-                    let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
 
                     let addedPlayers = Object.keys(transaction.adds);
                     let droppedPlayers = Object.keys(transaction.drops);
