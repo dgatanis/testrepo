@@ -611,9 +611,10 @@ async function getLatestTransactions(week) {
                                 {
                                     droppedPlayerDiv.append(playerDiv);
                                 }
+                                
+                                droppedPlayerDiv.classList.add('custom-block-display');
+                                droppedPlayerDiv.classList.remove('custom-none-display');
                             }
-                            droppedPlayerDiv.classList.add('custom-block-display');
-                            droppedPlayerDiv.classList.remove('custom-none-display');
 
                         }
                     }
