@@ -384,12 +384,11 @@
     }
 
     div#carouselTransactions {
-      background: linear-gradient(0deg, #b9b9b994, transparent, #b9b9b994);
       border-radius: 1rem;
     }
 
     .custom-carousel-item:hover {
-      background: transparent;
+      background: linear-gradient(0deg, #80808038, transparent);
       border-radius: unset;
     }
   }
