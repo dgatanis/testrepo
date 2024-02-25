@@ -528,12 +528,10 @@ async function getLatestTransactions(week) {
                     }
                     if(transaction.drops)
                     {
-
-                        let droppedPlayers = Object.keys(transaction.drops);
                         
                         for(let i = 0; i< droppedPlayers.length; i++)
                         {
-                            if(rosterid == transaction.adds[addedPlayers[i]])
+                            if(rosterid == transaction.drops[droppedPlayers[i]] && !addedPlayers.includes(droppedPlayers[i]))
                             {
                                 description += getFullPlayerName(droppedPlayers[i]) + " ";
                                 var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
