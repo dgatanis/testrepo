@@ -418,7 +418,7 @@ async function getLatestTransactions(week) {
                     description += "added ";
                     for(let i = 0; i< addedPlayers.length; i++)
                     {
-                        description += getFullPlayerName(addedPlayers[i]) + " ";
+                        description += getFullPlayerName(addedPlayers[i]);
                         var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
                         var playerDiv = document.createElement("div");
                         var playerImg = createPlayerImage(addedPlayers[i]);
@@ -461,7 +461,7 @@ async function getLatestTransactions(week) {
                     
                     for(let i = 0; i< droppedPlayers.length; i++)
                     {
-                        description += getFullPlayerName(droppedPlayers[i]) + " ";
+                        description += getFullPlayerName(droppedPlayers[i]);
                         var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
                         var playerDiv = document.createElement("div");
                         var playerImg = createPlayerImage(droppedPlayers[i]);
@@ -1167,7 +1167,10 @@ function getRandomString() {
         "Anyone else throw-up in their mouth a little",
         "You're probably wondering how we got here",
         "Softer than Charmin",
-        "Yea we're all thinking the same thing"
+        "Yea we're all thinking the same thing",
+        "*yawns*",
+        "Be better",
+        "Jerseys aint cheap"
     ]
     var randomNumber = Math.floor(Math.random()*myArray.length);
     randomNumber = Math.floor(Math.random()*myArray.length);
