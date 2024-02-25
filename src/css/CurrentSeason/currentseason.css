@@ -321,7 +321,7 @@
   }
 
   /*Normal Laptop display styling*/
-  @media screen and (max-width: 26.563rem) {
+  @media screen and (max-width: 64rem) {
     .custom-bankroll {
       margin-right: 3rem;
     }
