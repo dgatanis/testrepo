@@ -401,9 +401,14 @@ async function getLatestTransactions(week) {
                 var teamName = document.createElement("div");
                 teamName.innerText = getTeamName(roster.owner_id);
                 teamName.setAttribute('class', 'custom-teamname-small');
+
+                var teamRecord = document.createElement("div");
+                var thisTeamRecord = getTeamRecord(roster.roster_id);
+                teamRecord.innerText = thisTeamRecord.wins + "-" + thisTeamRecord.losses +"-"+ thisTeamRecord.ties;
                 
                 teamDiv.append(teamImg);
                 teamDiv.append(teamName);
+                teamDiv.append(teamRecord);
                 
                 //iterate through added/dropped players and create player images and append to their respective divs
                 if(transaction.adds)
