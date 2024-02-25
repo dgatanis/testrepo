@@ -393,7 +393,6 @@ async function getLatestTransactions(week) {
 
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-                description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
@@ -482,7 +481,8 @@ async function getLatestTransactions(week) {
                     droppedPlayerDiv.classList.remove('custom-none-display');
                 }
             }
-
+            
+            description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
             dateOfTransaction.classList.add('custom-block-display');
             dateOfTransaction.classList.remove('custom-none-display');
             dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
