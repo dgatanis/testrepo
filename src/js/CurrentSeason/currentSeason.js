@@ -406,7 +406,7 @@ async function getLatestTransactions(week) {
                 if(transaction.adds)
                 {
                     let addedPlayers = Object.keys(transaction.adds);
-                    description += "Added "
+                    description += "added ";
                     for(let i = 0; i< addedPlayers.length; i++)
                     {
                         description += getFullPlayerName(addedPlayers[i]) + " ";
@@ -441,7 +441,7 @@ async function getLatestTransactions(week) {
                 {
                     if(transaction.adds)
                     {
-                        description += " and Dropped ";
+                        description += " and dropped ";
                     }
                     else
                     {
@@ -536,11 +536,12 @@ async function getLatestTransactions(week) {
                     
                     if(transaction.adds)
                     {
+                        var addedPlayersArray = [];
                         for(let j = 0; j< addedPlayers.length; j++)
                         {                
                             if(rosterid == transaction.adds[addedPlayers[j]])
                             {
-                                description += getFullPlayerName(addedPlayers[j]) + " ";
+                                addedPlayersArray.push(getFullPlayerName(addedPlayers[j]));
                                 var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
                                 var playerDiv = document.createElement("div");
                                 var playerImg = createPlayerImage(addedPlayers[j]);
@@ -575,18 +576,18 @@ async function getLatestTransactions(week) {
                                 
                             }
                         }
-                        
+                        description += addedPlayersArray.toString();
                         addedPlayerDiv.classList.add('custom-block-display');
                         addedPlayerDiv.classList.remove('custom-none-display');
                     }
                     if(transaction.drops)
                     {  
+                        
                         for(let j= 0; j< droppedPlayers.length; j++)
                         {
                             //If a dropped player is not included in the additions
                             if(rosterid == transaction.drops[droppedPlayers[j]] && !addedPlayers.includes(droppedPlayers[j]))
                             {
-                                description += getFullPlayerName(droppedPlayers[j]) + " ";
                                 var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[j]));
                                 var playerDiv = document.createElement("div");
                                 var playerImg = createPlayerImage(droppedPlayers[j]);
@@ -622,7 +623,6 @@ async function getLatestTransactions(week) {
                                 droppedPlayerDiv.classList.add('custom-block-display');
                                 droppedPlayerDiv.classList.remove('custom-none-display');
                             }
-
                         }
                     }
 
@@ -645,7 +645,7 @@ async function getLatestTransactions(week) {
                     }
                     
                 }   
-                transactionDescription.innerText = description;
+                transactionDescription.innerText = description + "... " + getRandomString();
             }
                 
             dateOfTransaction.classList.add('custom-block-display');
