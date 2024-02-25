@@ -66,6 +66,7 @@ function loadSeasonRankings(leagueId) {
         var teamName = document.createElement("div");
         teamName.setAttribute('class', 'custom-teamname-normal');
         teamName.innerText=teamNameDisplay;
+        ownerImage.setAttribute('title', getRandomString());
 
         var powerRankingElementId = "PowerRanking_"+powerRank;
         var rosterButtonId = "GetRosterButton_"+powerRank;
@@ -461,7 +462,7 @@ async function getLatestTransactions(week) {
             {                   
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-                description = getTeamName(roster.owner_id).toString() + " " + description;
+                description = getTeamName(roster.owner_id).toString() + " " + description + ". " + getRandomString() + ".";
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
@@ -969,6 +970,21 @@ function getHighScorerCount(week) {
     });
     
     return counter;
+}
+
+function getRandomString() {
+    var myArray = [
+        "What an idiot",
+        "*rolls eyes*",
+        "Every league needs a taco amirite",
+        "Well this certainly isn't going to work out",
+        "Yikes",
+        "Is this season over yet",
+        "https://www.nflshop.com/<enter jersey they're buying here>",
+        "Wack",
+        "Anyone else throw-up in their mouth a little",
+        "You're probably wondering how I got here"
+    ]
 }
 
 /*
