@@ -409,7 +409,7 @@ async function getLatestTransactions(week) {
                 description += "Dropped ";
                 for(let i = 0; i< droppedPlayers.length; i++)
                 {
-                    description += getFullPlayerName(addedPlayers[i]) + " ";
+                    description += getFullPlayerName(droppedPlayers[i]) + " ";
                     var playerDiv = document.createElement("div");
                     var playerImg = createPlayerImage(droppedPlayers[i]);
                     var playerName = document.createElement("div");
