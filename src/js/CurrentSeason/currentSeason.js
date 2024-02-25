@@ -567,6 +567,9 @@ async function getLatestTransactions(week) {
                                 
                             }
                         }
+                        
+                        addedPlayerDiv.classList.add('custom-block-display');
+                        addedPlayerDiv.classList.remove('custom-none-display');
                     }
                     if(transaction.drops)
                     {  
@@ -605,11 +608,10 @@ async function getLatestTransactions(week) {
                                     droppedPlayerDiv.append(playerDiv);
                                 }
                             }
+                            droppedPlayerDiv.classList.add('custom-block-display');
+                            droppedPlayerDiv.classList.remove('custom-none-display');
 
                         }
-                    droppedPlayerDiv.classList.add('custom-block-display');
-                    droppedPlayerDiv.classList.remove('custom-none-display');
-                
                     }
 
                     if(i >= 1)
@@ -630,9 +632,6 @@ async function getLatestTransactions(week) {
                     }
                     
                 }   
-
-                addedPlayerDiv.classList.add('custom-block-display');
-                addedPlayerDiv.classList.remove('custom-none-display');
             }
                 
             dateOfTransaction.classList.add('custom-block-display');
