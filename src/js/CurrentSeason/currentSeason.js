@@ -1173,7 +1173,6 @@ function getRandomString() {
         "Jerseys aint cheap"
     ]
     var randomNumber = Math.floor(Math.random()*myArray.length);
-    randomNumber = Math.floor(Math.random()*myArray.length);
 
     return myArray[randomNumber];
 }
