@@ -266,6 +266,17 @@
     clear: both;
   }
 
+  .custom-carousel-item {
+    &:hover {
+    .custom-date-transaction {
+        display:block;
+        color: black;
+        transition: all 1s ease;
+        background: #80808082;
+        }
+    }
+}
+
   legend {
     font-size: x-small;
   }
