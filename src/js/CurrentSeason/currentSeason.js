@@ -393,7 +393,7 @@ async function getLatestTransactions(week) {
 
                     playerName.setAttribute('class', 'custom-playername-small');
 
-                    if(player.position) //Can Remove this once finished - just used for testing DEF
+                    if(player) //Can Remove this once finished - just used for testing DEF
                     {
                         playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
                     }
@@ -436,7 +436,7 @@ async function getLatestTransactions(week) {
 
                     playerName.setAttribute('class', 'custom-playername-small');
 
-                    if(player.position) //Can Remove this once finished - just used for testing DEF
+                    if(player) //Can Remove this once finished - just used for testing DEF
                     {
                         playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
                     }
