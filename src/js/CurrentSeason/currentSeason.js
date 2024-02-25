@@ -541,7 +541,7 @@ async function getLatestTransactions(week) {
                         
                         for(let i = 0; i< droppedPlayers.length; i++)
                         {
-                            if(rosterid == transaction.drops[droppedPlayers[i]] && !addedPlayers.includes(droppedPlayers[i]))
+                            if(rosterid == transaction.drops[droppedPlayers[i]] && !addedPlayers.includes('9756'))//!addedPlayers.includes(droppedPlayers[i]))
                             {
                                 description += getFullPlayerName(droppedPlayers[i]) + " ";
                                 var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
