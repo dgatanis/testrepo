@@ -973,8 +973,9 @@ function getHighScorerCount(week) {
 }
 
 function getRandomString() {
+    
+    var randomNumber = 0;
 
-    var randomNumber = Math.floor(Math.random()*myArray.length);
     var myArray = [
         "What an idiot",
         "*rolls eyes*",
