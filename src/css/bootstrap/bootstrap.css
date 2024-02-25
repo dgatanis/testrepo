@@ -10853,6 +10853,18 @@ textarea.form-control-lg {
   font-style: normal;
 }
 
+@font-face {
+  font-family: F3;
+  src: url("../../static/font/Lato-Thin.ttf") format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: F4;
+  src: url("../../static/font/Lato-ThinItalic.ttf") format('truetype');
+  font-style: normal;
+}
+
 .custom-nav{
   color: white;
 }
