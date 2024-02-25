@@ -289,6 +289,7 @@
     font-size: x-small;
     color: transparent;
     clear: both;
+    transition: all 1s ease;
   }
   
   legend {
