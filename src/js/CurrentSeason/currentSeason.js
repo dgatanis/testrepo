@@ -554,7 +554,7 @@ async function getLatestTransactions(week) {
                                     newaddedPlayers.setAttribute('class', 'custom-added-players');
 
                                     newaddedPlayers.append(playerDiv);
-                                    teamDiv.append(newaddedPlayers);
+                                    teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
                                 }
                                 else
                                 {
@@ -598,7 +598,7 @@ async function getLatestTransactions(week) {
                                     newdroppedPlayers.setAttribute('class', 'custom-dropped-players'); 
 
                                     newdroppedPlayers.append(playerDiv);
-                                    teamDiv.append(newdroppedPlayers);
+                                    teamDiv.parentNode.insertBefore(newdroppedPlayers, teamDiv.nextSibling);
                                 }
                                 else
                                 {
@@ -619,7 +619,7 @@ async function getLatestTransactions(week) {
 
                         newteam.append(teamImg);
                         newteam.append(teamName);
-                        teamDiv.append(newteam);
+                        teamDiv.parentNode.insertBefore(newteam, teamDiv.nextSibling);
                     }
                     else
                     {
