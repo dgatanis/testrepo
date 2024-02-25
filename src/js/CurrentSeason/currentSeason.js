@@ -620,8 +620,8 @@ async function getLatestTransactions(week) {
                         newteam.append(teamImg);
                         newteam.append(teamName);
                         teamDiv.parentNode.insertBefore(newteam, teamDiv.nextSibling);
-                        teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
                         teamDiv.parentNode.insertBefore(newdroppedPlayers, teamDiv.nextSibling);
+                        teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
                     }
                     else
                     {
