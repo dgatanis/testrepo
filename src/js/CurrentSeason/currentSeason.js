@@ -431,10 +431,10 @@ async function getLatestTransactions(week) {
 
             //Handle trades differently than waiver/free agent
             if(transaction.type.toString().toLowerCase() != "trade")
-            {   
-                description = getTeamName(roster.owner_id).toString() + description;
+            {                   
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+                description = getTeamName(roster.owner_id).toString() + description;
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
