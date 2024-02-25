@@ -543,11 +543,11 @@ async function getLatestTransactions(week) {
 
                                 if(i >= 1)
                                 {
-                                    var addedPlayers = document.createElement("div");
-                                    addedPlayers.setAttribute('class', 'custom-added-players');
+                                    var newaddedPlayers = document.createElement("div");
+                                    newaddedPlayers.setAttribute('class', 'custom-added-players');
 
-                                    addedPlayers.append(playerDiv);
-                                    teamDiv.append(addedPlayers);
+                                    newaddedPlayers.append(playerDiv);
+                                    teamDiv.append(newaddedPlayers);
                                 }
                                 else
                                 {
@@ -587,11 +587,11 @@ async function getLatestTransactions(week) {
                                 
                                 if(i >= 1)
                                 {
-                                    var droppedPlayers = document.createElement("div");
-                                    droppedPlayers.setAttribute('class', 'custom-dropped-players'); 
+                                    var newdroppedPlayers = document.createElement("div");
+                                    newdroppedPlayers.setAttribute('class', 'custom-dropped-players'); 
 
-                                    droppedPlayers.append(playerDiv);
-                                    teamDiv.append(droppedPlayers);
+                                    newdroppedPlayers.append(playerDiv);
+                                    teamDiv.append(newdroppedPlayers);
                                 }
                                 else
                                 {
@@ -607,12 +607,12 @@ async function getLatestTransactions(week) {
 
                     if(i >= 1)
                     {
-                        var team = document.createElement("div");
-                        team.setAttribute('class', 'custom-team-div');
+                        var newteam = document.createElement("div");
+                        newteam.setAttribute('class', 'custom-team-div');
 
-                        team.append(teamImg);
-                        team.append(teamName);
-                        teamDiv.append(team);
+                        newteam.append(teamImg);
+                        newteam.append(teamName);
+                        teamDiv.append(newteam);
                     }
                     else
                     {
