@@ -645,8 +645,6 @@ async function getLatestTransactions(week) {
                     }
                     
                 }   
-
-                description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
                 transactionDescription.innerText = description;
             }
                 
