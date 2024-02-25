@@ -507,6 +507,14 @@ async function getLatestTransactions(week) {
 
                 for(let i = 0; i < tradePartners; i++)
                 {
+
+                    if(i >= 1)
+                    {
+                        var newdroppedPlayers = document.createElement("div");
+                        newdroppedPlayers.setAttribute('class', 'custom-dropped-players'); 
+                        var newaddedPlayers = document.createElement("div");
+                        newaddedPlayers.setAttribute('class', 'custom-added-players');
+                    }
                     
                     var rosterid = transaction.roster_id[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
@@ -550,11 +558,7 @@ async function getLatestTransactions(week) {
 
                                 if(i >= 1)
                                 {
-                                    var newaddedPlayers = document.createElement("div");
-                                    newaddedPlayers.setAttribute('class', 'custom-added-players');
-
                                     newaddedPlayers.append(playerDiv);
-                                    teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
                                 }
                                 else
                                 {
@@ -594,11 +598,7 @@ async function getLatestTransactions(week) {
                                 
                                 if(i >= 1)
                                 {
-                                    var newdroppedPlayers = document.createElement("div");
-                                    newdroppedPlayers.setAttribute('class', 'custom-dropped-players'); 
-
                                     newdroppedPlayers.append(playerDiv);
-                                    teamDiv.parentNode.insertBefore(newdroppedPlayers, teamDiv.nextSibling);
                                 }
                                 else
                                 {
@@ -620,6 +620,8 @@ async function getLatestTransactions(week) {
                         newteam.append(teamImg);
                         newteam.append(teamName);
                         teamDiv.parentNode.insertBefore(newteam, teamDiv.nextSibling);
+                        teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
+                        teamDiv.parentNode.insertBefore(newdroppedPlayers, teamDiv.nextSibling);
                     }
                     else
                     {
