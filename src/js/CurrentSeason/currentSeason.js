@@ -462,7 +462,7 @@ async function getLatestTransactions(week) {
             {                   
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-                description = getTeamName(roster.owner_id).toString() + " " + description + ". " + getRandomString() + ".";
+                description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
@@ -973,6 +973,8 @@ function getHighScorerCount(week) {
 }
 
 function getRandomString() {
+
+    var randomNumber = Math.floor(Math.random()*myArray.length);
     var myArray = [
         "What an idiot",
         "*rolls eyes*",
@@ -986,7 +988,7 @@ function getRandomString() {
         "You're probably wondering how I got here"
     ]
 
-    var randomNumber = Math.floor(Math.random()*myArray.length);
+    randomNumber = Math.floor(Math.random()*myArray.length);
 
     return myArray[randomNumber];
 }
