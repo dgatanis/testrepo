@@ -296,7 +296,8 @@
     font-size: x-small;
   }
 
-  @media screen and (max-width: 85.375rem) {
+  /*Large laptop display styling*/
+  @media screen and (max-width: 90rem) {
     .custom-matchup-player {
       float: right;
       clear: left;
@@ -319,7 +320,8 @@
     }
   }
 
-  @media screen and (max-width: 37.5rem) {
+   /*Large Mobile display styling*/
+  @media screen and (max-width: 26.563rem) {
     .custom-matchups {
       clear: left;
       float: left;
