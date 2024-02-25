@@ -320,7 +320,18 @@
     }
   }
 
-   /*Large Mobile display styling*/
+  /*Normal Laptop display styling*/
+  @media screen and (max-width: 26.563rem) {
+    .custom-bankroll {
+      margin-right: 3rem;
+    }
+
+    .custom-carousel {
+      width: 30rem;
+    }
+  }
+
+  /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
     .custom-matchups {
       clear: left;
