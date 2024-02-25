@@ -986,7 +986,7 @@ function createTransactionCarouselItem() {
     dateTransaction.setAttribute('class', 'custom-date-transaction custom-none-display');
 
     var transactionDescription = document.createElement("div");
-    transactionDescription.setAttribute('class', 'custom-transaction-description custom-none-display');
+    transactionDescription.setAttribute('class', 'custom-transaction-description');
 
     var teamDiv = document.createElement("div");
     teamDiv.setAttribute('class', 'custom-team-div custom-none-display');
