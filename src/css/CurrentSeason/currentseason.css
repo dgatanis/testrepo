@@ -279,8 +279,12 @@
         transition: all 1s ease;
       }
     }
-}
+  }
 
+  .custom-team-record {
+    font-size: x-small;
+  }
+  
   legend {
     font-size: x-small;
   }

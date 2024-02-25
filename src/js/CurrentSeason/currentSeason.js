@@ -403,6 +403,7 @@ async function getLatestTransactions(week) {
                 teamName.setAttribute('class', 'custom-teamname-small');
 
                 var teamRecord = document.createElement("div");
+                teamRecord.setAttribute('class', 'custom-team-record');
                 var thisTeamRecord = getRosterStats(roster.roster_id);
                 teamRecord.innerText = thisTeamRecord.wins + "-" + thisTeamRecord.losses +"-"+ thisTeamRecord.ties;
                 
