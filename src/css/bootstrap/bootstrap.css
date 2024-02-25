@@ -10892,6 +10892,7 @@ a.custom-nav:hover {
   max-width: 3rem;
   border-radius: 5px;
   margin-right: .5rem;
+  width: 3rem;
 }
 
 .modal-dialog {
