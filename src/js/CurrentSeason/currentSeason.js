@@ -985,6 +985,10 @@ function getRandomString() {
         "Anyone else throw-up in their mouth a little",
         "You're probably wondering how I got here"
     ]
+
+    var randomNumber = Math.floor(Math.random()*myArray.length);
+
+    return myArray[randomNumber];
 }
 
 /*
