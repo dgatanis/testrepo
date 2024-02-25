@@ -511,9 +511,9 @@ async function getLatestTransactions(week) {
                     if(i >= 1)
                     {
                         var newdroppedPlayers = document.createElement("div");
-                        newdroppedPlayers.setAttribute('class', 'custom-dropped-players'); 
+                        newdroppedPlayers.setAttribute('class', 'custom-dropped-players custom-none-display'); 
                         var newaddedPlayers = document.createElement("div");
-                        newaddedPlayers.setAttribute('class', 'custom-added-players');
+                        newaddedPlayers.setAttribute('class', 'custom-added-players custom-none-display');
                     }
                     
                     var rosterid = transaction.roster_id[i];
@@ -559,6 +559,8 @@ async function getLatestTransactions(week) {
                                 if(i >= 1)
                                 {
                                     newaddedPlayers.append(playerDiv);
+                                    newaddedPlayers.classList.add('custom-block-display');
+                                    newaddedPlayers.classList.remove('custom-none-display');
                                 }
                                 else
                                 {
@@ -602,6 +604,8 @@ async function getLatestTransactions(week) {
                                 if(i >= 1)
                                 {
                                     newdroppedPlayers.append(playerDiv);
+                                    newdroppedPlayers.classList.add('custom-block-display');
+                                    newdroppedPlayers.classList.remove('custom-none-display');
                                 }
                                 else
                                 {
