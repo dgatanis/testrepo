@@ -266,6 +266,9 @@
     clear: both;
     color: transparent;
     background: transparent;
+    font-size:small;
+    font-style: italic;
+    text-align: center;
     transition: all 1s ease;
   }
 
@@ -273,9 +276,8 @@
     &:hover {
     .custom-transaction-description {
         color: black;
-        background: #8080801f;
-        font-size: small;
-        text-align: center;
+        background: #afafaf3d;
+        border-radius: 1rem;
         transition: all 1s ease;
       }
     }

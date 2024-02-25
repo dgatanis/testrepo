@@ -405,8 +405,17 @@ async function getLatestTransactions(week) {
             }
             if(transaction.drops)
             {
+                if(transaction.adds)
+                {
+                    description += " and Dropped ";
+                }
+                else
+                {
+                    description += "Dropped ";
+                }
+                
                 let droppedPlayers = Object.keys(transaction.drops);
-                description += "Dropped ";
+                
                 for(let i = 0; i< droppedPlayers.length; i++)
                 {
                     description += getFullPlayerName(droppedPlayers[i]) + " ";
@@ -434,7 +443,7 @@ async function getLatestTransactions(week) {
             {                   
                 rosterId = transaction.roster_id[0];
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-                description = getTeamName(roster.owner_id).toString() + description;
+                description = getTeamName(roster.owner_id).toString() + " " + description;
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
                 var teamName = document.createElement("div");
