@@ -395,9 +395,12 @@ async function getLatestTransactions(week) {
                 let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
 
                 var teamImg = createOwnerAvatarImage(roster.owner_id);
+                teamImg.classList.add('custom-small-avatar');
+                teamImg.classList.remove('custom-medium-avatar');
+                
                 var teamName = document.createElement("div");
                 teamName.innerText = getTeamName(roster.owner_id);
-                teamName.setAttribute('class', 'custom-teamname-normal');
+                teamName.setAttribute('class', 'custom-teamname-small');
                 
                 teamDiv.append(teamImg);
                 teamDiv.append(teamName);
@@ -530,9 +533,12 @@ async function getLatestTransactions(week) {
                     
                     
                     var teamImg = createOwnerAvatarImage(roster.owner_id);
+                    teamImg.classList.add('custom-small-avatar');
+                    teamImg.classList.remove('custom-medium-avatar');
+
                     var teamName = document.createElement("div");
                     teamName.innerText = getTeamName(roster.owner_id);
-                    teamName.setAttribute('class', 'custom-teamname-normal');
+                    teamName.setAttribute('class', 'custom-teamname-small');
                     
                     if(transaction.adds)
                     {
@@ -1142,8 +1148,6 @@ function getHighScorerCount(week) {
 }
 
 function getRandomString() {
-
-    
 
     var myArray = [
         "What an idiot",
