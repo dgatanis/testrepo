@@ -1155,7 +1155,7 @@ function getRandomString() {
         "https://www.nflshop.com/<enter jersey they're buying here>",
         "Wack",
         "Anyone else throw-up in their mouth a little",
-        "You're probably wondering how I got here",
+        "You're probably wondering how we got here",
         "Softer than Charmin",
         "Yea we're all thinking the same thing"
     ]
