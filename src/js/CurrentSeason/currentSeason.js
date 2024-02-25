@@ -392,7 +392,15 @@ async function getLatestTransactions(week) {
                     var addedIcon = createAddDropImg("add");
 
                     playerName.setAttribute('class', 'custom-playername-small');
-                    playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
+
+                    if(player.position) //Can Remove this once finished - just used for testing DEF
+                    {
+                        playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
+                    }
+                    else
+                    {
+                        playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                    }
 
                     playerDiv.append(addedIcon);
                     playerDiv.append(playerImg);
@@ -427,7 +435,15 @@ async function getLatestTransactions(week) {
                     var droppedIcon = createAddDropImg("drop");
 
                     playerName.setAttribute('class', 'custom-playername-small');
-                    playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " ("+ player.position +")";
+                    
+                    if(player.position) //Can Remove this once finished - just used for testing DEF
+                    {
+                        playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
+                    }
+                    else
+                    {
+                        playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+                    }
                     
                     playerDiv.append(droppedIcon);
                     playerDiv.append(playerImg);
