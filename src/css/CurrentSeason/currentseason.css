@@ -334,6 +334,11 @@
     .custom-carousel {
       width: 30rem;
     }
+
+    .custom-playoffs-bracket {
+      clear: inline-start;
+      float: left;
+    }
   }
 
   /*Large Mobile display styling*/
