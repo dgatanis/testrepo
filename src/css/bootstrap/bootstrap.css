@@ -10959,13 +10959,14 @@ ul.nav.nav-tabs {
 
 /* Custom Mobile responsive display */
 
-@media screen and (max-width: 37.5rem) {
+@media screen and (max-width: 26.563rem) {
   .custom-body {
     padding: unset;
   }
 
   .footer {
-    height: 1rem;
+    height: 2rem;
+    padding: unset;
   }
   
 }
