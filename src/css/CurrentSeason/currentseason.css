@@ -243,7 +243,7 @@
     position: absolute;
     bottom: 0;
     font-size: small;
-    margin-left: 9.4rem;
+    margin-left: 10rem;
     transition: all 1s ease;
   }
 
@@ -296,6 +296,13 @@
     clear: both;
     transition: all 1s ease;
   }
+
+  .custom-player {
+    border-radius: 0.8rem;
+    background: #efff0054;
+    margin: 0.2rem;
+    padding: 0.5rem;
+  }
   
   legend {
     font-size: x-small;
@@ -338,6 +345,10 @@
     .custom-playoffs-bracket {
       clear: inline-start;
       float: left;
+    }
+
+    .custom-date-transaction {
+      margin-left: 7rem;
     }
   }
 

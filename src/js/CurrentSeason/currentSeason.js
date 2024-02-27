@@ -610,6 +610,7 @@ async function getLatestTransactions(week) {
                             {
                                 var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[j]));
                                 var playerDiv = document.createElement("div");
+                                playerDiv.setAttribute('class', 'custom-player');
                                 var playerImg = createPlayerImage(droppedPlayers[j]);
                                 var playerName = document.createElement("div");
                                 var droppedIcon = createAddDropImg("drop");
