@@ -421,6 +421,7 @@ async function getLatestTransactions(week) {
                         description += getFullPlayerName(addedPlayers[i]);
                         var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
                         var playerDiv = document.createElement("div");
+                        playerDiv.setAttribute('class', 'custom-player');
                         var playerImg = createPlayerImage(addedPlayers[i]);
                         var playerName = document.createElement("div");
                         var addedIcon = createAddDropImg("add");
@@ -464,6 +465,7 @@ async function getLatestTransactions(week) {
                         description += getFullPlayerName(droppedPlayers[i]);
                         var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
                         var playerDiv = document.createElement("div");
+                        playerDiv.setAttribute('class', 'custom-player');
                         var playerImg = createPlayerImage(droppedPlayers[i]);
                         var playerName = document.createElement("div");
                         var droppedIcon = createAddDropImg("drop");
@@ -560,6 +562,7 @@ async function getLatestTransactions(week) {
                                 addedPlayersArray.push(getFullPlayerName(addedPlayers[j]));
                                 var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
                                 var playerDiv = document.createElement("div");
+                                playerDiv.setAttribute('class', 'custom-player');
                                 var playerImg = createPlayerImage(addedPlayers[j]);
                                 var playerName = document.createElement("div");
                                 var addedIcon = createAddDropImg("add");
