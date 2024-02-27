@@ -404,8 +404,8 @@ async function getLatestTransactions(week) {
 
                 var teamRecord = document.createElement("div");
                 teamRecord.setAttribute('class', 'custom-team-record');
-                var thisTeamRecord = getRosterStats(roster.roster_id);
-                teamRecord.innerText = thisTeamRecord.wins + "-" + thisTeamRecord.losses +"-"+ thisTeamRecord.ties;
+                var thisTeamStats = getRosterStats(roster.roster_id);
+                teamRecord.innerText = thisTeamStats.wins + "-" + thisTeamStats.losses +"-"+ thisTeamStats.ties;
                 
                 teamDiv.append(teamImg);
                 teamDiv.append(teamName);
@@ -518,7 +518,9 @@ async function getLatestTransactions(week) {
                 {
                     var rosterid = transaction.roster_id[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
-
+                    var thisTeamStats = getRosterStats(roster.roster_id);
+                    teamRecord.innerText = thisTeamStats.wins + "-" + thisTeamStats.losses +"-"+ thisTeamStats.ties;
+                    
                     //If its on the second+ team then create new divs and append these to current carousel item
                     if(i >= 1)
                     {
