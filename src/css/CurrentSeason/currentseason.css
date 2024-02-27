@@ -256,6 +256,7 @@
     color: #5a5a5ade;
     padding:1rem;
     border-radius:.5rem;
+    max-height: 45rem;
   }
 
   .custom-carousel-item:hover {
