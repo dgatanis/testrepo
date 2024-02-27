@@ -443,7 +443,6 @@
     }
 
     .custom-carousel-item:hover {
-      background: linear-gradient(0deg, #80808038, transparent);
       border-radius: unset;
     }
   }
