@@ -667,7 +667,7 @@ async function getLatestTransactions(week) {
                     {
                         teamDiv.append(teamImg);
                         teamDiv.append(teamName);
-                        newteam.append(teamRecord);
+                        teamDiv.append(teamRecord);
                     }
                     
                 }   
