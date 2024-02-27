@@ -219,6 +219,7 @@
     float: inline-start;
     display: inline;
     margin-left: 1.5rem;
+    text-align: justify;
   }
 
   .custom-team-div {
@@ -235,6 +236,7 @@
     clear: inline-start;
     display: inline;
     margin-left: 1.5rem;
+    text-align: justify;
   }
 
   .custom-date-transaction {
@@ -295,13 +297,6 @@
     color: transparent;
     clear: both;
     transition: all 1s ease;
-  }
-
-  .custom-player {
-    border-radius: 0.8rem;
-    background: #efff0054;
-    margin: 0.2rem;
-    padding: 0.5rem;
   }
   
   legend {
