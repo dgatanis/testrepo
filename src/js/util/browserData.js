@@ -4,24 +4,17 @@ import getCurrentWeek from './leagueInfo.js';
 const currentLeague = getCurrentLeagueId();
 const currentWeek = getCurrentWeek();
 
-let tries = 0;
-
-while(tries <= 2)
-{
-    try{
-        currentLeague.then((currentLeagueId) => {
-            setBrowserData(currentLeagueId);
-        }).catch((error) => {
-            tries++;
-        });
-        console.log(tries);
-        tries=9;
-        
-    }
-    catch (error) {
-        tries++;
+try{
+    currentLeague.then((currentLeagueId) => {
+        setBrowserData(currentLeagueId);
+    }).catch((error) => {
         console.error(`Error: ${error.message}`);
-    }
+    });
+
+}
+catch (error) {
+    tries++;
+    console.error(`Error: ${error.message}`);
 }
 
 function setBrowserData(leagueID) {

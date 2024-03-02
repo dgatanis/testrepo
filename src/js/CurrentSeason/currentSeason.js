@@ -32,10 +32,6 @@ async function loadConstants() {
         }).then((currentSeason) => {
             setSeasonTitle(currentSeason);
             console.log("currentSeason");
-        })
-
-        leagueInfoLeagueId.then((currentLeagueId) => {
-            loadSeasonRankings(currentLeagueId);
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
