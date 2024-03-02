@@ -22,16 +22,13 @@ async function loadConstants() {
 
         leagueInfoLeagueId.then((currentLeagueId) => {
             loadSeasonRankings(currentLeagueId);
-            console.log("currentWeek");
             return currentWeek;
         }).then((currentWeek) => {
             loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
             getLatestTransactions('1');
-            console.log("currentWeek");
             return currentSeason;
         }).then((currentSeason) => {
             setSeasonTitle(currentSeason);
-            console.log("currentSeason");
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });

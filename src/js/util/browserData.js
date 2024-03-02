@@ -24,6 +24,7 @@ function setBrowserData(leagueID) {
         
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
         {
+            console.log("setBrowserData: " + leagueID);
             localStorage.clear();
             localStorage.setItem("expiration", expiration);
             setPlayerData();
@@ -34,13 +35,13 @@ function setBrowserData(leagueID) {
             //setMatchupData(leagueID,currentWeek);
             setMatchupData('1003692635549462528','5');
         }
-        setPlayerData();
-        setRosterData(leagueID);
-        setUserData(leagueID);
-        setLeagueData(leagueID);
-        //TESTING
-        //setMatchupData(leagueID,'5');
-        setMatchupData('1003692635549462528','10');
+        if(!sessionStorage.getItem("MatchupData"))
+        {
+            //TESTING
+            //setMatchupData(leagueID,'5');
+            setMatchupData('1003692635549462528','10');
+        }
+        
     }
     catch(error){
         console.error(`Error: ${error.message}`);
