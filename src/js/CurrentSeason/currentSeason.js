@@ -1,3 +1,12 @@
+const rosterDataStorage = localStorage.getItem("RosterData");
+const rosterData = JSON.parse(rosterDataStorage); 
+const userDataStorage = localStorage.getItem("UserData");
+const userData = JSON.parse(userDataStorage);
+const matchupWeekStorage = sessionStorage.getItem("MatchupData");
+const matchupData = JSON.parse(matchupWeekStorage); 
+const playerDataStorage = localStorage.getItem("PlayerData");
+const playerData = JSON.parse(playerDataStorage); 
+
 //This loads the page contents dynamically
 async function loadConstants() {
 
@@ -797,6 +806,15 @@ function highScorerInMatchupStarters(starters, playerPoints){
 
         return highestScorer;
     }
+}
+
+function highestScorerByPosition(rosterid) {
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+
+    let roster = playerData.players.find(x => x.roster_id === parseInt(rosterid));
+
+    roster.
 }
 
 function getFullPlayerName(playerid) {
