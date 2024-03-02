@@ -1,9 +1,4 @@
-// import getCurrentLeagueId from './leagueInfo.js';
-// import getCurrentWeek from './leagueInfo.js';
-
-// const currentLeague = getCurrentLeagueId();
-// const currentWeek = getCurrentWeek();
-
+//Sets the browser data needed for other scripts
 try{
     setBrowserData();
 }
@@ -13,15 +8,13 @@ catch (error) {
 
 async function setBrowserData() {
     try{
+
         const leagueInfo = await import('./leagueInfo.js');
-        var leagueInfoLeagueId = leagueInfo.default();
-        var currentWeek = leagueInfo.getCurrentWeek();
-        debugger;
+        const leagueInfoLeagueId = leagueInfo.default();
+        const currentWeek = leagueInfo.getCurrentWeek();
         const currentLeagueId = await leagueInfoLeagueId;
         const leagueId = currentLeagueId;
         const thisWeek = currentWeek;
-
-
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
@@ -39,7 +32,7 @@ async function setBrowserData() {
         if(!sessionStorage.getItem("MatchupData"))
         {
             //TESTING
-            //setMatchupData(leagueID,currentWeek);
+            //setMatchupData(leagueId,currentWeek);
             getMatchupData('1003692635549462528','10');
             console.log(leagueId + " " + thisWeek);
             //getMatchupData(leagueId,thisWeek);
@@ -51,47 +44,6 @@ async function setBrowserData() {
         console.error(`Error: ${error.message}`);
     }
 
-}
-
-
-function setPlayerData () {
-    if(!localStorage.getItem("PlayerData") || localStorage.getItem("PlayerData") === null || localStorage.getItem("PlayerData") === undefined)
-    {
-        console.log("setPlayerData");
-        getPlayers();
-    }
-}
-
-function setRosterData (leagueID) {
-    if(!localStorage.getItem("RosterData") || localStorage.getItem("RosterData") === null || localStorage.getItem("RosterData") === undefined)
-    {
-        console.log("setRosterData");
-        getRostersForLeague(leagueID);
-    }
-}
-
-function setUserData (leagueID) {
-    if(!localStorage.getItem("UserData") || localStorage.getItem("UserData") === null || localStorage.getItem("UserData") === undefined)
-    {
-        console.log("setUserData");
-        getUserData(leagueID);
-    }
-}
-
-function setLeagueData (leagueID) {
-    if(!localStorage.getItem("LeagueData") || localStorage.getItem("LeagueData") === null || localStorage.getItem("LeagueData") === undefined)
-    {
-        console.log("setLeagueData");
-        getLeagueDetails(leagueID);
-    }
-}
-
-function setMatchupData(leagueID,currentWeek){
-    if(!sessionStorage.getItem("MatchupData") || localStorage.getItem("MatchupData") === null || localStorage.getItem("MatchupData") === undefined)
-    {
-        console.log("setMatchupData: " + leagueID + " " + currentWeek);
-        getMatchupData(leagueID, currentWeek);
-    }
 }
 
 async function getRostersForLeague(leagueID){
@@ -172,7 +124,7 @@ async function getLeagueDetails(leagueID) {
 }
 
 async function getMatchupData(leagueID, currentWeek) {
-    debugger;
+
     try
     {
         let totalWeeksPlayed = parseInt(currentWeek);
