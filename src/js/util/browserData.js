@@ -31,14 +31,11 @@ function setBrowserData(leagueID) {
             setRosterData(leagueID);
             setUserData(leagueID);
             setLeagueData(leagueID);
-            //TESTING
-            //setMatchupData(leagueID,currentWeek);
-            setMatchupData('1003692635549462528','5');
         }
         if(!sessionStorage.getItem("MatchupData"))
         {
             //TESTING
-            //setMatchupData(leagueID,'5');
+            //setMatchupData(leagueID,currentWeek);
             setMatchupData('1003692635549462528','10');
         }
         
