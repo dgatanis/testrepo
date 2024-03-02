@@ -14,29 +14,23 @@ async function loadConstants() {
     try{
 
         const leagueInfo = await import('../util/leagueInfo.js');
-        var leagueInfoLeagueId = leagueInfo.default();
-        var currentWeek = leagueInfo.getCurrentWeek();
-        var currentSeason = leagueInfo.getCurrentSeason();
-        var weeklyWinnerPayout = leagueInfo.weeklyWinner;
-        var dues = leagueInfo.dues;
+        const leagueInfoLeagueId = leagueInfo.default();
+        const currentWeek = leagueInfo.getCurrentWeek();
+        const currentSeason = leagueInfo.getCurrentSeason();
+        const weeklyWinnerPayout = leagueInfo.weeklyWinner;
+        const dues = leagueInfo.dues;
 
-        leagueInfoLeagueId.then((currentLeagueId) => {
-            loadSeasonRankings(currentLeagueId);
-            return currentWeek;
-        }).then((currentWeek) => {
-            loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
-            getLatestTransactions('1');
-            return currentSeason;
-        }).then((currentSeason) => {
-            setSeasonTitle(currentSeason);
-            loadMatchupsList();
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
-        
-        
-        
-        return -1;
+        const currentLeagueId = await leagueInfoLeagueId;
+        const leagueId = currentLeagueId;
+        const week = currentWeek;
+        const season = currentSeason;
+
+        loadSeasonRankings(leagueId);
+        loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
+        getLatestTransactions('1');
+        setSeasonTitle(season);
+        loadMatchupsList(); 
+        return;
     }
     catch (error){
         console.error(`Error: ${error.message}`);

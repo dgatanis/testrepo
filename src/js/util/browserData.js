@@ -21,15 +21,6 @@ async function setBrowserData() {
         const leagueId = currentLeagueId;
         const thisWeek = currentWeek;
 
-        // leagueInfoLeagueId.then((currentLeagueId) => {
-        //     leagueId = currentLeagueId;
-        //     return currentWeek
-        // }).then((week) => {
-        //     thisWeek = week;
-        //     return currentWeek
-        // }).catch((error) => {
-        //     console.error(`Error: ${error.message}`);
-        // });
 
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
