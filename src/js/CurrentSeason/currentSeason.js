@@ -21,9 +21,10 @@ async function loadConstants() {
         const dues = leagueInfo.dues;
 
         const currentLeagueId = await leagueInfoLeagueId;
+        const thisSeason = await currentSeason;
         const leagueId = currentLeagueId;
         const week = currentWeek;
-        const season = currentSeason;
+        const season = thisSeason;
 
         loadSeasonRankings(leagueId);
         loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
