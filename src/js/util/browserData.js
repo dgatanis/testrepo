@@ -42,8 +42,9 @@ async function setBrowserData() {
             //TESTING
             //setMatchupData(leagueID,currentWeek);
             
-            currentWeek.then((thisWeek) => {
-                getMatchupData(leagueId,thisWeek);
+            currentWeek.then((thisWee) => {
+                getMatchupData('1003692635549462528','10');
+                //getMatchupData(leagueId,thisWeek);
             }).catch((error) => {
                 console.error(`Error: ${error.message}`);
             });
