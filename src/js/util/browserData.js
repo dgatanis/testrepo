@@ -13,7 +13,6 @@ try{
         return currentWeek;
     }).then((thisWeek) => {
         setBrowserData(currentLeagueId, thisWeek);
-        return -1;
     }).catch((error) => {
         console.error(`Error: ${error.message}`);
     });
