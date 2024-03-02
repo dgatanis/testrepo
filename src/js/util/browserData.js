@@ -1,48 +1,53 @@
-// import getCurrentLeagueId from './leagueInfo.js';
-// import getCurrentWeek from './leagueInfo.js';
+import getCurrentLeagueId from './leagueInfo.js';
+import getCurrentWeek from './leagueInfo.js';
 
-// const currentLeague = getCurrentLeagueId();
-// const currentWeek = getCurrentWeek();
+const currentLeague = getCurrentLeagueId();
+const currentWeek = getCurrentWeek();
 
 try{
-    const leagueInfo = await import('../util/leagueInfo.js');
-    var leagueInfoLeagueId = leagueInfo.default();
-    var currentWeek = leagueInfo.getCurrentWeek();
-
-    leagueInfoLeagueId.then((currentLeagueId) => {
-        return currentWeek;
-    }).then((thisWeek) => {
-        setBrowserData(currentLeagueId, thisWeek);
-    }).catch((error) => {
-        console.error(`Error: ${error.message}`);
-    });
-
+    setBrowserData();
 }
 catch (error) {
     console.error(`Error: ${error.message}`);
 }
 
-async function setBrowserData(leagueID,thisWeek) {
+async function setBrowserData() {
     try{
+        const leagueInfo = await import('../util/leagueInfo.js');
+        var leagueInfoLeagueId = leagueInfo.default();
+        var currentWeek = leagueInfo.getCurrentWeek();
+        var leagueId;
+
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
 
-        if(!sessionStorage.getItem("MatchupData"))
-        {
-            //TESTING
-            //setMatchupData(leagueID,currentWeek);
-            await getMatchupData('1003692635549462528','10');
-        }
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
         {
             localStorage.clear();
             localStorage.setItem("expiration", expiration);
-            await getPlayers();
-            await getRostersForLeague(leagueID);
-            await getUserData(leagueID);
-            await getLeagueDetails(leagueID);
-        }
 
+            leagueInfoLeagueId.then((currentLeagueId) => {
+                leagueId = currentLeagueId;
+                getPlayers();
+                getRostersForLeague(currentLeagueId);
+                getUserData(currentLeagueId);
+                getLeagueDetails(currentLeagueId);
+            }).catch((error) => {
+                console.error(`Error: ${error.message}`);
+            });
+
+        }
+        if(!sessionStorage.getItem("MatchupData"))
+        {
+            //TESTING
+            //setMatchupData(leagueID,currentWeek);
+            
+            currentWeek.then((thisWeek) => {
+                getMatchupData(leagueId,thisWeek);
+            }).catch((error) => {
+                console.error(`Error: ${error.message}`);
+            });
+        }
         
     }
     catch(error){
