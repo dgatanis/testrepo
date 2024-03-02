@@ -814,7 +814,6 @@ function highestScorerByPosition(rosterid) {
 
     let roster = playerData.players.find(x => x.roster_id === parseInt(rosterid));
 
-    roster.
 }
 
 function getFullPlayerName(playerid) {
