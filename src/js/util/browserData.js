@@ -21,12 +21,12 @@ function setBrowserData(leagueID) {
     try{
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
-        
+
         if(!sessionStorage.getItem("MatchupData"))
         {
             //TESTING
             //setMatchupData(leagueID,currentWeek);
-            setMatchupData('1003692635549462528','10');
+            await setMatchupData('1003692635549462528','10');
         }
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
         {
