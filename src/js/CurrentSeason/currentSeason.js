@@ -19,7 +19,7 @@ async function loadConstants() {
         var currentSeason = leagueInfo.getCurrentSeason();
         var weeklyWinnerPayout = leagueInfo.weeklyWinner;
         var dues = leagueInfo.dues;
-        debugger;
+        
         leagueInfoLeagueId.then((currentLeagueId) => {
             loadSeasonRankings(currentLeagueId);
             return currentWeek;
@@ -282,7 +282,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 
     const rosterDataStorage = localStorage.getItem("RosterData");
     const rosterData = JSON.parse(rosterDataStorage); 
-
+    debugger;
     try
     {
         let thisWeek = parseInt(week);
