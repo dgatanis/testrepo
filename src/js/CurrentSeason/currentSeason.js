@@ -1,13 +1,13 @@
-const rosterDataStorage = localStorage.getItem("RosterData");
-const rosterData = JSON.parse(rosterDataStorage); 
-const userDataStorage = localStorage.getItem("UserData");
-const userData = JSON.parse(userDataStorage);
-const playerDataStorage = localStorage.getItem("PlayerData");
-const playerData = JSON.parse(playerDataStorage); 
-const leagueDataStorage = localStorage.getItem("LeagueData");
-const leagueData = JSON.parse(leagueDataStorage);
-const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-const matchupData = JSON.parse(matchupWeekStorage); 
+// const rosterDataStorage = localStorage.getItem("RosterData");
+// const rosterData = JSON.parse(rosterDataStorage); 
+// const userDataStorage = localStorage.getItem("UserData");
+// const userData = JSON.parse(userDataStorage);
+// const playerDataStorage = localStorage.getItem("PlayerData");
+// const playerData = JSON.parse(playerDataStorage); 
+// const leagueDataStorage = localStorage.getItem("LeagueData");
+// const leagueData = JSON.parse(leagueDataStorage);
+// const matchupWeekStorage = sessionStorage.getItem("MatchupData");
+// const matchupData = JSON.parse(matchupWeekStorage); 
 
 async function loadConstants() {
 
@@ -50,6 +50,8 @@ function setSeasonTitle(season) {
 }
 
 function loadSeasonRankings(leagueId) { 
+    const userDataStorage = localStorage.getItem("UserData");
+    const userData = JSON.parse(userDataStorage);
 
     try {
     
@@ -92,6 +94,12 @@ function loadSeasonRankings(leagueId) {
 */          
 
 function loadMatchups(weekNumber) {
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+    const userDataStorage = localStorage.getItem("UserData");
+    const userData = JSON.parse(userDataStorage);
+    const matchupWeekStorage = sessionStorage.getItem("MatchupData");
+    const matchupData = JSON.parse(matchupWeekStorage); 
 
     const noMatchup = document.getElementById("nomatchups_"+weekNumber);
     
@@ -186,7 +194,12 @@ function loadMatchups(weekNumber) {
 }
 
 function OpenTeamRosterModal(userid,teamname) {
-    
+
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+    const playerDataStorage = localStorage.getItem("PlayerData");
+    const playerData = JSON.parse(playerDataStorage); 
+
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     let myUserId = userid.toString();
     var rosterTable = document.querySelector('#RosterTable');
@@ -265,6 +278,10 @@ function OpenTeamRosterModal(userid,teamname) {
 }
 
 function loadBankroll(week,dues,weeklyWinnerPayout) {
+
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+
     try
     {
         let thisWeek = parseInt(week);
@@ -352,6 +369,12 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 }
 
 async function getLatestTransactions(week) {
+
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage);
+    const playerDataStorage = localStorage.getItem("PlayerData");
+    const playerData = JSON.parse(playerDataStorage); 
+
     try {
         const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
         //const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
@@ -792,6 +815,9 @@ function highScorerInMatchupStarters(starters, playerPoints){
 
 function getFullPlayerName(playerid) {
 
+    const playerDataStorage = localStorage.getItem("PlayerData");
+    const playerData = JSON.parse(playerDataStorage); 
+
     let player = playerData.players.find(x => x.player_id === parseInt(playerid));
 
     let playerName = playerid;
@@ -806,6 +832,10 @@ function getFullPlayerName(playerid) {
 }
 
 function sortByPosition(players) {
+
+    const playerDataStorage = localStorage.getItem("PlayerData");
+    const playerData = JSON.parse(playerDataStorage); 
+
     let sortedPlayers = [];
     const sortedPositions = [];
     const qb = [];
@@ -881,6 +911,9 @@ function sortByPosition(players) {
 
 function sortTeamRankings() {
 
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+
     const rosters = rosterData.map((x) => x);
     const sortedList = [];
 
@@ -912,6 +945,9 @@ function sortTeamRankings() {
 
 function getRosterStats(rosterid) {
 
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
 
@@ -932,6 +968,9 @@ function getRosterStats(rosterid) {
 }
 
 function calcPlayerPositions(players){
+
+    const playerDataStorage = localStorage.getItem("PlayerData");
+    const playerData = JSON.parse(playerDataStorage); 
 
     const calculatedPositions = [];
     var QB = 0;
@@ -980,6 +1019,9 @@ function calcPlayerPositions(players){
 
 function getTeamRecord(rosterid) {
 
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
     const teamRecord = [];
@@ -1000,6 +1042,9 @@ function getTeamRecord(rosterid) {
 }
 
 function calcPlayerAge(players) {
+
+    const playerDataStorage = localStorage.getItem("PlayerData");
+    const playerData = JSON.parse(playerDataStorage); 
 
     const calculatedAge = [];
     var totalAge = 0;
@@ -1079,6 +1124,9 @@ function getMatchupWeekWinner(matchups,matchupid) {
 
 function toggleStarters(rosterId) {
 
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    const rosterData = JSON.parse(rosterDataStorage); 
+
     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
@@ -1111,6 +1159,9 @@ function toggleStarters(rosterId) {
 
 function getLeaguePositions(){
 
+    const leagueDataStorage = localStorage.getItem("LeagueData");
+    const leagueData = JSON.parse(leagueDataStorage);
+
     leaguePositions = leagueData.roster_positions;
     const positions = [];
 
@@ -1134,6 +1185,10 @@ function getLeaguePositions(){
 
 
 function getTeamName(userid) {
+
+    const userDataStorage = localStorage.getItem("UserData");
+    const userData = JSON.parse(userDataStorage);
+
     let user = userData.find(x => x.user_id === userid.toString());
     let userName = "";
 
@@ -1150,6 +1205,9 @@ function getTeamName(userid) {
 }
 
 function getHighScorerCount(week) {
+
+    const matchupWeekStorage = sessionStorage.getItem("MatchupData");
+    const matchupData = JSON.parse(matchupWeekStorage); 
 
     let thisWeek = parseInt(week);
     let rosterHighScorers = [];
@@ -1264,6 +1322,10 @@ function createTransactionCarouselItem() {
 }
 
 function loadMatchupsList(){
+
+    const matchupWeekStorage = sessionStorage.getItem("MatchupData");
+    const matchupData = JSON.parse(matchupWeekStorage); 
+
     var currentWeek = matchupData[0].matchupWeeks.length;
     var matchupDiv = document.getElementById("matchupWeeks");
     var week = document.getElementById("currentWeek");
@@ -1319,6 +1381,9 @@ function createAccordionItem(weekNumber) {
 }
 
 function createOwnerAvatarImage(userId) { 
+
+    const userDataStorage = localStorage.getItem("UserData");
+    const userData = JSON.parse(userDataStorage);
 
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
