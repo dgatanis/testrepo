@@ -1,8 +1,8 @@
-import getCurrentLeagueId from './leagueInfo.js';
-import getCurrentWeek from './leagueInfo.js';
+// import getCurrentLeagueId from './leagueInfo.js';
+// import getCurrentWeek from './leagueInfo.js';
 
-const currentLeague = getCurrentLeagueId();
-const currentWeek = getCurrentWeek();
+// const currentLeague = getCurrentLeagueId();
+// const currentWeek = getCurrentWeek();
 
 try{
     const leagueInfo = await import('../util/leagueInfo.js');
