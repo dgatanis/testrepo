@@ -17,7 +17,7 @@ catch (error) {
     console.error(`Error: ${error.message}`);
 }
 
-function setBrowserData(leagueID) {
+async function setBrowserData(leagueID) {
     try{
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
