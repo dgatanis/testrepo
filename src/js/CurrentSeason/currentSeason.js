@@ -29,11 +29,12 @@ async function loadConstants() {
             return currentSeason;
         }).then((currentSeason) => {
             setSeasonTitle(currentSeason);
+            loadMatchupsList();
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
         });
         
-        loadMatchupsList();
+        
         
         return -1;
     }
