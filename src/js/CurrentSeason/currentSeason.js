@@ -19,7 +19,12 @@ async function loadConstants() {
         var currentSeason = leagueInfo.getCurrentSeason();
         var weeklyWinnerPayout = leagueInfo.weeklyWinner;
         var dues = leagueInfo.dues;
-        currentWeek.then((thisWeek) => {
+
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            loadSeasonRankings(currentLeagueId);
+            console.log("currentWeek");
+            return currentWeek;
+        }).then((currentWeek) => {
             loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
             getLatestTransactions('1');
             console.log("currentWeek");
@@ -29,11 +34,11 @@ async function loadConstants() {
             console.log("currentSeason");
         })
 
-        // leagueInfoLeagueId.then((currentLeagueId) => {
-        //     loadSeasonRankings(currentLeagueId);
-        // }).catch((error) => {
-        //     console.error(`Error: ${error.message}`);
-        // });
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            loadSeasonRankings(currentLeagueId);
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+        });
         
         loadMatchupsList();
         
