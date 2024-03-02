@@ -166,37 +166,44 @@ async function getLeagueDetails(leagueID) {
 
 async function getMatchupData(leagueID, currentWeek) {
 
-    let totalWeeksPlayed = parseInt(currentWeek);
-    //leagueID = '1003692635549462528'; //TESTING LEAGUE
-    let matchupWeeks = [];
-    let upToCurrentWeekMatchups = [];
-
-    for(let i = 1; i<=totalWeeksPlayed; i++)
+    try
     {
-        let matchupsArray = [];
-        const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`);
-        const matchupData = await matchup.json(); 
+        let totalWeeksPlayed = parseInt(currentWeek);
+        //leagueID = '1003692635549462528'; //TESTING LEAGUE
+        let matchupWeeks = [];
+        let upToCurrentWeekMatchups = [];
 
-        if(matchupData)
+        for(let i = 1; i<=totalWeeksPlayed; i++)
         {
-            for(let matchups of matchupData)
+            let matchupsArray = [];
+            const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`);
+            const matchupData = await matchup.json(); 
+
+            if(matchupData)
             {
-                matchupsArray.push({
-                    ...matchups
+                for(let matchups of matchupData)
+                {
+                    matchupsArray.push({
+                        ...matchups
+                    });
+                }
+                matchupWeeks.push({
+                    ...matchupsArray
                 });
+
             }
-            matchupWeeks.push({
-                ...matchupsArray
-            });
-
+            
         }
-        
+
+        upToCurrentWeekMatchups.push({
+            matchupWeeks
+        });
+
+        sessionStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
     }
-
-    upToCurrentWeekMatchups.push({
-        matchupWeeks
-    });
-
-    sessionStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
+    catch (error)
+    {
+        console.error(`Error: ${error.message}`);
+    }
 
 }
