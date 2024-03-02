@@ -28,10 +28,10 @@ async function setBrowserData() {
 
             leagueInfoLeagueId.then((currentLeagueId) => {
                 leagueId = currentLeagueId;
-                getPlayers();
-                getRostersForLeague(currentLeagueId);
-                getUserData(currentLeagueId);
-                getLeagueDetails(currentLeagueId);
+                await getPlayers();
+                await getRostersForLeague(currentLeagueId);
+                await getUserData(currentLeagueId);
+                await getLeagueDetails(currentLeagueId);
             }).catch((error) => {
                 console.error(`Error: ${error.message}`);
             });
@@ -43,7 +43,7 @@ async function setBrowserData() {
             //setMatchupData(leagueID,currentWeek);
             
             currentWeek.then((thisWee) => {
-                getMatchupData('1003692635549462528','10');
+                await getMatchupData('1003692635549462528','10');
                 //getMatchupData(leagueId,thisWeek);
             }).catch((error) => {
                 console.error(`Error: ${error.message}`);
