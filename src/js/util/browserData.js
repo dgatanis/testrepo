@@ -52,6 +52,7 @@ function setBrowserData(leagueID) {
 function setPlayerData () {
     if(!localStorage.getItem("PlayerData") || localStorage.getItem("PlayerData") === null || localStorage.getItem("PlayerData") === undefined)
     {
+        console.log("setPlayerData");
         getPlayers();
     }
 }
@@ -59,6 +60,7 @@ function setPlayerData () {
 function setRosterData (leagueID) {
     if(!localStorage.getItem("RosterData") || localStorage.getItem("RosterData") === null || localStorage.getItem("RosterData") === undefined)
     {
+        console.log("setRosterData");
         getRostersForLeague(leagueID);
     }
 }
@@ -66,6 +68,7 @@ function setRosterData (leagueID) {
 function setUserData (leagueID) {
     if(!localStorage.getItem("UserData") || localStorage.getItem("UserData") === null || localStorage.getItem("UserData") === undefined)
     {
+        console.log("setUserData");
         getUserData(leagueID);
     }
 }
@@ -73,6 +76,7 @@ function setUserData (leagueID) {
 function setLeagueData (leagueID) {
     if(!localStorage.getItem("LeagueData") || localStorage.getItem("LeagueData") === null || localStorage.getItem("LeagueData") === undefined)
     {
+        console.log("setLeagueData");
         getLeagueDetails(leagueID);
     }
 }
@@ -80,6 +84,7 @@ function setLeagueData (leagueID) {
 function setMatchupData(leagueID,currentWeek){
     if(!sessionStorage.getItem("MatchupData") || localStorage.getItem("MatchupData") === null || localStorage.getItem("MatchupData") === undefined)
     {
+        console.log("setMatchupData");
         getMatchupData(leagueID, currentWeek);
     }
 }
