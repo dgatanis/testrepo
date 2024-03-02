@@ -16,19 +16,20 @@ async function setBrowserData() {
         const leagueInfo = await import('./leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
-        var leagueId = "";
-        var thisWeek = null;
         debugger;
+        const currentLeagueId = await leagueInfoLeagueId;
+        const leagueId = currentLeagueId;
+        const thisWeek = currentWeek;
 
-        leagueInfoLeagueId.then((currentLeagueId) => {
-            leagueId = currentLeagueId;
-            return currentWeek
-        }).then((week) => {
-            thisWeek = week;
-            return currentWeek
-        }).catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
+        // leagueInfoLeagueId.then((currentLeagueId) => {
+        //     leagueId = currentLeagueId;
+        //     return currentWeek
+        // }).then((week) => {
+        //     thisWeek = week;
+        //     return currentWeek
+        // }).catch((error) => {
+        //     console.error(`Error: ${error.message}`);
+        // });
 
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
