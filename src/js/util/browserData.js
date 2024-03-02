@@ -13,12 +13,13 @@ catch (error) {
 
 async function setBrowserData() {
     try{
-        const leagueInfo = await import('../util/leagueInfo.js');
+        const leagueInfo = await import('./leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
         let leagueId = "";
         let thisWeek = null;
         debugger;
+
         leagueInfoLeagueId.then((currentLeagueId) => {
             leagueId = currentLeagueId;
             return currentWeek
