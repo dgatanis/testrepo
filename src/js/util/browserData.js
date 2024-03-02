@@ -17,6 +17,18 @@ async function setBrowserData() {
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
         let leagueId = "";
+        let thisWeek = null;
+        debugger;
+        leagueInfoLeagueId.then((currentLeagueId) => {
+            leagueId = currentLeagueId;
+            return currentWeek
+        }).then((currentWeek) => {
+            thisWeek = currentWeek;
+            return currentWeek
+        }).catch((error) => {
+            console.error(`Error: ${error.message}`);
+        });
+
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
@@ -24,31 +36,21 @@ async function setBrowserData() {
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
         {
             localStorage.clear();
-            localStorage.setItem("expiration", expiration);
-
-            leagueInfoLeagueId.then((currentLeagueId) => {
-                leagueId = currentLeagueId;
-                getPlayers();
-                getRostersForLeague(currentLeagueId);
-                getUserData(currentLeagueId);
-                getLeagueDetails(currentLeagueId);
-            }).catch((error) => {
-                console.error(`Error: ${error.message}`);
-            });
+            localStorage.setItem("expiration", expiration); 
+            getPlayers();
+            getRostersForLeague(currentLeagueId);
+            getUserData(currentLeagueId);
+            getLeagueDetails(currentLeagueId);
 
         }
         if(!sessionStorage.getItem("MatchupData"))
         {
             //TESTING
             //setMatchupData(leagueID,currentWeek);
-            
-            currentWeek.then((thisWeek) => {
-                getMatchupData('1003692635549462528','10');
-                console.log(leagueId + " " + thisWeek);
-                //getMatchupData(leagueId,thisWeek);
-            }).catch((error) => {
-                console.error(`Error: ${error.message}`);
-            });
+            getMatchupData('1003692635549462528','10');
+            console.log(leagueId + " " + thisWeek);
+            //getMatchupData(leagueId,thisWeek);
+
         }
         
     }
