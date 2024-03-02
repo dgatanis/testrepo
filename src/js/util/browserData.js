@@ -16,8 +16,8 @@ async function setBrowserData() {
         const leagueInfo = await import('./leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
-        let leagueId = "";
-        let thisWeek = null;
+        var leagueId = "";
+        var thisWeek = null;
         debugger;
 
         leagueInfoLeagueId.then((currentLeagueId) => {
