@@ -26,17 +26,16 @@ async function setBrowserData(leagueID) {
         {
             //TESTING
             //setMatchupData(leagueID,currentWeek);
-            await setMatchupData('1003692635549462528','10');
+            await getMatchupData('1003692635549462528','10');
         }
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
         {
-            console.log("setBrowserData: " + leagueID);
             localStorage.clear();
             localStorage.setItem("expiration", expiration);
-            setPlayerData();
-            setRosterData(leagueID);
-            setUserData(leagueID);
-            setLeagueData(leagueID);
+            await getPlayers();
+            await getRostersForLeague(leagueID);
+            await getUserData(leagueID);
+            await getLeagueDetails(leagueID);
         }
 
         
