@@ -82,7 +82,7 @@ function setLeagueData (leagueID) {
 function setMatchupData(leagueID,currentWeek){
     if(!sessionStorage.getItem("MatchupData") || localStorage.getItem("MatchupData") === null || localStorage.getItem("MatchupData") === undefined)
     {
-        console.log("setMatchupData");
+        console.log("setMatchupData: " + leagueID + " " + currentWeek);
         getMatchupData(leagueID, currentWeek);
     }
 }
@@ -165,7 +165,7 @@ async function getLeagueDetails(leagueID) {
 }
 
 async function getMatchupData(leagueID, currentWeek) {
-
+    debugger;
     try
     {
         let totalWeeksPlayed = parseInt(currentWeek);
