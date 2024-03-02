@@ -22,8 +22,8 @@ async function setBrowserData() {
         leagueInfoLeagueId.then((currentLeagueId) => {
             leagueId = currentLeagueId;
             return currentWeek
-        }).then((currentWeek) => {
-            thisWeek = currentWeek;
+        }).then((week) => {
+            thisWeek = week;
             return currentWeek
         }).catch((error) => {
             console.error(`Error: ${error.message}`);
@@ -38,9 +38,9 @@ async function setBrowserData() {
             localStorage.clear();
             localStorage.setItem("expiration", expiration); 
             getPlayers();
-            getRostersForLeague(currentLeagueId);
-            getUserData(currentLeagueId);
-            getLeagueDetails(currentLeagueId);
+            getRostersForLeague(leagueId);
+            getUserData(leagueId);
+            getLeagueDetails(leagueId);
 
         }
         if(!sessionStorage.getItem("MatchupData"))
