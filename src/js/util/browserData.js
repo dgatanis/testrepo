@@ -1,8 +1,8 @@
-import getCurrentLeagueId from './leagueInfo.js';
-import getCurrentWeek from './leagueInfo.js';
+// import getCurrentLeagueId from './leagueInfo.js';
+// import getCurrentWeek from './leagueInfo.js';
 
-const currentLeague = getCurrentLeagueId();
-const currentWeek = getCurrentWeek();
+// const currentLeague = getCurrentLeagueId();
+// const currentWeek = getCurrentWeek();
 
 try{
     setBrowserData();
@@ -28,10 +28,10 @@ async function setBrowserData() {
 
             leagueInfoLeagueId.then((currentLeagueId) => {
                 leagueId = currentLeagueId;
-                await getPlayers();
-                await getRostersForLeague(currentLeagueId);
-                await getUserData(currentLeagueId);
-                await getLeagueDetails(currentLeagueId);
+                getPlayers();
+                getRostersForLeague(currentLeagueId);
+                getUserData(currentLeagueId);
+                getLeagueDetails(currentLeagueId);
             }).catch((error) => {
                 console.error(`Error: ${error.message}`);
             });
@@ -42,8 +42,9 @@ async function setBrowserData() {
             //TESTING
             //setMatchupData(leagueID,currentWeek);
             
-            currentWeek.then((thisWee) => {
-                await getMatchupData('1003692635549462528','10');
+            currentWeek.then((thisWeek) => {
+                getMatchupData('1003692635549462528','10');
+                console.log(leagueId + " " + thisWeek);
                 //getMatchupData(leagueId,thisWeek);
             }).catch((error) => {
                 console.error(`Error: ${error.message}`);
