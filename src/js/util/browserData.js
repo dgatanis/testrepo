@@ -16,7 +16,7 @@ async function setBrowserData() {
         const leagueInfo = await import('../util/leagueInfo.js');
         var leagueInfoLeagueId = leagueInfo.default();
         var currentWeek = leagueInfo.getCurrentWeek();
-        var leagueId;
+        let leagueId = "";
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
