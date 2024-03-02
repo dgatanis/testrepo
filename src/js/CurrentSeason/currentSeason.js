@@ -19,7 +19,7 @@ async function loadConstants() {
         var currentSeason = leagueInfo.getCurrentSeason();
         var weeklyWinnerPayout = leagueInfo.weeklyWinner;
         var dues = leagueInfo.dues;
-
+        debugger;
         leagueInfoLeagueId.then((currentLeagueId) => {
             loadSeasonRankings(currentLeagueId);
             return currentWeek;
