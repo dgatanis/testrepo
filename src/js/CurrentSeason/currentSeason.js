@@ -814,7 +814,11 @@ function highestScorerByPosition(rosterid) {
 
     const roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
     const weeksPlayed = matchupData[0].matchupWeeks.length;
-    const players = sortByPosition(roster.players);
+    const players = roster.players;
+    const teamQB = [];
+    const teamRB = [];
+    const teamWR = [];
+    const teamTE = [];
 
     for(let player of players)
     {
@@ -826,9 +830,84 @@ function highestScorerByPosition(rosterid) {
         {
             let points = getPlayerPointsForWeek(playerid,i,rosterid);
             playerPoints += points;
-            console.log(playerPoints + " playerdetails: " + " playerid: " + playerid); 
         }
-        
+
+        if(thisPlayer.position == "QB")
+        {        
+            teamQB.push({
+                "player_id": playerid,
+                "position": thisPlayer.position,
+                "points" : playerPoints
+            })
+        }
+        else if(thisPlayer.position == "RB")
+        {        
+            teamRB.push({
+                "player_id": playerid,
+                "position": thisPlayer.position,
+                "points" : playerPoints
+            })
+
+        }
+        else if(thisPlayer.position == "WR")
+        {        
+            teamWR.push({
+                "player_id": playerid,
+                "position": thisPlayer.position,
+                "points" : playerPoints
+            })
+
+        }
+        else if(thisPlayer.position == "TE")
+        {        
+            teamTE.push({
+                "player_id": playerid,
+                "position": thisPlayer.position,
+                "points" : playerPoints
+            })
+
+        }
+
+
+        teamQB.sort(function (a, b) {
+            if (a.points > b.points) {
+              return -1;
+            }
+            if (a.wins < b.wins && a.fpts < b.fpts) {
+              return 1;
+            }
+            return 0;
+        });
+        teamRB.sort(function (a, b) {
+            if (a.points > b.points) {
+              return -1;
+            }
+            if (a.wins < b.wins && a.fpts < b.fpts) {
+              return 1;
+            }
+            return 0;
+        });
+        teamWR.sort(function (a, b) {
+            if (a.points > b.points) {
+              return -1;
+            }
+            if (a.wins < b.wins && a.fpts < b.fpts) {
+              return 1;
+            }
+            return 0;
+        });
+        teamTE.sort(function (a, b) {
+            if (a.points > b.points) {
+              return -1;
+            }
+            if (a.wins < b.wins && a.fpts < b.fpts) {
+              return 1;
+            }
+            return 0;
+        });
+
+
+        return teamQB[0], teamRB[0], teamWR[0], teamTE[0]
     }
 
 }
@@ -970,7 +1049,7 @@ function getRosterStats(rosterid) {
 
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
-    highestScorerByPosition(rosterid);
+    console.log(highestScorerByPosition(rosterid));
 
     if(roster)
     {
