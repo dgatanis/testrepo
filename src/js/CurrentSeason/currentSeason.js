@@ -59,7 +59,19 @@ function loadSeasonRankings(leagueId) {
             var teamNameDisplay = getTeamName(user.user_id);
             var teamName = document.createElement("div");
             teamName.setAttribute('class', 'custom-teamname-normal');
-            teamName.innerText=teamNameDisplay;
+            if(powerRank <=2 )
+            {
+                teamName.innerText=teamNameDisplay + " - z"
+            }
+            else if(powerRank > 3 && powerRank <=6)
+            {
+                teamName.innerText=teamNameDisplay + " - *"
+            }
+            else
+            {
+                teamName.innerText=teamNameDisplay;
+            }
+            
             ownerImage.setAttribute('title', getRandomString());
 
             var powerRankingElementId = "PowerRanking_"+powerRank;
