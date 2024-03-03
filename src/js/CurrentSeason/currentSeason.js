@@ -826,7 +826,7 @@ function highestScorerByPosition(rosterid) {
         {
             let points = getPlayerPointsForWeek(playerid,i,rosterid);
             playerPoints += points;
-            console.log(playerPoints + " playerdetails: " + " playerid: " + playerid + " " + thisPlayer.firstname + thisPlayer.lastname); 
+            console.log(playerPoints + " playerdetails: " + " playerid: " + playerid); 
         }
         
     }
@@ -971,7 +971,7 @@ function getRosterStats(rosterid) {
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
     highestScorerByPosition(rosterid);
-    
+
     if(roster)
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
