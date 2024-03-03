@@ -184,7 +184,6 @@ function loadMatchups(weekNumber) {
                             }
                             
                             teamPoints.setAttribute('color', '#006f00');
-                            matchupDiv.append(teamPoints);
                         }
                         else
                         {
