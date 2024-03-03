@@ -266,9 +266,9 @@ function OpenTeamRosterModal(userid,teamname) {
                 playerNameDiv.setAttribute('class', 'custom-playername-small');
                 playerNameDiv.innerText = playerName + " (" + highScorerPlayers[i].position + ") " + highScorerPlayers[i].points + "pts"
                 
-                playerDiv.append(playerNameDiv);
-                playerDiv.prepend(playerImg);
-                highScorers[i].append(playerDiv);
+                highScorers[i].append(playerNameDiv);
+                highScorers[i].prepend(playerImg);
+                //highScorers[i].append(playerDiv);
             }
 
             let sortedPlayers = sortByPosition(roster.players);
