@@ -204,6 +204,7 @@ function loadMatchups(weekNumber) {
                             var highScorerDiv = document.createElement("div");
                             var weeklyHighScorer = createMatchupIconImg();
                             weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
+                            weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
 
                             matchupDiv.appendChild(weeklyHighScorer);
                         }
@@ -419,8 +420,9 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
             {
                 var highScorerImg = createMatchupIconImg();
                 highScorerImg.setAttribute('src', '../src/static/images/crown-icon.png');
-                highScorerImg.setAttribute('class', 'custom-highscorer-small');
+                highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
                 highScorerImg.setAttribute('style', 'padding-top: .5rem');
+                highScorerImg.setAttribute('title', 'Weekly high scorer');
 
                 rowTeam[0].append(highScorerImg);
             }
@@ -1635,7 +1637,6 @@ function createMatchupIconImg(){
 
     var img = document.createElement("img");
     img.setAttribute('class', "custom-matchup-icon-medium");
-    img.setAttribute('title', 'Weekly high scorer');
     img.setAttribute('style', 'cursor:help;');
 
     return img;
