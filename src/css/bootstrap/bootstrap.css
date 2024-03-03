@@ -10990,7 +10990,7 @@ ul.nav.nav-tabs {
     background: #537fab;
     display: block;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
   }
 
@@ -11002,6 +11002,7 @@ ul.nav.nav-tabs {
   .active {
     background-color: #537fab;
     color: whitesmoke;
+    text-align: center;
   }
 
 /* Custom Mobile responsive display */
