@@ -869,6 +869,7 @@ function highestScorerByPosition(rosterid) {
         }
 
     }
+
     teamQB.sort(function (a, b) {
         if (a.points > b.points) {
           return -1;
@@ -912,7 +913,7 @@ function highestScorerByPosition(rosterid) {
         ...teamWR[0],
         ...teamTE[0]
     }
-    
+    console.log(highScoringPlayers);
     return highScoringPlayers;
 
 }
@@ -1054,7 +1055,6 @@ function getRosterStats(rosterid) {
 
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
-    
 
     if(roster)
     {
