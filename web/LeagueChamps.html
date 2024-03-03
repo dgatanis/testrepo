@@ -36,7 +36,55 @@
           <a class="nav-link custom-nav" href="./PowerRankings.html">Power Rankings</a>
         </li>
       </ul>
+      <nav class="desktop-menu">
+          <!-- Desktop menu items go here -->
+      </nav>
+      <nav class="mobile-menu">
+        <button class="toggle-button" onclick="toggleMobileMenu()">Toggle Menu</button>
+      </nav>
       <h1>League Champs</h1>
-      <p id="myUsers"></p> 
+      <style>
+        /* Styles for desktop */
+        .desktop-menu {
+            display: flex;
+            /* Add other desktop styles */
+        }
+
+        /* Styles for mobile */
+        .mobile-menu {
+            display: none; /* Initially hide mobile menu */
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .desktop-menu {
+                display: none; /* Hide desktop menu on smaller screens */
+            }
+
+            .mobile-menu {
+                display: block; /* Show mobile menu on smaller screens */
+                /* Add other mobile styles */
+            }
+        }
+
+        /* Add this style for the toggle button in your CSS file */
+        .toggle-button {
+            display: none; /* Initially hide the button on larger screens */
+        }
+
+        /* Media query to show the button on smaller screens */
+        @media screen and (max-width: 768px) {
+            .toggle-button {
+                display: block;
+                /* Add other styles for the button */
+            }
+        }
+      </style>
+      <script>
+        function toggleMobileMenu() {
+            var mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('show-mobile-menu');
+        }
+    </script>
     </body>
   </html>
