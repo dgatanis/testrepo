@@ -812,7 +812,24 @@ function highestScorerByPosition(rosterid) {
     const rosterDataStorage = localStorage.getItem("RosterData");
     const rosterData = JSON.parse(rosterDataStorage); 
 
-    let roster = playerData.players.find(x => x.roster_id === parseInt(rosterid));
+    const roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
+    const weeksPlayed = matchupData[0].matchupWeeks.length;
+    const players = sortByPosition(roster.players);
+
+    for(let player of players)
+    {
+        let playerPoints = 0;
+        let playerid = player;
+        let thisPlayer = playerData.players.find(x => x.player_id === parseInt(playerid));
+
+        for(let i = 0; i < weeksPlayed; i++)
+        {
+            let points = getPlayerPointsForWeek(playerid,i,rosterid);
+            playerPoints += points;
+            console.log(playerPoints + " playerdetails: " + " playerid: " + playerid + " " + thisPlayer.firstname + thisPlayer.lastname); 
+        }
+        
+    }
 
 }
 
@@ -953,7 +970,8 @@ function getRosterStats(rosterid) {
 
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
-
+    highestScorerByPosition(rosterid);
+    
     if(roster)
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
@@ -1205,6 +1223,30 @@ function getTeamName(userid) {
     }
 
     return userName.toString();
+}
+
+function getPlayerPointsForWeek(playerid,week,rosterid) {
+
+    let matchups = matchupData[0].matchupWeeks[week];
+    let matchupsLength = Object.keys(matchups).length;
+    
+    for(let i =0; i<matchupsLength; i++)
+    {
+        let matchup = matchups[i];
+        
+        if(matchup.roster_id == rosterid)
+        {
+            let matchupPoints = matchup.players_points;
+            if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined)
+            {
+                return parseFloat(matchupPoints[playerid]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
 }
 
 function getHighScorerCount(week) {
