@@ -230,11 +230,12 @@ function OpenTeamRosterModal(userid,teamname) {
             const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
             const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
-
-            let qb = playerData.players.find(e => e.player_id === parseInt(rosterStats.QBpts.player_id));
-            let rb = playerData.players.find(e => e.player_id === parseInt(rosterStats.RBpts.player_id));
-            let wr = playerData.players.find(e => e.player_id === parseInt(rosterStats.WRpts.player_id));
-            let te = playerData.players.find(e => e.player_id === parseInt(rosterStats.TEpts.player_id));
+            let highScorerPlayers = [
+                rosterStats.QBpts,
+                rosterStats.RBpts,
+                rosterStats.WRpts,
+                rosterStats.TEpts
+            ];
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
@@ -243,15 +244,16 @@ function OpenTeamRosterModal(userid,teamname) {
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
 
-            //Used 4 because of how many positionpts are in the rosterStats
+            //length of highScorers and highScorerPlayers must match
             for(let i =0; i < highScorers.length; i++)
             {
-                var playerImg = createPlayerImage(rosterStats.QBpts.player_id);
-                var playerName = getFullPlayerName(rosterStats.QBpts.player_id);
+                let player = playerData.players.find(e => e.player_id === parseInt(highScorerPlayers[i].player_id));
+                var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
+                var playerName = getFullPlayerName(highScorerPlayers[i].player_id);
 
                 var playerDiv = document.createElement("div");
                 var playerNameDiv = document.createElement("div");
-                playerNameDiv.innerText = playerName;
+                playerNameDiv.innerText = playerName + " (" + highScorerPlayers[i].position + ") " + highScorerPlayers[i].points + "pts"
 
                 playerDiv.append(playerImg);
                 playerDiv.prepend(playerNameDiv);
@@ -860,6 +862,7 @@ function highestScorerByPosition(rosterid) {
         {        
             teamQB.push({
                 "player_id": playerid,
+                "position": thisPlayer.position,
                 "points" : playerPoints
             })
         }
@@ -867,6 +870,7 @@ function highestScorerByPosition(rosterid) {
         {        
             teamRB.push({
                 "player_id": playerid,
+                "position": thisPlayer.position,
                 "points" : playerPoints
             })
 
@@ -875,6 +879,7 @@ function highestScorerByPosition(rosterid) {
         {        
             teamWR.push({
                 "player_id": playerid,
+                "position": thisPlayer.position,
                 "points" : playerPoints
             })
 
@@ -883,6 +888,7 @@ function highestScorerByPosition(rosterid) {
         {        
             teamTE.push({
                 "player_id": playerid,
+                "position": thisPlayer.position,
                 "points" : playerPoints
             })
 
