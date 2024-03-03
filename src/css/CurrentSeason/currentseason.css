@@ -208,6 +208,10 @@
     font-size: small;
   }
 
+  .custom-roster-high-scorer {
+    display: inline-flex;
+  }
+
   .custom-playername-normal {
     display: inline;
     font-size: unset;
