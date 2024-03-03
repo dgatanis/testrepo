@@ -819,7 +819,6 @@ function highestScorerByPosition(rosterid) {
     const teamRB = [];
     const teamWR = [];
     const teamTE = [];
-    const highScoringPlayers = [];
 
     for(let player of players)
     {
@@ -906,13 +905,13 @@ function highestScorerByPosition(rosterid) {
         }
         return 0;
     });
-    
-    highScoringPlayers.push({
+
+    let highScoringPlayers = {
         ...teamQB[0],
         ...teamRB[0],
         ...teamWR[0],
         ...teamTE[0]
-    })
+    }
     return highScoringPlayers;
 
 }
