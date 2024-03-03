@@ -1617,7 +1617,7 @@ function createMatchupWeekHighScorerImg(){
     img.setAttribute('src', '../src/static/images/crown-icon.png');
     img.setAttribute('class', "custom-highscorer-medium");
     img.setAttribute('title', 'Weekly high scorer');
-    img.setAttribute('cursor', 'help');
+    img.setAttribute('style', 'cursor:help;');
 
     return img;
 }
