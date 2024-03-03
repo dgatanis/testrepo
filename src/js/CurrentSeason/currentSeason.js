@@ -868,6 +868,7 @@ function highestScorerByPosition(rosterid) {
 
     }
 
+    //Sort the arrays by highest scorer
     teamQB.sort(function (a, b) {
         if (a.points > b.points) {
           return -1;
@@ -905,11 +906,12 @@ function highestScorerByPosition(rosterid) {
         return 0;
     });
 
+    //Pull the topmost player at each position
     highScoringPlayers.push({ 
-        "QB": teamQB[0],
-        "RB": teamRB[0],
-        "WR": teamWR[0],
-        "TE": teamTE[0]
+        "QBpts": teamQB[0],
+        "RBpts": teamRB[0],
+        "WRpts": teamWR[0],
+        "TEpts": teamTE[0]
     }); 
 
     return highScoringPlayers;
