@@ -187,7 +187,7 @@ function loadMatchups(weekNumber) {
                             luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                             luckyImg.setAttribute('title', 'You lucky SOB');
 
-                            matchupDiv.appendChild(weeklyHighScorer);
+                            matchupDiv.appendChild(luckyImg);
                         }
 
                         matchupDiv.prepend(teamImage);
