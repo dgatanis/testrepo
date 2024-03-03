@@ -180,6 +180,16 @@ function loadMatchups(weekNumber) {
                             matchupDiv.appendChild(weeklyHighScorer);
                         }
 
+                        if(Number(matchup.points) < 100 )
+                        {
+                            var lucky = document.createElement("div");
+                            var luckyImg = createMatchupWeekHighScorerImg();
+                            luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
+                            luckyImg.setAttribute('title', 'You lucky SOB');
+
+                            matchupDiv.appendChild(weeklyHighScorer);
+                        }
+
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(playerDiv);
                         weekList.append(matchupDiv);
