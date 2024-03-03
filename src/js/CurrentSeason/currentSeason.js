@@ -41,7 +41,7 @@ async function loadConstants() {
 function setSeasonTitle(season) {
     var seasonTitle = document.getElementById('seasonTitle');
 
-    seasonTitle.innerText= "Welcome to the " + season + " Season of the Crush Cities Fantasy Football League";
+    seasonTitle.innerText= "Crush Cities FF " + season + " Season";
 }
 
 function loadSeasonRankings(leagueId) { 
