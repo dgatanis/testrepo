@@ -866,8 +866,16 @@ function highestScorerByPosition(rosterid) {
 
         for(let i = 0; i < weeksPlayed; i++)
         {
-            let points = getPlayerPointsForWeek(playerid,i,rosterid);
-            playerPoints += points;
+            let points = getPlayerPointsForWeek(playerid,i);
+
+            if(Number(points) > 0)
+            {
+                playerPoints += points;
+            }
+            else
+            {
+                playerPoints += 0;
+            }
         }
 
         //Add them to the corresponding array
@@ -959,12 +967,12 @@ function highestScorerByPosition(rosterid) {
 
 }
 
-function getPlayerPointsForWeek(playerid,week,rosterid) {
+function getPlayerPointsForWeek(playerid,week) {
 
     let matchups = matchupData[0].matchupWeeks[week];
     let matchupsLength = Object.keys(matchups).length;
     
-    //Iterate through each matchup and then return player points for the provided rosterid
+    //Iterate through each matchup and then return player points for the provided week
     for(let i =0; i<matchupsLength; i++)
     {
         let matchup = matchups[i];
