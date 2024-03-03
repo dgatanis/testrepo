@@ -1398,7 +1398,10 @@ function getRandomString() {
         "Yea we're all thinking the same thing",
         "*yawns*",
         "Be better",
-        "Jerseys aint cheap"
+        "Jerseys aint cheap",
+        "Tanking allegations ensuing",
+        "We can do better than this",
+        "*dry heaving*"
     ]
     var randomNumber = Math.floor(Math.random()*myArray.length);
 
