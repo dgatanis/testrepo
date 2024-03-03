@@ -10974,7 +10974,7 @@ ul.nav.nav-tabs {
     display: none;
   }
 
-  .mobilenav #myLinks {
+  .mobilenav #mobileLinks {
     display: none;
   }
 
@@ -10994,13 +10994,11 @@ ul.nav.nav-tabs {
     top: 0;
   }
 
-  /* Add a grey background color on mouse-over */
   .mobilenav a:hover {
     background-color: #537fab;
     color: whitesmoke;
   }
 
-  /* Style the active link (or home/logo) */
   .active {
     background-color: #537fab;
     color: whitesmoke;
