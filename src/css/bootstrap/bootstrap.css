@@ -10907,6 +10907,13 @@ a.custom-nav:hover {
   width: 3rem;
 }
 
+.custom-small-player-avatar {
+  max-width: 2rem;
+  border-radius: 5px;
+  margin-right: .5rem;
+  width: 2rem;
+}
+
 .modal-dialog {
   max-width: 800px;
 }

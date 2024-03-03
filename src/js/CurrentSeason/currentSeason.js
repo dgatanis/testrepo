@@ -230,6 +230,12 @@ function OpenTeamRosterModal(userid,teamname) {
             const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
             const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
+
+            for(let high of highScorers)
+            {
+
+            }
+
             let highScorerPlayers = [
                 rosterStats.QBpts,
                 rosterStats.RBpts,
@@ -253,10 +259,11 @@ function OpenTeamRosterModal(userid,teamname) {
 
                 var playerDiv = document.createElement("div");
                 var playerNameDiv = document.createElement("div");
+                playerNameDiv.setAttribute('class', 'custom-playername-small');
                 playerNameDiv.innerText = playerName + " (" + highScorerPlayers[i].position + ") " + highScorerPlayers[i].points + "pts"
-
-                playerDiv.append(playerImg);
-                playerDiv.prepend(playerNameDiv);
+                
+                playerDiv.append(playerNameDiv);
+                playerDiv.prepend(playerImg);
                 highScorers[i].append(playerDiv);
             }
 
