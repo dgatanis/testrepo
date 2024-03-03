@@ -162,7 +162,17 @@ function loadMatchups(weekNumber) {
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
-                            if(Number(matchup.points) < 120 )
+                            if(Number(matchup.points) - Number(winningTeam[1].points) <= 2)
+                            {
+                                var angelImg = document.createElement("div");
+                                var angelImg = createMatchupWeekHighScorerImg();
+                                angelImg.setAttribute('src','../src/static/images/angel-wings.png');
+                                angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
+                                
+                                matchupDiv.append(teamPoints);
+                                matchupDiv.appendChild(angelImg);
+                            }
+                            else if(Number(matchup.points) < 120 )
                             {
                                 var lucky = document.createElement("div");
                                 var luckyImg = createMatchupWeekHighScorerImg();
