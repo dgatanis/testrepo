@@ -974,10 +974,6 @@ function getPlayerPointsForWeek(playerid,week,rosterid) {
             var round = Math.round;
             return round(matchupPoints[playerid], 0);
         }
-        else
-        {
-            return 0;
-        }
         
     }
 }
