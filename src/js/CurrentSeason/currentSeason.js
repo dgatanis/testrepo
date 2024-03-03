@@ -231,9 +231,12 @@ function OpenTeamRosterModal(userid,teamname) {
             const age = document.getElementById("rosterAge");
             const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
 
-            for(let high of highScorers)
+            for(let currentHighScorer of highScorers)
             {
-
+                // Remove all children elements
+                while (currentHighScorer.firstChild) {
+                    currentHighScorer.removeChild(currentHighScorer.firstChild);
+                }
             }
 
             let highScorerPlayers = [
@@ -255,6 +258,7 @@ function OpenTeamRosterModal(userid,teamname) {
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(highScorerPlayers[i].player_id));
                 var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
+                playerImg.setAttribute('class', 'custom-small-player-avatar');
                 var playerName = getFullPlayerName(highScorerPlayers[i].player_id);
 
                 var playerDiv = document.createElement("div");
