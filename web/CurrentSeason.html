@@ -9,12 +9,13 @@
       <link rel="stylesheet" href="../src/css/CurrentSeason/currentseason.css">
       <script src="../src/js/CurrentSeason/currentSeason.js" defer></script>
       <script src="../src/js/bootstrap.bundle.min.js"></script>
+      <script src="../src/js/Mobile/mobile.js"></script>
     </head>
     <title>
       Current Season
     </title>
     <body>
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs desktopnav">
         <li class="nav-item">
           <a class="nav-link custom-nav" href="../index.html">Home</a>
         </li>
@@ -32,6 +33,18 @@
           <a class="nav-link custom-nav" href="./PowerRankings.html">Power Rankings</a>
         </li>
       </ul>
+      <div class="mobilenav">
+        <a href="#" class="active">Current Season</a>
+        <div id="mobileLinks">
+          <a href="../index.html">Home</a>
+          <a href="./LeagueChamps.html">League Champs</a>
+          <a href="./Stats.html">Stats</a>
+          <a href="./PowerRankings.html">Power Rankings</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+          <font>☰</font>
+        </a>
+      </div>
       <div class="modal fade" id="RosterModal" tabindex="-1" aria-labelledby="Team" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">

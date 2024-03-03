@@ -7,12 +7,13 @@
       <script type="module" src="../src/js/util/browserData.js"></script>
       <script src="../src/js/bootstrap.js"></script>
       <script src="../src/js/bootstrap.bundle.js"></script>
+      <script src="../src/js/Mobile/mobile.js"></script>
     </head>
     <title>
       Power Rankings
     </title>
     <body>
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs desktopnav">
         <li class="nav-item">
           <a class="nav-link custom-nav" href="../index.html">Home</a>
         </li>
@@ -30,7 +31,18 @@
           <a class="nav-link active custom-nav" href="#">Power Rankings</a>
         </li>
       </ul>
-
+      <div class="mobilenav">
+        <a href="#" class="active">Power Rankings</a>
+        <div id="mobileLinks">
+          <a href="../index.html">Home</a>
+          <a href="./CurrentSeason.html">Current Season</a>
+          <a href="./LeagueChamps.html">League Champs</a>
+          <a href="./Stats.html">Stats</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+          <font>☰</font>
+        </a>
+      </div>
       <!--<iframe src="https://docs.google.com/document/d/1-F8PLzzsXvpenU-8BtnQYWgY4lt_4Xvumd_DOESRu8o/edit?embedded=true" 
       width="640" height="718" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
       -->

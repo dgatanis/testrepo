@@ -17,7 +17,7 @@
         //getTeamNamesForLeague("1046222222567784448");
         //getOwnerAvatarForLeague("1046222222567784448");
       </script>
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs desktopnav">
         <li class="nav-item">
           <a class="nav-link custom-nav active" href="#">Home</a>
         </li>
@@ -35,6 +35,18 @@
           <a class="nav-link custom-nav" href="web/PowerRankings.html">Power Rankings</a>
         </li>
       </ul>
+      <div class="mobilenav">
+        <a href="#" class="active">Home</a>
+        <div id="mobileLinks">
+          <a href="web/CurrentSeason.html">Current Season</a>
+          <a href="web/LeagueChamps.html">League Champs</a>
+          <a href="web/PowerRankings.html">Power Rankings</a>
+          <a href="web/Stats.html">Stats</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+          <font>☰</font>
+        </a>
+      </div>
       <h1>Crush Cities FF</h1>
       <p id="myUsers"></p> 
     </body>

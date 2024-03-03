@@ -8,7 +8,7 @@
       <script src="../src/js/CurrentSeason/currentSeason.js"></script>
       <script src="../src/js/bootstrap.js"></script>
       <script src="../src/js/bootstrap.bundle.js"></script>
-  
+      <script src="../src/js/Mobile/mobile.js"></script>
     </head>
     <title>
       Stats
@@ -18,7 +18,7 @@
         getTeamNamesForLeague("1046222222567784448");
         getOwnerAvatarForLeague("1046222222567784448");
       </script>
-      <ul class="nav nav-tabs">
+      <ul class="nav nav-tabs desktopnav">
         <li class="nav-item">
           <a class="nav-link custom-nav" href="../index.html">Home</a>
         </li>
@@ -36,6 +36,18 @@
           <a class="nav-link custom-nav" href="./PowerRankings.html">Power Rankings</a>
         </li>
       </ul>
+      <div class="mobilenav">
+        <a href="#" class="active">Stats</a>
+        <div id="mobileLinks">
+          <a href="../index.html">Home</a>
+          <a href="./CurrentSeason.html">Current Season</a>
+          <a href="./LeagueChamps.html">League Champs</a>
+          <a href="./PowerRankings.html">Power Rankings</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+          <font>☰</font>
+        </a>
+      </div>
       <div class="modal fade" id="RosterModal" tabindex="-1" aria-labelledby="Team" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
