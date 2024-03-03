@@ -905,13 +905,16 @@ function highestScorerByPosition(rosterid) {
         }
         return 0;
     });
-
-    let highScoringPlayers = {
-        ...teamQB[0],
-        ...teamRB[0],
-        ...teamWR[0],
-        ...teamWR[0]
-    }
+    console.log(teamQB[0]);
+    console.log(teamRB[0]);
+    console.log(teamWR[0]);
+    console.log(teamTE[0]);
+    // let highScoringPlayers = {
+    //     ...teamQB[0],
+    //     ...teamRB[0],
+    //     ...teamWR[0],
+    //     ...teamTE[0]
+    // }
     return highScoringPlayers;
 
 }
