@@ -968,20 +968,17 @@ function getPlayerPointsForWeek(playerid,week,rosterid) {
     for(let i =0; i<matchupsLength; i++)
     {
         let matchup = matchups[i];
-        
-        if(matchup.roster_id == rosterid)
+        let matchupPoints = matchup.players_points;
+        if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
         {
-            let matchupPoints = matchup.players_points;
-            if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
-            {
-                var round = Math.round;
-                return round(matchupPoints[playerid], 0);
-            }
-            else
-            {
-                return 0;
-            }
+            var round = Math.round;
+            return round(matchupPoints[playerid], 0);
         }
+        else
+        {
+            return 0;
+        }
+        
     }
 }
 
