@@ -2944,8 +2944,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #537fab;
-  border-color: #537fab;
+  background-color: #768ea5;
+  border-color: #768ea5;
 }
 .btn-primary:hover {
   color: #fff;
@@ -10919,7 +10919,7 @@ a.custom-nav:hover {
 
 
 ul.nav.nav-tabs {
-  background: #537fab;
+  background: #768ea5;
 }
 
 .custom-section-group-l {
@@ -10943,7 +10943,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, #537fab, #537fabfc, #537fabd4);
+  background: linear-gradient(180deg, #768ea5, #768ea5, #768ea5);
   height: 4rem;
   padding-top: 1rem;
 }
@@ -10954,7 +10954,7 @@ ul.nav.nav-tabs {
 }
 
 .accordion-button:hover {
-  background-color: #537fab;
+  background-color: #768ea5;
 }
 
 .accordion-button:not(.collapsed) {
@@ -10986,7 +10986,7 @@ ul.nav.nav-tabs {
   }
 
   .mobilenav a.icon {
-    background: #537fab;
+    background: #768ea5;
     display: block;
     position: absolute;
     left: 0;
@@ -10994,12 +10994,12 @@ ul.nav.nav-tabs {
   }
 
   .mobilenav a:hover {
-    background-color: #537fab;
+    background-color: #768ea5;
     color: whitesmoke;
   }
 
   .active {
-    background-color: #537fab;
+    background-color: #768ea5;
     color: whitesmoke;
     text-align: center;
   }

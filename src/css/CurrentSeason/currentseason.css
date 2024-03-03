@@ -33,7 +33,7 @@
   }
 
   .custom-roster-breakdown {
-    background-color: #537fab;
+    background-color: #768ea5;
     color: whitesmoke;
   }
 
@@ -157,7 +157,7 @@
   }
 
   div#currentWeek:hover {
-    background: #537fab;
+    background: #768ea5; 
     color: whitesmoke;
     transition: all .5s ease;
     cursor: help;
