@@ -7425,7 +7425,7 @@ textarea.form-control-lg {
 }
 
 .bg-body {
-  background-color: #c36300 !important;
+  background-color: #b76e36 !important;
 }
 
 .bg-white {
@@ -10943,7 +10943,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, #768ea5, #768ea5, #768ea5);
+  background: linear-gradient(180deg, #768ea5, #768ea5, #768ea5e8);
   height: 4rem;
   padding-top: 1rem;
 }
@@ -10959,7 +10959,7 @@ ul.nav.nav-tabs {
 
 .accordion-button:not(.collapsed) {
   color: white;
-  background-color: #c36300;
+  background-color: #b76e36; 
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 
