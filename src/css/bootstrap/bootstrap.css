@@ -10963,6 +10963,49 @@ ul.nav.nav-tabs {
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 
+  /* Style the mobile navigation menu */
+  .mobilenav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+  }
+
+  .mobilenav {
+    display: none;
+  }
+
+  .mobilenav #myLinks {
+    display: none;
+  }
+
+  .mobilenav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  .mobilenav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /* Add a grey background color on mouse-over */
+  .mobilenav a:hover {
+    background-color: #537fab;
+    color: whitesmoke;
+  }
+
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: #537fab;
+    color: whitesmoke;
+  }
+
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 26.563rem) {
