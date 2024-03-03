@@ -819,6 +819,7 @@ function highestScorerByPosition(rosterid) {
     const teamRB = [];
     const teamWR = [];
     const teamTE = [];
+    let highScoringPlayers = [];
 
     for(let player of players)
     {
@@ -832,11 +833,11 @@ function highestScorerByPosition(rosterid) {
             playerPoints += points;
         }
 
+        //Add them to the corresponding array
         if(thisPlayer.position == "QB")
         {        
             teamQB.push({
                 "player_id": playerid,
-                "position": thisPlayer.position,
                 "points" : playerPoints
             })
         }
@@ -844,7 +845,6 @@ function highestScorerByPosition(rosterid) {
         {        
             teamRB.push({
                 "player_id": playerid,
-                "position": thisPlayer.position,
                 "points" : playerPoints
             })
 
@@ -853,7 +853,6 @@ function highestScorerByPosition(rosterid) {
         {        
             teamWR.push({
                 "player_id": playerid,
-                "position": thisPlayer.position,
                 "points" : playerPoints
             })
 
@@ -862,7 +861,6 @@ function highestScorerByPosition(rosterid) {
         {        
             teamTE.push({
                 "player_id": playerid,
-                "position": thisPlayer.position,
                 "points" : playerPoints
             })
 
@@ -907,15 +905,39 @@ function highestScorerByPosition(rosterid) {
         return 0;
     });
 
-    let highScoringPlayers = {
-        ...teamQB[0],
-        ...teamRB[0],
-        ...teamWR[0],
-        ...teamTE[0]
-    }
-    console.log(highScoringPlayers);
+    highScoringPlayers.push({ 
+        "QB": teamQB[0],
+        "RB": teamRB[0],
+        "WR": teamWR[0],
+        "TE": teamTE[0]
+    }); 
+
     return highScoringPlayers;
 
+}
+
+function getPlayerPointsForWeek(playerid,week,rosterid) {
+
+    let matchups = matchupData[0].matchupWeeks[week];
+    let matchupsLength = Object.keys(matchups).length;
+    
+    for(let i =0; i<matchupsLength; i++)
+    {
+        let matchup = matchups[i];
+        
+        if(matchup.roster_id == rosterid)
+        {
+            let matchupPoints = matchup.players_points;
+            if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
+            {
+                return parseFloat(matchupPoints[playerid]).toFixed(2);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
 }
 
 function getFullPlayerName(playerid) {
@@ -1058,15 +1080,16 @@ function getRosterStats(rosterid) {
 
     if(roster)
     {
-        var test = highestScorerByPosition(rosterid);
+        var highScorerPlayers = highestScorerByPosition(rosterid);
         var playerPositionCount = calcPlayerPositions(roster.players);
         var playerAge = calcPlayerAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
-        console.log(test);
+
         let rosterStats = {
             ...playerPositionCount[0],
             ...playerAge[0],
-            ...teamRecord[0]
+            ...teamRecord[0],
+            ...highScorerPlayers[0]
         };
 
         return rosterStats;
@@ -1310,29 +1333,7 @@ function getTeamName(userid) {
     return userName.toString();
 }
 
-function getPlayerPointsForWeek(playerid,week,rosterid) {
 
-    let matchups = matchupData[0].matchupWeeks[week];
-    let matchupsLength = Object.keys(matchups).length;
-    
-    for(let i =0; i<matchupsLength; i++)
-    {
-        let matchup = matchups[i];
-        
-        if(matchup.roster_id == rosterid)
-        {
-            let matchupPoints = matchup.players_points;
-            if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
-            {
-                return parseFloat(matchupPoints[playerid]);
-            }
-            else
-            {
-                return 0;
-            }
-        }
-    }
-}
 
 function getHighScorerCount(week) {
 
