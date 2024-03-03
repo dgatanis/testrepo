@@ -964,6 +964,7 @@ function getPlayerPointsForWeek(playerid,week,rosterid) {
     let matchups = matchupData[0].matchupWeeks[week];
     let matchupsLength = Object.keys(matchups).length;
     
+    //Iterate through each matchup and then return player points for the provided rosterid
     for(let i =0; i<matchupsLength; i++)
     {
         let matchup = matchups[i];
@@ -973,7 +974,8 @@ function getPlayerPointsForWeek(playerid,week,rosterid) {
             let matchupPoints = matchup.players_points;
             if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
             {
-                return parseFloat(matchupPoints[playerid]);
+                var round = Math.round;
+                return round(matchupPoints[playerid], 0);
             }
             else
             {
