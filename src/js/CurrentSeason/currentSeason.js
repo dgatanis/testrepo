@@ -162,6 +162,8 @@ function loadMatchups(weekNumber) {
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
+                            teamPoints.setAttribute('color', '#006f00');
+                            
                             if(Number(matchup.points) - Number(winningTeam[1].points) <= 2)
                             {
                                 var angelImg = document.createElement("div");
@@ -183,7 +185,7 @@ function loadMatchups(weekNumber) {
                                 matchupDiv.appendChild(luckyImg);
                             }
                             
-                            teamPoints.setAttribute('color', '#006f00');
+                            
                         }
                         else
                         {
