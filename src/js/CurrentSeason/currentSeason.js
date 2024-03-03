@@ -172,7 +172,7 @@ function loadMatchups(weekNumber) {
                                 matchupDiv.append(teamPoints);
                                 matchupDiv.appendChild(angelImg);
                             }
-                            else if(Number(matchup.points) < 120 )
+                            else if(Number(matchup.points) < 90)
                             {
                                 var lucky = document.createElement("div");
                                 var luckyImg = createMatchupWeekHighScorerImg();
