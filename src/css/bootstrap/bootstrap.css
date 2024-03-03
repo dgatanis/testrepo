@@ -2009,7 +2009,7 @@ progress {
   --bs-table-active-color: #000;
   --bs-table-hover-bg: #d1d2d4;
   --bs-table-hover-color: #000;
-  color: #000;
+  color: #333333;
   border-color: #cbccce;
   transition: all 1s linear;
 }
