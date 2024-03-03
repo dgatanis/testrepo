@@ -56,9 +56,11 @@ function loadSeasonRankings(leagueId) {
         {
             let user = userData.find(x => x.user_id === team.owner_id);
             var ownerImage = createOwnerAvatarImage(user.user_id);
+            ownerImage.setAttribute('title', getRandomString());
             var teamNameDisplay = getTeamName(user.user_id);
             var teamName = document.createElement("div");
             teamName.setAttribute('class', 'custom-teamname-normal');
+
             if(powerRank <=2 )
             {
                 teamName.innerText=teamNameDisplay + " - z"
@@ -74,14 +76,12 @@ function loadSeasonRankings(leagueId) {
             else
             {
                 var lastPlaceImg = document.createElement("img");
-                lastPlaceImg.setAttribute('src', '../src/static/images/lastPlace2.png');
+                lastPlaceImg.setAttribute('src', '../src/static/images/lastPlace.png');
                 lastPlaceImg.setAttribute('style', "max-width:1.5rem; margin-right:0.5rem;");
                 lastPlaceImg.setAttribute('title', 'This guy STINKS');
                 teamName.innerText=teamNameDisplay + " - ";
                 teamName.append(lastPlaceImg);
             }
-            
-            ownerImage.setAttribute('title', getRandomString());
 
             var powerRankingElementId = "PowerRanking_"+powerRank;
             var rosterButtonId = "GetRosterButton_"+powerRank;
