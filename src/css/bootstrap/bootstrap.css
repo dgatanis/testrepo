@@ -10974,5 +10974,12 @@ ul.nav.nav-tabs {
     height: 2rem;
     padding: unset;
   }
+
+  .mobilenav {
+    display: block;
+  }
   
+  .desktopnav {
+    display: none;
+  }
 }
