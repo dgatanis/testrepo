@@ -63,11 +63,11 @@ function loadSeasonRankings(leagueId) {
 
             if(powerRank <=2 )
             {
-                teamName.innerText=teamNameDisplay + " *z"
+                teamName.innerText=teamNameDisplay + " - z"
             }
             else if(powerRank > 2 && powerRank <=6)
             {
-                teamName.innerText=teamNameDisplay + " *x"
+                teamName.innerText=teamNameDisplay + " - x"
             }
             else if(powerRank < 10)
             {
