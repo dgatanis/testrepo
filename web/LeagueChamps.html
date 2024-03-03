@@ -36,55 +36,73 @@
           <a class="nav-link custom-nav" href="./PowerRankings.html">Power Rankings</a>
         </li>
       </ul>
-      <nav class="desktop-menu">
-          <!-- Desktop menu items go here -->
-      </nav>
-      <nav class="mobile-menu">
-        <button class="toggle-button" onclick="toggleMobileMenu()">Toggle Menu</button>
-      </nav>
+      <!-- Top Navigation Menu -->
+      <div class="topnav">
+        <a href="#home" class="active">Logo</a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars">☰</i>
+        </a>
+      </div>
       <h1>League Champs</h1>
       <style>
-        /* Styles for desktop */
-        .desktop-menu {
-            display: flex;
-            /* Add other desktop styles */
+        /* Style the navigation menu */
+        .topnav {
+          overflow: hidden;
+          background-color: #333;
+          position: relative;
         }
 
-        /* Styles for mobile */
-        .mobile-menu {
-            display: none; /* Initially hide mobile menu */
+        /* Hide the links inside the navigation menu (except for logo/home) */
+        .topnav #myLinks {
+          display: none;
         }
 
-        /* Media query for smaller screens */
-        @media screen and (max-width: 768px) {
-            .desktop-menu {
-                display: none; /* Hide desktop menu on smaller screens */
-            }
-
-            .mobile-menu {
-                display: block; /* Show mobile menu on smaller screens */
-                /* Add other mobile styles */
-            }
+        /* Style navigation menu links */
+        .topnav a {
+          color: white;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+          display: block;
         }
 
-        /* Add this style for the toggle button in your CSS file */
-        .toggle-button {
-            display: none; /* Initially hide the button on larger screens */
+        /* Style the hamburger menu */
+        .topnav a.icon {
+          background: black;
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
         }
 
-        /* Media query to show the button on smaller screens */
-        @media screen and (max-width: 768px) {
-            .toggle-button {
-                display: block;
-                /* Add other styles for the button */
-            }
+        /* Add a grey background color on mouse-over */
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+
+        /* Style the active link (or home/logo) */
+        .active {
+          background-color: #04AA6D;
+          color: white;
         }
       </style>
       <script>
-        function toggleMobileMenu() {
-            var mobileMenu = document.querySelector('.mobile-menu');
-            mobileMenu.classList.toggle('show-mobile-menu');
+        function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
         }
+      }
     </script>
     </body>
   </html>
