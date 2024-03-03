@@ -74,8 +74,8 @@ function loadSeasonRankings(leagueId) {
             else
             {
                 var lastPlaceImg = document.createElement("img");
-                lastPlaceImg.setAttribute('src', '../src/static/images/lastPlace.png');
-                lastPlaceImg.setAttribute('class', "custom-small-avatar");
+                lastPlaceImg.setAttribute('src', '../src/static/images/lastPlace2.png');
+                lastPlaceImg.setAttribute('style', "max-width:1.5rem; margin-right:0.5rem;");
                 teamName.innerText=teamNameDisplay + " - ";
                 teamName.append(lastPlaceImg);
             }
