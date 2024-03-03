@@ -4,6 +4,7 @@
 
   table#PowerRankings {
     float: left;
+    color: #333333;
   }
   
   table#RosterTable {
@@ -14,6 +15,7 @@
     background-color: #e2e3e5;
     transition: all .5s ease;
     text-align: center !important;
+    color: #333333;
   }
 
   .custom-highscorer-medium {
@@ -151,6 +153,7 @@
     clear: left;
     max-width: 100%;
     text-align: center;
+    color: #333333;
   }
 
   div#currentWeek:hover {
