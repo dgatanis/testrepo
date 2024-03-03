@@ -23,6 +23,7 @@
     margin-bottom: 1rem;
     border-radius: 5px;
     margin-left: .5rem;
+    cursor: help;
   }
 
   .custom-matchup-icon-small {
@@ -30,6 +31,7 @@
     margin-bottom: 1rem;
     border-radius: 5px;
     margin-left: .5rem;
+    cursor: help;
   }
 
   .custom-roster-breakdown {

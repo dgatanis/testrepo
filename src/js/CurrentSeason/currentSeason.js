@@ -1637,7 +1637,6 @@ function createMatchupIconImg(){
 
     var img = document.createElement("img");
     img.setAttribute('class', "custom-matchup-icon-medium");
-    img.setAttribute('style', 'cursor:help;');
 
     return img;
 }
