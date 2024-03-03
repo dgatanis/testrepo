@@ -168,7 +168,8 @@ function loadMatchups(weekNumber) {
                                 var luckyImg = createMatchupWeekHighScorerImg();
                                 luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
-    
+                                
+                                matchupDiv.append(teamPoints);
                                 matchupDiv.appendChild(luckyImg);
                             }
                             
@@ -177,9 +178,10 @@ function loadMatchups(weekNumber) {
                         else
                         {
                             teamPoints.setAttribute('color', '#cb1919');
+                            matchupDiv.append(teamPoints);
                         }
 
-                        matchupDiv.append(teamPoints);
+                        
 
                         if(roster.roster_id == highScoringWeekRoster)
                         {
