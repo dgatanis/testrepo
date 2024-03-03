@@ -868,47 +868,45 @@ function highestScorerByPosition(rosterid) {
 
         }
 
-
-        teamQB.sort(function (a, b) {
-            if (a.points > b.points) {
-              return -1;
-            }
-            if (a.wins < b.wins && a.fpts < b.fpts) {
-              return 1;
-            }
-            return 0;
-        });
-        teamRB.sort(function (a, b) {
-            if (a.points > b.points) {
-              return -1;
-            }
-            if (a.wins < b.wins && a.fpts < b.fpts) {
-              return 1;
-            }
-            return 0;
-        });
-        teamWR.sort(function (a, b) {
-            if (a.points > b.points) {
-              return -1;
-            }
-            if (a.wins < b.wins && a.fpts < b.fpts) {
-              return 1;
-            }
-            return 0;
-        });
-        teamTE.sort(function (a, b) {
-            if (a.points > b.points) {
-              return -1;
-            }
-            if (a.wins < b.wins && a.fpts < b.fpts) {
-              return 1;
-            }
-            return 0;
-        });
-
-
-        return teamQB[0], teamRB[0], teamWR[0], teamTE[0]
     }
+    teamQB.sort(function (a, b) {
+        if (a.points > b.points) {
+          return -1;
+        }
+        if (a.wins < b.wins && a.fpts < b.fpts) {
+          return 1;
+        }
+        return 0;
+    });
+    teamRB.sort(function (a, b) {
+        if (a.points > b.points) {
+          return -1;
+        }
+        if (a.wins < b.wins && a.fpts < b.fpts) {
+          return 1;
+        }
+        return 0;
+    });
+    teamWR.sort(function (a, b) {
+        if (a.points > b.points) {
+          return -1;
+        }
+        if (a.wins < b.wins && a.fpts < b.fpts) {
+          return 1;
+        }
+        return 0;
+    });
+    teamTE.sort(function (a, b) {
+        if (a.points > b.points) {
+          return -1;
+        }
+        if (a.wins < b.wins && a.fpts < b.fpts) {
+          return 1;
+        }
+        return 0;
+    });
+
+    return teamQB[0], teamRB[0], teamWR[0], teamTE[0];
 
 }
 
