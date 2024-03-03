@@ -229,6 +229,9 @@ function OpenTeamRosterModal(userid,teamname) {
             const playerCount = document.getElementById("rosterPlayerCount");
             const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
+            const highScorers = document.getElementById("rosterHighScorers");
+            let qb = playerData.players.find(e => e.player_id === parseInt(rosterStats.QBpts.player_id));
+            let rb = playerData.players.find(e => e.player_id === parseInt(rosterStats.RBpts.player_id));
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
@@ -236,6 +239,8 @@ function OpenTeamRosterModal(userid,teamname) {
             leaguePositionsLink.title = "Toggle Starters";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
+            highScorers.innerText = qb.firstname + " " + rosterStats.QBpts.points + " " + rb.firstname + " " + rosterStats.RBpts.points + " ";
+
             let sortedPlayers = sortByPosition(roster.players);
 
             for(let players of sortedPlayers)
