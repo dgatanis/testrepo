@@ -229,9 +229,12 @@ function OpenTeamRosterModal(userid,teamname) {
             const playerCount = document.getElementById("rosterPlayerCount");
             const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
-            const highScorers = document.getElementById("rosterHighScorers");
+            const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
+
             let qb = playerData.players.find(e => e.player_id === parseInt(rosterStats.QBpts.player_id));
             let rb = playerData.players.find(e => e.player_id === parseInt(rosterStats.RBpts.player_id));
+            let wr = playerData.players.find(e => e.player_id === parseInt(rosterStats.WRpts.player_id));
+            let te = playerData.players.find(e => e.player_id === parseInt(rosterStats.TEpts.player_id));
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
@@ -239,7 +242,21 @@ function OpenTeamRosterModal(userid,teamname) {
             leaguePositionsLink.title = "Toggle Starters";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
-            highScorers.innerText = qb.firstname + " " + rosterStats.QBpts.points + " " + rb.firstname + " " + rosterStats.RBpts.points + " ";
+
+            //Used 4 because of how many positionpts are in the rosterStats
+            for(let i =0; i < highScorers.length; i++)
+            {
+                var playerImg = createPlayerImage(rosterStats.QBpts.player_id);
+                var playerName = getFullPlayerName(rosterStats.QBpts.player_id);
+
+                var playerDiv = document.createElement("div");
+                var playerNameDiv = document.createElement("div");
+                playerNameDiv.innerText = playerName;
+
+                playerDiv.append(playerImg);
+                playerDiv.prepend(playerNameDiv);
+                highScorers[i].append(playerDiv);
+            }
 
             let sortedPlayers = sortByPosition(roster.players);
 
