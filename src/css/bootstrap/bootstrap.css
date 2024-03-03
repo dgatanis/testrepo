@@ -11003,6 +11003,11 @@ ul.nav.nav-tabs {
     color: whitesmoke;
     text-align: center;
   }
+  
+  .btn-primary:active {
+    background-color: #475664;
+    border-color: #768ea5;
+  }
 
 /* Custom Mobile responsive display */
 
