@@ -873,7 +873,7 @@ function highestScorerByPosition(rosterid) {
         if (a.points > b.points) {
           return -1;
         }
-        if (a.wins < b.wins && a.fpts < b.fpts) {
+        if (a.points < b.points) {
           return 1;
         }
         return 0;
@@ -882,7 +882,7 @@ function highestScorerByPosition(rosterid) {
         if (a.points > b.points) {
           return -1;
         }
-        if (a.wins < b.wins && a.fpts < b.fpts) {
+        if (a.points < b.points) {
           return 1;
         }
         return 0;
@@ -891,7 +891,7 @@ function highestScorerByPosition(rosterid) {
         if (a.points > b.points) {
           return -1;
         }
-        if (a.wins < b.wins && a.fpts < b.fpts) {
+        if (a.points < b.points) {
           return 1;
         }
         return 0;
@@ -900,7 +900,7 @@ function highestScorerByPosition(rosterid) {
         if (a.points > b.points) {
           return -1;
         }
-        if (a.wins < b.wins && a.fpts < b.fpts) {
+        if (a.points < b.points) {
           return 1;
         }
         return 0;
@@ -910,7 +910,7 @@ function highestScorerByPosition(rosterid) {
         ...teamQB[0],
         ...teamRB[0],
         ...teamWR[0],
-        ...teamTE[0]
+        ...teamWR[0]
     }
     return highScoringPlayers;
 
@@ -1061,13 +1061,13 @@ function getRosterStats(rosterid) {
         var playerAge = calcPlayerAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
 
-        let rosterStatsArray = {
+        let rosterStats = {
             ...playerPositionCount[0],
             ...playerAge[0],
             ...teamRecord[0]
         };
 
-        return rosterStatsArray;
+        return rosterStats;
     }
 }
 
