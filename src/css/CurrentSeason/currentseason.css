@@ -210,6 +210,7 @@
 
   .custom-roster-high-scorer {
     display: inline-flex;
+    padding: .3rem;
   }
 
   .custom-playername-normal {

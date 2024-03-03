@@ -257,18 +257,18 @@ function OpenTeamRosterModal(userid,teamname) {
             for(let i =0; i < highScorers.length; i++)
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(highScorerPlayers[i].player_id));
+
                 var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
                 playerImg.setAttribute('class', 'custom-small-player-avatar');
+                
                 var playerName = getFullPlayerName(highScorerPlayers[i].player_id);
-
-                var playerDiv = document.createElement("div");
                 var playerNameDiv = document.createElement("div");
                 playerNameDiv.setAttribute('class', 'custom-playername-small');
+                playerNameDiv.setAttribute('style', 'margin-top:.2rem;');
                 playerNameDiv.innerText = playerName + " (" + highScorerPlayers[i].position + ") " + highScorerPlayers[i].points + "pts"
                 
                 highScorers[i].append(playerNameDiv);
                 highScorers[i].prepend(playerImg);
-                //highScorers[i].append(playerDiv);
             }
 
             let sortedPlayers = sortByPosition(roster.players);
