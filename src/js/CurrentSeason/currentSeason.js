@@ -76,6 +76,7 @@ function loadSeasonRankings(leagueId) {
                 var lastPlaceImg = document.createElement("img");
                 lastPlaceImg.setAttribute('src', '../src/static/images/lastPlace2.png');
                 lastPlaceImg.setAttribute('style', "max-width:1.5rem; margin-right:0.5rem;");
+                lastPlaceImg.setAttribute('title', 'This guy STINKS');
                 teamName.innerText=teamNameDisplay + " - ";
                 teamName.append(lastPlaceImg);
             }
