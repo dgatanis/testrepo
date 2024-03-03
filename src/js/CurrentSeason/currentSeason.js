@@ -67,9 +67,17 @@ function loadSeasonRankings(leagueId) {
             {
                 teamName.innerText=teamNameDisplay + " - *"
             }
-            else
+            else if(powerRank < 10)
             {
                 teamName.innerText=teamNameDisplay;
+            }
+            else
+            {
+                var lastPlaceImg = document.createElement("img");
+                lastPlaceImg.setAttribute('src', '../src/static/images/lastPlace.png');
+                lastPlaceImg.setAttribute('class', "custom-small-avatar");
+                teamName.innerText=teamNameDisplay + " - ";
+                teamName.append(lastPlaceImg);
             }
             
             ownerImage.setAttribute('title', getRandomString());
