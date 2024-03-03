@@ -1403,8 +1403,8 @@ function getRandomString() {
         "We can do better than this",
         "*dry heaving*"
     ]
-    var randomNumber = floor(Math.random()*myArray.length);
-    randomNumber = floor(Math.random()*myArray.length);
+    var randomNumber = Math.floor(Math.random()*myArray.length);
+    randomNumber = Math.floor(Math.random()*myArray.length);
 
     return myArray[randomNumber];
 }
