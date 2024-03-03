@@ -162,6 +162,15 @@ function loadMatchups(weekNumber) {
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
+                            if(Number(matchup.points) < 120 )
+                            {
+                                var lucky = document.createElement("div");
+                                var luckyImg = createMatchupWeekHighScorerImg();
+                                luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
+                                luckyImg.setAttribute('title', 'You lucky SOB');
+    
+                                matchupDiv.appendChild(luckyImg);
+                            }
                             
                             teamPoints.setAttribute('color', '#006f00');
                         }
@@ -180,15 +189,7 @@ function loadMatchups(weekNumber) {
                             matchupDiv.appendChild(weeklyHighScorer);
                         }
 
-                        if(Number(matchup.points) < 100 )
-                        {
-                            var lucky = document.createElement("div");
-                            var luckyImg = createMatchupWeekHighScorerImg();
-                            luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
-                            luckyImg.setAttribute('title', 'You lucky SOB');
 
-                            matchupDiv.appendChild(luckyImg);
-                        }
 
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(playerDiv);
@@ -1616,6 +1617,7 @@ function createMatchupWeekHighScorerImg(){
     img.setAttribute('src', '../src/static/images/crown-icon.png');
     img.setAttribute('class', "custom-highscorer-medium");
     img.setAttribute('title', 'Weekly high scorer');
+    img.setAttribute('cursor', 'help');
 
     return img;
 }
