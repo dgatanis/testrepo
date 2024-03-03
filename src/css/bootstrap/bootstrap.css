@@ -10976,9 +10976,9 @@ ul.nav.nav-tabs {
   }
 
   .mobilenav {
-    display: block;
+    display: block !important;
   }
-  
+
   .desktopnav {
     display: none;
   }
