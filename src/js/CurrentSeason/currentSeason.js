@@ -224,6 +224,7 @@ function OpenTeamRosterModal(userid,teamname) {
             var teamImage = createOwnerAvatarImage(roster.owner_id);
             modalRosterTeamName.prepend(teamImage);
 
+            //Sets the roster stats on the roster modal
             var rosterStats = getRosterStats(roster.roster_id);
             const record = document.getElementById("rosterRecord");
             const playerCount = document.getElementById("rosterPlayerCount");
@@ -273,6 +274,7 @@ function OpenTeamRosterModal(userid,teamname) {
 
             let sortedPlayers = sortByPosition(roster.players);
 
+            //Go through each player from this roster
             for(let players of sortedPlayers)
             {
                 if(localStorage.getItem("PlayerData"))
@@ -945,7 +947,7 @@ function highestScorerByPosition(rosterid) {
         return 0;
     });
 
-    //Pull the topmost player at each position
+    //Pull the top-most player at each position
     highScoringPlayers.push({ 
         "QBpts": teamQB[0],
         "RBpts": teamRB[0],
@@ -971,7 +973,7 @@ function getPlayerPointsForWeek(playerid,week,rosterid) {
             let matchupPoints = matchup.players_points;
             if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
             {
-                return parseFloat(matchupPoints[playerid]).toFixed(2);
+                return parseFloat(matchupPoints[playerid]);
             }
             else
             {
