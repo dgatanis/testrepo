@@ -1323,7 +1323,7 @@ function getPlayerPointsForWeek(playerid,week,rosterid) {
         if(matchup.roster_id == rosterid)
         {
             let matchupPoints = matchup.players_points;
-            if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined)
+            if(matchupPoints[playerid] != null && matchupPoints[playerid] != undefined && matchupPoints[playerid] != NaN)
             {
                 return parseFloat(matchupPoints[playerid]);
             }
