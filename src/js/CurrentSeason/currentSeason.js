@@ -148,7 +148,8 @@ function loadMatchups(weekNumber) {
 
                         var matchupDiv = document.createElement("div");
                         var playerDiv = document.createElement("div");
-                        var teamNameSpan = document.createElement("span")
+                        var teamNameSpan = document.createElement("span");
+                        var teamScoreDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
                         var teamPoints = document.createElement("font");
@@ -172,9 +173,10 @@ function loadMatchups(weekNumber) {
                                 var angelImg = createMatchupIconImg();
                                 angelImg.setAttribute('src','../src/static/images/angel-wings.png');
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
-                                
-                                teamNameSpan.append(teamPoints);
-                                teamNameSpan.append(angelImg);
+
+                                teamScoreDiv.append(teamNameSpan);
+                                teamScoreDiv.append(teamPoints);
+                                teamScoreDiv.append(angelImg);
                             }
                             else if(Number(matchup.points) < 90)
                             {
@@ -183,11 +185,13 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
+                                teamScoreDiv.append(teamNameSpan);
                                 teamNameSpan.append(teamPoints);
                                 teamNameSpan.append(luckyImg);
                             }
                             else
                             {
+                                teamScoreDiv.append(teamNameSpan);
                                 teamNameSpan.append(teamPoints);
                             }
                             
@@ -196,6 +200,7 @@ function loadMatchups(weekNumber) {
                         else
                         {
                             teamPoints.setAttribute('color', '#cb1919');
+                            teamScoreDiv.append(teamNameSpan);
                             teamNameSpan.append(teamPoints);
                         }
 
@@ -208,6 +213,7 @@ function loadMatchups(weekNumber) {
                             weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
                             weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
 
+                            teamScoreDiv.append(teamNameSpan);
                             teamNameSpan.append(weeklyHighScorer);
                         }
 
