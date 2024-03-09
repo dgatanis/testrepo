@@ -148,10 +148,10 @@ function loadMatchups(weekNumber) {
 
                         var matchupDiv = document.createElement("div");
                         var playerDiv = document.createElement("div");
-                        var teamNameDiv = document.createElement("div")
+                        var teamNameSpan = document.createElement("span")
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
-                        var teamPoints = document.createElement('font');
+                        var teamPoints = document.createElement('span');
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
@@ -159,7 +159,7 @@ function loadMatchups(weekNumber) {
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
                         teamPoints.innerText = matchup.points + " pts";
-                        
+                        teamNameSpan.innerText= userName + ": ";
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
@@ -173,8 +173,8 @@ function loadMatchups(weekNumber) {
                                 angelImg.setAttribute('src','../src/static/images/angel-wings.png');
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
                                 
-                                teamNameDiv.append(teamPoints);
-                                teamNameDiv.append(angelImg);
+                                teamNameSpan.append(teamPoints);
+                                teamNameSpan.append(angelImg);
                             }
                             else if(Number(matchup.points) < 90)
                             {
@@ -183,12 +183,12 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
-                                teamNameDiv.append(teamPoints);
-                                teamNameDiv.append(luckyImg);
+                                teamNameSpan.append(teamPoints);
+                                teamNameSpan.append(luckyImg);
                             }
                             else
                             {
-                                teamNameDiv.append(teamPoints);
+                                teamNameSpan.append(teamPoints);
                             }
                             
                             
@@ -196,10 +196,10 @@ function loadMatchups(weekNumber) {
                         else
                         {
                             teamPoints.setAttribute('color', '#cb1919');
-                            teamNameDiv.append(teamPoints);
+                            teamNameSpan.append(teamPoints);
                         }
 
-                        teamNameDiv.innerText= userName + ": ";
+                        
 
                         if(roster.roster_id == highScoringWeekRoster)
                         {
@@ -208,13 +208,13 @@ function loadMatchups(weekNumber) {
                             weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
                             weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
 
-                            teamNameDiv.append(weeklyHighScorer);
+                            teamNameSpan.append(weeklyHighScorer);
                         }
 
 
                         //Add all the elements 
                         matchupDiv.prepend(teamImage);
-                        matchupDiv.append(teamNameDiv);
+                        matchupDiv.append(teamNameSpan);
                         matchupDiv.append(playerDiv);
                         weekList.append(matchupDiv);
                     }
