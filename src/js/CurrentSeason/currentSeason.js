@@ -148,6 +148,7 @@ function loadMatchups(weekNumber) {
 
                         var matchupDiv = document.createElement("div");
                         var playerDiv = document.createElement("div");
+                        var teamNameDiv = document.createElement("div")
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
                         var teamPoints = document.createElement('font');
@@ -158,7 +159,7 @@ function loadMatchups(weekNumber) {
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
                         teamPoints.innerText = matchup.points + " pts";
-                        matchupDiv.innerText= userName + ": "
+                        teamNameDiv.innerText= userName + ": ";
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
@@ -171,7 +172,7 @@ function loadMatchups(weekNumber) {
                                 angelImg.setAttribute('src','../src/static/images/angel-wings.png');
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
                                 
-                                matchupDiv.append(teamPoints);
+                                teamNameDiv.append(teamPoints);
                                 matchupDiv.appendChild(angelImg);
                             }
                             else if(Number(matchup.points) < 90)
@@ -181,12 +182,12 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
-                                matchupDiv.append(teamPoints);
+                                teamNameDiv.append(teamPoints);
                                 matchupDiv.appendChild(luckyImg);
                             }
                             else
                             {
-                                matchupDiv.append(teamPoints);
+                                teamNameDiv.append(teamPoints);
                             }
                             
                             
@@ -194,7 +195,7 @@ function loadMatchups(weekNumber) {
                         else
                         {
                             teamPoints.setAttribute('color', '#cb1919');
-                            matchupDiv.append(teamPoints);
+                            teamNameDiv.append(teamPoints);
                         }
 
                         
@@ -210,8 +211,9 @@ function loadMatchups(weekNumber) {
                         }
 
 
-
+                        
                         matchupDiv.prepend(teamImage);
+                        matchupDiv.append(teamNameDiv);
                         matchupDiv.append(playerDiv);
                         weekList.append(matchupDiv);
                     }
