@@ -174,7 +174,7 @@ function loadMatchups(weekNumber) {
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
                                 
                                 teamNameDiv.append(teamPoints);
-                                teamNameDiv.appendChild(angelImg);
+                                teamNameDiv.append(angelImg);
                             }
                             else if(Number(matchup.points) < 90)
                             {
@@ -184,7 +184,7 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
                                 teamNameDiv.append(teamPoints);
-                                teamNameDiv.appendChild(luckyImg);
+                                teamNameDiv.append(luckyImg);
                             }
                             else
                             {
@@ -208,7 +208,7 @@ function loadMatchups(weekNumber) {
                             weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
                             weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
 
-                            matchupDiv.appendChild(weeklyHighScorer);
+                            teamNameDiv.append(weeklyHighScorer);
                         }
 
 
