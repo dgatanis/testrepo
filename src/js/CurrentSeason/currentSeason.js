@@ -214,13 +214,13 @@ function loadMatchups(weekNumber) {
                             weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
 
                             teamScoreDiv.append(teamNameSpan);
-                            teamNameSpan.append(weeklyHighScorer);
+                            teamScoreDiv.append(weeklyHighScorer);
                         }
 
 
                         //Add all the elements 
                         matchupDiv.prepend(teamImage);
-                        matchupDiv.append(teamNameSpan);
+                        matchupDiv.append(teamScoreDiv);
                         matchupDiv.append(playerDiv);
                         weekList.append(matchupDiv);
                     }
