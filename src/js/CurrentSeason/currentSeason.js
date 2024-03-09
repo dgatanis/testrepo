@@ -186,13 +186,13 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
                                 teamScoreDiv.append(teamNameSpan);
-                                teamNameSpan.append(teamPoints);
-                                teamNameSpan.append(luckyImg);
+                                teamScoreDiv.append(teamPoints);
+                                teamScoreDiv.append(luckyImg);
                             }
                             else
                             {
                                 teamScoreDiv.append(teamNameSpan);
-                                teamNameSpan.append(teamPoints);
+                                teamScoreDiv.append(teamPoints);
                             }
                             
                             
@@ -201,7 +201,7 @@ function loadMatchups(weekNumber) {
                         {
                             teamPoints.setAttribute('color', '#cb1919');
                             teamScoreDiv.append(teamNameSpan);
-                            teamNameSpan.append(teamPoints);
+                            teamScoreDiv.append(teamPoints);
                         }
 
                         
