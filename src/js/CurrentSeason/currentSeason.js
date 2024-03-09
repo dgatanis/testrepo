@@ -174,7 +174,7 @@ function loadMatchups(weekNumber) {
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
                                 
                                 teamNameDiv.append(teamPoints);
-                                teamNameDiv.append(angelImg);
+                                teamNameDiv.appendChild(angelImg);
                             }
                             else if(Number(matchup.points) < 90)
                             {
@@ -184,7 +184,7 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
                                 teamNameDiv.append(teamPoints);
-                                teamNameDiv.append(luckyImg);
+                                teamNameDiv.appendChild(luckyImg);
                             }
                             else
                             {
