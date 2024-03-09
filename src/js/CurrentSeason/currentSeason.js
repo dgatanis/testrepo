@@ -151,7 +151,7 @@ function loadMatchups(weekNumber) {
                         var teamNameSpan = document.createElement("span")
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
-                        var teamPoints = document.createElement('span');
+                        var teamPoints = document.createElement("font");
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
