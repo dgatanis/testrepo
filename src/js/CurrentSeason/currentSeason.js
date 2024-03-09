@@ -121,7 +121,7 @@ function loadMatchups(weekNumber) {
             const matchupsLength = Object.keys(matchups).length;
 
             const highScoreTeam = getRosterHighScorerWeek(matchups);
-            const totalMatchups = matchupsLength / 2;
+            const totalMatchups = matchupsLength / 2; //Every matchup should have two rosters
 
             var weekList = document.getElementById("matchupWeekList_" + weekNumber);
             var highScoringWeekRoster = highScoreTeam.roster_id;
@@ -165,6 +165,7 @@ function loadMatchups(weekNumber) {
                         {
                             teamPoints.setAttribute('color', '#006f00');
 
+                            //Ifs used to set different images/colors
                             if(Number(matchup.points) - Number(winningTeam[1].points) <= 2)
                             {
                                 var angelImg = document.createElement("div");
@@ -173,7 +174,7 @@ function loadMatchups(weekNumber) {
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
                                 
                                 teamNameDiv.append(teamPoints);
-                                matchupDiv.appendChild(angelImg);
+                                teamNameDiv.append(angelImg);
                             }
                             else if(Number(matchup.points) < 90)
                             {
@@ -183,7 +184,7 @@ function loadMatchups(weekNumber) {
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
                                 teamNameDiv.append(teamPoints);
-                                matchupDiv.appendChild(luckyImg);
+                                teamNameDiv.append(luckyImg);
                             }
                             else
                             {
@@ -211,7 +212,7 @@ function loadMatchups(weekNumber) {
                         }
 
 
-                        
+                        //Add all the elements 
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(teamNameDiv);
                         matchupDiv.append(playerDiv);
