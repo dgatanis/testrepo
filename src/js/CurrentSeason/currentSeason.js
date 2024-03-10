@@ -196,6 +196,15 @@ function loadMatchups(weekNumber) {
                                 teamScoreDiv.append(teamPoints);
                             }
                             
+                            if(roster.roster_id == highScoringWeekRoster)
+                            {
+                                var highScorerDiv = document.createElement("div");
+                                var weeklyHighScorer = createMatchupIconImg();
+                                weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
+                                weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
+    
+                                teamScoreDiv.append(weeklyHighScorer);
+                            }
                             
                         }
                         else
@@ -207,16 +216,7 @@ function loadMatchups(weekNumber) {
 
                         
 
-                        if(roster.roster_id == highScoringWeekRoster)
-                        {
-                            var highScorerDiv = document.createElement("div");
-                            var weeklyHighScorer = createMatchupIconImg();
-                            weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
-                            weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
 
-                            teamScoreDiv.append(teamNameSpan);
-                            teamScoreDiv.append(weeklyHighScorer);
-                        }
 
 
                         //Add all the elements 
