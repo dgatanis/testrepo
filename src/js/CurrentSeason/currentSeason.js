@@ -161,6 +161,7 @@ function loadMatchups(weekNumber) {
                         matchupDiv.setAttribute("class", "custom-matchup-row");
                         teamPoints.innerText = matchup.points + " pts";
                         teamNameSpan.innerText= userName + ": ";
+                        teamScoreDiv.setAttribute('class', 'custom-team-score');
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {

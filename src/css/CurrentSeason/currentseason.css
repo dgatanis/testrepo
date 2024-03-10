@@ -10,6 +10,10 @@
   table#RosterTable {
     float: right;
   }
+
+  .custom-team-score {
+    margin-top:.8rem;
+  }
   
   .custom-matchup-week {
     background-color: #e2e3e5;
