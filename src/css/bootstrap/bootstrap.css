@@ -11028,4 +11028,8 @@ ul.nav.nav-tabs {
   .desktopnav {
     display: none;
   }
+
+  #mobileLinks{
+    text-align: center;
+  }
 }

@@ -344,6 +344,9 @@
 
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
+    .custom-medium-avatar{
+      max-width: 2rem;
+    }
     .custom-bankroll {
       margin-right: 3rem;
     }
