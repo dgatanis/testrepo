@@ -336,6 +336,7 @@
     .custom-matchup-player {
       float: right;
       clear: left;
+      animation: blinker 3s ease-in-out infinite;
     }
 
     .custom-medium-avatar {
