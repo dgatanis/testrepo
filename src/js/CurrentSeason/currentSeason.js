@@ -166,7 +166,7 @@ function loadMatchups(weekNumber) {
                     
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
-                            teamPoints.setAttribute('color', '#006f00');
+                            teamPoints.setAttribute('color', '#00a700');
 
                             //Ifs used to set different images/colors
                             if(Number(matchup.points) - Number(winningTeam[1].points) <= 2)
