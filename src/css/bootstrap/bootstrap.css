@@ -10865,6 +10865,12 @@ textarea.form-control-lg {
   font-style: normal;
 }
 
+@font-face {
+  font-family: F5;
+  src: url("../../static/font/PressStart2P-Regular.ttf") format('truetype');
+  font-style: normal;
+}
+
 .custom-nav{
   color: white;
 }
