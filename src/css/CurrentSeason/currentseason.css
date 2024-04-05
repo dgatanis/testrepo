@@ -379,7 +379,7 @@
       font-family: 'F5';
       font-size: .8rem;
       font-weight: 600;
-      word-spacing: initial;
+      word-spacing: -.05rem;
     }
 
     .custom-matchups {
