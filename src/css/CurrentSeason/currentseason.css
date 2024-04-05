@@ -348,6 +348,14 @@
     .custom-bankroll {
       margin-right: 5rem;
     }
+
+    .custom-matchup-row {
+      font-size: 1rem;
+    }
+
+    .custom-pts {
+      font-size: 1.2rem;
+    }
   }
 
   /*Normal Laptop display styling*/
