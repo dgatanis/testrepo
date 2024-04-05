@@ -364,7 +364,6 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
     try
     {
         let thisWeek = parseInt(week);
-        let negDues = -Math.abs(dues);
         let highScorers = getHighScorerCount(thisWeek);
         let rosterBankrolls =[];
 
@@ -376,9 +375,9 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 
             if(highScoreCount)
             {
-            weeksWon = highScoreCount;
+                weeksWon = highScoreCount;
             }
-            totalBankRoll = negDues + (weeksWon * parseInt(weeklyWinnerPayout));
+            totalBankRoll = weeksWon * parseInt(weeklyWinnerPayout);
 
             rosterBankrolls.push({
                 "roster_id": roster.roster_id,
