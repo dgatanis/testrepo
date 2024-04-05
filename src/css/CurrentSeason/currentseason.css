@@ -12,7 +12,7 @@
   }
 
   .custom-team-score {
-    margin-top:.8rem;
+    margin-top:.5rem;
   }
   
   .custom-matchup-week {
@@ -375,6 +375,11 @@
       padding-top: 1rem;
       padding-bottom: 3rem;
     }
+
+    .custom-matchup-icon-medium {
+      max-width: 1rem;
+    }
+
     .custom-rankings {
       width: 100%;
       padding-bottom: 1rem;
