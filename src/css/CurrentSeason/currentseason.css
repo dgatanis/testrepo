@@ -355,15 +355,12 @@
 
     .custom-matchup-row {
       font-size: 1rem;
-<<<<<<< HEAD
       font-weight: 400;
-=======
-      font-weight: 600;
->>>>>>> bd7a11a4b8d50bf6ccbbf958f03db3c3fb4278f0
     }
 
     .custom-pts {
       font-size: 1.2rem;
+      animation: blinker 3s cubic-bezier(0.48, -0.05, 1, 0.07) infinite;
     }
   }
 

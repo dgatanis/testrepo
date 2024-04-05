@@ -10840,6 +10840,12 @@ textarea.form-control-lg {
 
 /*****Custom css below*****/
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 @font-face {
   font-family: F1;
   src: url("../../static/font/Lato-Black.ttf") format('truetype');
