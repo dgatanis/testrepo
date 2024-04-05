@@ -10867,7 +10867,8 @@ textarea.form-control-lg {
 
 @font-face {
   font-family: F5;
-  src: url("../../static/font/8bitOperatorPlus8-Bold.ttf") format('truetype');
+  src: url("../../static/font/8bitOperatorPlus8-Regular.ttf") format('truetype');
+  font-weight: 600;
 }
 
 .custom-nav{
