@@ -92,6 +92,7 @@
 
   .custom-pts {
     font-family: F5;
+    font-size: 1rem;
   }
   
   .custom-stats-card-body {
@@ -378,10 +379,6 @@
       font-family: 'F5';
       font-size: .8rem;
       font-weight: 600;
-    }
-
-    .custom-pts {
-      font-size: 1rem;
     }
 
     .custom-matchups {
