@@ -86,6 +86,8 @@
     word-spacing: .15rem;
     font-size: 1.2rem;
     font-weight: 200;
+    background: #2a2a2a;
+    color: white;
   }
   
   .custom-matchup-player {
@@ -353,7 +355,11 @@
 
     .custom-matchup-row {
       font-size: 1rem;
+<<<<<<< HEAD
+      font-weight: 400;
+=======
       font-weight: 600;
+>>>>>>> bd7a11a4b8d50bf6ccbbf958f03db3c3fb4278f0
     }
 
     .custom-pts {
