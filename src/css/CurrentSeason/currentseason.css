@@ -81,11 +81,16 @@
   
   .custom-matchup-row {
     padding: .5rem;
+    font-family: F5;
   }
   
   .custom-matchup-player {
     float: right;
     padding: 10px;
+  }
+
+  .custom-pts {
+    font-family: F5;
   }
   
   .custom-stats-card-body {
@@ -367,6 +372,17 @@
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .custom-matchup-row {
+      font-family: 'F5';
+      font-size: x-small;
+      font-weight: 600;
+    }
+
+    .custom-pts {
+      font-size: .5rem;
+    }
+
     .custom-matchups {
       clear: left;
       float: left;

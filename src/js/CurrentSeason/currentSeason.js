@@ -160,6 +160,7 @@ function loadMatchups(weekNumber) {
                         matchupDiv.id = "rosterid_" + matchup.roster_id;
                         matchupDiv.setAttribute("class", "custom-matchup-row");
                         teamPoints.innerText = matchup.points + " pts";
+                        teamPoints.setAttribute('class', 'custom-pts');
                         teamNameSpan.innerText= userName + ": ";
                         teamScoreDiv.setAttribute('class', 'custom-team-score');
                     
