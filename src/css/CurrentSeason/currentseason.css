@@ -82,6 +82,7 @@
   .custom-matchup-row {
     padding: .5rem;
     font-family: F5;
+    word-spacing: .15rem
   }
   
   .custom-matchup-player {
@@ -376,7 +377,7 @@
     .custom-matchup-row {
       font-family: 'F5';
       font-size: .8rem;
-      font-weight: 800;
+      font-weight: 600;
     }
 
     .custom-pts {
