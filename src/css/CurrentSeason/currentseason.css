@@ -368,6 +368,10 @@
       margin-right: 3rem;
     }
 
+    .custom-matchup-icon-medium{
+      max-width: 1.5rem;
+    }
+
     .custom-carousel {
       width: 30rem;
     }
