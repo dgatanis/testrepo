@@ -359,6 +359,11 @@
     width: 120px;
   }
 
+  .custom-nomatchup {
+    color: white;
+    font-family: F5;
+  }
+
   .custom-team-record {
     font-size: x-small;
     color: transparent;

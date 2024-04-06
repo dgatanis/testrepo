@@ -1639,7 +1639,7 @@ function createMatchupListElement(weekNumber) {
     firstListItem.setAttribute('style', '')
 
     var noMatchups = document.createElement("div");
-    noMatchups.setAttribute("class", "custom-block-display");
+    noMatchups.setAttribute("class", "custom-block-display custom-nomatchup");
     noMatchups.setAttribute("id", "nomatchups_"+weekNumber);
     noMatchups.innerText = "Check back when this week has started...";    
 
