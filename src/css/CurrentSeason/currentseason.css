@@ -406,6 +406,7 @@
     }
     .custom-bankroll {
       margin-right: 3rem;
+      width: 25rem;
     }
 
     .custom-matchup-icon-medium{
@@ -414,6 +415,7 @@
 
     .custom-carousel {
       width: 30rem;
+      float: right;
     }
 
     .custom-playoffs-bracket {
