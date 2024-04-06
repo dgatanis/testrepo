@@ -86,7 +86,7 @@ function loadSeasonRankings(leagueId) {
             var rosterStats = getRosterStats(roster.roster_id);
             var teamRecord = document.createElement("div");
             teamRecord.setAttribute('class', 'custom-standings-record');
-            teamRecord.innerText = "("+rosterStats.wins + " - " + rosterStats.losses + " - " + rosterStats.losses + ")";
+            teamRecord.innerText = "("+rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.losses + ")";
             var powerRankingElementId = "PowerRanking_"+powerRank;
             var rosterButtonId = "GetRosterButton_"+powerRank;
             var powerRanking = document.getElementById(powerRankingElementId);
