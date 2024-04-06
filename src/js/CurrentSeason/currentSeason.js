@@ -82,7 +82,9 @@ function loadSeasonRankings(leagueId) {
                 teamName.innerText=teamNameDisplay + " ";
                 teamName.append(lastPlaceImg);
             }
-
+            let roster = rosterData.find(x => x.owner_id === team.owner_id);
+            var rosterStats = getRosterStats(roster.roster_id);
+            console.log(rosterStats.toString());
             var powerRankingElementId = "PowerRanking_"+powerRank;
             var rosterButtonId = "GetRosterButton_"+powerRank;
             var powerRanking = document.getElementById(powerRankingElementId);

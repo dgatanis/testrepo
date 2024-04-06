@@ -11,6 +11,12 @@
     float: right;
   }
 
+  .custom-standings-record {
+    font-size: x-small;
+    width: fit-content;
+    margin-left: .7rem;
+}
+
   .custom-team-score {
     margin-top:.5rem;
     display: inline;
@@ -430,6 +436,10 @@
     .custom-matchup-list-item {
       font-size: x-large;
     }
+
+    .custom-standings-record {
+      margin-left: unset;
+  }
   }
 
   /*Large Mobile display styling*/
