@@ -51,7 +51,7 @@
   }
   
   .custom-matchup-list {
-    background-color: #b9b9b95e;
+    background-color: #00000096;
     border-radius: 8px;
     padding: 10px;
     text-align: justify;
@@ -60,6 +60,8 @@
   .custom-matchup-list-item {
     background-color:#ffffff00;
     text-align: center;
+    font-family: F5;
+    font-size: xx-large;
   }
   
   .custom-rankings {
@@ -390,11 +392,18 @@
     .custom-date-transaction {
       margin-left: 7rem;
     }
+
+    .custom-matchup-list-item {
+      font-size: x-large;
+    }
   }
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
 
+    .custom-matchup-list-item {
+      font-size: large;
+    }
     .custom-pts {
       font-family: F5;
       font-size: 1rem;
