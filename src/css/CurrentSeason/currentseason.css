@@ -353,11 +353,6 @@
     width: 120px;
   }
 
-  .final .team {
-    background-color: #ffd700; /* Change background color for final game */
-    font-weight: bold;
-  }
-
   .custom-team-record {
     font-size: x-small;
     color: transparent;
@@ -391,6 +386,7 @@
 
     .custom-bankroll {
       margin-right: 5rem;
+      width: 20rem;
     }
 
     .custom-matchup-row {
