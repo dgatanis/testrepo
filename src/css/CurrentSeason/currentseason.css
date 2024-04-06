@@ -325,6 +325,39 @@
     }
   }
 
+  .playoff-bracket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .round {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+  }
+
+  .team {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    width: 120px;
+  }
+
+  .final .team {
+    background-color: #ffd700; /* Change background color for final game */
+    font-weight: bold;
+  }
+
   .custom-team-record {
     font-size: x-small;
     color: transparent;
