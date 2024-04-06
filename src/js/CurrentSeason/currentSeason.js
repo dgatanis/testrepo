@@ -84,7 +84,9 @@ function loadSeasonRankings(leagueId) {
             }
             let roster = rosterData.find(x => x.owner_id === team.owner_id);
             var rosterStats = getRosterStats(roster.roster_id);
-            console.log(rosterStats.toString());
+            var teamRecord = document.createElement("div");
+            teamRecord.setAttribute('class', 'custom-standings-record');
+            teamRecord.innerText = "("+rosterStats.wins + " - " + rosterStats.losses + " - " + rosterStats.losses + ")";
             var powerRankingElementId = "PowerRanking_"+powerRank;
             var rosterButtonId = "GetRosterButton_"+powerRank;
             var powerRanking = document.getElementById(powerRankingElementId);
@@ -92,6 +94,7 @@ function loadSeasonRankings(leagueId) {
             
             powerRanking.append(ownerImage);
             powerRanking.append(teamName);
+            powerRanking.append(teamRecord);
             
             rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamNameDisplay + "')");
 
