@@ -375,6 +375,10 @@
     font-size: x-small;
   }
 
+  .list-group-item{
+    border-color: #878787;
+  }
+
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
     .custom-matchup-player {
