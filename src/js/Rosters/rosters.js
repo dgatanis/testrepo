@@ -66,11 +66,11 @@ function loadSortedRosters() {
             let IRPlayers = roster.reserves;
 
             //starters
-            for(let players of starterSortedPlayers)
+            for(let starter of starterSortedPlayers)
             {
                 if(localStorage.getItem("PlayerData"))
                 {
-                    let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+                    let player = playerData.players.find(e => e.player_id === parseInt(starter.player_id));
 
 
                     if(player)
@@ -96,11 +96,11 @@ function loadSortedRosters() {
             }
 
             //bench
-            for(let players of allSortedPlayers)
+            for(let bench of allSortedPlayers)
             {
                 if(localStorage.getItem("PlayerData"))
                 {
-                    let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+                    let player = playerData.players.find(e => e.player_id === parseInt(bench.player_id));
 
                     if(player)
                     {
@@ -124,11 +124,11 @@ function loadSortedRosters() {
             }
 
             //taxi
-            for(let players of taxiSortedPlayers)
+            for(let taxi of taxiSortedPlayers)
             {
                 if(localStorage.getItem("PlayerData"))
                 {
-                    let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+                    let player = playerData.players.find(e => e.player_id === parseInt(taxi.player_id));
 
 
                     if(player)
