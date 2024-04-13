@@ -41,7 +41,7 @@ async function loadConstants() {
 function loadSortedRosters() {
 
     //var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
-    var rosterTable = document.querySelector('#taxiTeam10');
+    var rosterTable = document.querySelector('#taxiTable10');
     var tablebody = rosterTable.childNodes[3];
     var rosterBody = document.getElementById("ModalRosterBody");
     const leaguePositionList = getLeaguePositions();
