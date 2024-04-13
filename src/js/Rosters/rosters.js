@@ -82,9 +82,6 @@ function loadSortedRosters() {
                     nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
                     nameOfPlayer.prepend(playerimg);
                     tr.appendChild(nameOfPlayer);
-                    var yrsExp = document.createElement("td");
-                    yrsExp.innerText=player.age;
-                    tr.appendChild(yrsExp);
                     tablebody.append(tr);
                 }
             }
