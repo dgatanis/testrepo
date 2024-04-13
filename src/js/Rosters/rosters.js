@@ -97,7 +97,7 @@ function loadSortedRosters() {
             //bench
             for(let bench of allSortedPlayers)
             {
-                if(!bench.player_id.toString().contains(roster.starters.toString()))
+                if(!roster.starters.includes(bench.player_id))
                 {
                     if(localStorage.getItem("PlayerData"))
                     {
