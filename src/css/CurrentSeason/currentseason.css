@@ -124,6 +124,10 @@
     padding: .2rem;
   }
 
+  .custom-footer-links {
+    display: block;
+  }
+
   .custom-card {
     background: linear-gradient(87deg, transparent, #b76e36 , #b76e36 ,transparent);
     color: whitesmoke;
@@ -455,6 +459,10 @@
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .custom-footer-links{
+      display: none;
+    }
 
     .custom-matchup-list-item {
       font-size: large;
