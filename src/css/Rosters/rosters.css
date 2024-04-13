@@ -1,5 +1,5 @@
 .custom-team-roster {
-    width: 20%;
+    width: 22%;
     clear: inline-end;
     float: left;
     margin-right: 5rem;
@@ -18,12 +18,22 @@
       float: left;
     }
 
+    .custom-team-roster {
+        width: 35%;
+    }
+
   }
 
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
     .custom-medium-avatar{
       max-width: 2rem;
+    }
+
+    .custom-team-roster {
+        width: 35%;
+        margin-right: 2.5rem;
+        margin-left: 2.5rem;
     }
   }
 
