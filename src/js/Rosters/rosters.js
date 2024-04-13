@@ -53,7 +53,7 @@ function loadSortedRosters() {
     for(let roster of teams) 
     {
         var starterTable = document.querySelector('#starterTable'+roster.roster_id);
-        var starters = rosterTable.childNodes[3];
+        var starters = starterTable.childNodes[3];
         var benchTable = document.querySelector('#benchTable'+roster.roster_id);
         var bench = benchTable.childNodes[3];
         var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
