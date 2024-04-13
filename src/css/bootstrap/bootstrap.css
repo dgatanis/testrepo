@@ -10887,6 +10887,12 @@ textarea.form-control-lg {
   src: url("../../static/font/ArcadeClassic.ttf") format('truetype');
 }
 
+.custom-body {
+  margin: 1rem;
+  padding: 2rem 2rem;
+  clear: inline-end;
+}
+
 .custom-nav{
   color: white;
 }
