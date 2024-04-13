@@ -61,7 +61,6 @@ function loadSortedRosters() {
             //modalRosterTeamName.prepend(teamImage);
 
             let allSortedPlayers = sortByPosition(roster.players);
-            let taxiSortedPlayers = sortByPosition(roster.taxi);
             let starterSortedPlayers = sortByPosition(roster.starters);
             let IRPlayers = roster.reserves;
 
@@ -124,35 +123,39 @@ function loadSortedRosters() {
             }
 
             //taxi
-            for(let taxi of taxiSortedPlayers)
+            if(roster.taxi)
             {
-                if(localStorage.getItem("PlayerData"))
+                let taxiSortedPlayers = sortByPosition(roster.taxi);
+
+                for(let taxi of taxiSortedPlayers)
                 {
-                    let player = playerData.players.find(e => e.player_id === parseInt(taxi.player_id));
-
-
-                    if(player)
+                    if(localStorage.getItem("PlayerData"))
                     {
-                        let playerName = player.firstname + " " + player.lastname;
-                        let playerTeam = player.team;
-                        var playerimg = createPlayerImage(player.player_id);
-                        var tr = document.createElement("tr");
-                        var th = document.createElement("th");
-                        th.innerText=player.position;
-                        th.setAttribute('scope', 'row');
-                        tr.setAttribute('class', 'custom-shown-row')
-                        tr.setAttribute('data-playerid', player.player_id);
-                        tr.appendChild(th);
-                        var nameOfPlayer = document.createElement("td");
-                        nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
-                        nameOfPlayer.prepend(playerimg);
-                        tr.appendChild(nameOfPlayer);
-                        taxi.append(tr);
-                    }
-                }
+                        let player = playerData.players.find(e => e.player_id === parseInt(taxi.player_id));
 
+
+                        if(player)
+                        {
+                            let playerName = player.firstname + " " + player.lastname;
+                            let playerTeam = player.team;
+                            var playerimg = createPlayerImage(player.player_id);
+                            var tr = document.createElement("tr");
+                            var th = document.createElement("th");
+                            th.innerText=player.position;
+                            th.setAttribute('scope', 'row');
+                            tr.setAttribute('class', 'custom-shown-row')
+                            tr.setAttribute('data-playerid', player.player_id);
+                            tr.appendChild(th);
+                            var nameOfPlayer = document.createElement("td");
+                            nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                            nameOfPlayer.prepend(playerimg);
+                            tr.appendChild(nameOfPlayer);
+                            taxi.append(tr);
+                        }
+                    }
+
+                }
             }
-            return; 
         }
     }
     catch(error)
