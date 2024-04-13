@@ -47,7 +47,7 @@ function loadSortedRosters() {
 
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);
-
+        debugger;
         //Loop through each roster of team and display player data for selected team
         for(let roster of teams) 
         {
@@ -190,8 +190,7 @@ function getRosterStats(rosterid) {
         let rosterStats = {
             ...playerPositionCount[0],
             ...playerAge[0],
-            ...teamRecord[0],
-            ...highScorerPlayers[0]
+            ...teamRecord[0]
         };
 
         return rosterStats;
