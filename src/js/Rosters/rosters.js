@@ -41,8 +41,7 @@ async function loadConstants() {
 function loadSortedRosters() {
 
     try{
-        var rosterBody = document.getElementById("ModalRosterBody");
-        const leaguePositionList = getLeaguePositions();
+        //const leaguePositionList = getLeaguePositions();
 
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);
@@ -50,7 +49,8 @@ function loadSortedRosters() {
         //Loop through each roster of team and display player data for selected team
         for(let roster of teams) 
         {
-            var teamName = document.querySelector('#team'+roster.roster_id);
+            var team = document.querySelector('#team'+roster.roster_id);
+            var teamName = team.children[0];
             var starterTable = document.querySelector('#startersTable'+roster.roster_id);
             var starterTeam = starterTable.childNodes[3];
             var benchTable = document.querySelector('#benchTable'+roster.roster_id);
@@ -58,7 +58,8 @@ function loadSortedRosters() {
             var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
             var taxiTeam = taxiTable.childNodes[3];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
-            teamName.prepend(teamImage);
+            teamName.innerText=getTeamName(roster.owner_id);
+            team.prepend(teamImage);
 
             let allSortedPlayers = sortByPosition(roster.players);
             let starterSortedPlayers = sortByPosition(roster.starters);
@@ -201,6 +202,23 @@ function getRosterStats(rosterid) {
 
         return rosterStats;
     }
+}
+
+function getTeamName(userid) {
+
+    let user = userData.find(x => x.user_id === userid.toString());
+    let userName = "";
+
+    if(user.metadata.team_name != undefined)
+    {
+        userName = user.metadata.team_name;
+    }
+    else
+    {
+        userName = user.display_name;
+    }
+
+    return userName.toString();
 }
 
 function getLeaguePositions(){
