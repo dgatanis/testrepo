@@ -437,6 +437,7 @@
     .custom-playoffs-bracket {
       clear: inline-start;
       float: left;
+      padding-right: 2rem;
     }
 
     .custom-date-transaction {
