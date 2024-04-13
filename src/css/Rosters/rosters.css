@@ -36,6 +36,7 @@
 
     .custom-team-roster {
         width: 100%;
+        margin: unset;
     }
 
     .custom-medium-avatar {
