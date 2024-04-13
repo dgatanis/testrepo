@@ -41,7 +41,6 @@ async function loadConstants() {
 function loadSortedRosters() {
 
     try{
-        //var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
         var rosterBody = document.getElementById("ModalRosterBody");
         const leaguePositionList = getLeaguePositions();
 
@@ -51,6 +50,7 @@ function loadSortedRosters() {
         //Loop through each roster of team and display player data for selected team
         for(let roster of teams) 
         {
+            var teamName = document.querySelector('#team'+roster.roster_id);
             var starterTable = document.querySelector('#startersTable'+roster.roster_id);
             var starterTeam = starterTable.childNodes[3];
             var benchTable = document.querySelector('#benchTable'+roster.roster_id);
@@ -58,7 +58,7 @@ function loadSortedRosters() {
             var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
             var taxiTeam = taxiTable.childNodes[3];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
-            //modalRosterTeamName.prepend(teamImage);
+            teamName.prepend(teamImage);
 
             let allSortedPlayers = sortByPosition(roster.players);
             let starterSortedPlayers = sortByPosition(roster.starters);
