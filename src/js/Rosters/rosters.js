@@ -155,7 +155,7 @@ function loadSortedRosters() {
             return; 
         }
     }
-    catch(e)
+    catch(error)
     {
         console.log(error.message);
     }
