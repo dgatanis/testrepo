@@ -52,11 +52,11 @@ function loadSortedRosters() {
         for(let roster of teams) 
         {
             var starterTable = document.querySelector('#startersTable'+roster.roster_id);
-            var starters = starterTable.childNodes[3];
+            var starterTeam = starterTable.childNodes[3];
             var benchTable = document.querySelector('#benchTable'+roster.roster_id);
-            var bench = benchTable.childNodes[3];
+            var benchTeam = benchTable.childNodes[3];
             var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
-            var taxi = taxiTable.childNodes[3];
+            var taxiTeam = taxiTable.childNodes[3];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
             //modalRosterTeamName.prepend(teamImage);
 
@@ -88,7 +88,7 @@ function loadSortedRosters() {
                         nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
                         nameOfPlayer.prepend(playerimg);
                         tr.appendChild(nameOfPlayer);
-                        starters.append(tr);
+                        starterTeam.append(tr);
                     }
                 }
 
@@ -117,7 +117,7 @@ function loadSortedRosters() {
                         nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
                         nameOfPlayer.prepend(playerimg);
                         tr.appendChild(nameOfPlayer);
-                        bench.append(tr);
+                        benchTeam.append(tr);
                     }
                 }
             }
@@ -150,7 +150,7 @@ function loadSortedRosters() {
                             nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
                             nameOfPlayer.prepend(playerimg);
                             tr.appendChild(nameOfPlayer);
-                            taxi.append(tr);
+                            taxiTeam.append(tr);
                         }
                     }
 
