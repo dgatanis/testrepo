@@ -11,7 +11,7 @@ const playerData = JSON.parse(playerDataStorage);
 async function loadConstants() {
 
     try{
-
+        loadSortedRosters();
         // const leagueInfo = await import('../util/leagueInfo.js');
         // const leagueInfoLeagueId = leagueInfo.default();
         // const currentWeek = leagueInfo.getCurrentWeek();
@@ -41,8 +41,7 @@ async function loadConstants() {
 function loadSortedRosters() {
 
     //var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
-    var rosterTable = document.querySelector('#taxiTable10');
-    var tablebody = rosterTable.childNodes[3];
+
     var rosterBody = document.getElementById("ModalRosterBody");
     const leaguePositionList = getLeaguePositions();
 
@@ -53,17 +52,55 @@ function loadSortedRosters() {
     //Loop through each roster of team and display player data for selected team
     for(let roster of teams) 
     {
+        var starterTable = document.querySelector('#starterTable'+roster.roster_id);
+        var starters = rosterTable.childNodes[3];
+        var benchTable = document.querySelector('#benchTable'+roster.roster_id);
+        var bench = benchTable.childNodes[3];
+        var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
+        var taxi = taxiTable.childNodes[3];
         var teamImage = createOwnerAvatarImage(roster.owner_id);
         //modalRosterTeamName.prepend(teamImage);
 
-        let sortedPlayers = sortByPosition(roster.players);
+        let allSortedPlayers = sortByPosition(roster.players);
+        let taxiSortedPlayers = sortByPosition(roster.taxi);
+        let starterSortedPlayers = sortByPosition(roster.starters);
+        let IRPlayers = roster.reserves;
 
-        //Go through each player from this roster
-        for(let players of sortedPlayers)
+        //starters
+        for(let players of starterSortedPlayers)
         {
             if(localStorage.getItem("PlayerData"))
             {
+                let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
 
+
+                if(player)
+                {
+                    let playerName = player.firstname + " " + player.lastname;
+                    let playerTeam = player.team;
+                    var playerimg = createPlayerImage(player.player_id);
+                    var tr = document.createElement("tr");
+                    var th = document.createElement("th");
+                    th.innerText=player.position;
+                    th.setAttribute('scope', 'row');
+                    tr.setAttribute('class', 'custom-shown-row')
+                    tr.setAttribute('data-playerid', player.player_id);
+                    tr.appendChild(th);
+                    var nameOfPlayer = document.createElement("td");
+                    nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                    nameOfPlayer.prepend(playerimg);
+                    tr.appendChild(nameOfPlayer);
+                    starters.append(tr);
+                }
+            }
+
+        }
+
+        //bench
+        for(let players of allSortedPlayers)
+        {
+            if(localStorage.getItem("PlayerData"))
+            {
                 let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
 
                 if(player)
@@ -82,9 +119,39 @@ function loadSortedRosters() {
                     nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
                     nameOfPlayer.prepend(playerimg);
                     tr.appendChild(nameOfPlayer);
-                    tablebody.append(tr);
+                    bench.append(tr);
                 }
             }
+        }
+
+        //taxi
+        for(let players of taxiSortedPlayers)
+        {
+            if(localStorage.getItem("PlayerData"))
+            {
+                let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+
+
+                if(player)
+                {
+                    let playerName = player.firstname + " " + player.lastname;
+                    let playerTeam = player.team;
+                    var playerimg = createPlayerImage(player.player_id);
+                    var tr = document.createElement("tr");
+                    var th = document.createElement("th");
+                    th.innerText=player.position;
+                    th.setAttribute('scope', 'row');
+                    tr.setAttribute('class', 'custom-shown-row')
+                    tr.setAttribute('data-playerid', player.player_id);
+                    tr.appendChild(th);
+                    var nameOfPlayer = document.createElement("td");
+                    nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                    nameOfPlayer.prepend(playerimg);
+                    tr.appendChild(nameOfPlayer);
+                    taxi.append(tr);
+                }
+            }
+
         }
         return; 
     }
