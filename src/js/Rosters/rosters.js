@@ -52,7 +52,7 @@ function loadSortedRosters() {
     //Loop through each roster of team and display player data for selected team
     for(let roster of teams) 
     {
-        var starterTable = document.querySelector('#starterTable'+roster.roster_id);
+        var starterTable = document.querySelector('#startersTable'+roster.roster_id);
         var starters = starterTable.childNodes[3];
         var benchTable = document.querySelector('#benchTable'+roster.roster_id);
         var bench = benchTable.childNodes[3];
