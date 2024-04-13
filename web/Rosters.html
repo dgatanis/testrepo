@@ -511,8 +511,17 @@
                 </h2>
                 <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_10" id="taxiTeam10">
                   <div class="accordion-body">
-                    <ul id="taxiTeam_10" class="list-group list-group-flush">
-                    </ul>
+                    <table id="RosterTable" class="table table-secondary custom-list-group">
+                      <thead>
+                        <tr>
+                          <th scope="col">Position</th>
+                          <th scope="col">Player Name</th>
+                          <th scope="col">Age</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>          
@@ -536,5 +545,11 @@
           </div>
         </div>
       </footer>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          loadSortedRosters();
+        });
+     </script>
     </body>
   </html>
