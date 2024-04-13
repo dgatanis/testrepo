@@ -6,3 +6,39 @@
     margin-left: 5rem;
     padding-bottom: 4rem;
 }
+
+
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {
+    .custom-medium-avatar {
+      float: left;
+    }
+
+  }
+
+  /*Normal Laptop display styling*/
+  @media screen and (max-width: 64rem) {
+    .custom-medium-avatar{
+      max-width: 2rem;
+    }
+  }
+
+  /*Large Mobile display styling*/
+  @media screen and (max-width: 26.563rem) {
+
+    .custom-footer-links{
+      display: none;
+    }
+
+    .custom-team-roster {
+        width: 100%;
+    }
+
+    .custom-medium-avatar {
+      float: left;
+    }
+  
+    .custom-body {
+      padding: unset;
+    }
+  }
