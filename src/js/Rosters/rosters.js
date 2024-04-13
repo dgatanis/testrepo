@@ -94,7 +94,7 @@ function loadSortedRosters() {
                 }
 
             }
-            debugger;
+
             //bench
             for(let bench of allSortedPlayers)
             {
