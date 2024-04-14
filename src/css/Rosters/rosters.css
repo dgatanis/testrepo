@@ -14,6 +14,28 @@
     text-align: center;
 }
 
+.custom-qb-roster {
+  color: #ff2a6d;
+  font-size: large;
+}
+.custom-rb-roster {
+  color: #00ceb8;
+  font-size: large;
+}
+.custom-wr-roster {
+  color: #58a7ff;
+  font-size: large;
+}
+.custom-te-roster {
+  color: #ffae58;
+  font-size: large;
+}
+.custom-k-roster {
+  color: #bd66ff;
+  font-size: large;
+}
+
+
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
     .custom-medium-avatar {

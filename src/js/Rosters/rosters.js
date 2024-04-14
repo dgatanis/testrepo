@@ -80,6 +80,26 @@ function loadSortedRosters() {
                         var playerimg = createPlayerImage(player.player_id);
                         var tr = document.createElement("tr");
                         var th = document.createElement("th");
+                        if(player.position == 'QB')
+                        {
+                            th.setAttribute('class', 'custom-qb-roster');
+                        }
+                        if(player.position == 'RB')
+                        {
+                            th.setAttribute('class', 'custom-rb-roster');
+                        }
+                        if(player.position == 'WR')
+                        {
+                            th.setAttribute('class', 'custom-wr-roster');
+                        }
+                        if(player.position == 'TE')
+                        {
+                            th.setAttribute('class', 'custom-te-roster');
+                        }
+                        if(player.position == 'K')
+                        {
+                            th.setAttribute('class', 'custom-k-roster');
+                        }
                         th.innerText=player.position;
                         th.setAttribute('scope', 'row');
                         tr.setAttribute('class', 'custom-shown-row')
@@ -98,7 +118,7 @@ function loadSortedRosters() {
             //bench
             for(let bench of allSortedPlayers)
             {
-                if(!roster.starters.includes(bench.player_id))
+                if(!roster.starters.includes(bench.player_id.toString()))
                 {
                     if(localStorage.getItem("PlayerData"))
                     {
