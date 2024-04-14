@@ -190,6 +190,37 @@ function loadSortedRosters() {
     }
 }
 
+function expandAll() {
+
+    var accordionBodys = document.getElementsByClassName('accordion-collapse');
+    var accordionButtons = document.getElementsByClassName('accordion-button');
+    
+    for(let accordionBody of accordionBodys)
+    {
+        accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+    }
+    for(let accordionButton of accordionButtons)
+    {
+        accordionButton.setAttribute('class', 'accordion-button');
+        accordionButton.setAttribute('aria-expanded', 'true');
+    }
+}
+
+function collapseAll() {
+    var accordionBodys = document.getElementsByClassName('accordion-collapse');
+    var accordionButtons = document.getElementsByClassName('accordion-button');
+
+    for(let accordionBody of accordionBodys)
+    {
+        accordionBody.setAttribute('class', 'accordion-collapse collapse');
+    }
+    for(let accordionButton of accordionButtons)
+    {
+        accordionButton.setAttribute('class', 'accordion-button collapsed');
+        accordionButton.setAttribute('aria-expanded', 'false');
+    }
+}
+
 function getFullPlayerName(playerid) {
 
     let player = playerData.players.find(x => x.player_id === parseInt(playerid));
