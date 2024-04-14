@@ -52,11 +52,11 @@ function loadSortedRosters() {
             var team = document.querySelector('#team'+roster.roster_id);
             var teamName = team.children[0];
             var starterTable = document.querySelector('#startersTable'+roster.roster_id);
-            var starterTeam = starterTable.childNodes[3];
+            var starterTeam = starterTable.childNodes[1];
             var benchTable = document.querySelector('#benchTable'+roster.roster_id);
-            var benchTeam = benchTable.childNodes[3];
+            var benchTeam = benchTable.childNodes[1];
             var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
-            var taxiTeam = taxiTable.childNodes[3];
+            var taxiTeam = taxiTable.childNodes[1];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
             teamName.innerText=getTeamName(roster.owner_id);
             team.prepend(teamImage);
