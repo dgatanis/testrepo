@@ -35,23 +35,23 @@
   font-size: large;
 }
 
-.custom-QB-roster {
+.custom-player-QB-row {
   color: #ff2a6e59;
   font-size: large;
 }
-.custom-RB-roster {
+.custom-player-RB-row {
   color: #00ceb956;
   font-size: large;
 }
-.custom-WR-roster {
+.custom-player-WR-row {
   color: #58a6ff63;
   font-size: large;
 }
-.custom-TE-roster {
+.custom-player-TE-row {
   color: #ffae5862;
   font-size: large;
 }
-.custom-K-roster {
+.custom-player-K-row {
   color: #bd66ff38;
   font-size: large;
 }
