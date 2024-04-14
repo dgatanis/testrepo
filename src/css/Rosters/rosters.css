@@ -36,24 +36,29 @@
 }
 
 .custom-player-QB-row {
-  color: #ff2a6e59;
-  font-size: large;
+  background-color: #ff2a6e59;
+  border-radius: .5rem;
+  padding: .5rem;
 }
 .custom-player-RB-row {
-  color: #00ceb956;
-  font-size: large;
+  background-color: #00ceb956;
+  border-radius: .5rem;
+  padding: .5rem;
 }
 .custom-player-WR-row {
-  color: #58a6ff63;
-  font-size: large;
+  background-color: #58a6ff63;
+  border-radius: .5rem;
+  padding: .5rem;
 }
 .custom-player-TE-row {
-  color: #ffae5862;
-  font-size: large;
+  background-color: #ffae5862;
+  border-radius: .5rem;
+  padding: .5rem;
 }
 .custom-player-K-row {
-  color: #bd66ff38;
-  font-size: large;
+  background-color: #bd66ff38;
+  border-radius: .5rem;
+  padding: .5rem;
 }
 
 .custom-player-table-group {
