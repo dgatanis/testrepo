@@ -59,9 +59,9 @@ function loadSortedRosters() {
             var taxiTeam = taxiTable.childNodes[1];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
 
-            teamImage.setAttribute('onlcick', 'expandCollapseTeam(' + roster.roster_id + ');');
+            teamImage.setAttribute('onclick', "expandCollapseTeam('" + roster.roster_id + "');");
             teamName.setAttribute('class', 'custom-team');
-            teamName.setAttribute('onclick', 'expandCollapseTeam(' + roster.roster_id + ');');
+            teamName.setAttribute('onclick', "expandCollapseTeam('" + roster.roster_id + "');");
             teamName.innerText=getTeamName(roster.owner_id);
             team.prepend(teamImage);
 
