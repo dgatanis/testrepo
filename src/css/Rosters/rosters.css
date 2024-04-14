@@ -35,6 +35,27 @@
   font-size: large;
 }
 
+.custom-QB-roster {
+  color: #ff2a6e59;
+  font-size: large;
+}
+.custom-RB-roster {
+  color: #00ceb956;
+  font-size: large;
+}
+.custom-WR-roster {
+  color: #58a6ff63;
+  font-size: large;
+}
+.custom-TE-roster {
+  color: #ffae5862;
+  font-size: large;
+}
+.custom-K-roster {
+  color: #bd66ff38;
+  font-size: large;
+}
+
 .custom-player-table-group {
   border-radius: 1rem;
   background-color: #e5e5e5;
@@ -51,6 +72,12 @@
 
 .custom-team-name {
   cursor: pointer;
+}
+
+tr {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 

@@ -106,7 +106,7 @@ function loadSortedRosters() {
                         }
                         th.innerText=player.position;
                         th.setAttribute('scope', 'row');
-                        tr.setAttribute('class', 'custom-shown-row')
+                        tr.setAttribute('class', 'custom-player-' + player.position + '-row')
                         tr.setAttribute('data-playerid', player.player_id);
                         tr.appendChild(th);
                         var nameOfPlayer = document.createElement("td");
