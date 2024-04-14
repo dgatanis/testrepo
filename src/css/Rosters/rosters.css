@@ -101,3 +101,17 @@
       padding: unset;
     }
   }
+
+  /*Medium Mobile display styling*/
+  @media screen and (max-width: 23.438rem) {
+    .custom-medium-avatar {
+      margin-left: 9rem;
+    }
+  }
+
+    /*Small Mobile display styling*/
+    @media screen and (max-width: 20rem) {
+      .custom-medium-avatar {
+        margin-left: 7.5rem;
+      }
+    }
