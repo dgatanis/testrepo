@@ -59,7 +59,9 @@ function loadSortedRosters() {
             var taxiTeam = taxiTable.childNodes[1];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
 
+            teamImage.setAttribute('onlcick', 'expandCollapseTeam(' + roster.roster_id + ');');
             teamName.setAttribute('class', 'custom-team');
+            teamName.setAttribute('onlcick', 'expandCollapseTeam(' + roster.roster_id + ');');
             teamName.innerText=getTeamName(roster.owner_id);
             team.prepend(teamImage);
 
@@ -194,7 +196,7 @@ function expandAll() {
 
     var accordionBodys = document.getElementsByClassName('accordion-collapse');
     var accordionButtons = document.getElementsByClassName('accordion-button');
-    
+
     for(let accordionBody of accordionBodys)
     {
         accordionBody.setAttribute('class', 'accordion-collapse collapse show');
@@ -218,6 +220,29 @@ function collapseAll() {
     {
         accordionButton.setAttribute('class', 'accordion-button collapsed');
         accordionButton.setAttribute('aria-expanded', 'false');
+    }
+}
+
+function expandCollapseTeam(rosterid) {
+
+    var teamGroup = document.getElementById('teamGroup'+rosterid);
+    var teamGroupChildren = teamGroup.children;
+
+    for(let accordionItem of teamGroupChildren)
+    {
+        var accordionBodys = accordionItem.getElementsByClassName('accordion-collapse');
+        var accordionButtons = accordionItem.getElementsByClassName('accordion-button');
+
+        for(let accordionBody of accordionBodys)
+        {
+            accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+        }
+        for(let accordionButton of accordionButtons)
+        {
+            accordionButton.setAttribute('class', 'accordion-button');
+            accordionButton.setAttribute('aria-expanded', 'true');
+        }
+
     }
 }
 
