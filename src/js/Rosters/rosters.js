@@ -58,6 +58,8 @@ function loadSortedRosters() {
             var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
             var taxiTeam = taxiTable.childNodes[1];
             var teamImage = createOwnerAvatarImage(roster.owner_id);
+
+            teamName.setAttribute('class', 'custom-team');
             teamName.innerText=getTeamName(roster.owner_id);
             team.prepend(teamImage);
 

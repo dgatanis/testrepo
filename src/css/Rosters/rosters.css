@@ -37,7 +37,6 @@
 
 .custom-player-table-group {
   border-radius: 1rem;
-  border-color: transparent;
   background-color: #e5e5e5;
 }
 
@@ -46,11 +45,16 @@
   background-color: transparent;
 }
 
+.custom-team {
+  clear: both;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
     .custom-medium-avatar {
       float: left;
+      margin-left: 12.5rem;
     }
 
     .custom-team-roster {
