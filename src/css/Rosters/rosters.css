@@ -66,7 +66,7 @@
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
     .custom-medium-avatar{
-      max-width: 2rem;
+      margin-left: 8.5rem;
     }
 
     .custom-team-roster {
@@ -90,6 +90,7 @@
 
     .custom-medium-avatar {
       float: left;
+      margin-left: 10.5rem;
     }
   
     .custom-body {
