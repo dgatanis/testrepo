@@ -47,6 +47,9 @@
 
 .custom-team {
   clear: both;
+}
+
+.custom-team-name {
   cursor: pointer;
 }
 

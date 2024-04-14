@@ -235,7 +235,7 @@ function expandCollapseTeam(rosterid) {
 
         for(let accordionBody of accordionBodys)
         {
-            if(!accordionBody.classList.value == 'accordion-collapse collapse show')
+            if(accordionBody.classList.value != 'accordion-collapse collapse show')
             {
                 accordionBody.setAttribute('class', 'accordion-collapse collapse show');
             }
@@ -247,7 +247,7 @@ function expandCollapseTeam(rosterid) {
         }
         for(let accordionButton of accordionButtons)
         {
-            if(!accordionButton.classList.value == 'accordion-button')
+            if(accordionButton.classList.value != 'accordion-button')
             {
                 accordionButton.setAttribute('class', 'accordion-button');
                 accordionButton.setAttribute('aria-expanded', 'true');
