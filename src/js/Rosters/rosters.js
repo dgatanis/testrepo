@@ -61,7 +61,7 @@ function loadSortedRosters() {
 
             teamImage.setAttribute('onlcick', 'expandCollapseTeam(' + roster.roster_id + ');');
             teamName.setAttribute('class', 'custom-team');
-            teamName.setAttribute('onlcick', 'expandCollapseTeam(' + roster.roster_id + ');');
+            teamName.setAttribute('onclick', 'expandCollapseTeam(' + roster.roster_id + ');');
             teamName.innerText=getTeamName(roster.owner_id);
             team.prepend(teamImage);
 
@@ -235,12 +235,29 @@ function expandCollapseTeam(rosterid) {
 
         for(let accordionBody of accordionBodys)
         {
-            accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+            if(!accordionBody.classList.value == 'accordion-collapse collapse show')
+            {
+                accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+            }
+            else
+            {
+                accordionBody.setAttribute('class', 'accordion-collapse collapse');
+            }
+            
         }
         for(let accordionButton of accordionButtons)
         {
-            accordionButton.setAttribute('class', 'accordion-button');
-            accordionButton.setAttribute('aria-expanded', 'true');
+            if(!accordionButton.classList.value == 'accordion-button')
+            {
+                accordionButton.setAttribute('class', 'accordion-button');
+                accordionButton.setAttribute('aria-expanded', 'true');
+            }
+            else
+            {
+                accordionButton.setAttribute('class', 'accordion-button collapsed');
+                accordionButton.setAttribute('aria-expanded', 'false');
+            }
+
         }
 
     }
