@@ -66,6 +66,13 @@
   width: 100%;
 }
 
+.custom-bench-row {
+  background-color: #73737347;
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 100%;
+}
+
 .custom-player-table-group {
   border-radius: 1rem;
   background-color: #e5e5e5;

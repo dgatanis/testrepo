@@ -137,7 +137,7 @@ function loadSortedRosters() {
                             var th = document.createElement("th");
                             th.innerText=player.position;
                             th.setAttribute('scope', 'row');
-                            tr.setAttribute('class', 'custom-shown-row')
+                            tr.setAttribute('class', 'custom-bench-row');
                             tr.setAttribute('data-playerid', player.player_id);
                             tr.appendChild(th);
                             var nameOfPlayer = document.createElement("td");
@@ -171,7 +171,7 @@ function loadSortedRosters() {
                             var th = document.createElement("th");
                             th.innerText=player.position;
                             th.setAttribute('scope', 'row');
-                            tr.setAttribute('class', 'custom-shown-row')
+                            tr.setAttribute('class', 'custom-bench-row');
                             tr.setAttribute('data-playerid', player.player_id);
                             tr.appendChild(th);
                             var nameOfPlayer = document.createElement("td");
