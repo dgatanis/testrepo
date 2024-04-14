@@ -38,10 +38,10 @@
 .custom-player-table-group {
   border-radius: 1rem;
   background-color: #e5e5e5;
+  border-color:transparent;
 }
 
 .accordion-item {
-  border-color:transparent;
   background-color: transparent;
 }
 
