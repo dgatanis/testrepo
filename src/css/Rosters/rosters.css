@@ -105,7 +105,7 @@
   /*Medium Mobile display styling*/
   @media screen and (max-width: 23.438rem) {
     .custom-medium-avatar {
-      margin-left: 9rem;
+      margin-left: 8rem;
     }
   }
 
