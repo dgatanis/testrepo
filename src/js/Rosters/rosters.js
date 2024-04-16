@@ -239,10 +239,6 @@ function expandCollapseTeam(rosterid) {
             {
                 accordionBody.setAttribute('class', 'accordion-collapse collapse show');
             }
-            else
-            {
-                accordionBody.setAttribute('class', 'accordion-collapse collapse');
-            }
             
         }
         for(let accordionButton of accordionButtons)
@@ -251,11 +247,6 @@ function expandCollapseTeam(rosterid) {
             {
                 accordionButton.setAttribute('class', 'accordion-button');
                 accordionButton.setAttribute('aria-expanded', 'true');
-            }
-            else
-            {
-                accordionButton.setAttribute('class', 'accordion-button collapsed');
-                accordionButton.setAttribute('aria-expanded', 'false');
             }
 
         }
