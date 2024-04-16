@@ -1,12 +1,16 @@
 .custom-team-roster {
     width: 22%;
     clear: inline-end;
-    float: left;
-    margin-right: 5rem;
-    margin-left: 5rem;
+    float: inline-end;
+    margin-right: 5%;
+    margin-left: 6%;
     padding-bottom: 4rem;
     text-align: center;
     font-size: small;
+}
+
+.custom-roster-group {
+  margin-bottom: 2rem;
 }
 
 .accordion-button {
