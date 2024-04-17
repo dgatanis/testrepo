@@ -118,7 +118,7 @@ tr {
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
     .custom-medium-avatar{
-      margin-left: 8.5rem;
+      margin-left: 42%;
     }
 
     .custom-team-roster {
