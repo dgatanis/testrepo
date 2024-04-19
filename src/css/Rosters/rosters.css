@@ -121,12 +121,16 @@ tr {
   align-items: center;
 }
 
+.custom-medium-avatar {
+  margin-right: unset;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
     .custom-medium-avatar {
       float: left;
-      margin-left: 42%;
+      margin-left: 45%;
     }
 
     .custom-team-roster {
