@@ -100,27 +100,30 @@ function loadSortedRosters() {
             {
                 if(!roster.starters.includes(bench.player_id.toString()))
                 {
-                    if(localStorage.getItem("PlayerData"))
+                    if(!roster.taxi || roster.taxi && !roster.taxi.includes(bench.player_id.toString()))
                     {
-                        let player = playerData.players.find(e => e.player_id === parseInt(bench.player_id));
-    
-                        if(player)
+                        if(localStorage.getItem("PlayerData"))
                         {
-                            let playerName = player.firstname + " " + player.lastname;
-                            let playerTeam = player.team;
-                            var playerimg = createPlayerImage(player.player_id);
-                            var tr = document.createElement("tr");
-                            var th = document.createElement("th");
-                            th.innerText=player.position;
-                            th.setAttribute('scope', 'row');
-                            tr.setAttribute('class', 'custom-bench-row');
-                            tr.setAttribute('data-playerid', player.player_id);
-                            tr.appendChild(th);
-                            var nameOfPlayer = document.createElement("td");
-                            nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
-                            nameOfPlayer.prepend(playerimg);
-                            tr.appendChild(nameOfPlayer);
-                            benchTeam.append(tr);
+                            let player = playerData.players.find(e => e.player_id === parseInt(bench.player_id));
+        
+                            if(player)
+                            {
+                                let playerName = player.firstname + " " + player.lastname;
+                                let playerTeam = player.team;
+                                var playerimg = createPlayerImage(player.player_id);
+                                var tr = document.createElement("tr");
+                                var th = document.createElement("th");
+                                th.innerText=player.position;
+                                th.setAttribute('scope', 'row');
+                                tr.setAttribute('class', 'custom-bench-row');
+                                tr.setAttribute('data-playerid', player.player_id);
+                                tr.appendChild(th);
+                                var nameOfPlayer = document.createElement("td");
+                                nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                                nameOfPlayer.prepend(playerimg);
+                                tr.appendChild(nameOfPlayer);
+                                benchTeam.append(tr);
+                            }
                         }
                     }
                 }
