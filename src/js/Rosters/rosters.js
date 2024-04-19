@@ -57,6 +57,8 @@ function loadSortedRosters() {
             var benchTeam = benchTable.childNodes[1];
             var taxiTable = document.querySelector('#taxiTable'+roster.roster_id);
             var taxiTeam = taxiTable.childNodes[1];
+            var statsTable = document.querySelector('#statsTable'+roster.roster_id);
+            var statsTeam = statsTable.children[0]; //different than others above
             var teamImage = createOwnerAvatarImage(roster.owner_id);
 
             teamImage.setAttribute('onclick', "expandCollapseTeam('" + roster.roster_id + "');");
@@ -161,6 +163,36 @@ function loadSortedRosters() {
                         }
                     }
 
+                }
+            }
+
+            var rosterStats = getRosterStats(roster.roster_id);
+
+            if(rosterStats)
+            {
+                var positionCountRow = statsTeam.getElementsByClassName('custom-stats-position-count-row');
+                var playerAgeRow = statsTeam.getElementsByClassName('custom-stats-players-age-row');
+                var positionAgeRow = statsTeam.getElementsByClassName('custom-stats-position-age-row');
+                var statsTestRow = statsTeam.getElementsByClassName('custom-stats-test-row'); 
+
+                if(positionCountRow)
+                {
+                    var positionCountChild = positionCountRow[0].children[0];
+                    positionCountChild.children[1].innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
+                }
+                if (playerAgeRow)
+                {
+                    var playerAgeChild = playerAgeRow[0].children[0];
+                    playerAgeChild.children[1].innerText = rosterStats.AvgAge;
+                }
+                if (positionAgeRow)
+                {
+                    var positionAgeChild = positionAgeRow[0].children[0];
+                    positionAgeChild.children[1].innerText = "QB:" + rosterStats.qbAge + " RB:"  + rosterStats.rbAge + " WR:" + rosterStats.wrAge + " TE:" + rosterStats.teAge;
+                }
+                if (statsTestRow)
+                {
+                    console.log('test');
                 }
             }
         }
