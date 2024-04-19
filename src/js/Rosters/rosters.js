@@ -227,6 +227,7 @@ function expandCollapseTeam(rosterid) {
 
     var teamGroup = document.getElementById('teamGroup'+rosterid);
     var teamGroupChildren = teamGroup.children;
+    var starterButton = document.getElementById('buttonStartersTeam'+ rosterid);
 
     for(let accordionItem of teamGroupChildren)
     {
@@ -235,18 +236,27 @@ function expandCollapseTeam(rosterid) {
 
         for(let accordionBody of accordionBodys)
         {
-            if(accordionBody.classList.value != 'accordion-collapse collapse show')
+            if(starterButton.classList.value != 'accordion-button') //If starters button not expanded then show all fields
             {
                 accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+            }
+            else
+            {
+                accordionBody.setAttribute('class', 'accordion-collapse collapse');
             }
             
         }
         for(let accordionButton of accordionButtons)
         {
-            if(accordionButton.classList.value != 'accordion-button')
+            if(starterButton.classList.value != 'accordion-button') //If starters button not shown then show all fields
             {
                 accordionButton.setAttribute('class', 'accordion-button');
                 accordionButton.setAttribute('aria-expanded', 'true');
+            }
+            else
+            {
+                accordionButton.setAttribute('class', 'accordion-button collapsed');
+                accordionButton.setAttribute('aria-expanded', 'false');
             }
 
         }
