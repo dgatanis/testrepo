@@ -40,7 +40,9 @@
   font-size: large;
 }
 .custom-FLEX-roster {
-  color: #535252;
+  background: linear-gradient(to right, #58a7ff, #58a7ff, #00ceb8, #00ceb8, #ffae58, #ffae58);
+  background-clip: text;
+  color: transparent;
   font-size: large;
 }
 .custom-k-roster {
@@ -85,7 +87,7 @@
   width: 100%;
 }
 .custom-player-FLEX-row {
-  background: linear-gradient(to right, #58a6ff47, #58a6ff47, #00ceb926, #00ceb926, #ffae5847, #ffae5847);
+  background-color: #80808045;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
