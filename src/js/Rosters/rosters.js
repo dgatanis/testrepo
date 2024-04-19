@@ -178,17 +178,17 @@ function loadSortedRosters() {
                 if(positionCountRow)
                 {
                     var positionCountChild = positionCountRow[0].children[0];
-                    positionCountChild.children[1].innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
+                    positionCountChild.children[1].innerText = "Position Count: QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
                 }
                 if (playerAgeRow)
                 {
                     var playerAgeChild = playerAgeRow[0].children[0];
-                    playerAgeChild.children[1].innerText = rosterStats.AvgAge;
+                    playerAgeChild.children[1].innerText = "Roster Age: "+ rosterStats.AvgAge + "yrs";
                 }
                 if (positionAgeRow)
                 {
                     var positionAgeChild = positionAgeRow[0].children[0];
-                    positionAgeChild.children[1].innerText = "QB:" + rosterStats.qbAge + " RB:"  + rosterStats.rbAge + " WR:" + rosterStats.wrAge + " TE:" + rosterStats.teAge;
+                    positionAgeChild.children[1].innerText = "QB: " + rosterStats.qbAge + "yrs RB:"  + rosterStats.rbAge + "yrs WR:" + rosterStats.wrAge + "yrs TE:" + rosterStats.teAge + "yrs";
                 }
                 if (statsTestRow)
                 {
