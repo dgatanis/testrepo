@@ -90,8 +90,8 @@ function loadSortedRosters() {
                         playerRow.setAttribute('data-playerid', player.player_id);
                         td.innerText=playerName + " (" + playerTeam + ")";
                         td.prepend(playerimg);
-                        console.log(playerRow);
-                        if(playerRow.classList.value == 'custom-player-SF-row')
+                        
+                        if(playerRow.classList.value == 'custom-player-SF-row' || playerRow.classList.value == 'custom-player-FLEX-row')
                         {
                             playerRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
                         }
