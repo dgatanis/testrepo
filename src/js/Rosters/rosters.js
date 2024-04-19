@@ -179,7 +179,7 @@ function unusedPlayerRow(position,starterTeam) {
 
     if(position == 'RB' || position == 'WR' || position == 'TE')
     {
-        flexRows = document.getElementsByClassName('custom-player-FLEX-row');
+        flexRows = starterTeam.getElementsByClassName('custom-player-FLEX-row');
     }
 
     if(playerRow)
