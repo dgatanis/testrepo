@@ -36,11 +36,11 @@
   font-size: large;
 }
 .custom-SF-roster {
-  color: black;
+  color: #616161;
   font-size: large;
 }
 .custom-FLEX-roster {
-  color: black;
+  color: #616161;
   font-size: large;
 }
 .custom-k-roster {
@@ -79,13 +79,13 @@
   width: 100%;
 }
 .custom-player-SF-row {
-  background: #73737347;
+  background: #7373732b;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
 }
 .custom-player-FLEX-row {
-  background-color: #73737347;
+  background-color: #7373732b;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
