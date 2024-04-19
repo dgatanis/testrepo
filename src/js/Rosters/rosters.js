@@ -299,13 +299,15 @@ function getRosterStats(rosterid) {
     if(roster)
     {
         var playerPositionCount = calcPlayerPositions(roster.players);
-        var playerAge = calcPlayerAge(roster.players);
+        var playerPositionAge = calcPositionAge(roster.players);
+        var playerAge = calcRosterAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
 
         let rosterStats = {
             ...playerPositionCount[0],
             ...playerAge[0],
-            ...teamRecord[0]
+            ...teamRecord[0],
+            ...playerPositionAge
         };
 
         return rosterStats;
@@ -449,11 +451,12 @@ function sortByPosition(players) {
 }
 
 
-function calcPlayerAge(players) {
+function calcRosterAge(players) {
 
     const calculatedAge = [];
     var totalAge = 0;
     var avgAge;
+
     for(let player of players)
     {
         let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
@@ -468,6 +471,52 @@ function calcPlayerAge(players) {
     });
 
     return calculatedAge;
+}
+
+function calcPositionAge(players) {
+
+    const calculatedAge = [];
+    var totalAge = 0;
+    var qbAge = 0;
+    var rbAge = 0;
+    var wrAge = 0;
+    var teAge = 0;
+    var values = {"qbAge": 0,"rbAge": 0,"wrAge": 0,"teAge": 0};
+
+    for(let player of players)
+    {
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+
+        if(thisPlayer.position == 'QB')
+        {
+            qbAge += parseInt(thisPlayer.age);
+        }
+        else if(thisPlayer.position == 'RB')
+        {
+            rbAge += parseInt(thisPlayer.age);
+        }
+        else if(thisPlayer.position == 'WR')
+        {
+            wrAge += parseInt(thisPlayer.age);
+        }
+        else if(thisPlayer.position == 'TE')
+        {
+            teAge += parseInt(thisPlayer.age);
+        }
+    }
+    var playerPositionCount = calcPlayerPositions(players);
+    
+    qbAge = qbAge / playerPositionCount[0].QB;
+    rbAge = rbAge / playerPositionCount[0].RB;
+    wrAge = wrAge / playerPositionCount[0].WR;
+    teAge = teAge / playerPositionCount[0].TE;
+
+    values.qbAge = qbAge.toFixed(2);
+    values.rbAge = rbAge.toFixed(2);
+    values.wrAge = wrAge.toFixed(2);
+    values.teAge = teAge.toFixed(2);
+
+    return values;
 }
 
 function calcPlayerPositions(players){
