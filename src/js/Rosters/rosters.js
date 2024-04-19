@@ -227,25 +227,15 @@ function expandCollapseTeam(rosterid) {
 
     var teamGroup = document.getElementById('teamGroup'+rosterid);
     var teamGroupChildren = teamGroup.children;
-    var fieldsVisible = true;
 
     for(let accordionItem of teamGroupChildren)
     {
         var accordionBodys = accordionItem.getElementsByClassName('accordion-collapse');
         var accordionButtons = accordionItem.getElementsByClassName('accordion-button');
-        var startersBody = document.getElementById('startersTeam'+rosterid);
-        var benchBody = document.getElementById('benchTeam'+rosterid);
-        var taxiBody = document.getElementById('taxiTeam'+rosterid);
 
         for(let accordionBody of accordionBodys)
         {
-            if(startersBody.classList.value == 'accordion-collapse collapse show' || 
-               benchBody.classList.value == 'accordion-collapse collapse show' || 
-               taxiBody.classList.value == 'accordion-collapse collapse show' ) //If starters button not expanded then show all fields
-            {
-                accordionBody.setAttribute('class', 'accordion-collapse collapse');
-            }
-            else
+            if(accordionBody.classList.value != 'accordion-collapse collapse show')
             {
                 accordionBody.setAttribute('class', 'accordion-collapse collapse show');
             }
@@ -253,14 +243,7 @@ function expandCollapseTeam(rosterid) {
         }
         for(let accordionButton of accordionButtons)
         {
-            if(startersBody.classList.value == 'accordion-collapse collapse show' || 
-            benchBody.classList.value == 'accordion-collapse collapse show' || 
-            taxiBody.classList.value == 'accordion-collapse collapse show' ) //If starters button not expanded then show all fields
-            {
-                accordionButton.setAttribute('class', 'accordion-button collapsed');
-                accordionButton.setAttribute('aria-expanded', 'false');
-            }
-            else
+            if(accordionButton.classList.value != 'accordion-button')
             {
                 accordionButton.setAttribute('class', 'accordion-button');
                 accordionButton.setAttribute('aria-expanded', 'true');
