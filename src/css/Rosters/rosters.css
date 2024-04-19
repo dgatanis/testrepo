@@ -125,6 +125,15 @@ tr {
   margin-right: unset;
 }
 
+.accordion-button {
+  background: #b7b7b761;
+}
+
+.accordion-button:hover {
+  color: whitesmoke;
+}
+
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
