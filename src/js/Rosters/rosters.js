@@ -91,6 +91,10 @@ function loadSortedRosters() {
                         td.innerText=playerName + " (" + playerTeam + ")";
                         td.prepend(playerimg);
                         
+                        if(playerRow.classList = 'custom-player-SF-row')
+                        {
+                            playerRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
+                        }
                         playerRow.append(td);
                     }
                 }
