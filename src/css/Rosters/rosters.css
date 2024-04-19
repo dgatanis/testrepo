@@ -34,6 +34,14 @@
   color: #ffae58;
   font-size: large;
 }
+.custom-SF-roster {
+  color: #535252;
+  font-size: large;
+}
+.custom-FLEX-roster {
+  color: #535252;
+  font-size: large;
+}
 .custom-k-roster {
   color: #bd66ff;
   font-size: large;
@@ -65,6 +73,18 @@
 }
 .custom-player-K-row {
   background-color: #bd66ff29;
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 100%;
+}
+.custom-player-SF-row {
+  background: linear-gradient(to right, #ff2a6e38, #ff2a6e38, #58a6ff47, #00ceb926, #ffae5847, #ffae5847);
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 100%;
+}
+.custom-player-FLEX-row {
+  background: linear-gradient(to right, #58a6ff47, #58a6ff47, #00ceb926, #00ceb926, #ffae5847, #ffae5847);
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
