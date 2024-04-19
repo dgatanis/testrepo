@@ -227,36 +227,43 @@ function expandCollapseTeam(rosterid) {
 
     var teamGroup = document.getElementById('teamGroup'+rosterid);
     var teamGroupChildren = teamGroup.children;
-    var starterButton = document.getElementById('buttonStartersTeam'+ rosterid);
+    var fieldsVisible = true;
 
     for(let accordionItem of teamGroupChildren)
     {
         var accordionBodys = accordionItem.getElementsByClassName('accordion-collapse');
         var accordionButtons = accordionItem.getElementsByClassName('accordion-button');
+        var startersBody = document.getElementById('startersTeam'+rosterid);
+        var benchBody = document.getElementById('benchTeam'+rosterid);
+        var taxiBody = document.getElementById('taxiTeam'+rosterid);
 
         for(let accordionBody of accordionBodys)
         {
-            if(starterButton.classList.value != 'accordion-button') //If starters button not expanded then show all fields
+            if(startersBody.classList.value == 'accordion-collapse collapse show' || 
+               benchBody.classList.value == 'accordion-collapse collapse show' || 
+               taxiBody.classList.value == 'accordion-collapse collapse show' ) //If starters button not expanded then show all fields
             {
-                accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+                accordionBody.setAttribute('class', 'accordion-collapse collapse');
             }
             else
             {
-                accordionBody.setAttribute('class', 'accordion-collapse collapse');
+                accordionBody.setAttribute('class', 'accordion-collapse collapse show');
             }
             
         }
         for(let accordionButton of accordionButtons)
         {
-            if(starterButton.classList.value != 'accordion-button') //If starters button not shown then show all fields
-            {
-                accordionButton.setAttribute('class', 'accordion-button');
-                accordionButton.setAttribute('aria-expanded', 'true');
-            }
-            else
+            if(startersBody.classList.value == 'accordion-collapse collapse show' || 
+            benchBody.classList.value == 'accordion-collapse collapse show' || 
+            taxiBody.classList.value == 'accordion-collapse collapse show' ) //If starters button not expanded then show all fields
             {
                 accordionButton.setAttribute('class', 'accordion-button collapsed');
                 accordionButton.setAttribute('aria-expanded', 'false');
+            }
+            else
+            {
+                accordionButton.setAttribute('class', 'accordion-button');
+                accordionButton.setAttribute('aria-expanded', 'true');
             }
 
         }
