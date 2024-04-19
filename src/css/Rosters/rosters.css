@@ -132,6 +132,9 @@ tr {
     .custom-team-roster {
         width: 35%;
     }
+    .custom-roster-group {
+      clear: unset;
+    }
 
   }
 
