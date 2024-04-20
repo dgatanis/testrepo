@@ -149,6 +149,10 @@ tr {
       clear: unset;
     }
 
+    .custom-team-roster-adjust {
+      clear: inline-start;
+    }
+
   }
 
   /*Normal Laptop display styling*/
