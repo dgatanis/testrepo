@@ -284,7 +284,20 @@ function collapseAll() {
 function expandCollapseTeam(rosterid) {
 
     var teamGroup = document.getElementById('teamGroup'+rosterid);
+    var teamStarters = document.getElementById('startersTeam'+rosterid);
+    var teamBench = document.getElementById('benchTeam'+rosterid);
+    var teamTaxi = document.getElementById('taxiTeam'+rosterid);
+    var teamStats = document.getElementById('statsTeam'+rosterid);
     var teamGroupChildren = teamGroup.children;
+    var showFields = true;
+
+    if(teamStarters.classList.value == 'accordion-collapse collapse show' ||
+    teamBench.classList.value == 'accordion-collapse collapse show' ||
+    teamTaxi.classList.value == 'accordion-collapse collapse show' ||
+    teamStats.classList.value == 'accordion-collapse collapse show' )
+    {
+        showFields = false;
+    }
 
     for(let accordionItem of teamGroupChildren)
     {
@@ -293,22 +306,30 @@ function expandCollapseTeam(rosterid) {
 
         for(let accordionBody of accordionBodys)
         {
-            if(accordionBody.classList.value != 'accordion-collapse collapse show')
+            if(showFields)
             {
                 accordionBody.setAttribute('class', 'accordion-collapse collapse show');
+            }
+            else
+            {
+                accordionBody.setAttribute('class', 'accordion-collapse collapse');
             }
             
         }
         for(let accordionButton of accordionButtons)
         {
-            if(accordionButton.classList.value != 'accordion-button')
+            if(showFields)
             {
                 accordionButton.setAttribute('class', 'accordion-button');
                 accordionButton.setAttribute('aria-expanded', 'true');
             }
+            else 
+            {
+                accordionButton.setAttribute('class', 'accordion-button collapsed');
+                accordionButton.setAttribute('aria-expanded', 'false');
+            }
 
         }
-
     }
 }
 
@@ -338,6 +359,7 @@ function getRosterStats(rosterid) {
         var playerPositionAge = calcPositionAge(roster.players);
         var playerAge = calcRosterAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
+        //getTeamStacks(rosterid);
 
         let rosterStats = {
             ...playerPositionCount[0],
@@ -348,6 +370,10 @@ function getRosterStats(rosterid) {
 
         return rosterStats;
     }
+}
+
+function getTeamStacks(rosterid) {
+
 }
 
 function getTeamName(userid) {
