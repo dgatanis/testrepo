@@ -170,7 +170,7 @@ tr {
 
   /*Tablet display styling*/
   @media screen and (max-width: 48rem) {
-    custom-team-roster {
+    .custom-team-roster {
       margin-right: 1.5rem;
       margin-left: 1.5rem;
     }
