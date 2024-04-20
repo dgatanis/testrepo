@@ -162,9 +162,17 @@ tr {
     }
 
     .custom-team-roster {
-        width: 35%;
+        width: 40%;
         margin-right: 2.5rem;
         margin-left: 2.5rem;
+    }
+  }
+
+  /*Tablet display styling*/
+  @media screen and (max-width: 48rem) {
+    custom-team-roster {
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
     }
   }
 
