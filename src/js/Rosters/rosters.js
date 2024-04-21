@@ -1,15 +1,18 @@
 var rosterData;
 var playerData;
-var leagueData;
+var userData;
+var matchupData;
 
 //This loads the page contents dynamically
 async function loadConstants() {
 
     try{
-        const leagueInfo = await import('../util/browserData.js');
-        rosterData = leagueInfo.rosterData;
-        console.log(rosterData);
-        //loadSortedRosters();
+        const browserData = await import('../util/browserData.js');
+        rosterData = browserData.rosterData;
+        playerData = browserData.playerData;
+        userData = browserData.userData;
+        matchupData = browserData.matchupData;
+        loadSortedRosters();
         // const leagueInfoLeagueId = leagueInfo.default();
         // const currentWeek = leagueInfo.getCurrentWeek();
         // const currentSeason = leagueInfo.getCurrentSeason();
@@ -34,7 +37,7 @@ async function loadConstants() {
     }
 
 }
-/*
+
 function loadSortedRosters() {
 
     try{
@@ -661,5 +664,3 @@ function createOwnerAvatarImage(userId) {
     }
     return img;
 }
-
-*/
