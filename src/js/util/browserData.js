@@ -175,5 +175,5 @@ async function getMatchupData(leagueID, currentWeek) {
     }
 
 }
-
+console.log(rosters);
 export const rosterData = rosters;
