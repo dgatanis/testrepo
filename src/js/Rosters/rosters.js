@@ -471,6 +471,7 @@ function getTeamRecord(rosterid) {
 function getTeamStacks(rosterid) {
 
     var teamStacks = {};
+    var teams = [];
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
 
@@ -485,15 +486,12 @@ function getTeamStacks(rosterid) {
                 
                 if(player.position == 'QB')
                 {
-                    console.log(player);
-                }
-                else
-                {
-                    console.log(player.player_id);
+                    teams.push(player.team)
                 }
 
             }
         }
+        console.log(teams);
         
     }
 }
