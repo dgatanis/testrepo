@@ -10930,14 +10930,14 @@ a.custom-nav:hover {
 
 .custom-player-avatar {
   max-width: 3rem;
-  border-radius: 5px;
+  border-radius: 10rem;
   margin-right: .5rem;
   width: 3rem;
 }
 
 .custom-small-player-avatar {
   max-width: 2rem;
-  border-radius: 5px;
+  border-radius: 10rem;
   width: 2rem;
 }
 
