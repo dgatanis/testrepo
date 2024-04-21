@@ -1,3 +1,9 @@
+var rosters;
+var players;
+var users;
+var matchups;
+var league;
+
 //Sets the browser data needed for other scripts
 try{
     setBrowserData();
@@ -51,6 +57,8 @@ async function getRostersForLeague(leagueID){
     {
         const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
         const rosterData = await rosterResponse.json(); 
+
+        var rosters = rosterData;
         localStorage.setItem("RosterData", JSON.stringify(rosterData));
     }
     catch (error) {
@@ -167,11 +175,4 @@ async function getMatchupData(leagueID, currentWeek) {
 
 }
 
-const rosterDataStorage = localStorage.getItem("RosterData");
-export const rosterData = JSON.parse(rosterDataStorage); 
-const userDataStorage = localStorage.getItem("UserData");
-export const userData = JSON.parse(userDataStorage);
-const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-export const matchupData = JSON.parse(matchupWeekStorage); 
-const playerDataStorage = localStorage.getItem("PlayerData");
-export const playerData = JSON.parse(playerDataStorage); 
+export const rosterData = rosters;

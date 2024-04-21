@@ -9,10 +9,11 @@ async function loadConstants() {
     try{
         const browserData = await import('../util/browserData.js');
         rosterData = browserData.rosterData;
-        playerData = browserData.playerData;
-        userData = browserData.userData;
-        matchupData = browserData.matchupData;
-        loadSortedRosters();
+        console.log(rosterData);
+        // playerData = browserData.playerData;
+        // userData = browserData.userData;
+        // matchupData = browserData.matchupData;
+        // loadSortedRosters();
         // const leagueInfoLeagueId = leagueInfo.default();
         // const currentWeek = leagueInfo.getCurrentWeek();
         // const currentSeason = leagueInfo.getCurrentSeason();
