@@ -37,7 +37,7 @@ async function loadScript(url) {
 
 async function init() {
     try {
-        await loadScript('../util/browserData.js');
+        await loadScript('..src/js/util/browserData.js');
         const browserDatas = await import('../util/browserData.js');
         var x = browserDatas.getRostersForLeague(1046222222567784448);
         console.log(x); // Do whatever you need with rosterData
