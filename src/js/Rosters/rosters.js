@@ -501,7 +501,7 @@ function getTeamStacks(rosterid) {
 
 function sortByTeam(players) {
 
-    const rosterPlayers = [];
+    const sortedPlayers = [];
     
     for(let player of players)
     {
