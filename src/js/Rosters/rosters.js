@@ -78,8 +78,6 @@ async function initBrowserData() {
 function loadSortedRosters() {
 
     try{
-        //const leaguePositionList = getLeaguePositions();
-
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);
 
@@ -396,7 +394,7 @@ function getRosterStats(rosterid) {
         var playerPositionAge = calcPositionAge(roster.players);
         var playerAge = calcRosterAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
-        //getTeamStacks(rosterid);
+        getTeamStacks(rosterid);
 
         let rosterStats = {
             ...playerPositionCount[0],
@@ -411,6 +409,22 @@ function getRosterStats(rosterid) {
 
 function getTeamStacks(rosterid) {
 
+    const rosters = rosterData.map((x) => x);
+    let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
+
+    if(roster)
+    {
+        let rosterPlayers = roster.players;
+        if(rosterPlayers)
+        {
+            for(let thisPlayer of rosterPlayers)
+            {
+                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer));
+                console.log(player);
+            }
+        }
+        
+    }
 }
 
 function getTeamName(userid) {
