@@ -8,8 +8,8 @@ async function loadConstants() {
 
     try{
         const browserData = await import('../util/browserData.js');
-        rosterData = browserData.rosterDatas;
-        console.log(rosterData);
+        rosterData = browserData.rosterData;
+        console.log(browserData.rosterData);
         // playerData = browserData.playerData;
         // userData = browserData.userData;
         // matchupData = browserData.matchupData;

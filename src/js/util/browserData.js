@@ -176,4 +176,4 @@ async function getMatchupData(leagueID, currentWeek) {
 
 }
 
-export const rosterDatas = rosters;
+export const rosterData = rosters;
