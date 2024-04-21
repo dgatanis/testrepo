@@ -10,16 +10,17 @@ var playerData = JSON.parse(playerDataStorage);
 
 //This loads the page contents dynamically
 async function loadConstants() {
+
     if(!rosterData)
     {
-        console.log("noRosters");
-
         try{
-            initData();
+            initBrowserData();
         }
         catch (error){
             console.error(`Error: ${error.message}`);
         }
+
+        loadSortedRosters();
     }
     else
     {
@@ -41,7 +42,7 @@ function waitForLocalStorageItem(key) {
     });
 }
 
-async function initData() {
+async function initBrowserData() {
     try {
         const localRosterData = await waitForLocalStorageItem("RosterData");
         const localLeagueData = await waitForLocalStorageItem("LeagueData");
@@ -54,8 +55,6 @@ async function initData() {
         leagueData = JSON.parse(localLeagueData);
 
         console.log("init done"); 
-
-        loadSortedRosters();
 
     } catch (error) {
         console.error('Error loading or executing script:', error);

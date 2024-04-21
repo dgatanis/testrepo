@@ -1,11 +1,11 @@
 const rosterDataStorage = localStorage.getItem("RosterData");
-const rosterData = JSON.parse(rosterDataStorage); 
+var rosterData = JSON.parse(rosterDataStorage); 
 const userDataStorage = localStorage.getItem("UserData");
-const userData = JSON.parse(userDataStorage);
+var userData = JSON.parse(userDataStorage);
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-const matchupData = JSON.parse(matchupWeekStorage); 
+var matchupData = JSON.parse(matchupWeekStorage); 
 const playerDataStorage = localStorage.getItem("PlayerData");
-const playerData = JSON.parse(playerDataStorage); 
+var playerData = JSON.parse(playerDataStorage); 
 
 //This loads the page contents dynamically
 async function loadConstants() {
@@ -36,6 +36,39 @@ async function loadConstants() {
         console.error(`Error: ${error.message}`);
     }
 
+}
+
+function waitForLocalStorageItem(key) {
+    return new Promise((resolve) => {
+        const checkLocalStorage = () => {
+            const item = localStorage.getItem(key);
+            if (item !== null) {
+                resolve(item);
+            } else {
+                setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
+            }
+        };
+        checkLocalStorage();
+    });
+}
+
+async function initBrowserData() {
+    try {
+        const localRosterData = await waitForLocalStorageItem("RosterData");
+        const localLeagueData = await waitForLocalStorageItem("LeagueData");
+        const localPlayerData = await waitForLocalStorageItem("PlayerData");
+        const localUserData = await waitForLocalStorageItem("UserData");
+
+        rosterData = JSON.parse(localRosterData);
+        userData = JSON.parse(localUserData);
+        playerData = JSON.parse(localPlayerData);
+        leagueData = JSON.parse(localLeagueData);
+
+        console.log("init done"); 
+
+    } catch (error) {
+        console.error('Error loading or executing script:', error);
+    }
 }
 
 function setSeasonTitle(season) {
