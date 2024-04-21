@@ -394,13 +394,14 @@ function getRosterStats(rosterid) {
         var playerPositionAge = calcPositionAge(roster.players);
         var playerAge = calcRosterAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
-        getTeamStacks(rosterid);
+        var teamStackPlayers = getTeamStacks(rosterid);
 
         let rosterStats = {
             ...playerPositionCount[0],
             ...playerAge[0],
             ...teamRecord[0],
-            ...playerPositionAge
+            ...playerPositionAge,
+            ...teamStackPlayers
         };
 
         return rosterStats;
@@ -478,7 +479,6 @@ function getTeamStacks(rosterid) {
     if(roster)
     {
         let rosterPlayers = sortByTeam(roster.players);
-        let commonTeams = countCommonTeams(rosterPlayers);
 
         if(rosterPlayers)
         {
@@ -494,6 +494,7 @@ function getTeamStacks(rosterid) {
 
             }
 
+            let commonTeams = countCommonTeams(rosterPlayers);
             //loop through players again and only select ones with qb stacks
             for(let thisPlayer of rosterPlayers)
             {
@@ -502,7 +503,6 @@ function getTeamStacks(rosterid) {
                 if(teams.includes(player.team) && player.position != 'K' && commonTeams[parseInt(player.player_id)] >= 1)
                 {
                     teamStacks.push({
-                        "player_name": getFullPlayerName(thisPlayer.player_id),
                         "player_id": player.player_id,
                         "team": player.team
                     });
@@ -510,7 +510,8 @@ function getTeamStacks(rosterid) {
 
             }
         }
-        console.log(teamStacks);
+        
+        return teamStacks;
         
     }
 }
