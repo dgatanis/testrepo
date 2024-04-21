@@ -8,7 +8,6 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
 
-//This loads the page contents dynamically
 async function checkBrowserData() {
 
     if(!rosterData)
@@ -40,17 +39,33 @@ function waitForLocalStorageItem(key) {
     });
 }
 
+function waitForSessionStorageItem(key) {
+    return new Promise((resolve) => {
+        const checkSessionStorage = () => {
+            const item = sessionStorage.getItem(key);
+            if (item !== null) {
+                resolve(item);
+            } else {
+                setTimeout(checkSessionStorage, 100); // Check again in 100 milliseconds
+            }
+        };
+        checkSessionStorage();
+    });
+}
+
 async function initBrowserData() {
     try {
         const localRosterData = await waitForLocalStorageItem("RosterData");
         const localLeagueData = await waitForLocalStorageItem("LeagueData");
         const localPlayerData = await waitForLocalStorageItem("PlayerData");
         const localUserData = await waitForLocalStorageItem("UserData");
+        const localMatchupData = await waitForSessionStorageItem("MatchupData");
 
         rosterData = JSON.parse(localRosterData);
         userData = JSON.parse(localUserData);
         playerData = JSON.parse(localPlayerData);
         leagueData = JSON.parse(localLeagueData);
+        matchupData = JSON.parse(localMatchupData);
 
         console.log("init done"); 
         loadSortedRosters();
@@ -60,6 +75,7 @@ async function initBrowserData() {
     }
 }
 
+//This loads the page contents dynamically
 function loadSortedRosters() {
 
     try{

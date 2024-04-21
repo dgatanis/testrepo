@@ -7,38 +7,6 @@ var matchupData = JSON.parse(matchupWeekStorage);
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
-
-//This loads the page contents dynamically
-async function loadContents() {
-
-    try{
-
-        const leagueInfo = await import('../util/leagueInfo.js');
-        const leagueInfoLeagueId = leagueInfo.default();
-        const currentWeek = leagueInfo.getCurrentWeek();
-        const currentSeason = leagueInfo.getCurrentSeason();
-        const weeklyWinnerPayout = leagueInfo.weeklyWinner;
-        const dues = leagueInfo.dues;
-
-        const currentLeagueId = await leagueInfoLeagueId;
-        const thisSeason = await currentSeason;
-        const leagueId = currentLeagueId;
-        const week = currentWeek;
-        const season = thisSeason;
-
-        loadSeasonRankings(leagueId);
-        loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
-        getLatestTransactions('1');
-        setSeasonTitle(season);
-        loadMatchupsList(); 
-        return;
-    }
-    catch (error){
-        console.error(`Error: ${error.message}`);
-    }
-
-}
-
 async function checkBrowserData() {
 
     if(!rosterData)
@@ -70,17 +38,33 @@ function waitForLocalStorageItem(key) {
     });
 }
 
+function waitForSessionStorageItem(key) {
+    return new Promise((resolve) => {
+        const checkSessionStorage = () => {
+            const item = sessionStorage.getItem(key);
+            if (item !== null) {
+                resolve(item);
+            } else {
+                setTimeout(checkSessionStorage, 100); // Check again in 100 milliseconds
+            }
+        };
+        checkSessionStorage();
+    });
+}
+
 async function initBrowserData() {
     try {
         const localRosterData = await waitForLocalStorageItem("RosterData");
         const localLeagueData = await waitForLocalStorageItem("LeagueData");
         const localPlayerData = await waitForLocalStorageItem("PlayerData");
         const localUserData = await waitForLocalStorageItem("UserData");
+        const localMatchupData = await waitForSessionStorageItem("MatchupData");
 
         rosterData = JSON.parse(localRosterData);
         userData = JSON.parse(localUserData);
         playerData = JSON.parse(localPlayerData);
         leagueData = JSON.parse(localLeagueData);
+        matchupData = JSON.parse(localMatchupData);
 
         console.log("init done"); 
         loadContents();
@@ -88,6 +72,37 @@ async function initBrowserData() {
     } catch (error) {
         console.error('Error loading or executing script:', error);
     }
+}
+
+//This loads the page contents dynamically
+async function loadContents() {
+
+    try{
+
+        const leagueInfo = await import('../util/leagueInfo.js');
+        const leagueInfoLeagueId = leagueInfo.default();
+        const currentWeek = leagueInfo.getCurrentWeek();
+        const currentSeason = leagueInfo.getCurrentSeason();
+        const weeklyWinnerPayout = leagueInfo.weeklyWinner;
+        const dues = leagueInfo.dues;
+
+        const currentLeagueId = await leagueInfoLeagueId;
+        const thisSeason = await currentSeason;
+        const leagueId = currentLeagueId;
+        const week = currentWeek;
+        const season = thisSeason;
+
+        loadSeasonRankings(leagueId);
+        loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
+        getLatestTransactions('1');
+        setSeasonTitle(season);
+        loadMatchupsList(); 
+        return;
+    }
+    catch (error){
+        console.error(`Error: ${error.message}`);
+    }
+
 }
 
 function setSeasonTitle(season) {
