@@ -490,8 +490,21 @@ function getTeamStacks(rosterid) {
                 }
 
             }
+
+            for(let thisPlayer of rosterPlayers)
+            {
+                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+                
+                if(teams.includes(player.team) && (player.position == 'QB' || player.position == 'RB' || player.position == 'WR' || player.position == 'TE'))
+                {
+                    teamStacks.push({
+                        ...getFullPlayerName(thisPlayer.player_id)
+                    });
+                }
+
+            }
         }
-        console.log(teams);
+        console.log(teamStacks);
         
     }
 }
