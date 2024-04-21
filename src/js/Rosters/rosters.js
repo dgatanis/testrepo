@@ -247,6 +247,7 @@ function loadSortedRosters() {
                         else
                         {
                             finalString += player.team + " " + getFullPlayerName(player.player_id) + " " + player.position;
+                            sameTeam = player.team;
                         }
                         
                     }
