@@ -1,17 +1,11 @@
-const rosterDataStorage = localStorage.getItem("RosterData");
-const rosterData = JSON.parse(rosterDataStorage); 
-const userDataStorage = localStorage.getItem("UserData");
-const userData = JSON.parse(userDataStorage);
-const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-const matchupData = JSON.parse(matchupWeekStorage); 
-const playerDataStorage = localStorage.getItem("PlayerData");
-const playerData = JSON.parse(playerDataStorage); 
+import { rosterData } from '../util/leagueInfo.js';
 
 //This loads the page contents dynamically
 async function loadConstants() {
 
     try{
-        loadSortedRosters();
+        console.log(rosterData);
+        //loadSortedRosters();
         // const leagueInfo = await import('../util/leagueInfo.js');
         // const leagueInfoLeagueId = leagueInfo.default();
         // const currentWeek = leagueInfo.getCurrentWeek();
@@ -37,7 +31,7 @@ async function loadConstants() {
     }
 
 }
-
+/*
 function loadSortedRosters() {
 
     try{
@@ -664,3 +658,5 @@ function createOwnerAvatarImage(userId) {
     }
     return img;
 }
+
+*/
