@@ -239,7 +239,7 @@ function loadSortedRosters() {
                     {
                         let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
                         console.log(sameTeam);
-                        if(sameTeam == "" || sameTeam != player.team)
+                        if(sameTeam == "" || sameTeam == player.team)
                         {
                             finalString += getFullPlayerName(player.player_id) + " " + player.position;
                             sameTeam = player.team;
