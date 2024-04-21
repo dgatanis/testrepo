@@ -39,7 +39,7 @@ async function init() {
     try {
         await loadScript('./util/browserData.js');
         const browserDatas = await import('./util/browserData.js');
-        console.log(browserData.getRostersForLeague(1046222222567784448)); // Do whatever you need with rosterData
+        console.log(browserDatas.getRostersForLeague(1046222222567784448)); // Do whatever you need with rosterData
         // Now you can proceed with the rest of your code knowing that rosterData is available
     } catch (error) {
         console.error('Error loading or executing script:', error);
