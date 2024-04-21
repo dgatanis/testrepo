@@ -241,15 +241,15 @@ function loadSortedRosters() {
                         
                         if(sameTeam == "" || sameTeam != player.team)
                         {
-                            statsTestChild.children[1].innerText = player.team.toString();
+                            statsTestChild.children[0].children[0].innerText = player.team.toString();
+                            playerNames = "";
                             playerNames += getFullPlayerName(player.player_id) + " " + player.position;
                             sameTeam = player.team;
                         }
                         else
                         {
                             playerNames += getFullPlayerName(player.player_id) + " " + player.position;
-                            statsTestChild.children[1].innerText = playerNames;
-                            playerNames = "";
+                            statsTestChild.children[0].children[1].innerText = playerNames;
                             sameTeam = player.team;
                         }
                         
