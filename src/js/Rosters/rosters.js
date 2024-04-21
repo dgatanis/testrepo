@@ -25,23 +25,25 @@ async function loadConstants() {
     }
 }
 
-async function loadScript(url) {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = url;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.body.appendChild(script);
+function waitForLocalStorageItem(key) {
+    return new Promise((resolve) => {
+        const checkLocalStorage = () => {
+            const item = localStorage.getItem(key);
+            if (item !== null) {
+                resolve(item);
+            } else {
+                setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
+            }
+        };
+        checkLocalStorage();
     });
 }
 
 async function init() {
     try {
-        await loadScript('../src/js/util/browserData.js');
-        const browserDatas = await import('../util/browserData.js');
-        rosterData = JSON.parse(rosterDataStorage); 
-        console.log(rosterData); // Do whatever you need with rosterData
-        // Now you can proceed with the rest of your code knowing that rosterData is available
+        const rosterData = await waitForLocalStorageItem("RosterData");
+        console.log(JSON.parse(rosterData)); // Do whatever you need with the retrieved data
+        // Now you can proceed with the rest of your code knowing that RosterData is available
     } catch (error) {
         console.error('Error loading or executing script:', error);
     }
