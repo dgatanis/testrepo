@@ -34,7 +34,7 @@ async function setBrowserData() {
             //TESTING
             //setMatchupData(leagueId,currentWeek);
             getMatchupData('1003692635549462528','10');
-            console.log(leagueId + " " + thisWeek);
+            //console.log(leagueId + " " + thisWeek);
             //getMatchupData(leagueId,thisWeek);
 
         }

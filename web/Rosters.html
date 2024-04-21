@@ -2,7 +2,7 @@
   <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script type="module" src="../src/js/util/browserData.js" defer></script>
+      <script type="module" src="../src/js/util/browserData.js"></script>
       <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
       <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
       <link rel="stylesheet" href="../src/css/Rosters/rosters.css">
@@ -1499,7 +1499,8 @@
       </footer>
 
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function(event) {
+
           window.onload = function() {
             loadConstants();
           };
