@@ -478,8 +478,11 @@ function getTeamStacks(rosterid) {
     if(roster)
     {
         let rosterPlayers = sortByTeam(roster.players);
+        let countCommonTeams = countCommonTeams(roster.players);
+
         if(rosterPlayers)
         {
+            //loop through players to get only teams for qbs
             for(let thisPlayer of rosterPlayers)
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
@@ -491,11 +494,12 @@ function getTeamStacks(rosterid) {
 
             }
 
+            //loop through players again and only select ones with qb stacks
             for(let thisPlayer of rosterPlayers)
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
                 
-                if(teams.includes(player.team) && (player.position == 'QB' || player.position == 'RB' || player.position == 'WR' || player.position == 'TE'))
+                if(teams.includes(player.team) && player.position != 'K' && countCommonTeams[player.player_id] >= 1)
                 {
                     teamStacks.push({
                         "player_name": getFullPlayerName(thisPlayer.player_id),
@@ -509,6 +513,26 @@ function getTeamStacks(rosterid) {
         console.log(teamStacks);
         
     }
+}
+
+function countCommonTeams(players) {
+
+    const result = {};
+    
+    players.forEach(player => {
+        if (!result[player.player_id]) {
+            result[player.player_id] = 0;
+        }
+        // Loop through the players again to compare teams
+        players.forEach(otherPlayer => {
+            // Count common teams for each player
+            if (player.player_id !== otherPlayer.player_id && player.team === otherPlayer.team) {
+                result[player.player_id]++;
+            }
+        });
+    });
+    
+    return result;
 }
 
 
