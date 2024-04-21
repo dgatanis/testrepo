@@ -58,7 +58,8 @@ async function getRostersForLeague(leagueID){
         const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
         const rosterData = await rosterResponse.json(); 
 
-        var rosters = rosterData;
+        rosters = rosterData;
+        console.log("getRostersForLeague");
         localStorage.setItem("RosterData", JSON.stringify(rosterData));
     }
     catch (error) {
