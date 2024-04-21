@@ -476,95 +476,62 @@ function getTeamStacks(rosterid) {
 
     if(roster)
     {
-        let rosterPlayers = roster.players;//sortByTeam(roster.players);
+        let rosterPlayers = sortByTeam(roster.players);
         if(rosterPlayers)
         {
             for(let thisPlayer of rosterPlayers)
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer));
-                //console.log(player);
+                
+                if(player.position == 'QB')
+                {
+                    console.log(player);
+                }
+                else
+                {
+                    console.log(player.player_id);
+                }
+
             }
         }
         
     }
 }
 
-/*
+
 function sortByTeam(players) {
 
-    let sortedPlayers = [];
-    const sortedPositions = [];
-    const qb = [];
-    const rb = [];
-    const wr = [];
-    const te = [];
-    const k = [];
-
+    const rosterPlayers = [];
+    
     for(let player of players)
     {
         let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
         if(thisPlayer)
         {
-            if(thisPlayer.position == "QB")
-            {
-                qb.push ({
-                "player_id": thisPlayer.player_id,
-                "position": thisPlayer.position
-                });   
-            }
-             if(thisPlayer.position == "RB")
-            {
-                rb.push ({
-                "player_id": thisPlayer.player_id,
-                "position": thisPlayer.position
-                });   
-            }
-             if(thisPlayer.position == "WR")
-            {
-                wr.push ({
-                "player_id": thisPlayer.player_id,
-                "position": thisPlayer.position
-                });   
-            }
-            if(thisPlayer.position == "TE")
-            {
-                te.push ({
-                "player_id": thisPlayer.player_id,
-                "position": thisPlayer.position
-                });   
-            }
-            if(thisPlayer.position == "K")
-            {
-                k.push ({
-                "player_id": thisPlayer.player_id,
-                "position": thisPlayer.position
-                });   
-            }
+            sortedPlayers.push({
+                "player_id": thisPlayer.player_id.toString(),
+                "team": thisPlayer.team
+            });
+            
         }
     }
 
-    sortedPositions.push([qb, rb, wr, te, k]);
-
-    for(let positions of sortedPositions)
-    {
-        for (let position of positions)
-        {
-            for (let player of position)
-            {
-                sortedPlayers.push ({
-                    "player_id": player.player_id,
-                    "position": player.position
-                });
-            }
+    sortedPlayers.sort(function (a, b) {
+        if (a.team > b.team) {
+        return 1;
         }
-    }
+        if (a.team < b.team) {
+        return -1;
+        }
+        return 0;
+    });
 
     if(sortedPlayers)
     {
         return sortedPlayers;
     }
 }
-*/
+
 function sortByPosition(players) {
 
     let sortedPlayers = [];
