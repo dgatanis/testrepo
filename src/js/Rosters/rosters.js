@@ -233,7 +233,7 @@ function loadSortedRosters() {
                 {
                     var statsTestChild = statsTestRow[0].children[0];
                     var sameTeam = "";
-                    var finalString = "";
+                    var playerNames = "";
 
                     for(let thisPlayer of rosterStats.team_stacks)
                     {
@@ -241,17 +241,19 @@ function loadSortedRosters() {
                         
                         if(sameTeam == "" || sameTeam != player.team)
                         {
-                            finalString += player.team + " " + getFullPlayerName(player.player_id) + " " + player.position;
+                            statsTestChild.children[1].innerText = player.team.toString();
+                            playerNames += getFullPlayerName(player.player_id) + " " + player.position;
                             sameTeam = player.team;
                         }
                         else
                         {
-                            finalString += getFullPlayerName(player.player_id) + " " + player.position;
+                            playerNames += getFullPlayerName(player.player_id) + " " + player.position;
+                            statsTestChild.children[1].innerText = playerNames;
+                            playerNames = "";
                             sameTeam = player.team;
                         }
                         
                     }
-                    statsTestChild.children[0].innerText = finalString;
                     
                 }
             }
