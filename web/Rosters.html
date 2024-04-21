@@ -1500,7 +1500,9 @@
 
       <script>
         document.addEventListener('DOMContentLoaded', function() {
-          loadConstants();
+          window.onload = function() {
+            loadConstants();
+          };
         });
      </script>
     </body>
