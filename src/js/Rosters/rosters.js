@@ -67,7 +67,6 @@ async function initBrowserData() {
         leagueData = JSON.parse(localLeagueData);
         matchupData = JSON.parse(localMatchupData);
 
-        console.log("init done"); 
         loadSortedRosters();
 
     } catch (error) {
