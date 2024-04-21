@@ -212,7 +212,7 @@ function loadSortedRosters() {
                 var positionCountRow = statsTeam.getElementsByClassName('custom-stats-position-count-row');
                 var playerAgeRow = statsTeam.getElementsByClassName('custom-stats-players-age-row');
                 var positionAgeRow = statsTeam.getElementsByClassName('custom-stats-position-age-row');
-                var statsTestRow = statsTeam.getElementsByClassName('custom-stats-test-row'); 
+                var statsTestRow = statsTeam.getElementsByClassName('custom-stats-stacks-row'); 
 
                 if(positionCountRow)
                 {
@@ -238,15 +238,15 @@ function loadSortedRosters() {
                     for(let thisPlayer of rosterStats.team_stacks)
                     {
                         let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
-                        console.log(sameTeam);
-                        if(sameTeam == "" || sameTeam == player.team)
+                        
+                        if(sameTeam == "" || sameTeam != player.team)
                         {
-                            finalString += getFullPlayerName(player.player_id) + " " + player.position;
+                            finalString += player.team + " " + getFullPlayerName(player.player_id) + " " + player.position;
                             sameTeam = player.team;
                         }
                         else
                         {
-                            finalString += player.team + " " + getFullPlayerName(player.player_id) + " " + player.position;
+                            finalString += getFullPlayerName(player.player_id) + " " + player.position;
                             sameTeam = player.team;
                         }
                         
