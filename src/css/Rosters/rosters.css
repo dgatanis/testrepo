@@ -139,18 +139,20 @@ tr {
 
 .custom-stacks-label {
   font-size: x-large;
+  float: inline-start;
 }
 
 .custom-stacks-teamname {
-  float: left;
   clear: both;
   margin-bottom: .5rem;
   font-size: 1rem;
   margin-left: 1.5rem;
+  margin-top: 1rem;
 }
 
 .custom-stacks-player {
   clear: both;
+  margin-left: 9%
 }
 
 
