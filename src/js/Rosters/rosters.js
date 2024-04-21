@@ -473,6 +473,7 @@ function getTeamStacks(rosterid) {
 
     var teamStacks = [];
     var teams = [];
+    var result = {};
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
 
@@ -510,8 +511,11 @@ function getTeamStacks(rosterid) {
 
             }
         }
-        
-        return teamStacks;
+
+        result.push({
+            "team_stacks": teamStacks
+        });
+        return result;
         
     }
 }
