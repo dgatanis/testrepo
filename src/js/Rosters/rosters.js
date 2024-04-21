@@ -231,7 +231,27 @@ function loadSortedRosters() {
                 }
                 if (statsTestRow)
                 {
-                    //console.log('test');
+                    var statsTestChild = statsTestRow[0].children[0];
+                    var sameTeam = "";
+                    var finalString = "";
+                    
+                    for(let thisPlayer of rosterStats.team_stacks)
+                    {
+                        let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+
+                        if(sameTeam == "" || sameTeam != player.team)
+                        {
+                            finalString += getFullPlayerName(player.player_id) + " " + player.position;
+                            sameTeam = player.team;
+                        }
+                        else
+                        {
+                            finalString += player.team + " " + getFullPlayerName(player.player_id) + " " + player.position;
+                        }
+                        
+                    }
+                    statsTestChild.children[0].innerText = finalString;
+                    
                 }
             }
         }
