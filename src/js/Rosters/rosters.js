@@ -470,7 +470,7 @@ function getTeamRecord(rosterid) {
 
 function getTeamStacks(rosterid) {
 
-    var teamStacks = []];
+    var teamStacks = [];
     var teams = [];
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
