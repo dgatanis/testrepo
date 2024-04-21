@@ -133,6 +133,24 @@ tr {
   color: whitesmoke;
 }
 
+.custom-stats-stacks-row {
+  width: 100%;
+}
+
+.custom-stacks-label {
+  font-size: x-large;
+}
+
+.custom-stacks-teamname {
+  float: left;
+  clear: both;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+
+.custom-stacks-player {
+  clear: both;
+}
 
 
 /*Large laptop display styling*/
