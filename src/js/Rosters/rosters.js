@@ -22,10 +22,32 @@ async function loadConstants() {
             console.log(rosterData);
             console.log('testing');
             console.log(testing);
+            init();
         }
         catch (error){
             console.error(`Error: ${error.message}`);
         }
+    }
+}
+
+async function loadScript(url) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+    });
+}
+
+async function init() {
+    try {
+        await loadScript('./util/browserData.js');
+        const { testing } = await import('./util/browserData.js');
+        console.log(testing); // Do whatever you need with rosterData
+        // Now you can proceed with the rest of your code knowing that rosterData is available
+    } catch (error) {
+        console.error('Error loading or executing script:', error);
     }
 }
 
