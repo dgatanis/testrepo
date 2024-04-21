@@ -7,8 +7,9 @@ var matchupData = JSON.parse(matchupWeekStorage);
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
+
 //This loads the page contents dynamically
-async function loadConstants() {
+async function loadContents() {
 
     try{
 
@@ -38,6 +39,23 @@ async function loadConstants() {
 
 }
 
+async function checkBrowserData() {
+
+    if(!rosterData)
+    {
+        try{
+            initBrowserData();
+        }
+        catch (error){
+            console.error(`Error: ${error.message}`);
+        }
+    }
+    else
+    {
+        loadContents();
+    }
+}
+
 function waitForLocalStorageItem(key) {
     return new Promise((resolve) => {
         const checkLocalStorage = () => {
@@ -65,6 +83,7 @@ async function initBrowserData() {
         leagueData = JSON.parse(localLeagueData);
 
         console.log("init done"); 
+        loadContents();
 
     } catch (error) {
         console.error('Error loading or executing script:', error);

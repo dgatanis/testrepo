@@ -394,8 +394,10 @@
     </footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-         loadConstants();
+      document.addEventListener('DOMContentLoaded', function(event) {
+        window.onload = function() {
+          checkBrowserData();
+        };
       });
    </script>
     </body>

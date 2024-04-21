@@ -9,7 +9,7 @@ var playerData = JSON.parse(playerDataStorage);
 
 
 //This loads the page contents dynamically
-async function loadConstants() {
+async function checkBrowserData() {
 
     if(!rosterData)
     {
@@ -19,8 +19,6 @@ async function loadConstants() {
         catch (error){
             console.error(`Error: ${error.message}`);
         }
-
-        loadSortedRosters();
     }
     else
     {
@@ -55,6 +53,7 @@ async function initBrowserData() {
         leagueData = JSON.parse(localLeagueData);
 
         console.log("init done"); 
+        loadSortedRosters();
 
     } catch (error) {
         console.error('Error loading or executing script:', error);
