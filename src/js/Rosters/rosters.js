@@ -231,7 +231,7 @@ function loadSortedRosters() {
                 }
                 if (statsTestRow)
                 {
-                    console.log('test');
+                    //console.log('test');
                 }
             }
         }
@@ -499,7 +499,7 @@ function getTeamStacks(rosterid) {
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
                 
-                if(teams.includes(player.team) && player.position != 'K' && commonTeams[player.player_id] >= 1)
+                if(teams.includes(player.team) && player.position != 'K' && commonTeams[parseInt(player.player_id)] >= 1)
                 {
                     teamStacks.push({
                         "player_name": getFullPlayerName(thisPlayer.player_id),
