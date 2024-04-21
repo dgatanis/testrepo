@@ -470,7 +470,7 @@ function getTeamRecord(rosterid) {
 
 function getTeamStacks(rosterid) {
 
-    var teamStacks = {};
+    var teamStacks = []];
     var teams = [];
     const rosters = rosterData.map((x) => x);
     let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
@@ -498,7 +498,9 @@ function getTeamStacks(rosterid) {
                 if(teams.includes(player.team) && (player.position == 'QB' || player.position == 'RB' || player.position == 'WR' || player.position == 'TE'))
                 {
                     teamStacks.push({
-                        ...getFullPlayerName(thisPlayer.player_id)
+                        "player_name": getFullPlayerName(thisPlayer.player_id),
+                        "player_id": player.player_id,
+                        "team": player.team
                     });
                 }
 
