@@ -512,9 +512,8 @@ function getTeamStacks(rosterid) {
             }
         }
 
-        result.push({
-            "team_stacks": teamStacks
-        });
+        result['team_stacks'] = teamStacks;
+
         return result;
         
     }
