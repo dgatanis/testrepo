@@ -212,7 +212,7 @@ function loadSortedRosters() {
                 var positionCountRow = statsTeam.getElementsByClassName('custom-stats-position-count-row');
                 var playerAgeRow = statsTeam.getElementsByClassName('custom-stats-players-age-row');
                 var positionAgeRow = statsTeam.getElementsByClassName('custom-stats-position-age-row');
-                var statsTestRow = statsTeam.getElementsByClassName('custom-stats-stacks-row'); 
+                var statsStacksRow = statsTeam.getElementsByClassName('custom-stats-stacks-row'); 
 
                 if(positionCountRow)
                 {
@@ -229,11 +229,10 @@ function loadSortedRosters() {
                     var positionAgeChild = positionAgeRow[0].children[0];
                     positionAgeChild.children[0].innerText = "QB: " + rosterStats.qbAge + "yrs RB:"  + rosterStats.rbAge + "yrs WR:" + rosterStats.wrAge + "yrs TE:" + rosterStats.teAge + "yrs";
                 }
-                if (statsTestRow)
+                if (statsStacksRow)
                 {
-                    var statsTestChild = statsTestRow[0].children[0];
+                    var statsStacksChild = statsStacksRow[0].children[0].children[0];
                     var sameTeam = "";
-                    var playerNames = "";
 
                     for(let thisPlayer of rosterStats.team_stacks)
                     {
@@ -241,15 +240,27 @@ function loadSortedRosters() {
                         
                         if(sameTeam == "" || sameTeam != player.team)
                         {
-                            statsTestChild.children[0].children[0].innerText = player.team.toString();
-                            playerNames = "";
-                            playerNames += getFullPlayerName(player.player_id) + " " + player.position;
+                            var stacksTeamName = document.createElement('div');
+                            var stacksPlayer = document.createElement('div');
+
+                            stacksTeamName.setAttribute('class', 'custom-stacks-teamname');
+                            stacksTeamName.innerText = player.team;
+                            stacksPlayer.setAttribute('class', 'custom-stacks-player');
+                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " " + player.position;
+
+                            statsStacksChild.append(stacksTeamName);
+                            statsStacksChild.append(stacksPlayer);
+
                             sameTeam = player.team;
                         }
                         else
                         {
-                            playerNames += getFullPlayerName(player.player_id) + " " + player.position;
-                            statsTestChild.children[0].children[1].innerText = playerNames;
+                            var stacksPlayer = document.createElement('div');
+                            stacksPlayer.setAttribute('class', 'custom-stacks-player');
+                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " " + player.position;
+
+                            statsStacksChild.append(stacksPlayer);
+                            
                             sameTeam = player.team;
                         }
                         
