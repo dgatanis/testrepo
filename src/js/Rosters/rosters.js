@@ -481,7 +481,7 @@ function getTeamStacks(rosterid) {
         {
             for(let thisPlayer of rosterPlayers)
             {
-                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer));
+                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
                 
                 if(player.position == 'QB')
                 {
