@@ -16,9 +16,12 @@ async function loadConstants() {
     
         try{
             const browserData = await import('../util/browserData.js');
-            rosterData = browserData.getRostersForLeague(1046222222567784448);
+            rosterData = await browserData.getRostersForLeague(1046222222567784448);
+            const testing = rosterData;
             console.log('rosterData 2');
             console.log(rosterData);
+            console.log('testing');
+            console.log(testing);
         }
         catch (error){
             console.error(`Error: ${error.message}`);
