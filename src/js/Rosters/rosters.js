@@ -6,17 +6,15 @@ const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 var matchupData = JSON.parse(matchupWeekStorage); 
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
-console.log('rosterData 1');
-console.log(rosterData);
+
+
 //This loads the page contents dynamically
 async function loadConstants() {
     if(!rosterData)
     {
         console.log("noRosters");
-    
+
         try{
-            const browserData = await import('../util/browserData.js');
-            rosterData = browserData.getRostersForLeague(1046222222567784448);
             init();
         }
         catch (error){
@@ -41,9 +39,18 @@ function waitForLocalStorageItem(key) {
 
 async function init() {
     try {
-        const rosterData = await waitForLocalStorageItem("RosterData");
-        console.log(JSON.parse(rosterData)); // Do whatever you need with the retrieved data
-        // Now you can proceed with the rest of your code knowing that RosterData is available
+        const localRosterData = await waitForLocalStorageItem("RosterData");
+        const localLeagueData = await waitForLocalStorageItem("LeagueData");
+        const localPlayerData = await waitForLocalStorageItem("PlayerData");
+        const localUserData = await waitForLocalStorageItem("UserData");
+
+        rosterData = JSON.parse(localRosterData);
+        userData = JSON.parse(localUserData);
+        playerData = JSON.parse(localPlayerData);
+        leagueData = JSON.parse(localLeagueData);
+
+        console.log("init done"); 
+        
     } catch (error) {
         console.error('Error loading or executing script:', error);
     }
