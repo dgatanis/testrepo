@@ -1,42 +1,29 @@
-var rosterData;
-var playerData;
-var userData;
-var matchupData;
-
+const rosterDataStorage = localStorage.getItem("RosterData");
+var rosterData = JSON.parse(rosterDataStorage); 
+const userDataStorage = localStorage.getItem("UserData");
+var userData = JSON.parse(userDataStorage);
+const matchupWeekStorage = sessionStorage.getItem("MatchupData");
+var matchupData = JSON.parse(matchupWeekStorage); 
+const playerDataStorage = localStorage.getItem("PlayerData");
+var playerData = JSON.parse(playerDataStorage); 
+console.log('rosterData 1');
+console.log(rosterData);
 //This loads the page contents dynamically
 async function loadConstants() {
-
-    try{
-        const browserData = await import('../util/browserData.js');
-        rosterData = browserData.rosterData;
-        console.log(browserData.rosterData);
-        // playerData = browserData.playerData;
-        // userData = browserData.userData;
-        // matchupData = browserData.matchupData;
-        // loadSortedRosters();
-        // const leagueInfoLeagueId = leagueInfo.default();
-        // const currentWeek = leagueInfo.getCurrentWeek();
-        // const currentSeason = leagueInfo.getCurrentSeason();
-        // const weeklyWinnerPayout = leagueInfo.weeklyWinner;
-        // const dues = leagueInfo.dues;
-
-        // const currentLeagueId = await leagueInfoLeagueId;
-        // const thisSeason = await currentSeason;
-        // const leagueId = currentLeagueId;
-        // const week = currentWeek;
-        // const season = thisSeason;
-
-        // loadSeasonRankings(leagueId);
-        // loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
-        // getLatestTransactions('1');
-        // setSeasonTitle(season);
-        // loadMatchupsList(); 
-        // return;
+    if(!rosterData)
+    {
+        console.log("noRosters");
+    
+        try{
+            const browserData = await import('../util/browserData.js');
+            rosterData = browserData.getRostersForLeague(1046222222567784448);
+            console.log('rosterData 2');
+            console.log(rosterData);
+        }
+        catch (error){
+            console.error(`Error: ${error.message}`);
+        }
     }
-    catch (error){
-        console.error(`Error: ${error.message}`);
-    }
-
 }
 
 function loadSortedRosters() {
