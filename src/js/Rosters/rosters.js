@@ -1,9 +1,10 @@
-import { rosterData } from '../util/leagueInfo.js';
+
 
 //This loads the page contents dynamically
 async function loadConstants() {
 
     try{
+        import { rosterData } from '../util/leagueInfo.js';
         console.log(rosterData);
         //loadSortedRosters();
         // const leagueInfo = await import('../util/leagueInfo.js');
