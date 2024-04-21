@@ -478,7 +478,7 @@ function getTeamStacks(rosterid) {
     if(roster)
     {
         let rosterPlayers = sortByTeam(roster.players);
-        let countCommonTeams = countCommonTeams(roster.players);
+        let commonTeams = countCommonTeams(roster.players);
 
         if(rosterPlayers)
         {
@@ -499,7 +499,7 @@ function getTeamStacks(rosterid) {
             {
                 let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
                 
-                if(teams.includes(player.team) && player.position != 'K' && countCommonTeams[player.player_id] >= 1)
+                if(teams.includes(player.team) && player.position != 'K' && commonTeams[player.player_id] >= 1)
                 {
                     teamStacks.push({
                         "player_name": getFullPlayerName(thisPlayer.player_id),
