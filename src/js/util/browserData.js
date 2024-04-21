@@ -59,7 +59,7 @@ async function getRostersForLeague(leagueID){
         const rosterData = await rosterResponse.json(); 
 
         rosters = rosterData;
-        console.log("getRostersForLeague");
+        console.log(rosters);
         localStorage.setItem("RosterData", JSON.stringify(rosterData));
     }
     catch (error) {
