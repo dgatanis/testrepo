@@ -16,12 +16,7 @@ async function loadConstants() {
     
         try{
             const browserData = await import('../util/browserData.js');
-            rosterData = await browserData.getRostersForLeague(1046222222567784448);
-            const testing = rosterData;
-            console.log('rosterData 2');
-            console.log(rosterData);
-            console.log('testing');
-            console.log(testing);
+            rosterData = browserData.getRostersForLeague(1046222222567784448);
             init();
         }
         catch (error){
@@ -43,8 +38,8 @@ async function loadScript(url) {
 async function init() {
     try {
         await loadScript('./util/browserData.js');
-        const { testing } = await import('./util/browserData.js');
-        console.log(testing); // Do whatever you need with rosterData
+        const browserDatas = await import('./util/browserData.js');
+        console.log(browserData.getRostersForLeague(1046222222567784448)); // Do whatever you need with rosterData
         // Now you can proceed with the rest of your code knowing that rosterData is available
     } catch (error) {
         console.error('Error loading or executing script:', error);

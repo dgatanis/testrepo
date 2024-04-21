@@ -53,8 +53,6 @@ export async function getRostersForLeague(leagueID){
         const rosterData = await rosterResponse.json(); 
 
         localStorage.setItem("RosterData", JSON.stringify(rosterData));
-        console.log('getRostersForLeague');
-        console.log(rosterData);
         return rosterData;
     }
     catch (error) {
