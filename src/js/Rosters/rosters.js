@@ -478,7 +478,7 @@ function getTeamStacks(rosterid) {
     if(roster)
     {
         let rosterPlayers = sortByTeam(roster.players);
-        let commonTeams = countCommonTeams(roster.players);
+        let commonTeams = countCommonTeams(rosterPlayers);
 
         if(rosterPlayers)
         {
