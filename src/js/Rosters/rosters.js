@@ -15,11 +15,15 @@ async function loadConstants() {
         console.log("noRosters");
 
         try{
-            init();
+            initData();
         }
         catch (error){
             console.error(`Error: ${error.message}`);
         }
+    }
+    else
+    {
+        loadSortedRosters();
     }
 }
 
@@ -37,7 +41,7 @@ function waitForLocalStorageItem(key) {
     });
 }
 
-async function init() {
+async function initData() {
     try {
         const localRosterData = await waitForLocalStorageItem("RosterData");
         const localLeagueData = await waitForLocalStorageItem("LeagueData");
@@ -50,7 +54,9 @@ async function init() {
         leagueData = JSON.parse(localLeagueData);
 
         console.log("init done"); 
-        
+
+        loadSortedRosters();
+
     } catch (error) {
         console.error('Error loading or executing script:', error);
     }

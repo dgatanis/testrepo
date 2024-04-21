@@ -46,7 +46,7 @@ async function setBrowserData() {
 
 }
 
-export async function getRostersForLeague(leagueID){
+async function getRostersForLeague(leagueID){
     try
     {
         const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
