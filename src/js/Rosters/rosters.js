@@ -6,7 +6,7 @@ var leagueData;
 async function loadConstants() {
 
     try{
-        const leagueInfo = await import('../util/leagueInfo.js');
+        const leagueInfo = await import('../util/browserData.js');
         rosterData = leagueInfo.rosterData;
         console.log(rosterData);
         //loadSortedRosters();

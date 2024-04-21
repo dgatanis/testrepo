@@ -68,12 +68,3 @@ async function getNFLState() {
     }
 
 }
-
-const rosterDataStorage = localStorage.getItem("RosterData");
-export const rosterData = JSON.parse(rosterDataStorage); 
-const userDataStorage = localStorage.getItem("UserData");
-export const userData = JSON.parse(userDataStorage);
-const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-export const matchupData = JSON.parse(matchupWeekStorage); 
-const playerDataStorage = localStorage.getItem("PlayerData");
-export const playerData = JSON.parse(playerDataStorage); 
