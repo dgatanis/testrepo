@@ -1,13 +1,15 @@
-
+var rosterData;
+var playerData;
+var leagueData;
 
 //This loads the page contents dynamically
 async function loadConstants() {
 
     try{
-        import { rosterData } from '../util/leagueInfo.js';
+        const leagueInfo = await import('../util/leagueInfo.js');
+        rosterData = leagueInfo.rosterData;
         console.log(rosterData);
         //loadSortedRosters();
-        // const leagueInfo = await import('../util/leagueInfo.js');
         // const leagueInfoLeagueId = leagueInfo.default();
         // const currentWeek = leagueInfo.getCurrentWeek();
         // const currentSeason = leagueInfo.getCurrentSeason();
