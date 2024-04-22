@@ -227,7 +227,7 @@ function loadSortedRosters() {
                 if (positionAgeRow)
                 {
                     var positionAgeChild = positionAgeRow[0];
-                    //positionAgeChild.innerText = "QB: " + rosterStats.qbAge + "yrs RB:"  + rosterStats.rbAge + "yrs WR:" + rosterStats.wrAge + "yrs TE:" + rosterStats.teAge + "yrs";
+                    positionAgeChild.innerText = "QB: " + rosterStats.qbAge + "yrs RB:"  + rosterStats.rbAge + "yrs WR:" + rosterStats.wrAge + "yrs TE:" + rosterStats.teAge + "yrs";
                 }
                 if (statsStacksRow)
                 {
