@@ -222,7 +222,7 @@ function loadSortedRosters() {
                 if (playerAgeRow)
                 {
                     var playerAgeChild = playerAgeRow[0].children[0];
-                    playerAgeChild.children[0].innerText = "Roster Age: "+ rosterStats.AvgAge + "yrs";
+                    playerAgeChild.children[1].innerText = rosterStats.AvgAge + "yrs";
                 }
                 if (positionAgeRow)
                 {

@@ -155,6 +155,15 @@ tr {
   margin-left: 9%
 }
 
+.custom-stats-players-age-label{
+  float: inline-start;
+}
+
+.custom-stats-players-age {
+  clear: both;
+  font-size: x-large;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
