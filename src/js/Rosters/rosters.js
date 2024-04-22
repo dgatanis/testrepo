@@ -213,7 +213,7 @@ function loadSortedRosters() {
                 var playerAgeRow = statsTeam.getElementsByClassName('custom-stats-players-age-row');
                 var positionAgeRow = statsTeam.getElementsByClassName('custom-stats-position-age-row');
                 var statsStacksRow = statsTeam.getElementsByClassName('custom-stats-stacks-row'); 
-
+                debugger;
                 if(positionCountRow)
                 {
                     var positionCountChild = positionCountRow[0];
