@@ -221,7 +221,7 @@ function loadSortedRosters() {
                 }
                 if (playerAgeRow)
                 {
-                    var playerAgeChild = playerAgeRow[0].children[1];
+                    var playerAgeChild = playerAgeRow[0].children[0].children[1];
                     playerAgeChild.innerText = rosterStats.AvgAge + "yrs";
                 }
                 if (positionAgeRow)
