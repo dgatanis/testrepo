@@ -216,22 +216,22 @@ function loadSortedRosters() {
 
                 if(positionCountRow)
                 {
-                    var positionCountChild = positionCountRow[0].children[0];
+                    var positionCountChild = positionCountRow[0];
                     positionCountChild.children[0].innerText = "Position Count: QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
                 }
                 if (playerAgeRow)
                 {
-                    var playerAgeChild = playerAgeRow[0].children[0];
+                    var playerAgeChild = playerAgeRow[0];
                     playerAgeChild.children[1].innerText = rosterStats.AvgAge + "yrs";
                 }
                 if (positionAgeRow)
                 {
-                    var positionAgeChild = positionAgeRow[0].children[0];
+                    var positionAgeChild = positionAgeRow[0];
                     positionAgeChild.children[0].innerText = "QB: " + rosterStats.qbAge + "yrs RB:"  + rosterStats.rbAge + "yrs WR:" + rosterStats.wrAge + "yrs TE:" + rosterStats.teAge + "yrs";
                 }
                 if (statsStacksRow)
                 {
-                    var statsStacksChild = statsStacksRow[0].children[0].children[0];
+                    var statsStacksChild = statsStacksRow[0];
                     var sameTeam = "";
 
                     for(let thisPlayer of rosterStats.team_stacks)

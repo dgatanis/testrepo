@@ -157,11 +157,15 @@ tr {
 
 .custom-stats-players-age-label{
   float: inline-start;
+  font-size: x-large;
 }
 
 .custom-stats-players-age {
   clear: both;
-  font-size: x-large;
+}
+
+.custom-stats-players-age-row, .custom-stats-stacks-row, .custom-stats-position-age-row, .custom-stats-position-count-row {
+  width: 100%;
 }
 
 
