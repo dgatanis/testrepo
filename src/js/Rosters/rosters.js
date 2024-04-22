@@ -231,7 +231,7 @@ function loadSortedRosters() {
                 }
                 if (statsStacksRow)
                 {
-                    var statsStacksChild = statsStacksRow[0];
+                    var statsStacksChild = statsStacksRow[0].children[0];
                     var sameTeam = "";
 
                     for(let thisPlayer of rosterStats.team_stacks)
