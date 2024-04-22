@@ -140,6 +140,7 @@ tr {
 .custom-stacks-label {
   font-size: x-large;
   float: inline-start;
+  margin-bottom: .5rem;
 }
 
 .custom-stacks-teamname {
@@ -158,6 +159,7 @@ tr {
 .custom-stats-players-age-label{
   float: inline-start;
   font-size: x-large;
+  margin-bottom: .5rem;
 }
 
 .custom-stats-players-age {
