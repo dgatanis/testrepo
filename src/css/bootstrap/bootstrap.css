@@ -10975,6 +10975,15 @@ ul.nav.nav-tabs {
   padding-top: 1rem;
 }
 
+.custom-none-display {
+  display: none !important;
+}
+
+.custom-block-display {
+  display: block;
+  text-align: center;
+}
+
 .custom-footer {
   text-align: center;
   color: whitesmoke;

@@ -129,21 +129,12 @@
     margin-bottom: 2rem;
   }
 
-  .custom-none-display {
-    display: none !important;
-  }
-
   .custom-hidden-row {
     display: none;
   }
 
   .custom-shown-row {
     display: table-row;
-  }
-
-  .custom-block-display {
-    display: block;
-    text-align: center;
   }
 
   .custom-link {

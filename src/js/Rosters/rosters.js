@@ -260,7 +260,9 @@ function loadSortedRosters() {
                 if (statsStacksRow)
                 {
                     var statsStacksChild = statsStacksRow[0].children[0];
+                    var noneDiv = statsStacksChild.children[1];
                     var sameTeam = "";
+                    var count = 0;
 
                     for(let thisPlayer of rosterStats.team_stacks)
                     {
@@ -280,6 +282,7 @@ function loadSortedRosters() {
                             statsStacksChild.append(stacksPlayer);
 
                             sameTeam = player.team;
+                            count++;
                         }
                         else
                         {
@@ -290,8 +293,14 @@ function loadSortedRosters() {
                             statsStacksChild.append(stacksPlayer);
                             
                             sameTeam = player.team;
+                            count++;
                         }
                         
+                    }
+                    if(count > 0)
+                    {
+                        noneDiv.classList.remove('custom-block-display');
+                        noneDiv.classList.add('custom-none-display');
                     }
                     
                 }
