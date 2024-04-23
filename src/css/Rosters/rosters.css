@@ -170,6 +170,13 @@ tr {
   width: 100%;
 }
 
+.custom-expand-collapse-button {
+  font-size: x-small;
+  margin-top: 1rem;
+  background: transparent;
+  color: #768ea5;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
