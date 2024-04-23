@@ -227,7 +227,31 @@ function loadSortedRosters() {
                 if (positionAgeRow)
                 {
                     var positionAgeChild = positionAgeRow[0].children[0];
-                    positionAgeChild.innerText = "QB: " + rosterStats.qbAge + "yrs RB:"  + rosterStats.rbAge + "yrs WR:" + rosterStats.wrAge + "yrs TE:" + rosterStats.teAge + "yrs";
+                    var qbAgeString = "QB: " + rosterStats.qbAge + "yrs";
+                    var rbAgeString = "RB:"  + rosterStats.rbAge + "yrs";
+                    var wrAgeString = "WR:" + rosterStats.wrAge + "yrs";
+                    var teAgeString = "TE:" + rosterStats.teAge + "yrs";
+
+                    var qbAge = document.createElement('div');
+                    qbAge.setAttribute('class', 'custom-position-age');
+                    qbAge.innerText = qbAgeString;
+
+                    var rbAge = document.createElement('div');
+                    rbAge.setAttribute('class', 'custom-position-age');
+                    rbAge.innerText = rbAgeString;
+
+                    var wrAge = document.createElement('div');
+                    wrAge.setAttribute('class', 'custom-position-age');
+                    wrAge.innerText = wrAgeString;
+
+                    var teAge = document.createElement('div');
+                    teAge.setAttribute('class', 'custom-position-age');
+                    teAge.innerText = teAgeString;
+
+                    positionAgeChild.append(qbAge);
+                    positionAgeChild.append(rbAge);
+                    positionAgeChild.append(wrAge);
+                    positionAgeChild.append(teAge);
                 }
                 if (statsStacksRow)
                 {
