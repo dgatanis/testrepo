@@ -234,19 +234,23 @@ function loadSortedRosters() {
 
                     var qbAge = document.createElement('div');
                     qbAge.setAttribute('class', 'custom-position-age');
+                    qbAge.setAttribute('style', 'color: #ff2a6d;');
                     qbAge.innerText = qbAgeString;
 
                     var rbAge = document.createElement('div');
                     rbAge.setAttribute('class', 'custom-position-age');
+                    rbAge.setAttribute('style', 'color: #00ceb8;');
                     rbAge.innerText = rbAgeString;
 
                     var wrAge = document.createElement('div');
                     wrAge.setAttribute('class', 'custom-position-age');
+                    wrAge.setAttribute('style', 'color: #58a7ff;');
                     wrAge.innerText = wrAgeString;
 
                     var teAge = document.createElement('div');
                     teAge.setAttribute('class', 'custom-position-age');
-                    teAge.innerText = teAgeString;
+                    teAge.setAttribute('style', 'color: #ffae58;');
+                    teAge.innerText = teAgeString;                   
 
                     positionAgeChild.append(qbAge);
                     positionAgeChild.append(rbAge);
