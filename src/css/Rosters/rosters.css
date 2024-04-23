@@ -170,6 +170,10 @@ tr {
   width: 100%;
 }
 
+.custom-stats-position-age-row {
+  margin-top: unset;
+}
+
 .custom-expand-collapse-button {
   font-size: x-small;
   margin-top: 1rem;
