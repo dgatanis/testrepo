@@ -228,9 +228,9 @@ function loadSortedRosters() {
                 {
                     var positionAgeChild = positionAgeRow[0].children[0];
                     var qbAgeString = "QB: " + rosterStats.qbAge + "yrs";
-                    var rbAgeString = "RB:"  + rosterStats.rbAge + "yrs";
-                    var wrAgeString = "WR:" + rosterStats.wrAge + "yrs";
-                    var teAgeString = "TE:" + rosterStats.teAge + "yrs";
+                    var rbAgeString = "RB: "  + rosterStats.rbAge + "yrs";
+                    var wrAgeString = "WR: " + rosterStats.wrAge + "yrs";
+                    var teAgeString = "TE: " + rosterStats.teAge + "yrs";
 
                     var qbAge = document.createElement('div');
                     qbAge.setAttribute('class', 'custom-position-age');

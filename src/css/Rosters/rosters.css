@@ -177,6 +177,11 @@ tr {
   color: #768ea5;
 }
 
+.custom-position-age {
+  display: inline-flex;
+  margin: 1rem;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
@@ -216,6 +221,10 @@ tr {
     .custom-team-roster {
       margin-right: 1.5rem;
       margin-left: 1.5rem;
+    }
+
+    .custom-position-age {
+      margin: .5rem;
     }
   }
 
