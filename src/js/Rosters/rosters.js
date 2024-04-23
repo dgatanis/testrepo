@@ -260,7 +260,7 @@ function loadSortedRosters() {
                 if (statsStacksRow)
                 {
                     var statsStacksChild = statsStacksRow[0].children[0];
-                    var noneDiv = statsStacksChild.children[1];
+                    var noneDiv = statsStacksChild.children[0].children[1];
                     var sameTeam = "";
                     var count = 0;
 
