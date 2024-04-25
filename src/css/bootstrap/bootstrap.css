@@ -10929,9 +10929,8 @@ a.custom-nav:hover {
 }
 
 .custom-player-avatar {
-  /* max-width: 3rem;
   margin-right: .5rem;
-  width: 3rem; */
+  display: inline-block;
   position: relative;
   vertical-align: middle;
   height: 30px;

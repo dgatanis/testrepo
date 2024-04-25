@@ -188,6 +188,10 @@ tr {
   margin-bottom: .5rem;
 }
 
+.custom-player-name {
+  display:inline-block;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {

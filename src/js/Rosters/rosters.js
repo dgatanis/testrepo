@@ -157,15 +157,19 @@ function loadSortedRosters() {
                                 var playerimg = createPlayerImage(player.player_id);
                                 var tr = document.createElement("tr");
                                 var th = document.createElement("th");
+                                var td = document.createElement("td");
+
                                 th.innerText=player.position;
                                 th.setAttribute('scope', 'row');
                                 tr.setAttribute('class', 'custom-bench-row');
                                 tr.setAttribute('data-playerid', player.player_id);
+                                
+                                playerNameDiv.innerText=playerName + " (" + playerTeam + ")";
+
                                 tr.appendChild(th);
-                                var nameOfPlayer = document.createElement("td");
-                                nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
-                                nameOfPlayer.prepend(playerimg);
-                                tr.appendChild(nameOfPlayer);
+                                td.prepend(playerimg);
+                                td.append(playerNameDiv);
+                                tr.appendChild(td);
                                 benchTeam.append(tr);
                             }
                         }
