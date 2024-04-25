@@ -228,7 +228,7 @@
     display: inline;
     position: absolute;
     z-index: 1;
-    left: 10%;
+    left: 9%;
   }
 
   .custom-playername-small {
@@ -450,6 +450,10 @@
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .custom-add-drop-icon {
+      left: 5%;
+    }
 
     .custom-footer-links{
       display: none;
