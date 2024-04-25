@@ -199,6 +199,12 @@ tr {
   display:inline-block;
 }
 
+.custom-stats-label {
+  font-size: x-large;
+  float: inline-start;
+  margin-bottom: .5rem;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
