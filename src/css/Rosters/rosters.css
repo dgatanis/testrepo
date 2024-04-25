@@ -53,42 +53,49 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 .custom-player-RB-row {
   background-color: #00ceb926;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 .custom-player-WR-row {
   background-color: #58a6ff47;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 .custom-player-TE-row {
   background-color: #ffae5847;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 .custom-player-K-row {
   background-color: #bd66ff29;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 .custom-player-SF-row {
   background: #7373732b;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 .custom-player-FLEX-row {
   background-color: #7373732b;
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
+  align-items: flex-end;
 }
 
 .custom-bench-row {
