@@ -155,6 +155,7 @@ function loadSortedRosters() {
                                 let playerName = player.firstname + " " + player.lastname;
                                 let playerTeam = player.team;
                                 var playerimg = createPlayerImage(player.player_id);
+                                var playerNameDiv = document.createElement('div');
                                 var tr = document.createElement("tr");
                                 var th = document.createElement("th");
                                 var td = document.createElement("td");
