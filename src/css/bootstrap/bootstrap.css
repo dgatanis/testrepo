@@ -10929,14 +10929,21 @@ a.custom-nav:hover {
 }
 
 .custom-player-avatar {
-  max-width: 3rem;
+  /* max-width: 3rem;
   margin-right: .5rem;
-  width: 3rem;
+  width: 3rem; */
+  position: relative;
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 35px;
+  overflow: visible;
 }
 
 .custom-small-player-avatar {
   max-width: 2rem;
-  border-radius: 10rem;
   width: 2rem;
 }
 
