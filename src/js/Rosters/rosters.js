@@ -118,13 +118,16 @@ function loadSortedRosters() {
                     {
                         let playerRow = unusedPlayerRow(player.position, starterTeam);
                         var td = document.createElement('td');
+                        var playerNameDiv = document.createElement('div');
                         let playerName = player.firstname + " " + player.lastname;
                         let playerTeam = player.team;
                         var playerimg = createPlayerImage(player.player_id);
 
                         playerRow.setAttribute('data-playerid', player.player_id);
-                        td.innerText=playerName + " (" + playerTeam + ")";
+                        playerNameDiv.setAttribute('class', 'custom-player-name');
+                        playerNameDiv.innerText=playerName + " (" + playerTeam + ")";
                         td.prepend(playerimg);
+                        td.append(playerNameDiv);
                         
                         if(playerRow.classList.value == 'custom-player-SF-row' || playerRow.classList.value == 'custom-player-FLEX-row')
                         {
