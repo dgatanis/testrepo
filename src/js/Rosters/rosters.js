@@ -126,6 +126,7 @@ function loadSortedRosters() {
                         playerRow.setAttribute('data-playerid', player.player_id);
                         playerNameDiv.setAttribute('class', 'custom-player-name');
                         playerNameDiv.innerText=playerName + " (" + playerTeam + ")";
+
                         td.prepend(playerimg);
                         td.append(playerNameDiv);
                         
@@ -164,7 +165,7 @@ function loadSortedRosters() {
                                 th.setAttribute('scope', 'row');
                                 tr.setAttribute('class', 'custom-bench-row');
                                 tr.setAttribute('data-playerid', player.player_id);
-                                
+                                playerNameDiv.setAttribute('class', 'custom-player-name');
                                 playerNameDiv.innerText=playerName + " (" + playerTeam + ")";
 
                                 tr.appendChild(th);
@@ -197,15 +198,20 @@ function loadSortedRosters() {
                             var playerimg = createPlayerImage(player.player_id);
                             var tr = document.createElement("tr");
                             var th = document.createElement("th");
+                            var td = document.createElement("td");
+                            var playerNameDiv = document.createElement('div');
+
                             th.innerText=player.position;
                             th.setAttribute('scope', 'row');
                             tr.setAttribute('class', 'custom-bench-row');
                             tr.setAttribute('data-playerid', player.player_id);
+                            playerNameDiv.setAttribute('class', 'custom-player-name');
+                            playerNameDiv.innerText=playerName + " (" + playerTeam + ")";
+
                             tr.appendChild(th);
-                            var nameOfPlayer = document.createElement("td");
-                            nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
-                            nameOfPlayer.prepend(playerimg);
-                            tr.appendChild(nameOfPlayer);
+                            td.prepend(playerimg);
+                            td.append(playerNameDiv);
+                            tr.appendChild(td);
                             taxiTeam.append(tr);
                         }
                     }
