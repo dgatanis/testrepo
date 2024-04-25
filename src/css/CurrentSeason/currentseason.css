@@ -227,6 +227,8 @@
     max-width: 1rem;
     display: inline;
     position: absolute;
+    z-index: 1;
+    left: 10%;
   }
 
   .custom-playername-small {

@@ -10942,8 +10942,16 @@ a.custom-nav:hover {
 }
 
 .custom-small-player-avatar {
-  max-width: 2rem;
-  width: 2rem;
+  margin-right: .5rem;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 25px;
+  overflow: visible;
 }
 
 .modal-dialog {
