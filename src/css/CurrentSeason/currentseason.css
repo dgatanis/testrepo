@@ -137,10 +137,6 @@
     display: table-row;
   }
 
-  th {
-    text-align: center;
-  }
-
   .custom-link {
     text-align: center;
     padding-top: 1rem;
