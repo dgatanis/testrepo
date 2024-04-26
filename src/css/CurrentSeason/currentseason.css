@@ -48,6 +48,8 @@
   .custom-roster-breakdown {
     background-color: #768ea5;
     color: whitesmoke;
+    display: block;
+    text-align: center;
   }
 
   .custom-roster-breakdown-shadow {
