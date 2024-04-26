@@ -22,30 +22,37 @@
 .custom-qb-roster {
   color: #ff2a6d;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 .custom-rb-roster {
   color: #00ceb8;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 .custom-wr-roster {
   color: #58a7ff;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 .custom-te-roster {
   color: #ffae58;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 .custom-SF-roster {
   color: #616161;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 .custom-FLEX-roster {
   color: #616161;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 .custom-k-roster {
   color: #bd66ff;
   font-size: large;
+  -webkit-text-stroke: 1px black;
 }
 
 .custom-player-QB-row {
