@@ -99,6 +99,7 @@
     float: right;
     padding: 10px;
     animation: blinker 3s ease-in-out infinite;
+    font-size: smaller;
   }
 
   .custom-pts {
