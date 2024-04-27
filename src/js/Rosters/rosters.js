@@ -871,8 +871,8 @@ function createPlayerImage(playerId) {
 
 function createNFLTeamImage(team) {
 
-    var teamImage = document.createElement("div");
-    teamImage.setAttribute("style",  `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${team}.png)`);
+    var teamImage = document.createElement("img");
+    teamImage.setAttribute("src",  `https://sleepercdn.com/images/team_logos/nfl/${team}.png)`);
     teamImage.setAttribute('class', "custom-team-logo");
 
     return teamImage;
