@@ -195,8 +195,11 @@
   }
 
   .custom-teamname-normal {
-    display: inline;
+    display: block;
     font-size: unset;
+    clear: inline-end;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .custom-carousel {
@@ -452,7 +455,11 @@
 
     .custom-standings-record {
       margin-left: unset;
-  }
+    }
+
+    .custom-teamname-normal {
+      margin-top: .4rem;
+    }
   }
 
   /*Large Mobile display styling*/
