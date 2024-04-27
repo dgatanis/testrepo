@@ -11069,11 +11069,18 @@ ul.nav.nav-tabs {
   .footer {
     height: 2rem;
     padding: unset;
+    width: 100%;
+    position: unset;
   }
 
   .mobilenav {
     display: block !important;
     width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    z-index: 1030;
   }
 
   .desktopnav {
