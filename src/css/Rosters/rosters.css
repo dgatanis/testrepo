@@ -310,6 +310,8 @@ th, td {
   
     .custom-body {
       padding: unset;
+      margin: unset;
+      width: 100%;
     }
 
     .custom-FLEX-roster, .custom-SF-roster {
