@@ -11027,6 +11027,7 @@ ul.nav.nav-tabs {
 
   .mobilenav #mobileLinks {
     display: none;
+    transition: all 1s ease;
   }
 
   .mobilenav a {
@@ -11035,6 +11036,7 @@ ul.nav.nav-tabs {
     text-decoration: none;
     display: block;
     transition: all 1s ease;
+    animation: revealLetter 1s forwards;
   }
 
   .mobilenav a.icon {
