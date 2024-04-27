@@ -140,10 +140,6 @@
     display: table-row;
   }
 
-  th {
-    text-align: center;
-  }
-
   .custom-link {
     text-align: center;
     padding-top: 1rem;
@@ -195,7 +191,7 @@
   }
 
   .custom-teamname-normal {
-    display: block;
+    display: inline;
     font-size: unset;
     clear: inline-end;
     width: 100%;
@@ -383,6 +379,11 @@
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
+
+    .custom-teamname-normal {
+      display: block;
+    }
+    
     .custom-matchup-player {
       float: right;
       clear: left;
