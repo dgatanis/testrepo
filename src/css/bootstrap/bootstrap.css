@@ -11056,6 +11056,7 @@ ul.nav.nav-tabs {
     background-color: #768ea5;
     color: whitesmoke;
     text-align: center;
+    transition: all 1s ease;
   }
   
   .btn-primary:active {
