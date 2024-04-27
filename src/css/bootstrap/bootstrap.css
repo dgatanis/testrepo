@@ -11018,7 +11018,7 @@ ul.nav.nav-tabs {
     overflow: hidden;
     background-color: transparent;
     position: relative;
-    animation: revealLetter 2s reverse;
+    animation: revealLetter 1s forwards;
   }
 
   .mobilenav {
