@@ -11026,7 +11026,7 @@ ul.nav.nav-tabs {
   }
 
   .mobilenav #mobileLinks {
-    display: none;
+    visibility: hidden;
     transition: all 1s ease;
   }
 
@@ -11040,7 +11040,6 @@ ul.nav.nav-tabs {
   }
 
   .mobilenav a.icon {
-    background: #768ea5;
     display: block;
     position: absolute;
     left: 0;
@@ -11048,7 +11047,7 @@ ul.nav.nav-tabs {
   }
 
   .mobilenav a:hover {
-    background-color: #768ea5;
+    background-color: #768ea5ba;
     color: whitesmoke;
   }
 
