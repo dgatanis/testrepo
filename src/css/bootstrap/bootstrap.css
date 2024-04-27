@@ -11073,6 +11073,7 @@ ul.nav.nav-tabs {
 
   .mobilenav {
     display: block !important;
+    width: 100%;
   }
 
   .desktopnav {
