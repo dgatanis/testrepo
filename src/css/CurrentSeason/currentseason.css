@@ -2,10 +2,6 @@
   background-color:#79797914;
   }
 
-  h5#seasonTitle {
-    margin-top: 3rem;
-  }
-
   table#PowerRankings {
     float: left;
     color: #333333;
@@ -480,9 +476,13 @@
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
 
+    h5#seasonTitle {
+      margin-top: 3rem !important;
+    }
+  
     .custom-team-score {
       -webkit-text-stroke: .5px black;
-  }
+    }
 
     .custom-footer-links{
       display: none;
