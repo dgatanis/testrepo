@@ -129,6 +129,8 @@
 
 .custom-team-logo {
   max-width: 1.5rem;
+  vertical-align: text-bottom;
+  margin-left: .2rem;
 }
 
 .custom-team-name {
@@ -285,6 +287,10 @@ th, td {
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .btn-primary {
+      font-size: small;
+    }
 
     .custom-footer-links{
       display: none;
