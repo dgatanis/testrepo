@@ -5,6 +5,6 @@ function toggleMobileMenu() {
         x.style.display = "none";
         x.setAttribute('style', 'display:none;background: transparent;');
     } else {
-        x.setAttribute('style', 'display:block;animation: revealLetter 1s forwards; background: rgb(97, 97, 97);');
+        x.setAttribute('style', 'display:block; background: rgb(97, 97, 97);');
     }
 }
