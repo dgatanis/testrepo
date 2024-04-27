@@ -242,10 +242,6 @@ th, td {
       float: left;
       margin-left: 45%;
     }
-
-    .custom-team-roster {
-        width: 35%;
-    }
     .custom-roster-group {
       clear: unset;
     }
@@ -268,7 +264,6 @@ th, td {
     }
 
     .custom-team-roster {
-        width: 40%;
         margin-right: 2.5rem;
         margin-left: 2.5rem;
     }
@@ -303,8 +298,9 @@ th, td {
     }
 
     .custom-team-roster {
-        width: 100%;
-        margin: unset;
+      grid-row: unset !important;
+      grid-column: unset !important;
+      width: 100%;
     }
 
     .custom-medium-avatar {
