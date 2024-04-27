@@ -122,6 +122,7 @@ function loadSortedRosters() {
                         let playerName = player.firstname + " " + player.lastname;
                         let playerTeam = player.team;
                         var playerimg = createPlayerImage(player.player_id);
+                        var teamImage = createNFLTeamImage(player.team);
 
                         playerRow.setAttribute('data-playerid', player.player_id);
                         playerNameDiv.setAttribute('class', 'custom-player-name');
@@ -129,6 +130,7 @@ function loadSortedRosters() {
 
                         td.prepend(playerimg);
                         td.append(playerNameDiv);
+                        td.append(teamImage);
                         
                         if(playerRow.classList.value == 'custom-player-SF-row' || playerRow.classList.value == 'custom-player-FLEX-row')
                         {
@@ -156,6 +158,7 @@ function loadSortedRosters() {
                                 let playerName = player.firstname + " " + player.lastname;
                                 let playerTeam = player.team;
                                 var playerimg = createPlayerImage(player.player_id);
+                                var teamImage = createNFLTeamImage(player.team);
                                 var playerNameDiv = document.createElement('div');
                                 var tr = document.createElement("tr");
                                 var th = document.createElement("th");
@@ -171,6 +174,7 @@ function loadSortedRosters() {
                                 tr.appendChild(th);
                                 td.prepend(playerimg);
                                 td.append(playerNameDiv);
+                                td.append(teamImage);
                                 tr.appendChild(td);
                                 benchTeam.append(tr);
                             }
@@ -196,6 +200,7 @@ function loadSortedRosters() {
                             let playerName = player.firstname + " " + player.lastname;
                             let playerTeam = player.team;
                             var playerimg = createPlayerImage(player.player_id);
+                            var teamImage = createNFLTeamImage(player.team);
                             var tr = document.createElement("tr");
                             var th = document.createElement("th");
                             var td = document.createElement("td");
@@ -211,6 +216,7 @@ function loadSortedRosters() {
                             tr.appendChild(th);
                             td.prepend(playerimg);
                             td.append(playerNameDiv);
+                            td.append(teamImage);
                             tr.appendChild(td);
                             taxiTeam.append(tr);
                         }
@@ -861,6 +867,15 @@ function createPlayerImage(playerId) {
 
         return playerimg;
     }
+}
+
+function createNFLTeamImage(team) {
+
+    var teamImage = document.createElement("div");
+    teamImage.setAttribute("style",  `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${team}.png)`);
+    teamImage.setAttribute('class', "custom-team-logo");
+
+    return teamImage;
 }
 
 function createOwnerAvatarImage(userId) { 

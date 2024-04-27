@@ -127,6 +127,10 @@
   font-size: large;
 }
 
+.custom-team-logo {
+  max-width: 1.5rem;
+}
+
 .custom-team-name {
   cursor: pointer;
 }
