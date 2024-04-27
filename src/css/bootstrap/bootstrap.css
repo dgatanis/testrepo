@@ -11056,7 +11056,6 @@ ul.nav.nav-tabs {
     background-color: #768ea5;
     color: whitesmoke;
     text-align: center;
-    transition: all 1s ease;
   }
   
   .btn-primary:active {
@@ -11069,6 +11068,10 @@ ul.nav.nav-tabs {
 @media screen and (max-width: 26.563rem) {
   .custom-body {
     padding: unset;
+  }
+
+  .custom-footer-links{
+    display: none;
   }
 
   .footer {

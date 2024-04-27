@@ -1,5 +1,9 @@
-.carousel-control-prev:hover, .carousel-control-next:hover {
+  .carousel-control-prev:hover, .carousel-control-next:hover {
   background-color:#79797914;
+  }
+
+  h5#seasonTitle {
+    margin-top: 3rem;
   }
 
   table#PowerRankings {
@@ -119,10 +123,6 @@
     font-size: .8rem;
     font-style: normal;
     padding: .2rem;
-  }
-
-  .custom-footer-links {
-    display: block;
   }
 
   .custom-card {

@@ -293,10 +293,6 @@ th, td {
       font-size: small;
     }
 
-    .custom-footer-links{
-      display: none;
-    }
-
     .custom-team-roster {
       grid-row: unset !important;
       grid-column: unset !important;
