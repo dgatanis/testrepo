@@ -59,7 +59,7 @@
   }
   
   .custom-matchup-list {
-    background-color: #00000096;
+    background-color: #2a2a2a;
     border-radius: 8px;
     padding: 10px;
     text-align: justify;
@@ -479,6 +479,10 @@
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .custom-team-score {
+      -webkit-text-stroke: .5px black;
+  }
 
     .custom-footer-links{
       display: none;
