@@ -4,6 +4,6 @@ function toggleMobileMenu() {
     if (x.style.visibility === "visible") {
         x.setAttribute('style', 'visibility: hidden;');
     } else {
-        x.setAttribute('style', 'visibility: visible;background: rgb(97, 97, 97);');
+        x.setAttribute('style', 'visibility: visible;background: rgb(97, 97, 97);display: block;');
     }
 }
