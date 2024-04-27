@@ -11035,7 +11035,6 @@ ul.nav.nav-tabs {
     padding: .5rem .5rem;
     text-decoration: none;
     display: block;
-    transition: all 1s ease;
     animation: revealLetter 1s forwards;
   }
 
