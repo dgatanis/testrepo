@@ -1,5 +1,10 @@
+.custom-body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 .custom-team-roster {
-    width: 22%;
+    width: 80%;
     clear: inline-end;
     float: inline-start;
     margin-right: 5%;
@@ -12,6 +17,7 @@
 .custom-roster-group {
   margin-bottom: 2rem;
   clear: both;
+  display: grid;
 }
 
 .accordion-button {
