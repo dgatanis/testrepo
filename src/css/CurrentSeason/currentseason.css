@@ -541,6 +541,8 @@
       padding: unset;
       display: grid;
       grid-template-rows: auto 1fr auto;
+      margin-right: .5rem;
+      margin-left: .5rem;
     }
 
     .custom-stats-card-body {
