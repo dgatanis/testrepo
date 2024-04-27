@@ -167,8 +167,9 @@
     display: inline-flex;
     transition: color .5s ease;
     width: fit-content;
-    margin-top: 1.5rem;
+    margin-top: 1.5%;
     position: absolute;
+    font-size: small;
   }
 
   table#bankrollTable {
@@ -383,7 +384,11 @@
     .custom-teamname-normal {
       display: block;
     }
-    
+
+    .div#currentWeek {
+      margin-top: 1.7%;
+    }
+
     .custom-matchup-player {
       float: right;
       clear: left;
@@ -427,6 +432,11 @@
 
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
+
+    .div#currentWeek {
+      margin-top: 2%;
+    }
+
     .custom-medium-avatar{
       max-width: 2rem;
     }
@@ -525,6 +535,8 @@
 
     .custom-body {
       padding: unset;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
     }
 
     .custom-stats-card-body {
@@ -536,7 +548,8 @@
     } 
 
     div#currentWeek {
-      margin-top: .5rem;
+      margin-top: 2.5%;
+      font-size: .7rem;
     }
 
     table#bankrollTable {
@@ -554,6 +567,7 @@
     .custom-carousel {
       width: 100%;
       max-width: unset;
+      grid-row: 3;
     }
 
     .custom-carousel-item {
