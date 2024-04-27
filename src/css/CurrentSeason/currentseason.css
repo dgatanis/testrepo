@@ -418,6 +418,10 @@
     .custom-add-drop-icon {
       left: 11%;
     }
+
+    .custom-carousel {
+      width: 38%;
+    }
   }
 
   /*Normal Laptop display styling*/
@@ -435,7 +439,7 @@
     }
 
     .custom-carousel {
-      width: 30rem;
+      width: 50%;
       float: right;
     }
 

@@ -472,6 +472,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
             ownerAvatar.setAttribute('class', 'custom-small-avatar');
             
             rowTeamName[0].innerText = teamName;
+            rowTeamName[0].setAttribute("style", "display: inline;");
             rowTeam[0].prepend(ownerAvatar);
             rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
             rowBankRoll[0].setAttribute('style', 'padding-top:1rem;');
