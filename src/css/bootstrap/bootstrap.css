@@ -11016,9 +11016,9 @@ ul.nav.nav-tabs {
   /* Style the mobile navigation menu */
   .mobilenav {
     overflow: hidden;
-    background-color: #333;
+    background-color: transparent;
     position: relative;
-    animation: revealLetter 2s forwards;
+    animation: revealLetter 2s reverse;
   }
 
   .mobilenav {
