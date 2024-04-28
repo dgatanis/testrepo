@@ -234,6 +234,12 @@ th, td {
   border-bottom: unset;
 }
 
+.custom-player-age {
+  font-size: xx-small;
+  width: fit-content;
+  margin-left: 50%;
+}
+
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {

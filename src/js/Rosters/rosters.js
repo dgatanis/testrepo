@@ -208,6 +208,7 @@ function loadSortedRosters() {
                             var th = document.createElement("th");
                             var td = document.createElement("td");
                             var playerNameDiv = document.createElement('div');
+                            var playerAgeDiv = document.createElement('div');
 
                             th.innerText=player.position;
                             th.setAttribute('scope', 'row');
@@ -215,11 +216,14 @@ function loadSortedRosters() {
                             tr.setAttribute('data-playerid', player.player_id);
                             playerNameDiv.setAttribute('class', 'custom-player-name');
                             playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
+                            playerAgeDiv.setAttribute('class', 'custom-player-age');
+                            playerAgeDiv.innerText = playerAge + "yrs";
 
                             tr.appendChild(th);
                             td.prepend(playerimg);
                             td.append(playerNameDiv);
                             td.append(teamImage);
+                            td.append(playerAgeDiv);
                             tr.appendChild(td);
                             taxiTeam.append(tr);
                         }
