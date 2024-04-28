@@ -4,14 +4,12 @@
 }
 
 .custom-team-roster {
-    width: 80%;
-    clear: inline-end;
-    float: inline-start;
-    margin-right: 5%;
-    margin-left: 6%;
-    padding-bottom: 4rem;
-    text-align: center;
-    font-size: small;
+  clear: inline-end;
+  float: inline-start;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-size: small;
+  width: 30rem;
 }
 
 .custom-roster-group {
@@ -135,6 +133,7 @@
 
 .custom-team-logo {
   max-width: 1.5rem;
+  max-height: 1rem;
   vertical-align: text-bottom;
   margin-left: .2rem;
 }
@@ -246,8 +245,8 @@ th, td {
       clear: unset;
     }
 
-    .custom-team-roster-adjust {
-      clear: inline-start;
+    .custom-team-roster {
+      width: 22rem;
     }
 
     .custom-position-age {
