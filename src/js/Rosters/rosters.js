@@ -132,7 +132,7 @@ function loadSortedRosters() {
                         playerNameDiv.setAttribute('class', 'custom-player-name');
                         playerNameDiv.innerText=playerName;
                         playerAgeDiv.setAttribute('class', 'custom-player-age');
-                        playerAgeDiv.innerText = playerAge + "yrs";
+                        playerAgeDiv.innerText =  "Age: " + playerAge ;
                         playerDetailsDiv.setAttribute('class', 'custom-player-details');
                         playerNumberDiv.setAttribute('class', 'custom-player-number');
                         playerNumberDiv.innerText = "(#" + playerNumber + ")";
@@ -188,7 +188,7 @@ function loadSortedRosters() {
                                 playerNameDiv.setAttribute('class', 'custom-player-name');
                                 playerNameDiv.innerText=playerName;
                                 playerAgeDiv.setAttribute('class', 'custom-player-age');
-                                playerAgeDiv.innerText = playerAge + "yrs";
+                                playerAgeDiv.innerText =  "Age: " + playerAge ;
                                 playerDetailsDiv.setAttribute('class', 'custom-player-details');
                                 playerNumberDiv.setAttribute('class', 'custom-player-number');
                                 playerNumberDiv.innerText = "(#" + playerNumber + ")";
@@ -244,7 +244,7 @@ function loadSortedRosters() {
                             playerNameDiv.setAttribute('class', 'custom-player-name');
                             playerNameDiv.innerText=playerName;
                             playerAgeDiv.setAttribute('class', 'custom-player-age');
-                            playerAgeDiv.innerText = playerAge + "yrs";
+                            playerAgeDiv.innerText =  "Age: " + playerAge ;
                             playerDetailsDiv.setAttribute('class', 'custom-player-details');
                             playerNumberDiv.setAttribute('class', 'custom-player-number');
                             playerNumberDiv.innerText = "(#" + playerNumber + ")";
