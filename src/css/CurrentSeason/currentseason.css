@@ -476,10 +476,6 @@
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
 
-    .footer {
-      position: static;
-    }
-
     h5#seasonTitle {
       margin-top: 3rem !important;
     }

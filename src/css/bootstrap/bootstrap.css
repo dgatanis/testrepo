@@ -11079,7 +11079,7 @@ ul.nav.nav-tabs {
     height: 2rem;
     padding: unset;
     width: 100%;
-    position: unset;
+    position: static;
   }
 
   .mobilenav {
