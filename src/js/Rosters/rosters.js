@@ -207,23 +207,32 @@ function loadSortedRosters() {
                             var tr = document.createElement("tr");
                             var th = document.createElement("th");
                             var td = document.createElement("td");
+                            var playerDetailsDiv = document.createElement('div');
                             var playerNameDiv = document.createElement('div');
                             var playerAgeDiv = document.createElement('div');
+                            var playerNumberDiv = dsocument.createElement('div');
+
 
                             th.innerText=player.position;
                             th.setAttribute('scope', 'row');
                             tr.setAttribute('class', 'custom-bench-row');
                             tr.setAttribute('data-playerid', player.player_id);
                             playerNameDiv.setAttribute('class', 'custom-player-name');
-                            playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
+                            playerNameDiv.innerText=playerName;
                             playerAgeDiv.setAttribute('class', 'custom-player-age');
                             playerAgeDiv.innerText = playerAge + "yrs";
+                            playerDetailsDiv.setAttribute('class', 'custom-player-details');
+                            playerNumberDiv.setAttribute('class', 'custom-player-number');
+                            playerNumberDiv.innerText = "(#" + playerNumberDiv + ")";
 
+
+                            playerDetailsDiv.appendChild(playerNumberDiv);
+                            playerDetailsDiv.appendChild(playerAgeDiv);
                             tr.appendChild(th);
                             td.prepend(playerimg);
                             td.append(playerNameDiv);
                             td.append(teamImage);
-                            td.append(playerAgeDiv);
+                            td.append(playerDetailsDiv);
                             tr.appendChild(td);
                             taxiTeam.append(tr);
                         }

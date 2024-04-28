@@ -234,12 +234,16 @@ th, td {
   border-bottom: unset;
 }
 
-.custom-player-age {
-  font-size: xx-small;
-  width: fit-content;
-  margin-left: 50%;
+.custom-player-details {
+  display: inline;
+  float: inline-end;
 }
 
+.custom-player-number, .custom-player-age {
+  font-size: xx-small;
+  width: fit-content;
+  margin-left: 45%;
+}
 
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
