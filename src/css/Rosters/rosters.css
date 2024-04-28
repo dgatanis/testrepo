@@ -238,11 +238,11 @@ th, td {
   float: inline-end;
   margin-top: .5rem;
   font-size: .5rem;
+  margin-left: .2rem;
 }
 
 .custom-player-number, .custom-player-age {
   width: fit-content;
-  margin-left: .2rem;
 }
 
 .custom-player-avatar {
