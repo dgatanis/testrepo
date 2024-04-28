@@ -118,7 +118,10 @@ function loadSortedRosters() {
                     {
                         let playerRow = unusedPlayerRow(player.position, starterTeam);
                         var td = document.createElement('td');
+                        var playerDetailsDiv = document.createElement('div');
                         var playerNameDiv = document.createElement('div');
+                        var playerAgeDiv = document.createElement('div');
+                        var playerNumberDiv = document.createElement('div');
                         let playerName = player.firstname + " " + player.lastname;
                         let playerAge = player.age;
                         let playerNumber = player.number;
@@ -127,11 +130,20 @@ function loadSortedRosters() {
 
                         playerRow.setAttribute('data-playerid', player.player_id);
                         playerNameDiv.setAttribute('class', 'custom-player-name');
-                        playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
+                        playerNameDiv.innerText=playerName;
+                        playerAgeDiv.setAttribute('class', 'custom-player-age');
+                        playerAgeDiv.innerText = playerAge + "yrs";
+                        playerDetailsDiv.setAttribute('class', 'custom-player-details');
+                        playerNumberDiv.setAttribute('class', 'custom-player-number');
+                        playerNumberDiv.innerText = "(#" + playerNumber + ")";
+
+                        playerDetailsDiv.appendChild(playerNumberDiv);
+                        playerDetailsDiv.appendChild(playerAgeDiv);
 
                         td.prepend(playerimg);
                         td.append(playerNameDiv);
                         td.append(teamImage);
+                        td.append(playerDetailsDiv);
                         
                         if(playerRow.classList.value == 'custom-player-SF-row' || playerRow.classList.value == 'custom-player-FLEX-row')
                         {
@@ -161,7 +173,10 @@ function loadSortedRosters() {
                                 let playerNumber = player.number;
                                 var playerimg = createPlayerImage(player.player_id);
                                 var teamImage = createNFLTeamImage(player.team);
+                                var playerDetailsDiv = document.createElement('div');
                                 var playerNameDiv = document.createElement('div');
+                                var playerAgeDiv = document.createElement('div');
+                                var playerNumberDiv = document.createElement('div');
                                 var tr = document.createElement("tr");
                                 var th = document.createElement("th");
                                 var td = document.createElement("td");
@@ -171,12 +186,21 @@ function loadSortedRosters() {
                                 tr.setAttribute('class', 'custom-bench-row');
                                 tr.setAttribute('data-playerid', player.player_id);
                                 playerNameDiv.setAttribute('class', 'custom-player-name');
-                                playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
+                                playerNameDiv.innerText=playerName;
+                                playerAgeDiv.setAttribute('class', 'custom-player-age');
+                                playerAgeDiv.innerText = playerAge + "yrs";
+                                playerDetailsDiv.setAttribute('class', 'custom-player-details');
+                                playerNumberDiv.setAttribute('class', 'custom-player-number');
+                                playerNumberDiv.innerText = "(#" + playerNumber + ")";
+
+                                playerDetailsDiv.appendChild(playerNumberDiv);
+                                playerDetailsDiv.appendChild(playerAgeDiv);
 
                                 tr.appendChild(th);
                                 td.prepend(playerimg);
                                 td.append(playerNameDiv);
                                 td.append(teamImage);
+                                td.append(playerDetailsDiv);
                                 tr.appendChild(td);
                                 benchTeam.append(tr);
                             }
