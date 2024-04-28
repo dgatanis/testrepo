@@ -479,10 +479,6 @@
     h5#seasonTitle {
       margin-top: 3rem !important;
     }
-  
-    .custom-team-score {
-      -webkit-text-stroke: .5px black;
-    }
 
     .custom-footer-links{
       display: none;
@@ -543,6 +539,7 @@
       grid-template-rows: auto 1fr auto;
       margin-right: .5rem;
       margin-left: .5rem;
+      width: 100%;
     }
 
     .custom-stats-card-body {
