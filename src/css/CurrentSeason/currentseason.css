@@ -477,7 +477,7 @@
   @media screen and (max-width: 26.563rem) {
 
     .footer {
-      position: fixed;
+      position: static;
     }
 
     h5#seasonTitle {
