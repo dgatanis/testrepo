@@ -11068,6 +11068,7 @@ ul.nav.nav-tabs {
 @media screen and (max-width: 26.563rem) {
   .custom-body {
     padding: unset;
+    margin: unset;
   }
 
   .custom-footer-links{
