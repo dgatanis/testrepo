@@ -121,12 +121,13 @@ function loadSortedRosters() {
                         var playerNameDiv = document.createElement('div');
                         let playerName = player.firstname + " " + player.lastname;
                         let playerAge = player.age;
+                        let playerNumber = player.number;
                         var playerimg = createPlayerImage(player.player_id);
                         var teamImage = createNFLTeamImage(player.team);
 
                         playerRow.setAttribute('data-playerid', player.player_id);
                         playerNameDiv.setAttribute('class', 'custom-player-name');
-                        playerNameDiv.innerText=playerName + " (" + playerAge + ")";
+                        playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
 
                         td.prepend(playerimg);
                         td.append(playerNameDiv);

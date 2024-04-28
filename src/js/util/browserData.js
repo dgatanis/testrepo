@@ -89,7 +89,8 @@ async function getPlayers() {
                     "firstname": data[i].first_name,
                     "lastname": data[i].last_name,
                     "age": data[i].age,
-                    "team": playerTeam
+                    "team": playerTeam,
+                    "number": playerTeam
                 });  
            }
         }
