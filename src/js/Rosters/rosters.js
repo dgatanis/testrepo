@@ -223,7 +223,7 @@ function loadSortedRosters() {
                             playerAgeDiv.innerText = playerAge + "yrs";
                             playerDetailsDiv.setAttribute('class', 'custom-player-details');
                             playerNumberDiv.setAttribute('class', 'custom-player-number');
-                            playerNumberDiv.innerText = "(#" + playerNumberDiv + ")";
+                            playerNumberDiv.innerText = "(#" + playerNumber + ")";
 
 
                             playerDetailsDiv.appendChild(playerNumberDiv);
