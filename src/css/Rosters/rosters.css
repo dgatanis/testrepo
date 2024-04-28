@@ -246,7 +246,7 @@ th, td {
 }
 
 .custom-player-avatar {
-  vertical-align: sub;
+  vertical-align: text-bottom;
 }
 
 /*Large laptop display styling*/
