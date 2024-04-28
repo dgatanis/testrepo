@@ -158,6 +158,7 @@ function loadSortedRosters() {
                             {
                                 let playerName = player.firstname + " " + player.lastname;
                                 let playerAge = player.age;
+                                let playerNumber = player.number;
                                 var playerimg = createPlayerImage(player.player_id);
                                 var teamImage = createNFLTeamImage(player.team);
                                 var playerNameDiv = document.createElement('div');
@@ -170,7 +171,7 @@ function loadSortedRosters() {
                                 tr.setAttribute('class', 'custom-bench-row');
                                 tr.setAttribute('data-playerid', player.player_id);
                                 playerNameDiv.setAttribute('class', 'custom-player-name');
-                                playerNameDiv.innerText=playerName + " (" + playerAge + ")";
+                                playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
 
                                 tr.appendChild(th);
                                 td.prepend(playerimg);
@@ -200,6 +201,7 @@ function loadSortedRosters() {
                         {
                             let playerName = player.firstname + " " + player.lastname;
                             let playerAge = player.age;
+                            let playerNumber = player.number;
                             var playerimg = createPlayerImage(player.player_id);
                             var teamImage = createNFLTeamImage(player.team);
                             var tr = document.createElement("tr");
@@ -212,7 +214,7 @@ function loadSortedRosters() {
                             tr.setAttribute('class', 'custom-bench-row');
                             tr.setAttribute('data-playerid', player.player_id);
                             playerNameDiv.setAttribute('class', 'custom-player-name');
-                            playerNameDiv.innerText=playerName + " (" + playerAge + ")";
+                            playerNameDiv.innerText=playerName + " (#" + playerNumber + ")";
 
                             tr.appendChild(th);
                             td.prepend(playerimg);
