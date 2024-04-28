@@ -210,7 +210,7 @@ function loadSortedRosters() {
                             var playerDetailsDiv = document.createElement('div');
                             var playerNameDiv = document.createElement('div');
                             var playerAgeDiv = document.createElement('div');
-                            var playerNumberDiv = dsocument.createElement('div');
+                            var playerNumberDiv = document.createElement('div');
 
 
                             th.innerText=player.position;
