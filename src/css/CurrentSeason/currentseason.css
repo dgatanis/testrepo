@@ -453,7 +453,6 @@
     .custom-playoffs-bracket {
       clear: inline-start;
       float: left;
-      padding-right: 2rem;
     }
 
     .custom-date-transaction {
@@ -538,6 +537,7 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       width: 100%;
+      margin-left: .5rem;
     }
 
     .custom-stats-card-body {
