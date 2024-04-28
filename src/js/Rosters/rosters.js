@@ -135,7 +135,7 @@ function loadSortedRosters() {
                         playerAgeDiv.innerText =  "Age: " + playerAge ;
                         playerDetailsDiv.setAttribute('class', 'custom-player-details');
                         playerNumberDiv.setAttribute('class', 'custom-player-number');
-                        playerNumberDiv.innerText = "(#" + playerNumber + ")";
+                        playerNumberDiv.innerText = "#" + playerNumber;
 
                         playerDetailsDiv.appendChild(playerNumberDiv);
                         playerDetailsDiv.appendChild(playerAgeDiv);
@@ -191,7 +191,7 @@ function loadSortedRosters() {
                                 playerAgeDiv.innerText =  "Age: " + playerAge ;
                                 playerDetailsDiv.setAttribute('class', 'custom-player-details');
                                 playerNumberDiv.setAttribute('class', 'custom-player-number');
-                                playerNumberDiv.innerText = "(#" + playerNumber + ")";
+                                playerNumberDiv.innerText = "#" + playerNumber;
 
                                 playerDetailsDiv.appendChild(playerNumberDiv);
                                 playerDetailsDiv.appendChild(playerAgeDiv);
@@ -247,7 +247,7 @@ function loadSortedRosters() {
                             playerAgeDiv.innerText =  "Age: " + playerAge ;
                             playerDetailsDiv.setAttribute('class', 'custom-player-details');
                             playerNumberDiv.setAttribute('class', 'custom-player-number');
-                            playerNumberDiv.innerText = "(#" + playerNumber + ")";
+                            playerNumberDiv.innerText = "#" + playerNumber;
 
 
                             playerDetailsDiv.appendChild(playerNumberDiv);

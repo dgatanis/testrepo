@@ -239,10 +239,11 @@ th, td {
   margin-top: .5rem;
   font-size: .5rem;
   margin-left: .2rem;
+  width: fit-content;
 }
 
 .custom-player-number, .custom-player-age {
-  width: fit-content;
+  text-align: center;
 }
 
 .custom-player-avatar {
