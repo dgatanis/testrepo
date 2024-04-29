@@ -2,6 +2,10 @@
   background-color:#79797914;
   }
 
+  .custom-body{
+    padding: 2rem 2rem;
+  }
+
   table#PowerRankings {
     float: left;
     color: #333333;
