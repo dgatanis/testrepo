@@ -10901,6 +10901,7 @@ textarea.form-control-lg {
 .custom-mobile-hide{
   visibility: hidden;
   background: transparent;
+  display: none;
 }
 
 .custom-nav{
