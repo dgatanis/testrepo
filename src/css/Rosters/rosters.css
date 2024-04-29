@@ -317,6 +317,8 @@ th, td {
       grid-row: unset !important;
       grid-column: unset !important;
       width: 100%;
+      max-width: 30rem;
+      margin: unset;
     }
 
     .custom-medium-avatar {
