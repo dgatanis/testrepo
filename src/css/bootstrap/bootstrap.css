@@ -11032,6 +11032,9 @@ ul.nav.nav-tabs {
     animation: revealLetter 1s forwards;
   }
 
+  .mobilenav a:active {
+    background: rgb(97, 97, 97);
+  }
   .mobilenav {
     display: none;
   }
