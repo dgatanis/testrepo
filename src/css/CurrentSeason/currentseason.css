@@ -470,10 +470,19 @@
     .custom-teamname-normal {
       margin-top: .4rem;
     }
+
+    .custom-body {
+      padding: unset;
+      margin: unset;
+    }
   }
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    body {
+      position: relative;
+    }
 
     h5#seasonTitle {
       margin-top: 3rem !important;
