@@ -10892,6 +10892,18 @@ textarea.form-control-lg {
   clear: inline-end;
 }
 
+.custom-mobile-show{
+  visibility: visible;
+  background: rgb(97, 97, 97);
+  display: block;
+  transition: all 1s ease;
+}
+
+.custom-mobile-hide{
+  visibility: hidden;
+  transition: all 1s ease;
+}
+
 .custom-nav{
   color: white;
 }
