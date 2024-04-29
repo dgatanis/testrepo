@@ -276,10 +276,6 @@ th, td {
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
 
-    .custom-team-roster {
-      overflow: scroll;
-    }
-    
     .custom-medium-avatar{
       margin-left: 43%;
     }
@@ -296,6 +292,10 @@ th, td {
     .custom-body {
       padding: unset;
       margin: unset;
+    }
+
+    .custom-roster-group {
+      overflow: scroll;
     }
   }
 
