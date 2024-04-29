@@ -10895,14 +10895,12 @@ textarea.form-control-lg {
 .custom-mobile-show{
   visibility: visible;
   background: rgb(97, 97, 97);
-  display: block;
   transition: all 1s ease;
 }
 
 .custom-mobile-hide{
   visibility: hidden;
   background: transparent;
-  transition: all 1s ease;
 }
 
 .custom-nav{
@@ -11035,12 +11033,6 @@ ul.nav.nav-tabs {
 
   .mobilenav {
     display: none;
-  }
-
-  .mobilenav #mobileLinks {
-    visibility: hidden;
-    display: none;
-    transition: all 1s ease;
   }
 
   .mobilenav a {
