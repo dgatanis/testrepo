@@ -262,7 +262,7 @@ th, td {
 
     .custom-team-roster {
       width: 100%;
-      max-width: 20rem;
+      max-width: 22rem;
     }
 
     .custom-position-age {
@@ -279,8 +279,7 @@ th, td {
     }
 
     .custom-team-roster {
-        margin-right: 2.5rem;
-        margin-left: 2.5rem;
+      max-width: 20rem;
     }
 
     .custom-position-age {
