@@ -286,6 +286,11 @@ th, td {
       margin-left: .5rem;
       margin-right: .5rem;
     }
+
+    .custom-body {
+      padding: unset;
+      margin: unset;
+    }
   }
 
   /*Tablet display styling*/
