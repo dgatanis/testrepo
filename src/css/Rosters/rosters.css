@@ -10,6 +10,8 @@
   text-align: center;
   font-size: small;
   width: 30rem;
+  margin: auto;
+  margin-top: inherit;
 }
 
 .custom-roster-group {
@@ -261,7 +263,6 @@ th, td {
     }
 
     .custom-team-roster {
-      width: 100%;
       max-width: 22rem;
     }
 
