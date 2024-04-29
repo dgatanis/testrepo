@@ -319,6 +319,7 @@ th, td {
       width: 100%;
       margin-left: unset;
       margin-right: unset;
+      max-width: max-content;
     }
 
     .custom-medium-avatar {
