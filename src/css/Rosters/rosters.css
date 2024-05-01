@@ -240,14 +240,14 @@ th, td {
 .custom-player-details {
   float: inline-end;
   font-size: .5rem;
-  margin: auto;
+  margin-left: .2rem;
   width: fit-content;
   display: grid;
 }
 
 .custom-player-number{
   display: inline;
-  font-size: x-small;
+  font-size: .5rem;
   margin-right: .2rem;
   vertical-align: super;
 } 
