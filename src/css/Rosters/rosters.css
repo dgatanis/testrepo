@@ -239,14 +239,31 @@ th, td {
 
 .custom-player-details {
   float: inline-end;
-  margin-top: .1rem;
   font-size: .5rem;
-  margin-left: .2rem;
+  margin: auto;
   width: fit-content;
+  display: grid;
 }
 
-.custom-player-number, .custom-player-age {
-  text-align: center;
+.custom-player-number{
+  display: inline;
+  font-size: x-small;
+  margin-right: .2rem;
+} 
+
+.custom-player-age {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.custom-player-height {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.custom-player-weight {
+  grid-row: 2;
+  grid-column: 2;
 }
 
 .custom-player-avatar {
@@ -353,7 +370,7 @@ th, td {
     .custom-medium-avatar {
       margin-left: 42%;
     }
-    
+
     .custom-player-name {
       font-size: .7rem;
     }
