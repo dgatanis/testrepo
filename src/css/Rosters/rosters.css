@@ -353,6 +353,10 @@ th, td {
     .custom-medium-avatar {
       margin-left: 42%;
     }
+    
+    .custom-player-name {
+      font-size: .7rem;
+    }
   }
 
     /*Small Mobile display styling*/
