@@ -249,6 +249,7 @@ th, td {
   display: inline;
   font-size: x-small;
   margin-right: .2rem;
+  vertical-align: super;
 } 
 
 .custom-player-age {

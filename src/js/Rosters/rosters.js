@@ -143,13 +143,12 @@ function loadSortedRosters() {
                         playerWeightDiv .setAttribute('class', 'custom-player-weight');
                         playerWeightDiv.innerText = player.weight + "lbs";
 
-
-                        playerDetailsDiv.appendChild(playerNumberDiv);
                         playerDetailsDiv.appendChild(playerAgeDiv);
                         playerDetailsDiv.appendChild(playerHeightDiv);
                         playerDetailsDiv.appendChild(playerWeightDiv);
 
                         td.prepend(playerimg);
+                        td.append(playerNumberDiv);
                         td.append(playerNameDiv);
                         td.append(teamImage);
                         td.append(playerDetailsDiv);
