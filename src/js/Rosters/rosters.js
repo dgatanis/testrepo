@@ -138,8 +138,10 @@ function loadSortedRosters() {
                         playerDetailsDiv.setAttribute('class', 'custom-player-details');
                         playerNumberDiv.setAttribute('class', 'custom-player-number');
                         playerNumberDiv.innerText = "#" + playerNumber;
-                        playerHeightDiv.innerText = player.height;
-                        playerWeightDiv.innerText = player.weight;
+                        playerHeightDiv .setAttribute('class', 'custom-player-height');
+                        playerHeightDiv.innerText = calculateHeight(player.height);
+                        playerWeightDiv .setAttribute('class', 'custom-player-weight');
+                        playerWeightDiv.innerText = player.weight + "lbs";
 
 
                         playerDetailsDiv.appendChild(playerNumberDiv);
@@ -709,6 +711,12 @@ function sortByTeam(players) {
     {
         return sortedPlayers;
     }
+}
+
+function calculateHeight(inches) {
+    var feet = Math.floor(inches / 12);
+    var remainingInches = inches % 12;
+    return feet + "'" + remainingInches + "\"";
 }
 
 function sortByPosition(players) {
