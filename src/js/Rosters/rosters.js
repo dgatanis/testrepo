@@ -185,6 +185,8 @@ function loadSortedRosters() {
                                 var playerNameDiv = document.createElement('div');
                                 var playerAgeDiv = document.createElement('div');
                                 var playerNumberDiv = document.createElement('div');
+                                var playerHeightDiv = document.createElement('div');
+                                var playerWeightDiv = document.createElement('div');
                                 var tr = document.createElement("tr");
                                 var th = document.createElement("th");
                                 var td = document.createElement("td");
@@ -200,12 +202,19 @@ function loadSortedRosters() {
                                 playerDetailsDiv.setAttribute('class', 'custom-player-details');
                                 playerNumberDiv.setAttribute('class', 'custom-player-number');
                                 playerNumberDiv.innerText = "#" + playerNumber;
+                                playerHeightDiv .setAttribute('class', 'custom-player-height');
+                                playerHeightDiv.innerText = calculateHeight(player.height);
+                                playerWeightDiv .setAttribute('class', 'custom-player-weight');
+                                playerWeightDiv.innerText = player.weight + "lbs";
 
-                                playerDetailsDiv.appendChild(playerNumberDiv);
                                 playerDetailsDiv.appendChild(playerAgeDiv);
+                                playerDetailsDiv.appendChild(playerHeightDiv);
+                                playerDetailsDiv.appendChild(playerWeightDiv);
+        
 
                                 tr.appendChild(th);
                                 td.prepend(playerimg);
+                                td.append(playerNumberDiv);
                                 td.append(playerNameDiv);
                                 td.append(teamImage);
                                 td.append(playerDetailsDiv);
@@ -243,6 +252,8 @@ function loadSortedRosters() {
                             var playerNameDiv = document.createElement('div');
                             var playerAgeDiv = document.createElement('div');
                             var playerNumberDiv = document.createElement('div');
+                            var playerHeightDiv = document.createElement('div');
+                            var playerWeightDiv = document.createElement('div');
 
 
                             th.innerText=player.position;
@@ -256,12 +267,18 @@ function loadSortedRosters() {
                             playerDetailsDiv.setAttribute('class', 'custom-player-details');
                             playerNumberDiv.setAttribute('class', 'custom-player-number');
                             playerNumberDiv.innerText = "#" + playerNumber;
+                            playerHeightDiv .setAttribute('class', 'custom-player-height');
+                            playerHeightDiv.innerText = calculateHeight(player.height);
+                            playerWeightDiv .setAttribute('class', 'custom-player-weight');
+                            playerWeightDiv.innerText = player.weight + "lbs";
 
-
-                            playerDetailsDiv.appendChild(playerNumberDiv);
                             playerDetailsDiv.appendChild(playerAgeDiv);
+                            playerDetailsDiv.appendChild(playerHeightDiv);
+                            playerDetailsDiv.appendChild(playerWeightDiv);
+
                             tr.appendChild(th);
                             td.prepend(playerimg);
+                            td.append(playerNumberDiv);
                             td.append(playerNameDiv);
                             td.append(teamImage);
                             td.append(playerDetailsDiv);
