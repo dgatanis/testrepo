@@ -238,11 +238,9 @@ th, td {
 }
 
 .custom-player-details {
-  float: inline-end;
   font-size: .5rem;
   margin-left: .2rem;
-  width: fit-content;
-  display: grid;
+  margin-top: .2rem;
 }
 
 .custom-player-number{
@@ -253,18 +251,21 @@ th, td {
 } 
 
 .custom-player-age {
-  grid-row: 1;
-  grid-column: 2;
+  display: inline;
+  margin-right: .2rem;
+  margin-left: .2rem;
 }
 
 .custom-player-height {
-  grid-row: 2;
-  grid-column: 1;
+  display: inline;
+  margin-right: .2rem;
+  margin-left: .2rem;
 }
 
 .custom-player-weight {
-  grid-row: 2;
-  grid-column: 2;
+  display: inline;
+  margin-right: .2rem;
+  margin-left: .2rem;
 }
 
 .custom-player-avatar {
