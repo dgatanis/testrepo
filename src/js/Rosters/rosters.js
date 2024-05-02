@@ -147,11 +147,6 @@ function loadSortedRosters() {
                         playerDetailsDiv.appendChild(playerHeightDiv);
                         playerDetailsDiv.appendChild(playerWeightDiv);
                         
-                        var loadingIcon = playerRow.getElementsByClassName('custom-load-icon');
-                        if(loadingIcon[0])
-                        {
-                            loadingIcon[0].style.display = 'none';
-                        }
                         td.prepend(playerimg);
                         td.append(playerNumberDiv);
                         td.append(playerNameDiv);
