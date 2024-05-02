@@ -166,6 +166,10 @@
     margin-right: 10rem;
   }
 
+  #RosterTable th {
+    text-align: center;
+  }
+
   div#currentWeek {
     color: black;
     background: linear-gradient(#99999978, #999999ad);
