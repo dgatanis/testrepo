@@ -651,6 +651,7 @@ async function getLatestTransactions(week) {
                             var droppedIcon = createAddDropImg("drop");
 
                             playerName.setAttribute('class', 'custom-playername-small');
+                            playerImg.style = "background-image:" + playerImg.style.backgroundImage + ";border: 2px solid var( --bs-red);background-color: var(--Drop);border-radius:3px;";
 
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
