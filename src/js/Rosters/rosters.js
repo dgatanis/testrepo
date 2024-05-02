@@ -148,8 +148,8 @@ function loadSortedRosters() {
                         playerDetailsDiv.appendChild(playerWeightDiv);
                         
                         td.prepend(playerimg);
-                        td.append(playerNumberDiv);
                         td.append(playerNameDiv);
+                        td.append(playerNumberDiv);
                         td.append(teamImage);
                         td.append(playerDetailsDiv);
                         
@@ -214,8 +214,8 @@ function loadSortedRosters() {
 
                                 tr.appendChild(th);
                                 td.prepend(playerimg);
-                                td.append(playerNumberDiv);
                                 td.append(playerNameDiv);
+                                td.append(playerNumberDiv);
                                 td.append(teamImage);
                                 td.append(playerDetailsDiv);
                                 tr.appendChild(td);
@@ -278,8 +278,8 @@ function loadSortedRosters() {
 
                             tr.appendChild(th);
                             td.prepend(playerimg);
-                            td.append(playerNumberDiv);
                             td.append(playerNameDiv);
+                            td.append(playerNumberDiv);
                             td.append(teamImage);
                             td.append(playerDetailsDiv);
                             tr.appendChild(td);
