@@ -269,6 +269,8 @@ th, td {
 
 .custom-player-avatar {
   vertical-align: text-bottom;
+  border-radius: 5px;
+  background-color: #73737340;
 }
 
 /*Large laptop display styling*/
