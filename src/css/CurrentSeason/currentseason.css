@@ -240,6 +240,7 @@
     position: absolute;
     z-index: 1;
     left: 8%;
+    border-radius: 10px;
   }
 
   .custom-playername-small {

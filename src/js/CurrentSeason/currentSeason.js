@@ -609,6 +609,7 @@ async function getLatestTransactions(week) {
                             playerImg.style.border = "2px solid var(--custom-green)";
                             playerImg.style.backgroundColor = "var(--Add)"; 
                             playerImg.style.borderRadius= "3px";
+                            droppedIcon.style.backgroundColor = "var(--Add)";
 
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
@@ -656,7 +657,8 @@ async function getLatestTransactions(week) {
                             playerImg.style.border = "2px solid var(--custom-red)";
                             playerImg.style.backgroundColor = "var(--Drop)"; 
                             playerImg.style.borderRadius= "3px";
-                            
+                            droppedIcon.style.backgroundColor = "var(--Drop)";
+
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
                                 playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
