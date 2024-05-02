@@ -59,7 +59,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 .custom-player-RB-row {
@@ -67,7 +67,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 .custom-player-WR-row {
@@ -75,7 +75,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 .custom-player-TE-row {
@@ -83,7 +83,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 .custom-player-K-row {
@@ -91,7 +91,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 .custom-player-SF-row {
@@ -99,7 +99,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 .custom-player-FLEX-row {
@@ -107,7 +107,7 @@
   border-radius: .5rem;
   padding: .5rem;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
   border: 2px solid #616161;
 }
 
@@ -239,8 +239,9 @@ th, td {
 
 .custom-player-details {
   font-size: .5rem;
-  margin-left: .2rem;
-  margin-top: .2rem;
+  background: linear-gradient(45deg, #7373732b, transparent, #7373732b);
+  padding: 3px;
+  border-radius: 10px;
 }
 
 .custom-player-number{
