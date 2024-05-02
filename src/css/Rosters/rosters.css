@@ -220,6 +220,7 @@ tr {
 .custom-player-name {
   display:inline-block;
   vertical-align: super;
+  font-size: large;
 }
 
 .custom-stats-label {
@@ -296,6 +297,10 @@ th, td {
 
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
+
+    .custom-player-name {
+      font-size: unset;
+    }
 
     .custom-medium-avatar{
       margin-left: 43%;
