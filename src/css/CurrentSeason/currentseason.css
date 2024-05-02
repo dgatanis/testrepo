@@ -241,6 +241,7 @@
     z-index: 1;
     left: 8%;
     border-radius: 10px;
+    left: 2.8rem;
   }
 
   .custom-add-player {
@@ -452,10 +453,6 @@
 
     .custom-pts {
       font-size: 1.2rem;
-    }
-
-    .custom-add-drop-icon {
-      left: 11%;
     }
 
     .custom-carousel {
