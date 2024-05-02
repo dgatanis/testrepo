@@ -606,11 +606,12 @@ async function getLatestTransactions(week) {
                             var addedIcon = createAddDropImg("add");
 
                             playerName.setAttribute('class', 'custom-playername-small');
-                            playerImg.classList.add('custom-add-player');
-                            addedIcon.classList.add('custom-add-icon');
+
 
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
+                                playerImg.classList.add('custom-add-player');
+                                addedIcon.classList.add('custom-add-icon');
                                 playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
                             }
                             else
@@ -652,12 +653,13 @@ async function getLatestTransactions(week) {
                             var droppedIcon = createAddDropImg("drop");
 
                             playerName.setAttribute('class', 'custom-playername-small');
-                            playerImg.classList.add('custom-drop-player');
-                            addedIcon.classList.add('custom-drop-icon');
+
 
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
                                 playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
+                                playerImg.classList.add('custom-drop-player');
+                                addedIcon.classList.add('custom-drop-icon');
                             }
                             else
                             {
