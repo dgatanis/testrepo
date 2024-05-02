@@ -237,23 +237,22 @@ th, td {
 }
 
 .custom-player-details {
-  font-size: .5rem;
-  background: linear-gradient(0deg, transparent, #7373732e, transparent);
-  padding: 3px;
-  margin-top: -.5rem;
+  width: fit-content;
+  margin-left: 2.3rem;
+  padding: unset;
+  margin-top: -.3rem;
 }
 
 .custom-player-number{
   display: inline;
   font-size: .5rem;
-  margin-right: .2rem;
+  margin-left: .2rem;
   vertical-align: baseline;
 } 
 
 .custom-player-age {
   display: inline;
   margin-right: .2rem;
-  margin-left: .2rem;
 }
 
 .custom-player-height {
