@@ -659,7 +659,7 @@ async function getLatestTransactions(week) {
                             {
                                 playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
                                 playerImg.classList.add('custom-drop-player');
-                                addedIcon.classList.add('custom-drop-icon');
+                                droppedIcon.classList.add('custom-drop-icon');
                             }
                             else
                             {

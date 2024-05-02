@@ -257,10 +257,14 @@
 
   .custom-add-icon {
     background-color: var(--Add);
+    padding: .1rem;
+    border: 1px solid var(--custom-green);
   }
 
   .custom-drop-icon {
-    background-color: var(--Add);
+    background-color: var(--Drop);
+    padding: .1rem;
+    border: 1px solid var(--custom-red);
   }
 
   .custom-playername-small {
