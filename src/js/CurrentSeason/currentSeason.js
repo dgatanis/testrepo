@@ -756,6 +756,8 @@ async function getLatestTransactions(week) {
 
                                     if(player) //Can Remove this once finished - just used for testing DEF
                                     {
+                                        playerImg.classList.add('custom-drop-player');
+                                        addedIcon.classList.add('custom-drop-icon');
                                         playerName.innerText = getFullPlayerName(addedPlayers[j]) + " ("+ player.position +")";
                                     }
                                     else
@@ -807,6 +809,8 @@ async function getLatestTransactions(week) {
 
                                     if(player) //Can Remove this once finished - just used for testing DEF
                                     {
+                                        playerImg.classList.add('custom-drop-player');
+                                        droppedIcon.classList.add('custom-drop-icon');
                                         playerName.innerText = getFullPlayerName(droppedPlayers[j]) + " (" + player.position +")";
                                     }
                                     else
