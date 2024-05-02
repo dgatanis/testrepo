@@ -131,6 +131,7 @@
 .custom-team {
   clear: both;
   font-size: large;
+  cursor: pointer;
 }
 
 .custom-team-logo {
@@ -138,10 +139,6 @@
   max-height: 1rem;
   vertical-align: super;
   margin-left: .3rem;
-}
-
-.custom-team-name {
-  cursor: pointer;
 }
 
 tr {
@@ -152,6 +149,7 @@ tr {
 
 .custom-medium-avatar {
   margin-right: unset;
+  cursor: pointer;
 }
 
 .accordion-button {
