@@ -933,7 +933,7 @@ function createPlayerImage(playerId) {
     if(player)
     {
         var playerimg = document.createElement("div");
-        playerimg.setAttribute("style",  "background-image: url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp); border: 1.5px solid var(--"+ player.position +");");
+        playerimg.setAttribute("style",  "background-image: url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp); border: 2px solid var(--"+ player.position +");");
         
         if(playerId == '5849')
         {
