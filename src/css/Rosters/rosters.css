@@ -219,7 +219,7 @@ tr {
 
 .custom-player-name {
   display:inline-block;
-  vertical-align: super;
+  vertical-align: baseline;
   font-size: large;
 }
 
@@ -248,7 +248,7 @@ th, td {
   display: inline;
   font-size: .5rem;
   margin-right: .2rem;
-  vertical-align: super;
+  vertical-align: baseline;
 } 
 
 .custom-player-age {
