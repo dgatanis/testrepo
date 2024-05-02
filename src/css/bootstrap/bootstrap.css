@@ -10965,6 +10965,21 @@ a.custom-nav:hover {
   overflow: visible;
 }
 
+
+.custom-tiny-player-avatar {
+  margin-right: .5rem;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  height: 15px;
+  width: 15px;
+  background-size: auto 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: visible;
+}
+
+
 .modal-dialog {
   max-width: 800px;
 }

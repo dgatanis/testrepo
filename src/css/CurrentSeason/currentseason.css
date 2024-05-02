@@ -19,7 +19,15 @@
     font-size: x-small;
     width: fit-content;
     margin-left: .7rem;
-}
+  }
+
+  #PowerRankings th {
+    text-align: center;
+  }
+
+  #PowerRankings tr {
+    vertical-align: baseline;
+  }
 
   .custom-team-score {
     margin-top:.5rem;
@@ -531,6 +539,7 @@
     .custom-matchup-player {
       float: right;
       clear: left;
+      padding: unset;
     }
 
     .custom-medium-avatar {

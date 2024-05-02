@@ -934,6 +934,10 @@ function createPlayerImage(playerId) {
     {
         var playerimg = document.createElement("div");
         playerimg.setAttribute("style",  "background-image: url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)");
+        if(playerId == 5849)
+        {
+            playerimg.setAttribute('class', "custom-tiny-player-avatar");
+        }
         playerimg.setAttribute('class', "custom-player-avatar");
 
         return playerimg;
