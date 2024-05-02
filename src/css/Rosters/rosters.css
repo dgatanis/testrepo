@@ -240,7 +240,7 @@ th, td {
 
 .custom-player-details {
   font-size: .5rem;
-  background: linear-gradient(175deg, #73737394, transparent, #73737394);
+  background: linear-gradient(0deg, transparent, #7373732e, transparent);
   padding: 3px;
   border-radius: 10px;
 }
