@@ -606,7 +606,9 @@ async function getLatestTransactions(week) {
                             var addedIcon = createAddDropImg("add");
 
                             playerName.setAttribute('class', 'custom-playername-small');
-                            playerImg.style = "background-image:" + playerImg.style.backgroundImage + ";border: 2px solid var(--custom-green);background-color: var(--Add);border-radius:3px;";
+                            playerImg.style.border = "2px solid var(--custom-green)";
+                            playerImg.style.backgroundColor = "var(--Add)"; 
+                            playerImg.style.borderRadius= "3px";
 
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
@@ -651,8 +653,10 @@ async function getLatestTransactions(week) {
                             var droppedIcon = createAddDropImg("drop");
 
                             playerName.setAttribute('class', 'custom-playername-small');
-                            playerImg.style = "background-image:" + playerImg.style.backgroundImage + ";border: 2px solid var( --custom-red);background-color: var(--Drop);border-radius:3px;";
-
+                            playerImg.style.border = "2px solid var(--custom-red)";
+                            playerImg.style.backgroundColor = "var(--Drop)"; 
+                            playerImg.style.borderRadius= "3px";
+                            
                             if(player) //Can Remove this once finished - just used for testing DEF
                             {
                                 playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
