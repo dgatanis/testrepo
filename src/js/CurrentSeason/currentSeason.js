@@ -1681,7 +1681,7 @@ function createPlayerImage(playerId) {
     if(player)
     {
         var playerimg = document.createElement("div");
-        playerimg.setAttribute("style",  "background-image: url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)");
+        playerimg.style.backgroundImage = "url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)";
         
         if(playerId == '5849')
         {
