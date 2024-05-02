@@ -243,6 +243,26 @@
     border-radius: 10px;
   }
 
+  .custom-add-player {
+    border: 2px solid var(--custom-green);
+    background-color: var(--Add);
+    border-radius: 3px;
+  }
+
+  .custom-drop-player {
+    border: 2px solid var(--custom-red);
+    background-color: var(--Drop);
+    border-radius: 3px;
+  }
+
+  .custom-add-icon {
+    background-color: var(--Add);
+  }
+
+  .custom-drop-icon {
+    background-color: var(--Add);
+  }
+
   .custom-playername-small {
     display: inline;
     font-size: small;
