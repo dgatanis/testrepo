@@ -240,7 +240,7 @@ th, td {
 
 .custom-player-details {
   font-size: .5rem;
-  background: linear-gradient(45deg, #7373732b, transparent, #7373732b);
+  background: linear-gradient(175deg, #73737394, transparent, #73737394);
   padding: 3px;
   border-radius: 10px;
 }
@@ -339,6 +339,10 @@ th, td {
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .custom-player-name {
+      font-size: large;
+    }
 
     .btn-primary {
       font-size: small;
