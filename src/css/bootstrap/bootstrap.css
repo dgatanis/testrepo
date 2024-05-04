@@ -10961,6 +10961,7 @@ a.custom-nav:hover {
   background-repeat: no-repeat;
   background-size: auto 35px;
   overflow: visible;
+  border-radius: 5px;
 }
 
 .custom-small-player-avatar {
@@ -10974,6 +10975,7 @@ a.custom-nav:hover {
   background-repeat: no-repeat;
   background-size: auto 20px;
   overflow: visible;
+  border-radius: 3px;
 }
 
 
@@ -10988,6 +10990,7 @@ a.custom-nav:hover {
   background-position: center;
   background-repeat: no-repeat;
   overflow: visible;
+  border-radius: 3px;
 }
 
 
