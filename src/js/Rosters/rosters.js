@@ -117,14 +117,16 @@ function loadSortedRosters() {
                     if(player)
                     {
                         let unusedRow = unusedPlayerRow(player.position, starterTeam);
-                        var playerRow = createPlayerRow(player.player_id);
-                        var playerDetails = playerRow.getElementsByTagName('td')[0]; //Get only the td element so we can append it to the unused row
+                        let playerRow = createPlayerRow(player.player_id);
+                        let playerDetails = playerRow.getElementsByTagName('td')[0]; //Only get the td element so we can append to existing row
                         
                         if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
                         {
                             unusedRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
                         }
-                        unusedRow.append(playerDetails);
+                        
+                        unusedRow.setAttribute('data-playerid', player.player_id);
+                        unusedRow.append(td);
                     }
                 }
 
