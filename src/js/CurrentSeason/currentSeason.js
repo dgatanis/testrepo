@@ -307,10 +307,8 @@ function loadMatchups(weekNumber) {
 function OpenTeamRosterModal(userid,teamname) {
 
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
-    let myUserId = userid.toString();
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
-    var rosterBody = document.getElementById("ModalRosterBody");
     const leaguePositionList = getLeaguePositions();
 
     modalRosterTeamName.innerText = teamname;
@@ -368,8 +366,6 @@ function OpenTeamRosterModal(userid,teamname) {
             //length of highScorers and highScorerPlayers must match
             for(let i =0; i < highScorers.length; i++)
             {
-                let player = playerData.players.find(e => e.player_id === parseInt(highScorerPlayers[i].player_id));
-
                 var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
                 playerImg.setAttribute('class', 'custom-small-player-avatar');
                 
@@ -450,6 +446,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 
         rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
 
+        //Iterate through each row in the table and add team to each row
         for(let i = 0; i < rosterBankrolls.length; i++)
         {
             let row = document.getElementById("bankrollTeam_" + i);
@@ -589,30 +586,7 @@ async function getLatestTransactions(week) {
                         for(let i = 0; i< addedPlayers.length; i++)
                         {
                             description += getFullPlayerName(addedPlayers[i]);
-                            var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
-                            var playerDiv = document.createElement("div");
-                            playerDiv.setAttribute('class', 'custom-player');
-                            var playerImg = createPlayerImage(addedPlayers[i]);
-                            var playerName = document.createElement("div");
-                            var addedIcon = createAddDropImg("add");
-
-                            playerName.setAttribute('class', 'custom-playername-small');
-
-
-                            if(player) //Can Remove this once finished - just used for testing DEF
-                            {
-                                playerImg.classList.add('custom-add-player');
-                                addedIcon.classList.add('custom-add-icon');
-                                playerName.innerText = getFullPlayerName(addedPlayers[i]) + " ("+ player.position +")";
-                            }
-                            else
-                            {
-                                playerName.innerText = getFullPlayerName(addedPlayers[i]);
-                            }
-
-                            playerDiv.append(addedIcon);
-                            playerDiv.append(playerImg);
-                            playerDiv.append(playerName);
+                            var playerDiv = createPlayerDiv(addedPlayers[i], 'add');
 
                             addedPlayerDiv.append(playerDiv);
                         }
@@ -714,28 +688,7 @@ async function getLatestTransactions(week) {
                                 {
                                     addedPlayersArray.push(getFullPlayerName(addedPlayers[j]));
                                     var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
-                                    var playerDiv = document.createElement("div");
-                                    playerDiv.setAttribute('class', 'custom-player');
-                                    var playerImg = createPlayerImage(addedPlayers[j]);
-                                    var playerName = document.createElement("div");
-                                    var addedIcon = createAddDropImg("add");
-
-                                    playerName.setAttribute('class', 'custom-playername-small');
-
-                                    if(player) //Can Remove this once finished - just used for testing DEF
-                                    {
-                                        playerImg.classList.add('custom-drop-player');
-                                        addedIcon.classList.add('custom-drop-icon');
-                                        playerName.innerText = getFullPlayerName(addedPlayers[j]) + " ("+ player.position +")";
-                                    }
-                                    else
-                                    {
-                                        playerName.innerText = getFullPlayerName(addedPlayers[j]);
-                                    }
-
-                                    playerDiv.append(addedIcon);
-                                    playerDiv.append(playerImg);
-                                    playerDiv.append(playerName);
+                                    var playerDiv = createPlayerDiv(player.player_id, 'add');
 
                                     if(i >= 1)
                                     {
@@ -751,7 +704,6 @@ async function getLatestTransactions(week) {
                                 }
                             }
                             addedPlayersArray[addedPlayersArray.length-1] = "and " + addedPlayersArray[addedPlayersArray.length-1];
-                            var lastComma = addedPlayersArray.toString().lastIndexOf(",");
                             var newString = addedPlayersArray.toString().replaceAll(",", ", ").replace(", and", " and ");
                             description += newString;
 
@@ -767,28 +719,7 @@ async function getLatestTransactions(week) {
                                 if(rosterid == transaction.drops[droppedPlayers[j]] && !addedPlayers.includes(droppedPlayers[j]))
                                 {
                                     var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[j]));
-                                    var playerDiv = document.createElement("div");
-                                    playerDiv.setAttribute('class', 'custom-player');
-                                    var playerImg = createPlayerImage(droppedPlayers[j]);
-                                    var playerName = document.createElement("div");
-                                    var droppedIcon = createAddDropImg("drop");
-
-                                    playerName.setAttribute('class', 'custom-playername-small');
-
-                                    if(player) //Can Remove this once finished - just used for testing DEF
-                                    {
-                                        playerImg.classList.add('custom-drop-player');
-                                        droppedIcon.classList.add('custom-drop-icon');
-                                        playerName.innerText = getFullPlayerName(droppedPlayers[j]) + " (" + player.position +")";
-                                    }
-                                    else
-                                    {
-                                        playerName.innerText = getFullPlayerName(droppedPlayers[j]);
-                                    }
-                                    
-                                    playerDiv.append(droppedIcon);
-                                    playerDiv.append(playerImg);
-                                    playerDiv.append(playerName);
+                                    var playerDiv = createPlayerDiv(player.player_id, 'drop');
                                     
                                     if(i >= 1)
                                     {
@@ -834,7 +765,7 @@ async function getLatestTransactions(week) {
                     }   
                     transactionDescription.innerText = description + "... " + getRandomString() + ".";
                 }
-                    
+                //Add the whole item to the carousel
                 dateOfTransaction.classList.add('custom-block-display');
                 dateOfTransaction.classList.remove('custom-none-display');
                 dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
@@ -945,7 +876,7 @@ function createPlayerDiv(playerid, addDrop) {
     playerDiv.setAttribute('class', 'custom-player');
     var playerImg = createPlayerImage(playerid);
     var playerName = document.createElement("div");
-    var droppedIcon = createAddDropImg(addDrop);
+    var addDropIcon = createAddDropImg(addDrop);
 
     playerName.setAttribute('class', 'custom-playername-small');
 
@@ -954,14 +885,14 @@ function createPlayerDiv(playerid, addDrop) {
     {
         playerName.innerText = getFullPlayerName(playerid) + " (" + player.position +")";
         playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
-        droppedIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
+        addDropIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
     }
     else
     {
         playerName.innerText = getFullPlayerName(playerid);
     }
     
-    playerDiv.append(droppedIcon);
+    playerDiv.append(addDropIcon);
     playerDiv.append(playerImg);
     playerDiv.append(playerName);
 
