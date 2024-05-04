@@ -118,7 +118,7 @@ function loadSortedRosters() {
                     {
                         let unusedRow = unusedPlayerRow(player.position, starterTeam);
                         var playerRow = createPlayerRow(player.player_id);
-                        var playerDetails = playerRow.getElementsByClassName('td')[0]; //Get only the td element so we can append it to the unused row
+                        var playerDetails = playerRow.getElementsByTagName('td')[0]; //Get only the td element so we can append it to the unused row
                         
                         if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
                         {
@@ -168,7 +168,7 @@ function loadSortedRosters() {
                         {
                             var playerRow = createPlayerRow(player.player_id);
                             playerRow.setAttribute('class', 'custom-bench-row');
-                            taxiTeam.append(tr);
+                            taxiTeam.append(playerRow);
                         }
                     }
 
