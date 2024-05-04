@@ -560,6 +560,7 @@ async function getLatestTransactions(week) {
                         transType = "Waiver Claim";
                     }
 
+                    //Get roster of transaction and create div for it
                     rosterId = transaction.roster_id[0];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
 
@@ -635,30 +636,7 @@ async function getLatestTransactions(week) {
                         for(let i = 0; i< droppedPlayers.length; i++)
                         {
                             description += getFullPlayerName(droppedPlayers[i]);
-                            var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
-                            var playerDiv = document.createElement("div");
-                            playerDiv.setAttribute('class', 'custom-player');
-                            var playerImg = createPlayerImage(droppedPlayers[i]);
-                            var playerName = document.createElement("div");
-                            var droppedIcon = createAddDropImg("drop");
-
-                            playerName.setAttribute('class', 'custom-playername-small');
-
-
-                            if(player) //Can Remove this once finished - just used for testing DEF
-                            {
-                                playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
-                                playerImg.classList.add('custom-drop-player');
-                                droppedIcon.classList.add('custom-drop-icon');
-                            }
-                            else
-                            {
-                                playerName.innerText = getFullPlayerName(droppedPlayers[i]);
-                            }
-                            
-                            playerDiv.append(droppedIcon);
-                            playerDiv.append(playerImg);
-                            playerDiv.append(playerName);
+                            var playerDiv = createPlayerDiv(droppedPlayers[i], 'drop');
                             
                             droppedPlayerDiv.append(playerDiv);
 
@@ -958,6 +936,36 @@ function highScorerInMatchupStarters(starters, playerPoints){
 
         return highestScorer;
     }
+}
+
+function createPlayerDiv(playerid, addDrop) {
+
+    var player = playerData.players.find(x => x.player_id === parseInt(playerid));
+    var playerDiv = document.createElement("div");
+    playerDiv.setAttribute('class', 'custom-player');
+    var playerImg = createPlayerImage(droppedPlayers[i]);
+    var playerName = document.createElement("div");
+    var droppedIcon = createAddDropImg(addDrop);
+
+    playerName.setAttribute('class', 'custom-playername-small');
+
+
+    if(player) //Can Remove this once finished - just used for testing DEF
+    {
+        playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
+        playerImg.classList.add('custom-drop-player');
+        droppedIcon.classList.add('custom-drop-icon');
+    }
+    else
+    {
+        playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+    }
+    
+    playerDiv.append(droppedIcon);
+    playerDiv.append(playerImg);
+    playerDiv.append(playerName);
+
+    return playerDiv;
 }
 
 function highestScorerByPosition(rosterid) {
