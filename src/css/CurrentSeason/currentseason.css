@@ -250,14 +250,14 @@
   }
 
   .custom-add-player {
-    border: 2px solid var(--custom-green);
-    background-color: var(--Add);
+    border: 2px solid var(--custom-green) !important;
+    background-color: var(--Add) !important;
     border-radius: 3px;
   }
 
   .custom-drop-player {
-    border: 2px solid var(--custom-red);
-    background-color: var(--Drop);
+    border: 2px solid var(--custom-red) !important;
+    background-color: var(--Drop) !important;
     border-radius: 3px;
   }
 

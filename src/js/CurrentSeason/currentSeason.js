@@ -173,10 +173,7 @@ function loadSeasonRankings(leagueId) {
         console.error(`Error ${error.message}`);
     }
 }
-
-/*
-** Async functions **
-*/          
+     
 
 function loadMatchups(weekNumber) {
 
@@ -242,7 +239,6 @@ function loadMatchups(weekNumber) {
                             //Ifs used to set different images/colors
                             if(Number(matchup.points) - Number(winningTeam[1].points) <= 2)
                             {
-                                var angelImg = document.createElement("div");
                                 var angelImg = createMatchupIconImg();
                                 angelImg.setAttribute('src','../src/static/images/angel-wings.png');
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
@@ -253,7 +249,6 @@ function loadMatchups(weekNumber) {
                             }
                             else if(Number(matchup.points) < 90)
                             {
-                                var lucky = document.createElement("div");
                                 var luckyImg = createMatchupIconImg();
                                 luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
@@ -270,7 +265,6 @@ function loadMatchups(weekNumber) {
                             
                             if(roster.roster_id == highScoringWeekRoster)
                             {
-                                var highScorerDiv = document.createElement("div");
                                 var weeklyHighScorer = createMatchupIconImg();
                                 weeklyHighScorer.setAttribute('src', '../src/static/images/crown-icon.png');
                                 weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
@@ -286,12 +280,8 @@ function loadMatchups(weekNumber) {
                             teamScoreDiv.append(teamPoints);
                         }
 
-                        
 
-
-
-
-                        //Add all the elements 
+                        //Add all the elements to the matchup
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(teamScoreDiv);
                         matchupDiv.append(playerDiv);
@@ -300,7 +290,7 @@ function loadMatchups(weekNumber) {
                 }
                 
                 var x = document.createElement("li");
-                x.setAttribute("class", "list-group-item custom-matchup-list-item");
+                x.setAttribute("class", "list-group-item custom-matchup-list-item"); //divider lines
                 weekList.append(x);
             }
 
