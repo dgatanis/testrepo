@@ -377,8 +377,8 @@ function OpenTeamRosterModal(userid,teamname) {
                 var playerNameDiv = document.createElement("div");
                 playerNameDiv.setAttribute('class', 'custom-playername-small');
                 playerNameDiv.setAttribute('style', 'margin-top:.2rem;');
-                playerNameDiv.innerText = playerName + " (" + highScorerPlayers[i].position + ") " + highScorerPlayers[i].points + "pts"
-                
+                playerNameDiv.innerText = playerName + " " + highScorerPlayers[i].points + "pts"
+                 
                 highScorers[i].append(playerNameDiv);
                 highScorers[i].prepend(playerImg);
             }
