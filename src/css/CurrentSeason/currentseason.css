@@ -429,6 +429,10 @@
     margin-bottom: 1rem;
   }
 
+  #bankrollTable td {
+    text-align: center;
+  }
+
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
 
