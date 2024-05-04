@@ -479,6 +479,10 @@
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
 
+    .custom-team-score {
+      margin-top: .2rem;
+    }
+
     .div#currentWeek {
       margin-top: 2%;
     }
