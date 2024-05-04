@@ -439,6 +439,11 @@
       width: 45%
     }
 
+    .custom-team-score {
+      margin-top: .9rem;
+      display: block;
+    }
+
     .custom-matchups {
       width: 45%
     }

@@ -1711,7 +1711,7 @@ function createMatchupListElement(weekNumber) {
     var firstListItem = document.createElement("li");
     firstListItem.setAttribute("class", "h4 list-group-item custom-matchup-list-item shadow p-3 mb-5 bg-body rounded");
     firstListItem.innerText="Matchups and High Scorer";
-    firstListItem.setAttribute('style', '');
+    firstListItem.setAttribute('style', 'border-bottom: none;');
 
     var noMatchups = document.createElement("div");
     noMatchups.setAttribute("class", "custom-block-display custom-nomatchup");
