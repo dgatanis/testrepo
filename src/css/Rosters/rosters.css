@@ -137,7 +137,7 @@
 .custom-team-logo {
   max-width: 1.5rem;
   max-height: 1rem;
-  vertical-align: super;
+  vertical-align: text-bottom;
   margin-left: .3rem;
 }
 
