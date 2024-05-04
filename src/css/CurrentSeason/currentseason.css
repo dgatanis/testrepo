@@ -113,7 +113,7 @@
     float: right;
     padding: 10px;
     animation: blinker 3s ease-in-out infinite;
-    font-size: smaller;
+    font-size: small;
   }
 
   .custom-pts {
@@ -424,12 +424,6 @@
 
     .div#currentWeek {
       margin-top: 1.7%;
-    }
-
-    .custom-matchup-player {
-      float: right;
-      clear: left;
-      animation: blinker 3s ease-in-out infinite;
     }
 
     .custom-medium-avatar {
