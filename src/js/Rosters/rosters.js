@@ -116,48 +116,15 @@ function loadSortedRosters() {
 
                     if(player)
                     {
-                        let playerRow = unusedPlayerRow(player.position, starterTeam);
-                        var td = document.createElement('td');
-                        var playerDetailsDiv = document.createElement('div');
-                        var playerNameDiv = document.createElement('div');
-                        var playerAgeDiv = document.createElement('div');
-                        var playerHeightDiv = document.createElement('div');
-                        var playerWeightDiv = document.createElement('div');
-                        var playerNumberDiv = document.createElement('div');
-                        let playerName = player.firstname + " " + player.lastname;
-                        let playerAge = player.age;
-                        let playerNumber = player.number;
-                        var playerimg = createPlayerImage(player.player_id);
-                        var teamImage = createNFLTeamImage(player.team);
-
-                        playerRow.setAttribute('data-playerid', player.player_id);
-                        playerNameDiv.setAttribute('class', 'custom-player-name');
-                        playerNameDiv.innerText=playerName;
-                        playerAgeDiv.setAttribute('class', 'custom-player-age');
-                        playerAgeDiv.innerText =  "Age: " + playerAge ;
-                        playerDetailsDiv.setAttribute('class', 'custom-player-details');
-                        playerNumberDiv.setAttribute('class', 'custom-player-number');
-                        playerNumberDiv.innerText = "#" + playerNumber;
-                        playerHeightDiv .setAttribute('class', 'custom-player-height');
-                        playerHeightDiv.innerText = calculateHeight(player.height);
-                        playerWeightDiv .setAttribute('class', 'custom-player-weight');
-                        playerWeightDiv.innerText = player.weight + "lbs";
-
-                        playerDetailsDiv.appendChild(playerAgeDiv);
-                        playerDetailsDiv.appendChild(playerHeightDiv);
-                        playerDetailsDiv.appendChild(playerWeightDiv);
+                        let unusedRow = unusedPlayerRow(player.position, starterTeam);
+                        var playerRow = createPlayerRow(player.player_id);
+                        var playerDetails = playerRow.getElementsByClassName('td')[0]; //Get only the td element so we can append it to the unused row
                         
-                        td.prepend(playerimg);
-                        td.append(playerNameDiv);
-                        td.append(playerNumberDiv);
-                        td.append(teamImage);
-                        td.append(playerDetailsDiv);
-                        
-                        if(playerRow.classList.value == 'custom-player-SF-row' || playerRow.classList.value == 'custom-player-FLEX-row')
+                        if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
                         {
-                            playerRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
+                            unusedRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
                         }
-                        playerRow.append(td);
+                        unusedRow.append(playerDetails);
                     }
                 }
 
@@ -199,49 +166,8 @@ function loadSortedRosters() {
 
                         if(player)
                         {
-                            let playerName = player.firstname + " " + player.lastname;
-                            let playerAge = player.age;
-                            let playerNumber = player.number;
-                            var playerimg = createPlayerImage(player.player_id);
-                            var teamImage = createNFLTeamImage(player.team);
-                            var tr = document.createElement("tr");
-                            var th = document.createElement("th");
-                            var td = document.createElement("td");
-                            var playerDetailsDiv = document.createElement('div');
-                            var playerNameDiv = document.createElement('div');
-                            var playerAgeDiv = document.createElement('div');
-                            var playerNumberDiv = document.createElement('div');
-                            var playerHeightDiv = document.createElement('div');
-                            var playerWeightDiv = document.createElement('div');
-
-
-                            th.innerText=player.position;
-                            th.setAttribute('scope', 'row');
-                            tr.setAttribute('class', 'custom-bench-row');
-                            tr.setAttribute('data-playerid', player.player_id);
-                            playerNameDiv.setAttribute('class', 'custom-player-name');
-                            playerNameDiv.innerText=playerName;
-                            playerAgeDiv.setAttribute('class', 'custom-player-age');
-                            playerAgeDiv.innerText =  "Age: " + playerAge ;
-                            playerDetailsDiv.setAttribute('class', 'custom-player-details');
-                            playerNumberDiv.setAttribute('class', 'custom-player-number');
-                            playerNumberDiv.innerText = "#" + playerNumber;
-                            playerHeightDiv .setAttribute('class', 'custom-player-height');
-                            playerHeightDiv.innerText = calculateHeight(player.height);
-                            playerWeightDiv .setAttribute('class', 'custom-player-weight');
-                            playerWeightDiv.innerText = player.weight + "lbs";
-
-                            playerDetailsDiv.appendChild(playerAgeDiv);
-                            playerDetailsDiv.appendChild(playerHeightDiv);
-                            playerDetailsDiv.appendChild(playerWeightDiv);
-
-                            tr.appendChild(th);
-                            td.prepend(playerimg);
-                            td.append(playerNameDiv);
-                            td.append(playerNumberDiv);
-                            td.append(teamImage);
-                            td.append(playerDetailsDiv);
-                            tr.appendChild(td);
+                            var playerRow = createPlayerRow(player.player_id);
+                            playerRow.setAttribute('class', 'custom-bench-row');
                             taxiTeam.append(tr);
                         }
                     }
