@@ -27,8 +27,7 @@
   }
 
   td[id^="PowerRanking_"] {
-    text-align: justify;
-    padding: 1rem;
+    text-align: unset !important;
   }
 
   #PowerRankings th {
