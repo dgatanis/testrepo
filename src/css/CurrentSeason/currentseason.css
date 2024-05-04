@@ -121,7 +121,7 @@
   .custom-matchup-player {
     float: right;
     padding: 10px;
-    animation: blinker 3s ease-in-out infinite;
+    animation: blinker 4s ease-in-out infinite;
     font-size: small;
   }
 
