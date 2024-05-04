@@ -943,7 +943,7 @@ function createPlayerDiv(playerid, addDrop) {
     var player = playerData.players.find(x => x.player_id === parseInt(playerid));
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
-    var playerImg = createPlayerImage(droppedPlayers[i]);
+    var playerImg = createPlayerImage(playerid);
     var playerName = document.createElement("div");
     var droppedIcon = createAddDropImg(addDrop);
 
@@ -952,13 +952,13 @@ function createPlayerDiv(playerid, addDrop) {
 
     if(player) //Can Remove this once finished - just used for testing DEF
     {
-        playerName.innerText = getFullPlayerName(droppedPlayers[i]) + " (" + player.position +")";
-        playerImg.classList.add('custom-drop-player');
-        droppedIcon.classList.add('custom-drop-icon');
+        playerName.innerText = getFullPlayerName(playerid) + " (" + player.position +")";
+        playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
+        droppedIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
     }
     else
     {
-        playerName.innerText = getFullPlayerName(droppedPlayers[i]);
+        playerName.innerText = getFullPlayerName(playerid);
     }
     
     playerDiv.append(droppedIcon);
