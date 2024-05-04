@@ -124,9 +124,9 @@ function loadSortedRosters() {
                         {
                             unusedRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
                         }
-                        
+
                         unusedRow.setAttribute('data-playerid', player.player_id);
-                        unusedRow.append(td);
+                        unusedRow.append(playerDetails);
                     }
                 }
 
