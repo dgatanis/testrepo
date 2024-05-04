@@ -21,6 +21,14 @@
     margin-left: .7rem;
   }
 
+  #PowerRankings td {
+    padding: 1rem;
+  }
+
+  td[id^="PowerRanking_"] {
+    text-align: center;
+  }
+
   #PowerRankings th {
     text-align: center;
   }
