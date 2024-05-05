@@ -70,6 +70,8 @@
                 
     .custom-body {
         overflow: unset;
+        padding: unset;
+        margin: unset;
     }
 
     .custom-league-description {
