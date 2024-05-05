@@ -67,6 +67,10 @@
     .custom-title {
         margin-top: 3rem;
     }
+                
+    .custom-body {
+        overflow: unset;
+    }
 
     .custom-league-description {
         margin-bottom: 2rem;
