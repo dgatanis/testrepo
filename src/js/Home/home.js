@@ -84,7 +84,8 @@ function loadTeams() {
 
     for(let i = 0; i < teams.length; i++)
     {
-        let roster = rosterData.find(x => x.roster_id === i);
+        let rosterid = i + 1;
+        let roster = rosterData.find(x => x.roster_id === rosterid);
 
         teams[i].children[0].children[0].innerText = getTeamName(roster.owner_id);
     }
