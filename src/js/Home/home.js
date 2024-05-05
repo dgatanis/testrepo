@@ -96,7 +96,12 @@ function loadTeams() {
 
 }
 
+function hideProgressBar() {
+    var spinner = document.getElementsByClassName('text-center')[0];
+    var teams = document.getElementsByClassName('custom-teams')[0];
 
+    spinner.style.display = 'none';
+}
 
 function getTeamName(userid) {
 
@@ -114,9 +119,9 @@ function getTeamName(userid) {
 
     return userName.toString();
 }
-var x = 0;
+
 function createOwnerAvatarImage(userId) { 
-    x++;
+
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
     
