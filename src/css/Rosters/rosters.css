@@ -208,6 +208,11 @@ tr {
   color: #768ea5;
 }
 
+#rostersTitle {
+  text-align: center; 
+  margin-top: 1rem;
+}
+
 .custom-position-age {
   display: inline-flex;
   margin-left: 1rem;
@@ -339,6 +344,10 @@ th, td {
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    #rostersTitle {
+      margin-top: 3rem;
+    }
 
     .custom-player-name {
       font-size: large;
