@@ -81,7 +81,6 @@ function loadContents() {
 function loadTeams() {
 
     var teams = document.querySelectorAll('[id*=team]');
-    var customTeams = document.getElementsByClassName('custom-teams')[0];
 
     for(let i = 0; i < teams.length; i++)
     {
@@ -95,7 +94,6 @@ function loadTeams() {
         
     }
 
-    customTeams.style.display = 'grid';
 }
 
 
