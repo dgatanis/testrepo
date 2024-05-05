@@ -78,7 +78,7 @@ function loadContents() {
     loadTeams();
 }
 
-function loadTeams() {
+async function loadTeams() {
 
     var teams = document.querySelectorAll('[id*=team]');
     var customTeams = document.getElementsByClassName('custom-teams')[0];
@@ -89,8 +89,8 @@ function loadTeams() {
     {
         let rosterid = i + 1;
         let roster = rosterData.find(x => x.roster_id === rosterid);
-        let teamName = getTeamName(roster.owner_id);
-        let playerImg = createOwnerAvatarImage(roster.owner_id);
+        let teamName = await getTeamName(roster.owner_id);
+        let playerImg = await createOwnerAvatarImage(roster.owner_id);
 
         if(i ==  3)
         {
