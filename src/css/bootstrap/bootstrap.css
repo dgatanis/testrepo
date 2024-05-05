@@ -10873,7 +10873,7 @@ textarea.form-control-lg {
     transform: translateX(0); /* Start position */
   }
   100% {
-    transform: translateX(100vw); /* End position */
+    transform: translateX(140vw); /* End position */
   }
 }
 
