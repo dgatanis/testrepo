@@ -27,6 +27,12 @@
     margin-top: 4rem;
 }
 
+.card {
+    background: transparent;
+    border-color: #768ea5;
+    color: #768ea5;
+}
+
 .custom-team-card {
     padding: .3rem;
     width: 25rem;
