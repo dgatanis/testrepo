@@ -89,8 +89,9 @@ function loadTeams() {
         let teamName = getTeamName(roster.owner_id);
         let playerImg = createOwnerAvatarImage(roster.owner_id);
 
-        teams[i].children[0].prepend(playerImg);
         teams[i].children[0].children[0].innerText = teamName;
+        teams[i].children[0].prepend(playerImg);
+        
     }
 }
 
