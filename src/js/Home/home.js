@@ -82,7 +82,6 @@ function loadTeams() {
 
     var teams = document.querySelectorAll('[id*=team]');
     var customTeams = document.getElementsByClassName('custom-teams')[0];
-    var progressGroup = document.getElementsByClassName('custom-home-progress')[0];
 
     for(let i = 0; i < teams.length; i++)
     {
@@ -96,34 +95,10 @@ function loadTeams() {
         
     }
 
-    progressGroup.style.display = 'none';
     customTeams.style.display = 'grid';
 }
 
 
-function waitForImages(imageNum) {
-
-    var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
-    var images = document.getElementsByTagName('img');
-    var percentage = imageNum * (images.length);
-
-    if(percentage >= 25 && percentage < 50)
-    {
-        progressBar.style.width = "25%";
-    }
-    else if(percentage >= 50 && percentage < 75)
-    {
-        progressBar.style.width = "50%";
-    }
-    else if(percentage >= 75 && percentage < 90)
-    {
-        progressBar.style.width = "75%";
-    }
-    else if (percentage >= 90)
-    {
-        progressBar.style.width = "100%";
-    }
-}
 
 function getTeamName(userid) {
 
@@ -161,9 +136,6 @@ function createOwnerAvatarImage(userId) {
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('style', "border-radius: unset;");
         img.setAttribute('data-userid', user.user_id);
-        img.onload = function() {
-            waitForImages(x);
-          };
     }
     return img;
 }
