@@ -10933,6 +10933,10 @@ textarea.form-control-lg {
   color: white;
 }
 
+.body {
+  background-image: url(../../static/images/cityscape.png);
+}
+
 a.custom-nav:hover {
   color:black;
 }
