@@ -436,6 +436,10 @@
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
 
+    .custom-team-score{
+      vertical-align: -1rem;
+    }
+
     .custom-teamname-normal {
       display: block;
     }
@@ -478,8 +482,8 @@
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
 
-    .custom-team-score {
-      margin-top: .2rem;
+    .custom-team-score{
+      vertical-align: unset;
     }
 
     .div#currentWeek {
