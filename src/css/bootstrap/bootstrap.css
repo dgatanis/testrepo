@@ -10870,7 +10870,7 @@ textarea.form-control-lg {
 
 @keyframes run {
   0% {
-    transform: translateX(0); /* Start position */
+    transform: translateX(-10vw); /* Start position */
   }
   100% {
     transform: translateX(140vw); /* End position */
