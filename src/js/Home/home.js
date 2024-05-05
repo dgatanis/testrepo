@@ -81,6 +81,9 @@ function loadContents() {
 function loadTeams() {
 
     var teams = document.querySelectorAll('[id*=team]');
+    var customTeams = document.getElementsByClassName('custom-teams')[0];
+    var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
+    var progressGroup = document.getElementsByClassName('custom-home-progres')[0];
 
     for(let i = 0; i < teams.length; i++)
     {
@@ -89,10 +92,29 @@ function loadTeams() {
         let teamName = getTeamName(roster.owner_id);
         let playerImg = createOwnerAvatarImage(roster.owner_id);
 
+        if(i ==  3)
+        {
+            progressBar.style.width = "25%";
+        }
+        else if(i == 5)
+        {
+            progressBar.style.width = "50%";
+        }
+        else if(i == 7)
+        {
+            progressBar.style.width = "75%";
+        }
+        else if (i == 9)
+        {
+            progressBar.style.width = "100%";
+        }
         teams[i].children[0].children[0].innerText = teamName;
         teams[i].children[0].prepend(playerImg);
         
     }
+    
+    progressGroup.style.display = 'none';
+    customTeams.style.display = 'grid';
 }
 
 function getTeamName(userid) {
