@@ -133,7 +133,11 @@
   .custom-player-avatar {
     border-radius: 5px;
     background-color: #73737340;
-}
+  }
+
+  .custom-player {
+    padding: .1rem;
+  }
   
   .custom-stats-card-body {
     text-align: center;
