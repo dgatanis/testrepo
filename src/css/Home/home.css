@@ -15,7 +15,7 @@
 
 .custom-body {
     display: grid;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .custom-teams {
@@ -52,6 +52,16 @@
     grid-column: 2;
 }
 
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
+
+    .custom-body {
+        overflow: scroll;
+    }
+    
+}
+
+/*Large Mobile display styling*/
 @media screen and (max-width: 26.563rem) {
     .custom-title {
         margin-top: 3rem;
