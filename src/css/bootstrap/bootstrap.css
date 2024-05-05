@@ -10868,6 +10868,15 @@ textarea.form-control-lg {
   }
 }
 
+@keyframes run {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  100% {
+    transform: translateX(100vw); /* End position */
+  }
+}
+
 @font-face {
   font-family: F1;
   src: url("../../static/font/Lato-Black.ttf") format('truetype');
