@@ -100,46 +100,30 @@ function loadTeams() {
     customTeams.style.display = 'grid';
 }
 
-function waitForImagesToLoad(callback) {
+
+function waitForImages(imageNum) {
+
+    var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
     var images = document.getElementsByTagName('img');
-    var imagesLoaded = 0;
-  
-    // Function to check if all images have loaded
-    function checkImagesLoaded() {
-      imagesLoaded++;
-      if (imagesLoaded === images.length) {
-        callback(); // Call the callback function once all images are loaded
-      }
+    var percentage = imageNum * (images.length);
+
+    if(percentage >= 25 && percentage < 50)
+    {
+        progressBar.style.width = "25%";
     }
-  
-    // Loop through all images and attach onload event handler
-    for (var i = 0; i < images.length; i++) {
-      images[i].onload = checkImagesLoaded;
-      images[i].onerror = checkImagesLoaded; // Also handle image loading errors
+    else if(percentage >= 50 && percentage < 75)
+    {
+        progressBar.style.width = "50%";
+    }
+    else if(percentage >= 75 && percentage < 90)
+    {
+        progressBar.style.width = "75%";
+    }
+    else if (percentage >= 90)
+    {
+        progressBar.style.width = "100%";
     }
 }
-
-// function waitForImages(rosterNum) {
-
-//     var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
-    
-//     if(rosterNum ==  3)
-//     {
-//         progressBar.style.width = "25%";
-//     }
-//     else if(rosterNum == 5)
-//     {
-//         progressBar.style.width = "50%";
-//     }
-//     else if(rosterNum == 7)
-//     {
-//         progressBar.style.width = "75%";
-//     }
-//     else if (rosterNum == 9)
-//     {
-//         progressBar.style.width = "100%";
-//     }
-// }
 
 function getTeamName(userid) {
 
@@ -177,7 +161,9 @@ function createOwnerAvatarImage(userId) {
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('style', "border-radius: unset;");
         img.setAttribute('data-userid', user.user_id);
-        //img.setAttribute('onload', 'waitForImages();');
+        img.onload = function() {
+            waitForImages();
+          };
     }
     return img;
 }
