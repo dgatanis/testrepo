@@ -4,11 +4,27 @@
     width: 50%;
     margin: 0 auto;
     font-family: F2;
+    grid-row: 1;
+    grid-column: 1;
 }
 
 .custom-title {
     text-align: center;
     margin-bottom: 4rem;
+}
+
+.custom-body {
+    display: grid;
+}
+
+.custom-teams {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.custom-team-card {
+    padding: .3rem;
+    width: 25rem;
 }
 
 @media screen and (max-width: 26.563rem) {
