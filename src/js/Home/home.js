@@ -141,9 +141,9 @@ function getTeamName(userid) {
 
     return userName.toString();
 }
-
+var x = 0;
 function createOwnerAvatarImage(userId) { 
-
+    x++;
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
     
@@ -162,7 +162,7 @@ function createOwnerAvatarImage(userId) {
         img.setAttribute('style', "border-radius: unset;");
         img.setAttribute('data-userid', user.user_id);
         img.onload = function() {
-            waitForImages();
+            waitForImages(x);
           };
     }
     return img;
