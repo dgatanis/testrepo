@@ -96,13 +96,6 @@ function loadTeams() {
 
 }
 
-function hideProgressBar() {
-    var spinner = document.getElementsByClassName('text-center')[0];
-    var teams = document.getElementsByClassName('custom-teams')[0];
-
-    spinner.style.display = 'none';
-}
-
 function getTeamName(userid) {
 
     let user = userData.find(x => x.user_id === userid.toString());
