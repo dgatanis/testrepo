@@ -11131,6 +11131,10 @@ ul.nav.nav-tabs {
     display: none;
   }
 
+  .custom-footer {
+    font-size: large;
+  }
+
   .footer {
     height: 2rem;
     padding: unset;
