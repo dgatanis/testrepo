@@ -15,6 +15,7 @@
 
 .custom-body {
     display: grid;
+    overflow: scroll;
 }
 
 .custom-teams {
