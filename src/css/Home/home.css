@@ -31,6 +31,13 @@
     background: transparent;
     border-color: #768ea5;
     color: #768ea5;
+    display: block;
+    padding: 1rem;
+}
+
+.card-body {
+    display: inline;
+    padding: unset;
 }
 
 .custom-team-card {
