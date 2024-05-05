@@ -78,36 +78,19 @@ function loadContents() {
     loadTeams();
 }
 
-async function loadTeams() {
+function loadTeams() {
 
     var teams = document.querySelectorAll('[id*=team]');
     var customTeams = document.getElementsByClassName('custom-teams')[0];
-    var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
     var progressGroup = document.getElementsByClassName('custom-home-progress')[0];
 
     for(let i = 0; i < teams.length; i++)
     {
         let rosterid = i + 1;
         let roster = rosterData.find(x => x.roster_id === rosterid);
-        let teamName = await getTeamName(roster.owner_id);
-        let playerImg = await createOwnerAvatarImage(roster.owner_id);
+        let teamName = getTeamName(roster.owner_id);
+        let playerImg = createOwnerAvatarImage(roster.owner_id);
 
-        if(i ==  3)
-        {
-            progressBar.style.width = "25%";
-        }
-        else if(i == 5)
-        {
-            progressBar.style.width = "50%";
-        }
-        else if(i == 7)
-        {
-            progressBar.style.width = "75%";
-        }
-        else if (i == 9)
-        {
-            progressBar.style.width = "100%";
-        }
         teams[i].children[0].children[0].innerText = teamName;
         teams[i].children[0].prepend(playerImg);
         
@@ -116,6 +99,47 @@ async function loadTeams() {
     progressGroup.style.display = 'none';
     customTeams.style.display = 'grid';
 }
+
+function waitForImagesToLoad(callback) {
+    var images = document.getElementsByTagName('img');
+    var imagesLoaded = 0;
+  
+    // Function to check if all images have loaded
+    function checkImagesLoaded() {
+      imagesLoaded++;
+      if (imagesLoaded === images.length) {
+        callback(); // Call the callback function once all images are loaded
+      }
+    }
+  
+    // Loop through all images and attach onload event handler
+    for (var i = 0; i < images.length; i++) {
+      images[i].onload = checkImagesLoaded;
+      images[i].onerror = checkImagesLoaded; // Also handle image loading errors
+    }
+}
+
+// function waitForImages(rosterNum) {
+
+//     var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
+    
+//     if(rosterNum ==  3)
+//     {
+//         progressBar.style.width = "25%";
+//     }
+//     else if(rosterNum == 5)
+//     {
+//         progressBar.style.width = "50%";
+//     }
+//     else if(rosterNum == 7)
+//     {
+//         progressBar.style.width = "75%";
+//     }
+//     else if (rosterNum == 9)
+//     {
+//         progressBar.style.width = "100%";
+//     }
+// }
 
 function getTeamName(userid) {
 
@@ -153,6 +177,7 @@ function createOwnerAvatarImage(userId) {
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('style', "border-radius: unset;");
         img.setAttribute('data-userid', user.user_id);
+        //img.setAttribute('onload', 'waitForImages();');
     }
     return img;
 }
