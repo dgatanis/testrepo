@@ -83,7 +83,7 @@ function loadTeams() {
     var teams = document.querySelectorAll('[id*=team]');
     var customTeams = document.getElementsByClassName('custom-teams')[0];
     var progressBar = document.getElementsByClassName('custom-home-progress-bar')[0];
-    var progressGroup = document.getElementsByClassName('custom-home-progres')[0];
+    var progressGroup = document.getElementsByClassName('custom-home-progress')[0];
 
     for(let i = 0; i < teams.length; i++)
     {
@@ -112,7 +112,7 @@ function loadTeams() {
         teams[i].children[0].prepend(playerImg);
         
     }
-    
+
     progressGroup.style.display = 'none';
     customTeams.style.display = 'grid';
 }
