@@ -31,4 +31,13 @@
     .custom-title {
         margin-top: 3rem;
     }
+
+    .custom-league-description {
+        margin-bottom: 3rem;
+    }
+
+    .custom-teams {
+        grid-row: 2;
+        grid-column: 1;
+    }
 }
