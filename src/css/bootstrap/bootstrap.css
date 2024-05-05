@@ -11041,6 +11041,11 @@ ul.nav.nav-tabs {
   background: linear-gradient(180deg, #768ea5, #768ea5, #768ea5e8);
   height: 4rem;
   padding-top: 1rem;
+  padding: unset;
+}
+
+.custom-footer-links {
+  margin-top: -.5rem;
 }
 
 .custom-none-display {
@@ -11055,6 +11060,8 @@ ul.nav.nav-tabs {
 .custom-footer {
   text-align: center;
   color: whitesmoke;
+  font-size: x-large;
+  margin-top: .3rem;
 }
 
 .accordion-button:hover {
