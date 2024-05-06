@@ -145,6 +145,11 @@
     font-style: italic;
   }
   
+  #starterPositions {
+    font-size: x-small;
+    padding: .3rem;
+  }
+  
   .custom-card-inner-body {
     font-size: .8rem;
     font-style: normal;
