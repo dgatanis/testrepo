@@ -91,6 +91,7 @@ function loadTeams() {
 
         teams[i].children[0].children[0].innerText = teamName;
         teams[i].children[0].prepend(playerImg);
+        teams[i].children[0].setAttribute('onclick', 'openRostersPage(' + roster.roster_id + ')');
         
     }
 
@@ -134,4 +135,9 @@ function createOwnerAvatarImage(userId) {
         img.setAttribute('data-userid', user.user_id);
     }
     return img;
+}
+
+function openRostersPage(rosterid) {
+    window.location.replace('/testrepo/web/Rosters.html?callFunction=openRoster&rosterId='+rosterid);
+    return;
 }
