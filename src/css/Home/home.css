@@ -34,6 +34,7 @@
     color: #768ea5;
     display: block;
     padding: 1rem;
+    cursor: pointer;
 }
 
 .card-body {
@@ -45,6 +46,13 @@
     padding: .3rem;
     width: 25rem;
     text-align: center;
+    cursor: pointer;
+}
+
+.card:hover {
+    color: #fff;
+    background-color: #475664;
+    border-color: transparent;
 }
 
 /*creates 2 columns for teams*/
