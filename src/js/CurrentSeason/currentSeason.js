@@ -107,7 +107,7 @@ async function loadContents() {
 function setSeasonTitle(season) {
     var seasonTitle = document.getElementById('seasonTitle');
 
-    seasonTitle.innerText= "Crush Cities FF " + season + " Season";
+    seasonTitle.innerText= season + " Season";
 }
 
 function loadSeasonRankings(leagueId) { 

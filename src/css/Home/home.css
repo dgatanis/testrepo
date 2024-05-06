@@ -53,6 +53,7 @@
     color: #fff;
     background-color: #475664;
     border-color: transparent;
+    transition: all .75s ease;
 }
 
 /*creates 2 columns for teams*/
