@@ -78,10 +78,16 @@
         width: 80%;
     }
 
+    .custom-team-card {
+        width: 100%;
+    }
+
     .custom-teams {
         grid-row: 2;
         grid-column: 1;
         margin-bottom: 1.5rem;
         display: block;
+        margin: unset;
+        margin-bottom: 1.5rem;
     }
 }
