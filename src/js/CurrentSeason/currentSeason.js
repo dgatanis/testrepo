@@ -360,8 +360,7 @@ function OpenTeamRosterModal(userid,teamname) {
 
             record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
             playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
-            leaguePositionsLink.innerText = "Starters: (" + leaguePositionList + ")";
-            leaguePositionsLink.title = "Toggle Starters";
+            leaguePositionsLink.title = "Toggle Starters (" + leaguePositionList + ")";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
 

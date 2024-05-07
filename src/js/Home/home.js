@@ -68,7 +68,7 @@ async function initBrowserData() {
         playerData = JSON.parse(localPlayerData);
         leagueData = JSON.parse(localLeagueData);
         matchupData = JSON.parse(localMatchupData);
-        playoffData = JSON.parse(localMatchupData);
+        playoffData = JSON.parse(localPlayoffData);
 
         loadContents();
 
