@@ -101,8 +101,10 @@ function loadTeams() {
             var throneImg = document.createElement('img');
             throneImg.setAttribute('src','src/static/images/throne.png');
             throneImg.setAttribute('class', 'custom-throne-icon-medium');
+            throneImg.setAttribute('title', 'The Throne');
 
-            teams[i].children[0].prepend(throneImg);
+
+            teams[i].children[0].append(throneImg);
         }
         
     }
