@@ -345,6 +345,10 @@ th, td {
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
 
+    .custom-roster-group {
+      margin : unset;
+    }
+
     #rostersTitle {
       margin-top: 3rem;
     }

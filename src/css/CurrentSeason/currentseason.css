@@ -186,7 +186,10 @@
     clear: left;
     padding-bottom: 4rem;
     width: 25rem;
-    margin-right: 10rem;
+    display: block;
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto;
   }
 
   #RosterTable th {
@@ -235,11 +238,15 @@
   }
 
   .custom-carousel {
-    clear:inline-end;
+    clear: inline-end;
     float: left;
     padding-bottom: 4rem;
-    width: 35%;
+    width: 100%;
     text-align: center;
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    max-width: 35rem;
   }
   
   .custom-transaction-carousel {
@@ -253,6 +260,8 @@
     clear: inline-end;
     float: right;
     padding-bottom: 4rem;
+    grid-row: 1;
+    grid-column: 3;
   }
 
   #custom_transaction_inner {
@@ -470,9 +479,9 @@
     }
 
     .custom-bankroll {
-      margin-right: 5rem;
-      width: 20rem;
-    }
+      width: 100%;
+      max-width: 25rem;
+  }
 
     .custom-matchup-row {
       font-size: 1rem;
@@ -483,9 +492,6 @@
       font-size: 1.2rem;
     }
 
-    .custom-carousel {
-      width: 38%;
-    }
   }
 
   /*Normal Laptop display styling*/
@@ -511,18 +517,17 @@
       max-width: 1.5rem;
     }
 
-    .custom-carousel {
-      width: 50%;
-      float: right;
-    }
-
     .custom-playoffs-bracket {
-      clear: inline-start;
-      float: left;
+      grid-column: 2;
     }
 
     .custom-date-transaction {
       margin-left: 7rem;
+    }
+
+    .custom-carousel {
+      grid-row: 2;
+      grid-column: 1;
     }
 
     .custom-matchup-list-item {
@@ -541,6 +546,11 @@
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
+
+    .custom-playoffs-bracket {
+      grid-column: 1;
+      grid-row: 2;
+    }
 
     body {
       position: relative;
