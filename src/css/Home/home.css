@@ -37,6 +37,14 @@
     cursor: pointer;
 }
 
+.custom-throne-icon-medium {
+    max-width: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    margin-left: .5rem;
+    cursor: help;
+}
+
 .card-body {
     display: inline;
     padding: unset;
