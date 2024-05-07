@@ -27,7 +27,7 @@ async function setBrowserData() {
             getRostersForLeague(leagueId);
             getUserData(leagueId);
             getLeagueDetails(leagueId);
-
+            getPlayoffsMatchups(leagueId);
         }
         if(!sessionStorage.getItem("MatchupData"))
         {
@@ -59,6 +59,20 @@ async function getRostersForLeague(leagueID){
         console.log(error);
     }
 
+}
+
+async function getPlayoffsMatchups(leagueID) {
+    try
+    {
+        const playoffResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/winners_bracket`); 
+        const playoffData = await playoffResponse.json(); 
+
+        localStorage.setItem("PlayoffData", JSON.stringify(playoffData));
+        return playoffData;
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 async function getPlayers() {
