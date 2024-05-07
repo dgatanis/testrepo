@@ -60,8 +60,9 @@ async function initBrowserData() {
         const localLeagueData = await waitForLocalStorageItem("LeagueData");
         const localPlayerData = await waitForLocalStorageItem("PlayerData");
         const localUserData = await waitForLocalStorageItem("UserData");
+        const localPlayoffData = await waitForLocalStorageItem("PlayoffData");
         const localMatchupData = await waitForSessionStorageItem("MatchupData");
-        const localPlayoffData = await waitForSessionStorageItem("PlayoffData");
+        
 
         rosterData = JSON.parse(localRosterData);
         userData = JSON.parse(localUserData);
