@@ -268,7 +268,7 @@ function loadMatchups(weekNumber) {
                             if(roster.roster_id == highScoringWeekRoster)
                             {
                                 var weeklyHighScorer = createMatchupIconImg();
-                                weeklyHighScorer.setAttribute('src', '../src/static/images/crown2.jpg');
+                                weeklyHighScorer.setAttribute('src', '../src/static/images/crown1.png');
                                 weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
     
                                 teamScoreDiv.append(weeklyHighScorer);
@@ -490,7 +490,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
             for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
             {
                 var highScorerImg = createMatchupIconImg();
-                highScorerImg.setAttribute('src', '../src/static/images/crown2.jpg');
+                highScorerImg.setAttribute('src', '../src/static/images/crown1.png');
                 highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
                 highScorerImg.setAttribute('style', 'padding-top: .5rem');
                 highScorerImg.setAttribute('title', 'Weekly high scorer');
