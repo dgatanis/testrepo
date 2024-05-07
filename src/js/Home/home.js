@@ -6,6 +6,8 @@ const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 var matchupData = JSON.parse(matchupWeekStorage); 
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
+const playoffDataStorage = localStorage.getItem("PlayoffData");
+var playoffData = JSON.parse(playoffDataStorage); 
 
 async function checkBrowserData() {
 
@@ -99,7 +101,7 @@ function loadTeams() {
             var throneImg = document.createElement('img');
             throneImg.setAttribute('src','src/static/images/throne.png');
             throneImg.setAttribute('class', 'custom-throne-icon-medium');
-            
+
             teams[i].children[0].prepend(throneImg);
         }
         
