@@ -10,7 +10,7 @@ var playerData = JSON.parse(playerDataStorage);
 
 async function checkBrowserData() {
 
-    if(!rosterData)
+    if(!rosterData || !userData || !matchupData || !playerData)
     {
         try{
             initBrowserData();

@@ -11,7 +11,7 @@ var playoffData = JSON.parse(playoffDataStorage);
 
 async function checkBrowserData() {
 
-    if(!rosterData || !matchupData) //check for matchup data too because its stored in sessionstorage
+    if(!rosterData || !playoffData) //check for matchup data too because its stored in sessionstorage
     {
         try{
             initBrowserData();
