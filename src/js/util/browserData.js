@@ -27,7 +27,8 @@ async function setBrowserData() {
             getRostersForLeague(leagueId);
             getUserData(leagueId);
             getLeagueDetails(leagueId);
-            getPlayoffsMatchups(leagueId);
+            //getPlayoffsMatchups(leagueId); TESTING
+            getPlayoffsMatchups('1003692635549462528');
         }
         if(!sessionStorage.getItem("MatchupData"))
         {
