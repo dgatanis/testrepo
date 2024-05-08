@@ -291,10 +291,14 @@ function loadMatchups(weekNumber) {
                     }
                 }
                 
-                var pacman = document.createElement("img");
-                pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
-                pacman.setAttribute('id', 'pacman');
-                weekList.append(pacman);
+                if(totalMatchups != matchupId)
+                {
+                    var pacman = document.createElement("img");
+                    pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
+                    pacman.setAttribute('id', 'pacman');
+                    weekList.append(pacman);
+                }
+
             }
 
             noMatchup.classList.remove('custom-block-display');
