@@ -148,7 +148,7 @@
 
 .custom-team-logo {
   max-width: 1.5rem;
-  max-height: 1rem;
+  max-height: 1.3rem;
   vertical-align: text-bottom;
   margin-left: .3rem;
 }
@@ -357,6 +357,10 @@ th, td {
 
     .custom-roster-group {
       margin : unset !important;
+    }
+
+    .custom-team-logo {
+      max-height: 1rem;
     }
 
     #rostersTitle {
