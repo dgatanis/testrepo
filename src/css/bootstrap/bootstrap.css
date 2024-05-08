@@ -11066,7 +11066,8 @@ ul.nav.nav-tabs {
 }
 
 .accordion-button:hover {
-  background-color: #768ea5;
+  color: whitesmoke;
+  background-color: #475664;
 }
 
 .accordion-button:not(.collapsed) {
