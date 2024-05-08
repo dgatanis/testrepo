@@ -20,6 +20,11 @@
   display: grid;
 }
 
+.custom-medium-avatar:hover {
+  background-color: white;
+  padding: .1rem;
+}
+
 .accordion-button {
     display: block;
     text-align: center;
