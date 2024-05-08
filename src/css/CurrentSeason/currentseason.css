@@ -474,8 +474,12 @@
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
 
+    .custom-matchup-row .custom-medium-avatar {
+      max-width: 2.5rem;
+    }
+
     .custom-team-score{
-      vertical-align: -1rem;
+      vertical-align: -.5rem;
     }
 
     .custom-teamname-normal {
