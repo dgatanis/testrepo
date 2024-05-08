@@ -145,12 +145,12 @@
     font-style: italic;
   }
   
-  .btn-primary {
+  #starterPositions.btn-primary {
     font-size: x-small;
     padding: .3rem;
     background: transparent;
     color: #768ea5;
-}
+  }
   
   .custom-card-inner-body {
     font-size: .8rem;
