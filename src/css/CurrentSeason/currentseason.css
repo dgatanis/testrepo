@@ -80,10 +80,11 @@
   }
   
   .custom-matchup-list {
-    background-color: #2a2a2a;
+    background-color: black;
     border-radius: 8px;
     padding: 10px;
     text-align: justify;
+    overflow: hidden;
   }
   
   .custom-matchup-list-item {
@@ -114,7 +115,6 @@
     word-spacing: .15rem;
     font-size: 1.2rem;
     font-weight: 200;
-    background: #2a2a2a;
     color: white;
   }
   
@@ -137,6 +137,13 @@
 
   .custom-player {
     padding: .1rem;
+  }
+
+  img#pacman {
+    position: relative;
+    border-radius: 100%;
+    animation: run 10s linear infinite;
+    max-width: 4rem;
   }
   
   .custom-stats-card-body {

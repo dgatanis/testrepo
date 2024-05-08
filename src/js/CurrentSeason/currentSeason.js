@@ -291,9 +291,10 @@ function loadMatchups(weekNumber) {
                     }
                 }
                 
-                var x = document.createElement("li");
-                x.setAttribute("class", "list-group-item custom-matchup-list-item"); //divider lines
-                weekList.append(x);
+                var pacman = document.createElement("img");
+                pacman.setAttribute("src", "../src/images/pacman.gif"); 
+                pacman.setAttribute('id', 'pacman');
+                weekList.append(pacman);
             }
 
             noMatchup.classList.remove('custom-block-display');
