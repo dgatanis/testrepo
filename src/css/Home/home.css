@@ -68,6 +68,7 @@
 .card:hover .custom-medium-avatar {
     background-color: white;
     padding: .1rem;
+    transition: all .5s ease;
 }
 
 /*creates 2 columns for teams*/
