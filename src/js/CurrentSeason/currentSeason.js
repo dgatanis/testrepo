@@ -292,7 +292,7 @@ function loadMatchups(weekNumber) {
                 }
                 
                 var pacman = document.createElement("img");
-                pacman.setAttribute("src", "../src/images/pacman.gif"); 
+                pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
                 pacman.setAttribute('id', 'pacman');
                 weekList.append(pacman);
             }
