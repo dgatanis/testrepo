@@ -10934,8 +10934,8 @@ textarea.form-control-lg {
 }
 
 a.custom-nav:hover {
-  color: #495057;
-  background-color: white;
+  color: white;
+  background-color: #475664;
 }
 
 .custom-form {
