@@ -23,6 +23,8 @@
 .accordion-button {
     display: block;
     text-align: center;
+    background-color: transparent;
+    color: #768ea5;
 }
 
 .custom-qb-roster {
@@ -150,10 +152,6 @@ tr {
 .custom-medium-avatar {
   margin-right: unset;
   cursor: pointer;
-}
-
-.accordion-button {
-  background: whitesmoke;
 }
 
 .accordion-button:hover {
