@@ -566,6 +566,15 @@
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.563rem) {
 
+    @keyframes run {
+      0% {
+      transform: translateX(-15vw);
+      }
+      100% {
+        transform: translateX(85vw);
+      }
+    }
+
     .custom-playoffs-bracket {
       grid-column: 1;
       grid-row: 2;
