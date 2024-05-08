@@ -67,7 +67,7 @@
   }
 
   .custom-roster-breakdown {
-    background-color: #768ea5;
+    background-color: var(--custom-blue-gray);
     color: whitesmoke;
     display: block;
     text-align: center;
@@ -158,7 +158,7 @@
     font-size: x-small;
     padding: .3rem;
     background: transparent;
-    color: #768ea5;
+    color: var(--custom-blue-gray);
   }
   
   .custom-card-inner-body {
@@ -229,7 +229,7 @@
   }
 
   div#currentWeek:hover {
-    background: #768ea5; 
+    background: var(--custom-blue-gray); 
     color: whitesmoke;
     transition: all .5s ease;
     cursor: help;

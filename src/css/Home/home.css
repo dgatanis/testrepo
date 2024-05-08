@@ -30,8 +30,8 @@
 
 .card {
     background: transparent;
-    border-color: #768ea5;
-    color: #768ea5;
+    border-color: var(--custom-blue-gray);
+    color: var(--custom-blue-gray);
     display: block;
     padding: 1rem;
     cursor: pointer;

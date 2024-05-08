@@ -25,27 +25,32 @@
   padding: .1rem;
 }
 
+.accordion-collapse {
+  background-color: var(--custom-transp-blue);
+}
+
 .accordion-button {
     display: block;
     text-align: center;
-    background-color: transparent;
-    color: #768ea5;
+    color: whitesmoke;
+    background-color: var(--custom-blue-gray);
+    transition: all 1s ease;
 }
 
 .custom-qb-roster {
-  color: #ff2a6d;
+  color:var(--QB);
   font-size: large;
 }
 .custom-rb-roster {
-  color: #00ceb8;
+  color: var(--RB);
   font-size: large;
 }
 .custom-wr-roster {
-  color: #58a7ff;
+  color: var(--WR);
   font-size: large;
 }
 .custom-te-roster {
-  color: #ffae58;
+  color: var(--WR);
   font-size: large;
 }
 .custom-SF-roster {
@@ -57,7 +62,7 @@
   font-size: large;
 }
 .custom-k-roster {
-  color: #bd66ff;
+  color: var(--K);
   font-size: large;
 }
 
@@ -127,7 +132,7 @@
 
 .custom-player-table-group {
   border-radius: 1rem;
-  background-color: #e5e5e5;
+  background-color: transparent;
   border-color:transparent;
 }
 
@@ -160,7 +165,8 @@ tr {
 }
 
 .accordion-button:hover {
-  color: whitesmoke;
+  background-color: transparent;
+  color: var(--custom-dark-blue);
 }
 
 .custom-stats-stacks-row {
@@ -208,7 +214,7 @@ tr {
   font-size: x-small;
   margin-top: 1rem;
   background: transparent;
-  color: #768ea5;
+  color: var(--custom-blue-gray);
 }
 
 #rostersTitle {

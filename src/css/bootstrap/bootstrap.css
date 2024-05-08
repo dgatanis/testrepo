@@ -40,7 +40,9 @@
   --Drop: #ffe9e9;
   --custom-green: #62b01e;
   --custom-red:#e71c02;
-
+  --custom-transp-blue: rgb(200 217 237 / 48%);
+  --custom-blue-gray: #768ea5;
+  --custom-dark-blue: #475664;
 }
 
 *,
@@ -2955,13 +2957,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #768ea5;
-  border-color: #768ea5;
+  background-color: var(--custom-blue-gray);
+  border-color: var(--custom-blue-gray);
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #475664;
-  border-color: #768ea5;
+  background-color: var(--custom-dark-blue);
+  border-color: var(--custom-blue-gray);
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -10935,7 +10937,7 @@ textarea.form-control-lg {
 
 a.custom-nav:hover {
   color: white;
-  background-color: #475664;
+  background-color: var(--custom-dark-blue);
 }
 
 .custom-form {
@@ -11015,7 +11017,7 @@ a.custom-nav:hover {
 
 
 ul.nav.nav-tabs {
-  background: #768ea5;
+  background: var(--custom-blue-gray);
 }
 
 .custom-section-group-l {
@@ -11039,7 +11041,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, #768ea5, #768ea5, #768ea5e8);
+  background: linear-gradient(180deg, var(--custom-blue-gray), var(--custom-blue-gray), #768ea5e8);
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
@@ -11067,7 +11069,7 @@ ul.nav.nav-tabs {
 
 .accordion-button:hover {
   color: whitesmoke;
-  background-color: #475664;
+  background-color: var(--custom-dark-blue);
 }
 
 .accordion-button:not(.collapsed) {
@@ -11117,8 +11119,8 @@ ul.nav.nav-tabs {
   }
   
   .btn-primary:active {
-    background-color: #475664;
-    border-color: #768ea5;
+    background-color: var(--custom-dark-blue);
+    border-color: var(--custom-blue-gray);
   }
 
 /* Custom Mobile responsive display */
