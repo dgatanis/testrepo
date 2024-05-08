@@ -29,7 +29,7 @@
 }
 
 .card {
-    background: transparent;
+    background: var(--custom-transp-blue);;
     border-color: var(--custom-dark-blue);
     color: var(--custom-dark-blue);
     display: block;
