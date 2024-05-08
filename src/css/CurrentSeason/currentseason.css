@@ -468,6 +468,7 @@
     100% {
       transform: translateX(50vw);
     }
+  }
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
