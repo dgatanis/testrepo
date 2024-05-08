@@ -575,6 +575,12 @@
       }
     }
 
+    img#pacman {
+      animation: run 5s linear infinite;
+      max-width: 4rem;
+      max-height: 1.5rem;
+  }
+
     .custom-playoffs-bracket {
       grid-column: 1;
       grid-row: 2;
