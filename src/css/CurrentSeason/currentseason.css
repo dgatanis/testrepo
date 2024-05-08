@@ -67,7 +67,7 @@
   }
 
   .custom-roster-breakdown {
-    background-color: var(--custom-blue-gray);
+    background-color: var(--custom-dark-blue);
     color: whitesmoke;
     display: block;
     text-align: center;
@@ -158,7 +158,7 @@
     font-size: x-small;
     padding: .3rem;
     background: transparent;
-    color: var(--custom-blue-gray);
+    color: var(--custom-dark-blue);
   }
   
   .custom-card-inner-body {

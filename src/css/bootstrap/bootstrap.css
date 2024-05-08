@@ -2956,9 +2956,9 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: var(--custom-blue-gray);
-  border-color: var(--custom-blue-gray);
+  background-color: var(--custom-transp-blue);
+  color: var(--custom-dark-blue);
+  border-color: var(--custom-dark-blue);
 }
 .btn-primary:hover {
   color: #fff;
