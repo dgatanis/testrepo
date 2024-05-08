@@ -142,8 +142,9 @@
   img#pacman {
     position: relative;
     border-radius: 100%;
-    animation: run 10s linear infinite;
-    max-width: 4rem;
+    animation: run 6s linear infinite;
+    max-width: 7rem;
+    max-height: 3rem;
   }
   
   .custom-stats-card-body {
@@ -459,6 +460,14 @@
   #bankrollTable td {
     text-align: center;
   }
+
+  @keyframes run {
+    0% {
+    transform: translateX(-10vw);
+    }
+    100% {
+      transform: translateX(50vw);
+    }
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
