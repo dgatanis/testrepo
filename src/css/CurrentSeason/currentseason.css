@@ -85,6 +85,7 @@
     padding: 10px;
     text-align: justify;
     overflow: hidden;
+    padding-bottom: 1rem;
   }
   
   .custom-matchup-list-item {
