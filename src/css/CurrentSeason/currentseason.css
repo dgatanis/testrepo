@@ -467,6 +467,12 @@
     text-align: center;
   }
 
+  .custom-versus-matchup {
+    color: white;
+    font-family: 'F5';
+    text-align: center;
+  }
+
   @keyframes run {
     0% {
     transform: translateX(-10vw);
@@ -541,12 +547,6 @@
     .custom-bankroll {
       margin-right: 3rem;
       width: 25rem;
-    }
-
-    .custom-versus-matchup {
-      color: white;
-      font-family: 'F5';
-      text-align: center;
     }
 
     .custom-matchup-icon-medium{
