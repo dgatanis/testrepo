@@ -293,7 +293,7 @@ function loadMatchups(weekNumber) {
 
                         if(counter == 1)
                         {
-                            matchupDiv.append(versus);
+                            matweekListhupDiv.append(versus);
                         }
                         
                     }
