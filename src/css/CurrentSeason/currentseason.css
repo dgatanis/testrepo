@@ -527,7 +527,8 @@
   @media screen and (max-width: 64rem) {
 
     .custom-team-score{
-      vertical-align: unset;
+      display: block;
+      margin-top: .3rem;
     }
 
     .div#currentWeek {
