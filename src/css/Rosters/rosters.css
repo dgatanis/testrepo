@@ -294,9 +294,10 @@ th, td {
 @media screen and (max-width: 90rem) {
 
     .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
-      margin-left: -2rem;
+      margin-left: -2rem !important;
+      max-width: 5rem !important;
     }
-    
+
     .custom-medium-avatar {
       float: left;
       margin-left: 45%;
@@ -363,6 +364,10 @@ th, td {
 
     .custom-roster-group {
       margin : unset !important;
+    }
+
+    .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
+      margin-left: -1.5rem !important;
     }
 
     .custom-team-logo {

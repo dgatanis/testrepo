@@ -194,9 +194,10 @@ function loadSortedRosters() {
                     {
                         x: ['QB'],
                         y: [rosterStats.QB],
+                        type: 'bar',
                         name: 'QB',
+                        text: ['QB, ' + rosterStats.QB.toString()],
                         marker: {color: '#ff2a6d'},
-                        type: 'bar'
                     };
 
                     var data2 = 
@@ -204,9 +205,9 @@ function loadSortedRosters() {
                         x: ['RB'],
                         y: [rosterStats.RB],
                         type: 'bar',
+                        text: ['RB, ' + rosterStats.RB.toString()],
                         name: 'RB',
                         marker: {color: '#00ceb8'},
-                        type: 'bar'
                     };
                     
                     var data3 = 
@@ -214,6 +215,7 @@ function loadSortedRosters() {
                         x: ['WR'],
                         y: [rosterStats.WR],
                         type: 'bar',
+                        text: ['WR, ' + rosterStats.WR.toString()],
                         name: 'WR',
                         marker: {color: '#58a7ff'}
                     };
@@ -223,6 +225,7 @@ function loadSortedRosters() {
                         x: ['TE'],
                         y: [rosterStats.TE],
                         type: 'bar',
+                        text: ['TE, ' + rosterStats.TE.toString()],
                         name: 'TE',
                         marker: {color: '#ffae58'}
                     };
@@ -232,6 +235,7 @@ function loadSortedRosters() {
                         x: ['K'],
                         y: [rosterStats.K],
                         type: 'bar',
+                        text: ['K, ' + rosterStats.K.toString()],
                         name: 'K',
                         marker: {color: '#bd66ff'}
                     };
