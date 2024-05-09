@@ -242,10 +242,12 @@ function loadSortedRosters() {
                         scattermode: 'group',
                         barcornerradius: 15,
                         width: 400,
-                        height: 400
+                        height: 300,
+                        showlegend: false,
+                        background:transparent
                       };
 
-                    Plotly.newPlot(chartId, data, layout);
+                    Plotly.newPlot(chartId, data, layout, {staticPlot: true});
                 }
                 if (playerAgeRow)
                 {
