@@ -195,7 +195,7 @@ function loadSortedRosters() {
                         x: ['QB'],
                         y: [rosterStats.QB],
                         name: 'QB',
-                        marker: {color: 'pink'},
+                        marker: {color: '#ff2a6d'},
                         type: 'bar'
                     };
 
@@ -205,7 +205,7 @@ function loadSortedRosters() {
                         y: [rosterStats.RB],
                         type: 'bar',
                         name: 'RB',
-                        marker: {color: 'rgb(55, 83, 109)'},
+                        marker: {color: '#00ceb8'},
                         type: 'bar'
                     };
                     
@@ -215,7 +215,7 @@ function loadSortedRosters() {
                         y: [rosterStats.WR],
                         type: 'bar',
                         name: 'WR',
-                        marker: {color: 'rgb(26, 118, 255)'}
+                        marker: {color: '#58a7ff'}
                     };
 
                     var data4 = 
@@ -224,7 +224,7 @@ function loadSortedRosters() {
                         y: [rosterStats.TE],
                         type: 'bar',
                         name: 'TE',
-                        marker: {color: 'var(--TE)'}
+                        marker: {color: '#ffae58'}
                     };
 
                     var data5 = 
@@ -233,12 +233,20 @@ function loadSortedRosters() {
                         y: [rosterStats.K],
                         type: 'bar',
                         name: 'K',
-                        marker: {color: 'rgb(26, 118, 255)'}
+                        marker: {color: '#bd66ff'}
                     };
                     
                     var data = [data1, data2, data3, data4, data5];
 
-                    Plotly.newPlot(chartId, data);
+                    var layout = {
+                        scattermode: 'group',
+                        title: 'Grouped by Country',
+                        barcornerradius: 15,
+                        width: 100,
+                        height: 200
+                      };
+
+                    Plotly.newPlot(chartId, data, layout);
                 }
                 if (playerAgeRow)
                 {
