@@ -87,6 +87,11 @@
     overflow: hidden;
     padding-bottom: 1rem;
   }
+
+  .custom-matchup-row .custom-medium-avatar {
+    padding: .1rem;
+    background-color: white;
+  }
   
   .custom-matchup-list-item {
     background-color:#ffffff00;
