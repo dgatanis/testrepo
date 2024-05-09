@@ -244,7 +244,7 @@ function loadSortedRosters() {
                         width: 400,
                         height: 300,
                         showlegend: false,
-                        background:transparent
+                        plot_bgcolor='transparent'
                       };
 
                     Plotly.newPlot(chartId, data, layout, {staticPlot: true});
