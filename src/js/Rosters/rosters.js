@@ -188,8 +188,16 @@ function loadSortedRosters() {
 
                 if(positionCountRow)
                 {
-                    var positionCountChild = positionCountRow[0].children[0].children[1];
-                    positionCountChild.innerText = "QB: " + rosterStats.QB + " RB: "  + rosterStats.RB + " WR: " + rosterStats.WR + " TE: " + rosterStats.TE + " K: " + rosterStats.K;
+                    var chartId = positionCountRow[0].children[0].children[1].id;
+                    var data = [
+                        {
+                          x: ['QB', 'RB', 'WR', 'TE', 'K'],
+                          y: [rosterStats.QB, rosterStats.RB, rosterStats.WR, rosterStats.TE, rosterStats.K],
+                          type: 'bar'
+                        }
+                      ];
+          
+                    Plotly.newPlot(chartId, data);
                 }
                 if (playerAgeRow)
                 {
