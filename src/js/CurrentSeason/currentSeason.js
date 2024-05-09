@@ -285,15 +285,15 @@ function loadMatchups(weekNumber) {
                         var versus = document.createElement('span');
                         versus.setAttribute('class', 'custom-versus');
                         versus.innerText = 'v';
-                        
                         //Add all the elements to the matchup
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(teamScoreDiv);
                         matchupDiv.append(playerDiv);
+                        weekList.append(matchupDiv);
 
                         if(counter == 1)
                         {
-                            weekList.append(matchupDiv);
+                            matchupDiv.append(versus);
                         }
                         
                     }
