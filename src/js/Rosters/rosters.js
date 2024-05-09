@@ -242,7 +242,7 @@ function loadSortedRosters() {
                         scattermode: 'group',
                         title: 'Grouped by Country',
                         barcornerradius: 15,
-                        width: 100,
+                        width: 400,
                         height: 200
                       };
 
