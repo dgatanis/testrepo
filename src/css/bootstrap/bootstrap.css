@@ -43,6 +43,8 @@
   --custom-transp-blue: rgb(200 217 237 / 48%);
   --custom-blue-gray: #768ea5;
   --custom-dark-blue: #475664;
+  --custom-light-gray: #d1d1d1;
+  --custom-orange: #b76e36;
   --custom-dark-mode-background: #2c363f;
 }
 
@@ -11074,8 +11076,8 @@ ul.nav.nav-tabs {
 }
 
 .accordion-button:not(.collapsed) {
-  color: white;
-  background-color: #b76e36; 
+  color: var(--custom-dark-blue);
+  background-color: var(--custom-light-gray); 
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 

@@ -164,6 +164,7 @@ tr {
   cursor: pointer;
 }
 
+
 .accordion-button:hover {
   background-color: transparent;
   color: var(--custom-dark-blue);
