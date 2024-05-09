@@ -8,6 +8,7 @@
         <script src="../src/js/bootstrap.js"></script>
         <script src="../src/js/bootstrap.bundle.js"></script>
         <script src="../src/js/Mobile/mobile.js"></script>
+        <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
     </head>
     <title>
       League Champs
@@ -63,5 +64,21 @@
           </div>
         </div>
       </footer>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function(event) {
+          window.onload = function() {
+            var data = [
+              {
+                x: ['giraffes', 'orangutans', 'monkeys'],
+                y: [20, 14, 23],
+                type: 'bar'
+              }
+            ];
+
+            Plotly.newPlot('myDiv', data);
+          ;
+        });
+        </script>
     </body>
   </html>
