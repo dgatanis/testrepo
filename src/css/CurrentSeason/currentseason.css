@@ -471,6 +471,10 @@
     color: white;
     font-family: 'F5';
     text-align: center;
+    font-size: larger;
+    margin-top: .3rem;
+    text-decoration: underline;
+    margin-bottom: -1rem;
   }
 
   @keyframes run {
