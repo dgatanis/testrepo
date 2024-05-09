@@ -217,8 +217,26 @@ function loadSortedRosters() {
                         name: 'WR',
                         marker: {color: 'rgb(26, 118, 255)'}
                     };
+
+                    var data4 = 
+                    {
+                        x: ['TE'],
+                        y: [rosterStats.TE],
+                        type: 'bar',
+                        name: 'TE',
+                        marker: {color: 'var(--TE)'}
+                    };
+
+                    var data5 = 
+                    {
+                        x: ['K'],
+                        y: [rosterStats.K],
+                        type: 'bar',
+                        name: 'K',
+                        marker: {color: 'rgb(26, 118, 255)'}
+                    };
                     
-                    var data = [data1, data2, data3];
+                    var data = [data1, data2, data3, data4, data5];
 
                     Plotly.newPlot(chartId, data);
                 }
