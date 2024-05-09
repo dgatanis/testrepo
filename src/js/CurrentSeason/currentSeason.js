@@ -200,6 +200,7 @@ function loadMatchups(weekNumber) {
             {
                 let matchupId = i;
                 let counter = 0;
+
                 for(let j=0; j<matchupsLength; j++)
                 {
                     let matchup = matchups[j];
@@ -282,19 +283,22 @@ function loadMatchups(weekNumber) {
                             teamScoreDiv.append(teamPoints);
                         }
 
-                        var versus = document.createElement('span');
-                        versus.setAttribute('class', 'custom-versus');
-                        versus.innerText = 'v';
                         //Add all the elements to the matchup
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(teamScoreDiv);
                         matchupDiv.append(playerDiv);
-                        weekList.append(matchupDiv);
 
+                        var versus = document.createElement('span');
+                        versus.setAttribute('class', 'custom-versus-matchup');
+                        versus.innerText = 'Matchup ' + matchup.matchup_id;
+
+                        //Add matchup header
                         if(counter == 1)
                         {
                             weekList.append(versus);
                         }
+
+                        weekList.append(matchupDiv);
                         
                     }
                 }

@@ -543,6 +543,12 @@
       width: 25rem;
     }
 
+    .custom-versus-matchup {
+      color: white;
+      font-family: 'F5';
+      text-align: center;
+    }
+
     .custom-matchup-icon-medium{
       max-width: 1.5rem;
     }
