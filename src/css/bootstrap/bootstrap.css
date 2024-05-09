@@ -7442,7 +7442,7 @@ textarea.form-control-lg {
 
 .bg-body {
   background-color: var(--custom-light-gray) !important;
-  color: black;
+  color: black !important;
 }
 
 .bg-white {
