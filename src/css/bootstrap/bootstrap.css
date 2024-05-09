@@ -41,7 +41,7 @@
   --custom-green: #62b01e;
   --custom-red:#e71c02;
   --custom-transp-blue: rgb(200 217 237 / 48%);
-  --custom-blue-gray: #768ea5;
+  --custom-blue-gray: #8c9ba9;
   --custom-dark-blue: #475664;
   --custom-light-gray: #d1d1d1;
   --custom-orange: #b76e36;
@@ -11045,7 +11045,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, var(--custom-blue-gray), var(--custom-blue-gray), #768ea5e8);
+  background: linear-gradient(180deg, var(--custom-blue-gray), var(--custom-blue-gray), #8c9ba9bf);
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
