@@ -11117,7 +11117,7 @@ ul.nav.nav-tabs {
   }
 
   .active {
-    background-color: #768ea5ed;
+    background-color: var(--custom-blue-gray);
     color: whitesmoke;
     text-align: center;
   }
