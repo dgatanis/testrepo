@@ -199,14 +199,14 @@ function loadMatchups(weekNumber) {
             for(let i =1; i <= totalMatchups; i++)
             {
                 let matchupId = i;
-                
+                let counter = 0;
                 for(let j=0; j<matchupsLength; j++)
                 {
                     let matchup = matchups[j];
 
                     if(matchup.matchup_id == matchupId)
                     {
-                        
+                        counter++;   
                         let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
@@ -282,12 +282,20 @@ function loadMatchups(weekNumber) {
                             teamScoreDiv.append(teamPoints);
                         }
 
-
+                        var versus = document.createElement('span');
+                        versus.setAttribute('class', 'custom-versus');
+                        versus.innerText = 'v';
+                        
                         //Add all the elements to the matchup
                         matchupDiv.prepend(teamImage);
                         matchupDiv.append(teamScoreDiv);
                         matchupDiv.append(playerDiv);
-                        weekList.append(matchupDiv);
+
+                        if(counter == 1)
+                        {
+                            weekList.append(matchupDiv);
+                        }
+                        
                     }
                 }
                 
