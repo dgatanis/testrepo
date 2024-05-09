@@ -240,10 +240,9 @@ function loadSortedRosters() {
 
                     var layout = {
                         scattermode: 'group',
-                        title: 'Grouped by Country',
                         barcornerradius: 15,
                         width: 400,
-                        height: 200
+                        height: 400
                       };
 
                     Plotly.newPlot(chartId, data, layout);
