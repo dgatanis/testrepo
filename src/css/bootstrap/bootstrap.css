@@ -3883,7 +3883,7 @@ textarea.form-control-lg {
 .nav-tabs {
   border-bottom: 1px solid var(--custom-dark-blue);
   padding: .8rem;
-  box-shadow: -1px 3px 0.1rem 0 black;
+  box-shadow: 0px 2px 0.1rem 0 #878787;
 }
 .nav-tabs .nav-link {
   margin-bottom: -1px;
