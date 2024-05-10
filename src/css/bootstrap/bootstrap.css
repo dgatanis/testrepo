@@ -220,7 +220,7 @@ sup {
 
 a {
   color: #0d6efd;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: #0a58ca;
@@ -11153,7 +11153,7 @@ ul.nav.nav-tabs {
     vertical-align: top;
     max-width: 1.5rem;
     max-height: 1.5rem;
-    margin-right: .5rem;
+    margin-right: .2rem;
   }
 
   .custom-nav:hover {
