@@ -11115,6 +11115,11 @@ ul.nav.nav-tabs {
     max-width: 6rem;
   }
 
+  .custom-nav-container {
+    padding-top: 1rem;
+    background-color: whitesmoke;
+  }
+
   /* Style the mobile navigation menu */
   .mobilenav {
     overflow: hidden;
