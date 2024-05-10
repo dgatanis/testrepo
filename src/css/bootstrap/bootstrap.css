@@ -11113,6 +11113,7 @@ ul.nav.nav-tabs {
   .custom-header-image {
     max-width: 6rem;
     margin-bottom: 1rem;
+    border-radius: 3rem;
   }
 
   .custom-nav-container {
