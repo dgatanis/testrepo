@@ -473,8 +473,10 @@
     text-align: center;
     font-size: larger;
     margin-top: .3rem;
-    text-decoration: underline;
-    margin-bottom: -1rem;
+    margin-bottom: -.3rem;
+    border-style: solid;
+    border: 1px white;
+    border-bottom-style: solid;
   }
 
   @keyframes run {
