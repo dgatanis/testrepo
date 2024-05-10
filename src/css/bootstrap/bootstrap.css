@@ -11156,6 +11156,11 @@ ul.nav.nav-tabs {
     margin-right: .5rem;
   }
 
+  .custom-nav:hover {
+    color: black;
+    border: unset;
+  }
+
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 26.563rem) {
