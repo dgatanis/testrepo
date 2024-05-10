@@ -70,7 +70,6 @@ body {
   color: #333333;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  margin-top: 5rem;
 }
 
 hr {
@@ -11103,6 +11102,16 @@ ul.nav.nav-tabs {
 
   .custom-selected-nav {
     border-bottom: 2px solid var(--custom-dark-blue);
+  }
+
+  .custom-header {
+    justify-content: center;
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .custom-header-image {
+    max-width: 6rem;
   }
 
   /* Style the mobile navigation menu */
