@@ -173,7 +173,7 @@
   }
 
   .custom-card {
-    background: linear-gradient(87deg, transparent, #b76e36 , #b76e36 ,transparent);
+    background: linear-gradient(87deg, transparent, var(--custom-dark-blue), var(--custom-dark-blue) ,transparent);
     color: whitesmoke;
     border: none;
     margin-bottom: 2rem;
