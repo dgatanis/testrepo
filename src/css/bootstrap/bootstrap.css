@@ -11161,6 +11161,12 @@ ul.nav.nav-tabs {
     border: unset;
   }
 
+  .nav-tabs .nav-link.active {
+    background-color: unset;
+    border: unset;
+    color: black;
+  }
+
 /* Custom Mobile responsive display */
 
 @media screen and (max-width: 26.563rem) {
