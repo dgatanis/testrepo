@@ -11108,15 +11108,15 @@ ul.nav.nav-tabs {
   .custom-header {
     justify-content: center;
     display: flex;
-    margin-top: 1rem;
   }
 
   .custom-header-image {
     max-width: 6rem;
+    margin-bottom: 1rem;
   }
 
   .custom-nav-container {
-    padding-top: 1rem;
+    padding-top: .2rem;
     background-color: #ffffffde;;
   }
 
