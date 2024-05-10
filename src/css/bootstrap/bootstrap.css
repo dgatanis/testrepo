@@ -3881,8 +3881,9 @@ textarea.form-control-lg {
 }
 
 .nav-tabs {
-  border-bottom: 2px solid var(--custom-dark-blue);
+  border-bottom: 1px solid var(--custom-dark-blue);
   padding: .8rem;
+  box-shadow: -1px 3px 0.1rem 0 black;
 }
 .nav-tabs .nav-link {
   margin-bottom: -1px;
@@ -11101,7 +11102,7 @@ ul.nav.nav-tabs {
   }
 
   .custom-selected-nav {
-    border-bottom: 2px solid var(--custom-dark-blue);
+    border-bottom: 3px solid var(--custom-dark-blue);
   }
 
   .custom-header {
