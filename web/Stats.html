@@ -18,37 +18,39 @@
         getTeamNamesForLeague("1046222222567784448");
         getOwnerAvatarForLeague("1046222222567784448");
       </script>
-      <div class="custom-header">
-        <img class="custom-header-image" src="../src/static/images/cityscape.png">
+      <div class="custom-nav-container">
+        <div class="custom-header">
+          <img class="custom-header-image" src="../src/static/images/cityscape.png">
+        </div>
+        <ul class="nav nav-tabs desktopnav">
+          <div class="nav-item">
+            <a href="../index.html">
+              <button class="nav-link custom-nav">
+                <img src="../src/static/images/home.png" class="custom-nav-icon">
+                <span class="custom-nav-label">Home</span>
+              </button>
+            </a>
+          </div>
+          <div class="nav-item dropdown custom-selected-nav">
+            <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              History
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
+              <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
+              <li><a class="dropdown-item" href="./ComingSoon.html">Stats</a></li>
+            </ul>
+          </div>
+          <div class="nav-item">
+            <a href="./Rosters.html">
+              <button class="nav-link custom-nav">
+                <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
+                <span class="custom-nav-label">Rosters</span>
+              </button>
+            </a>
+          </div>
+        </ul>
       </div>
-      <ul class="nav nav-tabs desktopnav">
-        <div class="nav-item">
-          <a href="../index.html">
-            <button class="nav-link custom-nav">
-              <img src="../src/static/images/home.png" class="custom-nav-icon">
-              <span class="custom-nav-label">Home</span>
-            </button>
-          </a>
-        </div>
-        <div class="nav-item dropdown custom-selected-nav">
-          <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            History
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
-            <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-            <li><a class="dropdown-item" href="./ComingSoon.html">Stats</a></li>
-          </ul>
-        </div>
-        <div class="nav-item">
-          <a href="./Rosters.html">
-            <button class="nav-link custom-nav">
-              <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
-              <span class="custom-nav-label">Rosters</span>
-            </button>
-          </a>
-        </div>
-      </ul>
       <div class="mobilenav">
         <a href="#" class="active">Stats</a>
         <div id="mobileLinks" class="custom-mobile-hide">
