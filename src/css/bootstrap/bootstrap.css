@@ -3882,7 +3882,8 @@ textarea.form-control-lg {
 }
 
 .nav-tabs {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 2px solid var(--custom-dark-blue);
+  padding: .8rem;
 }
 .nav-tabs .nav-link {
   margin-bottom: -1px;
@@ -11136,9 +11137,9 @@ ul.nav.nav-tabs {
   }
 
   .custom-nav-icon {
-    vertical-align: middle;
-    max-width: 1rem;
-    max-height: 1rem;
+    vertical-align: sub;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
   }
 
 /* Custom Mobile responsive display */
