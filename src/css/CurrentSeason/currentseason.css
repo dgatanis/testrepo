@@ -179,6 +179,11 @@
     margin-bottom: 2rem;
   }
 
+  .accordion-button:not(.collapsed) {
+    color: var(--custom-light-gray);
+    background-color: var(--custom-dark-blue);
+  }
+
   .custom-hidden-row {
     display: none;
   }
