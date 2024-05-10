@@ -11088,8 +11088,17 @@ ul.nav.nav-tabs {
 }
 
   .nav-item {
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding: .3rem;
+  }
+
+  .nav-item:hover {
+    background: var(--custom-transp-blue);
+    transition: all .5s ease;
+    color: var(--custom-dark-blue);
+  }
+
+  .custom-selected-nav {
+    border-bottom: 2px solid var(--custom-dark-blue);
   }
 
   /* Style the mobile navigation menu */
@@ -11138,7 +11147,7 @@ ul.nav.nav-tabs {
   }
 
   .custom-nav-icon {
-    vertical-align: sub;
+    vertical-align: top;
     max-width: 1.5rem;
     max-height: 1.5rem;
   }
