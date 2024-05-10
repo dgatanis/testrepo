@@ -11027,6 +11027,8 @@ a.custom-nav:hover {
 ul.nav.nav-tabs {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: unset;
 }
 
 .custom-section-group-l {
@@ -11095,6 +11097,7 @@ ul.nav.nav-tabs {
     background: var(--custom-transp-blue);
     transition: all .5s ease;
     color: var(--custom-dark-blue);
+    cursor: pointer;
   }
 
   .custom-selected-nav {
@@ -11150,6 +11153,7 @@ ul.nav.nav-tabs {
     vertical-align: top;
     max-width: 1.5rem;
     max-height: 1.5rem;
+    margin-right: .5rem;
   }
 
 /* Custom Mobile responsive display */
