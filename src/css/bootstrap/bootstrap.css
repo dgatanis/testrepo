@@ -10937,7 +10937,8 @@ textarea.form-control-lg {
 }
 
 .custom-nav{
-  color: white;
+  color: black;
+  display: inline;
 }
 
 a.custom-nav:hover {
@@ -11022,7 +11023,8 @@ a.custom-nav:hover {
 
 
 ul.nav.nav-tabs {
-  background: var(--custom-blue-gray);
+  display: flex;
+  justify-content: center;
 }
 
 .custom-section-group-l {
@@ -11083,6 +11085,11 @@ ul.nav.nav-tabs {
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 
+  .nav-item {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
   /* Style the mobile navigation menu */
   .mobilenav {
     overflow: hidden;
@@ -11126,6 +11133,12 @@ ul.nav.nav-tabs {
   .btn-primary:active {
     background-color: var(--custom-dark-blue);
     border-color: var(--custom-blue-gray);
+  }
+
+  .custom-nav-icon {
+    vertical-align: middle;
+    max-width: 1rem;
+    max-height: 1rem;
   }
 
 /* Custom Mobile responsive display */
