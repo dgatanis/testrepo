@@ -11212,7 +11212,11 @@ ul.nav.nav-tabs {
   }
 
   .desktopnav {
-    display: none;
+    display: none !important;
+  }
+
+  .custom-header {
+    display: none !important;
   }
 
   #mobileLinks{
