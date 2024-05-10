@@ -10940,6 +10940,7 @@ textarea.form-control-lg {
 .custom-nav{
   color: black;
   display: inline;
+  font-size: larger;
 }
 
 a.custom-nav:hover {
