@@ -6,7 +6,7 @@ userDatas.then((value) => {
     console.log(userData);
 
     let user = userData.find(x => x.user_id === '861092508472578048');
-console.log(user.display_name);
+    console.log(user.display_name);
   }).catch((error) => {
     console.error('Error:', error);
   });

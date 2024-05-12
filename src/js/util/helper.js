@@ -1,40 +1,55 @@
 
 async function initRosterData() {
-    try {
-        const localRosterData = await waitForLocalStorageItem("RosterData");
+    const rosterDataStorage = localStorage.getItem("RosterData");
+    
+    if(!rosterDataStorage)
+    {       
+        try {
+            const localRosterData = await waitForLocalStorageItem("RosterData");
 
-        var rosterData = JSON.parse(localRosterData);
+            var rosterData = JSON.parse(localRosterData);
 
-        return rosterData;
+            return rosterData;
 
-    } catch (error) {
-        console.error('Error loading or executing script:', error);
+        } catch (error) {
+            console.error('Error loading or executing script:', error);
+        }
     }
 }
 
 async function initLeagueData() {
-    try {
-        const localLeagueData = await waitForLocalStorageItem("LeagueData");
+    const leagueDataStorage = localStorage.getItem("LeagueData");
 
-        var leagueData = JSON.parse(localLeagueData);
+    if(!leagueDataStorage)
+    {   
+        try {
+            const localLeagueData = await waitForLocalStorageItem("LeagueData");
 
-        return leagueData;
+            var leagueData = JSON.parse(localLeagueData);
 
-    } catch (error) {
-        console.error('Error loading or executing script:', error);
+            return leagueData;
+
+        } catch (error) {
+            console.error('Error loading or executing script:', error);
+        }
     }
 }
 
 async function initUserData() {
-    try {
-        const localUserData = await waitForLocalStorageItem("UserData");
+    const userDataStorage = localStorage.getItem("UserData");
 
-        var userData = JSON.parse(localUserData);
+    if(!userDataStorage)
+    {   
+        try {
+            const localUserData = await waitForLocalStorageItem("UserData");
 
-        return userData;
+            var userData = JSON.parse(localUserData);
 
-    } catch (error) {
-        console.error('Error loading or executing script:', error);
+            return userData;
+
+        } catch (error) {
+            console.error('Error loading or executing script:', error);
+        }
     }
 }
 
