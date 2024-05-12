@@ -1,4 +1,4 @@
-import { league } from "../initData";
+import { league } from "../initData.js";
 
 var leagueData = league;
 
