@@ -1,8 +1,8 @@
-import { getRosterData, getUserData, getPlayerData } from '../util/helper.js';
+import { rosters, users, players } from '../util/helper.js';
 
-let userData = getUserData;
-let rosterData = getRosterData;
-let playerData = getPlayerData;
+let userData = users;
+let rosterData = rosters;
+let playerData = players;
 
 loadContents();
 

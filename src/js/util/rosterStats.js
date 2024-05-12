@@ -1,7 +1,7 @@
-import { getPlayerData, getRosterData } from "./helper.js";
+import { players, rosters } from "./helper.js";
 
-var rosterData = getRosterData;
-var playerData = getPlayerData;
+var rosterData = rosters;
+var playerData = players;
 
 export function getRosterStats(rosterid) {
 
