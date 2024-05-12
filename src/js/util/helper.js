@@ -8,7 +8,7 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
 
-if(!rosterData|| !userData || !matchupData || !playerData)
+if(!rosterData || !userData || !matchupData || !playerData)
 {
     const localRosterData = await waitForLocalStorageItem("RosterData");
     const localLeagueData = await waitForLocalStorageItem("LeagueData");
@@ -51,7 +51,7 @@ function waitForSessionStorageItem(key) {
     });
 }
 
-function createOwnerAvatarImage(userId) { 
+export function createOwnerAvatarImage(userId) { 
 
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
