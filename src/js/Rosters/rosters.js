@@ -1,7 +1,5 @@
-import { rosterDatas} from '../util/helper.js';
-
-var rosterData = await rosterDatas;
-
+const rosterDataStorage = localStorage.getItem("RosterData");
+var rosterData = JSON.parse(rosterDataStorage); 
 const userDataStorage = localStorage.getItem("UserData");
 var userData = JSON.parse(userDataStorage);
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");

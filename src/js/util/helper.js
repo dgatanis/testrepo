@@ -83,5 +83,7 @@ const leagueDatas = initLeagueData();
 const userDatas = initUserData();
 
 
-var rosterDataTEST = rosterDataTEST || {};
-rosterDataTEST =  { rosterDatas };
+var appData = appData || {};
+export { appData };
+
+appData.rosterData = { rosterDatas };
