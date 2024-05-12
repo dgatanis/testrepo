@@ -1,6 +1,6 @@
 async function OpenTeamRosterModal(userid,teamname) {
     const helper = await import('../util/helper.js');
-
+    var rosterData = helper.rosters;
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
