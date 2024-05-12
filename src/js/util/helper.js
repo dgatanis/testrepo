@@ -1,3 +1,5 @@
+import { getRosterStats } from './rosterStats';
+
 async function initRosterData() {
     const dataStorage = localStorage.getItem("RosterData");
 
@@ -171,5 +173,6 @@ export {
     getUserData,
     getPlayerData,
     getPlayoffData,
-    getMatchupData
+    getMatchupData,
+    getRosterStats
 };

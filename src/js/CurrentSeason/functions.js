@@ -1,0 +1,114 @@
+async function OpenTeamRosterModal(userid,teamname) {
+    const helper = await import('../util/helper.js');
+    const rosterData = helper.getRosterData;
+    const playerData = helper.getPlayerData;
+    console.log(helper.getRosterStats(2));
+    return;
+    var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
+    var rosterTable = document.querySelector('#RosterTable');
+    var tablebody = rosterTable.childNodes[3];
+    const leaguePositionList = getLeaguePositions();
+
+    modalRosterTeamName.innerText = teamname;
+
+    rosterTable.classList.remove('table-dark');
+    rosterTable.classList.add('table-secondary');
+    
+    
+    //Remove players in list
+    while(tablebody.firstChild) {
+      tablebody.removeChild(tablebody.firstChild);
+    }
+  
+    //Create table rows for players
+    const teams = rosterData.map((roster) => roster);
+
+    //Loop through each roster of team and display player data for selected team
+    for(let roster of teams) 
+    {
+        if(roster.owner_id==userid)
+        {
+            var teamImage = createOwnerAvatarImage(roster.owner_id);
+            modalRosterTeamName.prepend(teamImage);
+
+            //Sets the roster stats on the roster modal
+            var rosterStats = helper.getRosterStats(roster.roster_id);
+            const record = document.getElementById("rosterRecord");
+            const playerCount = document.getElementById("rosterPlayerCount");
+            const leaguePositionsLink = document.getElementById("starterPositions");
+            const age = document.getElementById("rosterAge");
+            const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
+
+            for(let currentHighScorer of highScorers)
+            {
+                // Remove all children elements
+                while (currentHighScorer.firstChild) {
+                    currentHighScorer.removeChild(currentHighScorer.firstChild);
+                }
+            }
+
+            let highScorerPlayers = [
+                rosterStats.QBpts,
+                rosterStats.RBpts,
+                rosterStats.WRpts,
+                rosterStats.TEpts
+            ];
+
+            record.innerText = "Wins:" + rosterStats.wins + " Losses:" + rosterStats.losses + " Pts:" + rosterStats.fpts;
+            playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
+            leaguePositionsLink.title = "Toggle Starters (" + leaguePositionList + ")";
+            leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
+            age.innerText = rosterStats.AvgAge + " yrs";
+
+            //length of highScorers and highScorerPlayers must match
+            for(let i =0; i < highScorers.length; i++)
+            {
+                var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
+                playerImg.setAttribute('class', 'custom-small-player-avatar');
+                
+                var playerName = getFullPlayerName(highScorerPlayers[i].player_id);
+                var playerNameDiv = document.createElement("div");
+                playerNameDiv.setAttribute('class', 'custom-playername-small');
+                playerNameDiv.setAttribute('style', 'margin-top:.2rem;');
+                playerNameDiv.innerText = playerName + " " + highScorerPlayers[i].points + "pts"
+                 
+                highScorers[i].append(playerNameDiv);
+                highScorers[i].prepend(playerImg);
+            }
+
+            let sortedPlayers = sortByPosition(roster.players);
+
+            //Go through each player from this roster
+            for(let players of sortedPlayers)
+            {
+                if(localStorage.getItem("PlayerData"))
+                {
+
+                    let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+
+                    if(player)
+                    {
+                        let playerName = player.firstname + " " + player.lastname;
+                        let playerTeam = player.team;
+                        var playerimg = createPlayerImage(player.player_id);
+                        var tr = document.createElement("tr");
+                        var th = document.createElement("th");
+                        th.innerText=player.position;
+                        th.setAttribute('scope', 'row');
+                        tr.setAttribute('class', 'custom-shown-row')
+                        tr.setAttribute('data-playerid', player.player_id);
+                        tr.appendChild(th);
+                        var nameOfPlayer = document.createElement("td");
+                        nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                        nameOfPlayer.prepend(playerimg);
+                        tr.appendChild(nameOfPlayer);
+                        var yrsExp = document.createElement("td");
+                        yrsExp.innerText=player.age;
+                        tr.appendChild(yrsExp);
+                        tablebody.append(tr);
+                    }
+                }
+            }
+        }
+    }
+}
