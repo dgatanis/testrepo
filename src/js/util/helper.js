@@ -1,8 +1,9 @@
 import { rosters, users, players, playoffs, matchups, league } from '../util/initData.js';
 import { getRosterStats, sortTeamRankings } from '../util/RosterData/rosterData.js';
 import { getPlayerPointsForWeek } from './MatchupData/matchupData.js';
-import { getFullPlayerName  } from './PlayerData/playerData.js';
-import { createOwnerAvatarImage } from './UserData/userData.js';
+import { getFullPlayerName, createPlayerImage  } from './PlayerData/playerData.js';
+import { createOwnerAvatarImage, getTeamName } from './UserData/userData.js';
+import { getLeaguePositions } from './LeagueData/leagueData.js';
 
 export { 
     rosters, 
@@ -15,5 +16,8 @@ export {
     getPlayerPointsForWeek,
     getFullPlayerName,
     sortTeamRankings,
-    createOwnerAvatarImage
+    createOwnerAvatarImage,
+    getLeaguePositions,
+    getTeamName,
+    createPlayerImage
 };

@@ -23,3 +23,20 @@ export function createOwnerAvatarImage(userId) {
     }
     return img;
 }
+
+export function getTeamName(userid) {
+
+    let user = userData.find(x => x.user_id === userid.toString());
+    let userName = "";
+
+    if(user.metadata.team_name != undefined)
+    {
+        userName = user.metadata.team_name;
+    }
+    else
+    {
+        userName = user.display_name;
+    }
+
+    return userName.toString();
+}

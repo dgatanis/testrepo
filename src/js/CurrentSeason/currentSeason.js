@@ -1,4 +1,16 @@
-import { rosters, users, players, matchups, playoffs, getFullPlayerName, createOwnerAvatarImage, getRosterStats, sortTeamRankings } from '../util/helper.js';
+import { 
+        rosters, 
+        users, 
+        players, 
+        matchups, 
+        playoffs, 
+        getFullPlayerName, 
+        createOwnerAvatarImage, 
+        getRosterStats, 
+        sortTeamRankings, 
+        createPlayerImage,
+        getTeamName 
+        } from '../util/helper.js';
 
 let userData = users;
 let rosterData = rosters;
@@ -770,82 +782,6 @@ function getMatchupWeekWinner(matchups,matchupid) {
             });
 }
 
-function toggleStarters(rosterId) {
-
-    let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-    let tableRows = document.querySelectorAll('.custom-shown-row');
-    let hiddenRows = document.querySelectorAll('.custom-hidden-row');
-    let rosterTable = document.getElementById('RosterTable');
-
-    let starters = roster.starters;
-
-    if(hiddenRows.length > 0)
-    {
-        for(let row of hiddenRows)
-        {
-            row.setAttribute('class', 'custom-shown-row');
-        }
-        rosterTable.classList.add('table-secondary');
-        rosterTable.classList.remove('table-dark');
-    }
-    else
-    {
-        for(let row of tableRows)
-        {
-            if(!starters.includes(row.dataset.playerid))
-            {
-                row.setAttribute('class', 'custom-hidden-row');
-            }
-        }
-        rosterTable.classList.remove('table-secondary');
-        rosterTable.classList.add('table-dark');
-    }
-}
-
-function getLeaguePositions(){
-
-    const leagueDataStorage = localStorage.getItem("LeagueData");
-    const leagueData = JSON.parse(leagueDataStorage);
-
-    leaguePositions = leagueData.roster_positions;
-    const positions = [];
-
-    for(let starterPosition of leaguePositions)
-        {
-            if(starterPosition != "BN")
-            {
-                if(starterPosition == "SUPER_FLEX")
-                {
-                    positions.push("SF");
-                }
-                else
-                {
-                    positions.push(starterPosition);
-                }
-            }
-        }
-
-    return positions.toString().replaceAll(",", ", ");
-}
-
-
-function getTeamName(userid) {
-
-    let user = userData.find(x => x.user_id === userid.toString());
-    let userName = "";
-
-    if(user.metadata.team_name != undefined)
-    {
-        userName = user.metadata.team_name;
-    }
-    else
-    {
-        userName = user.display_name;
-    }
-
-    return userName.toString();
-}
-
 function getRosterHighScorerWeek(matchups) {
 
     let rosters = [];
@@ -1046,28 +982,6 @@ function createAccordionItem(weekNumber) {
     accordionItem.appendChild(accordionCollapsible);
 
     return accordionItem;
-}
-
-function createPlayerImage(playerId) {
-
-    let player = playerData.players.find(e => e.player_id === parseInt(playerId));
-
-    if(player)
-    {
-        var playerimg = document.createElement("div");
-        playerimg.setAttribute("style", "background-image:url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp); border: 2px solid var(--"+ player.position +");");
-        
-        if(playerId == '5849')
-        {
-            playerimg.setAttribute('class', "custom-tiny-player-avatar");
-        }
-        else
-        {
-            playerimg.setAttribute('class', "custom-player-avatar");
-        }
-        
-        return playerimg;
-    }
 }
 
 function createMatchupButtonElement(weekNumber){

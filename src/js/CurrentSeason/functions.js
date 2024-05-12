@@ -1,10 +1,10 @@
 async function OpenTeamRosterModal(userid,teamname) {
     const helper = await import('../util/helper.js');
-    
+
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     var rosterTable = document.querySelector('#RosterTable');
     var tablebody = rosterTable.childNodes[3];
-    const leaguePositionList = getLeaguePositions();
+    const leaguePositionList = helper.getLeaguePositions();
 
     modalRosterTeamName.innerText = teamname;
 
@@ -63,7 +63,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                 var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
                 playerImg.setAttribute('class', 'custom-small-player-avatar');
                 
-                var playerName = getFullPlayerName(highScorerPlayers[i].player_id);
+                var playerName = helper.getFullPlayerName(highScorerPlayers[i].player_id);
                 var playerNameDiv = document.createElement("div");
                 playerNameDiv.setAttribute('class', 'custom-playername-small');
                 playerNameDiv.setAttribute('style', 'margin-top:.2rem;');
@@ -107,5 +107,39 @@ async function OpenTeamRosterModal(userid,teamname) {
                 }
             }
         }
+    }
+}
+
+function toggleStarters(rosterId) {
+    const helper = await import('../util/helper.js');
+    var rosterData = helper.rosters;
+    
+    let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+    let tableRows = document.querySelectorAll('.custom-shown-row');
+    let hiddenRows = document.querySelectorAll('.custom-hidden-row');
+    let rosterTable = document.getElementById('RosterTable');
+
+    let starters = roster.starters;
+
+    if(hiddenRows.length > 0)
+    {
+        for(let row of hiddenRows)
+        {
+            row.setAttribute('class', 'custom-shown-row');
+        }
+        rosterTable.classList.add('table-secondary');
+        rosterTable.classList.remove('table-dark');
+    }
+    else
+    {
+        for(let row of tableRows)
+        {
+            if(!starters.includes(row.dataset.playerid))
+            {
+                row.setAttribute('class', 'custom-hidden-row');
+            }
+        }
+        rosterTable.classList.remove('table-secondary');
+        rosterTable.classList.add('table-dark');
     }
 }
