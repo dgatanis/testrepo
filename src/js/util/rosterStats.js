@@ -1,7 +1,8 @@
-import { rosters,  players } from '../util/initBrowserData.js';
+import { rosters,  players, matchups } from '../util/initBrowserData.js';
 
 var rosterData = rosters;
 var playerData = players;
+var matchupData = players;
 
 export function getRosterStats(rosterid) {
 
