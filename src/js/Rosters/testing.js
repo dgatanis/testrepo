@@ -1,5 +1,5 @@
-import { createOwnerAvatarImage } from '../util/helper.js';
+import { createOwnerAvatarImage, rosterDatas } from '../util/helper.js';
 
-var x = createOwnerAvatarImage('861092508472578048');
+//var x = createOwnerAvatarImage('861092508472578048');
 
-console.log(x);
+console.log(rosterDatas);

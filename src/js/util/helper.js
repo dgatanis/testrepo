@@ -5,8 +5,34 @@ var userData = JSON.parse(userDataStorage);
 const matchupWeekStorage = sessionStorage.getItem("MatchupData");
 var matchupData = JSON.parse(matchupWeekStorage); 
 const playerDataStorage = localStorage.getItem("PlayerData");
-var playerData = JSON.parse(playerDataStorage); 
+var playerData = JSON.parse(playerDataStorage);
 
+
+async function checkBrowserData() {
+
+    if(!rosterData || !userData || !matchupData || !playerData)
+    {
+        try{
+            initRosterData();
+        }
+        catch (error){
+            console.error(`Error: ${error.message}`);
+        }
+    }
+}
+
+async function initRosterData() {
+    try {
+        const localRosterData = await waitForLocalStorageItem("RosterData");
+
+        rosterData = JSON.parse(localRosterData);
+
+        return rosterData;
+
+    } catch (error) {
+        console.error('Error loading or executing script:', error);
+    }
+}
 
 function waitForLocalStorageItem(key) {
     return new Promise((resolve) => {
@@ -22,9 +48,11 @@ function waitForLocalStorageItem(key) {
     });
 }
 
+export const rosterDatas = initRosterData();
+
 
 export async function createOwnerAvatarImage(userId) { 
-    
+
     if(!userData)
     {
         var localUserData = await waitForLocalStorageItem("UserData");
