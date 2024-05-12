@@ -1,6 +1,6 @@
 import { rosters, users, players, playoffs, matchups, league } from '../util/initData.js';
 import { getRosterStats, sortTeamRankings, calcRosterAge } from '../util/RosterData/rosterData.js';
-import { getPlayerPointsForWeek } from './MatchupData/matchupData.js';
+import { getPlayerPointsForWeek, getMatchupWeekWinner, getRosterHighScorerWeek, highScorerInMatchupStarters } from './MatchupData/matchupData.js';
 import { getFullPlayerName, createPlayerImage, createNFLTeamImage, sortByPosition  } from './PlayerData/playerData.js';
 import { createOwnerAvatarImage, getTeamName } from './UserData/userData.js';
 import { getLeaguePositions } from './LeagueData/leagueData.js';
@@ -22,5 +22,8 @@ export {
     createPlayerImage,
     createNFLTeamImage,
     sortByPosition,
-    calcRosterAge
+    calcRosterAge,
+    getMatchupWeekWinner,
+    getRosterHighScorerWeek,
+    highScorerInMatchupStarters
 };
