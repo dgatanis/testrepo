@@ -1,7 +1,8 @@
 import { rosterDatas, leagueDatas, userDatas } from '../util/helper.js';
 
+var x = await userDatas;
 
-userDatas.then((value) => {
+x.then((value) => {
     // var userData;
     // userData = value;
     console.log(value);
