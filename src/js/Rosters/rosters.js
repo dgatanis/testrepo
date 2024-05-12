@@ -76,8 +76,6 @@ async function initBrowserData() {
 //This loads the page contents dynamically
 function loadSortedRosters() {
 
-    import { createOwnerAvatarImage } from '../src/js/util/helper.js';
-
     try{
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);
@@ -954,24 +952,24 @@ function createNFLTeamImage(team) {
     return teamImage;
 }
 
-// function createOwnerAvatarImage(userId) { 
+function createOwnerAvatarImage(userId) { 
 
-//     let user = userData.find(x => x.user_id === userId);
-//     const avatarURL = user.metadata.avatar;
+    let user = userData.find(x => x.user_id === userId);
+    const avatarURL = user.metadata.avatar;
     
-//     if(avatarURL)
-//     {
-//         var img = document.createElement("img");
-//         img.setAttribute('src', avatarURL);
-//         img.setAttribute('class', "custom-medium-avatar");
-//         img.setAttribute('data-userid', user.user_id);
-//     }
-//     else
-//     {
-//         var img = document.createElement("img");
-//         img.setAttribute('src', '../src/static/images/trashcan.png');
-//         img.setAttribute('class', "custom-medium-avatar");
-//         img.setAttribute('data-userid', user.user_id);
-//     }
-//     return img;
-// }
+    if(avatarURL)
+    {
+        var img = document.createElement("img");
+        img.setAttribute('src', avatarURL);
+        img.setAttribute('class', "custom-medium-avatar");
+        img.setAttribute('data-userid', user.user_id);
+    }
+    else
+    {
+        var img = document.createElement("img");
+        img.setAttribute('src', '../src/static/images/trashcan.png');
+        img.setAttribute('class', "custom-medium-avatar");
+        img.setAttribute('data-userid', user.user_id);
+    }
+    return img;
+}
