@@ -2,12 +2,12 @@ import { rosterDatas, leagueDatas, userDatas } from '../util/helper.js';
 
 
 userDatas.then((value) => {
-    var userData;
-    userData = value;
-    console.log(userData);
+    // var userData;
+    // userData = value;
+    console.log(value);
 
-    let user = userData.find(x => x.user_id === '861092508472578048');
-    console.log(user.display_name);
+    // let user = userData.find(x => x.user_id === '861092508472578048');
+    // console.log(user.display_name);
   }).catch((error) => {
     console.error('Error:', error);
   });
