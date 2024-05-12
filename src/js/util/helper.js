@@ -8,8 +8,29 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
 
+function waitForLocalStorageItem(key) {
+    return new Promise((resolve) => {
+        const checkLocalStorage = () => {
+            const item = localStorage.getItem(key);
+            if (item !== null) {
+                resolve(item);
+            } else {
+                setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
+            }
+        };
+        checkLocalStorage();
+    });
+}
 
-export function createOwnerAvatarImage(userId) { 
+
+export async function createOwnerAvatarImage(userId) { 
+    
+    if(!userData)
+    {
+        var localUserData = await waitForLocalStorageItem("UserData");
+
+        userData = JSON.parse(localUserData);
+    }
 
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
