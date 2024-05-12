@@ -1,4 +1,4 @@
-import { getRosterStats } from './rosterStats';
+import { getRosterStats } from './rosterStats.js';
 
 async function initRosterData() {
     const dataStorage = localStorage.getItem("RosterData");
