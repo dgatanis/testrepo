@@ -15,6 +15,10 @@ async function initRosterData() {
             console.error('Error loading or executing script:', error);
         }
     }
+    else
+    {
+        return JSON.parse(rosterDataStorage);
+    }
 }
 
 async function initLeagueData() {
@@ -32,6 +36,10 @@ async function initLeagueData() {
         } catch (error) {
             console.error('Error loading or executing script:', error);
         }
+    }
+    else
+    {
+        return JSON.parse(leagueDataStorage);
     }
 }
 
