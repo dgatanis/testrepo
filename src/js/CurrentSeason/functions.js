@@ -73,7 +73,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                 highScorers[i].prepend(playerImg);
             }
 
-            let sortedPlayers = sortByPosition(roster.players);
+            let sortedPlayers = helper.sortByPosition(roster.players);
 
             //Go through each player from this roster
             for(let players of sortedPlayers)
