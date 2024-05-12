@@ -1,78 +1,11 @@
-import { rosterDatas, userDatas, leagueDatas } from '../util/helper.js';
-let userData = userDatas;
-let rosterData = rosterDatas;
-const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-var matchupData = JSON.parse(matchupWeekStorage); 
-const playerDataStorage = localStorage.getItem("PlayerData");
-var playerData = JSON.parse(playerDataStorage); 
+import { getRosterData, getUserData, getPlayerData } from '../util/helper.js';
+
+let userData = getUserData;
+let rosterData = getRosterData;
+let playerData = getPlayerData;
 
 loadContents();
 
-// async function checkBrowserData() {
-
-//     if(!rosterData || !userData || !matchupData || !playerData)
-//     {
-//         try{
-//             initBrowserData();
-//         }
-//         catch (error){
-//             console.error(`Error: ${error.message}`);
-//         }
-//     }
-//     else
-//     {
-//         loadSortedRosters();
-//     }
-// }
-
-// function waitForLocalStorageItem(key) {
-//     return new Promise((resolve) => {
-//         const checkLocalStorage = () => {
-//             const item = localStorage.getItem(key);
-//             if (item !== null) {
-//                 resolve(item);
-//             } else {
-//                 setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
-//             }
-//         };
-//         checkLocalStorage();
-//     });
-// }
-
-// function waitForSessionStorageItem(key) {
-//     return new Promise((resolve) => {
-//         const checkSessionStorage = () => {
-//             const item = sessionStorage.getItem(key);
-//             if (item !== null) {
-//                 resolve(item);
-//             } else {
-//                 setTimeout(checkSessionStorage, 100); // Check again in 100 milliseconds
-//             }
-//         };
-//         checkSessionStorage();
-//     });
-// }
-
-// async function initBrowserData() {
-//     try {
-//         const localRosterData = await waitForLocalStorageItem("RosterData");
-//         const localLeagueData = await waitForLocalStorageItem("LeagueData");
-//         const localPlayerData = await waitForLocalStorageItem("PlayerData");
-//         const localUserData = await waitForLocalStorageItem("UserData");
-//         const localMatchupData = await waitForSessionStorageItem("MatchupData");
-
-//         rosterData = JSON.parse(localRosterData);
-//         userData = JSON.parse(localUserData);
-//         playerData = JSON.parse(localPlayerData);
-//         leagueData = JSON.parse(localLeagueData);
-//         matchupData = JSON.parse(localMatchupData);
-
-//         loadSortedRosters();
-
-//     } catch (error) {
-//         console.error('Error loading or executing script:', error);
-//     }
-// }
 
 //This loads the page contents dynamically
 function loadContents() {
