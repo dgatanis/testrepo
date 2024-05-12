@@ -1,9 +1,9 @@
-import { rosterDatas} from '../util/helper.js';
+import { rosterDatas } from '../util/helper.js';
 
 let rosterData = rosterDatas;
 console.log(rosterData);
 
-function thisIsMyTest() {
+export function thisIsMyTest() {
     console.log('myTestFunc');
 }
 
