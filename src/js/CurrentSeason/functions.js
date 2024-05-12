@@ -60,7 +60,7 @@ async function OpenTeamRosterModal(userid,teamname) {
             //length of highScorers and highScorerPlayers must match
             for(let i =0; i < highScorers.length; i++)
             {
-                var playerImg = createPlayerImage(highScorerPlayers[i].player_id);
+                var playerImg = helper.createPlayerImage(highScorerPlayers[i].player_id);
                 playerImg.setAttribute('class', 'custom-small-player-avatar');
                 
                 var playerName = helper.getFullPlayerName(highScorerPlayers[i].player_id);
@@ -87,7 +87,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                     {
                         let playerName = player.firstname + " " + player.lastname;
                         let playerTeam = player.team;
-                        var playerimg = createPlayerImage(player.player_id);
+                        var playerimg = helper.createPlayerImage(player.player_id);
                         var tr = document.createElement("tr");
                         var th = document.createElement("th");
                         th.innerText=player.position;
