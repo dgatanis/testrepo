@@ -26,7 +26,8 @@ function loadContents() {
             let roster = rosterData.find(x => x.roster_id === rosterid);
             let teamName = getTeamName(roster.owner_id);
             let playerImg = createOwnerAvatarImage(roster.owner_id);
-    
+            
+            playerImg.setAttribute('src', '')
             teams[i].children[0].children[0].innerText = teamName;
             teams[i].children[0].prepend(playerImg);
             teams[i].children[0].setAttribute('onclick', 'openRostersPage(' + roster.roster_id + ')');
@@ -49,7 +50,5 @@ function loadContents() {
     {
         console.error(error.message);
     }
-
-
 
 }
