@@ -7,6 +7,8 @@ var matchupData = JSON.parse(matchupWeekStorage);
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
+import { createOwnerAvatarImage } from '../src/js/util/helper.js';
+
 async function checkBrowserData() {
 
     if(!rosterData || !userData || !matchupData || !playerData)
@@ -76,8 +78,6 @@ async function initBrowserData() {
 //This loads the page contents dynamically
 function loadSortedRosters() {
 
-    import { createOwnerAvatarImage } from '../src/js/util/helper.js';
-    
     try{
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);
