@@ -7,7 +7,6 @@ var matchupData = JSON.parse(matchupWeekStorage);
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
-import { createOwnerAvatarImage } from '../util/helper.js';
 
 async function checkBrowserData() {
 

@@ -1,33 +1,37 @@
-const rosterDataStorage = localStorage.getItem("RosterData");
-var rosterData = JSON.parse(rosterDataStorage); 
-const userDataStorage = localStorage.getItem("UserData");
-var userData = JSON.parse(userDataStorage);
-const matchupWeekStorage = sessionStorage.getItem("MatchupData");
-var matchupData = JSON.parse(matchupWeekStorage); 
-const playerDataStorage = localStorage.getItem("PlayerData");
-var playerData = JSON.parse(playerDataStorage);
-
-
-async function checkBrowserData() {
-
-    if(!rosterData || !userData || !matchupData || !playerData)
-    {
-        try{
-            initRosterData();
-        }
-        catch (error){
-            console.error(`Error: ${error.message}`);
-        }
-    }
-}
 
 async function initRosterData() {
     try {
         const localRosterData = await waitForLocalStorageItem("RosterData");
 
-        rosterData = JSON.parse(localRosterData);
+        var rosterData = JSON.parse(localRosterData);
 
         return rosterData;
+
+    } catch (error) {
+        console.error('Error loading or executing script:', error);
+    }
+}
+
+async function initLeagueData() {
+    try {
+        const localLeagueData = await waitForLocalStorageItem("LeagueData");
+
+        var leagueData = JSON.parse(localLeagueData);
+
+        return leagueData;
+
+    } catch (error) {
+        console.error('Error loading or executing script:', error);
+    }
+}
+
+async function initUserData() {
+    try {
+        const localUserData = await waitForLocalStorageItem("UserData");
+
+        var userData = JSON.parse(localUserData);
+
+        return userData;
 
     } catch (error) {
         console.error('Error loading or executing script:', error);
@@ -49,33 +53,5 @@ function waitForLocalStorageItem(key) {
 }
 
 export const rosterDatas = initRosterData();
-
-
-export async function createOwnerAvatarImage(userId) { 
-
-    if(!userData)
-    {
-        var localUserData = await waitForLocalStorageItem("UserData");
-
-        userData = JSON.parse(localUserData);
-    }
-
-    let user = userData.find(x => x.user_id === userId);
-    const avatarURL = user.metadata.avatar;
-    
-    if(avatarURL)
-    {
-        var img = document.createElement("img");
-        img.setAttribute('src', avatarURL);
-        img.setAttribute('class', "custom-medium-avatar");
-        img.setAttribute('data-userid', user.user_id);
-    }
-    else
-    {
-        var img = document.createElement("img");
-        img.setAttribute('src', '../src/static/images/trashcan.png');
-        img.setAttribute('class', "custom-medium-avatar");
-        img.setAttribute('data-userid', user.user_id);
-    }
-    return img;
-}
+export const leagueDatas = initLeagueData();
+export const userDatas = initUserData();
