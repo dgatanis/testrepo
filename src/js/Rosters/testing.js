@@ -1,6 +1,6 @@
 import { rosterDatas, leagueDatas, userDatas } from '../util/helper.js';
 
-var userData = await userDatas;
+var userData = userDatas;
 console.log(userData);
 
 let user = userData.find(x => x.user_id === '861092508472578048');
