@@ -110,10 +110,10 @@ async function OpenTeamRosterModal(userid,teamname) {
     }
 }
 
-function toggleStarters(rosterId) {
+async function toggleStarters(rosterId) {
     const helper = await import('../util/helper.js');
     var rosterData = helper.rosters;
-    
+
     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
