@@ -1,5 +1,7 @@
-import { rosters, users, players, playoffs, matchups, league } from '../util/initBrowserData.js';
-import { getRosterStats } from './rosterStats.js';
+import { rosters, users, players, playoffs, matchups, league } from '../util/initData.js';
+import { getRosterStats, sortTeamRankings } from '../util/RosterData/rosterData.js';
+import { getPlayerPointsForWeek } from './MatchupData/matchupData.js';
+import { getFullPlayerName  } from './PlayerData/playerData.js';
 
 export { 
     rosters, 
@@ -8,5 +10,8 @@ export {
     players,
     playoffs,
     matchups,
-    getRosterStats
+    getRosterStats,
+    getPlayerPointsForWeek,
+    getFullPlayerName,
+    sortTeamRankings
 };

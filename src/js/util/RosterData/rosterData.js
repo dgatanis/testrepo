@@ -1,4 +1,4 @@
-import { rosters,  players, matchups } from '../util/initBrowserData.js';
+import { rosters,  players, matchups } from '../initData.js';
 
 var rosterData = rosters;
 var playerData = players;
@@ -25,6 +25,37 @@ export function getRosterStats(rosterid) {
 
         return rosterStats;
     }
+}
+
+export function sortTeamRankings() {
+
+    const rosters = rosterData.map((x) => x);
+    const sortedList = [];
+
+    for(let roster of rosters)
+    {
+        sortedList.push({
+            "owner_id": roster.owner_id,
+            "wins": roster.settings.wins,
+            "losses": roster.settings.losses,
+            "ties": roster.settings.ties,
+            "fpts": roster.settings.fpts
+        });
+    }
+
+    if(sortedList)
+    {
+        return sortedList.sort(function (a, b) {
+            if (a.wins > b.wins) {
+              return -1;
+            }
+            if (a.wins < b.wins && a.fpts < b.fpts) {
+              return 1;
+            }
+            return 0;
+        });
+    }
+
 }
 
 function highestScorerByPosition(rosterid) {
