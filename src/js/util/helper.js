@@ -1,4 +1,3 @@
-
 async function initRosterData() {
     const rosterDataStorage = localStorage.getItem("RosterData");
 
@@ -79,6 +78,10 @@ function waitForLocalStorageItem(key) {
     });
 }
 
-export const rosterDatas = initRosterData();
-export const leagueDatas = initLeagueData();
-export const userDatas = initUserData();
+const rosterDatas = initRosterData();
+const leagueDatas = initLeagueData();
+const userDatas = initUserData();
+
+
+var appData = appData || {};
+appData.rosterData = { rosterDatas };

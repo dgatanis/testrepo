@@ -1,4 +1,4 @@
-import { rosterDatas, leagueDatas, userDatas } from '../util/helper.js';
+import { rosterDatas} from '../util/helper.js';
 
 var rosterData = await rosterDatas;
 
