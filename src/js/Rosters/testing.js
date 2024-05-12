@@ -1,7 +1,7 @@
-// import { rosterDatas} from '../util/helper.js';
+import { rosterDatas} from '../util/helper.js';
 
-// let userData = rosterDatas;
-// console.log(userData);
+let rosterData = rosterDatas;
+console.log(rosterData);
 
 
 // let user = userData.find(x => x.user_id === '861092508472578048');
