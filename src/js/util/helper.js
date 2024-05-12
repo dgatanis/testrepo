@@ -36,7 +36,7 @@ function waitForSessionStorageItem(key) {
     });
 }
 
-function createOwnerAvatarImage(userId) { 
+export function createOwnerAvatarImage(userId) { 
 
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
