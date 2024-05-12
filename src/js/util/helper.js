@@ -1,7 +1,7 @@
 
 async function initRosterData() {
     const rosterDataStorage = localStorage.getItem("RosterData");
-    
+
     if(!rosterDataStorage)
     {       
         try {
