@@ -10,74 +10,74 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
 
-async function checkBrowserData() {
+// async function checkBrowserData() {
 
-    if(!rosterData || !userData || !matchupData || !playerData)
-    {
-        try{
-            initBrowserData();
-        }
-        catch (error){
-            console.error(`Error: ${error.message}`);
-        }
-    }
-    else
-    {
-        loadSortedRosters();
-    }
-}
+//     if(!rosterData || !userData || !matchupData || !playerData)
+//     {
+//         try{
+//             initBrowserData();
+//         }
+//         catch (error){
+//             console.error(`Error: ${error.message}`);
+//         }
+//     }
+//     else
+//     {
+//         loadSortedRosters();
+//     }
+// }
 
-function waitForLocalStorageItem(key) {
-    return new Promise((resolve) => {
-        const checkLocalStorage = () => {
-            const item = localStorage.getItem(key);
-            if (item !== null) {
-                resolve(item);
-            } else {
-                setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
-            }
-        };
-        checkLocalStorage();
-    });
-}
+// function waitForLocalStorageItem(key) {
+//     return new Promise((resolve) => {
+//         const checkLocalStorage = () => {
+//             const item = localStorage.getItem(key);
+//             if (item !== null) {
+//                 resolve(item);
+//             } else {
+//                 setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
+//             }
+//         };
+//         checkLocalStorage();
+//     });
+// }
 
-function waitForSessionStorageItem(key) {
-    return new Promise((resolve) => {
-        const checkSessionStorage = () => {
-            const item = sessionStorage.getItem(key);
-            if (item !== null) {
-                resolve(item);
-            } else {
-                setTimeout(checkSessionStorage, 100); // Check again in 100 milliseconds
-            }
-        };
-        checkSessionStorage();
-    });
-}
+// function waitForSessionStorageItem(key) {
+//     return new Promise((resolve) => {
+//         const checkSessionStorage = () => {
+//             const item = sessionStorage.getItem(key);
+//             if (item !== null) {
+//                 resolve(item);
+//             } else {
+//                 setTimeout(checkSessionStorage, 100); // Check again in 100 milliseconds
+//             }
+//         };
+//         checkSessionStorage();
+//     });
+// }
 
-async function initBrowserData() {
-    try {
-        const localRosterData = await waitForLocalStorageItem("RosterData");
-        const localLeagueData = await waitForLocalStorageItem("LeagueData");
-        const localPlayerData = await waitForLocalStorageItem("PlayerData");
-        const localUserData = await waitForLocalStorageItem("UserData");
-        const localMatchupData = await waitForSessionStorageItem("MatchupData");
+// async function initBrowserData() {
+//     try {
+//         const localRosterData = await waitForLocalStorageItem("RosterData");
+//         const localLeagueData = await waitForLocalStorageItem("LeagueData");
+//         const localPlayerData = await waitForLocalStorageItem("PlayerData");
+//         const localUserData = await waitForLocalStorageItem("UserData");
+//         const localMatchupData = await waitForSessionStorageItem("MatchupData");
 
-        rosterData = JSON.parse(localRosterData);
-        userData = JSON.parse(localUserData);
-        playerData = JSON.parse(localPlayerData);
-        leagueData = JSON.parse(localLeagueData);
-        matchupData = JSON.parse(localMatchupData);
+//         rosterData = JSON.parse(localRosterData);
+//         userData = JSON.parse(localUserData);
+//         playerData = JSON.parse(localPlayerData);
+//         leagueData = JSON.parse(localLeagueData);
+//         matchupData = JSON.parse(localMatchupData);
 
-        loadSortedRosters();
+//         loadSortedRosters();
 
-    } catch (error) {
-        console.error('Error loading or executing script:', error);
-    }
-}
+//     } catch (error) {
+//         console.error('Error loading or executing script:', error);
+//     }
+// }
 
 //This loads the page contents dynamically
-function loadSortedRosters() {
+function loadContents() {
 
     try{
         //Create table rows for players

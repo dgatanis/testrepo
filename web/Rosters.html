@@ -1602,7 +1602,7 @@
       <script>
         document.addEventListener('DOMContentLoaded', function(event) {
           window.onload = function() {
-            checkBrowserData();
+            loadContents();
 
             //Open roster from another page
             if (new URLSearchParams(window.location.search).get('callFunction') === 'openRoster') {
