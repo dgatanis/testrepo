@@ -118,7 +118,14 @@ export function sortByPosition(players) {
 export function createNFLTeamImage(team) {
     var teamAbrv = team.toLowerCase();
     var teamImage = document.createElement("img");
-    teamImage.setAttribute("src",  `https://sleepercdn.com/images/team_logos/nfl/${teamAbrv}.png`);
+    if(teamAbrv != "fa")
+    {
+        teamImage.setAttribute("src",  `https://sleepercdn.com/images/team_logos/nfl/${teamAbrv}.png`);
+    }
+    else
+    {
+        teamImage.setAttribute("src",  'https://dgatanis.github.io/testrepo/src/static/images/question-mark.png');
+    }
     teamImage.setAttribute('class', "custom-team-logo");
     teamImage.setAttribute('title', team);
 
