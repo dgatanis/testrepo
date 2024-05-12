@@ -7,7 +7,8 @@ import {
     getRosterStats, 
     createPlayerImage,
     getTeamName,
-    sortByPosition 
+    sortByPosition,
+    createNFLTeamImage 
     } from '../util/helper.js';
 
 let userData = users;

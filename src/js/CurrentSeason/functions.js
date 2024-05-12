@@ -25,7 +25,7 @@ async function OpenTeamRosterModal(userid,teamname) {
     {
         if(roster.owner_id==userid)
         {
-            var teamImage = createOwnerAvatarImage(roster.owner_id);
+            var teamImage = helper.createOwnerAvatarImage(roster.owner_id);
             modalRosterTeamName.prepend(teamImage);
 
             //Sets the roster stats on the roster modal
