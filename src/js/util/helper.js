@@ -79,7 +79,11 @@ function waitForLocalStorageItem(key) {
 }
 
 const rosterDatas = await initRosterData();
-const leagueDatas = initLeagueData();
-const userDatas = initUserData();
+const leagueDatas = await initLeagueData();
+const userDatas = await initUserData();
 
-export { rosterDatas };
+export { 
+    rosterDatas, 
+    leagueDatas,
+    userDatas
+};
