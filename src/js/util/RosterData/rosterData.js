@@ -13,14 +13,18 @@ export function getRosterStats(rosterid) {
     {
         var highScorerPlayers = highestScorerByPosition(rosterid);
         var playerPositionCount = calcPlayerPositions(roster.players);
+        var playerPositionAge = calcPositionAge(roster.players);
         var playerAge = calcPlayerAge(roster.players);
         var teamRecord = getTeamRecord(rosterid);
+        var teamStackPlayers = getTeamStacks(rosterid);
 
         let rosterStats = {
             ...playerPositionCount[0],
             ...playerAge[0],
             ...teamRecord[0],
-            ...highScorerPlayers[0]
+            ...highScorerPlayers[0],
+            ...playerPositionAge,
+            ...teamStackPlayers
         };
 
         return rosterStats;
@@ -56,6 +60,179 @@ export function sortTeamRankings() {
         });
     }
 
+}
+
+export function calcRosterAge(players) {
+
+    const calculatedAge = [];
+    var totalAge = 0;
+    var avgAge;
+
+    for(let player of players)
+    {
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+
+        totalAge += parseInt(thisPlayer.age);
+    }
+    
+    avgAge = totalAge / players.length;
+
+    calculatedAge.push ({
+        "AvgAge": avgAge.toFixed(2)
+    });
+
+    return calculatedAge;
+}
+
+function calcPositionAge(players) {
+
+    const calculatedAge = [];
+    var totalAge = 0;
+    var qbAge = 0;
+    var rbAge = 0;
+    var wrAge = 0;
+    var teAge = 0;
+    var values = {"qbAge": 0,"rbAge": 0,"wrAge": 0,"teAge": 0};
+
+    for(let player of players)
+    {
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+
+        if(thisPlayer.position == 'QB')
+        {
+            qbAge += parseInt(thisPlayer.age);
+        }
+        else if(thisPlayer.position == 'RB')
+        {
+            rbAge += parseInt(thisPlayer.age);
+        }
+        else if(thisPlayer.position == 'WR')
+        {
+            wrAge += parseInt(thisPlayer.age);
+        }
+        else if(thisPlayer.position == 'TE')
+        {
+            teAge += parseInt(thisPlayer.age);
+        }
+    }
+    var playerPositionCount = calcPlayerPositions(players);
+    
+    qbAge = qbAge / playerPositionCount[0].QB;
+    rbAge = rbAge / playerPositionCount[0].RB;
+    wrAge = wrAge / playerPositionCount[0].WR;
+    teAge = teAge / playerPositionCount[0].TE;
+
+    values.qbAge = qbAge.toFixed(2);
+    values.rbAge = rbAge.toFixed(2);
+    values.wrAge = wrAge.toFixed(2);
+    values.teAge = teAge.toFixed(2);
+
+    return values;
+}
+
+
+function getTeamStacks(rosterid) {
+
+    var teamStacks = [];
+    var teams = [];
+    var result = {};
+    const rosters = rosterData.map((x) => x);
+    let roster = rosters.find(x => x.roster_id === parseInt(rosterid));
+
+    if(roster)
+    {
+        let rosterPlayers = sortByTeam(roster.players);
+
+        if(rosterPlayers)
+        {
+            //loop through players to get only teams for qbs
+            for(let thisPlayer of rosterPlayers)
+            {
+                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+                
+                if(player.position == 'QB')
+                {
+                    teams.push(player.team)
+                }
+
+            }
+
+            let commonTeams = countCommonTeams(rosterPlayers);
+            //loop through players again and only select ones with qb stacks
+            for(let thisPlayer of rosterPlayers)
+            {
+                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+                
+                if(teams.includes(player.team) && player.position != 'K' && commonTeams[parseInt(player.player_id)] >= 1)
+                {
+                    teamStacks.push({
+                        "player_id": player.player_id,
+                        "team": player.team
+                    });
+                }
+
+            }
+        }
+
+        result['team_stacks'] = teamStacks;
+
+        return result;
+        
+    }
+}
+
+function sortByTeam(players) {
+
+    const sortedPlayers = [];
+    
+    for(let player of players)
+    {
+        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        if(thisPlayer)
+        {
+            sortedPlayers.push({
+                "player_id": thisPlayer.player_id.toString(),
+                "team": thisPlayer.team
+            });
+            
+        }
+    }
+
+    sortedPlayers.sort(function (a, b) {
+        if (a.team > b.team) {
+        return 1;
+        }
+        if (a.team < b.team) {
+        return -1;
+        }
+        return 0;
+    });
+
+    if(sortedPlayers)
+    {
+        return sortedPlayers;
+    }
+}
+
+
+function countCommonTeams(players) {
+
+    const result = {};
+    
+    players.forEach(player => {
+        if (!result[player.player_id]) {
+            result[player.player_id] = 0;
+        }
+        // Loop through the players again to compare teams
+        players.forEach(otherPlayer => {
+            // Count common teams for each player
+            if (player.player_id !== otherPlayer.player_id && player.team === otherPlayer.team) {
+                result[player.player_id]++;
+            }
+        });
+    });
+    
+    return result;
 }
 
 function highestScorerByPosition(rosterid) {
