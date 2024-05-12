@@ -8,13 +8,6 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
 
-export function adder(x, y) {
-    return x + y;
-}
-
-export function subtract(x, y) {
-    return x - y;
-}
 
 function createOwnerAvatarImage(userId) { 
 
