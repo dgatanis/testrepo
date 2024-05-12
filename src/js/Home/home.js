@@ -1,15 +1,11 @@
 import { 
     rosters, 
-    users, 
-    players, 
     createOwnerAvatarImage, 
     getTeamName,
     playoffs
     } from '../util/helper.js';
 
-let userData = users;
 let rosterData = rosters;
-let playerData = players;
 let playoffData = playoffs;
 
 loadContents();
