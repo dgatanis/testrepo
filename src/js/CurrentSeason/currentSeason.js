@@ -1,4 +1,4 @@
-import { rosters, users, players, matchups, playoffs, getFullPlayerName, createOwnerAvatarImage, getRosterStats } from '../util/helper.js';
+import { rosters, users, players, matchups, playoffs, getFullPlayerName, createOwnerAvatarImage, getRosterStats, sortTeamRankings } from '../util/helper.js';
 
 let userData = users;
 let rosterData = rosters;
