@@ -1,4 +1,4 @@
-import { players, rosters } from "./helper.js";
+import { rosters,  players } from '../util/initBrowserData.js';
 
 var rosterData = rosters;
 var playerData = players;
