@@ -8,35 +8,15 @@ const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
 
-function waitForLocalStorageItem(key) {
-    return new Promise((resolve) => {
-        const checkLocalStorage = () => {
-            const item = localStorage.getItem(key);
-            if (item !== null) {
-                resolve(item);
-            } else {
-                setTimeout(checkLocalStorage, 100); // Check again in 100 milliseconds
-            }
-        };
-        checkLocalStorage();
-    });
+export function adder(x, y) {
+    return x + y;
 }
 
-function waitForSessionStorageItem(key) {
-    return new Promise((resolve) => {
-        const checkSessionStorage = () => {
-            const item = sessionStorage.getItem(key);
-            if (item !== null) {
-                resolve(item);
-            } else {
-                setTimeout(checkSessionStorage, 100); // Check again in 100 milliseconds
-            }
-        };
-        checkSessionStorage();
-    });
+export function subtract(x, y) {
+    return x - y;
 }
 
-export function createOwnerAvatarImage(userId) { 
+function createOwnerAvatarImage(userId) { 
 
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
