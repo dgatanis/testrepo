@@ -51,6 +51,10 @@ async function initUserData() {
             console.error('Error loading or executing script:', error);
         }
     }
+    else
+    {
+        return JSON.parse(userDataStorage);
+    }
 }
 
 function waitForLocalStorageItem(key) {
