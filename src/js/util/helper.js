@@ -78,7 +78,7 @@ function waitForLocalStorageItem(key) {
     });
 }
 
-const rosterDatas = initRosterData();
+const rosterDatas = await initRosterData();
 const leagueDatas = initLeagueData();
 const userDatas = initUserData();
 
