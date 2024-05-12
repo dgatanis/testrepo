@@ -3,7 +3,9 @@ import { rosterDatas } from '../util/helper.js';
 let rosterData = rosterDatas;
 console.log(rosterData);
 
-export function thisIsMyTest() {
+
+
+function thisIsMyTest() {
     console.log('myTestFunc');
 }
 

@@ -7,6 +7,7 @@ var matchupData = JSON.parse(matchupWeekStorage);
 const playerDataStorage = localStorage.getItem("PlayerData");
 var playerData = JSON.parse(playerDataStorage); 
 
+loadContents();
 
 // async function checkBrowserData() {
 
