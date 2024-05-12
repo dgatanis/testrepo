@@ -38,3 +38,13 @@ export function createPlayerImage(playerId) {
         return playerimg;
     }
 }
+
+export function createNFLTeamImage(team) {
+    var teamAbrv = team.toLowerCase();
+    var teamImage = document.createElement("img");
+    teamImage.setAttribute("src",  `https://sleepercdn.com/images/team_logos/nfl/${teamAbrv}.png`);
+    teamImage.setAttribute('class', "custom-team-logo");
+    teamImage.setAttribute('title', team);
+
+    return teamImage;
+}
