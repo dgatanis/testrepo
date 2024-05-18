@@ -38,46 +38,50 @@
 }
 
 .custom-qb-roster {
-  color:var(--QB);
+  background-color:var(--QB) !important;
   font-size: large;
+  font-size: large;
+  border-radius: 10px;
+  color: black;
+  border: 1px solid black;
 }
 .custom-rb-roster {
-  background-color: var(--RB);
+  background-color: var(--RB) !important;
   font-size: large;
   border-radius: 10px;
   color: black;
   border: 1px solid black;
 }
 .custom-wr-roster {
-  background-color: var(--WR);
+  background-color: var(--WR) !important;
   font-size: large;
   border-radius: 10px;
   color: black;
   border: 1px solid black;
 }
 .custom-te-roster {
-  background-color: var(--TE);
+  background-color: var(--TE) !important;
   font-size: large;
   border-radius: 10px;
   color: black;
   border: 1px solid black;
 }
 .custom-SF-roster {
-  background-color: #616161;
+  background-color: #616161 !important;
   font-size: large;
   border-radius: 10px;
   color: black;
   border: 1px solid black;
 }
 .custom-FLEX-roster {
-  background-color: #616161;
+  background-color: #616161 !important;
   font-size: large;
   border-radius: 10px;
   color: black;
   border: 1px solid black;
 }
 .custom-k-roster {
-  background-color: var(--K);
+  background-color: var(--K) !important;
   font-size: large;
   border-radius: 10px;
   color: black;
