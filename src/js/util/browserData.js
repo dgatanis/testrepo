@@ -7,6 +7,11 @@ import {
 } 
 from './leagueInfo.js';
 
+import {
+    previousLeagueId
+} 
+from './helper.js';
+
 try{
     setBrowserData();
 }
