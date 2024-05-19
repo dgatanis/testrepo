@@ -178,7 +178,7 @@ async function getMatchupData(leagueID, currentWeek) {
             matchupWeeks
         });
 
-        sessionStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
+        localStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
     }
     catch (error)
     {

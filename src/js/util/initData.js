@@ -114,7 +114,7 @@ async function initMatchupData() {
     if(!dataStorage)
     {   
         try {
-            const dataRes = await waitForSessionStorageItem("MatchupData");
+            const dataRes = await waitForLocalStorageItem("MatchupData");
 
             var data = JSON.parse(dataRes);
 
