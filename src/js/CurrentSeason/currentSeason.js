@@ -31,7 +31,7 @@ async function loadContents() {
         const leagueInfo = await import('../util/leagueInfo.js');
         const currentLeagueId = await leagueInfo.default();
         const currentSeason = await leagueInfo.getCurrentSeason();
-        const currentWeek = leagueInfo.getCurrentWeek();
+        const currentWeek = await leagueInfo.getCurrentWeek();
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
 
