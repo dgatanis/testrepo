@@ -1,7 +1,8 @@
 //Sets the browser data needed for other scripts
 import {
     getCurrentWeek, 
-    getCurrentLeagueId
+    getCurrentLeagueId,
+    getCurrentSeason
 } 
 from './leagueInfo.js';
 
