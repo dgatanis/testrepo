@@ -578,11 +578,6 @@
       margin-left: 7rem;
     }
 
-    .custom-carousel {
-      grid-row: 2;
-      grid-column: 1;
-    }
-
     .custom-matchup-list-item {
       font-size: x-large;
     }
