@@ -35,10 +35,6 @@ async function loadContents() {
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
 
-        // const thisSeason = currentSeason;
-        // const leagueId = currentLeagueId;
-        // const thisWeek = currentWeek;
-
         loadSeasonRankings();
         loadMatchupsList(); 
         loadBankroll(currentWeek,dues,weeklyWinnerPayout); 

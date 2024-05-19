@@ -12,8 +12,6 @@ async function setBrowserData() {
         const leagueInfo = await import('./leagueInfo.js');
         const currentWeek = leagueInfo.getCurrentWeek();
         const currentLeagueId = await leagueInfo.default();
-        const leagueId = currentLeagueId;
-        const thisWeek = currentWeek;
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
@@ -22,13 +20,12 @@ async function setBrowserData() {
         {
             localStorage.clear();
             localStorage.setItem("expiration", expiration); 
-            getPlayers();
-            getRostersForLeague(leagueId);
-            getUserData(leagueId);
-            getLeagueDetails(leagueId);
-            //getPlayoffsMatchups(leagueId); TESTING
-            getPlayoffsMatchups(leagueId);
-            getMatchupData(leagueId,thisWeek); //getMatchupData('1003692635549462528','10');
+            setPlayerData();
+            setRosterData(currentLeagueId);
+            setUserData(currentLeagueId);
+            setLeagueDetails(currentLeagueId);
+            setPlayoffsData(currentLeagueId);
+            setMatchupData(currentLeagueId,currentWeek); //getMatchupData('1003692635549462528','10');
         }
         // if(!sessionStorage.getItem("MatchupData"))
         // {
@@ -42,7 +39,7 @@ async function setBrowserData() {
 
 }
 
-async function getRostersForLeague(leagueID){
+async function setRosterData(leagueID){
     try
     {
         const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
@@ -57,7 +54,7 @@ async function getRostersForLeague(leagueID){
 
 }
 
-async function getPlayoffsMatchups(leagueID) {
+async function setPlayoffsData(leagueID) {
     try
     {
         const playoffResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/winners_bracket`); 
@@ -71,7 +68,7 @@ async function getPlayoffsMatchups(leagueID) {
     }
 }
 
-async function getPlayers() {
+async function setPlayerData() {
 
     try
     {    
@@ -115,7 +112,7 @@ async function getPlayers() {
 }
 
 
-async function getUserData(leagueID){
+async function setUserData(leagueID){
     try {
         const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
         const data = await res.json(); 
@@ -126,7 +123,7 @@ async function getUserData(leagueID){
     }
 }
 
-async function getLeagueDetails(leagueID) {
+async function setLeagueDetails(leagueID) {
     try {
         const leagueData = await fetch(`https://api.sleeper.app/v1/league/${leagueID}`);
         const league = await leagueData.json(); 
@@ -138,7 +135,7 @@ async function getLeagueDetails(leagueID) {
     }
 }
 
-async function getMatchupData(leagueID, currentWeek) {
+async function setMatchupData(leagueID, currentWeek) {
 
     try
     {
