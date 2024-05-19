@@ -15,7 +15,7 @@ async function setBrowserData() {
         
         const currentWeek = await getCurrentWeek();
         const currentLeagueId = await getCurrentLeagueId();
-
+        console.log(currentLeagueId);
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
 
@@ -24,7 +24,7 @@ async function setBrowserData() {
             localStorage.clear();
             localStorage.setItem("expiration", expiration); 
             setPlayerData();
-            //setATLeagueIds();
+            setATLeagueIds();
             setRosterData(currentLeagueId);
             setUserData(currentLeagueId);
             setLeagueDetails(currentLeagueId);
@@ -106,7 +106,7 @@ async function setATLeagueIds() {
             }
         }
 
-    //    localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
+        localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
 
     }
     catch (error){

@@ -109,12 +109,35 @@ async function initPlayoffData() {
 }
 
 async function initMatchupData() {
-    const dataStorage = sessionStorage.getItem("MatchupData");
+    const dataStorage = localStorage.getItem("MatchupData");
 
     if(!dataStorage)
     {   
         try {
             const dataRes = await waitForLocalStorageItem("MatchupData");
+
+            var data = JSON.parse(dataRes);
+
+            return data;
+
+        } catch (error) {
+            console.error('Error loading or executing script:', error);
+        }
+    }
+    else
+    {
+        return JSON.parse(dataStorage);
+    }
+}
+
+async function initATLeagueIdData() {
+
+    const dataStorage = localStorage.getItem("ATLeagueIds");
+
+    if(!dataStorage)
+    {   
+        try {
+            const dataRes = await waitForLocalStorageItem("ATLeagueIds");
 
             var data = JSON.parse(dataRes);
 
@@ -164,6 +187,7 @@ const users = await initUserData();
 const players = await initPlayerData();
 const playoffs = await initPlayoffData();
 const matchups = await initMatchupData();
+const allTimeLeagueIds = await initATLeagueIdData();
 
 export { 
     rosters, 
@@ -172,4 +196,5 @@ export {
     players,
     playoffs,
     matchups,
+    allTimeLeagueIds
 };
