@@ -43,7 +43,7 @@ async function loadContents() {
 
         loadSeasonRankings(leagueId);
         loadBankroll(week,dues,weeklyWinnerPayout); //TESTING
-        getLatestTransactions('1');
+        getLatestTransactions(leagueId, week);
         setSeasonTitle(season);
         loadMatchupsList(); 
         return;
@@ -362,11 +362,11 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 
 }
 
-async function getLatestTransactions(week) {
+async function getLatestTransactions(leagueId,week) {
 
     try {
-        const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
-        //const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
+        //const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
+        const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
         const transactionsData = await transactions.json();
         //transactiontypes: waiver, free_agent, trade
         
