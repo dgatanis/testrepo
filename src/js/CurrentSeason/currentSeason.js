@@ -42,7 +42,7 @@ async function loadContents() {
         const season = thisSeason;
 
         loadSeasonRankings(leagueId);
-        loadBankroll('10',dues,weeklyWinnerPayout); //TESTING
+        loadBankroll(week,dues,weeklyWinnerPayout); //TESTING
         getLatestTransactions('1');
         setSeasonTitle(season);
         loadMatchupsList(); 
