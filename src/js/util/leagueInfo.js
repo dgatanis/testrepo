@@ -5,7 +5,7 @@ export const weeklyWinner = 35; //Amount won for highest weekly scorer
 
 export const inauguralSeason = 2024;
 
-export default async function getCurrentLeagueId() {
+export async function getCurrentLeagueId() {
     try {
         const thisSeason = await getCurrentSeason();
         const myLeagueId = await currentLeagueId(thisSeason);
