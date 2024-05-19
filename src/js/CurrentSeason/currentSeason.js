@@ -369,7 +369,7 @@ async function getLatestTransactions(leagueId,week) {
         let transactionCarousel = document.getElementById("custom_transaction_inner");
         let counter = 0;
 
-        if(noTransactions.classList.contains('custom-block-display'))
+        if(noTransactions.classList.contains('custom-block-display') && allTransactions.length > 0)
         {
             for(let transaction of allTransactions)
             {  
