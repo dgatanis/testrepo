@@ -426,6 +426,10 @@
     flex-direction: column;
   }
 
+  .custom-playoff-team-name {
+    display: inline;
+  }
+
   .round {
     display: flex;
     margin-bottom: 20px;

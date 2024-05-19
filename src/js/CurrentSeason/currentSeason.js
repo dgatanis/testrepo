@@ -672,9 +672,13 @@ function loadPlayoffs() {
         }
         else if(playoffRound.r == 3)//Finals
         {
-            if(playoffRound.t2_from.w)
+            if(team1 && team2)
             {
-                console.log("R3");
+                createPlayoffMatchup('round3', team1, team2, matchupId);
+            }
+            else
+            {
+                createPlayoffMatchup('round3', null, null, matchupId);
             }
         }
         
@@ -682,26 +686,35 @@ function loadPlayoffs() {
 
 }
 
-function createPlayoffMatchup(round, team1, team2 = null, matchupId) {
+function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
     var thisRound = document.getElementById(round);
 
     if(!thisRound.children[0].getAttribute('data-matchup-id'))
     {
         thisRound.children[0].setAttribute('data-matchup-id', matchupId);
 
-        var team1Image = createOwnerAvatarImage(team1.owner_id);
-        var team1Name = document.createElement('div');
-    
-        team1Image.setAttribute('class', 'custom-small-avatar');
-        team1Name.innerText = getTeamName(team1.owner_id);
-        thisRound.children[0].children[0].prepend(team1Image);
-        thisRound.children[0].children[0].append(team1Name);
+        if(team1)
+        {
+            var team1Image = createOwnerAvatarImage(team1.owner_id);
+            var team1Name = document.createElement('div');
+        
+            team1Name.setAttribute('class', 'custom-playoff-team-name');
+            team1Image.setAttribute('class', 'custom-small-avatar');
+            team1Name.innerText = getTeamName(team1.owner_id);
+            thisRound.children[0].children[0].prepend(team1Image);
+            thisRound.children[0].children[0].append(team1Name);
+        }
+        else
+        {
+            thisRound.children[0].children[0].innerText= '...'
+        }
 
         if(team2)
         {
             var team2Image = createOwnerAvatarImage(team2.owner_id);
             var team2Name = document.createElement('div');
 
+            team2Name.setAttribute('class', 'custom-playoff-team-name');
             team2Image.setAttribute('class', 'custom-small-avatar');
             team2Name.innerText = getTeamName(team2.owner_id);
             thisRound.children[0].children[1].prepend(team2Image);
@@ -709,7 +722,7 @@ function createPlayoffMatchup(round, team1, team2 = null, matchupId) {
         }
         else
         {
-            thisRound.children[0].children[1].innerText= '...'
+            thisRound.children[0].children[1].innerText= '...';
         }
     
 
@@ -719,19 +732,27 @@ function createPlayoffMatchup(round, team1, team2 = null, matchupId) {
 
         thisRound.children[1].setAttribute('data-matchup-id', matchupId);
 
-        var team1Image = createOwnerAvatarImage(team1.owner_id);
-        var team1Name = document.createElement('div');
-    
-        team1Image.setAttribute('class', 'custom-small-avatar');
-        team1Name.innerText = getTeamName(team1.owner_id);
-        thisRound.children[1].children[0].prepend(team1Image);
-        thisRound.children[1].children[0].append(team1Name);
-
+        if(team1)
+        {
+            var team1Image = createOwnerAvatarImage(team1.owner_id);
+            var team1Name = document.createElement('div');
+        
+            team1Name.setAttribute('class', 'custom-playoff-team-name');
+            team1Image.setAttribute('class', 'custom-small-avatar');
+            team1Name.innerText = getTeamName(team1.owner_id);
+            thisRound.children[1].children[0].prepend(team1Image);
+            thisRound.children[1].children[0].append(team1Name);
+        }
+        else
+        {
+            thisRound.children[1].children[0].innerText = '...';
+        }
         if(team2)
         {
             var team2Image = createOwnerAvatarImage(team2.owner_id);
             var team2Name = document.createElement('div');
 
+            team2Name.setAttribute('class', 'custom-playoff-team-name');
             team2Image.setAttribute('class', 'custom-small-avatar');
             team2Name.innerText = getTeamName(team2.owner_id);
             thisRound.children[1].children[1].prepend(team2Image);
