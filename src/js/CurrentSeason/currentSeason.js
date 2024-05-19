@@ -672,6 +672,9 @@ function loadPlayoffs() {
         }
         else if(playoffRound.r == 3)//Finals
         {
+            var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
+            var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
+            
             if(team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
             {
                 createPlayoffMatchup('round3', team1, team2, matchupId);
@@ -699,7 +702,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             var team1Name = document.createElement('div');
         
             team1Name.setAttribute('class', 'custom-playoff-team-name');
-            team1Image.setAttribute('class', 'custom-small-avatar');
+            team1Image.setAttribute('class', 'custom-xsmall-avatar');
             team1Name.innerText = getTeamName(team1.owner_id);
             thisRound.children[0].children[0].prepend(team1Image);
             thisRound.children[0].children[0].append(team1Name);
@@ -715,7 +718,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             var team2Name = document.createElement('div');
 
             team2Name.setAttribute('class', 'custom-playoff-team-name');
-            team2Image.setAttribute('class', 'custom-small-avatar');
+            team2Image.setAttribute('class', 'custom-xsmall-avatar');
             team2Name.innerText = getTeamName(team2.owner_id);
             thisRound.children[0].children[2].prepend(team2Image);
             thisRound.children[0].children[2].append(team2Name);
@@ -738,7 +741,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             var team1Name = document.createElement('div');
         
             team1Name.setAttribute('class', 'custom-playoff-team-name');
-            team1Image.setAttribute('class', 'custom-small-avatar');
+            team1Image.setAttribute('class', 'custom-xsmall-avatar');
             team1Name.innerText = getTeamName(team1.owner_id);
             thisRound.children[1].children[0].prepend(team1Image);
             thisRound.children[1].children[0].append(team1Name);
@@ -753,7 +756,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             var team2Name = document.createElement('div');
 
             team2Name.setAttribute('class', 'custom-playoff-team-name');
-            team2Image.setAttribute('class', 'custom-small-avatar');
+            team2Image.setAttribute('class', 'custom-xsmall-avatar');
             team2Name.innerText = getTeamName(team2.owner_id);
             thisRound.children[1].children[2].prepend(team2Image);
             thisRound.children[1].children[2].append(team2Name);

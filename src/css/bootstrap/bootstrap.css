@@ -10975,6 +10975,12 @@ a.custom-nav:hover {
   margin-right: .5rem;
 }
 
+.custom-xsmall-avatar {
+  max-width: 1.5rem;
+  border-radius: 50%;
+  margin-right: .5rem;
+}
+
 .custom-player-avatar {
   margin-right: .5rem;
   display: inline-block;
