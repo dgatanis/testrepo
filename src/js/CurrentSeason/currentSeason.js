@@ -650,35 +650,35 @@ function loadPlayoffs() {
             var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
             var round1 = document.getElementById('round1');
-            console.log(team1);
-            console.log(team2);
-            if(team1)
+
+            if(team1 && team2)
             {
                 if(!round1.children[0].getAttribute('data-matchup-id'))
                 {
                     round1.children[0].setAttribute('data-matchup-id', matchupId);
                     round1.children[0].children[0].innerText = getTeamName(team1.owner_id);
-                }
-                else
-                {
-                    round1.children[1].setAttribute('data-matchup-id', matchupId);
-                    round1.children[1].children[0].innerText = getTeamName(team1.owner_id);
-                }
-
-            }
-            else if(team2)
-            {
-                if(round1.children[0].getAttribute('data-matchup-id'))
-                {
                     round1.children[0].children[1].innerText = getTeamName(team2.owner_id);
                 }
                 else
                 {
                     round1.children[1].setAttribute('data-matchup-id', matchupId);
+                    round1.children[1].children[0].innerText = getTeamName(team1.owner_id);
                     round1.children[1].children[1].innerText = getTeamName(team2.owner_id);
                 }
 
             }
+            // else if(team2)
+            // {
+            //     if(round1.children[0].getAttribute('data-matchup-id'))
+            //     {
+            //         round1.children[0].children[1].innerText = getTeamName(team2.owner_id);
+            //     }
+            //     else
+            //     {
+            //         round1.children[1].children[1].innerText = getTeamName(team2.owner_id);
+            //     }
+
+            // }
         }
         else if(playoffRound.r == 2)//Semis
         {
