@@ -11,7 +11,6 @@ import {
     createNFLTeamImage 
     } from '../util/helper.js';
 
-let userData = users;
 let rosterData = rosters;
 let playerData = players;
 
