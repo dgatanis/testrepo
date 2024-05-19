@@ -16,10 +16,10 @@ let rosterData = rosters;
 let playerData = players;
 
 loadContents();
-
+showNavbar('header-toggle','nav-bar','body-pd','header');
 
    
-function showNavbar (toggleId, navId, bodyId, headerId) {
+function showNavbar(toggleId, navId, bodyId, headerId) {
 
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId),
@@ -39,15 +39,13 @@ function showNavbar (toggleId, navId, bodyId, headerId) {
             headerpd.classList.toggle('body-pd');
         });
     }
+}
 
-    /*===== LINK ACTIVE =====*/
+function colorLink(){
     const linkColor = document.querySelectorAll('.nav_link');
-
-    function colorLink(){
     if(linkColor){
         linkColor.forEach(l=> l.classList.remove('active'));
         this.classList.add('active');
-    }
     }
 }
 
