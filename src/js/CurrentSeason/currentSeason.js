@@ -29,23 +29,22 @@ async function loadContents() {
     try{
 
         const leagueInfo = await import('../util/leagueInfo.js');
-        const leagueInfoLeagueId = leagueInfo.default();
+        const currentLeagueId = await leagueInfo.default();
+        const currentSeason = await leagueInfo.getCurrentSeason();
         const currentWeek = leagueInfo.getCurrentWeek();
-        const currentSeason = leagueInfo.getCurrentSeason();
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
 
-        const currentLeagueId = await leagueInfoLeagueId;
-        const thisSeason = await currentSeason;
-        const leagueId = currentLeagueId;
-        const week = currentWeek;
-        const season = thisSeason;
+        // const thisSeason = currentSeason;
+        // const leagueId = currentLeagueId;
+        // const thisWeek = currentWeek;
 
-        loadSeasonRankings(leagueId);
-        loadBankroll(week,dues,weeklyWinnerPayout); //TESTING
-        getLatestTransactions(leagueId, week);
-        setSeasonTitle(season);
+        loadSeasonRankings();
         loadMatchupsList(); 
+        loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
+        getLatestTransactions(currentLeagueId, currentWeek); //getLatestTransactions('1003692635549462528','10');
+        setSeasonTitle(currentSeason);
+        
         return;
     }
     catch (error){
@@ -60,11 +59,10 @@ function setSeasonTitle(season) {
     seasonTitle.innerText= season + " Season";
 }
 
-function loadSeasonRankings(leagueId) { 
+function loadSeasonRankings() { 
 
     try {
     
-        const users = userData.map((user) => user);
         var powerRank = 1;
         const sortedTeams = sortTeamRankings();
         
