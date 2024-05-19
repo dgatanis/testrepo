@@ -1,0 +1,41 @@
+import { 
+    rosters, 
+    users, 
+    players, 
+    matchups, 
+    playoffs, 
+    getFullPlayerName, 
+    createOwnerAvatarImage, 
+    getRosterStats, 
+    sortTeamRankings, 
+    createPlayerImage,
+    getTeamName,
+    getMatchupWeekWinner,
+    getRosterHighScorerWeek,
+    highScorerInMatchupStarters,
+    previousLeagueId 
+    } from '../util/helper.js';
+import { 
+    getCurrentSeason
+        } from '../util/leagueInfo.js';
+
+let userData = users;
+let rosterData = rosters;
+let playerData = players;
+let matchupData = matchups;
+let playoffData = playoffs;
+
+loadContents();
+
+//This loads the page contents dynamically
+async function loadContents() {
+    try{
+        var year = getCurrentSeason();
+        var test = previousLeagueId(year);
+        console.log(test); 
+    }
+    catch (error){
+        console.error(`Error: ${error.message}`);
+    }
+
+}
