@@ -2,7 +2,8 @@
 import {
     getCurrentWeek, 
     getCurrentLeagueId,
-    getCurrentSeason
+    getCurrentSeason,
+    inauguralSeason
 } 
 from './leagueInfo.js';
 
