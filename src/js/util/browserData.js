@@ -10,9 +10,8 @@ async function setBrowserData() {
     try{
 
         const leagueInfo = await import('./leagueInfo.js');
-        const leagueInfoLeagueId = leagueInfo.default();
         const currentWeek = leagueInfo.getCurrentWeek();
-        const currentLeagueId = await leagueInfoLeagueId;
+        const currentLeagueId = await leagueInfo.default();
         const leagueId = currentLeagueId;
         const thisWeek = currentWeek;
 
@@ -29,16 +28,17 @@ async function setBrowserData() {
             getLeagueDetails(leagueId);
             //getPlayoffsMatchups(leagueId); TESTING
             getPlayoffsMatchups('1003692635549462528');
+            getMatchupData(leagueId,'10');
         }
-        if(!sessionStorage.getItem("MatchupData"))
-        {
-            //TESTING
-            //setMatchupData(leagueId,currentWeek);
-            getMatchupData('1003692635549462528','10');
-            //console.log(leagueId + " " + thisWeek);
-            //getMatchupData(leagueId,thisWeek);
+        // if(!sessionStorage.getItem("MatchupData"))
+        // {
+        //     //TESTING
+        //     //setMatchupData(leagueId,currentWeek);
+            
+        //     //console.log(leagueId + " " + thisWeek);
+        //     //getMatchupData(leagueId,thisWeek);
 
-        }
+        // }
         
     }
     catch(error){
