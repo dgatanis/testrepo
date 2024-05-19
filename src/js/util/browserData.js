@@ -28,7 +28,7 @@ async function setBrowserData() {
             getLeagueDetails(leagueId);
             //getPlayoffsMatchups(leagueId); TESTING
             getPlayoffsMatchups('1003692635549462528');
-            getMatchupData(leagueId,'10');
+            getMatchupData(leagueId,thisWeek);
         }
         // if(!sessionStorage.getItem("MatchupData"))
         // {

@@ -856,7 +856,11 @@ function loadMatchupsList(){
     {
         var accordionItem = createAccordionItem(i);
         matchupDiv.appendChild(accordionItem);
-        loadMatchups(i);
+        if(currentWeek > 0)
+        {
+            loadMatchups(i);
+        }
+        
     }
     if(currentWeek > 0)
     {
