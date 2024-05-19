@@ -650,7 +650,8 @@ function loadPlayoffs() {
             var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
             var round1 = document.getElementById('round1');
-
+            console.log(team1);
+            console.log(team2);
             if(team1)
             {
                 if(!round1.children[0].getAttribute('data-matchup-id'))
