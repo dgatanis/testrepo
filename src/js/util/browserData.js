@@ -1,5 +1,5 @@
 //Sets the browser data needed for other scripts
-import { getCurrentWeek, getCurrentLeagueId, getCurrentSeason, inauguralSeason } from './leagueInfo.js';
+import { getCurrentWeek, getCurrentLeagueId , getCurrentSeason, inauguralSeason } from './leagueInfo.js';
 import { previousLeagueId } from './helper.js';
 
 try{
