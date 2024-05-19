@@ -109,7 +109,7 @@ async function setATLeagueIds() {
 
                 if(lastLeagueId == 0)
                 {
-                    const currentLeagueId = leagueInfo.default();
+                    const currentLeagueId = await leagueInfo.default();
                     leagueIds.ATLeagueId.push({
                         "league_id": currentLeagueId 
                     });  
