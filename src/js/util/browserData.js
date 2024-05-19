@@ -105,7 +105,7 @@ async function setATLeagueIds() {
             }
         }
 
-        localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
+    //    localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
 
     }
     catch (error){
