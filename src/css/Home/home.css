@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 
-.card:hover {
+.card:hover, .card:active {
     color: #fff;
     background-color: #475664;
     border-color: transparent;
@@ -104,13 +104,6 @@
 
     .custom-team-card {
         width: 100%;
-    }
-
-    .card:active {
-        color: #fff;
-        background-color: #475664;
-        border-color: transparent;
-        transition: all .75s ease;
     }
 
     .custom-teams {
