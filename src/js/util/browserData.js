@@ -25,7 +25,8 @@ async function setBrowserData() {
             setUserData(currentLeagueId);
             setLeagueDetails(currentLeagueId);
             setPlayoffsData(currentLeagueId);
-            setMatchupData(currentLeagueId,currentWeek); //getMatchupData('1003692635549462528','10');
+            //setMatchupData(currentLeagueId,currentWeek); 
+            setMatchupData('1003692635549462528','10');
         }
         // if(!sessionStorage.getItem("MatchupData"))
         // {
