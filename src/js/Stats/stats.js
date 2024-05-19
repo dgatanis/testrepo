@@ -40,7 +40,7 @@ async function loadContents() {
             while(lastLeagueId != 0)
             {
                 lastLeagueId = await previousLeagueId(i);
-                console.log(previousLeagueId); 
+                console.log(lastLeagueId); 
             }
         }
 
