@@ -643,10 +643,11 @@ function loadPlayoffs() {
     
     for(let playoffRound of thePlayoffs)
     {
-        
+        var matchupId = playoffRound.m;
+
         if(playoffRound.r == 1)//Round 1
         {
-            console.log(1);
+            console.log("R1");
         }
         else if(playoffRound.r == 2)//Semis
         {
@@ -654,24 +655,20 @@ function loadPlayoffs() {
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
             var round2Game1 = document.getElementById('r2g1');
 
-            console.log(getTeamName(team1.owner_id));
-            console.log(getTeamName(team2.owner_id));
-            // round2Game1.children[0].innerText = getTeamName(team1.owner_id);
-            // round2Game1.children[1].innerText = getTeamName(team2.owner_id);
-            // if(playoffRound.t2_from.w)
-            // {
-                
-            // }
-            // else 
-            // {
-                
-            // }
+            if(team1)
+            {
+                round2Game1.children[0].innerText = getTeamName(team1.owner_id);
+            }
+            else if(team2)
+            {
+                round2Game1.children[1].innerText = getTeamName(team2.owner_id);
+            }
         }
         else if(playoffRound.r == 3)//Finals
         {
             if(playoffRound.t2_from.w)
             {
-
+                console.log("R3");
             }
         }
         
