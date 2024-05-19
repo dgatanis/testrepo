@@ -655,39 +655,42 @@ function loadPlayoffs() {
             {
                 if(!round1.children[0].getAttribute('data-matchup-id'))
                 {
-                    var teamName = document.createElement('div');
-                    var teamImage;
-                    round1.children[0].setAttribute('data-matchup-id', matchupId);
 
-                    teamImage = createOwnerAvatarImage(team1.owner_id);
-                    teamImage.setAttribute('class', 'custom-small-avatar');
-                    teamName.innerText = getTeamName(team1.owner_id);
-                    round1.children[0].children[0].prepend(teamImage);
-                    round1.children[0].children[0].append(teamName);
+                    createPlayoffMatchup('round1', team1, team2);
+                    // var teamName = document.createElement('div');
+                    // var teamImage;
+                    // round1.children[0].setAttribute('data-matchup-id', matchupId);
 
-                    teamImage = createOwnerAvatarImage(team2.owner_id);
-                    teamImage.setAttribute('class', 'custom-small-avatar');
-                    teamName.innerText = getTeamName(team2.owner_id);
-                    round1.children[0].children[1].prepend(teamImage);
-                    round1.children[0].children[1].append(teamName);
+                    // teamImage = createOwnerAvatarImage(team1.owner_id);
+                    // teamImage.setAttribute('class', 'custom-small-avatar');
+                    // teamName.innerText = getTeamName(team1.owner_id);
+                    // round1.children[0].children[0].prepend(teamImage);
+                    // round1.children[0].children[0].append(teamName);
+
+                    // teamImage = createOwnerAvatarImage(team2.owner_id);
+                    // teamImage.setAttribute('class', 'custom-small-avatar');
+                    // teamName.innerText = getTeamName(team2.owner_id);
+                    // round1.children[0].children[1].prepend(teamImage);
+                    // round1.children[0].children[1].append(teamName);
                 }
                 else
                 {
-                    var teamName = document.createElement('div');
-                    var teamImage;
-                    round1.children[1].setAttribute('data-matchup-id', matchupId);
+                    createPlayoffMatchup('round1', team1, team2);
+                    // var teamName = document.createElement('div');
+                    // var teamImage;
+                    // round1.children[1].setAttribute('data-matchup-id', matchupId);
 
-                    teamImage = createOwnerAvatarImage(team1.owner_id);
-                    teamImage.setAttribute('class', 'custom-small-avatar');
-                    teamName.innerText = getTeamName(team1.owner_id);
-                    round1.children[1].children[0].prepend(teamImage);
-                    round1.children[1].children[0].append(teamName);
+                    // teamImage = createOwnerAvatarImage(team1.owner_id);
+                    // teamImage.setAttribute('class', 'custom-small-avatar');
+                    // teamName.innerText = getTeamName(team1.owner_id);
+                    // round1.children[1].children[0].prepend(teamImage);
+                    // round1.children[1].children[0].append(teamName);
 
-                    teamImage = createOwnerAvatarImage(team2.owner_id);
-                    teamImage.setAttribute('class', 'custom-small-avatar');
-                    teamName.innerText = getTeamName(team2.owner_id);
-                    round1.children[1].children[1].prepend(teamImage);
-                    round1.children[1].children[1].append(teamName);
+                    // teamImage = createOwnerAvatarImage(team2.owner_id);
+                    // teamImage.setAttribute('class', 'custom-small-avatar');
+                    // teamName.innerText = getTeamName(team2.owner_id);
+                    // round1.children[1].children[1].prepend(teamImage);
+                    // round1.children[1].children[1].append(teamName);
                 }
 
             }
@@ -746,6 +749,48 @@ function loadPlayoffs() {
             }
         }
         
+    }
+
+}
+
+function createPlayoffMatchup(round, team1, team2) {
+    var thisRound = document.getElementById(round);
+
+    if(!thisRound.children[0].getAttribute('data-matchup-id'))
+    {
+        var teamName = document.createElement('div');
+        var teamImage;
+        round.children[0].setAttribute('data-matchup-id', matchupId);
+    
+        teamImage = createOwnerAvatarImage(team1.owner_id);
+        teamImage.setAttribute('class', 'custom-small-avatar');
+        teamName.innerText = getTeamName(team1.owner_id);
+        round.children[0].children[0].prepend(teamImage);
+        round.children[0].children[0].append(teamName);
+    
+        teamImage = createOwnerAvatarImage(team2.owner_id);
+        teamImage.setAttribute('class', 'custom-small-avatar');
+        teamName.innerText = getTeamName(team2.owner_id);
+        round.children[0].children[1].prepend(teamImage);
+        round.children[0].children[1].append(teamName);
+    }
+    else
+    {
+        var teamName = document.createElement('div');
+        var teamImage;
+        round.children[1].setAttribute('data-matchup-id', matchupId);
+
+        teamImage = createOwnerAvatarImage(team1.owner_id);
+        teamImage.setAttribute('class', 'custom-small-avatar');
+        teamName.innerText = getTeamName(team1.owner_id);
+        round.children[1].children[0].prepend(teamImage);
+        round.children[1].children[0].append(teamName);
+
+        teamImage = createOwnerAvatarImage(team2.owner_id);
+        teamImage.setAttribute('class', 'custom-small-avatar');
+        teamName.innerText = getTeamName(team2.owner_id);
+        round.children[1].children[1].prepend(teamImage);
+        round.children[1].children[1].append(teamName);
     }
 
 }
