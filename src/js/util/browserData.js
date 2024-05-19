@@ -1,4 +1,10 @@
 //Sets the browser data needed for other scripts
+import {
+    getCurrentWeek, 
+    getCurrentLeagueId
+} 
+from './leagueInfo.js';
+
 try{
     setBrowserData();
 }
@@ -9,9 +15,9 @@ catch (error) {
 async function setBrowserData() {
     try{
 
-        const leagueInfo = await import('./leagueInfo.js');
-        const currentWeek = leagueInfo.getCurrentWeek();
-        const currentLeagueId = await leagueInfo.default();
+        
+        const currentWeek = await getCurrentWeek();
+        const currentLeagueId = await getCurrentLeagueId();
 
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
@@ -21,6 +27,7 @@ async function setBrowserData() {
             localStorage.clear();
             localStorage.setItem("expiration", expiration); 
             setPlayerData();
+            setATLeagueIds();
             setRosterData(currentLeagueId);
             setUserData(currentLeagueId);
             setLeagueDetails(currentLeagueId);
@@ -66,6 +73,46 @@ async function setPlayoffsData(leagueID) {
     }
     catch (error) {
         console.log(error);
+    }
+}
+
+async function setATLeagueIds() {
+
+    var leagueIds = { 
+        "ATLeagueId" : []
+    };
+
+    try{
+        var year = await getCurrentSeason();
+        var lastLeagueId;
+        const firstSeason = inauguralSeason;
+
+        for(var i=year; i>=firstSeason; i--)
+        {
+            while(lastLeagueId != 0)
+            {
+                lastLeagueId = await previousLeagueId(i);
+                if(lastLeagueId == 0)
+                {
+                    const currentLeagueId = await getCurrentLeagueId();
+                    leagueIds.push({
+                        "league_id": currentLeagueId 
+                    });  
+                }
+                else
+                {
+                    leagueIds.push({
+                        "league_id": lastLeagueId 
+                    });  
+                }
+            }
+        }
+
+        localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
+
+    }
+    catch (error){
+        console.error(`Error: ${error.message}`);
     }
 }
 
