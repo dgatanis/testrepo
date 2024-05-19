@@ -24,7 +24,7 @@ async function setBrowserData() {
             localStorage.clear();
             localStorage.setItem("expiration", expiration); 
             setPlayerData();
-            setATLeagueIds();
+            //setATLeagueIds();
             setRosterData(currentLeagueId);
             setUserData(currentLeagueId);
             setLeagueDetails(currentLeagueId);
@@ -89,6 +89,7 @@ async function setATLeagueIds() {
             while(lastLeagueId != 0)
             {
                 lastLeagueId = await previousLeagueId(i);
+
                 if(lastLeagueId == 0)
                 {
                     const currentLeagueId = await getCurrentLeagueId();
