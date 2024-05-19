@@ -262,7 +262,7 @@
     clear: inline-end;
     float: left;
     padding-bottom: 4rem;
-    width: 30rem;
+    width: 35rem;
     text-align: center;
     grid-row: 1;
     grid-column: 2;
@@ -500,7 +500,9 @@
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
-
+    .custom-carousel {
+      width: 30rem;
+    }
     .custom-matchup-row .custom-medium-avatar {
       max-width: 2.5rem;
     }
