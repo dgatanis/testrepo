@@ -278,11 +278,11 @@
   }
 
   .custom-playoffs-bracket{
-    clear: inline-end;
-    float: right;
-    padding-bottom: 4rem;
+    width: 100%;
     grid-row: 1;
     grid-column: 3;
+    margin: auto;
+    max-width: 25rem;
   }
 
   #custom_transaction_inner {
@@ -568,10 +568,6 @@
 
     .custom-matchup-icon-medium{
       max-width: 1.5rem;
-    }
-
-    .custom-playoffs-bracket {
-      grid-column: 2;
     }
 
     .custom-date-transaction {
