@@ -262,7 +262,7 @@
     clear: inline-end;
     float: left;
     padding-bottom: 4rem;
-    width: 100%;
+    width: 30rem;
     text-align: center;
     grid-row: 1;
     grid-column: 2;
@@ -278,7 +278,6 @@
   }
 
   .custom-playoffs-bracket{
-    width: 100%;
     grid-row: 1;
     grid-column: 3;
     margin: auto;
@@ -531,9 +530,8 @@
     }
 
     .custom-bankroll {
-      width: 100%;
       max-width: 25rem;
-  }
+    }
 
     .custom-matchup-row {
       font-size: 1rem;
@@ -598,6 +596,12 @@
       100% {
         transform: translateX(85vw);
       }
+    }
+
+    .custom-carousel {
+      grid-column: 1;
+      grid-row: 3;
+      width: 100%
     }
 
     .custom-team-score {
