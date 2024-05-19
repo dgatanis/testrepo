@@ -672,11 +672,11 @@ function loadPlayoffs() {
         }
         else if(playoffRound.r == 3)//Finals
         {
-            if(team1 && team2)
+            if(team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
             {
                 createPlayoffMatchup('round3', team1, team2, matchupId);
             }
-            else
+            else if (playoffRound.t1_from.w && (!team1 || !team2))
             {
                 createPlayoffMatchup('round3', null, null, matchupId);
             }
@@ -760,7 +760,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
         }
         else
         {
-            thisRound.children[1].children[1].innerText= '...'
+            thisRound.children[1].children[1].innerText= '...';
         }
     }
 
