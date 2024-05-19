@@ -106,7 +106,7 @@
         width: 100%;
     }
 
-    .custom-team-card:active {
+    .card:active {
         color: #fff;
         background-color: #475664;
         border-color: transparent;
