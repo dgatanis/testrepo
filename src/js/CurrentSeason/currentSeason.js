@@ -655,19 +655,29 @@ function loadPlayoffs() {
             {
                 if(!round1.children[0].getAttribute('data-matchup-id'))
                 {
+                    var teamName = document.createElement('div');
                     round1.children[0].setAttribute('data-matchup-id', matchupId);
+
+                    teamName.innerText = getTeamName(team1.owner_id);
                     round1.children[0].children[0].prepend(createOwnerAvatarImage(team1.owner_id));
-                    round1.children[0].children[0].innerText = getTeamName(team1.owner_id);
+                    round1.children[0].children[0].append(teamName);
+
+                    teamName.innerText = getTeamName(team2.owner_id);
                     round1.children[0].children[1].prepend(createOwnerAvatarImage(team2.owner_id));
-                    round1.children[0].children[1].innerText = getTeamName(team2.owner_id);
+                    round1.children[0].children[1].append(teamName);
                 }
                 else
                 {
+                    var teamName = document.createElement('div');
                     round1.children[1].setAttribute('data-matchup-id', matchupId);
+
+                    teamName.innerText = getTeamName(team1.owner_id);
                     round1.children[1].children[0].prepend(createOwnerAvatarImage(team1.owner_id));
-                    round1.children[1].children[0].innerText = getTeamName(team1.owner_id);
+                    round1.children[1].children[0].append(teamName);
+
+                    teamName.innerText = getTeamName(team2.owner_id);
                     round1.children[1].children[1].prepend(createOwnerAvatarImage(team2.owner_id));
-                    round1.children[1].children[1].innerText = getTeamName(team2.owner_id);
+                    round1.children[1].children[1].append(teamName);
                 }
 
             }

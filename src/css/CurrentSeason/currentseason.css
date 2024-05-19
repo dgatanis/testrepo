@@ -445,6 +445,7 @@
     background-color: #f9f9f9;
     text-align: center;
     width: 13rem;
+    font-size: smaller;
   }
 
   .custom-nomatchup {
