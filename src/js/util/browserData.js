@@ -1,5 +1,5 @@
 //Sets the browser data needed for other scripts
-import { getCurrentWeek, getCurrentLeagueId , getCurrentSeason, inauguralSeason } from './leagueInfo.js';
+import { getCurrentWeek, getCurrentSeason, inauguralSeason } from './leagueInfo.js';
 import { previousLeagueId } from './helper.js';
 
 try{
@@ -12,9 +12,9 @@ catch (error) {
 async function setBrowserData() {
     try{
 
-        
+        const leagueInfo = await import('./leagueInfo.js');
         const currentWeek = await getCurrentWeek();
-        const currentLeagueId = await getCurrentLeagueId();
+        const currentLeagueId = await leagueInfo.default();
         console.log(currentLeagueId);
         const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
         const now = new Date().getTime();
