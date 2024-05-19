@@ -635,6 +635,45 @@ async function getLatestTransactions(leagueId,week) {
     }
 }
 
+function loadPlayoffs() {
+    var playoffs = JSON.parse(playoffData);
+    
+    for(let playoffRound of playoffs)
+    {
+        
+        if(playoffRound.r == 1)//Round 1
+        {
+            console.log(1);
+        }
+        else if(playoffRound.r == 2)//Semis
+        {
+            var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
+            var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
+            var round2Game1 = document.getElementById('r2g1');
+
+            round2Game1.children[0].innerText = getTeamName(team1.owner_id);
+            round2Game1.children[1].innerText = getTeamName(team2.owner_id);
+            // if(playoffRound.t2_from.w)
+            // {
+                
+            // }
+            // else 
+            // {
+                
+            // }
+        }
+        else if(playoffRound.r == 3)//Finals
+        {
+            if(playoffRound.t2_from.w)
+            {
+
+            }
+        }
+        
+    }
+
+}
+
 function getFormattedTransactionData(transactions){
 
     const allTransactions = [];
