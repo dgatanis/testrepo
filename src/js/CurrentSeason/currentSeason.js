@@ -653,15 +653,35 @@ function loadPlayoffs() {
         {
             var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
-            var round2Game1 = document.getElementById('r2g1');
+            var round2 = document.getElementById('round2');
 
             if(team1)
             {
-                round2Game1.children[0].innerText = getTeamName(team1.owner_id);
+                if(!round2.children[0].getAttribute('data-matchup-id'))
+                {
+                    round2.children[0].setAttribute('data-matchup-id', matchupId);
+                    round2.children[0].children[0].innerText = getTeamName(team1.owner_id);
+                }
+                else
+                {
+                    round2.children[1].setAttribute('data-matchup-id', matchupId);
+                    round2.children[1].children[0].innerText = getTeamName(team1.owner_id);
+                }
+
             }
             else if(team2)
             {
-                round2Game1.children[1].innerText = getTeamName(team2.owner_id);
+                if(!round2.children[0].getAttribute('data-matchup-id'))
+                {
+                    round2.children[0].setAttribute('data-matchup-id', matchupId);
+                    round2.children[0].children[1].innerText = getTeamName(team2.owner_id);
+                }
+                else
+                {
+                    round2.children[1].setAttribute('data-matchup-id', matchupId);
+                    round2.children[1].children[1].innerText = getTeamName(team2.owner_id);
+                }
+
             }
         }
         else if(playoffRound.r == 3)//Finals
