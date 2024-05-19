@@ -12,7 +12,7 @@ img#loadingIcon {
     overflow: hidden;
 }
 
-@media screen and (max-width: 26.563rem) {
+@media screen and (max-width: 26.875rem) {
     img#loadingIcon {
         max-width: 6rem;
         max-height: 6rem;

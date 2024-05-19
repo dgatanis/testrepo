@@ -11186,7 +11186,7 @@ ul.nav.nav-tabs {
 
 /* Custom Mobile responsive display */
 
-@media screen and (max-width: 26.563rem) {
+@media screen and (max-width: 26.875rem) {
   .custom-body {
     padding: unset;
     margin: unset;

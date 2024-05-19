@@ -389,7 +389,7 @@ th, td {
   }
 
   /*Large Mobile display styling*/
-  @media screen and (max-width: 26.563rem) {
+  @media screen and (max-width: 26.875rem) {
 
     .custom-roster-group {
       margin : unset !important;
