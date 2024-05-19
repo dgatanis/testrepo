@@ -638,9 +638,10 @@ async function getLatestTransactions(leagueId,week) {
 }
 
 function loadPlayoffs() {
-    var playoffs = JSON.parse(playoffData);
     
-    for(let playoffRound of playoffs)
+    var thePlayoffs = JSON.parse(playoffData);
+    
+    for(let playoffRound of thePlayoffs)
     {
         
         if(playoffRound.r == 1)//Round 1
