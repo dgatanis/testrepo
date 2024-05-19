@@ -106,6 +106,13 @@
         width: 100%;
     }
 
+    .custom-team-card:active {
+        color: #fff;
+        background-color: #475664;
+        border-color: transparent;
+        transition: all .75s ease;
+    }
+
     .custom-teams {
         grid-row: 2;
         grid-column: 1;
