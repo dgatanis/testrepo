@@ -281,7 +281,7 @@
     grid-row: 1;
     grid-column: 3;
     margin: auto;
-    max-width: 25rem;
+    max-width: fit-content;
   }
 
   #custom_transaction_inner {
