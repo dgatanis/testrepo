@@ -35,7 +35,7 @@ async function loadContents() {
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
 
-        //loadPlayoffs();
+        loadPlayoffs();
         loadSeasonRankings();
         loadMatchupsList(); 
         loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
@@ -653,8 +653,10 @@ function loadPlayoffs() {
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
             var round2Game1 = document.getElementById('r2g1');
 
-            round2Game1.children[0].innerText = getTeamName(team1.owner_id);
-            round2Game1.children[1].innerText = getTeamName(team2.owner_id);
+            console.log(getTeamName(team1.owner_id));
+            console.log(getTeamName(team2.owner_id));
+            // round2Game1.children[0].innerText = getTeamName(team1.owner_id);
+            // round2Game1.children[1].innerText = getTeamName(team2.owner_id);
             // if(playoffRound.t2_from.w)
             // {
                 
