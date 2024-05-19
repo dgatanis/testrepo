@@ -653,7 +653,7 @@ function loadPlayoffs() {
 
             if(team1 && team2)
             {
-                createPlayoffMatchup('round1', team1, team2);
+                createPlayoffMatchup('round1', team1, team2, matchupId);
                 // if(!round1.children[0].getAttribute('data-matchup-id'))
                 // {
 
@@ -754,7 +754,7 @@ function loadPlayoffs() {
 
 }
 
-function createPlayoffMatchup(round, team1, team2) {
+function createPlayoffMatchup(round, team1, team2, matchupId) {
     var thisRound = document.getElementById(round);
 
     if(!thisRound.children[0].getAttribute('data-matchup-id'))
