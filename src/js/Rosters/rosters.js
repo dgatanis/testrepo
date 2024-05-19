@@ -16,38 +16,6 @@ let rosterData = rosters;
 let playerData = players;
 
 loadContents();
-showNavbar('header-toggle','nav-bar','body-pd','header');
-
-   
-function showNavbar(toggleId, navId, bodyId, headerId) {
-
-    const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId),
-    bodypd = document.getElementById(bodyId),
-    headerpd = document.getElementById(headerId)
-
-    // Validate that all variables exist
-    if(toggle && nav && bodypd && headerpd){
-        toggle.addEventListener('click', ()=>{
-            // show navbar
-            nav.classList.toggle('show');
-            // change icon
-            toggle.classList.toggle('bx-x');
-            // add padding to body
-            bodypd.classList.toggle('body-pd');
-            // add padding to header
-            headerpd.classList.toggle('body-pd');
-        });
-    }
-}
-
-function colorLink(){
-    const linkColor = document.querySelectorAll('.nav_link');
-    if(linkColor){
-        linkColor.forEach(l=> l.classList.remove('active'));
-        this.classList.add('active');
-    }
-}
 
 //This loads the page contents dynamically
 function loadContents() {
