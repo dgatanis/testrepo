@@ -69,7 +69,7 @@ async function getNFLState() {
 
 }
 
-async function previousLeagueId(thisYear) {
+export async function previousLeagueId(thisYear) {
     const myUserId = '467550885086490624';
     const leagueName = "Crush Cities ";
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
