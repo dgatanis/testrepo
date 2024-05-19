@@ -110,13 +110,13 @@ async function setATLeagueIds() {
                 if(lastLeagueId == 0)
                 {
                     const currentLeagueId = leagueInfo.default();
-                    leagueIds.push({
+                    leagueIds.ATLeagueId.push({
                         "league_id": currentLeagueId 
                     });  
                 }
                 else
                 {
-                    leagueIds.push({
+                    leagueIds.ATLeagueId.push({
                         "league_id": lastLeagueId 
                     });  
                 }
