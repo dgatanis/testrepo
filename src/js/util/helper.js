@@ -26,6 +26,5 @@ export {
     calcRosterAge,
     getMatchupWeekWinner,
     getRosterHighScorerWeek,
-    highScorerInMatchupStarters,
-    previousLeagueId
+    highScorerInMatchupStarters
 };

@@ -1,5 +1,6 @@
 //Sets the browser data needed for other scripts
 import { getCurrentWeek, getCurrentSeason, inauguralSeason } from './leagueInfo.js';
+const leagueInfo = await import('./leagueInfo.js');
 
 try{
     setBrowserData();
@@ -11,7 +12,6 @@ catch (error) {
 async function setBrowserData() {
     try{
 
-        const leagueInfo = await import('./leagueInfo.js');
         const currentWeek = await getCurrentWeek();
         const currentLeagueId = await leagueInfo.default();
 
@@ -109,7 +109,7 @@ async function setATLeagueIds() {
 
                 if(lastLeagueId == 0)
                 {
-                    const currentLeagueId = await getCurrentLeagueId();
+                    const currentLeagueId = leagueInfo.default();
                     leagueIds.push({
                         "league_id": currentLeagueId 
                     });  
