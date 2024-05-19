@@ -598,6 +598,10 @@
       }
     }
 
+    .custom-body {
+      overflow: unset !important;
+    }
+
     .custom-carousel {
       grid-column: 1;
       grid-row: 3;
@@ -715,12 +719,6 @@
       float: unset;
       text-align: left;
       margin: unset;
-    }
-
-    .custom-carousel {
-      width: 100%;
-      max-width: unset;
-      grid-row: 3;
     }
 
     .custom-carousel-item {
