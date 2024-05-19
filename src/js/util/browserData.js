@@ -27,16 +27,11 @@ async function setBrowserData() {
             getUserData(leagueId);
             getLeagueDetails(leagueId);
             //getPlayoffsMatchups(leagueId); TESTING
-            getPlayoffsMatchups('1003692635549462528');
-            getMatchupData(leagueId,thisWeek);
+            getPlayoffsMatchups(leagueId);
+            getMatchupData(leagueId,thisWeek); //getMatchupData('1003692635549462528','10');
         }
         // if(!sessionStorage.getItem("MatchupData"))
         // {
-        //     //TESTING
-        //     //setMatchupData(leagueId,currentWeek);
-            
-        //     //console.log(leagueId + " " + thisWeek);
-        //     //getMatchupData(leagueId,thisWeek);
 
         // }
         
@@ -148,7 +143,6 @@ async function getMatchupData(leagueID, currentWeek) {
     try
     {
         let totalWeeksPlayed = parseInt(currentWeek);
-        //leagueID = '1003692635549462528'; //TESTING LEAGUE
         let matchupWeeks = [];
         let upToCurrentWeekMatchups = [];
 
