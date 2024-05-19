@@ -31,7 +31,7 @@ loadContents();
 //This loads the page contents dynamically
 async function loadContents() {
     try{
-        var year = getCurrentSeason();
+        var year = await getCurrentSeason();
         var lastLeagueId;
         const firstSeason = inauguralSeason;
 
