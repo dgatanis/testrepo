@@ -35,7 +35,7 @@ async function loadContents() {
         var previousLeagueId;
         const firstSeason = inauguralSeason;
 
-        for(i=year; i >= firstSeason; i--)
+        for(var i=year; i>=firstSeason; i--)
         {
             while(previousLeagueId != 0)
             {
