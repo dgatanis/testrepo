@@ -638,8 +638,8 @@ async function getLatestTransactions(leagueId,week) {
 }
 
 function loadPlayoffs() {
-    
-    var thePlayoffs = JSON.parse(playoffData);
+
+    var thePlayoffs = playoffData;
     
     for(let playoffRound of thePlayoffs)
     {
