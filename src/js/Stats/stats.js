@@ -16,7 +16,8 @@ import {
     previousLeagueId 
     } from '../util/helper.js';
 import { 
-    getCurrentSeason
+    getCurrentSeason,
+    inauguralSeason
         } from '../util/leagueInfo.js';
 
 let userData = users;
@@ -31,8 +32,18 @@ loadContents();
 async function loadContents() {
     try{
         var year = getCurrentSeason();
-        var test = previousLeagueId(year);
-        console.log(test); 
+        var previousLeagueId;
+
+        for(i=year; i >= inauguralSeason; i--)
+        {
+            while(previousLeagueId != 0)
+            {
+                var previousLeagueId = await previousLeagueId(i);
+                console.log(previousLeagueId); 
+            }
+        }
+
+
     }
     catch (error){
         console.error(`Error: ${error.message}`);
