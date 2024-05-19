@@ -1,5 +1,6 @@
-export const leagueDisplayName = "Crush Cities";
+export const leagueDisplayName = "Crush Cities ";
 export const dues = 200; 
+export const leagueUser = '467550885086490624';
 export const dynasty = true; 
 export const weeklyWinner = 35; //Amount won for highest weekly scorer
 
@@ -39,8 +40,8 @@ export async function getCurrentWeek() {
 }
 
 async function currentLeagueId(thisYear) {
-    const myUserId = '467550885086490624';
-    const leagueName = "Crush Cities ";
+    const myUserId = leagueUser;
+    const leagueName = leagueDisplayName;
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${thisYear}`);
     const leagueData = await userLeagues.json();
 

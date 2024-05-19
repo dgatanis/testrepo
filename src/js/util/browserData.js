@@ -1,5 +1,5 @@
 //Sets the browser data needed for other scripts
-import { getCurrentWeek, getCurrentSeason, inauguralSeason } from './leagueInfo.js';
+import { getCurrentWeek, getCurrentSeason, inauguralSeason, leagueDisplayName, leagueUser } from './leagueInfo.js';
 const leagueInfo = await import('./leagueInfo.js');
 
 try{
@@ -73,8 +73,8 @@ async function setPlayoffsData(leagueID) {
 }
 
 async function previousLeagueId(year) {
-    const myUserId = '467550885086490624';
-    const leagueName = "Crush Cities ";
+    const myUserId = leagueUser;
+    const leagueName = leagueDisplayName;
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${year}`);
     const leagueData = await userLeagues.json();
 
