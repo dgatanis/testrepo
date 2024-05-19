@@ -662,13 +662,13 @@ function loadPlayoffs() {
                     teamImage = createOwnerAvatarImage(team1.owner_id);
                     teamImage.setAttribute('class', 'custom-small-avatar');
                     teamName.innerText = getTeamName(team1.owner_id);
-                    round1.children[0].children[0].prepend(createOwnerAvatarImage(team1.owner_id));
+                    round1.children[0].children[0].prepend(teamImage);
                     round1.children[0].children[0].append(teamName);
 
                     teamImage = createOwnerAvatarImage(team2.owner_id);
                     teamImage.setAttribute('class', 'custom-small-avatar');
                     teamName.innerText = getTeamName(team2.owner_id);
-                    round1.children[0].children[1].prepend(createOwnerAvatarImage(team2.owner_id));
+                    round1.children[0].children[1].prepend(teamImage);
                     round1.children[0].children[1].append(teamName);
                 }
                 else
@@ -680,13 +680,13 @@ function loadPlayoffs() {
                     teamImage = createOwnerAvatarImage(team1.owner_id);
                     teamImage.setAttribute('class', 'custom-small-avatar');
                     teamName.innerText = getTeamName(team1.owner_id);
-                    round1.children[1].children[0].prepend(createOwnerAvatarImage(team1.owner_id));
+                    round1.children[1].children[0].prepend(teamImage);
                     round1.children[1].children[0].append(teamName);
 
                     teamImage = createOwnerAvatarImage(team2.owner_id);
                     teamImage.setAttribute('class', 'custom-small-avatar');
                     teamName.innerText = getTeamName(team2.owner_id);
-                    round1.children[1].children[1].prepend(createOwnerAvatarImage(team2.owner_id));
+                    round1.children[1].children[1].prepend(teamImage);
                     round1.children[1].children[1].append(teamName);
                 }
 
