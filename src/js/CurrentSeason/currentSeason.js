@@ -717,12 +717,12 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             team2Name.setAttribute('class', 'custom-playoff-team-name');
             team2Image.setAttribute('class', 'custom-small-avatar');
             team2Name.innerText = getTeamName(team2.owner_id);
-            thisRound.children[0].children[1].prepend(team2Image);
-            thisRound.children[0].children[1].append(team2Name);
+            thisRound.children[0].children[2].prepend(team2Image);
+            thisRound.children[0].children[2].append(team2Name);
         }
         else
         {
-            thisRound.children[0].children[1].innerText= '...';
+            thisRound.children[0].children[2].innerText= '...';
         }
     
 
@@ -755,12 +755,12 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             team2Name.setAttribute('class', 'custom-playoff-team-name');
             team2Image.setAttribute('class', 'custom-small-avatar');
             team2Name.innerText = getTeamName(team2.owner_id);
-            thisRound.children[1].children[1].prepend(team2Image);
-            thisRound.children[1].children[1].append(team2Name);
+            thisRound.children[1].children[2].prepend(team2Image);
+            thisRound.children[1].children[2].append(team2Name);
         }
         else
         {
-            thisRound.children[1].children[1].innerText= '...';
+            thisRound.children[1].children[2].innerText= '...';
         }
     }
 

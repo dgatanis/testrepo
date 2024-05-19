@@ -450,6 +450,7 @@
     text-align: center;
     width: 13rem;
     font-size: smaller;
+    border-radius: 5px;
   }
 
   .custom-nomatchup {
