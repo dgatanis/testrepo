@@ -286,6 +286,11 @@
     margin: auto;
     max-width: 35rem;
   }
+
+  .custom-body-container {
+    display: grid;
+    clear: both;
+  }
   
   .custom-transaction-carousel {
     text-align: center;
@@ -299,7 +304,6 @@
     grid-column: 3;
     margin: auto;
     max-width: fit-content;
-    margin-left: 3rem;
   }
 
   #custom_transaction_inner {
