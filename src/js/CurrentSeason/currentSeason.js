@@ -719,7 +719,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
                 if(round == 'round3') //Finals
                 {
                     var throneImg = document.createElement('img');
-                    throneImg.setAttribute('src','src/static/images/throne.png');
+                    throneImg.setAttribute('src','../src/static/images/throne.png');
                     throneImg.setAttribute('class', 'custom-throne-icon-xsmall');
                     throneImg.setAttribute('title', 'The Throne');
 
@@ -754,7 +754,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
                 if(round == 'round3')
                 {
                     var throneImg = document.createElement('img');
-                    throneImg.setAttribute('src','src/static/images/throne.png');
+                    throneImg.setAttribute('src','../src/static/images/throne.png');
                     throneImg.setAttribute('class', 'custom-throne-icon-xsmall');
                     throneImg.setAttribute('title', 'The Throne');
 
