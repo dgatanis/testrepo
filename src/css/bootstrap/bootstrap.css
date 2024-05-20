@@ -11201,9 +11201,9 @@ ul.nav.nav-tabs {
   }
 
   .custom-nav-icon {
-    vertical-align: top;
+    vertical-align: baseline;
     max-width: 1.5rem;
-    max-height: 1.5rem;
+    max-height: 1rem;
     margin-right: .2rem;
   }
 
