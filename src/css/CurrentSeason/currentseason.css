@@ -282,6 +282,7 @@
     grid-column: 3;
     margin: auto;
     max-width: fit-content;
+    margin-left: 3rem;
   }
 
   #custom_transaction_inner {
@@ -628,6 +629,8 @@
     .custom-playoffs-bracket {
       grid-column: 1;
       grid-row: 2;
+      margin-bottom: 3rem;
+      margin-left: 7%;
     }
 
     body {
