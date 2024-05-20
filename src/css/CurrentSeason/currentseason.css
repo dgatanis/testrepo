@@ -225,6 +225,7 @@
     color: white;
     font-family: 'F5';
     font-size: xxx-large;
+    animation: blinker 5s ease-in-out infinite;
   }
 
   #RosterTable th {
