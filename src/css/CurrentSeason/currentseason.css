@@ -213,7 +213,7 @@
     margin: auto;
   }
 
-  .container {
+  .custom-playoff-container {
     background: black;
     border-radius: 10px;
     border-bottom-right-radius: unset;
