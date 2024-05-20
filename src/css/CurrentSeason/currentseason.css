@@ -215,7 +215,7 @@
 
   .custom-playoff-container {
     background: black;
-    border-radius: 10px;
+    border-radius: 5px;
     border-bottom-right-radius: unset;
     border-bottom-left-radius: unset;
     border: 3px solid #737373;
@@ -442,7 +442,7 @@
     align-items: center;
     flex-direction: column;
     background: black;
-    border-radius: 10px;
+    border-radius: 5px;
     border-top-right-radius: unset;
     border-top-left-radius: unset;
     border: 3px solid #737373;
