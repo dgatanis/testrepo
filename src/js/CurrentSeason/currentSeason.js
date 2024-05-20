@@ -678,12 +678,12 @@ function loadPlayoffs() {
             var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
             
-            if(team1 && team2 && playoffRound.t1_from) //t1_from.w signals that this matchup comes from winners of another matchup
+            if(team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
             {
                 winner = playoffRound.w;
                 createPlayoffMatchup('round3', team1, team2, matchupId, winner);
             }
-            else if (playoffRound.t1_from && (!team1 || !team2))
+            else if (playoffRound.t1_from.w && (!team1 || !team2))
             {
                 winner = playoffRound.w;
                 createPlayoffMatchup('round3', null, null, matchupId, winner);
