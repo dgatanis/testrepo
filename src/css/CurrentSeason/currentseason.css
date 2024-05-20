@@ -474,6 +474,7 @@
     border-radius: 5px;
     overflow: hidden;
     width: 10rem;
+    color: white;
   }
   
   .custom-round .h3 {
