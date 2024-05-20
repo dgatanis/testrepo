@@ -424,6 +424,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: black;
+    border-radius: 10px;
   }
 
   .custom-playoff-team-name {
@@ -433,6 +435,16 @@
   .round {
     display: flex;
     margin-bottom: 20px;
+  }
+
+  img.custom-mario {
+    max-width: 1rem;
+    border-radius: 10px;
+  }
+
+  .versus {
+    color: white;
+    font-family: 'F5';
   }
 
   .playoff-bracket .h3 {
