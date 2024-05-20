@@ -445,6 +445,7 @@
  .custom-round {
     border-radius: 5px;
     overflow: hidden;
+    width: 10rem;
   }
   
   .custom-round .h3 {
@@ -655,7 +656,7 @@
       grid-column: 1;
       grid-row: 2;
       margin-bottom: 3rem;
-      margin-left: 7%;
+      margin-left: auto;
     }
 
     body {
