@@ -714,11 +714,11 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team1.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:green');
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
             }
             else if(winner && winner != team1.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:red');
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
             }
         }
         else
@@ -736,6 +736,15 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             team2Name.innerText = getTeamName(team2.owner_id);
             thisRound.children[0].children[2].prepend(team2Image);
             thisRound.children[0].children[2].append(team2Name);
+
+            if(winner && winner == team2.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+            }
+            else if(winner && winner != team2.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+            }
         }
         else
         {
@@ -759,6 +768,15 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             team1Name.innerText = getTeamName(team1.owner_id);
             thisRound.children[1].children[0].prepend(team1Image);
             thisRound.children[1].children[0].append(team1Name);
+
+            if(winner && winner == team1.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+            }
+            else if(winner && winner != team1.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+            }
         }
         else
         {
@@ -774,6 +792,15 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             team2Name.innerText = getTeamName(team2.owner_id);
             thisRound.children[1].children[2].prepend(team2Image);
             thisRound.children[1].children[2].append(team2Name);
+
+            if(winner && winner == team2.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+            }
+            else if(winner && winner != team2.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+            }
         }
         else
         {
