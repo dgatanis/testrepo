@@ -503,7 +503,7 @@
   }
 
   .team {
-    border: 1px solid var(--custom-dark-blue);
+    border: 2px solid white;
     padding: 5px;
     margin: 5px;
     background-color: var(--custom-light-gray);
