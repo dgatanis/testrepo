@@ -739,11 +739,11 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team2.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Add)');
             }
             else if(winner && winner != team2.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Drop)');
             }
         }
         else
@@ -771,11 +771,11 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team1.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[1].children[0].setAttribute('style', 'background-color:var(--Add)');
             }
             else if(winner && winner != team1.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[1].children[0].setAttribute('style', 'background-color:var(--Drop)');
             }
         }
         else
@@ -795,11 +795,11 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team2.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[1].children[2].setAttribute('style', 'background-color:var(--Add)');
             }
             else if(winner && winner != team2.roster_id)
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[1].children[2].setAttribute('style', 'background-color:var(--Drop)');
             }
         }
         else
