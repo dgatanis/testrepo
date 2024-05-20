@@ -644,7 +644,7 @@ function loadPlayoffs() {
     for(let playoffRound of thePlayoffs)
     {
         var matchupId = playoffRound.m;
-        var winner = playoffRound.w;
+        var winner = null;
 
         if(playoffRound.r == 1)//Round 1
         {
@@ -653,6 +653,7 @@ function loadPlayoffs() {
 
             if(team1 && team2)
             {
+                winner = playoffRound.w;
                 createPlayoffMatchup('round1', team1, team2, matchupId, winner); //round string param is the id of the element
             }
 
@@ -664,10 +665,12 @@ function loadPlayoffs() {
 
             if(team1 && team2 && !playoffRound.t1_from.w)//t1_from.w signals that this matchup comes from winners of another matchup 
             {
+                winner = playoffRound.w;
                 createPlayoffMatchup('round2', team1, team2, matchupId, winner);
             }
             else if(team1 && !team2 && !playoffRound.t1_from.w)
             {
+                winner = playoffRound.w;
                 createPlayoffMatchup('round2', team1, null, matchupId, winner); 
             }
         }
@@ -678,10 +681,12 @@ function loadPlayoffs() {
             
             if(team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
             {
+                winner = playoffRound.w;
                 createPlayoffMatchup('round3', team1, team2, matchupId, winner);
             }
             else if (playoffRound.t1_from.w && (!team1 || !team2))
             {
+                winner = playoffRound.w;
                 createPlayoffMatchup('round3', null, null, matchupId, winner);
             }
         }
@@ -711,6 +716,10 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             if(winner && winner == team1.roster_id)
             {
                 thisRound.children[0].children[0].setAttribute('style', 'background-color:green');
+            }
+            else if(winner && winner != team1.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:red');
             }
         }
         else
