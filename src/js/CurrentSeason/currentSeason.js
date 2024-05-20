@@ -644,6 +644,7 @@ function loadPlayoffs() {
     for(let playoffRound of thePlayoffs)
     {
         var matchupId = playoffRound.m;
+        var winner = playoffRound.w;
 
         if(playoffRound.r == 1)//Round 1
         {
@@ -652,7 +653,7 @@ function loadPlayoffs() {
 
             if(team1 && team2)
             {
-                createPlayoffMatchup('round1', team1, team2, matchupId); //round string param is the id of the element
+                createPlayoffMatchup('round1', team1, team2, matchupId, winner); //round string param is the id of the element
             }
 
         }
@@ -663,11 +664,11 @@ function loadPlayoffs() {
 
             if(team1 && team2 && !playoffRound.t1_from.w)//t1_from.w signals that this matchup comes from winners of another matchup 
             {
-                createPlayoffMatchup('round2', team1, team2, matchupId);
+                createPlayoffMatchup('round2', team1, team2, matchupId, winner);
             }
             else if(team1 && !team2 && !playoffRound.t1_from.w)
             {
-                createPlayoffMatchup('round2', team1, null, matchupId); 
+                createPlayoffMatchup('round2', team1, null, matchupId, winner); 
             }
         }
         else if(playoffRound.r == 3)//Finals
@@ -677,11 +678,11 @@ function loadPlayoffs() {
             
             if(team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
             {
-                createPlayoffMatchup('round3', team1, team2, matchupId);
+                createPlayoffMatchup('round3', team1, team2, matchupId, winner);
             }
             else if (playoffRound.t1_from.w && (!team1 || !team2))
             {
-                createPlayoffMatchup('round3', null, null, matchupId);
+                createPlayoffMatchup('round3', null, null, matchupId, winner);
             }
         }
         
@@ -689,7 +690,7 @@ function loadPlayoffs() {
 
 }
 
-function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
+function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winner) {
     var thisRound = document.getElementById(round);
 
     if(!thisRound.children[0].getAttribute('data-matchup-id'))
@@ -706,6 +707,11 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
             team1Name.innerText = getTeamName(team1.owner_id);
             thisRound.children[0].children[0].prepend(team1Image);
             thisRound.children[0].children[0].append(team1Name);
+
+            if(winner && winner == team1.roster_id)
+            {
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:green');
+            }
         }
         else
         {
