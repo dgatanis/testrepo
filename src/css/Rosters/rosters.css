@@ -333,10 +333,11 @@ th, td {
     }
     .custom-roster-group {
       clear: unset;
+      overflow: scroll;
     }
 
     .custom-team-roster {
-      max-width: 22rem;
+      max-width: 26rem;
     }
 
     .custom-position-age {
@@ -371,9 +372,6 @@ th, td {
       margin: unset;
     }
 
-    .custom-roster-group {
-      overflow: scroll;
-    }
   }
 
   /*Tablet display styling*/
