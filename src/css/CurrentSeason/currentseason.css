@@ -600,6 +600,10 @@
       }
     }
 
+    .team {
+      width: 10rem;
+    }
+
     .custom-body {
       overflow: unset !important;
     }
