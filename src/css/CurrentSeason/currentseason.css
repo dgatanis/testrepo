@@ -439,14 +439,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 30px;
+    padding: .2rem;
   }
 
   .team {
-    border: 1px solid #ccc;
+    border: 1px solid var(--custom-dark-blue);
     padding: 10px;
     margin: 5px;
-    background-color: #f9f9f9;
+    background-color: var(--custom-transp-blue);
     text-align: center;
     width: 13rem;
     font-size: smaller;
