@@ -568,6 +568,11 @@
     .custom-carousel {
       width: 30rem;
     }
+
+    .custom-body-container {
+      overflow: scroll;
+    }
+    
     .custom-matchup-row .custom-medium-avatar {
       max-width: 2.5rem;
     }
