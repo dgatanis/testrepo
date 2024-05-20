@@ -437,6 +437,20 @@
 
   .playoff-bracket .h3 {
     margin-right: 1rem;
+    font-family: F5;
+    font-size: xx-large;
+    margin-bottom: unset;
+  }
+
+ .custom-round {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .custom-round .h3 {
+    text-align: right;
+    transform: translateX(-100%);
+    animation: scrolling-text 7s linear infinite;
   }
 
   .custom-throne-icon-xsmall {

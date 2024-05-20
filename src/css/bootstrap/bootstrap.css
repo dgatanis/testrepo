@@ -10885,6 +10885,19 @@ textarea.form-control-lg {
   }
 }
 
+@keyframes scrolling-text {
+  from {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  to {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
 @font-face {
   font-family: F1;
   src: url("../../static/font/Lato-Black.ttf") format('truetype');
