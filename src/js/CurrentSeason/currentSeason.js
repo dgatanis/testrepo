@@ -34,11 +34,10 @@ async function loadContents() {
         const currentWeek = await leagueInfo.getCurrentWeek();
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
-
-        loadPlayoffs();
         loadSeasonRankings();
         loadMatchupsList(); 
         loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
+        loadPlayoffs();
         //getLatestTransactions(currentLeagueId, currentWeek); 
         getLatestTransactions('998356266604916736','8');
         setSeasonTitle(currentSeason);
@@ -663,12 +662,12 @@ function loadPlayoffs() {
             var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
 
-            if(team1 && team2 && !playoffRound.t1_from.w)//t1_from.w signals that this matchup comes from winners of another matchup 
+            if(team1 && team2 && !playoffRound.t1_from)//t1_from.w signals that this matchup comes from winners of another matchup 
             {
                 winner = playoffRound.w;
                 createPlayoffMatchup('round2', team1, team2, matchupId, winner);
             }
-            else if(team1 && !team2 && !playoffRound.t1_from.w)
+            else if(team1 && !team2 && !playoffRound.t1_from)
             {
                 winner = playoffRound.w;
                 createPlayoffMatchup('round2', team1, null, matchupId, winner); 
@@ -679,12 +678,12 @@ function loadPlayoffs() {
             var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
             var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
             
-            if(team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
+            if(team1 && team2 && playoffRound.t1_from) //t1_from.w signals that this matchup comes from winners of another matchup
             {
                 winner = playoffRound.w;
                 createPlayoffMatchup('round3', team1, team2, matchupId, winner);
             }
-            else if (playoffRound.t1_from.w && (!team1 || !team2))
+            else if (playoffRound.t1_from && (!team1 || !team2))
             {
                 winner = playoffRound.w;
                 createPlayoffMatchup('round3', null, null, matchupId, winner);
