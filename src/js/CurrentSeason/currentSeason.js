@@ -712,11 +712,21 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             thisRound.children[0].children[0].prepend(team1Image);
             thisRound.children[0].children[0].append(team1Name);
 
-            if(winner && winner == team1.roster_id)
+            if(winner && winner == team1.roster_id) //winner
             {
                 thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+
+                if(round == 'round3') //Finals
+                {
+                    var throneImg = document.createElement('img');
+                    throneImg.setAttribute('src','src/static/images/throne.png');
+                    throneImg.setAttribute('class', 'custom-throne-icon-medium');
+                    throneImg.setAttribute('title', 'The Throne');
+
+                    thisRound.children[0].children[2].append(throneImg);
+                }
             }
-            else if(winner && winner != team1.roster_id)
+            else if(winner && winner != team1.roster_id) //loser
             {
                 thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
             }
@@ -740,6 +750,16 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             if(winner && winner == team2.roster_id)
             {
                 thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Add)');
+
+                if(round == 'round3')
+                {
+                    var throneImg = document.createElement('img');
+                    throneImg.setAttribute('src','src/static/images/throne.png');
+                    throneImg.setAttribute('class', 'custom-throne-icon-medium');
+                    throneImg.setAttribute('title', 'The Throne');
+
+                    thisRound.children[0].children[2].append(throneImg);
+                }
             }
             else if(winner && winner != team2.roster_id)
             {
@@ -751,7 +771,6 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             thisRound.children[0].children[2].innerText= 'TBD';
         }
     
-
     }
     else
     {

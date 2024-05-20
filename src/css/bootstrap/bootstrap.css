@@ -11009,6 +11009,21 @@ a.custom-nav:hover {
   border-radius: 3px;
 }
 
+.custom-throne-icon-medium {
+  max-width: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  margin-left: .5rem;
+  cursor: help;
+  float: right;
+}
+
+.custom-throne-icon-xsmall {
+  max-width: 1rem;
+  border-radius: 5px;
+  cursor: help;
+  float: right;
+}
 
 .custom-tiny-player-avatar {
   margin-right: .5rem;
