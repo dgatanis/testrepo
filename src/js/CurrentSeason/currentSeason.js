@@ -709,7 +709,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
         }
         else
         {
-            thisRound.children[0].children[0].innerText= '...'
+            thisRound.children[0].children[0].innerText= 'TBD'
         }
 
         if(team2)
@@ -725,7 +725,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
         }
         else
         {
-            thisRound.children[0].children[2].innerText= '...';
+            thisRound.children[0].children[2].innerText= 'TBD';
         }
     
 
@@ -748,7 +748,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
         }
         else
         {
-            thisRound.children[1].children[0].innerText = '...';
+            thisRound.children[1].children[0].innerText = 'TBD';
         }
         if(team2)
         {
@@ -763,7 +763,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId) {
         }
         else
         {
-            thisRound.children[1].children[2].innerText= '...';
+            thisRound.children[1].children[2].innerText= 'TBD';
         }
     }
 
