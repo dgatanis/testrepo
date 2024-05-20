@@ -496,10 +496,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: .2rem;
     border-radius: 5px;
-    margin-right: 1rem;
     justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .team {
@@ -659,6 +659,11 @@
       100% {
         transform: translateX(85vw);
       }
+    }
+
+    .game {
+      padding-left: .5rem;
+      padding-right: .5rem;
     }
 
     .team {
