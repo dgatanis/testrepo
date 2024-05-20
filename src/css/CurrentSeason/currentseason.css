@@ -469,7 +469,7 @@
 
   .team {
     border: 1px solid var(--custom-dark-blue);
-    padding: 10px;
+    padding: 5px;
     margin: 5px;
     background-color: var(--custom-light-blue);
     text-align: center;
