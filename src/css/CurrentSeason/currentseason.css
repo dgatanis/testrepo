@@ -462,7 +462,6 @@
     flex-direction: column;
     align-items: center;
     padding: .2rem;
-    background: linear-gradient(0deg, var(--custom-light-gray), transparent, var(--custom-light-gray));
     border-radius: 5px;
     margin-right: 1rem;
     justify-content: center;
@@ -472,7 +471,7 @@
     border: 1px solid var(--custom-dark-blue);
     padding: 10px;
     margin: 5px;
-    background-color: var(--custom-transp-blue);
+    background-color: var(--custom-light-blue);
     text-align: center;
     width: 13rem;
     font-size: smaller;

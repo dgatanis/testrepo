@@ -46,6 +46,7 @@
   --custom-light-gray: #d1d1d1;
   --custom-orange: #b76e36;
   --custom-dark-mode-background: #2c363f;
+  --custom-light-blue: rgb(222 232 243);
 }
 
 *,
@@ -10887,14 +10888,14 @@ textarea.form-control-lg {
 
 @keyframes scrolling-text {
   from {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -moz-transform: translateX(-110%);
+    -webkit-transform: translateX(-110%);
+    transform: translateX(-110%);
   }
   to {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+    -moz-transform: translateX(110%);
+    -webkit-transform: translateX(110%);
+    transform: translateX(110%);
   }
 }
 
