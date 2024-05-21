@@ -631,9 +631,14 @@
     .custom-medium-avatar{
       max-width: 2rem;
     }
+
     .custom-bankroll {
       margin-right: 3rem;
       width: 25rem;
+    }
+
+    .custom-playoffs-bracket, .custom-playoff-container {
+      margin-left: 3rem;
     }
 
     .custom-matchup-icon-medium{
@@ -668,6 +673,15 @@
       100% {
         transform: translateX(85vw);
       }
+    }
+
+    .custom-bankroll {
+      margin-right: unset;
+      width: 95%;
+    }
+
+    .custom-playoffs-bracket, .custom-playoff-container {
+      margin-left: unset;
     }
 
     .game {
