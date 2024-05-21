@@ -15,6 +15,11 @@
     float: right;
   }
 
+  #latestTransactions h6 {
+    margin-bottom: -2rem;
+    color: grey;
+  }
+
   .custom-standings-record {
     font-size: x-small;
     width: fit-content;
@@ -675,13 +680,12 @@
       }
     }
 
-    .custom-bankroll {
-      margin-right: unset;
-      width: 95%;
-    }
-
     .custom-playoffs-bracket, .custom-playoff-container {
       margin-left: unset;
+    }
+
+    #latestTransactions h6 {
+      margin-bottom: unset;
     }
 
     .game {
@@ -812,10 +816,8 @@
     }
 
     .custom-bankroll {
-      width: 100%;
-      float: unset;
-      text-align: left;
-      margin: unset;
+      width: 95%;
+      margin: auto;
     }
 
     .custom-carousel-item {
