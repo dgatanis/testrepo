@@ -258,6 +258,7 @@ tr {
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: .5rem;
+  -webkit-text-stroke: .5px black;
 }
 
 .custom-player-name {
