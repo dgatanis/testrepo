@@ -81,7 +81,8 @@
   .custom-roster-breakdown-shadow {
     box-shadow: 0 0 .5rem 0 black;
     border-radius: 10px;
-    background-color: #e2e3e5;
+    background-color: var(--custom-light-blue);
+    margin-bottom: .8rem;
   }
   
   .custom-matchup-list {
@@ -161,7 +162,6 @@
   .custom-stats-card-body {
     text-align: center;
     font-size: 1.7rem;
-    font-style: italic;
   }
   
   #starterPositions.btn-primary {
