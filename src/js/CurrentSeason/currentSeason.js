@@ -184,7 +184,7 @@ function loadMatchups(weekNumber) {
                         //if this is the winning team
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
-                            teamPoints.setAttribute('color', '#00a700');
+                            teamPoints.setAttribute('style', 'color:#00a700');
 
                             //Ifs used to set different images/colors
                             if(Number(matchup.points) - Number(winningTeam[1].points) <= 2)
@@ -225,7 +225,7 @@ function loadMatchups(weekNumber) {
                         }
                         else
                         {
-                            teamPoints.setAttribute('color', '#cb1919');
+                            teamPoints.setAttribute('style', 'color:#cb1919');
                             teamScoreDiv.append(teamNameSpan);
                             teamScoreDiv.append(teamPoints);
                         }
