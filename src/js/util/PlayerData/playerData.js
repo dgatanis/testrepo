@@ -34,6 +34,8 @@ export function createPlayerImage(playerId) {
         {
             playerimg.setAttribute('class', "custom-player-avatar");
         }
+
+        playerimg.setAttribute('title', getFullPlayerName(playerId));
         
         return playerimg;
     }
