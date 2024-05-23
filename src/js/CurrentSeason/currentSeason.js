@@ -61,27 +61,28 @@ function loadSeasonRankings() {
 
     try {
     
-        var powerRank = 1;
+        var rank = 1;
         const sortedTeams = sortTeamRankings();
         
         for(let team of sortedTeams)
         {
+            let roster = rosterData.find(x => x.owner_id === team.owner_id);
             let user = userData.find(x => x.user_id === team.owner_id);
-            var ownerImage = createOwnerAvatarImage(user.user_id);
-            ownerImage.setAttribute('title', getRandomString());
+            var rosterStats = getRosterStats(roster.roster_id);
             var teamNameDisplay = getTeamName(user.user_id);
+        
             var teamName = document.createElement("div");
             teamName.setAttribute('class', 'custom-teamname-normal');
 
-            if(powerRank <=2 )
+            if(rank <=2 )
             {
                 teamName.innerText=teamNameDisplay + " - z"
             }
-            else if(powerRank > 2 && powerRank <=6)
+            else if(rank > 2 && rank <=6)
             {
                 teamName.innerText=teamNameDisplay + " - x"
             }
-            else if(powerRank < 10)
+            else if(rank < 10)
             {
                 teamName.innerText=teamNameDisplay;
             }
@@ -94,24 +95,25 @@ function loadSeasonRankings() {
                 teamName.innerText=teamNameDisplay + " ";
                 teamName.append(lastPlaceImg);
             }
-            let roster = rosterData.find(x => x.owner_id === team.owner_id);
-            var rosterStats = getRosterStats(roster.roster_id);
+            
+            var ownerImage = createOwnerAvatarImage(user.user_id);
+            ownerImage.setAttribute('title', getRandomString());
             var teamRecord = document.createElement("div");
             teamRecord.setAttribute('class', 'custom-standings-record');
             teamRecord.innerText = "("+rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.losses + ")";
-            var powerRankingElementId = "PowerRanking_"+powerRank;
-            var rosterButtonId = "GetRosterButton_"+powerRank;
-            var powerRanking = document.getElementById(powerRankingElementId);
+            var standingsElementId = "Standings_"+rank;
+            var rosterButtonId = "GetRosterButton_"+rank;
+            var standing = document.getElementById(standingsElementId);
             var rosterButton = document.getElementById(rosterButtonId);
             
-            powerRanking.append(ownerImage);
-            powerRanking.append(teamName);
-            powerRanking.append(teamRecord);
+            standing.append(ownerImage);
+            standing.append(teamName);
+            standing.append(teamRecord);
             
             rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamNameDisplay + "')");
 
             rosterButton.setAttribute('title', 'Look at their wack ass lineup.');
-            powerRank++;
+            rank++;
             
         }
     }
@@ -152,10 +154,10 @@ function loadMatchups(weekNumber) {
                     if(matchup.matchup_id == matchupId)
                     {
                         counter++;   
-                        let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                         let user = userData.find(x => x.user_id === roster.owner_id);
-                        
+
+                        let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
                         let playerName = getFullPlayerName(highestScorer.player_id);
                         let userName = getTeamName(user.user_id);
@@ -167,7 +169,7 @@ function loadMatchups(weekNumber) {
                         var teamScoreDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
-                        var teamPoints = document.createElement("font");
+                        var teamPoints = document.createElement("div");
 
                         playerDiv.innerText = playerName + ": " + playerPoints;
                         playerDiv.setAttribute("class", "custom-matchup-player");
@@ -179,6 +181,7 @@ function loadMatchups(weekNumber) {
                         teamNameSpan.innerText= userName + ": ";
                         teamScoreDiv.setAttribute('class', 'custom-team-score');
                     
+                        //if this is the winning team
                         if(winningTeam[0].roster_id == roster.roster_id)
                         {
                             teamPoints.setAttribute('color', '#00a700');

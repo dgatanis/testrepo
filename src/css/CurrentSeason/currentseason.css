@@ -140,6 +140,7 @@
   .custom-pts {
     font-family: F5;
     font-size: 1.5rem;
+    display: inline;
   }
 
   .custom-player-avatar {
