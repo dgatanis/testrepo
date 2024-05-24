@@ -41,7 +41,7 @@ async function loadContents() {
         loadBankroll('10',dues,weeklyWinnerPayout); 
         loadPlayoffs();
         //getLatestTransactions(currentLeagueId, currentWeek); 
-        getLatestTransactions('998356266604916736','8');
+        getLatestTransactions('1003692635549462528','8');
         setSeasonTitle(currentSeason);
         
         return;
