@@ -20,7 +20,7 @@ function loadContents() {
         {
             if(playoffRound.r == 3 && playoffRound.t1_from.w)
             {
-                champRosterId = playoffRound.t1_from.w
+                champRosterId = playoffRound.w
             }
         }
 
