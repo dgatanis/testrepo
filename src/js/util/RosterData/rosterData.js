@@ -31,6 +31,21 @@ export function getRosterStats(rosterid) {
     }
 }
 
+export function getPlayerNickNames(rosterId, playerId){
+    let nickname = "";
+    let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+
+    if(roster.metadata)
+    {
+        if(roster.metadata["p_nick_"+playerId])
+        {
+            nickname = roster.metadata["p_nick_"+playerId];
+        }
+    }
+
+    return nickname;
+}
+
 export function sortTeamRankings() {
 
     const rosters = rosterData.map((x) => x);

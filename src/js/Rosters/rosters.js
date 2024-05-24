@@ -7,7 +7,8 @@ import {
     createPlayerImage,
     getTeamName,
     sortByPosition,
-    createNFLTeamImage 
+    createNFLTeamImage,
+    getPlayerNickNames 
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -58,7 +59,7 @@ function loadContents() {
                     if(player)
                     {
                         let unusedRow = unusedPlayerRow(player.position, starterTeam);
-                        let playerRow = createPlayerRow(player.player_id);
+                        let playerRow = createPlayerRow(player.player_id, roster.roster_id);
                         let playerDetails = playerRow.getElementsByTagName('td')[0]; //Only get the td element so we can append to existing row
                         
                         if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
@@ -86,7 +87,7 @@ function loadContents() {
         
                             if(player)
                             {
-                                var playerRow = createPlayerRow(player.player_id);
+                                var playerRow = createPlayerRow(player.player_id, roster.roster_id);
                                 playerRow.setAttribute('class', 'custom-bench-row');
                                 benchTeam.append(playerRow);
                             }
@@ -109,7 +110,7 @@ function loadContents() {
 
                         if(player)
                         {
-                            var playerRow = createPlayerRow(player.player_id);
+                            var playerRow = createPlayerRow(player.player_id, roster.roster_id);
                             playerRow.setAttribute('class', 'custom-bench-row');
                             taxiTeam.append(playerRow);
                         }
@@ -327,13 +328,14 @@ function unusedPlayerRow(position,starterTeam) {
     }
 }
 
-function createPlayerRow(playerid) {
+function createPlayerRow(playerid, rosterid) {
 
     let player = playerData.players.find(e => e.player_id === parseInt(playerid));
 
     let playerName = player.firstname + " " + player.lastname;
     let playerAge = player.age;
     let playerNumber = player.number;
+    var playerNickName = getPlayerNickNames(rosterid, playerid);
     var playerimg = createPlayerImage(player.player_id);
     var teamImage = createNFLTeamImage(player.team);
     var playerDetailsDiv = document.createElement('div');
@@ -360,6 +362,11 @@ function createPlayerRow(playerid) {
     playerHeightDiv.innerText = calculateHeight(player.height);
     playerWeightDiv .setAttribute('class', 'custom-player-weight');
     playerWeightDiv.innerText = player.weight + "lbs";
+
+    if(playerNickName != "")
+    {
+        playerimg.setAttribute('title', playerNickName);
+    }
 
     playerDetailsDiv.appendChild(playerAgeDiv);
     playerDetailsDiv.appendChild(playerHeightDiv);

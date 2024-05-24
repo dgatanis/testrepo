@@ -1,7 +1,6 @@
 import { players } from '../initData.js';
 
 var playerData = players;
-
 export function getFullPlayerName(playerid) {
 
     let player = playerData.players.find(x => x.player_id === parseInt(playerid));
