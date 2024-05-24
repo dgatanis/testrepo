@@ -14,7 +14,7 @@ import {
         getRosterHighScorerWeek,
         highScorerInMatchupStarters,
         getPlayerNickNames  
-        } from '../util/helper.js';
+    } from '../util/helper.js';
 
 let userData = users;
 let rosterData = rosters;
