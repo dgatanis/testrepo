@@ -12,7 +12,8 @@ import {
         getTeamName,
         getMatchupWeekWinner,
         getRosterHighScorerWeek,
-        highScorerInMatchupStarters 
+        highScorerInMatchupStarters,
+        getPlayerNickNames  
         } from '../util/helper.js';
 
 let userData = users;
@@ -168,6 +169,7 @@ function loadMatchups(weekNumber) {
                         var teamNameSpan = document.createElement("span");
                         var teamScoreDiv = document.createElement("div");
                         var playerimg = createPlayerImage(highestScorer.player_id);
+                        var playerNickName = getPlayerNickNames(roster.roster_id, highestScorer.player_id);
                         var teamImage = createOwnerAvatarImage(user.user_id);
                         var teamPoints = document.createElement("div");
 
@@ -180,6 +182,11 @@ function loadMatchups(weekNumber) {
                         teamPoints.setAttribute('class', 'custom-pts');
                         teamNameSpan.innerText= userName + ": ";
                         teamScoreDiv.setAttribute('class', 'custom-team-score');
+
+                        if(playerNickName != "")
+                        {
+                            playerimg.setAttribute('title', playerNickName);
+                        }
                     
                         //if this is the winning team
                         if(winningTeam[0].roster_id == roster.roster_id)
@@ -967,7 +974,9 @@ function getRandomString() {
         "Jerseys aint cheap",
         "Tanking allegations ensuing",
         "We can do better than this",
-        "*dry heaving*"
+        "*dry heaving*",
+        "This hurts to look at",
+        "Why are you like this"
     ]
     var randomNumber=Math.random()*myArray.length;
     randomNumber= Math.random()*myArray.length;
