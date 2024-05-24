@@ -186,7 +186,7 @@
   }
 
   .accordion-button:not(.collapsed) {
-    color: var(--custom-light-gray);
+    color: whitesmoke;
     background-color: var(--custom-dark-blue);
   }
 
