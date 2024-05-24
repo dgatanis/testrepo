@@ -27,8 +27,8 @@ async function setBrowserData() {
             setRosterData(currentLeagueId);
             setUserData(currentLeagueId);
             setLeagueDetails(currentLeagueId);
-            setPlayoffsData(currentLeagueId);
-            //setPlayoffsData('998356266604916736');
+            //setPlayoffsData(currentLeagueId);
+            setPlayoffsData('998356266604916736');
             //setMatchupData(currentLeagueId,currentWeek); 
             setMatchupData('1003692635549462528','10');
         }
