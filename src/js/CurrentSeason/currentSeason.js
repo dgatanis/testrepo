@@ -452,8 +452,8 @@ async function getLatestTransactions(leagueId,week) {
                             var nflTeamImg = createNFLTeamImage(player.team);
                             description += getFullPlayerName(addedPlayers[i]);
 
+                            playerDiv.append(nflTeamImg);
                             addedPlayerDiv.append(playerDiv);
-                            addedPlayerDiv.append(nflTeamImg);
                         }
 
                         addedPlayerDiv.classList.add('custom-block-display');
@@ -479,8 +479,8 @@ async function getLatestTransactions(leagueId,week) {
                             var nflTeamImg = createNFLTeamImage(player.team);
                             description += getFullPlayerName(droppedPlayers[i]);
 
+                            playerDiv.append(nflTeamImg);
                             droppedPlayerDiv.append(playerDiv);
-                            droppedPlayerDiv.append(nflTeamImg);
                         }
                         droppedPlayerDiv.classList.add('custom-block-display');
                         droppedPlayerDiv.classList.remove('custom-none-display');
@@ -560,8 +560,8 @@ async function getLatestTransactions(leagueId,week) {
 
                                     if(i >= 1)
                                     {
+                                        playerDiv.append(nflTeamImg);
                                         newaddedPlayers.append(playerDiv);
-                                        newaddedPlayers.append(nflTeamImg);
                                         newaddedPlayers.classList.add('custom-block-display');
                                         newaddedPlayers.classList.remove('custom-none-display');
                                     }
@@ -593,15 +593,15 @@ async function getLatestTransactions(leagueId,week) {
                                     
                                     if(i >= 1)
                                     {
+                                        playerDiv.append(nflTeamImg);
                                         newdroppedPlayers.append(playerDiv);
-                                        newdroppedPlayers.append(nflTeamImg);
                                         newdroppedPlayers.classList.add('custom-block-display');
                                         newdroppedPlayers.classList.remove('custom-none-display');
                                     }
                                     else
                                     {
+                                        playerDiv.append(nflTeamImg);
                                         droppedPlayerDiv.append(playerDiv);
-                                        droppedPlayerDiv.append(nflTeamImg);
                                     }
 
                                     droppedPlayerDiv.classList.add('custom-block-display');

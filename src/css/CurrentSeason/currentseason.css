@@ -240,6 +240,12 @@
     text-align: center;
   }
 
+  img.custom-team-logo {
+    display: inline;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+  }
+
   div#currentWeek {
     color: black;
     background: linear-gradient(#99999978, #999999ad);
