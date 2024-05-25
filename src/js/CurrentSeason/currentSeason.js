@@ -205,10 +205,10 @@ function loadMatchups(weekNumber) {
                                 teamScoreDiv.append(teamPoints);
                                 teamScoreDiv.append(angelImg);
                             }
-                            else if(Number(matchup.points) < 90)
+                            else if(Number(matchup.points) < 120)
                             {
                                 var luckyImg = createMatchupIconImg();
-                                luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
+                                luckyImg.setAttribute('src','../src/static/images/horseshoe1.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
                                 teamScoreDiv.append(teamNameSpan);
