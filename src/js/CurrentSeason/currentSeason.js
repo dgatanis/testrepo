@@ -205,10 +205,10 @@ function loadMatchups(weekNumber) {
                                 teamScoreDiv.append(teamPoints);
                                 teamScoreDiv.append(angelImg);
                             }
-                            else if(Number(matchup.points) < 120)
+                            else if(Number(matchup.points) < 90)
                             {
                                 var luckyImg = createMatchupIconImg();
-                                luckyImg.setAttribute('src','../src/static/images/horseshoe1.png');
+                                luckyImg.setAttribute('src','../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
                                 
                                 teamScoreDiv.append(teamNameSpan);
@@ -224,7 +224,7 @@ function loadMatchups(weekNumber) {
                             if(roster.roster_id == highScoringWeekRoster)
                             {
                                 var weeklyHighScorer = createMatchupIconImg();
-                                weeklyHighScorer.setAttribute('src', '../src/static/images/crown1.png');
+                                weeklyHighScorer.setAttribute('src', '../src/static/images/crown.png');
                                 weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
     
                                 teamScoreDiv.append(weeklyHighScorer);
@@ -350,7 +350,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
             for(let j = 0; j<rosterBankrolls[i].weeks_won; j++)
             {
                 var highScorerImg = createMatchupIconImg();
-                highScorerImg.setAttribute('src', '../src/static/images/crown1.png');
+                highScorerImg.setAttribute('src', '../src/static/images/crown.png');
                 highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
                 highScorerImg.setAttribute('style', 'padding-top: .5rem');
                 highScorerImg.setAttribute('title', 'Weekly high scorer');
