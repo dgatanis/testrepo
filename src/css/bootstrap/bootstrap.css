@@ -7446,7 +7446,7 @@ textarea.form-control-lg {
 .bg-body {
   background: transparent !important;
   color: white !important;
-  border: 2px solid white;
+  border: 2px solid white !important;
 }
 
 .bg-white {

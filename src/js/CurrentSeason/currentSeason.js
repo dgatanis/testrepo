@@ -13,8 +13,9 @@ import {
         getMatchupWeekWinner,
         getRosterHighScorerWeek,
         highScorerInMatchupStarters,
-        getPlayerNickNames  
-    } from '../util/helper.js';
+        getPlayerNickNames ,
+        createNFLTeamImage 
+} from '../util/helper.js';
 
 let userData = users;
 let rosterData = rosters;
@@ -448,8 +449,10 @@ async function getLatestTransactions(leagueId,week) {
                         {
                             description += getFullPlayerName(addedPlayers[i]);
                             var playerDiv = createPlayerDiv(addedPlayers[i], 'add');
+                            var nflTeamImg = createNFLTeamImage(player.team);
 
                             addedPlayerDiv.append(playerDiv);
+                            addedPlayerDiv.append(nflTeamImg);
                         }
 
                         addedPlayerDiv.classList.add('custom-block-display');
@@ -472,9 +475,10 @@ async function getLatestTransactions(leagueId,week) {
                         {
                             description += getFullPlayerName(droppedPlayers[i]);
                             var playerDiv = createPlayerDiv(droppedPlayers[i], 'drop');
+                            var nflTeamImg = createNFLTeamImage(player.team);
                             
                             droppedPlayerDiv.append(playerDiv);
-
+                            droppedPlayerDiv.append(nflTeamImg);
                         }
                         droppedPlayerDiv.classList.add('custom-block-display');
                         droppedPlayerDiv.classList.remove('custom-none-display');
@@ -550,10 +554,12 @@ async function getLatestTransactions(leagueId,week) {
                                     addedPlayersArray.push(getFullPlayerName(addedPlayers[j]));
                                     var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
                                     var playerDiv = createPlayerDiv(player.player_id, 'add');
+                                    var nflTeamImg = createNFLTeamImage(player.team);
 
                                     if(i >= 1)
                                     {
                                         newaddedPlayers.append(playerDiv);
+                                        newaddedPlayers.append(nflTeamImg);
                                         newaddedPlayers.classList.add('custom-block-display');
                                         newaddedPlayers.classList.remove('custom-none-display');
                                     }
@@ -581,16 +587,19 @@ async function getLatestTransactions(leagueId,week) {
                                 {
                                     var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[j]));
                                     var playerDiv = createPlayerDiv(player.player_id, 'drop');
+                                    var nflTeamImg = createNFLTeamImage(player.team);
                                     
                                     if(i >= 1)
                                     {
                                         newdroppedPlayers.append(playerDiv);
+                                        newdroppedPlayers.append(nflTeamImg);
                                         newdroppedPlayers.classList.add('custom-block-display');
                                         newdroppedPlayers.classList.remove('custom-none-display');
                                     }
                                     else
                                     {
                                         droppedPlayerDiv.append(playerDiv);
+                                        droppedPlayerDiv.append(nflTeamImg);
                                     }
 
                                     droppedPlayerDiv.classList.add('custom-block-display');
