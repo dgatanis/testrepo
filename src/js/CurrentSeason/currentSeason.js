@@ -447,9 +447,10 @@ async function getLatestTransactions(leagueId,week) {
                         description += "added ";
                         for(let i = 0; i< addedPlayers.length; i++)
                         {
-                            description += getFullPlayerName(addedPlayers[i]);
+                            var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
                             var playerDiv = createPlayerDiv(addedPlayers[i], 'add');
                             var nflTeamImg = createNFLTeamImage(player.team);
+                            description += getFullPlayerName(addedPlayers[i]);
 
                             addedPlayerDiv.append(playerDiv);
                             addedPlayerDiv.append(nflTeamImg);
@@ -473,10 +474,11 @@ async function getLatestTransactions(leagueId,week) {
                         
                         for(let i = 0; i< droppedPlayers.length; i++)
                         {
-                            description += getFullPlayerName(droppedPlayers[i]);
+                            var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
                             var playerDiv = createPlayerDiv(droppedPlayers[i], 'drop');
                             var nflTeamImg = createNFLTeamImage(player.team);
-                            
+                            description += getFullPlayerName(droppedPlayers[i]);
+
                             droppedPlayerDiv.append(playerDiv);
                             droppedPlayerDiv.append(nflTeamImg);
                         }
