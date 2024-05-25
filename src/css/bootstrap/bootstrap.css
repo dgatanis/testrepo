@@ -11087,7 +11087,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, var(--custom-blue-gray), var(--custom-blue-gray), #8c9ba9bf);
+  background: linear-gradient(180deg, var(--custom-dark-blue), var(--custom-dark-blue), #475664db);
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
@@ -11191,7 +11191,7 @@ ul.nav.nav-tabs {
   }
 
   .active {
-    background-color: var(--custom-blue-gray);
+    background-color: var(--custom-dark-blue);
     color: whitesmoke;
     text-align: center;
   }
