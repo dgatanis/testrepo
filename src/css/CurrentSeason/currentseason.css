@@ -26,21 +26,8 @@
     margin-left: .7rem;
   }
 
-  #PowerRankings td {
-    padding: 1rem;
-    text-align: center;
-  }
-
   td[id^="PowerRanking_"] {
     text-align: unset !important;
-  }
-
-  #PowerRankings th {
-    text-align: center;
-  }
-
-  #PowerRankings tr {
-    vertical-align: baseline;
   }
 
   .custom-team-score {
@@ -69,6 +56,14 @@
     border-radius: 5px;
     margin-left: .5rem;
     cursor: help;
+  }
+
+  table#Standings tr {
+    vertical-align: baseline;
+  }
+
+  table#Standings th {
+    text-align: center;
   }
 
   .custom-roster-breakdown {
