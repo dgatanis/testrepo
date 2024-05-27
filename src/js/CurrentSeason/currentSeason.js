@@ -1114,7 +1114,7 @@ function createAccordionItem(weekNumber) {
     var pacman = document.createElement("img");
     var color = colors[Math.floor(Math.random()*3)];
     pacman.setAttribute("src", "../src/static/images/ghost-" + color + ".gif"); 
-    pacman.setAttribute('id', 'pacman');
+    pacman.setAttribute('id', 'ghost');
 
     var listItems = createMatchupListElement(weekNumber);
 

@@ -10907,23 +10907,19 @@ textarea.form-control-lg {
   }
   25% {
       top: 0;
-      left: 95%; /* Right edge */
-      transform: rotate(90deg);
+      left: 98%; /* Right edge */
   }
   50% {
-      top: 95%; /* Bottom edge */
-      left: 95%;
-      transform: rotate(90deg);
+      top: 98%; /* Bottom edge */
+      left: 98%;
   }
   75% {
-      top: 95%;
+      top: 98%;
       left: 0; /* Left edge */
-      transform: rotate(90deg);
   }
   100% {
       top: 0;
       left: 0; /* Back to top left */
-      transform: rotate(90deg);
   }
 }
 

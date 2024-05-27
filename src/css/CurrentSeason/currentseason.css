@@ -164,11 +164,10 @@
   }
 
   img#ghost {
-    border-radius: 100%;
-    max-width: 7rem;
-    max-height: 3rem;
+    max-width: 1rem;
+    max-height: 1rem;
     position: absolute;
-    animation: moveInSquare 5s infinite linear;
+    animation: moveInSquare 12s infinite linear;
     z-index: 1;
   }
   
