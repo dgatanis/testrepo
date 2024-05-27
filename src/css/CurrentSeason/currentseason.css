@@ -132,7 +132,8 @@
 
   .custom-player-position {
     display: inline;
-    font-size: x-small;
+    font-size: .5rem;
+    margin-left: .2rem;
   }
   
   .custom-matchup-player {
