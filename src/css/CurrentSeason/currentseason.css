@@ -329,6 +329,7 @@
     grid-column: 3;
     margin: auto;
     max-width: fit-content;
+    padding-bottom: 2rem;
   }
 
   #custom_transaction_inner {
