@@ -995,7 +995,7 @@ function getRandomString() {
     ]
     var randomNumber=Math.random()*myArray.length;
     randomNumber= Math.random()*myArray.length;
-    var roundRandomNumber = Math.floor(randomNumber);
+    var roundRandomNumber = Math.floor(randomNumberMath.floor(;
 
     return myArray[roundRandomNumber];
 }
@@ -1090,6 +1090,7 @@ function loadMatchupsList(){
 
 function createAccordionItem(weekNumber) {
     var headerId = "weekHeader_" + weekNumber;
+    var colors = ["pink", "red", "yellow"];
 
     var accordionItem = document.createElement("div");
     accordionItem.setAttribute("class", "accordion-item");
@@ -1111,7 +1112,8 @@ function createAccordionItem(weekNumber) {
     accordionBody.setAttribute("class", "accordion-body custom-matchup-list");
 
     var pacman = document.createElement("img");
-    pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
+    var color = colors[Math.floor(Math.random()*3)];
+    pacman.setAttribute("src", "../src/static/images/ghost-" + color + ".gif"); 
     pacman.setAttribute('id', 'pacman');
 
     var listItems = createMatchupListElement(weekNumber);
