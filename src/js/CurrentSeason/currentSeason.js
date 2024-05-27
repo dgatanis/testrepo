@@ -258,13 +258,13 @@ function loadMatchups(weekNumber) {
                     }
                 }
                 
-                if(totalMatchups != matchupId)
-                {
-                    var pacman = document.createElement("img");
-                    pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
-                    pacman.setAttribute('id', 'pacman');
-                    weekList.append(pacman);
-                }
+                // if(totalMatchups != matchupId)
+                // {
+                //     var pacman = document.createElement("img");
+                //     pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
+                //     pacman.setAttribute('id', 'pacman');
+                //     weekList.append(pacman);
+                // }
 
             }
 
@@ -1110,9 +1110,14 @@ function createAccordionItem(weekNumber) {
     var accordionBody = document.createElement("div");
     accordionBody.setAttribute("class", "accordion-body custom-matchup-list");
 
+    var pacman = document.createElement("img");
+    pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
+    pacman.setAttribute('id', 'pacman');
+
     var listItems = createMatchupListElement(weekNumber);
 
     //Add list items to body and add them to the collapsible
+    accordionBody.appendChild(pacman);
     accordionBody.appendChild(listItems);
     accordionCollapsible.appendChild(accordionBody);
     
