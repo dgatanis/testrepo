@@ -995,7 +995,7 @@ function getRandomString() {
     ]
     var randomNumber=Math.random()*myArray.length;
     randomNumber= Math.random()*myArray.length;
-    var roundRandomNumber = Math.floor(randomNumberMath.floor(;
+    var roundRandomNumber = Math.floor(randomNumber);
 
     return myArray[roundRandomNumber];
 }
