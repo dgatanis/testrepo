@@ -487,9 +487,9 @@
     margin-bottom: 20px;
   }
 
-  img.custom-mario {
-    max-width: 1.8rem;
-    border-radius: 10px;
+  img.custom-pacman {
+    max-width: 3rem;
+    border-radius: 100%;
   }
 
   .versus {
@@ -507,7 +507,7 @@
  .custom-round {
     border-radius: 5px;
     overflow: hidden;
-    width: 10rem;
+    width: 12rem;
     color: white;
   }
   
