@@ -590,6 +590,30 @@
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
+
+    @keyframes moveInSquare {
+      0% {
+          top: 0;
+          left: 0;
+      }
+      25% {
+          top: 0;
+          left: 97%; /* Right edge */
+      }
+      50% {
+          top: 97%; /* Bottom edge */
+          left: 97%;
+      }
+      75% {
+          top: 97%;
+          left: 0; /* Left edge */
+      }
+      100% {
+          top: 0;
+          left: 0; /* Back to top left */
+      }
+    }
+
     .custom-carousel {
       width: 30rem;
     }
@@ -643,6 +667,29 @@
 
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
+
+    @keyframes moveInSquare {
+      0% {
+          top: 0;
+          left: 0;
+      }
+      25% {
+          top: 0;
+          left: 96%; /* Right edge */
+      }
+      50% {
+          top: 96%; /* Bottom edge */
+          left: 96%;
+      }
+      75% {
+          top: 96%;
+          left: 0; /* Left edge */
+      }
+      100% {
+          top: 0;
+          left: 0; /* Back to top left */
+      }
+    }
 
     .custom-team-score{
       display: block;
