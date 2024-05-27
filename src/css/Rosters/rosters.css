@@ -45,6 +45,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 .custom-rb-roster {
   background-color: var(--RB) !important;
@@ -53,6 +54,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 .custom-wr-roster {
   background-color: var(--WR) !important;
@@ -61,6 +63,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 .custom-te-roster {
   background-color: var(--TE) !important;
@@ -69,6 +72,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 .custom-SF-roster {
   background-color: #616161 !important;
@@ -77,6 +81,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 .custom-FLEX-roster {
   background-color: #616161 !important;
@@ -85,6 +90,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 .custom-k-roster {
   background-color: var(--K) !important;
@@ -93,6 +99,7 @@
   color: black;
   border: 1px solid black;
   width: 3.5rem;
+  padding: .4rem !important;
 }
 
 .custom-player-QB-row {
