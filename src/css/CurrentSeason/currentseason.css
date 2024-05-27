@@ -129,6 +129,11 @@
     font-weight: 200;
     color: white;
   }
+
+  .custom-player-position {
+    display: inline;
+    font-size: smaller;
+  }
   
   .custom-matchup-player {
     float: right;

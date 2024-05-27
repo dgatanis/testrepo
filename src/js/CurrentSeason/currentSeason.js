@@ -914,6 +914,7 @@ function createPlayerDiv(playerid, addDrop) {
     playerDiv.setAttribute('class', 'custom-player');
     var playerImg = createPlayerImage(playerid);
     var playerName = document.createElement("div");
+    var playerPosition = document.createElement("div");
     var addDropIcon = createAddDropImg(addDrop);
 
     playerName.setAttribute('class', 'custom-playername-small');
@@ -922,6 +923,8 @@ function createPlayerDiv(playerid, addDrop) {
     if(player) //Can Remove this once finished - just used for testing DEF
     {
         playerName.innerText = getFullPlayerName(playerid) + " (" + player.position +")";
+        playerPosition.innerText=player.position;
+        playerPosition.setAttribute('class', 'custom-player-position')
         playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
         addDropIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
     }
@@ -933,6 +936,7 @@ function createPlayerDiv(playerid, addDrop) {
     playerDiv.append(addDropIcon);
     playerDiv.append(playerImg);
     playerDiv.append(playerName);
+    playerDiv.append(playerPosition);
 
     return playerDiv;
 }
