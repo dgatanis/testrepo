@@ -83,7 +83,7 @@
     border-radius: 10px;
     background-color: var(--custom-light-blue);
     margin-bottom: .8rem;
-    animation: revealLetter 1s forwards;
+    animation: revealLetter 1.5s forwards;
   }
   
   .custom-matchup-list {
