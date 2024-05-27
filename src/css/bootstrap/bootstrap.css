@@ -10900,56 +10900,6 @@ textarea.form-control-lg {
   }
 }
 
-@keyframes moveRight {
-  from {
-    top: 0;
-    left: 0;
-  }
-  to {
-    top: 0;
-    left: 95%; /* Right edge */
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes moveDown {
-  from {
-    top: 0;
-    left: 95%; /* Right edge */
-  }
-  to {
-    top: 95%; /* Bottom edge */
-    left: 95%;
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes moveLeft {
-  from {
-    top: 0;
-    left: 95%; /* Right edge */
-    transform: rotate(90deg);
-  }
-  to {
-    top: 95%; /* Bottom edge */
-    left: 95%;
-    transform: rotate(270deg);
-  }
-}
-
-@keyframes moveUp {
-  from {
-    top: 0;
-    left: 95%; /* Right edge */
-    transform: rotate(90deg);
-  }
-  to {
-    top: 95%; /* Bottom edge */
-    left: 95%;
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes moveInSquare {
   0% {
       top: 0;

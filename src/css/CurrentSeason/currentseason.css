@@ -168,7 +168,7 @@
     max-width: 7rem;
     max-height: 3rem;
     position: absolute;
-    animation: moveRight 2s infinite linear,moveDown 4s infinite linear, moveLeft 2s infinite linear, moveUp 4s infinite linear;
+    animation: moveInSquare 5s infinite linear;
     z-index: 1;
   }
   
