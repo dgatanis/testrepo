@@ -922,9 +922,9 @@ function createPlayerDiv(playerid, addDrop) {
 
     if(player) //Can Remove this once finished - just used for testing DEF
     {
-        playerName.innerText = getFullPlayerName(playerid) + " (" + player.position +")";
+        playerName.innerText = getFullPlayerName(playerid);
         playerPosition.innerText=player.position;
-        playerPosition.setAttribute('class', 'custom-player-position')
+        playerPosition.setAttribute('class', 'custom-player-position');
         playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
         addDropIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
     }
