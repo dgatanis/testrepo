@@ -367,7 +367,8 @@ function createPlayerRow(playerid, rosterid) {
     {
         playerimg.setAttribute('title', playerNickName);
     }
-
+    
+    playerDetailsDiv.appendChild(playerNumberDiv);
     playerDetailsDiv.appendChild(playerAgeDiv);
     playerDetailsDiv.appendChild(playerHeightDiv);
     playerDetailsDiv.appendChild(playerWeightDiv);
@@ -376,7 +377,6 @@ function createPlayerRow(playerid, rosterid) {
     tr.appendChild(th);
     td.prepend(playerimg);
     td.append(playerNameDiv);
-    td.append(playerNumberDiv);
     td.append(teamImage);
     td.append(playerDetailsDiv);
     tr.appendChild(td);
