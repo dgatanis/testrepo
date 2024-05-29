@@ -401,6 +401,14 @@ th, td {
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.875rem) {
 
+    .custom-player-details {
+      margin-top: -.5rem;
+    }
+
+    .custom-player-table-group td {
+      padding-top: .5rem;
+   }
+
     .custom-roster-group {
       margin : unset !important;
     }
