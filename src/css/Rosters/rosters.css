@@ -159,6 +159,10 @@
   border: 2px solid #616161;
 }
 
+.custom-player-table-group td {
+  padding-top: .3rem;
+}
+
 .custom-bench-row {
   background-color: #73737347;
   border-radius: .5rem;
