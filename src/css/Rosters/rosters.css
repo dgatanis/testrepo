@@ -269,9 +269,10 @@ tr {
 }
 
 .custom-player-name {
-  display:inline-block;
-  vertical-align: baseline;
+  display: inline-block;
+  vertical-align: top;
   font-size: large;
+  margin-top: .1rem;
 }
 
 .custom-stats-label {
@@ -293,7 +294,7 @@ th, td {
   width: fit-content;
   margin-left: 2.4rem;
   padding: unset;
-  margin-top: -.4rem;
+  margin-top: -.6rem;
   font-size: .5rem;
 }
 
@@ -320,7 +321,7 @@ th, td {
 }
 
 .custom-player-avatar {
-  vertical-align: top;
+  vertical-align: text-top;
   border-radius: 5px;
   background-color: #73737340;
 }
