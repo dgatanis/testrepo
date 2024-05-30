@@ -402,7 +402,7 @@ th, td {
   @media screen and (max-width: 26.875rem) {
 
     .custom-player-details {
-      margin-top: -.5rem;
+      margin-top: -.7rem;
     }
 
     .custom-player-table-group td {
@@ -427,6 +427,7 @@ th, td {
 
     .custom-player-name {
       font-size: large;
+      margin-top: -.2rem;
     }
 
     .btn-primary {
