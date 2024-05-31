@@ -100,10 +100,12 @@ async function setATLeagueIds() {
     try{
         var year = await getCurrentSeason();
         var lastLeagueId;
+        var thisYear;
         const firstSeason = inauguralSeason;
 
         for(var i=year; i>=firstSeason; i--)
         {
+            thisYear=i;
             while(lastLeagueId != 0)
             {
                 lastLeagueId = await previousLeagueId(i);
@@ -112,13 +114,15 @@ async function setATLeagueIds() {
                 {
                     const currentLeagueId = await leagueInfo.default();
                     leagueIds.ATLeagueId.push({
-                        "league_id": currentLeagueId 
+                        "league_id": currentLeagueId, 
+                        "year": thisYear
                     });  
                 }
                 else
                 {
                     leagueIds.ATLeagueId.push({
-                        "league_id": lastLeagueId 
+                        "league_id": lastLeagueId,
+                        "year": thisYear 
                     });  
                 }
             }
