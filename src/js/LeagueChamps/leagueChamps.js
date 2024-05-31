@@ -34,7 +34,7 @@ async function loadContents() {
 
 }
 
-function loadLeagueChamps() {
+async function loadLeagueChamps() {
 
     var leagues = allTimeLeagueIds
 
