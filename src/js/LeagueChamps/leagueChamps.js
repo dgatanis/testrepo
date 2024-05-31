@@ -41,10 +41,10 @@ async function loadLeagueChamps() {
     for(let league of leagues.ATLeagueId)
     {
         var rosterId = await getChampionForLeague('998356266604916736');//getChampionForLeague(league.league_id);
-        console.log(rosterId);
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
         var user = userData.find(x => x.user_id === parseInt(roster.owner_id));
-
+        console.log(user);
+        console.log(roster)
         var div = document.getElementById('myFirstTest');
 
         // var test = createOwnerAvatarImage(user.user_id);
