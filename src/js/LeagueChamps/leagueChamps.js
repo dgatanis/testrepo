@@ -41,6 +41,7 @@ function loadLeagueChamps() {
     for(let league of leagues.ATLeagueId)
     {
         var rosterId = getChampionForLeague('998356266604916736');//getChampionForLeague(league.league_id);
+        console.log(rosterId);
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
         var user = userData.find(x => x.user_id === parseInt(roster.owner_id));
 
