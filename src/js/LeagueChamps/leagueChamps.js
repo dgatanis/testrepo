@@ -57,9 +57,7 @@ async function getChampionForLeague(leagueId) {
     const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/winners_bracket`); 
     const data = await res.json(); 
 
-    var playoffData = JSON.parse(data);
-
-    for(let playoffRound of playoffData)
+    for(let playoffRound of data)
     {
         if(playoffRound.r==3 && playoffRound.t1_from.w)
         {
