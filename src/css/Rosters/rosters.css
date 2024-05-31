@@ -364,6 +364,11 @@ th, td {
 
     .custom-player-name {
       font-size: unset;
+      margin-top: .3rem;
+    }
+
+    .custom-player-details {
+      margin-top: -.8rem;
     }
 
     .custom-medium-avatar{
