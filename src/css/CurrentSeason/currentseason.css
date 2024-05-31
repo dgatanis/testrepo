@@ -566,6 +566,14 @@
   #bankrollTable td {
     text-align: center;
   }
+  
+  .custom-ghost-playoff {
+    max-width: .75rem;
+    max-height: .75rem;
+    position: absolute;
+    z-index: 1;
+    margin-top: .8rem;
+  }
 
   .custom-versus-matchup {
     color: white;
