@@ -42,11 +42,10 @@ async function loadLeagueChamps() {
     {
         var rosterId = await getChampionForLeague('998356266604916736');//getChampionForLeague(league.league_id);
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-        var user = userData.find(x => x.user_id === parseInt(roster.owner_id));
-        console.log(user);
-        console.log(roster)
-        var div = document.getElementById('myFirstTest');
+        var user = userData.find(x => x.user_id === roster.owner_id);
 
+        var div = document.getElementById('myFirstTest');
+        div.style="text-align:center;margin-top:1rem;"
         // var test = createOwnerAvatarImage(user.user_id);
         // div.append(test);
         div.innerText = getTeamName(user.user_id);
