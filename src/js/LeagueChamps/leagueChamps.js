@@ -23,9 +23,9 @@ async function loadContents() {
     try{
 
         const leagueInfo = await import('../util/leagueInfo.js');
-        const currentLeagueId = await leagueInfo.default();
+        const inauguralSeason = leagueInfo.inauguralSeason;
 
-        loadLeagueChamps();
+        loadLeagueChamps(inauguralSeason);
         
         return;
     }
@@ -35,9 +35,42 @@ async function loadContents() {
 
 }
 
-async function loadLeagueChamps() {
+async function loadLeagueChamps(inauguralSeason) {
 
-    var leagues = allTimeLeagueIds
+    var table = document.getElementById('LeagueChampsTable');
+    var tableBody = table.children[0];
+    var leagues = allTimeLeagueIds;
+
+    var rosterId;
+
+    //Create rows for league winners before move to sleeper
+    for(var i = 2021; i<=inauguralSeason; i++)
+    {
+
+        if(i == 2020)
+        {
+            rosterId = 8;
+        }
+        if(i == 2021)
+        {
+            rosterId = 5;
+        }
+        if(i == 2022)
+        {
+            rosterId = 2;
+        }
+        if(i == 2023)
+        {
+            rosterId = 10;
+        }
+
+        var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+        var user = userData.find(x => x.user_id === roster.owner_id);
+
+        var leagueChampRow = createLeagueChampRow(roster, user, i);
+        
+        tableBody.appendChild(leagueChampRow);
+    }
 
     for(let league of leagues.ATLeagueId)
     {
@@ -45,10 +78,7 @@ async function loadLeagueChamps() {
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
         var user = userData.find(x => x.user_id === roster.owner_id);
 
-        var table = document.getElementById('LeagueChampsTable');
-        var tableBody = table.children[0];
-        var leagueChampRow = createLeagueChampRow(roster, user, league);
-
+        var leagueChampRow = createLeagueChampRow(roster, user, league.year);
         
         tableBody.appendChild(leagueChampRow);
     }
@@ -71,7 +101,7 @@ async function getChampionForLeague(leagueId) {
     }
 }
 
-function createLeagueChampRow(roster, user, league) {
+function createLeagueChampRow(roster, user, year) {
 
     var tr = document.createElement('tr');
     var thYear = document.createElement('th');
@@ -81,7 +111,7 @@ function createLeagueChampRow(roster, user, league) {
 
     teamName.setAttribute('class', 'custom-team-name');
     teamName.innerText=getTeamName(user.user_id);
-    thYear.innerText = league.year;
+    thYear.innerText = year;
 
     tdTeam.appendChild(teamImage);
     tdTeam.appendChild(teamName);
