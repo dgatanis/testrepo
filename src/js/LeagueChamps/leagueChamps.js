@@ -138,7 +138,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
             var playerName = document.createElement('div');
             playerName.innerText = getFullPlayerName(highScorer.player_id);
     
-            teamName.append(playerName);
+            tdTeam.append(playerName);
         }
 
     }
