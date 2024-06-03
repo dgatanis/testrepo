@@ -136,7 +136,7 @@ async function createLeagueChampRow(roster, user, year) {
         var playerName = document.createElement('div');
         playerName.innerText = getFullPlayerName(highScorer.player_id);
 
-        teamName.append(playerName);
+        //teamName.append(playerName);
     }
 
     teamName.setAttribute('class', 'custom-team-name');
