@@ -133,6 +133,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
         var finals = matchups.find(x => x.roster_id === parseInt(3));//matchups.find(x => x.roster_id === parseInt(roster.roster_id));
         var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
         console.log(highScorer);
+        console.log(finals);
         if(highScorer)
         {
             var playerName = document.createElement('div');
