@@ -118,7 +118,7 @@ async function getFinalsMatchups(leagueId) {
     return data;
 }
 
-function createLeagueChampRow(roster, user, year) {
+async function createLeagueChampRow(roster, user, year) {
 
     var tr = document.createElement('tr');
     var thYear = document.createElement('th');
