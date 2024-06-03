@@ -146,7 +146,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
             var playerDiv = document.createElement('div');
             var playerName = document.createElement('div');
             var playerPts = document.createElement('div');
-            var label = document.createElement('span');
+            var label = document.createElement('div');
             var playerImg = createPlayerImage(highScorer.player_id);
 
             label.innerText = 'King of the Finals:';

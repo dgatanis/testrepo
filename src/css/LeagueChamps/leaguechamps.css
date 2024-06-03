@@ -27,6 +27,7 @@ table#LeagueChampsTable {
 .custom-player-pts {
     display: inline;
     font-size: small;
+    margin-left: 1rem;
 }
 
 th {
