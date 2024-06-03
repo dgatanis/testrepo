@@ -48,8 +48,8 @@ async function loadLeagueChamps() {
         var table = document.getElementById('LeagueChampsTable');
         // var test = createOwnerAvatarImage(user.user_id);
         // div.append(test);
-        table.children[0].children[0].innerText = league.year;
-        table.children[0].children[1].innerText = getTeamName(user.user_id);
+        table.children[0].children[0].children[0].innerText = league.year;
+        table.children[0].children[0].children[1].innerText = getTeamName(user.user_id);
     }
 }
 
