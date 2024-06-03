@@ -71,7 +71,7 @@ async function loadLeagueChamps(inauguralSeason) {
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
         var user = userData.find(x => x.user_id === roster.owner_id);
 
-        var leagueChampRow = await createLeagueChampRow(roster, user, i);
+        var leagueChampRow = createLeagueChampRow(roster, user, i);
         
         tableBody.appendChild(leagueChampRow);
     }
@@ -84,8 +84,9 @@ async function loadLeagueChamps(inauguralSeason) {
         {
             var roster = rosterData.find(x => x.roster_id === parseInt(playoffRound.w));//winner of the finals
             var user = userData.find(x => x.user_id === roster.owner_id);
+            var matchups =  await getFinalsMatchups(league.league_id);
 
-            var leagueChampRow = await createLeagueChampRow(roster, user, league.year);
+            var leagueChampRow = createLeagueChampRow(roster, user, league.year, matchups);
             
             tableBody.appendChild(leagueChampRow);
         }
@@ -118,7 +119,7 @@ async function getFinalsMatchups(leagueId) {
     return data;
 }
 
-async function createLeagueChampRow(roster, user, year) {
+function createLeagueChampRow(roster, user, year, matchups = null) {
 
     var tr = document.createElement('tr');
     var thYear = document.createElement('th');
@@ -128,7 +129,6 @@ async function createLeagueChampRow(roster, user, year) {
 
     if(year >= 2024)
     {
-        var matchups =  await getFinalsMatchups(league.league_id);
         var finals = matchups.find(x => x.roster_id === parseInt(roster.roster_id));
         var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
 
