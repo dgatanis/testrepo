@@ -9,7 +9,6 @@ table#LeagueChampsTable {
     width: 50%;
     text-align: center;
     border: white;
-    border-bottom: transparent;
 }
 
 tr td {
