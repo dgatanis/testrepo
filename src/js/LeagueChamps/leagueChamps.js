@@ -49,11 +49,11 @@ async function loadLeagueChamps(inauguralSeason) {
 
         if(i == 2020)
         {
-            rosterId = 8;
+            rosterId = 7;
         }
         if(i == 2021)
         {
-            rosterId = 5;
+            rosterId = 4;
         }
         if(i == 2022)
         {
@@ -75,12 +75,16 @@ async function loadLeagueChamps(inauguralSeason) {
     for(let league of leagues.ATLeagueId)
     {
         var rosterId = await getChampionForLeague('998356266604916736');//getChampionForLeague(league.league_id);
-        var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-        var user = userData.find(x => x.user_id === roster.owner_id);
+        if(rosterId)
+        {
+            var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+            var user = userData.find(x => x.user_id === roster.owner_id);
+    
+            var leagueChampRow = createLeagueChampRow(roster, user, league.year);
+            
+            tableBody.appendChild(leagueChampRow);
+        }
 
-        var leagueChampRow = createLeagueChampRow(roster, user, league.year);
-        
-        tableBody.appendChild(leagueChampRow);
     }
 }
 
