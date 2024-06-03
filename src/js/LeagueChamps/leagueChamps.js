@@ -47,7 +47,7 @@ async function loadLeagueChamps() {
 
         var table = document.getElementById('LeagueChampsTable');
         var tableBody = table.children[0];
-        var leagueChampRow = createLeagueChampRow(roster, user);
+        var leagueChampRow = createLeagueChampRow(roster, user, league);
 
         
         tableBody.appendChild(leagueChampRow);
@@ -71,7 +71,7 @@ async function getChampionForLeague(leagueId) {
     }
 }
 
-function createLeagueChampRow(roster, user) {
+function createLeagueChampRow(roster, user, league) {
 
     var tr = document.createElement('tr');
     var thYear = document.createElement('th');
@@ -79,7 +79,9 @@ function createLeagueChampRow(roster, user) {
     var teamImage = createOwnerAvatarImage(user.user_id);
     var teamName = document.createElement('div');
 
+    teamName.setAttribute('class', 'custom-team-name');
     teamName.innerText=getTeamName(user.user_id);
+    thYear.innerText = league.year;
 
     tdTeam.appendChild(teamImage);
     tdTeam.appendChild(teamName);
