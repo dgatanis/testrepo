@@ -44,7 +44,7 @@ async function loadLeagueChamps(inauguralSeason) {
     var rosterId;
 
     //Create rows for league winners before move to sleeper
-    for(var i = 2021; i<=inauguralSeason; i++)
+    for(var i = 2020; i<inauguralSeason; i++)
     {
 
         if(i == 2020)
