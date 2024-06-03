@@ -76,6 +76,7 @@ async function loadLeagueChamps(inauguralSeason) {
         tableBody.appendChild(leagueChampRow);
     }
 
+    //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
         var playoffRound = await getChampionForLeague('998356266604916736');//getChampionForLeague(league.league_id);
@@ -132,7 +133,9 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
         var finals = matchups.find(x => x.roster_id === parseInt(roster.roster_id));
         var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
 
-
+        console.log(finals);
+        console.log(highScorer);
+        
         var playerName = document.createElement('div');
         playerName.innerText = getFullPlayerName(highScorer.player_id);
 
