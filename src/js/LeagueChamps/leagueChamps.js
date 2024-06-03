@@ -79,13 +79,13 @@ async function loadLeagueChamps(inauguralSeason) {
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
-        var playoffRound = await getChampionshipPlayoffRound('998356266604916736');//getChampionForLeague(league.league_id);
+        var playoffRound = await getChampionshipPlayoffRound('998356266604916736');////getChampionForLeague(league.league_id);
         
         if(playoffRound)
         {
             var roster = rosterData.find(x => x.roster_id === parseInt(playoffRound.w));//winner of the finals
             var user = userData.find(x => x.user_id === roster.owner_id);
-            var matchups =  await getFinalsMatchups(league.league_id);
+            var matchups =  await getFinalsMatchups('998356266604916736')//getFinalsMatchups(league.league_id);
 
             var leagueChampRow = createLeagueChampRow(roster, user, league.year, matchups);
             
@@ -114,7 +114,7 @@ async function getChampionshipPlayoffRound(leagueId) {
 
 async function getFinalsMatchups(leagueId) {
 
-    const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/13`);//last week of season  
+    const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/17`);//last week of season  
     const data = await res.json(); 
 
     return data;
