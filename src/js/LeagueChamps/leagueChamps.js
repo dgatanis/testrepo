@@ -46,10 +46,11 @@ async function loadLeagueChamps() {
         var user = userData.find(x => x.user_id === roster.owner_id);
 
         var table = document.getElementById('LeagueChampsTable');
-        // var test = createOwnerAvatarImage(user.user_id);
-        // div.append(test);
-        table.children[0].children[0].children[0].innerText = league.year;
-        table.children[0].children[0].children[1].innerText = getTeamName(user.user_id);
+        var tableBody = table.children[0];
+        var leagueChampRow = createLeagueChampRow(roster, user);
+
+        
+        tableBody.appendChild(leagueChampRow);
     }
 }
 
@@ -68,4 +69,21 @@ async function getChampionForLeague(leagueId) {
             }
         }
     }
+}
+
+function createLeagueChampRow(roster, user) {
+
+    var tr = document.createElement('tr');
+    var thYear = document.createElement('th');
+    var tdTeam = document.createElement('td');
+    var teamImage = createOwnerAvatarImage(user.user_id);
+    var teamName = getTeamName(user.user_id);
+
+    tdTeam.appendChild(teamImage);
+    tdTeam.appendChild(teamName);
+
+    tr.appendChild(thYear);
+    tr.appendChild(tdTeam);
+
+    return tr;
 }
