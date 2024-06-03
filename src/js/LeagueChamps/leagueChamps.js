@@ -10,7 +10,8 @@ import {
     getTeamName,
     createNFLTeamImage, 
     highScorerInMatchupStarters,
-    getFullPlayerName
+    getFullPlayerName,
+    createPlayerImage
 } from '../util/helper.js';
 
 let userData = users;
@@ -79,7 +80,7 @@ async function loadLeagueChamps(inauguralSeason) {
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
-        var playoffRound = await getChampionshipPlayoffRound('998356266604916736');////getChampionForLeague(league.league_id);
+        var playoffRound = await getChampionshipPlayoffRound('998356266604916736');//getChampionForLeague(league.league_id);
         
         if(playoffRound)
         {
@@ -128,28 +129,35 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
     var teamImage = createOwnerAvatarImage(user.user_id);
     var teamName = document.createElement('div');
 
-    if(year >= 2024)
-    {
-        var finals = matchups.find(x => x.roster_id === parseInt(3));//matchups.find(x => x.roster_id === parseInt(roster.roster_id));
-        var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
-        console.log(highScorer);
-        console.log(finals);
-        if(highScorer)
-        {
-            var playerName = document.createElement('div');
-            playerName.innerText = getFullPlayerName(highScorer.player_id);
-    
-            tdTeam.append(playerName);
-        }
-
-    }
-
     teamName.setAttribute('class', 'custom-team-name');
     teamName.innerText=getTeamName(user.user_id);
     thYear.innerText = year;
 
     tdTeam.appendChild(teamImage);
     tdTeam.appendChild(teamName);
+
+    if(year >= 2024)
+    {
+        var finals = matchups.find(x => x.roster_id === parseInt(3));//matchups.find(x => x.roster_id === parseInt(roster.roster_id));
+        var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
+
+        if(highScorer)
+        {
+            var playerDiv = document.createElement('div');
+            var playerName = document.createElement('div');
+            var playerImg = createPlayerImage(highScorer.player_id);
+
+            playerName.setAttribute('class', 'custom-team-name');
+            playerName.innerText = getFullPlayerName(highScorer.player_id);
+            playerImg.setAttribute('class', 'custom-player-image');
+            playerDiv.setAttribute('class', 'custom-finals-player');
+
+            playerDiv.appendChild(playerImg)
+            playerDiv.appendChild(playerName);
+            tdTeam.appendChild(playerDiv);
+        }
+
+    }
 
     tr.appendChild(thYear);
     tr.appendChild(tdTeam);
