@@ -71,7 +71,7 @@ async function loadLeagueChamps(inauguralSeason) {
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
         var user = userData.find(x => x.user_id === roster.owner_id);
 
-        var leagueChampRow = createLeagueChampRow(roster, user, i);
+        var leagueChampRow = await createLeagueChampRow(roster, user, i);
         
         tableBody.appendChild(leagueChampRow);
     }
@@ -85,7 +85,7 @@ async function loadLeagueChamps(inauguralSeason) {
             var roster = rosterData.find(x => x.roster_id === parseInt(playoffRound.w));//winner of the finals
             var user = userData.find(x => x.user_id === roster.owner_id);
 
-            var leagueChampRow = createLeagueChampRow(roster, user, league.year);
+            var leagueChampRow = await createLeagueChampRow(roster, user, league.year);
             
             tableBody.appendChild(leagueChampRow);
         }
