@@ -26,6 +26,7 @@ async function loadContents() {
         const currentLeagueId = await leagueInfo.default();
 
         loadLeagueChamps();
+        
         return;
     }
     catch (error){
@@ -44,11 +45,11 @@ async function loadLeagueChamps() {
         var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
         var user = userData.find(x => x.user_id === roster.owner_id);
 
-        var div = document.getElementById('myFirstTest');
-        div.style="text-align:center;margin-top:1rem;"
+        var table = document.getElementById('LeagueChampsTable');
         // var test = createOwnerAvatarImage(user.user_id);
         // div.append(test);
-        div.innerText = getTeamName(user.user_id);
+        table.children[0].children[0].innerText = league.year;
+        table.children[0].children[1].innerText = getTeamName(user.user_id);
     }
 }
 
