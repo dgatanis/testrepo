@@ -145,14 +145,18 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
         {
             var playerDiv = document.createElement('div');
             var playerName = document.createElement('div');
+            var playerPts = document.createElement('div');
             var playerImg = createPlayerImage(highScorer.player_id);
 
-            playerName.setAttribute('class', 'custom-team-name');
+            playerPts.setAttribute('class', 'custom-player-pts');
+            playerPts.innerText = highScorer.points + "pts";
+            playerName.setAttribute('class', 'custom-player-name');
             playerName.innerText = getFullPlayerName(highScorer.player_id);
             playerDiv.setAttribute('class', 'custom-finals-player');
 
             playerDiv.appendChild(playerImg)
             playerDiv.appendChild(playerName);
+            playerDiv.appendChild(playerPts);
             tdTeam.appendChild(playerDiv);
         }
 

@@ -14,6 +14,14 @@ table#LeagueChampsTable {
     font-size: x-large;
 }
 
+.custom-player-name {
+    display: inline;
+}
+
+.custom-player-pts {
+    display: inline;
+}
+
 th {
     vertical-align: middle;
     font-size: 1.3rem;
