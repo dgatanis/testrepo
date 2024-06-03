@@ -149,7 +149,6 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
 
             playerName.setAttribute('class', 'custom-team-name');
             playerName.innerText = getFullPlayerName(highScorer.player_id);
-            playerImg.setAttribute('class', 'custom-player-image');
             playerDiv.setAttribute('class', 'custom-finals-player');
 
             playerDiv.appendChild(playerImg)
