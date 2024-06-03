@@ -79,7 +79,7 @@ async function loadLeagueChamps(inauguralSeason) {
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
-        var playoffRound = await getChampionForLeague('998356266604916736');//getChampionForLeague(league.league_id);
+        var playoffRound = await getChampionshipPlayoffRound('998356266604916736');//getChampionForLeague(league.league_id);
         
         if(playoffRound)
         {
@@ -95,7 +95,7 @@ async function loadLeagueChamps(inauguralSeason) {
     }
 }
 
-async function getChampionForLeague(leagueId) {
+async function getChampionshipPlayoffRound(leagueId) {
 
     const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/winners_bracket`); 
     const data = await res.json(); 
