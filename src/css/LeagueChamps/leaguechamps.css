@@ -16,10 +16,17 @@ table#LeagueChampsTable {
 
 .custom-player-name {
     display: inline;
+    margin-left: 1rem;
+    font-size: small;
+}
+
+.custom-finals-player {
+    margin-top: 1rem;
 }
 
 .custom-player-pts {
     display: inline;
+    font-size: small;
 }
 
 th {
