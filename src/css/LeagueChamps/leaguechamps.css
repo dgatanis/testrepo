@@ -50,4 +50,12 @@ th {
     .custom-page-title {
         margin-top: 3rem;
     }
+
+    .custom-team-name {
+        font-size: large;
+    }
+
+    table#LeagueChampsTable {
+        width: 90%;
+    }
   }
