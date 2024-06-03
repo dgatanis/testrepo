@@ -18,3 +18,21 @@ th {
     vertical-align: middle;
     font-size: 1.3rem;
 }
+
+  /*Large laptop display styling*/
+  @media screen and (max-width: 90rem) {
+
+  }
+
+    /*Normal Laptop display styling*/
+    @media screen and (max-width: 64rem) {
+
+    }
+
+  /*Large Mobile display styling*/
+  @media screen and (max-width: 26.875rem) {
+
+    .custom-page-title {
+        margin-top: 3rem;
+    }
+  }
