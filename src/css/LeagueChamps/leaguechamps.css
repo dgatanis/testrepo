@@ -52,25 +52,29 @@ th {
     }
 }
 
-  /*Tablet display styling*/
-  @media screen and (max-width: 48rem) {
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
     table#LeagueChampsTable {
         width: 90%;
     }
-  }
+}
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
-.custom-page-title {
-    margin-top: 3rem;
-}
+    .custom-page-title {
+        margin-top: 3rem;
+    }
 
-.custom-team-name {
-    font-size: large;
-}
+    .custom-team-name {
+        font-size: large;
+    }
 
-table#LeagueChampsTable {
-    width: 95%;
-}
+    table#LeagueChampsTable {
+        width: 95%;
+    }
+
+    tr td {
+        max-width: 8rem;
+    }
 }
