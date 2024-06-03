@@ -77,7 +77,9 @@ function createLeagueChampRow(roster, user) {
     var thYear = document.createElement('th');
     var tdTeam = document.createElement('td');
     var teamImage = createOwnerAvatarImage(user.user_id);
-    var teamName = getTeamName(user.user_id);
+    var teamName = document.createElement('div');
+
+    teamName.innerText=getTeamName(user.user_id);
 
     tdTeam.appendChild(teamImage);
     tdTeam.appendChild(teamName);
