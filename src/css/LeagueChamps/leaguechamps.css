@@ -8,6 +8,8 @@ table#LeagueChampsTable {
     margin-right: auto;
     width: 50%;
     text-align: center;
+    border: white;
+    border-bottom: transparent;
 }
 
 .custom-team-name {
