@@ -99,6 +99,11 @@
     position: relative;
   }
 
+  #starterPositions.btn-primary:hover {
+    color: whitesmoke;
+    background-color: var(--custom-dark-blue);
+  }
+
   .custom-matchup-row .custom-medium-avatar {
     padding: .1rem;
     background-color: white;
