@@ -7,8 +7,14 @@ table#LeagueChampsTable {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    text-align: center;
 }
 
 .custom-team-name {
-    display: inline;
+    font-size: x-large;
+}
+
+th {
+    vertical-align: middle;
+    font-size: 1.3rem;
 }
