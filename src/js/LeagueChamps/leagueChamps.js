@@ -48,35 +48,6 @@ async function loadLeagueChamps(inauguralSeason) {
 
     var rosterId;
 
-    //Create rows for league winners before move to sleeper
-    for(var i = 2020; i<inauguralSeason; i++)
-    {
-
-        if(i == 2020)
-        {
-            rosterId = 7;
-        }
-        if(i == 2021)
-        {
-            rosterId = 4;
-        }
-        if(i == 2022)
-        {
-            rosterId = 2;
-        }
-        if(i == 2023)
-        {
-            rosterId = 10;
-        }
-
-        var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-        var user = userData.find(x => x.user_id === roster.owner_id);
-
-        var leagueChampRow = createLeagueChampRow(roster, user, i);
-        
-        tableBody.appendChild(leagueChampRow);
-    }
-
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
@@ -94,6 +65,35 @@ async function loadLeagueChamps(inauguralSeason) {
         }
 
     }
+
+    //Create rows for league winners before move to sleeper
+    for(var i = 2020; i<inauguralSeason; i++)
+        {
+    
+            if(i == 2020)
+            {
+                rosterId = 7;
+            }
+            if(i == 2021)
+            {
+                rosterId = 4;
+            }
+            if(i == 2022)
+            {
+                rosterId = 2;
+            }
+            if(i == 2023)
+            {
+                rosterId = 10;
+            }
+    
+            var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+            var user = userData.find(x => x.user_id === roster.owner_id);
+    
+            var leagueChampRow = createLeagueChampRow(roster, user, i);
+            
+            tableBody.appendChild(leagueChampRow);
+        }
 }
 
 async function getChampionshipPlayoffRound(leagueId) {
