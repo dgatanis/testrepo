@@ -40,6 +40,10 @@ th {
     font-size: 1.3rem;
 }
 
+#LeagueChampsTable > tbody > tr:last-child { 
+    border-bottom: transparent; 
+}
+
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
 
