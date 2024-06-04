@@ -167,6 +167,7 @@ function createPlayerDiv(highScorer) {
     var playerImg = createPlayerImage(highScorer.player_id);
 
     label.innerText = 'King of the Finals';
+    label.setAttribute('class','custom-finals-label');
     lionImg.setAttribute('src', '../src/static/images/lion.png');
     lionImg.setAttribute('class', 'custom-lion-image');
     playerPts.setAttribute('class', 'custom-player-pts');

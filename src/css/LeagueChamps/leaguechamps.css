@@ -12,8 +12,12 @@ table#LeagueChampsTable {
 }
 
 .custom-lion-image {
-    max-width:3rem; 
-    margin-right:0.5rem;
+    max-width:2rem; 
+    margin-left:0.5rem;
+}
+
+.custom-finals-label{
+    display: inline;
 }
 
 tr td {
