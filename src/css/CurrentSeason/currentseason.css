@@ -786,6 +786,19 @@
       }
     }
 
+    @keyframes scrolling-text {
+      from {
+        -moz-transform: translateX(-120%);
+        -webkit-transform: translateX(-120%);
+        transform: translateX(-120%);
+      }
+      to {
+        -moz-transform: translateX(120%);
+        -webkit-transform: translateX(120%);
+        transform: translateX(120%);
+      }
+    }
+
     .custom-playoffs-bracket, .custom-playoff-container {
       margin-left: unset;
     }
