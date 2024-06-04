@@ -151,7 +151,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
             var playerImg = createPlayerImage(highScorer.player_id);
 
             label.innerText = 'King of the Finals';
-            lionImg.setAttribute('src', '../src/static/images/lion.jpg');
+            lionImg.setAttribute('src', '../src/static/images/lion.png');
             lionImg.style = "max-width:1.5rem; margin-right:0.5rem;";
             playerPts.setAttribute('class', 'custom-player-pts');
             playerPts.innerText = highScorer.points + "pts";
