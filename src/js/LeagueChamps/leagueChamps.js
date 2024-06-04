@@ -147,9 +147,12 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
             var playerName = document.createElement('div');
             var playerPts = document.createElement('div');
             var label = document.createElement('div');
+            var lionImg = document.createElement('img');
             var playerImg = createPlayerImage(highScorer.player_id);
 
             label.innerText = 'King of the Finals:';
+            lionImg.setAttribute('src', '../src/static/images/lion.jpg');
+            lionImg.style = "max-width:1.5rem; margin-right:0.5rem;";
             playerPts.setAttribute('class', 'custom-player-pts');
             playerPts.innerText = highScorer.points + "pts";
             playerName.setAttribute('class', 'custom-player-name');
@@ -157,6 +160,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
             playerDiv.setAttribute('class', 'custom-finals-player');
 
             playerDiv.appendChild(label);
+            playerDiv.appendChild(lionImg);
             playerDiv.appendChild(playerImg);
             playerDiv.appendChild(playerName);
             playerDiv.appendChild(playerPts);
