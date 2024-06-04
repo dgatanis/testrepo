@@ -14,6 +14,7 @@ table#LeagueChampsTable {
 .custom-lion-image {
     max-width:2rem; 
     margin-left:0.5rem;
+    margin-bottom: .2rem;
 }
 
 .custom-finals-label{
