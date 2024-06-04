@@ -143,27 +143,8 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
 
         if(highScorer)
         {
-            var playerDiv = document.createElement('div');
-            var playerName = document.createElement('div');
-            var playerPts = document.createElement('div');
-            var label = document.createElement('div');
-            var lionImg = document.createElement('img');
-            var playerImg = createPlayerImage(highScorer.player_id);
+            var playerDiv = createPlayerDiv(highScorer);
 
-            label.innerText = 'King of the Finals';
-            lionImg.setAttribute('src', '../src/static/images/lion.png');
-            lionImg.style = "max-width:1.5rem; margin-right:0.5rem;";
-            playerPts.setAttribute('class', 'custom-player-pts');
-            playerPts.innerText = highScorer.points + "pts";
-            playerName.setAttribute('class', 'custom-player-name');
-            playerName.innerText = getFullPlayerName(highScorer.player_id);
-            playerDiv.setAttribute('class', 'custom-finals-player');
-
-            playerDiv.appendChild(label);
-            playerDiv.appendChild(lionImg);
-            playerDiv.appendChild(playerImg);
-            playerDiv.appendChild(playerName);
-            playerDiv.appendChild(playerPts);
             tdTeam.appendChild(playerDiv);
         }
 
@@ -173,4 +154,34 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
     tr.appendChild(tdTeam);
 
     return tr;
+}
+
+function createPlayerDiv(highScorer) {
+
+    var playerDiv = document.createElement('div');
+    var playerName = document.createElement('div');
+    var playerPts = document.createElement('div');
+    var labelDiv = document.createElement('div');
+    var label = document.createElement('div');
+    var lionImg = document.createElement('img');
+    var playerImg = createPlayerImage(highScorer.player_id);
+
+    label.innerText = 'King of the Finals';
+    lionImg.setAttribute('src', '../src/static/images/lion.png');
+    lionImg.setAttribute('class', 'custom-lion-image');
+    playerPts.setAttribute('class', 'custom-player-pts');
+    playerPts.innerText = highScorer.points + "pts";
+    playerName.setAttribute('class', 'custom-player-name');
+    playerName.innerText = getFullPlayerName(highScorer.player_id);
+    playerDiv.setAttribute('class', 'custom-finals-player');
+
+
+    labelDiv.appendChild(label);
+    labelDiv.appendChild(lionImg)
+    playerDiv.appendChild(labelDiv);
+    playerDiv.appendChild(playerImg);
+    playerDiv.appendChild(playerName);
+    playerDiv.appendChild(playerPts);
+    
+    return playerDiv;
 }

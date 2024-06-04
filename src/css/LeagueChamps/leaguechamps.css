@@ -11,6 +11,11 @@ table#LeagueChampsTable {
     border: white;
 }
 
+.custom-lion-image {
+    max-width:3rem; 
+    margin-right:0.5rem;
+}
+
 tr td {
     max-width: 5rem;
 }
