@@ -3,8 +3,9 @@ export const dues = 200;
 export const leagueUser = '467550885086490624';
 export const dynasty = true; 
 export const weeklyWinner = 35; //Amount won for highest weekly scorer
-
 export const inauguralSeason = 2024;
+
+export const leagueDescription = "Welcome to the Crush Cities dynasty fantasy football league, founded in the summer of 2020. This league is comprised of 10 members who dream of bringing home a jersey of their choice, each and every year. However, some owners' dreams are just that, dreams. At the conclusion of the season, the champion is given the opportunity to select our new destination to draft rookies that will almost certainly become future waiver additions for someone else. Luck? Skill? Who cares. The only thing that matters is: Don't. Finish. Last."
 
 export default async function getCurrentLeagueId() {
     try {
