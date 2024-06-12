@@ -8,7 +8,9 @@ table#LeagueChampsTable {
     margin-right: auto;
     width: 50%;
     text-align: center;
-    border: white;
+    border: var(--custom-dark-blue);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .custom-lion-image {
@@ -26,7 +28,7 @@ tr td {
 }
 
 .custom-team-name {
-    font-size: x-large;
+    font-size: large;
 }
 
 .custom-player-name {
