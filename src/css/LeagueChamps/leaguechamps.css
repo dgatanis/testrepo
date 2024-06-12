@@ -36,12 +36,16 @@ tr td {
 
 .custom-finals-player {
     margin-top: 1rem;
+    border: 2px solid var(--custom-light-gray);
+    padding: .3rem;
+    border-radius: 10px;
+    background: var(--custom-light-blue);
 }
 
 .custom-player-pts {
     display: inline;
     font-size: small;
-    margin-left: 1rem;
+    margin-left: .5rem;
 }
 
 th {

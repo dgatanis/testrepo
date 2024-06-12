@@ -172,7 +172,7 @@ function createPlayerDiv(highScorer) {
     playerPts.setAttribute('class', 'custom-player-pts');
     playerPts.innerText = highScorer.points + "pts";
     playerName.setAttribute('class', 'custom-player-name');
-    playerName.innerText = getFullPlayerName(highScorer.player_id);
+    playerName.innerText = getFullPlayerName(highScorer.player_id) + ":";
     playerDiv.setAttribute('class', 'custom-finals-player');
 
 
