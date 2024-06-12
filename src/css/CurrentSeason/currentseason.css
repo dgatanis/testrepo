@@ -74,6 +74,10 @@
     vertical-align: middle;
   }
 
+  #bankrollTable > tbody > tr:last-child {
+    border-bottom: transparent;
+  }
+
   .custom-roster-breakdown {
     background-color: var(--custom-dark-blue);
     color: whitesmoke;
