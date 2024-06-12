@@ -15,7 +15,23 @@ loadContents();
 function loadContents() {
 
     loadPageTitle();
+    loadLeagueDescription();
+    loadTeams();
+}
 
+function loadPageTitle() {
+    var title = document.getElementsByClassName('custom-title');
+
+    title[0].innerText = leagueDisplayName.trim() + " FFL";
+}
+
+function loadLeagueDescription() {
+    var description = document.getElementsByClassName('custom-league-description');
+
+    description[0].innerText = leagueDescription;
+}
+
+function loadTeams() {
     try{
         var teams = document.querySelectorAll('[id*=team]');
         var champRosterId = null;
@@ -53,22 +69,8 @@ function loadContents() {
             
         }
     }
-
     catch (error)
     {
         console.error(error.message);
     }
-
-}
-
-function loadPageTitle() {
-    var title = document.getElementsByClassName('custom-title');
-
-    title[0].innerText = leagueDisplayName.trim() + " FFL";
-}
-
-function loadLeagueDescription() {
-    var description = document.getElementsByClassName('custom-league-description');
-
-    description[0].innerText = leagueDescription;
 }
