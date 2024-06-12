@@ -67,9 +67,8 @@ async function loadLeagueChamps(inauguralSeason) {
     }
 
     //Create rows for league winners before move to sleeper
-    for(var i = 2020; i<inauguralSeason; i++)
+    for(var i = inauguralSeason-1; i>=2020; i--)
         {
-    
             if(i == 2020)
             {
                 rosterId = 7;
