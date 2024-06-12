@@ -55,6 +55,12 @@ th {
     font-size: 1.3rem;
 }
 
+.custom-throne-img {
+    max-width: 3rem;
+    display: block;
+    margin: auto;
+}
+
 #LeagueChampsTable > tbody > tr:last-child { 
     border-bottom: transparent; 
 }
