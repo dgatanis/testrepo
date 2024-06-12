@@ -2,7 +2,8 @@ import {
     rosters, 
     createOwnerAvatarImage, 
     getTeamName,
-    playoffs
+    playoffs,
+    leagueDisplayName
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -12,6 +13,8 @@ loadContents();
 
 function loadContents() {
 
+    loadPageTitle();
+    
     try{
         var teams = document.querySelectorAll('[id*=team]');
         var champRosterId = null;
@@ -55,4 +58,10 @@ function loadContents() {
         console.error(error.message);
     }
 
+}
+
+function loadPageTitle() {
+    var title = document.getElementsByClassName('custom-title');
+
+    title[0].innerText = leagueDisplayName.trim() + " FFL";
 }
