@@ -629,6 +629,8 @@
 
     .custom-carousel {
       width: 30rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
     }
 
     .custom-body-container {
@@ -810,7 +812,9 @@
     .custom-carousel {
       grid-column: 1;
       grid-row: 3;
-      width: 95%
+      width: 95%;
+      margin-left: unset;
+      margin-right: unset;
     }
 
     .custom-team-score {
