@@ -346,6 +346,7 @@ th, td {
     .custom-roster-group {
       clear: unset;
       overflow: scroll;
+      overflow-y: hidden;
     }
 
     .custom-team-roster {
