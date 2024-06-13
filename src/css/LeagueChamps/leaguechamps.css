@@ -42,6 +42,7 @@ tr td {
     padding: .3rem;
     border-radius: 10px;
     background: var(--custom-light-blue);
+    box-shadow: 0 0 .5rem 0 black;
 }
 
 .custom-player-pts {
@@ -78,14 +79,14 @@ th {
 /*Normal Laptop display styling*/
 @media screen and (max-width: 64rem) {
     table#LeagueChampsTable {
-        width: 70%;
+        width: 80%;
     }
 }
 
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {
     table#LeagueChampsTable {
-        width: 90%;
+        width: 100%;
     }
 }
 
