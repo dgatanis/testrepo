@@ -639,6 +639,7 @@
 
     .custom-body-container {
       overflow: scroll;
+      overflow-y: hidden;
     }
     
     .custom-matchup-row .custom-medium-avatar {
