@@ -38,7 +38,7 @@ tr td {
 
 .custom-finals-player {
     margin-top: 1rem;
-    border: 2px solid var(--custom-light-gray);
+    border: 2px solid #7f7f7f;
     padding: .3rem;
     border-radius: 10px;
     background: var(--custom-light-blue);
