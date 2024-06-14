@@ -25,7 +25,8 @@ async function setBrowserData() {
             setPlayerData();
             setATLeagueIds();
             setRosterData(currentLeagueId);
-            setUserData(currentLeagueId);
+            //setUserData(currentLeagueId);
+            setUserData('1054609254864269312');
             setLeagueDetails(currentLeagueId);
             //setPlayoffsData(currentLeagueId);
             setPlayoffsData('998356266604916736');

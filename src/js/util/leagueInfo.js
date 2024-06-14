@@ -1,4 +1,4 @@
-export const leagueDisplayName = "Crush Cities ";
+export const leagueDisplayName = "The Greatest Show on Paper"; //"Crush Cities "
 export const dues = 200; 
 export const leagueUser = '467550885086490624';
 export const dynasty = true; 
