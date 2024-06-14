@@ -151,10 +151,11 @@
   }
   
   .custom-matchup-player {
-    float: right;
-    padding: 10px;
     animation: blinker 4s ease-in-out infinite;
+    padding: 10px;
     font-size: small;
+    margin: auto;
+    display: flex;
   }
 
   .custom-pts {
