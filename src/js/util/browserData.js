@@ -21,7 +21,7 @@ async function setBrowserData() {
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
         {
             localStorage.clear();
-            localStorage.setItem("expiration", expiration); 
+            localStorage.setItem("expiration", expiration);
             setPlayerData();
             setATLeagueIds();
             setRosterData(currentLeagueId);
@@ -30,14 +30,14 @@ async function setBrowserData() {
             setLeagueDetails(currentLeagueId);
             //setPlayoffsData(currentLeagueId);
             setPlayoffsData('998356266604916736');
-            //setMatchupData(currentLeagueId,currentWeek); 
+            //setMatchupData(currentLeagueId,currentWeek);
             setMatchupData('1003692635549462528','10');
         }
         // if(!sessionStorage.getItem("MatchupData"))
         // {
 
         // }
-        
+
     }
     catch(error){
         console.error(`Error: ${error.message}`);
@@ -48,8 +48,8 @@ async function setBrowserData() {
 async function setRosterData(leagueID){
     try
     {
-        const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`); 
-        const rosterData = await rosterResponse.json(); 
+        const rosterResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/rosters`);
+        const rosterData = await rosterResponse.json();
 
         localStorage.setItem("RosterData", JSON.stringify(rosterData));
         return rosterData;
@@ -63,8 +63,8 @@ async function setRosterData(leagueID){
 async function setPlayoffsData(leagueID) {
     try
     {
-        const playoffResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/winners_bracket`); 
-        const playoffData = await playoffResponse.json(); 
+        const playoffResponse = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/winners_bracket`);
+        const playoffData = await playoffResponse.json();
 
         localStorage.setItem("PlayoffData", JSON.stringify(playoffData));
         return playoffData;
@@ -79,9 +79,9 @@ async function previousLeagueId(leagueID) {
     const leagueName = leagueDisplayName;
     const userLeagues = await fetch(`https://api.sleeper.app/v1/league/${leagueID}`);
     const leagueData = await userLeagues.json();
-   
+
     //const leagues = leagueData.map((league) => league);
-    
+
     // for(let league of leagues)
     // {
     //     if(leagueData.find(x => x.name === leagueName))
@@ -94,7 +94,7 @@ async function previousLeagueId(leagueID) {
 
 async function setATLeagueIds() {
 
-    var leagueIds = { 
+    var leagueIds = {
         "ATLeagueId" : []
     };
 
@@ -108,24 +108,26 @@ async function setATLeagueIds() {
         for(var i=year; i>=firstSeason; i--)
         {
             thisYear=i;
-            while(lastLeagueId != 0)
+            while(lastLeagueId != 0 && lastLeagueId != null)
             {
                 console.log(lastLeagueId);
-                lastLeagueId = await previousLeagueId(lastLeagueId);
-                if(lastLeagueId == 0)
-                {
-                    leagueIds.ATLeagueId.push({
-                        "league_id": currentLeagueId, 
-                        "year": thisYear
-                    });  
-                }
-                else
-                {
+                
+                // if(lastLeagueId == 0)
+                // {
+                //     leagueIds.ATLeagueId.push({
+                //         "league_id": currentLeagueId,
+                //         "year": thisYear
+                //     });
+                // }
+                // else
+                // {
                     leagueIds.ATLeagueId.push({
                         "league_id": lastLeagueId,
-                        "year": thisYear 
-                    });  
-                }
+                        "year": thisYear
+                    });
+                    
+                    lastLeagueId = await previousLeagueId(lastLeagueId);
+                // }
             }
         }
 
@@ -140,11 +142,11 @@ async function setATLeagueIds() {
 async function setPlayerData() {
 
     try
-    {    
-        var myPlayerMap = { 
+    {
+        var myPlayerMap = {
             "players" : []
         };
-        const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
+        const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`);
         const data = await res.json();
         let maxId = parseInt(Object.keys(data).sort((a, b) => b - a)); //organize by Id;
         const playerPositions = ["QB", "RB", "WR", "TE", "K", "DEF"];
@@ -169,7 +171,7 @@ async function setPlayerData() {
                     "number": data[i].number,
                     "height": data[i].height,
                     "weight": data[i].weight
-                });  
+                });
            }
         }
 
@@ -183,8 +185,8 @@ async function setPlayerData() {
 
 async function setUserData(leagueID){
     try {
-        const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`); 
-        const data = await res.json(); 
+        const res = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/users`);
+        const data = await res.json();
         localStorage.setItem("UserData", JSON.stringify(data));
     }
     catch (error) {
@@ -195,7 +197,7 @@ async function setUserData(leagueID){
 async function setLeagueDetails(leagueID) {
     try {
         const leagueData = await fetch(`https://api.sleeper.app/v1/league/${leagueID}`);
-        const league = await leagueData.json(); 
+        const league = await leagueData.json();
 
         localStorage.setItem("LeagueData", JSON.stringify(league));
     }
@@ -216,7 +218,7 @@ async function setMatchupData(leagueID, currentWeek) {
         {
             let matchupsArray = [];
             const matchup = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`);
-            const matchupData = await matchup.json(); 
+            const matchupData = await matchup.json();
 
             if(matchupData)
             {
@@ -231,7 +233,7 @@ async function setMatchupData(leagueID, currentWeek) {
                 });
 
             }
-            
+
         }
 
         upToCurrentWeekMatchups.push({
