@@ -154,8 +154,8 @@
     animation: blinker 4s ease-in-out infinite;
     padding: 10px;
     font-size: small;
-    margin: auto;
-    display: flex;
+    margin-left: 2rem;
+    display: block;
   }
 
   .custom-pts {
