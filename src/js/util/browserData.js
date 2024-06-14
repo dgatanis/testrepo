@@ -86,7 +86,6 @@ async function previousLeagueId(year) {
     {
         if(leagueData.find(x => x.name === leagueName))
         {
-            console.log(league);
             let previousLeagueId = league.previous_league_id;
             return previousLeagueId;
         }
@@ -111,7 +110,7 @@ async function setATLeagueIds() {
             while(lastLeagueId != 0)
             {
                 lastLeagueId = await previousLeagueId(i);
-
+                console.log(lastLeagueId);
                 if(lastLeagueId == 0)
                 {
                     const currentLeagueId = await leagueInfo.default();
