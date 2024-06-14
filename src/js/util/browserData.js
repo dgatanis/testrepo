@@ -125,16 +125,7 @@ async function setATLeagueIds() {
                         "year": thisYear 
                     });  
                 }
-
-                if(lastLeagueId == '916496631477116928')
-                {
-                    break;
-                }
             }
-            if(lastLeagueId == '916496631477116928')
-                {
-                    break;
-                }
         }
 
         localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
