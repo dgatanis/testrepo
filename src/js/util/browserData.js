@@ -108,7 +108,6 @@ async function setATLeagueIds() {
         // {
             while(lastLeagueId != 0 && lastLeagueId != null)
             {
-                console.log(lastLeagueId);
                 
                 // if(lastLeagueId == 0)
                 // {
