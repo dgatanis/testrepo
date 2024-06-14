@@ -79,7 +79,7 @@ async function previousLeagueId(year) {
     const leagueName = leagueDisplayName;
     const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${year}`);
     const leagueData = await userLeagues.json();
-
+   
     const leagues = leagueData.map((league) => league);
     
     for(let league of leagues)
