@@ -23,7 +23,7 @@ async function setBrowserData() {
             localStorage.clear();
             localStorage.setItem("expiration", expiration); 
             setPlayerData();
-            setATLeagueIds();
+            //setATLeagueIds();
             setRosterData(currentLeagueId);
             setUserData(currentLeagueId);
             //setUserData('1054609254864269312');
