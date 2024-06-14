@@ -74,10 +74,10 @@ async function setPlayoffsData(leagueID) {
     }
 }
 
-async function previousLeagueId(year) {
+async function previousLeagueId(leagueID) {
     const myUserId = leagueUser;
     const leagueName = leagueDisplayName;
-    const userLeagues = await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${year}`);
+    const userLeagues = await fetch(`https://api.sleeper.app/v1/league/${leagueID}`);
     const leagueData = await userLeagues.json();
    
     const leagues = leagueData.map((league) => league);
@@ -100,19 +100,19 @@ async function setATLeagueIds() {
 
     try{
         var year = await getCurrentSeason();
-        var lastLeagueId;
         var thisYear;
         const firstSeason = inauguralSeason;
+        const currentLeagueId = await leagueInfo.default();
+        var lastLeagueId = currentLeagueId;
 
         for(var i=year; i>=firstSeason; i--)
         {
             thisYear=i;
             while(lastLeagueId != 0)
             {
-                lastLeagueId = await previousLeagueId(i);
+                lastLeagueId = await previousLeagueId(lastLeagueId);
                 if(lastLeagueId == 0)
                 {
-                    const currentLeagueId = await leagueInfo.default();
                     leagueIds.ATLeagueId.push({
                         "league_id": currentLeagueId, 
                         "year": thisYear
