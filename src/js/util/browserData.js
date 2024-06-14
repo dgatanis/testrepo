@@ -110,7 +110,6 @@ async function setATLeagueIds() {
             while(lastLeagueId != 0)
             {
                 lastLeagueId = await previousLeagueId(i);
-                console.log(lastLeagueId);
                 if(lastLeagueId == 0)
                 {
                     const currentLeagueId = await leagueInfo.default();
@@ -126,7 +125,16 @@ async function setATLeagueIds() {
                         "year": thisYear 
                     });  
                 }
+
+                if(lastLeagueId == '916496631477116928')
+                {
+                    break;
+                }
             }
+            if(lastLeagueId == '916496631477116928')
+                {
+                    break;
+                }
         }
 
         localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
