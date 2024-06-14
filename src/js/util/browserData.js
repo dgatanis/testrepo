@@ -84,9 +84,9 @@ async function previousLeagueId(year) {
     
     for(let league of leagues)
     {
-        console.log(league);
         if(leagueData.find(x => x.name === leagueName))
         {
+            console.log(league);
             let previousLeagueId = league.previous_league_id;
             return previousLeagueId;
         }
