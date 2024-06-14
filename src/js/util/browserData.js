@@ -82,14 +82,14 @@ async function previousLeagueId(leagueID) {
    
     const leagues = leagueData.map((league) => league);
     
-    for(let league of leagues)
-    {
-        if(leagueData.find(x => x.name === leagueName))
-        {
-            let previousLeagueId = league.previous_league_id;
+    // for(let league of leagues)
+    // {
+    //     if(leagueData.find(x => x.name === leagueName))
+    //     {
+            let previousLeagueId = leagueData.previous_league_id;
             return previousLeagueId;
-        }
-    }
+    //     }
+    // }
 }
 
 async function setATLeagueIds() {
