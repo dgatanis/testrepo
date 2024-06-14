@@ -110,6 +110,7 @@ async function setATLeagueIds() {
             thisYear=i;
             while(lastLeagueId != 0)
             {
+                console.log(lastLeagueId);
                 lastLeagueId = await previousLeagueId(lastLeagueId);
                 if(lastLeagueId == 0)
                 {
