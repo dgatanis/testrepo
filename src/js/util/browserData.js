@@ -147,7 +147,7 @@ async function setPlayerData() {
         const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`); 
         const data = await res.json();
         let maxId = parseInt(Object.keys(data).sort((a, b) => b - a)); //organize by Id;
-        const playerPositions = ["QB", "RB", "WR", "TE", "K"];
+        const playerPositions = ["QB", "RB", "WR", "TE", "K", "DEF"];
 
         for(let i=0; i<maxId; i++)
         {
