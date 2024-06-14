@@ -121,7 +121,7 @@ async function setATLeagueIds() {
                 // {
                     leagueIds.ATLeagueId.push({
                         "league_id": lastLeagueId,
-                        "year": thisYear
+                        "year": thisYear.toString()
                     });
                     thisYear = thisYear - 1;
                     lastLeagueId = await previousLeagueId(lastLeagueId);
