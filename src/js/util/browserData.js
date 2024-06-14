@@ -104,29 +104,17 @@ async function setATLeagueIds() {
         const currentLeagueId = await leagueInfo.default();
         var lastLeagueId = currentLeagueId;
 
-        // for(var i=year; i>=firstSeason; i--)
-        // {
-            while(lastLeagueId != 0 && lastLeagueId != null)
-            {
-                
-                // if(lastLeagueId == 0)
-                // {
-                //     leagueIds.ATLeagueId.push({
-                //         "league_id": currentLeagueId,
-                //         "year": thisYear
-                //     });
-                // }
-                // else
-                // {
-                    leagueIds.ATLeagueId.push({
-                        "league_id": lastLeagueId,
-                        "year": thisYear.toString()
-                    });
-                    thisYear = thisYear - 1;
-                    lastLeagueId = await previousLeagueId(lastLeagueId);
-                // }
-            }
-        // }
+        while(lastLeagueId != 0 && lastLeagueId != null)
+        {
+            leagueIds.ATLeagueId.push({
+                "league_id": lastLeagueId,
+                "year": thisYear.toString()
+            });
+
+            thisYear = thisYear - 1;
+            lastLeagueId = await previousLeagueId(lastLeagueId);
+            
+        }
 
         localStorage.setItem("ATLeagueIds", JSON.stringify(leagueIds));
 
