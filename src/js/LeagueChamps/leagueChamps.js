@@ -51,7 +51,7 @@ async function loadLeagueChamps(inauguralSeason) {
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
-        var playoffRound = await getChampionshipPlayoffRound(league.league_id); //getChampionshipPlayoffRound('998356266604916736')
+        var playoffRound = await getChampionshipPlayoffRound('998356266604916736'); //getChampionshipPlayoffRound(league.league_id);
         
         if(playoffRound)
         {
