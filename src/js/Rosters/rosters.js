@@ -347,6 +347,7 @@ function unusedPlayerRow(position,starterTeam) {
         {
             var tr = document.createElement("tr");
             var th = document.createElement("th");
+            var lastPlayerPosition = playerRow[playerRow.length];
 
             tr.setAttribute('class', 'custom-player-'+ position + '-row');
             th.setAttribute('class', 'custom-'+ position + '-roster');
@@ -354,7 +355,7 @@ function unusedPlayerRow(position,starterTeam) {
             th.innerText = position;
 
             tr.appendChild(th);
-            row.append(tr);
+            lastPlayerPosition.append(tr);
 
             return tr;
         }
