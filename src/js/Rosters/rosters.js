@@ -338,12 +338,15 @@ function unusedPlayerRow(position,starterTeam) {
         {
             if(!row.getAttribute('data-playerid'))
             {
-                counter++;
                 return row;
+            }
+            else
+            {
+                counter++;
             }
         }
 
-        if(counter == 0 && RB > 2 || WR > 2)
+        if(RB > counter || WR > counter)
         {
             var tr = document.createElement("tr");
             var th = document.createElement("th");
@@ -355,8 +358,8 @@ function unusedPlayerRow(position,starterTeam) {
             th.innerText = position;
 
             tr.appendChild(th);
-            lastPlayerPosition.append(tr);
-
+            lastPlayerPosition.parentNode.insertBefore(tr, lastPlayerPosition.nextSibling);
+            
             return tr;
         }
     }
