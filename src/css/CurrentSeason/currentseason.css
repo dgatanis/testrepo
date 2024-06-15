@@ -891,6 +891,7 @@
     .custom-matchup-player {
       clear: left;
       padding: unset;
+      margin-left: 3rem;
     }
 
     .custom-medium-avatar {
