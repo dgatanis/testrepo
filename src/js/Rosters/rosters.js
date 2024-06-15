@@ -332,27 +332,31 @@ function unusedPlayerRow(position,starterTeam) {
 
     if(playerRow)
     {
+        var counter = 0;
+        
         for(let row of playerRow)
         {
             if(!row.getAttribute('data-playerid'))
             {
+                counter++;
                 return row;
             }
-            else if(RB > 2 || WR > 2)
-            {
-                var tr = document.createElement("tr");
-                var th = document.createElement("th");
+        }
 
-                tr.setAttribute('class', 'custom-player-'+ position + '-row');
-                th.setAttribute('class', 'custom-'+ position + '-roster');
-                th.setAttribute('scope', 'row');
-                th.innerText = position;
+        if(counter == 0 && RB > 2 || WR > 2)
+        {
+            var tr = document.createElement("tr");
+            var th = document.createElement("th");
 
-                tr.appendChild(th);
-                row.append(tr);
+            tr.setAttribute('class', 'custom-player-'+ position + '-row');
+            th.setAttribute('class', 'custom-'+ position + '-roster');
+            th.setAttribute('scope', 'row');
+            th.innerText = position;
 
-                return tr;
-            }
+            tr.appendChild(th);
+            row.append(tr);
+
+            return tr;
         }
     }
     if(flexRows)
