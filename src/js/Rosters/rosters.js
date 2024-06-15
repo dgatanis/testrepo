@@ -9,7 +9,8 @@ import {
     sortByPosition,
     createNFLTeamImage,
     getPlayerNickNames,
-    setLeagueName 
+    setLeagueName,
+    getLeaguePositions 
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -291,7 +292,10 @@ function unusedPlayerRow(position,starterTeam) {
     var playerRow = starterTeam.getElementsByClassName('custom-player-'+ position +'-row');
     var superFlexRows = starterTeam.getElementsByClassName('custom-player-SF-row');
     var flexRows = null;
-
+    var leaguePositions = getLeaguePositions();
+    console.log(leaguePositions);
+    console.log(leaguePositions.split(','));
+    
     if(position == 'RB' || position == 'WR' || position == 'TE')
     {
         flexRows = starterTeam.getElementsByClassName('custom-player-FLEX-row');
