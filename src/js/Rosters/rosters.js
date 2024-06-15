@@ -294,19 +294,15 @@ function unusedPlayerRow(position,starterTeam) {
     var flexRows = null;
     var leaguePositions = getLeaguePositions();
     var positionArray = leaguePositions.split(', ');
-    var QB = 0;
     var RB = 0;
     var WR = 0;
     var TE = 0;
-    var K = 0;
+    var DEF = 0;
 
+    //Need to work on defense position
 
     for(var i=0;i<positionArray.length;i++){
 
-        if(positionArray[i] == "QB")
-        {
-            QB++;
-        }
         if(positionArray[i] == "RB")
         {
             RB++;
@@ -319,9 +315,9 @@ function unusedPlayerRow(position,starterTeam) {
         {
             TE++;
         }
-        if(positionArray[i] == "K")
+        if(positionArray[i] == "DEF")
         {
-            K++;
+            DEF++;
         }
     }
     
@@ -346,6 +342,7 @@ function unusedPlayerRow(position,starterTeam) {
             }
         }
 
+        //Create new rows if needed
         if((position == "RB" || position == "WR") && (RB > counter || WR > counter))
         {
             var tr = document.createElement("tr");
