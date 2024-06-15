@@ -293,8 +293,37 @@ function unusedPlayerRow(position,starterTeam) {
     var superFlexRows = starterTeam.getElementsByClassName('custom-player-SF-row');
     var flexRows = null;
     var leaguePositions = getLeaguePositions();
-    console.log(leaguePositions);
-    console.log(leaguePositions.split(','));
+    var positionArray = leaguePositions.split(', ');
+    var QB = 0;
+    var RB = 0;
+    var WR = 0;
+    var TE = 0;
+    var K = 0;
+
+
+    for(var i=0;i<positionArray.length;i++){
+
+        if(positionArray[i] == "QB")
+        {
+            QB++;
+        }
+        if(positionArray[i] == "RB")
+        {
+            RB++;
+        }
+        if(positionArray[i] == "WR")
+        {
+            WR++;
+        }
+        if(positionArray[i] == "TE")
+        {
+            TE++;
+        }
+        if(positionArray[i] == "K")
+        {
+            K++;
+        }
+    }
     
     if(position == 'RB' || position == 'WR' || position == 'TE')
     {
@@ -308,6 +337,21 @@ function unusedPlayerRow(position,starterTeam) {
             if(!row.getAttribute('data-playerid'))
             {
                 return row;
+            }
+            else if(RB > 2 || WR > 2)
+            {
+                var tr = document.createElement("tr");
+                var th = document.createElement("th");
+
+                tr.setAttribute('class', 'custom-player-'+ position + '-row');
+                th.setAttribute('class', 'custom-'+ position + '-roster');
+                th.setAttribute('scope', 'row');
+                th.innerText = position;
+
+                tr.appendChild(th);
+                playerRow.append(tr);
+
+                return tr;
             }
         }
     }
