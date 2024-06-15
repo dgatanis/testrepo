@@ -346,20 +346,20 @@ function unusedPlayerRow(position,starterTeam) {
             }
         }
 
-        if(RB > counter || WR > counter)
+        if((position == "RB" || position == "WR") && (RB > counter || WR > counter))
         {
             var tr = document.createElement("tr");
             var th = document.createElement("th");
             var lastPlayerPosition = playerRow[playerRow.length-1];
 
             tr.setAttribute('class', 'custom-player-'+ position + '-row');
-            th.setAttribute('class', 'custom-'+ position + '-roster');
+            th.setAttribute('class', 'custom-'+ position.toLowerCase() + '-roster');
             th.setAttribute('scope', 'row');
             th.innerText = position;
 
             tr.appendChild(th);
             lastPlayerPosition.parentNode.insertBefore(tr, lastPlayerPosition.nextSibling);
-            
+
             return tr;
         }
     }
