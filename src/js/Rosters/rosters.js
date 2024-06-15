@@ -349,7 +349,7 @@ function unusedPlayerRow(position,starterTeam) {
                 th.innerText = position;
 
                 tr.appendChild(th);
-                playerRow.append(tr);
+                row.append(tr);
 
                 return tr;
             }
