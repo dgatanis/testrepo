@@ -70,3 +70,9 @@ async function getNFLState() {
     }
 
 }
+
+export function setLeagueName(elementId) {
+    var element = document.getElementById(elementId)
+
+    element.innerText = leagueDisplayName.trim() + " FFL"
+}

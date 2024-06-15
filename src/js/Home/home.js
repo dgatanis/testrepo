@@ -4,7 +4,8 @@ import {
     getTeamName,
     playoffs,
     leagueDisplayName,
-    leagueDescription
+    leagueDescription,
+    setLeagueName
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -14,7 +15,8 @@ loadContents();
 
 function loadContents() {
 
-    loadPageTitle();
+    setLeagueName("footerName");
+    setLeagueName("pageTitle");
     loadLeagueDescription();
     loadTeams();
 }

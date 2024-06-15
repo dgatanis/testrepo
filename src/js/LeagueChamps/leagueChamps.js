@@ -11,7 +11,8 @@ import {
     createNFLTeamImage, 
     highScorerInMatchupStarters,
     getFullPlayerName,
-    createPlayerImage
+    createPlayerImage,
+    setLeagueName
 } from '../util/helper.js';
 
 let userData = users;
@@ -25,6 +26,7 @@ loadContents();
 //This loads the page contents dynamically
 async function loadContents() {
 
+    setLeagueName("footerName");
     try{
 
         const leagueInfo = await import('../util/leagueInfo.js');
