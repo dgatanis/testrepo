@@ -632,10 +632,14 @@
       }
     }
 
+    .custom-date-transaction {
+      margin-left: 8rem;
+    }
+
     .custom-carousel {
       width: 30rem;
-      margin-left: 2rem;
-      margin-right: 2rem;
+      margin-left: 4rem;
+      margin-right: 4rem;
     }
 
     .custom-body-container {
