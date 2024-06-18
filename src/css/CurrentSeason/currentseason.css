@@ -154,6 +154,7 @@
     animation: blinker 4s ease-in-out infinite;
     padding: 10px;
     font-size: small;
+    margin-left: 3.4rem;
     margin-left: 2.4rem;
     display: block;
   }
@@ -608,6 +609,10 @@
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
+
+    .custom-matchup-player {
+      margin-left: 2.4rem;
+    }
 
     @keyframes moveInSquare {
       0% {
