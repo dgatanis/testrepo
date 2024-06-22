@@ -36,6 +36,10 @@ tr td {
     font-size: small;
 }
 
+th {
+    width: 15rem;
+}
+
 .custom-finals-player {
     border: 2px solid #7f7f7f;
     padding: .3rem;
@@ -94,6 +98,14 @@ th {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    th {
+        width: 8rem;
+    }
+
+    .custom-finals-player {
+        width: 100%;
+    }
 
     .custom-title-container {
         margin-top: 3rem;
