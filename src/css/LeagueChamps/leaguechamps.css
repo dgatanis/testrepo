@@ -11,7 +11,7 @@ table#LeagueChampsTable {
     border: var(--custom-dark-blue);
     margin-top: 3rem;
     margin-bottom: 3rem;
-    animation: revealLetter 1.5s forwards;
+    animation: revealLetter 3s forwards;
 }
 
 .custom-icon-container {
