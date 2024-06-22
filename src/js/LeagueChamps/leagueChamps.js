@@ -139,7 +139,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
 
     if(year >= 2024)
     {
-        var finals = matchups.find(x => x.roster_id === parseInt(3));//matchups.find(x => x.roster_id === parseInt(roster.roster_id));
+        var finals = matchups.find(x => x.roster_id === parseInt(roster.roster_id));//matchups.find(x => x.roster_id === parseInt(3));
         var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
 
         if(highScorer)
