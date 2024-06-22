@@ -53,25 +53,22 @@ function loadContents() {
             //starters
             for(let starter of starterSortedPlayers)
             {
-                if(localStorage.getItem("PlayerData"))
+
+                let player = playerData.players.find(e => e.player_id === parseInt(starter.player_id));
+
+                if(player)
                 {
-                    let player = playerData.players.find(e => e.player_id === parseInt(starter.player_id));
-
-
-                    if(player)
+                    let unusedRow = unusedPlayerRow(player.position, starterTeam);
+                    let playerRow = createPlayerRow(player.player_id, roster.roster_id);
+                    let playerDetails = playerRow.getElementsByTagName('td')[0]; //Only get the td element so we can append to existing row
+                    
+                    if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
                     {
-                        let unusedRow = unusedPlayerRow(player.position, starterTeam);
-                        let playerRow = createPlayerRow(player.player_id, roster.roster_id);
-                        let playerDetails = playerRow.getElementsByTagName('td')[0]; //Only get the td element so we can append to existing row
-                        
-                        if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
-                        {
-                            unusedRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
-                        }
-
-                        unusedRow.setAttribute('data-playerid', player.player_id);
-                        unusedRow.append(playerDetails);
+                        unusedRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
                     }
+
+                    unusedRow.setAttribute('data-playerid', player.player_id);
+                    unusedRow.append(playerDetails);
                 }
 
             }
