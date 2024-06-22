@@ -30,9 +30,6 @@ async function loadContents() {
     setLeagueName("footerName");
     try{
 
-        const leagueInfo = await import('../util/leagueInfo.js');
-        const inauguralSeason = leagueInfo.inauguralSeason;
-
         loadLeagueChamps(inauguralSeason);
         
         return;
