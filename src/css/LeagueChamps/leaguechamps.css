@@ -37,12 +37,14 @@ tr td {
 }
 
 .custom-finals-player {
-    margin-top: 1rem;
     border: 2px solid #7f7f7f;
     padding: .3rem;
     border-radius: 10px;
     background: var(--custom-light-blue);
     box-shadow: 0 0 .5rem 0 black;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
 }
 
 .custom-player-pts {
