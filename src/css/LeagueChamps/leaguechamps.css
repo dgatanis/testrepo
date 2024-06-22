@@ -25,6 +25,7 @@ table#LeagueChampsTable {
 
 tr td {
     max-width: 5rem;
+    padding: 1rem !important;
 }
 
 .custom-team-name {
