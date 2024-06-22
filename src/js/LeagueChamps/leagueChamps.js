@@ -60,7 +60,8 @@ async function loadLeagueChamps(inauguralSeason) {
             var roster = rosterData.find(x => x.roster_id === parseInt(playoffRound.w));//winner of the finals
             var user = userData.find(x => x.user_id === roster.owner_id);
             var matchups =  await getFinalsMatchups('998356266604916736');//getFinalsMatchups(league.league_id);
-
+            console.log(matchups);
+            console.log(roster);
             var leagueChampRow = createLeagueChampRow(roster, user, league.year, matchups);
             
             tableBody.appendChild(leagueChampRow);
@@ -145,7 +146,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
         if(highScorer)
         {
             var playerDiv = createPlayerDiv(highScorer);
-
+            console.log(highScorer);
             tdTeam.appendChild(playerDiv);
         }
 
