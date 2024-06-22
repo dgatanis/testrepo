@@ -12,7 +12,8 @@ import {
     highScorerInMatchupStarters,
     getFullPlayerName,
     createPlayerImage,
-    setLeagueName
+    setLeagueName,
+    inauguralSeason
 } from '../util/helper.js';
 
 let userData = users;
@@ -53,13 +54,13 @@ async function loadLeagueChamps(inauguralSeason) {
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
-        var playoffRound = await getChampionshipPlayoffRound('998356266604916736');//getChampionshipPlayoffRound(league.league_id);
+        var playoffRound = await getChampionshipPlayoffRound(league.league_id);//getChampionshipPlayoffRound('998356266604916736');
         
         if(playoffRound)
         {
             var roster = rosterData.find(x => x.roster_id === parseInt(playoffRound.w));//winner of the finals
             var user = userData.find(x => x.user_id === roster.owner_id);
-            var matchups =  await getFinalsMatchups('998356266604916736');//getFinalsMatchups(league.league_id);
+            var matchups =  await getFinalsMatchups(league.league_id);//getFinalsMatchups('998356266604916736');
             var leagueChampRow = createLeagueChampRow(roster, user, league.year, matchups);
             
             tableBody.appendChild(leagueChampRow);
@@ -136,7 +137,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
     tdTeam.appendChild(teamImage);
     tdTeam.appendChild(teamName);
 
-    if(year >= 2024)
+    if(year >= inauguralSeason)
     {
         var finals = matchups.find(x => x.roster_id === parseInt(roster.roster_id));//matchups.find(x => x.roster_id === parseInt(3));
         var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
@@ -144,7 +145,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
         if(highScorer)
         {
             var playerDiv = createPlayerDiv(highScorer);
-            
+
             tdTeam.appendChild(playerDiv);
         }
 
