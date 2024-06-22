@@ -11,6 +11,13 @@ table#LeagueChampsTable {
     border: var(--custom-dark-blue);
     margin-top: 3rem;
     margin-bottom: 3rem;
+    animation: revealLetter 1.5s forwards;
+}
+
+.custom-icon-container {
+    justify-content: center;
+    display: flex;
+    animation: revealLetter 2s forwards;
 }
 
 .custom-lion-image {
@@ -70,8 +77,7 @@ th {
 }
 
 .custom-throne-img {
-    max-width: 3rem;
-    display: inline;
+    max-width: 7rem;
 }
 
 #LeagueChampsTable > tbody > tr:last-child { 
