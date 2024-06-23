@@ -11110,7 +11110,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: linear-gradient(180deg, var(--custom-dark-blue), var(--custom-dark-blue), #475664db);
+  background: var(--custom-dark-blue);
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
