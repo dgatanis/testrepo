@@ -199,6 +199,10 @@
     padding: .2rem;
   }
 
+  .custom-roster-high-scorer .custom-small-player-avatar {
+    margin-right: .2rem;
+  }
+
   .custom-card {
     background: linear-gradient(87deg, transparent, var(--custom-dark-blue), var(--custom-dark-blue), transparent);
     color: whitesmoke;
