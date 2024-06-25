@@ -15,7 +15,7 @@ async function setBrowserData() {
         const currentWeek = await getCurrentWeek();
         const currentLeagueId = await leagueInfo.default();
 
-        const expiration = new Date().getTime() + (6*60*60*1000); //6hrs
+        const expiration = new Date().getTime() + (2*60*60*1000); //2hrs
         const now = new Date().getTime();
 
         if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
