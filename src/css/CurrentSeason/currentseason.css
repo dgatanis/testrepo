@@ -52,8 +52,8 @@
         from var(--aa),
         var(--custom-dark-blue) 0%,
         var(--custom-dark-blue) 5%,
-        black 5%,
-        black 40%,
+        transparent 5%,
+        transparent 40%,
         var(--custom-dark-blue) 50%
       );
       animation: animate 4s linear infinite;
