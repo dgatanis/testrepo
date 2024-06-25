@@ -22,16 +22,9 @@
 
   .custom-playoff-bracket-container {
     position: relative;
-    background: repeating-conic-gradient(
-      from var(--aa),
-      #e8b923  0%,
-      #e8b923  5%,
-      black 5%,
-      black 40%,
-      #e8b923  50%
-    );
+    background: repeating-conic-gradient(from var(--aa), #e8b923 0%, #e8b923 5%, black 5%, black 40%, #e8b923 50%);
     animation: animate 6s linear infinite;
-    box-shadow: 0 0 20px rgb(181 62 62 / 50%);
+    box-shadow: 0 0 5px #e8b923;
     border-radius: 20px;
   }
 
@@ -57,11 +50,11 @@
       height: 100%;
       background: repeating-conic-gradient(
         from var(--aa),
-        #80d0ff 0%,
-        #80d0ff 5%,
+        var(--custom-blue-gray) 0%,
+        var(--custom-blue-gray) 5%,
         black 5%,
         black 40%,
-        #80d0ff 50%
+        var(--custom-blue-gray) 50%
       );
       animation: animate 4s linear infinite;
       animation-delay: -2s;
