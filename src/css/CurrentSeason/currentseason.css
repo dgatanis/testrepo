@@ -24,11 +24,11 @@
     position: relative;
     background: repeating-conic-gradient(
       from var(--aa),
-      #ff9e80 0%,
-      #ff9e80 5%,
-      transparent 5%,
-      transparent 40%,
-      #ff9e80 50%
+      #e8b923  0%,
+      #e8b923  5%,
+      black 5%,
+      black 40%,
+      #e8b923  50%
     );
     animation: animate 6s linear infinite;
     box-shadow: 0 0 20px rgb(181 62 62 / 50%);
@@ -59,8 +59,8 @@
         from var(--aa),
         #80d0ff 0%,
         #80d0ff 5%,
-        transparent 5%,
-        transparent 40%,
+        black 5%,
+        black 40%,
         #80d0ff 50%
       );
       animation: animate 4s linear infinite;
@@ -72,9 +72,8 @@
       position: absolute;
       content: "";
       inset: 8px;
-      background: #2d2d39;
+      background: black;
       border-radius:5px;
-      border: 8px solid #25252b;
       filter: blur(1px);
   }
 
