@@ -25,6 +25,10 @@
   margin-top: -.2rem !important;
 }
 
+[data-playerid="5849"] td .custom-tiny-player-avatar {
+  margin-top: .8rem;
+}
+
 
 .custom-medium-avatar:hover {
   background-color: white;
