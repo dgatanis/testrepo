@@ -50,11 +50,11 @@
       height: 100%;
       background: repeating-conic-gradient(
         from var(--aa),
-        var(--custom-blue-gray) 0%,
-        var(--custom-blue-gray) 5%,
+        var(--custom-dark-blue) 0%,
+        var(--custom-dark-blue) 5%,
         black 5%,
         black 40%,
-        var(--custom-blue-gray) 50%
+        var(--custom-dark-blue) 50%
       );
       animation: animate 4s linear infinite;
       animation-delay: -2s;
