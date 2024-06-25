@@ -20,6 +20,64 @@
     color: black;
   }
 
+  .custom-playoff-bracket-container {
+    position: relative;
+    background: repeating-conic-gradient(
+      from var(--aa),
+      #ff9e80 0%,
+      #ff9e80 5%,
+      transparent 5%,
+      transparent 40%,
+      #ff9e80 50%
+    );
+    animation: animate 6s linear infinite;
+    box-shadow: 0 0 20px rgb(181 62 62 / 50%);
+    border-radius: 20px;
+  }
+
+  @property --aa {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  @keyframes animate {
+      0% {
+          --aa: 0deg;
+      }
+      100% {
+          --aa: 360deg;
+      }
+  }
+
+  .custom-playoff-bracket-container::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: repeating-conic-gradient(
+        from var(--aa),
+        #80d0ff 0%,
+        #80d0ff 5%,
+        transparent 5%,
+        transparent 40%,
+        #80d0ff 50%
+      );
+      animation: animate 4s linear infinite;
+      animation-delay: -2s;
+      border-radius: 20px;
+  }
+
+  .custom-playoff-bracket-container::after {
+      position: absolute;
+      content: "";
+      inset: 8px;
+      background: #2d2d39;
+      border-radius:5px;
+      border: 8px solid #25252b;
+      filter: blur(1px);
+  }
+
   .custom-standings-record {
     font-size: x-small;
     width: fit-content;
@@ -245,12 +303,9 @@
   }
 
   .custom-playoff-container {
-    background: black;
-    border-radius: 5px;
-    border-bottom-right-radius: unset;
-    border-bottom-left-radius: unset;
-    border: 3px solid #737373;
-    border-bottom: none;
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
 
   .custom-playoffs-label {
@@ -484,12 +539,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: black;
-    border-radius: 5px;
-    border-top-right-radius: unset;
-    border-top-left-radius: unset;
-    border: 3px solid #737373;
-    border-top: unset;
+    position: relative;
+    z-index: 1;
+    width: 100%;
   }
 
   .custom-playoff-team-name {
