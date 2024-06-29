@@ -21,12 +21,6 @@ function loadContents() {
     loadTeams();
 }
 
-function loadPageTitle() {
-    var title = document.getElementsByClassName('custom-title');
-
-    title[0].innerText = leagueDisplayName.trim() + " FFL";
-}
-
 function loadLeagueDescription() {
     var description = document.getElementsByClassName('custom-league-description');
 
