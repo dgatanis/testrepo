@@ -861,8 +861,7 @@
       grid-column: 1;
       grid-row: 3;
       width: 95%;
-      margin-left: unset;
-      margin-right: unset;
+      margin: auto;
     }
 
     .custom-team-score {
