@@ -710,6 +710,11 @@
 
     .custom-bankroll {
       max-width: 25rem;
+      margin-left: 2rem;
+    }
+
+    .custom-playoffs-bracket {
+      margin-right: 2rem;
     }
 
     .custom-matchup-row {
