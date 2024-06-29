@@ -304,7 +304,8 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
                 "roster_id": roster.roster_id,
                 "user_id": roster.owner_id,
                 "bankroll": totalBankRoll,
-                "weeks_won": weeksWon
+                "weeks_won": weeksWon,
+                "wk_won": highScorers.wk_won
             });
         }
 
@@ -355,7 +356,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
                 highScorerImg.setAttribute('src', '../src/static/images/crown.png');
                 highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
                 highScorerImg.setAttribute('style', 'padding-top: .5rem');
-                highScorerImg.setAttribute('title', 'Weekly high scorer');
+                highScorerImg.setAttribute('title', 'Weekly high scorer - Wk' + rosterBankrolls[i].wk_won);
 
                 rowTeam[0].append(highScorerImg);
             }
@@ -954,7 +955,8 @@ function getHighScorerCount(week) {
         let matchups = matchupData[0].matchupWeeks[i]
         let highScorer = getRosterHighScorerWeek(matchups);
         rosterHighScorers.push ({
-            "roster_id": highScorer.roster_id
+            "roster_id": highScorer.roster_id,
+            "wk_won": i +1
         });
     }
 
