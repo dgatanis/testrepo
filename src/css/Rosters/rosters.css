@@ -119,6 +119,7 @@
   width: 100%;
   align-items: center;
   border: 2px solid #616161;
+  animation: revealLetter 3s forwards;
 }
 .custom-player-RB-row {
   background-color: #00ceb926;
@@ -127,6 +128,7 @@
   width: 100%;
   align-items: center;
   border: 2px solid #616161;
+  animation: revealLetter 2.5s forwards;
 }
 .custom-player-WR-row {
   background-color: #58a6ff47;
@@ -135,6 +137,7 @@
   width: 100%;
   align-items: center;
   border: 2px solid #616161;
+  animation: revealLetter 2s forwards;
 }
 .custom-player-TE-row {
   background-color: #ffae5847;
@@ -143,14 +146,7 @@
   width: 100%;
   align-items: center;
   border: 2px solid #616161;
-}
-.custom-player-K-row {
-  background-color: #bd66ff29;
-  border-radius: .5rem;
-  padding: .5rem;
-  width: 100%;
-  align-items: center;
-  border: 2px solid #616161;
+  animation: revealLetter 1.5s forwards;
 }
 .custom-player-SF-row {
   background: #7373732b;
@@ -159,6 +155,7 @@
   width: 100%;
   align-items: center;
   border: 2px solid #616161;
+  animation: revealLetter 1s forwards;
 }
 .custom-player-FLEX-row {
   background-color: #7373732b;
@@ -167,6 +164,16 @@
   width: 100%;
   align-items: center;
   border: 2px solid #616161;
+  animation: revealLetter 2s forwards;
+}
+.custom-player-K-row {
+  background-color: #bd66ff29;
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 100%;
+  align-items: center;
+  border: 2px solid #616161;
+  animation: revealLetter 1s forwards;
 }
 
 .custom-player-table-group td {
