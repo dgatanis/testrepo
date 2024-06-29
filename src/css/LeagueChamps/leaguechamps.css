@@ -15,7 +15,6 @@ table#LeagueChampsTable {
 .custom-icon-container {
     justify-content: center;
     display: flex;
-    animation: revealLetter 4s forwards;
 }
 
 .custom-lion-image {
