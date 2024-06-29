@@ -857,10 +857,6 @@
       overflow: unset !important;
     }
 
-    .custom-playoffs-bracket {
-      margin-right: unset;
-    }
-
     .custom-carousel {
       grid-column: 1;
       grid-row: 3;
@@ -882,8 +878,8 @@
     .custom-playoffs-bracket {
       grid-column: 1;
       grid-row: 2;
+      margin: auto;
       margin-bottom: 3rem;
-      margin-left: auto;
     }
 
     body {
