@@ -11,7 +11,6 @@ table#LeagueChampsTable {
     border: var(--custom-dark-blue);
     margin-top: 3rem;
     margin-bottom: 3rem;
-    animation: revealLetter 2s forwards;
 }
 
 .custom-icon-container {
@@ -33,6 +32,10 @@ table#LeagueChampsTable {
 tr td {
     max-width: 5rem;
     padding: 1rem !important;
+}
+
+tr {
+    animation: revealLetter 2s forwards;
 }
 
 .custom-team-name {
