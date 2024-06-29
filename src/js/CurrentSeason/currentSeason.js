@@ -259,14 +259,6 @@ function loadMatchups(weekNumber) {
                         
                     }
                 }
-                
-                // if(totalMatchups != matchupId)
-                // {
-                //     var pacman = document.createElement("img");
-                //     pacman.setAttribute("src", "../src/static/images/pacman.gif"); 
-                //     pacman.setAttribute('id', 'pacman');
-                //     weekList.append(pacman);
-                // }
 
             }
 
@@ -304,8 +296,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
                 "roster_id": roster.roster_id,
                 "user_id": roster.owner_id,
                 "bankroll": totalBankRoll,
-                "weeks_won": weeksWon,
-                "wk_won": highScorers.wk_won
+                "weeks_won": weeksWon
             });
         }
 
@@ -356,7 +347,7 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
                 highScorerImg.setAttribute('src', '../src/static/images/crown.png');
                 highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
                 highScorerImg.setAttribute('style', 'padding-top: .5rem');
-                highScorerImg.setAttribute('title', 'Weekly high scorer - Wk' + rosterBankrolls[i].wk_won);
+                highScorerImg.setAttribute('title', 'Weekly high scorer');
 
                 rowTeam[0].append(highScorerImg);
             }
@@ -658,6 +649,32 @@ async function getLatestTransactions(leagueId,week) {
     catch(error)
     {
         console.error(`Error: ${error.message}`);
+    }
+}
+
+function loadMatchupsList(){
+
+    var currentWeek = matchupData[0].matchupWeeks.length;
+    var matchupDiv = document.getElementById("matchupWeeks");
+    var week = document.getElementById("currentWeek");
+
+    for(let i = 1; i<15; i++)
+    {
+        var accordionItem = createAccordionItem(i);
+        matchupDiv.appendChild(accordionItem);
+        if(currentWeek > 0)
+        {
+            loadMatchups(i);
+        }
+        
+    }
+    if(currentWeek > 0)
+    {
+        week.innerText="Week: " + currentWeek;
+    }
+    else
+    {
+        week.innerText="N/A";
     }
 }
 
@@ -1064,32 +1081,6 @@ function createTransactionCarouselItem() {
     
 
     return carouselItem;
-}
-
-function loadMatchupsList(){
-
-    var currentWeek = matchupData[0].matchupWeeks.length;
-    var matchupDiv = document.getElementById("matchupWeeks");
-    var week = document.getElementById("currentWeek");
-
-    for(let i = 1; i<15; i++)
-    {
-        var accordionItem = createAccordionItem(i);
-        matchupDiv.appendChild(accordionItem);
-        if(currentWeek > 0)
-        {
-            loadMatchups(i);
-        }
-        
-    }
-    if(currentWeek > 0)
-    {
-        week.innerText="Week: " + currentWeek;
-    }
-    else
-    {
-        week.innerText="N/A";
-    }
 }
 
 function createAccordionItem(weekNumber) {
