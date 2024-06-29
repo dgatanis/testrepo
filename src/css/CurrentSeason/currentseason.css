@@ -212,6 +212,10 @@
     animation: moveInSquare 12s infinite linear;
     z-index: 1;
   }
+
+  .table-dark {
+    --bs-table-bg: var(--custom-dark-mode-background);
+  }
   
   .custom-stats-card-body {
     text-align: center;
