@@ -33,7 +33,6 @@ async function OpenTeamRosterModal(userid,teamname) {
             //Sets the roster stats on the roster modal
             var rosterStats = helper.getRosterStats(roster.roster_id);
             const record = document.getElementById("rosterRecord");
-            const playerCount = document.getElementById("rosterPlayerCount");
             const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
             const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
@@ -54,7 +53,6 @@ async function OpenTeamRosterModal(userid,teamname) {
             ];
 
             record.innerText = "Wins: " + rosterStats.wins + " Losses: " + rosterStats.losses + " Pts: " + rosterStats.fpts;
-            playerCount.innerText = "QB:" + rosterStats.QB + " RB:"  + rosterStats.RB + " WR:" + rosterStats.WR + " TE:" + rosterStats.TE + " K:" + rosterStats.K;
             leaguePositionsLink.title = "Toggle Starters (" + leaguePositionList + ")";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";

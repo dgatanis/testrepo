@@ -221,7 +221,7 @@
   #starterPositions.btn-primary {
     font-size: x-small;
     padding: .3rem;
-    background: transparent;
+    background: var(--custom-light-blue);
     color: var(--custom-dark-blue);
   }
   
