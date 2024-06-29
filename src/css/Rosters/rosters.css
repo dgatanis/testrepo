@@ -148,6 +148,15 @@
   border: 2px solid #616161;
   animation: revealLetter 1.5s forwards;
 }
+.custom-player-FLEX-row {
+  background-color: #7373732b;
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 100%;
+  align-items: center;
+  border: 2px solid #616161;
+  animation: revealLetter 1.5s forwards;
+}
 .custom-player-SF-row {
   background: #7373732b;
   border-radius: .5rem;
@@ -156,15 +165,6 @@
   align-items: center;
   border: 2px solid #616161;
   animation: revealLetter 1s forwards;
-}
-.custom-player-FLEX-row {
-  background-color: #7373732b;
-  border-radius: .5rem;
-  padding: .5rem;
-  width: 100%;
-  align-items: center;
-  border: 2px solid #616161;
-  animation: revealLetter 2s forwards;
 }
 .custom-player-K-row {
   background-color: #bd66ff29;
