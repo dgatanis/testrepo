@@ -46,7 +46,7 @@ function loadTeams() {
             let rosterid = i + 1;
             let roster = rosterData.find(x => x.roster_id === rosterid);
             let teamName = getTeamName(roster.owner_id);
-            let playerImg = createOwnerAvatarImage(roster.owner_id);
+            let playerImg = createOwnerAvatarImage(roster.owner_id, "home");
             
             teams[i].children[0].children[0].innerText = teamName;
             teams[i].children[0].prepend(playerImg);

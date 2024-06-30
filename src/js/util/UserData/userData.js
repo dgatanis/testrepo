@@ -2,7 +2,7 @@ import { users } from '../initData.js';
 
 var userData = users;
 
-export function createOwnerAvatarImage(userId) { 
+export function createOwnerAvatarImage(userId, page = null) { 
 
     let user = userData.find(x => x.user_id === userId);
     const avatarURL = user.metadata.avatar;
@@ -17,9 +17,18 @@ export function createOwnerAvatarImage(userId) {
     else
     {
         var img = document.createElement("img");
-        img.setAttribute('src', '../src/static/images/trashcan.png');
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('data-userid', user.user_id);
+
+        if(page.toString().toLowerCase() == "home")
+        {
+            img.setAttribute('src', './src/static/images/trashcan.png');
+        }
+        else
+        {
+            img.setAttribute('src', '../src/static/images/trashcan.png');
+        }
+        
     }
     return img;
 }
