@@ -20,7 +20,7 @@ export function createOwnerAvatarImage(userId, page = null) {
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('data-userid', user.user_id);
 
-        if(page.toString().toLowerCase() == "home")
+        if(page && page.toString().toLowerCase() == "home")
         {
             img.setAttribute('src', './src/static/images/trashcan.png');
         }
