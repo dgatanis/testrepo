@@ -22,8 +22,6 @@
 
   .custom-playoff-bracket-container {
     position: relative;
-    background: repeating-conic-gradient(from var(--aa), #e8b923 0%, #e8b923 5%, black 5%, black 40%, #e8b923 50%);
-    animation: animate 6s linear infinite;
     box-shadow: 0 0 5px var(--custom-dark-blue);
     border-radius: 20px;
   }
