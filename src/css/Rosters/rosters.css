@@ -26,7 +26,7 @@
     color: white;
     border-radius: 5px;
     background: linear-gradient(87deg, transparent, var(--custom-dark-blue), var(--custom-dark-blue), transparent);
-    width: 80%;
+    width: 85%;
 }
 
 [data-playerid="5849"] td .custom-player-details {
