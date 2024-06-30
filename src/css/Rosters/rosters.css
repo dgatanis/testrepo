@@ -20,6 +20,15 @@
   display: grid;
 }
 
+.custom-team-details-name {
+  font-style: italic;
+  background: var(--custom-dark-blue);
+  margin: auto;
+  color: white;
+  border-radius: 5px;
+  width: 50%;
+}
+
 [data-playerid="5849"] td .custom-player-details {
   margin-left: 1.4rem !important;
   margin-top: -.2rem !important;
