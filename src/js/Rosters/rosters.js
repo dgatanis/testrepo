@@ -128,7 +128,7 @@ function loadContents() {
                 var statsStacksRow = statsTeam.getElementsByClassName('custom-stats-stacks-row'); 
                 var teamNameRow = document.createElement('div');
 
-                teamNameRow.setAttribute('style', 'font-style:italic;');
+                teamNameRow.setAttribute('class', 'custom-team-details-name');
                 teamNameRow.innerText = getTeamName(roster.owner_id);
                 statsTable.prepend(teamNameRow);
                 
