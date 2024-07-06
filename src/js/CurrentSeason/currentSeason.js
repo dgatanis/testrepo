@@ -336,6 +336,10 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
             {
                 row.setAttribute('style', 'background:#d3571a94;');
             }
+            else if(rosterBankrolls[0].bankroll == 0 && rosterBankrolls[i].weeks_won < 1)
+            {
+                row.setAttribute('style', 'background:#a3a3a3;');
+            }
             else
             {
                 row.setAttribute('style', 'background:#cb19198c;');

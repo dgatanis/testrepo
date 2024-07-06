@@ -207,7 +207,8 @@ function sortByTeam(players) {
         {
             sortedPlayers.push({
                 "player_id": thisPlayer.player_id.toString(),
-                "team": thisPlayer.team
+                "team": thisPlayer.team,
+                "position": thisPlayer.position
             });
             
         }
@@ -235,7 +236,7 @@ function countCommonTeams(players) {
     const result = {};
     
     players.forEach(player => {
-        if (!result[player.player_id]) {
+        if (!result[player.player_id && player.position != "K"]) {
             result[player.player_id] = 0;
         }
         // Loop through the players again to compare teams

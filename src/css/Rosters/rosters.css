@@ -14,6 +14,11 @@
   margin-top: inherit;
 }
 
+.custom-bench-row th {
+  padding: .8rem;
+  width: 2.2rem;
+}
+
 .custom-roster-group {
   margin-bottom: 2rem;
   clear: both;
@@ -303,6 +308,7 @@ tr {
   vertical-align: top;
   font-size: large;
   margin-top: .1rem;
+  min-width: 4.6rem;
 }
 
 .custom-stats-label {
