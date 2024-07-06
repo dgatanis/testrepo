@@ -252,7 +252,7 @@ function loadContents() {
                             stacksTeamName.setAttribute('class', 'custom-stacks-teamname');
                             stacksTeamName.innerText = player.team;
                             stacksPlayer.setAttribute('class', 'custom-stacks-player');
-                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " " + player.position;
+                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
 
                             statsStacksChild.append(stacksTeamName);
                             statsStacksChild.append(stacksPlayer);
@@ -264,7 +264,7 @@ function loadContents() {
                         {
                             var stacksPlayer = document.createElement('div');
                             stacksPlayer.setAttribute('class', 'custom-stacks-player');
-                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " " + player.position;
+                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
 
                             statsStacksChild.append(stacksPlayer);
                             
