@@ -40,8 +40,8 @@ async function loadContents() {
         const dues = leagueInfo.dues;
         loadSeasonRankings();
         loadMatchupsList(); 
-        //loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
-        loadBankroll('10',dues,weeklyWinnerPayout); 
+        loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
+        //loadBankroll('10',dues,weeklyWinnerPayout); 
         loadPlayoffs();
         //getLatestTransactions(currentLeagueId, currentWeek); 
         getLatestTransactions('1003692635549462528','8');
