@@ -268,7 +268,7 @@ function loadContents() {
  
                             if(player.position == "QB")
                             {
-                                statsStacksChild.prepend(stacksPlayer);
+                                statsStacksChild.parentNode.insertBefore(stacksPlayer, statsStacksChild.nextSibling);
                             }
                             else
                             {
