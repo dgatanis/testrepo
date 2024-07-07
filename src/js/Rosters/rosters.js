@@ -256,7 +256,7 @@ function loadContents() {
 
                             statsStacksChild.append(stacksTeamName);
                             statsStacksChild.append(stacksPlayer);
-                            
+
                             sameTeam = player.team;
                             count++;
                         }
