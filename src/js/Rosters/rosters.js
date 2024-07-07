@@ -255,16 +255,7 @@ function loadContents() {
                             stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
 
                             statsStacksChild.append(stacksTeamName);
-
-                            if(player.position == "QB")
-                            {
-                                statsStacksChild.prepend(stacksPlayer);
-                            }
-                            else
-                            {
-                                statsStacksChild.append(stacksPlayer);
-                            }
-                            
+                            statsStacksChild.append(stacksPlayer);
 
                             sameTeam = player.team;
                             count++;
