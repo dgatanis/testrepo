@@ -255,7 +255,16 @@ function loadContents() {
                             stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
 
                             statsStacksChild.append(stacksTeamName);
-                            statsStacksChild.append(stacksPlayer);
+
+                            if(player.position == "QB")
+                            {
+                                statsStacksChild.prepend(stacksPlayer);
+                            }
+                            else
+                            {
+                                statsStacksChild.append(stacksPlayer);
+                            }
+                            
 
                             sameTeam = player.team;
                             count++;
@@ -265,8 +274,15 @@ function loadContents() {
                             var stacksPlayer = document.createElement('div');
                             stacksPlayer.setAttribute('class', 'custom-stacks-player');
                             stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
-
-                            statsStacksChild.append(stacksPlayer);
+ 
+                            if(player.position == "QB")
+                            {
+                                statsStacksChild.prepend(stacksPlayer);
+                            }
+                            else
+                            {
+                                statsStacksChild.append(stacksPlayer);
+                            }
                             
                             sameTeam = player.team;
                             count++;
@@ -417,7 +433,7 @@ function createPlayerRow(playerid, rosterid) {
     playerHeightDiv .setAttribute('class', 'custom-player-height');
     playerHeightDiv.innerText = calculateHeight(player.height);
     playerWeightDiv .setAttribute('class', 'custom-player-weight');
-    playerWeightDiv.innerText = player.weight + "lbs";
+    playerWeightDiv.innerText = player.weight + " lbs";
 
     if(playerNickName != "")
     {

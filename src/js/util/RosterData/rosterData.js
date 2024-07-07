@@ -182,7 +182,8 @@ function getTeamStacks(rosterid) {
                 {
                     teamStacks.push({
                         "player_id": player.player_id,
-                        "team": player.team
+                        "team": player.team,
+                        "position": player.position
                     });
                 }
 
@@ -241,8 +242,8 @@ function countCommonTeams(players) {
         }
         // Loop through the players again to compare teams
         players.forEach(otherPlayer => {
-            // Count common teams for each player
-            if (player.player_id !== otherPlayer.player_id && player.team === otherPlayer.team) {
+            // Count common teams for each player excluding kickers
+            if (player.player_id !== otherPlayer.player_id && player.team === otherPlayer.team && otherPlayer.position != "K") {
                 result[player.player_id]++;
             }
         });

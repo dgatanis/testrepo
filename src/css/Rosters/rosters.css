@@ -354,6 +354,7 @@ th, td {
   display: inline;
   margin-right: .2rem;
   margin-left: .2rem;
+  word-spacing: -.05rem;
 }
 
 .custom-player-avatar {
@@ -441,6 +442,10 @@ th, td {
     .custom-position-age {
       -webkit-text-stroke: .5px black;
     }
+
+    [data-playerid="5849"] td .custom-player-details {
+      margin-top: -.5rem !important;
+   }
 
     .custom-player-details {
       margin-top: -.7rem;
