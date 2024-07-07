@@ -5,7 +5,8 @@ import {
     playoffs,
     leagueDisplayName,
     leagueDescription,
-    setLeagueName
+    setLeagueName,
+    setLinkSource
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -17,6 +18,7 @@ function loadContents() {
 
     setLeagueName("footerName");
     setLeagueName("pageTitle");
+    setLinkSource("keep-trade-cut")
     loadLeagueDescription();
     loadTeams();
 }

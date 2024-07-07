@@ -14,7 +14,8 @@ import {
     getRosterHighScorerWeek,
     highScorerInMatchupStarters,
     previousLeagueId,
-    setLeagueName 
+    setLeagueName,
+    setLinkSource 
     } from '../util/helper.js';
 import { 
     getCurrentSeason,
@@ -32,7 +33,7 @@ loadContents();
 //This loads the page contents dynamically
 async function loadContents() {
     try{
-
+        setLinkSource("keep-trade-cut");
     }
     catch (error){
         console.error(`Error: ${error.message}`);

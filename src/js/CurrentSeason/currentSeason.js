@@ -15,7 +15,8 @@ import {
         highScorerInMatchupStarters,
         getPlayerNickNames ,
         createNFLTeamImage,
-        setLeagueName 
+        setLeagueName,
+        setLinkSource 
 } from '../util/helper.js';
 
 let userData = users;
@@ -30,6 +31,7 @@ loadContents();
 async function loadContents() {
 
     setLeagueName("footerName");
+    setLinkSource("keep-trade-cut");
     try{
 
         const leagueInfo = await import('../util/leagueInfo.js');
