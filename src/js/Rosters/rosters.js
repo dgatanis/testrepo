@@ -10,7 +10,8 @@ import {
     createNFLTeamImage,
     getPlayerNickNames,
     setLeagueName,
-    getLeaguePositions 
+    getLeaguePositions,
+    setLinkSource 
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -21,6 +22,7 @@ loadContents();
 //This loads the page contents dynamically
 function loadContents() {
     setLeagueName("footerName");
+    setLinkSource("keep-trade-cut");
     try{
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);

@@ -76,3 +76,10 @@ export function setLeagueName(elementId) {
 
     element.innerText = leagueDisplayName.trim() + " FFL"
 }
+
+export async function setLinkSource(elementId) {
+    var element = document.getElementById(elementId);
+    var leagueId = await getCurrentLeagueId();
+
+    element.setAttribute('href', `https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=${leagueId}&platform=Sleeper`)
+}

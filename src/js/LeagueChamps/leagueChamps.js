@@ -13,7 +13,8 @@ import {
     getFullPlayerName,
     createPlayerImage,
     setLeagueName,
-    inauguralSeason
+    inauguralSeason,
+    setLinkSource
 } from '../util/helper.js';
 
 let userData = users;
@@ -28,6 +29,7 @@ loadContents();
 async function loadContents() {
 
     setLeagueName("footerName");
+    setLinkSource("keep-trade-cut");
     try{
 
         loadLeagueChamps(inauguralSeason);
