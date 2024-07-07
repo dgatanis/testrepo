@@ -265,10 +265,12 @@ function loadContents() {
                             var stacksPlayer = document.createElement('div');
                             stacksPlayer.setAttribute('class', 'custom-stacks-player');
                             stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
- 
+                            var teamStacks = statsStacksChild.getElementsByClassName("custom-stacks-teamname");
+                            var mostRecentTeam = teamStacks[teamStacks.length-1];
+
                             if(player.position == "QB")
                             {
-                                statsStacksChild.parentNode.insertBefore(stacksPlayer, statsStacksChild.nextSibling);
+                                mostRecentTeam.after(stacksPlayer);
                             }
                             else
                             {
