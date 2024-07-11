@@ -15,6 +15,21 @@
     float: right;
   }
 
+  .custom-draft-pick-round {
+    display: inline;
+  }
+
+  .custom-draft-pick-season {
+    display: inline;
+  }
+
+  .custom-draft-pick-original-owner {
+    display: inline;
+    font-size: x-small;
+    margin-left: .3rem;
+    vertical-align: middle;
+  }
+
   #latestTransactions h6 {
     margin-bottom: -2rem;
     color: black;

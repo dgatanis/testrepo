@@ -28,10 +28,10 @@ async function setBrowserData() {
             setUserData(currentLeagueId);
             //setUserData('1054609254864269312');
             setLeagueDetails(currentLeagueId);
-            //setPlayoffsData(currentLeagueId);
-            setPlayoffsData('998356266604916736');
-            //setMatchupData(currentLeagueId,currentWeek);
-            setMatchupData('1003692635549462528','10');
+            setPlayoffsData(currentLeagueId);
+            //setPlayoffsData('998356266604916736');
+            setMatchupData(currentLeagueId,currentWeek);
+            //setMatchupData('1003692635549462528','10');
         }
         // if(!sessionStorage.getItem("MatchupData"))
         // {

@@ -42,11 +42,10 @@ async function loadContents() {
         const dues = leagueInfo.dues;
         loadSeasonRankings();
         loadMatchupsList(); 
-        //loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
-        loadBankroll('10',dues,weeklyWinnerPayout); 
+        loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
+        //loadBankroll('10',dues,weeklyWinnerPayout); 
         loadPlayoffs();
-        //getLatestTransactions(currentLeagueId, currentWeek); 
-        getLatestTransactions('1003692635549462528','8');
+        getLatestTransactions(currentLeagueId, currentWeek); 
         setSeasonTitle(currentSeason);
         
         return;
@@ -373,6 +372,10 @@ async function getLatestTransactions(leagueId,week) {
 
     try {
         //const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
+        if(week == 0)
+        {
+            week = 1;
+        }
         const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
         const transactionsData = await transactions.json();
         //transactiontypes: waiver, free_agent, trade
@@ -509,6 +512,7 @@ async function getLatestTransactions(leagueId,week) {
                     transType = "Trade";
 
                     var tradePartners = Object.keys(transaction.roster_id).length;
+                    var transactionDraftPicks = transaction.draft_picks;
 
                     for(let i = 0; i < tradePartners; i++)
                     {
@@ -609,9 +613,85 @@ async function getLatestTransactions(leagueId,week) {
                                 }
                             }
                         }
-                        if(transaction.draft_picks) //TODO
+                        if(transactionDraftPicks) //TODO
                         {
-                            
+                            for(let draftPick of transactionDraftPicks)
+                            {
+                                if(rosterid == draftPick.owner_id)
+                                {
+                                    var formattedRound;
+
+                                    if(draftPick.round==1)
+                                    {
+                                        formattedRound = draftPick.round + "st";
+                                    }
+                                    else if(draftPick.round==2)
+                                    {
+                                        formattedRound = draftPick.round + "nd";
+                                    }
+                                    else if(draftPick.round==3)
+                                    {
+                                        formattedRound = draftPick.round + "rd";
+                                    }
+                                    else 
+                                    {
+                                        formattedRound = draftPick.round + "th";
+                                    }
+
+                                    if(i >= 1)
+                                    {
+                                        var draftPickDiv = document.createElement('div');
+                                        var round = document.createElement('div');
+                                        var season = document.createElement('div');
+
+                                        round.setAttribute('class', 'custom-draft-pick-round');
+                                        season.setAttribute('class', 'custom-draft-pick-season');
+                                        round.innerText = formattedRound + " - ";
+                                        season.innerText = draftPick.season;
+
+                                        draftPickDiv.appendChild(round);
+                                        draftPickDiv.appendChild(season);
+                                        console.log(draftPick);
+                                        if(draftPick.roster_id != draftPick.previous_owner_id)
+                                        {
+                                            var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
+                                            var originalOwnerDiv = document.createElement('div');
+                                            originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
+                                            originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
+                                            draftPickDiv.appendChild(originalOwnerDiv);
+                                        }
+
+                                        newaddedPlayers.append(draftPickDiv);
+                                    }
+                                    else
+                                    {
+                                        console.log(draftPick);
+                                        var draftPickDiv = document.createElement('div');
+                                        var round = document.createElement('div');
+                                        var season = document.createElement('div');
+
+                                        round.setAttribute('class', 'custom-draft-pick-round');
+                                        season.setAttribute('class', 'custom-draft-pick-season');
+                                        round.innerText = formattedRound + " - ";
+                                        season.innerText = draftPick.season;
+
+
+                                        draftPickDiv.appendChild(round);
+                                        draftPickDiv.appendChild(season);
+
+                                        if(draftPick.roster_id != draftPick.previous_owner_id)
+                                        {
+                                            var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
+                                            var originalOwnerDiv = document.createElement('div');
+                                            originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
+                                            originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
+                                            draftPickDiv.appendChild(originalOwnerDiv);
+                                        }
+
+                                        addedPlayerDiv.append(draftPickDiv);
+                                    }
+                                }
+                            }
                         }
 
                         //append second+ teams additions/drops to the same carousel item
@@ -646,6 +726,10 @@ async function getLatestTransactions(leagueId,week) {
 
                 cardBody.innerText = transType;
                 transactionCarousel.append(carouselItem);
+
+                noTransactions.classList.remove('custom-block-display');
+                noTransactions.classList.remove('carousel-item');
+                noTransactions.classList.add('custom-none-display');
             }
             noTransactions.classList.remove('custom-block-display');
             noTransactions.classList.remove('carousel-item');
