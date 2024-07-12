@@ -494,6 +494,8 @@ async function getLatestTransactions(leagueId,week) {
                 }
                 else if(transaction.type.toString().toLowerCase() == "trade")
                 {
+                    console.log("TRADE");
+                    console.log(transaction);
                     //Create carousel item and get each of the divs that were created
                     var carouselItem = createTransactionCarouselItem();
                     var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
@@ -520,6 +522,7 @@ async function getLatestTransactions(leagueId,week) {
                         let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
                         var thisTeamStats = getRosterStats(roster.roster_id);
                         var teamRecord = document.createElement("div");
+                        var addsCount = 0;
                         teamRecord.setAttribute('class', 'custom-team-record');
                         teamRecord.innerText = thisTeamStats.wins + "-" + thisTeamStats.losses +"-"+ thisTeamStats.ties;
 
@@ -530,8 +533,10 @@ async function getLatestTransactions(leagueId,week) {
                             newdroppedPlayers.setAttribute('class', 'custom-dropped-players custom-none-display'); 
                             var newaddedPlayers = document.createElement("div");
                             newaddedPlayers.setAttribute('class', 'custom-added-players custom-none-display');
+                            var newTradedPicks = document.createElement("div");
+                            newTradedPicks.setAttribute('class', 'custom-traded-picks custom-none-display');
 
-                            description += " from " + getTeamName(roster.owner_id).toString() + " for ";
+                            description += " while " + getTeamName(roster.owner_id).toString() + " received ";
                         }
                         else
                         {
@@ -550,6 +555,7 @@ async function getLatestTransactions(leagueId,week) {
                         teamName.innerText = getTeamName(roster.owner_id);
                         teamName.setAttribute('class', 'custom-teamname-small');
                         
+                        //loop through adds and create player image/name and append to added players div
                         if(transaction.adds)
                         {
                             var addedPlayersArray = [];
@@ -573,16 +579,22 @@ async function getLatestTransactions(leagueId,week) {
                                     {
                                         addedPlayerDiv.append(playerDiv);
                                     }
-                                    
+                                    addsCount++;
                                 }
+                                
                             }
-                            addedPlayersArray[addedPlayersArray.length-1] = "and " + addedPlayersArray[addedPlayersArray.length-1];
+                            if(addedPlayersArray.length > 1)
+                            {
+                                addedPlayersArray[addedPlayersArray.length-1] = "and " + addedPlayersArray[addedPlayersArray.length-1];
+                            }
+                               
                             var newString = addedPlayersArray.toString().replaceAll(",", ", ").replace(", and", " and ");
                             description += newString;
 
                             addedPlayerDiv.classList.add('custom-block-display');
                             addedPlayerDiv.classList.remove('custom-none-display');
                         }
+                        //loop through drops and create player image/name and append to dropped players div
                         if(transaction.drops)
                         {  
                             
@@ -613,45 +625,54 @@ async function getLatestTransactions(leagueId,week) {
                                 }
                             }
                         }
-                        if(transactionDraftPicks) //TODO
+                        //loop through traded draft picks and format/append to traded picks div
+                        if(transactionDraftPicks) 
                         {
+                            var draftPickCount = 0;
+
                             for(let draftPick of transactionDraftPicks)
                             {
+                                draftPickCount++;
+
+                                //owner_id is the rosterid of the player that is receiving the pick
                                 if(rosterid == draftPick.owner_id)
                                 {
                                     var formattedRound;
 
                                     if(draftPick.round==1)
                                     {
-                                        formattedRound = draftPick.round + "st";
+                                        formattedRound = draftPick.round + "st round pick";
                                     }
                                     else if(draftPick.round==2)
                                     {
-                                        formattedRound = draftPick.round + "nd";
+                                        formattedRound = draftPick.round + "nd round pick";
                                     }
                                     else if(draftPick.round==3)
                                     {
-                                        formattedRound = draftPick.round + "rd";
+                                        formattedRound = draftPick.round + "rd round pick";
                                     }
                                     else 
                                     {
-                                        formattedRound = draftPick.round + "th";
+                                        formattedRound = draftPick.round + "th round pick";
                                     }
 
+                                    //If on the 2nd+ team through the loop
                                     if(i >= 1)
                                     {
                                         var draftPickDiv = document.createElement('div');
                                         var round = document.createElement('div');
                                         var season = document.createElement('div');
 
+                                        draftPickDiv.setAttribute('class', 'custom-draft-picks');
                                         round.setAttribute('class', 'custom-draft-pick-round');
                                         season.setAttribute('class', 'custom-draft-pick-season');
-                                        round.innerText = formattedRound + " - ";
-                                        season.innerText = draftPick.season;
+                                        round.innerText = formattedRound;
+                                        season.innerText = " - " + draftPick.season;
 
                                         draftPickDiv.appendChild(round);
                                         draftPickDiv.appendChild(season);
-                                        console.log(draftPick);
+                                        
+                                        //If the original owner of the pick is not the person who traded away the pick
                                         if(draftPick.roster_id != draftPick.previous_owner_id)
                                         {
                                             var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
@@ -660,25 +681,41 @@ async function getLatestTransactions(leagueId,week) {
                                             originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
                                             draftPickDiv.appendChild(originalOwnerDiv);
                                         }
+                                        newTradedPicks.classList.remove('custom-none-display');
+                                        newTradedPicks.append(draftPickDiv);
 
-                                        newaddedPlayers.append(draftPickDiv);
+                                        //If no adds then the player only received pick(s)
+                                        if(addsCount == 0)
+                                        {
+                                            if(draftPickCount <=1)
+                                            {
+                                                description += " pick(s) ";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            description += " and pick(s) ";
+                                        }
+                                        
                                     }
                                     else
                                     {
-                                        console.log(draftPick);
+                                        
                                         var draftPickDiv = document.createElement('div');
                                         var round = document.createElement('div');
                                         var season = document.createElement('div');
 
+                                        draftPickDiv.setAttribute('class', 'custom-draft-picks');
                                         round.setAttribute('class', 'custom-draft-pick-round');
                                         season.setAttribute('class', 'custom-draft-pick-season');
-                                        round.innerText = formattedRound + " - ";
-                                        season.innerText = draftPick.season;
+                                        round.innerText = formattedRound;
+                                        season.innerText = " - " + draftPick.season;
 
 
                                         draftPickDiv.appendChild(round);
                                         draftPickDiv.appendChild(season);
 
+                                        //If the original owner of the pick is not the person who traded away the pick
                                         if(draftPick.roster_id != draftPick.previous_owner_id)
                                         {
                                             var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
@@ -687,8 +724,21 @@ async function getLatestTransactions(leagueId,week) {
                                             originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
                                             draftPickDiv.appendChild(originalOwnerDiv);
                                         }
+                                        tradedPicksDiv.classList.remove('custom-none-display');
+                                        tradedPicksDiv.append(draftPickDiv);
 
-                                        addedPlayerDiv.append(draftPickDiv);
+                                        //If no adds then the player only received pick(s)
+                                        if(addsCount == 0)
+                                        {
+                                            if(draftPickCount <=1)
+                                            {
+                                                description += " pick(s) ";
+                                            }
+                                        }
+                                        else
+                                        {
+                                            description += " and pick(s) ";
+                                        }
                                     }
                                 }
                             }
@@ -704,6 +754,7 @@ async function getLatestTransactions(leagueId,week) {
                             newteam.append(teamName);
                             newteam.append(teamRecord);
                             teamDiv.parentNode.insertBefore(newteam, teamDiv.nextSibling);
+                            teamDiv.parentNode.insertBefore(newTradedPicks, teamDiv.nextSibling);
                             teamDiv.parentNode.insertBefore(newdroppedPlayers, teamDiv.nextSibling);
                             teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
                         }
