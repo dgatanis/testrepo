@@ -15,6 +15,35 @@
     float: right;
   }
 
+  .custom-draft-picks {
+    margin-top: .2rem;
+    text-align: justify;
+  }
+  
+  .custom-traded-picks {
+    padding: 1rem;
+    clear: both;
+    float: inline-start;
+    margin-top: -1.8rem;
+    margin-left: 1.5rem;
+  }
+
+  .custom-draft-pick-round {
+    display: inline;
+  }
+
+  .custom-draft-pick-season {
+    display: inline;
+    font-size: x-small;
+  }
+
+  .custom-draft-pick-original-owner {
+    display: inline;
+    font-size: x-small;
+    margin-left: .3rem;
+    vertical-align: middle;
+  }
+
   #latestTransactions h6 {
     margin-bottom: -2rem;
     color: black;
@@ -437,6 +466,7 @@
     display: inline;
     margin-left: 1.5rem;
     text-align: justify;
+    width: 100%;
   }
 
   .custom-team-div {
