@@ -1,0 +1,187 @@
+.custom-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.custom-card {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--custom-blue-gray);
+    color: var(--custom-light-gray);
+}
+
+.custom-add-drop-icon {
+    max-width: 1rem;
+    display: inline;
+    position: relative;
+    z-index: 1;
+    left: 8%;
+    border-radius: 10px;
+    left: 2.8rem;
+    background-color: whitesmoke;
+}
+
+.custom-playername-large {
+    display: inline;
+    font-size: large;
+    vertical-align: middle;
+}
+
+.custom-waiver-budget {
+    padding: .2rem;
+    font-size: small;
+}
+
+.custom-player-position {
+    display: inline;
+    font-size: .5rem;
+    margin-left: .2rem;
+}
+
+.custom-player {
+    padding: .2rem;
+}
+
+img.custom-team-logo {
+    display: inline;
+    max-width: 1rem;
+    max-height: 1.5rem;
+    margin-left: .2rem;
+}
+
+.custom-transaction-row {
+    padding: .8rem;
+}
+
+.custom-draft-pick {
+    padding: .2rem;
+}
+
+.custom-team-group:nth-child(odd) {
+    float: inline-end;
+    clear: inline-end;
+    text-align: center;
+}
+
+.custom-team-group {
+    width: 18rem;
+    padding: .3rem;
+}
+
+.custom-date {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    border-radius: .5rem;
+}
+
+.custom-transaction-date {
+    text-align: center;
+    color: var(--custom-light-gray);
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    background: linear-gradient(87deg, transparent, var(--custom-dark-blue), var(--custom-dark-blue), transparent);
+}
+
+.custom-team-group:nth-child(even) {
+    float: inline-start;
+    text-align: center;
+}
+
+.custom-draft-picks {
+    margin-top: .2rem;
+    text-align: justify;
+}
+
+.custom-draft-pick-round {
+    display: inline;
+}
+
+.custom-draft-pick-season {
+    display: inline;
+    font-size: x-small;
+}
+
+.custom-draft-pick-original-owner {
+    display: inline;
+    font-size: x-small;
+    margin-left: .3rem;
+    vertical-align: middle;
+}
+
+.custom-team-container {
+    text-align: center;
+    font-size: larger;
+    border-bottom: 2px solid var(--custom-dark-blue);
+    margin-bottom: .5rem;
+    color: var(--custom-dark-blue);
+}
+
+.custom-player:hover {
+    cursor: default;
+    background: var(--custom-light-gray);
+    color: var(--custom-dark-blue);
+    border-radius: .5rem;
+    transition: all 1s ease;
+}
+
+.custom-draft-pick:hover {
+    cursor: default;
+    background: var(--custom-light-gray);
+    color: var(--custom-dark-blue);
+    border-radius: .5rem;
+    transition: all 1s ease;
+}
+
+.custom-waiver-budget:hover {
+    cursor: default;
+    background: var(--custom-light-gray);
+    color: var(--custom-dark-blue);
+    border-radius: .5rem;
+    transition: all 1s ease;
+}
+
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {
+    .custom-card {
+        width: 70%;
+    }
+}
+
+/*Normal Laptop display styling*/
+@media screen and (max-width: 64rem) {
+    .custom-card {
+        width: 85%;
+    }
+    .custom-date {
+        width: 30%;
+    }
+}
+
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
+    .custom-card {
+        width: 90%;
+    }
+}
+
+/*Large Mobile display styling*/
+@media screen and (max-width: 26.875rem) {
+    .custom-title {
+        margin-top: 3rem;
+    }
+    .custom-card {
+        width: 95%;
+    }
+    .custom-date {
+        width: 100%;
+    }
+
+    .custom-team-group {
+        margin-right: auto;
+        margin-left: auto;
+        float: unset !important;
+        margin-top: 2rem;
+    }
+}

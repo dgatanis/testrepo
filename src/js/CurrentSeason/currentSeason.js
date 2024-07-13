@@ -768,9 +768,20 @@ async function getLatestTransactions(leagueId,week) {
                     transactionDescription.innerText = description + "... " + getRandomString() + ".";
                 }
                 //Add the whole item to the carousel
+                var dateString = transactionDate.toLocaleString().replaceAll(",", "");
+
+                if (dateString.endsWith("AM")) {
+                    var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
+                    formattedDate += " AM";
+                }
+                else if (dateString.endsWith("PM")) {
+                    var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
+                    formattedDate += " PM";
+                }
+                dateOfTransaction.innerText = formattedDate;
                 dateOfTransaction.classList.add('custom-block-display');
                 dateOfTransaction.classList.remove('custom-none-display');
-                dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
+
                 teamDiv.classList.remove('custom-none-display');
                 teamDiv.classList.add('custom-block-display');
 
