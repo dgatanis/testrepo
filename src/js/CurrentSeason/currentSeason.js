@@ -16,7 +16,8 @@ import {
         getPlayerNickNames ,
         createNFLTeamImage,
         setLeagueName,
-        setLinkSource 
+        setLinkSource,
+        getTransactionsData 
 } from '../util/helper.js';
 
 let userData = users;
@@ -376,15 +377,15 @@ async function getLatestTransactions(leagueId,week) {
         {
             week = 1;
         }
-        const transactions  = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/transactions/${week}`);
-        const transactionsData = await transactions.json();
-        //transactiontypes: waiver, free_agent, trade
-        
+
+        const transactionsData = await getTransactionsData(leagueId, week);
         var allTransactions = getFormattedTransactionData(transactionsData);
+        
         let noTransactions = document.getElementById("noTransactions");
         let transactionCarousel = document.getElementById("custom_transaction_inner");
         let counter = 0;
 
+        //transactiontypes: waiver, free_agent, trade
         if(noTransactions.classList.contains('custom-block-display') && allTransactions.length > 0)
         {
             for(let transaction of allTransactions)
@@ -494,8 +495,6 @@ async function getLatestTransactions(leagueId,week) {
                 }
                 else if(transaction.type.toString().toLowerCase() == "trade")
                 {
-                    console.log("TRADE");
-                    console.log(transaction);
                     //Create carousel item and get each of the divs that were created
                     var carouselItem = createTransactionCarouselItem();
                     var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
@@ -769,9 +768,20 @@ async function getLatestTransactions(leagueId,week) {
                     transactionDescription.innerText = description + "... " + getRandomString() + ".";
                 }
                 //Add the whole item to the carousel
+                var dateString = transactionDate.toLocaleString().replaceAll(",", "");
+
+                if (dateString.endsWith("AM")) {
+                    var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
+                    formattedDate += " AM";
+                }
+                else if (dateString.endsWith("PM")) {
+                    var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
+                    formattedDate += " PM";
+                }
+                dateOfTransaction.innerText = formattedDate;
                 dateOfTransaction.classList.add('custom-block-display');
                 dateOfTransaction.classList.remove('custom-none-display');
-                dateOfTransaction.innerText = transactionDate.toLocaleString().replaceAll(",", "");
+
                 teamDiv.classList.remove('custom-none-display');
                 teamDiv.classList.add('custom-block-display');
 
