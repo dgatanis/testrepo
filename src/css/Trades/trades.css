@@ -7,7 +7,7 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    background: var(--custom-blue-gray);
+    background: #575757;
     color: var(--custom-light-gray);
 }
 
@@ -24,13 +24,23 @@
 
 .custom-playername-large {
     display: inline;
-    font-size: large;
     vertical-align: middle;
 }
 
 .custom-waiver-budget {
     padding: .2rem;
     font-size: small;
+}
+
+.custom-small-avatar {
+    background-color: var(--custom-light-gray);
+    padding: .1rem;
+}
+
+.custom-add-icon {
+    left: .5rem;
+    top: .4rem;
+    border: 1px solid var(--custom-green);
 }
 
 .custom-player-position {
@@ -51,7 +61,7 @@ img.custom-team-logo {
 }
 
 .custom-transaction-row {
-    padding: .8rem;
+    padding: 1.5rem;
 }
 
 .custom-draft-pick {
@@ -67,6 +77,7 @@ img.custom-team-logo {
 .custom-team-group {
     width: 18rem;
     padding: .3rem;
+    margin-bottom: .5rem;
 }
 
 .custom-date {
@@ -78,15 +89,18 @@ img.custom-team-logo {
 
 .custom-transaction-date {
     text-align: center;
-    color: var(--custom-light-gray);
+    color: var(--custom-dark-gray);
     margin-bottom: .5rem;
     margin-top: .5rem;
-    background: linear-gradient(87deg, transparent, var(--custom-dark-blue), var(--custom-dark-blue), transparent);
+    background: linear-gradient(87deg, transparent, var(--custom-light-gray), var(--custom-light-gray), transparent);
+    font-size: small;
+    font-style: italic;
 }
 
 .custom-team-group:nth-child(even) {
     float: inline-start;
     text-align: center;
+    clear: inline-start;
 }
 
 .custom-draft-picks {
@@ -113,9 +127,9 @@ img.custom-team-logo {
 .custom-team-container {
     text-align: center;
     font-size: larger;
-    border-bottom: 2px solid var(--custom-dark-blue);
+    border-bottom: 2px solid var(--custom-light-gray);
     margin-bottom: .5rem;
-    color: var(--custom-dark-blue);
+    color: var(--custom-light-gray);
 }
 
 .custom-player:hover {
