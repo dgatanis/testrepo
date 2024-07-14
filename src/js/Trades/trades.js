@@ -1,4 +1,4 @@
-import { getTransactionsData, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters } from '../util/helper.js';
+import { getTransactionsData, setLinkSource, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters } from '../util/helper.js';
 
 const rosterData = rosters;
 const playerData = players;
@@ -7,6 +7,7 @@ loadContents();
 
 function loadContents() {
     setLeagueName("footerName");
+    setLinkSource("keep-trade-cut");
     loadTradeTransactions();
 }
 
