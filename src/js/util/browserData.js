@@ -155,7 +155,8 @@ async function setPlayerData() {
                     "team": playerTeam,
                     "number": data[i].number,
                     "height": data[i].height,
-                    "weight": data[i].weight
+                    "weight": data[i].weight,
+                    "exp": data[i].years_exp
                 });
            }
         }

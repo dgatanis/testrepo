@@ -23,7 +23,7 @@ async function loadTradeTransactions() {
             {
                 var tradePartners = Object.keys(trade.roster_ids).length;
                 var transactionRow = createTransactionRow();
-                console.log(trade);
+
                 for (let i = 0; i < tradePartners; i++) {
                     var rosterid = trade.roster_ids[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
@@ -103,7 +103,7 @@ async function loadTradeTransactions() {
                                 draftPickDiv.appendChild(round);
                                 draftPickDiv.appendChild(season);
 
-                                if (draftPick.roster_id != draftPick.previous_owner_id || i>=2) {
+                                if (draftPick.roster_id != draftPick.previous_owner_id || tradePartners > 2) {
                                     var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
                                     var originalOwnerDiv = document.createElement('div');
                                     originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
@@ -211,21 +211,24 @@ function createPlayerDiv(playerid, addDrop) {
     var playerImg = createPlayerImage(playerid);
     var playerName = document.createElement("div");
     var playerPosition = document.createElement("div");
+    var addDropIcon = createAddDropImg(addDrop);
 
     playerName.setAttribute('class', 'custom-playername-large');
 
 
-    if (player) //Can Remove this once finished - just used for testing DEF
+    if (player) 
     {
         playerName.innerText = getFullPlayerName(playerid);
         playerPosition.innerText = "- " + player.position;
         playerPosition.setAttribute('class', 'custom-player-position');
         playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
+        addDropIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
     }
     else {
         playerName.innerText = getFullPlayerName(playerid);
     }
-
+    
+    playerDiv.append(addDropIcon);
     playerDiv.append(playerImg);
     playerDiv.append(playerName);
     playerDiv.append(playerPosition);
