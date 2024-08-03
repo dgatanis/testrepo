@@ -311,6 +311,10 @@ tr {
   min-width: 4.6rem;
 }
 
+.custom-player-name:hover {
+  cursor: default;
+}
+
 .custom-stats-label {
   font-size: x-large;
   float: inline-start;

@@ -372,7 +372,6 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
 async function getLatestTransactions(leagueId,week) {
 
     try {
-        //const transactions  = await fetch(`https://api.sleeper.app/v1/league/998356266604916736/transactions/8`);
         if(week == 0)
         {
             week = 1;
@@ -492,305 +491,33 @@ async function getLatestTransactions(leagueId,week) {
 
                     description = getTeamName(roster.owner_id).toString() + " " + description + "... " + getRandomString() + ".";
                     transactionDescription.innerText = description;
-                }
-                else if(transaction.type.toString().toLowerCase() == "trade")
-                {
-                    //Create carousel item and get each of the divs that were created
-                    var carouselItem = createTransactionCarouselItem();
-                    var cardBody = carouselItem.children[0].getElementsByClassName("card-body")[0];
-                    var addedPlayerDiv = carouselItem.getElementsByClassName("custom-added-players")[0];
-                    var droppedPlayerDiv = carouselItem.getElementsByClassName("custom-dropped-players")[0];
-                    var tradedPicksDiv = carouselItem.getElementsByClassName("custom-traded-picks")[0];
-                    var transactionDescription = carouselItem.getElementsByClassName("custom-transaction-description")[0];
-                    var dateOfTransaction = carouselItem.getElementsByClassName("custom-date-transaction")[0];
-                    var teamDiv = carouselItem.getElementsByClassName("custom-team-div")[0];
 
-                    if(counter == 0)
-                    {
-                        carouselItem.classList.add('active');
+                    //Add the whole item to the carousel
+                    var dateString = transactionDate.toLocaleString().replaceAll(",", "");
+
+                    if (dateString.endsWith("AM")) {
+                        var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
+                        formattedDate += " AM";
                     }
-                    counter++;
-                    transType = "Trade";
+                    else if (dateString.endsWith("PM")) {
+                        var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
+                        formattedDate += " PM";
+                    }
+                    dateOfTransaction.innerText = formattedDate;
+                    dateOfTransaction.classList.add('custom-block-display');
+                    dateOfTransaction.classList.remove('custom-none-display');
 
-                    var tradePartners = Object.keys(transaction.roster_id).length;
-                    var transactionDraftPicks = transaction.draft_picks;
+                    teamDiv.classList.remove('custom-none-display');
+                    teamDiv.classList.add('custom-block-display');
 
-                    for(let i = 0; i < tradePartners; i++)
-                    {
-                        var rosterid = transaction.roster_id[i];
-                        let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
-                        var thisTeamStats = getRosterStats(roster.roster_id);
-                        var teamRecord = document.createElement("div");
-                        var addsCount = 0;
-                        teamRecord.setAttribute('class', 'custom-team-record');
-                        teamRecord.innerText = thisTeamStats.wins + "-" + thisTeamStats.losses +"-"+ thisTeamStats.ties;
+                    cardBody.innerText = transType;
+                    transactionCarousel.append(carouselItem);
 
-                        //If its on the second+ team then create new divs and append these to current carousel item
-                        if(i >= 1)
-                        {
-                            var newdroppedPlayers = document.createElement("div");
-                            newdroppedPlayers.setAttribute('class', 'custom-dropped-players custom-none-display'); 
-                            var newaddedPlayers = document.createElement("div");
-                            newaddedPlayers.setAttribute('class', 'custom-added-players custom-none-display');
-                            var newTradedPicks = document.createElement("div");
-                            newTradedPicks.setAttribute('class', 'custom-traded-picks custom-none-display');
-
-                            description += " while " + getTeamName(roster.owner_id).toString() + " received ";
-                        }
-                        else
-                        {
-                            description += getTeamName(roster.owner_id).toString() + " received ";
-                        }
-
-                        let addedPlayers = Object.keys(transaction.adds);
-                        let droppedPlayers = Object.keys(transaction.drops);
-                        
-                        
-                        var teamImg = createOwnerAvatarImage(roster.owner_id);
-                        teamImg.classList.add('custom-small-avatar');
-                        teamImg.classList.remove('custom-medium-avatar');
-
-                        var teamName = document.createElement("div");
-                        teamName.innerText = getTeamName(roster.owner_id);
-                        teamName.setAttribute('class', 'custom-teamname-small');
-                        
-                        //loop through adds and create player image/name and append to added players div
-                        if(transaction.adds)
-                        {
-                            var addedPlayersArray = [];
-                            for(let j = 0; j< addedPlayers.length; j++)
-                            {                
-                                if(rosterid == transaction.adds[addedPlayers[j]])
-                                {
-                                    addedPlayersArray.push(getFullPlayerName(addedPlayers[j]));
-                                    var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
-                                    var playerDiv = createPlayerDiv(player.player_id, 'add');
-                                    var nflTeamImg = createNFLTeamImage(player.team);
-
-                                    if(i >= 1)
-                                    {
-                                        playerDiv.append(nflTeamImg);
-                                        newaddedPlayers.append(playerDiv);
-                                        newaddedPlayers.classList.add('custom-block-display');
-                                        newaddedPlayers.classList.remove('custom-none-display');
-                                    }
-                                    else
-                                    {
-                                        addedPlayerDiv.append(playerDiv);
-                                    }
-                                    addsCount++;
-                                }
-                                
-                            }
-                            if(addedPlayersArray.length > 1)
-                            {
-                                addedPlayersArray[addedPlayersArray.length-1] = "and " + addedPlayersArray[addedPlayersArray.length-1];
-                            }
-                               
-                            var newString = addedPlayersArray.toString().replaceAll(",", ", ").replace(", and", " and ");
-                            description += newString;
-
-                            addedPlayerDiv.classList.add('custom-block-display');
-                            addedPlayerDiv.classList.remove('custom-none-display');
-                        }
-                        //loop through drops and create player image/name and append to dropped players div
-                        if(transaction.drops)
-                        {  
-                            
-                            for(let j= 0; j< droppedPlayers.length; j++)
-                            {
-                                //If a dropped player is not included in the additions
-                                if(rosterid == transaction.drops[droppedPlayers[j]] && !addedPlayers.includes(droppedPlayers[j]))
-                                {
-                                    var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[j]));
-                                    var playerDiv = createPlayerDiv(player.player_id, 'drop');
-                                    var nflTeamImg = createNFLTeamImage(player.team);
-                                    
-                                    if(i >= 1)
-                                    {
-                                        playerDiv.append(nflTeamImg);
-                                        newdroppedPlayers.append(playerDiv);
-                                        newdroppedPlayers.classList.add('custom-block-display');
-                                        newdroppedPlayers.classList.remove('custom-none-display');
-                                    }
-                                    else
-                                    {
-                                        playerDiv.append(nflTeamImg);
-                                        droppedPlayerDiv.append(playerDiv);
-                                    }
-
-                                    droppedPlayerDiv.classList.add('custom-block-display');
-                                    droppedPlayerDiv.classList.remove('custom-none-display');
-                                }
-                            }
-                        }
-                        //loop through traded draft picks and format/append to traded picks div
-                        if(transactionDraftPicks) 
-                        {
-                            var draftPickCount = 0;
-
-                            for(let draftPick of transactionDraftPicks)
-                            {
-                                draftPickCount++;
-
-                                //owner_id is the rosterid of the player that is receiving the pick
-                                if(rosterid == draftPick.owner_id)
-                                {
-                                    var formattedRound;
-
-                                    if(draftPick.round==1)
-                                    {
-                                        formattedRound = draftPick.round + "st round pick";
-                                    }
-                                    else if(draftPick.round==2)
-                                    {
-                                        formattedRound = draftPick.round + "nd round pick";
-                                    }
-                                    else if(draftPick.round==3)
-                                    {
-                                        formattedRound = draftPick.round + "rd round pick";
-                                    }
-                                    else 
-                                    {
-                                        formattedRound = draftPick.round + "th round pick";
-                                    }
-
-                                    //If on the 2nd+ team through the loop
-                                    if(i >= 1)
-                                    {
-                                        var draftPickDiv = document.createElement('div');
-                                        var round = document.createElement('div');
-                                        var season = document.createElement('div');
-
-                                        draftPickDiv.setAttribute('class', 'custom-draft-picks');
-                                        round.setAttribute('class', 'custom-draft-pick-round');
-                                        season.setAttribute('class', 'custom-draft-pick-season');
-                                        round.innerText = formattedRound;
-                                        season.innerText = " - " + draftPick.season;
-
-                                        draftPickDiv.appendChild(round);
-                                        draftPickDiv.appendChild(season);
-                                        
-                                        //If the original owner of the pick is not the person who traded away the pick
-                                        if(draftPick.roster_id != draftPick.previous_owner_id)
-                                        {
-                                            var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
-                                            var originalOwnerDiv = document.createElement('div');
-                                            originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
-                                            originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
-                                            draftPickDiv.appendChild(originalOwnerDiv);
-                                        }
-                                        newTradedPicks.classList.remove('custom-none-display');
-                                        newTradedPicks.append(draftPickDiv);
-
-                                        //If no adds then the player only received pick(s)
-                                        if(addsCount == 0)
-                                        {
-                                            if(draftPickCount <=1)
-                                            {
-                                                description += " pick(s) ";
-                                            }
-                                        }
-                                        else
-                                        {
-                                            description += " and pick(s) ";
-                                        }
-                                        
-                                    }
-                                    else
-                                    {
-                                        
-                                        var draftPickDiv = document.createElement('div');
-                                        var round = document.createElement('div');
-                                        var season = document.createElement('div');
-
-                                        draftPickDiv.setAttribute('class', 'custom-draft-picks');
-                                        round.setAttribute('class', 'custom-draft-pick-round');
-                                        season.setAttribute('class', 'custom-draft-pick-season');
-                                        round.innerText = formattedRound;
-                                        season.innerText = " - " + draftPick.season;
-
-
-                                        draftPickDiv.appendChild(round);
-                                        draftPickDiv.appendChild(season);
-
-                                        //If the original owner of the pick is not the person who traded away the pick
-                                        if(draftPick.roster_id != draftPick.previous_owner_id)
-                                        {
-                                            var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
-                                            var originalOwnerDiv = document.createElement('div');
-                                            originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
-                                            originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
-                                            draftPickDiv.appendChild(originalOwnerDiv);
-                                        }
-                                        tradedPicksDiv.classList.remove('custom-none-display');
-                                        tradedPicksDiv.append(draftPickDiv);
-
-                                        //If no adds then the player only received pick(s)
-                                        if(addsCount == 0)
-                                        {
-                                            if(draftPickCount <=1)
-                                            {
-                                                description += " pick(s) ";
-                                            }
-                                        }
-                                        else
-                                        {
-                                            description += " and pick(s) ";
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        //append second+ teams additions/drops to the same carousel item
-                        if(i >= 1)
-                        {
-                            var newteam = document.createElement("div");
-                            newteam.setAttribute('class', 'custom-team-div');
-
-                            newteam.append(teamImg);
-                            newteam.append(teamName);
-                            newteam.append(teamRecord);
-                            teamDiv.parentNode.insertBefore(newteam, teamDiv.nextSibling);
-                            teamDiv.parentNode.insertBefore(newTradedPicks, teamDiv.nextSibling);
-                            teamDiv.parentNode.insertBefore(newdroppedPlayers, teamDiv.nextSibling);
-                            teamDiv.parentNode.insertBefore(newaddedPlayers, teamDiv.nextSibling);
-                        }
-                        else
-                        {
-                            teamDiv.append(teamImg);
-                            teamDiv.append(teamName);
-                            teamDiv.append(teamRecord);
-                        }
-                        
-                    }   
-                    transactionDescription.innerText = description + "... " + getRandomString() + ".";
+                    noTransactions.classList.remove('custom-block-display');
+                    noTransactions.classList.remove('carousel-item');
+                    noTransactions.classList.add('custom-none-display');
                 }
-                //Add the whole item to the carousel
-                var dateString = transactionDate.toLocaleString().replaceAll(",", "");
 
-                if (dateString.endsWith("AM")) {
-                    var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
-                    formattedDate += " AM";
-                }
-                else if (dateString.endsWith("PM")) {
-                    var formattedDate = dateString.toString().substring(0, dateString.lastIndexOf(":"));
-                    formattedDate += " PM";
-                }
-                dateOfTransaction.innerText = formattedDate;
-                dateOfTransaction.classList.add('custom-block-display');
-                dateOfTransaction.classList.remove('custom-none-display');
-
-                teamDiv.classList.remove('custom-none-display');
-                teamDiv.classList.add('custom-block-display');
-
-                cardBody.innerText = transType;
-                transactionCarousel.append(carouselItem);
-
-                noTransactions.classList.remove('custom-block-display');
-                noTransactions.classList.remove('carousel-item');
-                noTransactions.classList.add('custom-none-display');
             }
             noTransactions.classList.remove('custom-block-display');
             noTransactions.classList.remove('carousel-item');

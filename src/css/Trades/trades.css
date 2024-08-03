@@ -22,6 +22,24 @@
     background-color: whitesmoke;
 }
 
+.custom-div-shadow {
+    border-top-left-radius: unset;
+}
+
+.custom-trade-badge {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    max-width: 2.5rem;
+}
+
+.custom-handshake-icon {
+    max-width: 2.5rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 .custom-playername-large {
     display: inline;
     vertical-align: middle;
@@ -33,7 +51,7 @@
 }
 
 .custom-small-avatar {
-    background-color: var(--custom-light-gray);
+    background-color: whitesmoke;
     padding: .1rem;
 }
 
@@ -51,6 +69,7 @@
 
 .custom-player {
     padding: .2rem;
+    cursor: pointer;
 }
 
 img.custom-team-logo {
@@ -62,6 +81,7 @@ img.custom-team-logo {
 
 .custom-transaction-row {
     padding: 1.5rem;
+    margin-top: 1rem;
 }
 
 .custom-draft-pick {
@@ -77,7 +97,7 @@ img.custom-team-logo {
 .custom-team-group {
     width: 18rem;
     padding: .3rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 .custom-date {
@@ -89,10 +109,9 @@ img.custom-team-logo {
 
 .custom-transaction-date {
     text-align: center;
-    color: var(--custom-dark-gray);
+    color: whitesmoke;
     margin-bottom: .5rem;
     margin-top: .5rem;
-    background: linear-gradient(87deg, transparent, var(--custom-light-gray), var(--custom-light-gray), transparent);
     font-size: small;
     font-style: italic;
 }
@@ -127,15 +146,15 @@ img.custom-team-logo {
 .custom-team-container {
     text-align: center;
     font-size: larger;
-    border-bottom: 2px solid var(--custom-light-gray);
+    border-bottom: 2px solid whitesmoke;
     margin-bottom: .5rem;
-    color: var(--custom-light-gray);
+    color: whitesmoke;
+    cursor: pointer;
 }
 
 .custom-player:hover {
-    cursor: default;
     background: var(--custom-light-gray);
-    color: var(--custom-dark-blue);
+    color: var(--custom-dark-gray);
     border-radius: .5rem;
     transition: all 1s ease;
 }
@@ -143,7 +162,7 @@ img.custom-team-logo {
 .custom-draft-pick:hover {
     cursor: default;
     background: var(--custom-light-gray);
-    color: var(--custom-dark-blue);
+    color: var(--custom-dark-gray);
     border-radius: .5rem;
     transition: all 1s ease;
 }
@@ -151,7 +170,7 @@ img.custom-team-logo {
 .custom-waiver-budget:hover {
     cursor: default;
     background: var(--custom-light-gray);
-    color: var(--custom-dark-blue);
+    color: var(--custom-dark-gray);
     border-radius: .5rem;
     transition: all 1s ease;
 }

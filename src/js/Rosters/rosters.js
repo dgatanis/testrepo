@@ -419,6 +419,7 @@ function createPlayerRow(playerid, rosterid) {
     th.setAttribute('scope', 'row');
     tr.setAttribute('data-playerid', player.player_id);
     playerNameDiv.setAttribute('class', 'custom-player-name');
+    playerNameDiv.setAttribute('title', 'Exp: ' + player.years_exp + ' College: ' + player.college);
     playerNameDiv.innerText=playerName;
     playerAgeDiv.setAttribute('class', 'custom-player-age');
     playerAgeDiv.innerText =  "Age: " + playerAge ;
