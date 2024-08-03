@@ -63,7 +63,7 @@
 
 .custom-add-icon {
     left: .5rem;
-    top: .4rem;
+    top: .5rem;
     border: 1px solid var(--custom-green);
 }
 
@@ -140,6 +140,7 @@ img.custom-team-logo {
 .custom-draft-pick-season {
     display: inline;
     font-size: x-small;
+    vertical-align: middle;
 }
 
 .custom-draft-pick-original-owner {

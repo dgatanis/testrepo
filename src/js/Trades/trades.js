@@ -44,6 +44,7 @@ async function loadTradeTransactions() {
                         var teamGroup = transactionRow.getElementsByClassName('custom-team-group')[i];
                     }
 
+                    //Create team containers for name/image
                     var teamContainer = document.createElement('div');
                     teamContainer.setAttribute('class', 'custom-team-container');
 
@@ -62,6 +63,7 @@ async function loadTradeTransactions() {
 
                     teamGroup.prepend(teamContainer);
 
+                    //Check the trade for all its components
                     if (trade.adds) {
                         let addedPlayers = Object.keys(trade.adds);
                         var addedPlayersArray = [];
@@ -83,8 +85,11 @@ async function loadTradeTransactions() {
                     if (trade.draft_picks) {
 
                         for (let draftPick of trade.draft_picks) {
-                            if (rosterid == draftPick.owner_id) {
+
+                            if (rosterid == draftPick.owner_id) { //owner_id = rosterId that owns the pick now
+
                                 var formattedRound;
+                                var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
                                 var draftPickDiv = document.createElement('div');
                                 var round = document.createElement('div');
                                 var season = document.createElement('div');
@@ -94,27 +99,28 @@ async function loadTradeTransactions() {
 
                                 if (draftPick.round == 1) {
                                     draftPicksCount["1"]++;
-                                    formattedRound = draftPick.round + "st round pick";
+                                    formattedRound = draftPick.round + "st Round";
                                 }
                                 else if (draftPick.round == 2) {
                                     draftPicksCount["2"]++;
-                                    formattedRound = draftPick.round + "nd round pick";
+                                    formattedRound = draftPick.round + "nd Round";
                                 }
                                 else if (draftPick.round == 3) {
-                                    formattedRound = draftPick.round + "rd round pick";
+                                    formattedRound = draftPick.round + "rd Round";
                                 }
                                 else {
-                                    formattedRound = draftPick.round + "th round pick";
+                                    formattedRound = draftPick.round + "th Round";
                                 }
+
+                                draftPickDiv.setAttribute('title', formattedRound + ' pick via ' + getTeamName(originalOwner.owner_id));
 
                                 round.innerText = formattedRound;
                                 season.innerText = " - " + draftPick.season;
 
                                 draftPickDiv.appendChild(round);
                                 draftPickDiv.appendChild(season);
-
-                                if (draftPick.roster_id != draftPick.previous_owner_id || tradePartners > 2) {
-                                    var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
+                                //previous_owner_id = player that traded pick away
+                                if (draftPick.roster_id != draftPick.previous_owner_id || tradePartners > 2) { //roster_id = original owner of pick 
                                     var originalOwnerDiv = document.createElement('div');
                                     originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
                                     originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
@@ -158,26 +164,29 @@ async function loadTradeTransactions() {
                 handshakeImage.setAttribute('src', '../src/static/images/trading-icon.png');
                 handshakeImage.setAttribute('class', 'custom-handshake-icon');
 
-                //Create trade badge icon
-                var tradeBadge = document.createElement('img');
-                tradeBadge.setAttribute('class', 'custom-trade-badge');
+                lastTeamGroup.after(handshakeImage);
 
-                
+                //Create trade badge icon
                 if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 25 || tradePartners >=3 || draftPicksCount["1"] >= 2 || draftPicksCount["2"] >= 4 || totalPlayers >= 4)
                 {
+                    var tradeBadge = document.createElement('img');
+                    tradeBadge.setAttribute('class', 'custom-trade-badge');
                     tradeBadge.setAttribute('src', '../src/static/images/alert.png');
                     tradeBadge.setAttribute('title', 'Big Trade Alert!');
+
+                    lastTeamGroup.after(tradeBadge);
                 }
-                else if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 60 || draftPicksCount["2"] >= 3)
+                else if (totalPlayers >= 1 && totalSearchRank / totalPlayers <= 60 || draftPicksCount["2"] >= 3 || draftPicksCount["1"] >= 1)
                 {
+                    var tradeBadge = document.createElement('img');
+                    tradeBadge.setAttribute('class', 'custom-trade-badge');
                     tradeBadge.setAttribute('src', '../src/static/images/wow-icon.png');
                     tradeBadge.setAttribute('title', 'Wow!');
+
+                    lastTeamGroup.after(tradeBadge);
                 }
 
-
-                lastTeamGroup.after(handshakeImage);
-                lastTeamGroup.after(tradeBadge);
-
+                //append trade to the body
                 body.appendChild(transactionRow);
             }
         }
@@ -239,7 +248,7 @@ function createTransactionRow() {
 
 }
 
-function createPlayerDiv(playerid, addDrop, rosterid) {
+function createPlayerDiv(playerid, addDrop) {
     var player = playerData.players.find(x => x.player_id === parseInt(playerid));
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
@@ -252,7 +261,6 @@ function createPlayerDiv(playerid, addDrop, rosterid) {
     var addDropIcon = createAddDropImg(addDrop);
 
     playerName.setAttribute('class', 'custom-playername-large');
-
 
     if (player) 
     {
@@ -270,7 +278,6 @@ function createPlayerDiv(playerid, addDrop, rosterid) {
     playerDiv.append(playerImg);
     playerDiv.append(playerName);
     playerDiv.append(playerPosition);
-    
 
     return playerDiv;
 }
@@ -286,7 +293,6 @@ function createAddDropImg(addDrop) {
     else if (addDrop.toString().toLowerCase() == "drop") {
         img.setAttribute('src', '../src/static/images/drop-sign.png');
     }
-
 
     return img
 }
