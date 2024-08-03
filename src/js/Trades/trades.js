@@ -24,6 +24,9 @@ async function loadTradeTransactions() {
             {
                 var tradePartners = Object.keys(trade.roster_ids).length;
                 var transactionRow = createTransactionRow();
+                var totalPlayers = 0;
+                var totalSearchRank = 0;
+                var draftPicksCount = {"1": 0, "2": 0}
 
                 for (let i = 0; i < tradePartners; i++) {
                     var rosterid = trade.roster_ids[i];
@@ -43,6 +46,7 @@ async function loadTradeTransactions() {
 
                     var teamContainer = document.createElement('div');
                     teamContainer.setAttribute('class', 'custom-team-container');
+                    teamContainer.setAttribute('onclick', 'openRostersPage(' + rosterid + ')');
 
                     var teamImg = createOwnerAvatarImage(roster.owner_id);
                     teamImg.classList.add('custom-small-avatar');
@@ -67,9 +71,11 @@ async function loadTradeTransactions() {
                                 var nflTeamImg = createNFLTeamImage(player.team);
 
                                 playerDiv.append(nflTeamImg);
-                                teamGroup.appendChild(playerDiv)
-                            }
+                                teamGroup.appendChild(playerDiv);
 
+                                totalPlayers++;
+                                totalSearchRank += player.search_rank;
+                            }
                         }
 
                     }
@@ -86,9 +92,11 @@ async function loadTradeTransactions() {
                                 draftPickDiv.setAttribute('class', 'custom-draft-pick');
 
                                 if (draftPick.round == 1) {
+                                    draftPicksCount["1"]++;
                                     formattedRound = draftPick.round + "st round pick";
                                 }
                                 else if (draftPick.round == 2) {
+                                    draftPicksCount["2"]++;
                                     formattedRound = draftPick.round + "nd round pick";
                                 }
                                 else if (draftPick.round == 3) {
@@ -122,7 +130,7 @@ async function loadTradeTransactions() {
                                 var waiverBudgDiv = document.createElement('div');
                                 waiverBudgDiv.setAttribute('class', 'custom-waiver-budget');
                                 waiverBudgDiv.innerText = "$" + faab.amount + " - FAAB";
-
+                                
                                 teamGroup.appendChild(waiverBudgDiv);
                             }
                         }
@@ -142,6 +150,32 @@ async function loadTradeTransactions() {
                     formattedDate += " PM";
                 }
                 dateOfTransaction.innerText = formattedDate;
+
+                //Create handshake icon
+                var lastTeamGroup = transactionRow.getElementsByClassName('custom-team-group')[transactionRow.getElementsByClassName('custom-team-group').length - 1];
+                var handshakeImage = document.createElement('img');
+                handshakeImage.setAttribute('src', '../src/static/images/trading-icon.png');
+                handshakeImage.setAttribute('class', 'custom-handshake-icon');
+
+                //Create trade badge icon
+                var tradeBadge = document.createElement('img');
+                tradeBadge.setAttribute('class', 'custom-trade-badge');
+
+                
+                if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 25 || tradePartners >=3 || draftPicksCount["1"] >= 2 || draftPicksCount["2"] >= 4 || totalPlayers >= 4)
+                {
+                    tradeBadge.setAttribute('src', '../src/static/images/alert.png');
+                    tradeBadge.setAttribute('title', 'Big Trade Alert!');
+                }
+                else if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 60 || draftPicksCount["2"] >= 3)
+                {
+                    tradeBadge.setAttribute('src', '../src/static/images/wow-icon.png');
+                    tradeBadge.setAttribute('title', 'Wow!');
+                }
+
+
+                lastTeamGroup.after(handshakeImage);
+                lastTeamGroup.after(tradeBadge);
 
                 body.appendChild(transactionRow);
             }
@@ -204,11 +238,13 @@ function createTransactionRow() {
 
 }
 
-function createPlayerDiv(playerid, addDrop) {
-
+function createPlayerDiv(playerid, addDrop, rosterid) {
     var player = playerData.players.find(x => x.player_id === parseInt(playerid));
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
+    playerDiv.setAttribute('onclick', 'openSwishPage('+ player.swish_id + ")");
+    playerDiv.setAttribute('title', player.firstname + " " + player.lastname + " Stats and News");
+
     var playerImg = createPlayerImage(playerid);
     var playerName = document.createElement("div");
     var playerPosition = document.createElement("div");
@@ -233,6 +269,7 @@ function createPlayerDiv(playerid, addDrop) {
     playerDiv.append(playerImg);
     playerDiv.append(playerName);
     playerDiv.append(playerPosition);
+    
 
     return playerDiv;
 }

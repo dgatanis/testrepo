@@ -156,7 +156,10 @@ async function setPlayerData() {
                     "number": data[i].number,
                     "height": data[i].height,
                     "weight": data[i].weight,
-                    "exp": data[i].years_exp
+                    "years_exp": data[i].years_exp,
+                    "swish_id": data[i].swish_id,
+                    "college": data[i].college,
+                    "search_rank": data[i].search_rank
                 });
            }
         }
