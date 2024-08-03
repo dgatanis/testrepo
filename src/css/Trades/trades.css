@@ -51,9 +51,14 @@
     font-size: small;
 }
 
+.custom-teamname-small {
+    cursor: pointer;
+}
+
 .custom-small-avatar {
     background-color: whitesmoke;
     padding: .1rem;
+    cursor: pointer;
 }
 
 .custom-add-icon {
@@ -150,7 +155,6 @@ img.custom-team-logo {
     border-bottom: 2px solid whitesmoke;
     margin-bottom: .5rem;
     color: whitesmoke;
-    cursor: pointer;
 }
 
 .custom-player:hover {

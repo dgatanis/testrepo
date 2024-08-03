@@ -46,15 +46,16 @@ async function loadTradeTransactions() {
 
                     var teamContainer = document.createElement('div');
                     teamContainer.setAttribute('class', 'custom-team-container');
-                    teamContainer.setAttribute('onclick', 'openRostersPage(' + rosterid + ')');
 
                     var teamImg = createOwnerAvatarImage(roster.owner_id);
                     teamImg.classList.add('custom-small-avatar');
                     teamImg.classList.remove('custom-medium-avatar');
+                    teamImg.setAttribute('onclick', 'openRostersPage(' + rosterid + ')');
 
                     var teamName = document.createElement("div");
                     teamName.innerText = getTeamName(roster.owner_id);
                     teamName.setAttribute('class', 'custom-teamname-small');
+                    teamName.setAttribute('onclick', 'openRostersPage(' + rosterid + ')');
 
                     teamContainer.appendChild(teamImg);
                     teamContainer.appendChild(teamName);
