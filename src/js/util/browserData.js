@@ -75,21 +75,12 @@ async function setPlayoffsData(leagueID) {
 }
 
 async function previousLeagueId(leagueID) {
-    const myUserId = leagueUser;
-    const leagueName = leagueDisplayName;
     const userLeagues = await fetch(`https://api.sleeper.app/v1/league/${leagueID}`);
     const leagueData = await userLeagues.json();
 
-    //const leagues = leagueData.map((league) => league);
+    let previousLeagueId = leagueData.previous_league_id;
+    return previousLeagueId;
 
-    // for(let league of leagues)
-    // {
-    //     if(leagueData.find(x => x.name === leagueName))
-    //     {
-            let previousLeagueId = leagueData.previous_league_id;
-            return previousLeagueId;
-    //     }
-    // }
 }
 
 async function setATLeagueIds() {

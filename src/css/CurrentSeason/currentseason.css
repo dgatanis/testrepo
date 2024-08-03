@@ -117,12 +117,27 @@
     cursor: help;
   }
 
+  .game .team:nth-child(1) {
+    background-color:#1818ff;
+  }
+  
+  .game .team:nth-child(3) {
+    background-color: var(--custom-red);
+  }
+
   table#Standings tr {
     vertical-align: baseline;
   }
 
-  .team .custom-xsmall-avatar {
-    margin-right: unset;
+  .custom-xsmall-avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    padding: 1px;
+    margin-top: -.8rem;
+    margin-left: -.5rem;
+    max-width: 1.8rem;
   }
 
   table#Standings th {
@@ -142,6 +157,10 @@
     color: whitesmoke;
     display: block;
     text-align: center;
+  }
+
+  .custom-color-black {
+    color: black !important;
   }
 
   .custom-roster-breakdown-shadow {
@@ -418,8 +437,9 @@
     z-index: 1;
     left: 8%;
     border-radius: 10px;
-    left: 2.8rem;
+    left: 3.1rem;
     background-color: whitesmoke;
+    margin-top: .9rem;
   }
 
   .custom-add-player {
@@ -428,6 +448,19 @@
     border-radius: 3px;
   }
 
+  .custom-waiver-bid {
+    font-size: x-small;
+    display: inline;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    left: 5.9rem;
+    width: fit-content;
+    margin-top: 1.3rem;
+    color: transparent;
+    transition: color 1s ease;
+}
+
   .custom-drop-player {
     border: 2px solid var(--custom-red) !important;
     background-color: var(--Drop) !important;
@@ -435,12 +468,10 @@
   }
 
   .custom-add-icon {
-    padding: .1rem;
     border: 1px solid var(--custom-green);
   }
 
   .custom-drop-icon {
-    padding: .1rem;
     border: 1px solid var(--custom-red);
   }
 
@@ -537,6 +568,10 @@
         color: black;
         transition: all 1s ease;
       }
+      .custom-waiver-bid {
+        color: red;
+        transition: all 1s ease;
+      }
     }
   }
 
@@ -552,6 +587,8 @@
 
   .custom-playoff-team-name {
     clear: both;
+    color: white;
+    word-spacing: .1rem;
   }
 
   .round {
@@ -612,6 +649,8 @@
     width: 13rem;
     font-size: smaller;
     border-radius: 5px;
+    position: relative;
+    color: white;
   }
 
   .custom-nomatchup {
@@ -868,6 +907,10 @@
       }
     }
 
+    .custom-xsmall-avatar {
+      max-width: 1.5rem;
+    }
+    
     .custom-playoffs-bracket, .custom-playoff-container {
       margin-left: unset;
     }

@@ -45,7 +45,7 @@ async function loadContents() {
         loadMatchupsList(); 
         loadBankroll(currentWeek,dues,weeklyWinnerPayout); 
         //loadBankroll('10',dues,weeklyWinnerPayout); 
-        loadPlayoffs();
+        loadPlayoffs(currentWeek);
         getLatestTransactions(currentLeagueId, currentWeek); 
         setSeasonTitle(currentSeason);
         
@@ -453,10 +453,20 @@ async function getLatestTransactions(leagueId,week) {
                             var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
                             var playerDiv = createPlayerDiv(addedPlayers[i], 'add');
                             var nflTeamImg = createNFLTeamImage(player.team);
-                            description += getFullPlayerName(addedPlayers[i]);
 
                             playerDiv.append(nflTeamImg);
+
+                            if(transaction.settings && transaction.settings["waiver_bid"] > 0)
+                            {
+                                var waiverBid = document.createElement('div');
+                                waiverBid.setAttribute('class','custom-waiver-bid');
+                                waiverBid.innerText = "-$" + transaction.settings["waiver_bid"];
+
+                                playerDiv.append(waiverBid);
+                            }
                             addedPlayerDiv.append(playerDiv);
+
+                            description += getFullPlayerName(addedPlayers[i]);
                         }
 
                         addedPlayerDiv.classList.add('custom-block-display');
@@ -556,7 +566,7 @@ function loadMatchupsList(){
     }
 }
 
-function loadPlayoffs() {
+function loadPlayoffs(currentWeek) {
 
     var thePlayoffs = playoffData;
     
@@ -611,6 +621,14 @@ function loadPlayoffs() {
         }
         
     }
+    
+    if(currentWeek <= 13)
+    {
+        var playoffsTitle = document.getElementsByClassName('custom-playoffs-label')[0];
+        playoffsTitle.setAttribute('style', 'font-size: 2.5rem;word-spacing: 1rem;');
+        playoffsTitle.innerText = 'Projected Playoffs';
+
+    }
 
 }
 
@@ -634,7 +652,8 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team1.roster_id) //winner
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Add); border-color: var(--custom-green);');
+                thisRound.children[0].children[0].children[1].setAttribute('style', 'color:black;');
 
                 if(round == 'round3') //Finals
                 {
@@ -648,7 +667,8 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             }
             else if(winner && winner != team1.roster_id) //loser
             {
-                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[0].children[0].setAttribute('style', 'background-color:var(--Drop); border-color: var(--custom-red);');
+                thisRound.children[0].children[0].children[1].setAttribute('style', 'color:black;');
             }
         }
         else
@@ -669,7 +689,8 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team2.roster_id)
             {
-                thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Add); border-color: var(--custom-green);');
+                thisRound.children[0].children[2].children[1].setAttribute('style', 'color:black;');
 
                 if(round == 'round3')
                 {
@@ -683,7 +704,8 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
             }
             else if(winner && winner != team2.roster_id)
             {
-                thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[0].children[2].setAttribute('style', 'background-color:var(--Drop); border-color: var(--custom-red);');
+                thisRound.children[0].children[2].children[1].setAttribute('style', 'color:black;');
             }
         }
         else
@@ -692,7 +714,7 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
         }
     
     }
-    else
+    else //two children of thisRound element left=.children[0] right=.children[1]
     {
 
         thisRound.children[1].setAttribute('data-matchup-id', matchupId);
@@ -710,11 +732,13 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team1.roster_id)
             {
-                thisRound.children[1].children[0].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[1].children[0].setAttribute('style', 'background-color:var(--Add); border-color: var(--custom-green);');
+                thisRound.children[1].children[0].children[1].setAttribute('style', 'color:black;');
             }
             else if(winner && winner != team1.roster_id)
             {
-                thisRound.children[1].children[0].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[1].children[0].setAttribute('style', 'background-color:var(--Drop); border-color: var(--custom-red);');
+                thisRound.children[1].children[0].children[1].setAttribute('style', 'color:black;');
             }
         }
         else
@@ -734,11 +758,13 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
             if(winner && winner == team2.roster_id)
             {
-                thisRound.children[1].children[2].setAttribute('style', 'background-color:var(--Add)');
+                thisRound.children[1].children[2].setAttribute('style', 'background-color:var(--Add); border-color: var(--custom-green);');
+                thisRound.children[1].children[2].children[1].setAttribute('style', 'color:black;');
             }
             else if(winner && winner != team2.roster_id)
             {
-                thisRound.children[1].children[2].setAttribute('style', 'background-color:var(--Drop)');
+                thisRound.children[1].children[2].setAttribute('style', 'background-color:var(--Drop); border-color: var(--custom-red);');
+                thisRound.children[1].children[2].children[1].setAttribute('style', 'color:black;');
             }
         }
         else
@@ -774,29 +800,8 @@ function getFormattedTransactionData(transactions){
                     "adds": adds,
                     "draft_picks": null,
                     "consenter_ids": null,
-                    "waiver_budget": null
-                });
-            }
-            else if (transaction.type.toString().toLowerCase() == "trade")
-            {
-                let roster_id = transaction.roster_ids;
-                let drops = transaction.drops;
-                let adds = transaction.adds;
-                let draft_picks =  transaction.draft_picks;
-                let consenter_ids = transaction.consenter_ids;
-                let waiver_budget = transaction.waiver_budget;
-                let type = "trade";
-                let date = transaction.status_updated;
-
-                allTransactions.push({
-                    "type": type,
-                    "date": date,
-                    "roster_id": roster_id,
-                    "drops": drops,
-                    "adds": adds,
-                    "draft_picks": draft_picks,
-                    "consenter_ids": consenter_ids,
-                    "waiver_budget": waiver_budget,
+                    "waiver_budget": null,
+                    "settings": transaction.settings
                 });
             }
         }   
