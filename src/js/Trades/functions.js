@@ -3,7 +3,8 @@ function openRostersPage(rosterid) {
     return;
 }
 
-function openSwishPage(swish_id){
-    window.open(`https://swishanalytics.com/nfl/players/player?id=${swish_id}&view=fantasy`,'_blank');
+function openRotoWirePage(rotowire_id, first_name, last_name){
+    var formattedName = first_name.toString().toLowerCase() + "-" + last_name.toString().toLowerCase();
+    window.open(`https://www.rotowire.com/football/player/${formattedName}-${rotowire_id}`,'_blank');
     return;
 }
