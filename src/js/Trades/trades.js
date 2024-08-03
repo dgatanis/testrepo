@@ -242,7 +242,7 @@ function createPlayerDiv(playerid, addDrop, rosterid) {
     var player = playerData.players.find(x => x.player_id === parseInt(playerid));
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
-    playerDiv.setAttribute('onclick', 'openSwishPage('+ player.swish_id + ")");
+    playerDiv.setAttribute('onclick', 'openRotoWirePage('+ player.rotowire_id + ",\'" + player.firstname + "\',\'" + player.lastname + "\')");
     playerDiv.setAttribute('title', player.firstname + " " + player.lastname + " Stats and News");
 
     var playerImg = createPlayerImage(playerid);
