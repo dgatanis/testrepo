@@ -50,7 +50,9 @@ function loadContents() {
 
             let allSortedPlayers = sortByPosition(roster.players);
             let starterSortedPlayers = sortByPosition(roster.starters);
-            let IRPlayers = roster.reserves;
+            let IRPlayers = roster.reserve;
+            var isIR = 'N';
+            console.log(IRPlayers);
 
             //starters
             for(let starter of starterSortedPlayers)
@@ -67,6 +69,7 @@ function loadContents() {
                     if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
                     {
                         unusedRow.children[0].classList.value = 'custom-'+player.position.toLowerCase()+'-roster';
+                        unusedRow.classList.value = 'custom-player-'+player.position+'-row';
                     }
 
                     unusedRow.setAttribute('data-playerid', player.player_id);
@@ -82,16 +85,19 @@ function loadContents() {
                 {
                     if(!roster.taxi || roster.taxi && !roster.taxi.includes(bench.player_id.toString()))
                     {
-                        if(localStorage.getItem("PlayerData"))
+                        let player = playerData.players.find(e => e.player_id === parseInt(bench.player_id));
+            
+                        if(player)
                         {
-                            let player = playerData.players.find(e => e.player_id === parseInt(bench.player_id));
-        
-                            if(player)
+                            if(IRPlayers && IRPlayers.includes(player.player_id.toString()))
                             {
-                                var playerRow = createPlayerRow(player.player_id, roster.roster_id);
-                                playerRow.setAttribute('class', 'custom-bench-row');
-                                benchTeam.append(playerRow);
+                                isIR = 'Y'
+                                
                             }
+                            var playerRow = createPlayerRow(player.player_id, roster.roster_id, isIR);
+                            playerRow.setAttribute('class', 'custom-bench-row');
+                            benchTeam.append(playerRow);
+                            isIR = 'N'
                         }
                     }
                 }
@@ -395,7 +401,7 @@ function unusedPlayerRow(position,starterTeam) {
     }
 }
 
-function createPlayerRow(playerid, rosterid) {
+function createPlayerRow(playerid, rosterid, isIR = null) {
 
     let player = playerData.players.find(e => e.player_id === parseInt(playerid));
 
@@ -440,6 +446,14 @@ function createPlayerRow(playerid, rosterid) {
     playerDetailsDiv.appendChild(playerAgeDiv);
     playerDetailsDiv.appendChild(playerHeightDiv);
     playerDetailsDiv.appendChild(playerWeightDiv);
+
+    if(isIR == 'Y')
+    {
+        var injuredReserveDiv = document.createElement('div');
+        injuredReserveDiv.setAttribute('class', 'custom-injured-reserve');
+        injuredReserveDiv.innerText = 'IR';
+        playerDetailsDiv.appendChild(injuredReserveDiv);
+    }
 
 
     tr.appendChild(th);

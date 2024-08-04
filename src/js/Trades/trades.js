@@ -181,7 +181,17 @@ async function loadTradeTransactions() {
                     var tradeBadge = document.createElement('img');
                     tradeBadge.setAttribute('class', 'custom-trade-badge');
                     tradeBadge.setAttribute('src', '../src/static/images/wow-icon.png');
+                    tradeBadge.setAttribute('style', 'width:2.5rem;');
                     tradeBadge.setAttribute('title', 'Wow!');
+
+                    lastTeamGroup.after(tradeBadge);
+                }
+                else if(totalPlayers == 1 && draftPicksCount["2"] == 0 && draftPicksCount["1"] == 0)
+                {
+                    var tradeBadge = document.createElement('img');
+                    tradeBadge.setAttribute('class', 'custom-trade-badge');
+                    tradeBadge.setAttribute('src', '../src/static/images/puke-emoji.png');
+                    tradeBadge.setAttribute('title', 'Gross!');
 
                     lastTeamGroup.after(tradeBadge);
                 }

@@ -641,11 +641,14 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
         if(team1)
         {
+            var teamStats = getRosterStats(team1.roster_id);
             var team1Image = createOwnerAvatarImage(team1.owner_id);
             var team1Name = document.createElement('div');
         
             team1Name.setAttribute('class', 'custom-playoff-team-name');
             team1Image.setAttribute('class', 'custom-xsmall-avatar');
+            team1Image.setAttribute('title', 'W: ' + teamStats.wins + " L: " + teamStats.losses + " Pts: " + teamStats.fpts);
+
             team1Name.innerText = getTeamName(team1.owner_id);
             thisRound.children[0].children[0].prepend(team1Image);
             thisRound.children[0].children[0].append(team1Name);
@@ -678,12 +681,15 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
         if(team2)
         {
+            var teamStats = getRosterStats(team1.roster_id);
             var team2Image = createOwnerAvatarImage(team2.owner_id);
             var team2Name = document.createElement('div');
 
             team2Name.setAttribute('class', 'custom-playoff-team-name');
             team2Image.setAttribute('class', 'custom-xsmall-avatar');
+            team2Image.setAttribute('title', 'W: ' + teamStats.wins + " L: " + teamStats.losses + " Pts: " + teamStats.fpts);
             team2Name.innerText = getTeamName(team2.owner_id);
+
             thisRound.children[0].children[2].prepend(team2Image);
             thisRound.children[0].children[2].append(team2Name);
 
@@ -721,12 +727,15 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
 
         if(team1)
         {
+            var teamStats = getRosterStats(team1.roster_id);
             var team1Image = createOwnerAvatarImage(team1.owner_id);
             var team1Name = document.createElement('div');
         
             team1Name.setAttribute('class', 'custom-playoff-team-name');
             team1Image.setAttribute('class', 'custom-xsmall-avatar');
+            team1Image.setAttribute('title', 'W: ' + teamStats.wins + " L: " + teamStats.losses + " Pts: " + teamStats.fpts);
             team1Name.innerText = getTeamName(team1.owner_id);
+
             thisRound.children[1].children[0].prepend(team1Image);
             thisRound.children[1].children[0].append(team1Name);
 
@@ -747,12 +756,15 @@ function createPlayoffMatchup(round, team1 = null, team2 = null, matchupId, winn
         }
         if(team2)
         {
+            var teamStats = getRosterStats(team1.roster_id);
             var team2Image = createOwnerAvatarImage(team2.owner_id);
             var team2Name = document.createElement('div');
 
             team2Name.setAttribute('class', 'custom-playoff-team-name');
             team2Image.setAttribute('class', 'custom-xsmall-avatar');
+            team2Image.setAttribute('title', 'W: ' + teamStats.wins + " L: " + teamStats.losses + " Pts: " + teamStats.fpts);
             team2Name.innerText = getTeamName(team2.owner_id);
+            
             thisRound.children[1].children[2].prepend(team2Image);
             thisRound.children[1].children[2].append(team2Name);
 

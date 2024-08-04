@@ -296,6 +296,14 @@ tr {
   margin-top: 1rem;
 }
 
+.custom-injured-reserve {
+  display: inline;
+  margin-right: .2rem;
+  margin-left: .2rem;
+  word-spacing: -.05rem;
+  color: var(--custom-red);
+}
+
 .custom-position-age {
   display: inline-flex;
   margin-left: 1rem;
