@@ -907,6 +907,14 @@
       }
     }
 
+    .custom-playoffs-label {
+      font-size: 2rem;
+    }
+
+    .custom-playoff-team-name {
+      font-size: smaller;
+    }
+
     .custom-xsmall-avatar {
       max-width: 1.5rem;
     }
