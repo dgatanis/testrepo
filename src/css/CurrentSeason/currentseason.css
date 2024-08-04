@@ -651,6 +651,7 @@
     border-radius: 5px;
     position: relative;
     color: white;
+    height: 2rem;
   }
 
   .custom-nomatchup {
