@@ -52,7 +52,6 @@ function loadContents() {
             let starterSortedPlayers = sortByPosition(roster.starters);
             let IRPlayers = roster.reserve;
             var isIR = 'N';
-            console.log(IRPlayers);
 
             //starters
             for(let starter of starterSortedPlayers)
