@@ -62,7 +62,7 @@ function loadContents() {
                 if(player)
                 {
                     let unusedRow = unusedPlayerRow(player.position, starterTeam);
-                    let playerRow = createPlayerRow(player.player_id, roster.roster_id);
+                    let playerRow = createPlayerRow(player.player_id, roster.roster_id, "Y", null);
                     let playerDetails = playerRow.getElementsByTagName('td')[0]; //Only get the td element so we can append to existing row
                     
                     if(unusedRow.classList.value == 'custom-player-SF-row' || unusedRow.classList.value == 'custom-player-FLEX-row')
@@ -93,7 +93,7 @@ function loadContents() {
                                 isIR = 'Y'
                                 
                             }
-                            var playerRow = createPlayerRow(player.player_id, roster.roster_id, isIR);
+                            var playerRow = createPlayerRow(player.player_id, roster.roster_id, "N", isIR);
                             playerRow.setAttribute('class', 'custom-bench-row');
                             benchTeam.append(playerRow);
                             isIR = 'N'
@@ -116,7 +116,7 @@ function loadContents() {
 
                         if(player)
                         {
-                            var playerRow = createPlayerRow(player.player_id, roster.roster_id);
+                            var playerRow = createPlayerRow(player.player_id, roster.roster_id, "N");
                             playerRow.setAttribute('class', 'custom-bench-row');
                             taxiTeam.append(playerRow);
                         }
@@ -400,7 +400,7 @@ function unusedPlayerRow(position,starterTeam) {
     }
 }
 
-function createPlayerRow(playerid, rosterid, isIR = null) {
+function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     let player = playerData.players.find(e => e.player_id === parseInt(playerid));
 
@@ -450,16 +450,53 @@ function createPlayerRow(playerid, rosterid, isIR = null) {
     {
         var injuredReserveDiv = document.createElement('div');
         injuredReserveDiv.setAttribute('class', 'custom-injured-reserve');
+        injuredReserveDiv.setAttribute('title', player.injury_status);
         injuredReserveDiv.innerText = 'IR';
         playerDetailsDiv.appendChild(injuredReserveDiv);
     }
+    else if (player.injury_status) {
+        var injuredDiv = document.createElement('div');
+        injuredDiv.setAttribute('class', 'custom-injury');
+        injuredDiv.setAttribute('title', player.injury_status);
 
+        if (player.injury_status == "Questionable") {
+            injuredDiv.setAttribute('style', 'color: #e87700');
+            injuredDiv.innerText = 'Q';
+        }
+        else if (player.injury_status == "Questionable") {
+            injuredDiv.setAttribute('style', 'color: var(--custom-red)');
+            injuredDiv.innerText = 'PUP';
+        }
+
+        playerDetailsDiv.appendChild(injuredDiv);
+    }
+
+    var playerStatsIcon = document.createElement('img');
+
+    playerStatsIcon.setAttribute('src', '../src/static/images/stats-search.png');
+    playerStatsIcon.setAttribute('title', 'Stats and News');
+    playerStatsIcon.setAttribute('onclick', 'openRotoWirePage(' + player.rotowire_id + ",\'" + player.firstname.replaceAll("'","") + "\',\'" + player.lastname.replaceAll("'","") + "\')");
 
     tr.appendChild(th);
     td.prepend(playerimg);
     td.append(playerNameDiv);
     td.append(teamImage);
     td.append(playerDetailsDiv);
+
+    if (starter == 'Y') {
+        playerStatsIcon.setAttribute('class', 'custom-starter-stats-icon');
+        td.append(playerStatsIcon);
+    }
+    else
+    {
+        var containerDiv = document.createElement("div");
+        playerStatsIcon.setAttribute('class', 'custom-player-stats-icon');
+        containerDiv.setAttribute('class', 'custom-player-stats-container');
+
+        containerDiv.append(playerStatsIcon);
+        td.append(containerDiv);
+    }
+    
     tr.appendChild(td);
 
     return tr;
