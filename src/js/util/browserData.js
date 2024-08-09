@@ -150,7 +150,8 @@ async function setPlayerData() {
                     "years_exp": data[i].years_exp,
                     "rotowire_id": data[i].rotowire_id,
                     "college": data[i].college,
-                    "search_rank": data[i].search_rank
+                    "search_rank": data[i].search_rank,
+                    "injury_status": data[i].injury_status
                 });
            }
         }

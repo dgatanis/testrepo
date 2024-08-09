@@ -296,12 +296,48 @@ tr {
   margin-top: 1rem;
 }
 
+tr.custom-bench-row td {
+  position: relative;
+}
+
+.custom-player-stats-container {
+  width: 500%;
+  position: relative;
+  max-width: 24rem;
+}
+
+.custom-player-stats-icon {
+  max-width: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.custom-starter-stats-icon {
+  max-width: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 60%;
+  cursor: pointer;
+}
+
+.custom-injury {
+  display: inline;
+  margin-right: .2rem;
+  margin-left: .2rem;
+  word-spacing: -.05rem;
+  color: var(--custom-red);
+  cursor: default;
+}
+
 .custom-injured-reserve {
   display: inline;
   margin-right: .2rem;
   margin-left: .2rem;
   word-spacing: -.05rem;
   color: var(--custom-red);
+  cursor: default;
 }
 
 .custom-position-age {
@@ -378,6 +414,10 @@ th, td {
 /*Large laptop display styling*/
 @media screen and (max-width: 90rem) {
 
+  .custom-player-stats-container {
+    max-width: 20rem;
+  }
+
     .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
       margin-left: -2rem !important;
       max-width: 5rem !important;
@@ -407,6 +447,9 @@ th, td {
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
 
+    .custom-player-stats-container {
+      max-width: 16rem;
+    }
     .custom-player-name {
       font-size: unset;
       margin-top: .3rem;
@@ -450,6 +493,10 @@ th, td {
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.875rem) {
+
+    .custom-player-stats-container {
+      max-width: 17rem;
+    }
 
     .custom-position-age {
       -webkit-text-stroke: .5px black;
@@ -521,6 +568,10 @@ th, td {
   @media screen and (max-width: 23.438rem) {
     .custom-medium-avatar {
       margin-left: 42%;
+    }
+
+    .custom-player-stats-container {
+      max-width: 15rem;
     }
 
     .custom-player-name {

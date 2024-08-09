@@ -80,3 +80,9 @@ function expandCollapseTeam(rosterid) {
         }
     }
 }
+
+function openRotoWirePage(rotowire_id, first_name, last_name){
+    var formattedName = first_name.toString().toLowerCase() + "-" + last_name.toString().toLowerCase();
+    window.open(`https://www.rotowire.com/football/player/${formattedName}-${rotowire_id}`,'_blank');
+    return;
+}
