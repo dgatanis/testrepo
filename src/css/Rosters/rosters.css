@@ -353,6 +353,7 @@ tr.custom-bench-row td {
   font-size: large;
   margin-top: .1rem;
   min-width: 4.6rem;
+  text-align: justify;
 }
 
 .custom-player-name:hover {
