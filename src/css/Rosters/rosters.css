@@ -496,7 +496,7 @@ th, td {
   @media screen and (max-width: 26.875rem) {
 
     .custom-player-stats-container {
-      max-width: 20rem;
+      max-width: 18rem;
     }
 
     .custom-position-age {
