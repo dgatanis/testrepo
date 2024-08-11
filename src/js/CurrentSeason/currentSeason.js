@@ -450,7 +450,7 @@ async function getLatestTransactions(leagueId,week) {
                         description += "added ";
                         for(let i = 0; i< addedPlayers.length; i++)
                         {
-                            var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[i]));
+                            var player = playerData.players.find(x => x.player_id === addedPlayers[i]);
                             var playerDiv = createPlayerDiv(addedPlayers[i], 'add');
                             var nflTeamImg = createNFLTeamImage(player.team);
 
@@ -487,7 +487,7 @@ async function getLatestTransactions(leagueId,week) {
                         
                         for(let i = 0; i< droppedPlayers.length; i++)
                         {
-                            var player = playerData.players.find(x => x.player_id === parseInt(droppedPlayers[i]));
+                            var player = playerData.players.find(x => x.player_id === droppedPlayers[i]);
                             var playerDiv = createPlayerDiv(droppedPlayers[i], 'drop');
                             var nflTeamImg = createNFLTeamImage(player.team);
                             description += getFullPlayerName(droppedPlayers[i]);
@@ -824,7 +824,7 @@ function getFormattedTransactionData(transactions){
 
 function createPlayerDiv(playerid, addDrop) {
 
-    var player = playerData.players.find(x => x.player_id === parseInt(playerid));
+    var player = playerData.players.find(x => x.player_id === playerid);
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
     var playerImg = createPlayerImage(playerid);

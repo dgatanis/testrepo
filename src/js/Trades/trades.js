@@ -15,15 +15,22 @@ async function loadTradeTransactions() {
 
     var allTradeTransactions = await getTradeTransactions();
     var body = document.getElementsByClassName('custom-body')[0];
+    var page = 0;
 
     for(let trades of allTradeTransactions)
     {
         if(trades.data.length >= 1)
         {
-            for(let trade of trades.data)
+            for(let [index, trade] of trades.data.entries())
             {
+                //Used for pagination
+                if(index % 10 == 0)
+                {
+                    page += 1
+                }
+                
                 var tradePartners = Object.keys(trade.roster_ids).length;
-                var transactionRow = createTransactionRow();
+                var transactionRow = createTransactionRow(page);
                 var totalPlayers = 0;
                 var totalSearchRank = 0;
                 var draftPicksCount = {"1": 0, "2": 0}
@@ -69,7 +76,7 @@ async function loadTradeTransactions() {
                         var addedPlayersArray = [];
                         for (let j = 0; j < addedPlayers.length; j++) {
                             if (rosterid == trade.adds[addedPlayers[j]]) {
-                                var player = playerData.players.find(x => x.player_id === parseInt(addedPlayers[j]));
+                                var player = playerData.players.find(x => x.player_id === addedPlayers[j]);
                                 var playerDiv = createPlayerDiv(player.player_id, 'add');
                                 var nflTeamImg = createNFLTeamImage(player.team);
 
@@ -201,6 +208,9 @@ async function loadTradeTransactions() {
             }
         }
     }
+    createPagination(page);
+    var loadingSpinner =  document.getElementById("page-loading");
+    loadingSpinner.classList.add('custom-none-display');
 }
 
 async function getTradeTransactions() {
@@ -225,9 +235,38 @@ async function getTradeTransactions() {
     return allTradeTransactions;
 }
 
-function createTransactionRow() {
+function createPagination(maxPages) {
+    var paginationList = document.getElementById('trades-pagination');
+
+    for(let i = parseInt(maxPages); i>0; i--)
+    {
+        var pageItem = document.createElement('li');
+        pageItem.setAttribute("class", "page-item");
+    
+        var pageLink = document.createElement('a');
+        pageLink.setAttribute('class','page-link');
+        pageLink.setAttribute('href', "#");
+        pageLink.setAttribute('onclick', "showPage('"+ i +"')");
+        pageLink.innerText = i;
+
+        pageItem.appendChild(pageLink);
+
+        paginationList.children[0].after(pageItem)
+    }
+    paginationList.classList.remove('custom-none-display');
+}
+
+function createTransactionRow(page) {
     var transactionRow = document.createElement('div');
-    transactionRow.setAttribute('class', 'custom-transaction-row');
+
+    if(page > 1)
+    {
+        transactionRow.setAttribute('class', 'custom-transaction-row custom-none-display custom-trades-page-'+page.toString());
+
+    }
+    else {
+        transactionRow.setAttribute('class', 'custom-transaction-row custom-trades-page-'+page.toString());
+    }
 
     var card = document.createElement('div');
     card.setAttribute('class', 'card custom-card custom-div-shadow');
@@ -259,10 +298,18 @@ function createTransactionRow() {
 }
 
 function createPlayerDiv(playerid, addDrop) {
-    var player = playerData.players.find(x => x.player_id === parseInt(playerid));
+    var player = playerData.players.find(x => x.player_id === playerid);
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
-    playerDiv.setAttribute('onclick', 'openRotoWirePage('+ player.rotowire_id + ",\'" + player.firstname + "\',\'" + player.lastname + "\')");
+
+    if(player.position != "DEF")
+    {
+        playerDiv.setAttribute('onclick', 'openRotoWirePage('+ player.rotowire_id + ",\'" + player.firstname + "\',\'" + player.lastname + "\')");
+
+    }
+    else {
+        playerDiv.setAttribute('onclick', 'openRotoWirePageDef(\'' + player.firstname.replaceAll("'","").replaceAll(' ', "-") + "\',\'" + player.lastname.replaceAll("'","") +"\', \'"+ player.team +"\')");
+    }
     playerDiv.setAttribute('title', player.firstname + " " + player.lastname + " Stats and News");
 
     var playerImg = createPlayerImage(playerid);

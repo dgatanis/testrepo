@@ -127,32 +127,54 @@ async function setPlayerData() {
         let maxId = parseInt(Object.keys(data).sort((a, b) => b - a)); //organize by Id;
         const playerPositions = ["QB", "RB", "WR", "TE", "K", "DEF"];
 
-        for(let i=0; i<maxId; i++)
+        for(let key in data)
         {
-           if(data[i] && playerPositions.includes(data[i].position))
+           if(data[key] && playerPositions.includes(data[key].position))
            {
-                let playerTeam = data[i].team;
+                let playerTeam = data[key].team;
 
                 if(playerTeam === null)
                 {
                     playerTeam = "FA";
                 }
-                myPlayerMap.players.push({
-                    "player_id": parseInt(data[i].player_id),
-                    "position": data[i].position,
-                    "firstname": data[i].first_name,
-                    "lastname": data[i].last_name,
-                    "age": data[i].age,
-                    "team": playerTeam,
-                    "number": data[i].number,
-                    "height": data[i].height,
-                    "weight": data[i].weight,
-                    "years_exp": data[i].years_exp,
-                    "rotowire_id": data[i].rotowire_id,
-                    "college": data[i].college,
-                    "search_rank": data[i].search_rank,
-                    "injury_status": data[i].injury_status
-                });
+                if(data[key].position =="DEF")
+                {
+                    myPlayerMap.players.push({
+                        "player_id": data[key].player_id,
+                        "position": data[key].position,
+                        "firstname": data[key].first_name,
+                        "lastname": data[key].last_name,
+                        "age": 0,
+                        "team": data[key].player_id,
+                        "number": null,
+                        "height": null,
+                        "weight": null,
+                        "years_exp": null,
+                        "rotowire_id": null,
+                        "college": null,
+                        "search_rank": null,
+                        "injury_status": null
+                    });
+                }
+                else {
+                    myPlayerMap.players.push({
+                        "player_id": data[key].player_id,
+                        "position": data[key].position,
+                        "firstname": data[key].first_name,
+                        "lastname": data[key].last_name,
+                        "age": data[key].age,
+                        "team": playerTeam,
+                        "number": data[key].number,
+                        "height": data[key].height,
+                        "weight": data[key].weight,
+                        "years_exp": data[key].years_exp,
+                        "rotowire_id": data[key].rotowire_id,
+                        "college": data[key].college,
+                        "search_rank": data[key].search_rank,
+                        "injury_status": data[key].injury_status
+                    });
+                }
+
            }
         }
 

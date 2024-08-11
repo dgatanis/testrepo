@@ -86,3 +86,11 @@ function openRotoWirePage(rotowire_id, first_name, last_name){
     window.open(`https://www.rotowire.com/football/player/${formattedName}-${rotowire_id}`,'_blank');
     return;
 }
+
+function openRotoWirePageDef(first_name, last_name, team){
+    var formatFirstName = first_name.toString().toLowerCase();
+    var formatLastName = last_name.toString().toLowerCase();
+    var formatTeam = team.toString().toLowerCase();
+    window.open(`https://www.rotowire.com/football/team/${formatFirstName}-${formatLastName}-${formatTeam}`,'_blank');
+    return;
+}

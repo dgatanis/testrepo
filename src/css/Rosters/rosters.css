@@ -116,6 +116,15 @@
   width: 3.5rem;
   padding: .4rem !important;
 }
+.custom-def-roster {
+  background-color: #616161 !important;
+  font-size: large;
+  border-radius: 5px;
+  color: black;
+  border: 1px solid black;
+  width: 3.5rem;
+  padding: .4rem !important;
+}
 .custom-k-roster {
   background-color: var(--K) !important;
   font-size: large;
@@ -170,6 +179,15 @@
   align-items: center;
   border: 2px solid #616161;
   animation: revealLetter 2.5s forwards;
+}
+.custom-player-DEF-row {
+  background-color: #7373732b;
+  border-radius: .5rem;
+  padding: .5rem;
+  width: 100%;
+  align-items: center;
+  border: 2px solid #616161;
+  animation: revealLetter 3s forwards;
 }
 .custom-player-SF-row {
   background: #7373732b;

@@ -85,9 +85,13 @@ export function calcRosterAge(players) {
 
     for(let player of players)
     {
-        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
-
-        totalAge += parseInt(thisPlayer.age);
+        let thisPlayer = playerData.players.find(e => e.player_id === player);
+        
+        if(thisPlayer.position != "DEF")
+        {
+            totalAge += parseInt(thisPlayer.age);
+        }
+        
     }
     
     avgAge = totalAge / players.length;
@@ -111,7 +115,7 @@ function calcPositionAge(players) {
 
     for(let player of players)
     {
-        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        let thisPlayer = playerData.players.find(e => e.player_id === player);
 
         if(thisPlayer.position == 'QB')
         {
@@ -163,7 +167,7 @@ function getTeamStacks(rosterid) {
             //loop through players to get only teams for qbs
             for(let thisPlayer of rosterPlayers)
             {
-                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+                let player = playerData.players.find(e => e.player_id === thisPlayer.player_id);
                 
                 if(player.position == 'QB')
                 {
@@ -176,9 +180,9 @@ function getTeamStacks(rosterid) {
             //loop through players again and only select ones with qb stacks
             for(let thisPlayer of rosterPlayers)
             {
-                let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+                let player = playerData.players.find(e => e.player_id === thisPlayer.player_id);
                 
-                if(teams.includes(player.team) && player.position != 'K' && commonTeams[parseInt(player.player_id)] >= 1)
+                if(teams.includes(player.team) && player.position != 'K' && commonTeams[player.player_id] >= 1)
                 {
                     teamStacks.push({
                         "player_id": player.player_id,
@@ -203,7 +207,7 @@ function sortByTeam(players) {
     
     for(let player of players)
     {
-        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        let thisPlayer = playerData.players.find(e => e.player_id === player);
         if(thisPlayer)
         {
             sortedPlayers.push({
@@ -267,7 +271,7 @@ function highestScorerByPosition(rosterid) {
     {
         let playerPoints = 0;
         let playerid = player;
-        let thisPlayer = playerData.players.find(x => x.player_id === parseInt(playerid));
+        let thisPlayer = playerData.players.find(x => x.player_id === playerid);
 
         for(let i = 0; i < weeksPlayed; i++)
         {
@@ -384,7 +388,7 @@ function calcPlayerPositions(players){
 
     for(let player of players)
     {
-        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        let thisPlayer = playerData.players.find(e => e.player_id === player);
 
         if(thisPlayer.position == "QB")
         {
@@ -446,14 +450,22 @@ function calcPlayerAge(players) {
     const calculatedAge = [];
     var totalAge = 0;
     var avgAge;
+    var defCounter = 0;
+
     for(let player of players)
     {
-        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        let thisPlayer = playerData.players.find(e => e.player_id === player);
 
-        totalAge += parseInt(thisPlayer.age);
+        if(thisPlayer.position != "DEF")
+        {
+            totalAge += parseInt(thisPlayer.age);
+        }
+        else {
+            defCounter++;
+        }
     }
     
-    avgAge = totalAge / players.length;
+    avgAge = totalAge / (players.length - defCounter);
 
     calculatedAge.push ({
         "AvgAge": avgAge.toFixed(2)

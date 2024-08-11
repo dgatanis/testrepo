@@ -77,6 +77,21 @@
         </a>
     </div>
     <h3 class="custom-title" id="pageTitle">Trades</h3>
+    <nav aria-label="Page navigation">
+        <ul id="trades-pagination" class="pagination custom-none-display">
+            <li class="page-item">
+                <a class="page-link" onclick="togglePage('P')"  href="#">Previous</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" onclick="togglePage('N')" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="custom-loading-icon">
+        <div id="page-loading" class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div class="custom-body">
     </div>
     <footer class="footer">
@@ -103,5 +118,4 @@
         </div>
         </footer>
         </body>
-
 </html>

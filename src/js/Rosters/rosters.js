@@ -57,7 +57,7 @@ function loadContents() {
             for(let starter of starterSortedPlayers)
             {
 
-                let player = playerData.players.find(e => e.player_id === parseInt(starter.player_id));
+                let player = playerData.players.find(e => e.player_id === starter.player_id);
 
                 if(player)
                 {
@@ -84,7 +84,7 @@ function loadContents() {
                 {
                     if(!roster.taxi || roster.taxi && !roster.taxi.includes(bench.player_id.toString()))
                     {
-                        let player = playerData.players.find(e => e.player_id === parseInt(bench.player_id));
+                        let player = playerData.players.find(e => e.player_id === bench.player_id);
             
                         if(player)
                         {
@@ -111,7 +111,7 @@ function loadContents() {
                 {
                     if(localStorage.getItem("PlayerData"))
                     {
-                        let player = playerData.players.find(e => e.player_id === parseInt(taxi.player_id));
+                        let player = playerData.players.find(e => e.player_id === taxi.player_id);
 
 
                         if(player)
@@ -249,7 +249,7 @@ function loadContents() {
 
                     for(let thisPlayer of rosterStats.team_stacks)
                     {
-                        let player = playerData.players.find(e => e.player_id === parseInt(thisPlayer.player_id));
+                        let player = playerData.players.find(e => e.player_id === thisPlayer.player_id);
                         
                         if(sameTeam == "" || sameTeam != player.team)
                         {
@@ -318,7 +318,6 @@ function unusedPlayerRow(position,starterTeam) {
     var DEF = 0;
 
     //Need to work on defense position
-
     for(var i=0;i<positionArray.length;i++){
 
         if(positionArray[i] == "RB")
@@ -361,7 +360,7 @@ function unusedPlayerRow(position,starterTeam) {
         }
 
         //Create new rows if needed
-        if((position == "RB" || position == "WR") && (RB > counter || WR > counter))
+        if((position == "RB" && RB > counter) ||  (position == "WR" && WR > counter))
         {
             var tr = document.createElement("tr");
             var th = document.createElement("th");
@@ -398,11 +397,26 @@ function unusedPlayerRow(position,starterTeam) {
             }
         }
     }
+    if(position == "DEF")
+    {
+        var tr = document.createElement("tr");
+        var th = document.createElement("th");
+        var lastPlayerPosition = starterTeam.getElementsByClassName('custom-player-K-row')[0];
+
+        tr.setAttribute('class', 'custom-player-'+ position + '-row');
+        th.setAttribute('class', 'custom-'+ position.toLowerCase() + '-roster');
+        th.setAttribute('scope', 'row');
+        th.innerText = position;
+
+        tr.appendChild(th);
+        lastPlayerPosition.parentNode.insertBefore(tr, lastPlayerPosition.nextSibling);
+        return tr;
+    }
 }
 
 function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
-    let player = playerData.players.find(e => e.player_id === parseInt(playerid));
+    let player = playerData.players.find(e => e.player_id === playerid);
 
     let playerName = player.firstname + " " + player.lastname;
     let playerAge = player.age;
@@ -475,13 +489,26 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     playerStatsIcon.setAttribute('src', '../src/static/images/stats-search.png');
     playerStatsIcon.setAttribute('title', 'Stats and News');
-    playerStatsIcon.setAttribute('onclick', 'openRotoWirePage(' + player.rotowire_id + ",\'" + player.firstname.replaceAll("'","") + "\',\'" + player.lastname.replaceAll("'","") + "\')");
+
+    if(player.position != "DEF")
+    {
+        playerStatsIcon.setAttribute('onclick', 'openRotoWirePage(' + player.rotowire_id + ",\'" + player.firstname.replaceAll("'","") + "\',\'" + player.lastname.replaceAll("'","") + "\')");
+
+    }
+    else {
+        playerStatsIcon.setAttribute('onclick', 'openRotoWirePageDef(\'' + player.firstname.replaceAll("'","").replaceAll(' ', "-") + "\',\'" + player.lastname.replaceAll("'","") +"\', \'"+ player.team +"\')");
+    }
 
     tr.appendChild(th);
     td.prepend(playerimg);
     td.append(playerNameDiv);
-    td.append(teamImage);
-    td.append(playerDetailsDiv);
+
+    if(player.position != "DEF")
+    {
+        td.append(teamImage);
+        td.append(playerDetailsDiv);
+    }
+
 
     if (starter == 'Y') {
         playerStatsIcon.setAttribute('class', 'custom-starter-stats-icon');
