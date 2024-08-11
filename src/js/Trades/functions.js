@@ -78,7 +78,6 @@ function updatePagination(currentPage, totalPages) {
     for (let item of pageItems) {
         item.classList.add('custom-none-display');
     }
-    debugger;
     let start = Math.max(1, currentPage - 2);  // Show 2 pages before the current one
     let end = Math.min(totalPages, parseInt(currentPage) + 2);  // Show 2 pages after the current one
     
