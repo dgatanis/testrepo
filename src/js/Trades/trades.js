@@ -268,6 +268,7 @@ function addPagesToTrades() {
 
 function createPaginationList(maxPages) {
     var paginationList = document.getElementById('trades-pagination');
+    var ellipsis = paginationList.getElementsByClassName('ellipsis');
 
     for(let i = parseInt(maxPages); i>0; i--)
     {
@@ -275,9 +276,10 @@ function createPaginationList(maxPages) {
         pageItem.setAttribute("class", "page-item");
     
         var pageLink = document.createElement('a');
-        if(i > 5)
+        if(i > 3)
         {
             pageLink.setAttribute('class','page-link page-number custom-none-display');
+            ellipsis[1].classList.remove('custom-none-display');
         }
         else
         {
