@@ -93,9 +93,4 @@ function updatePagination(currentPage, totalPages) {
     for (let i = start - 1; i < end; i++) {
         pageItems[i].classList.remove('custom-none-display');
     }
-
-    if(totalPages > 5)
-    {
-
-    }
 }
