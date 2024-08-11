@@ -28,6 +28,8 @@ function showPage(pageNumber) {
 
     var paginationList = document.getElementById('trades-pagination');
     paginationList.setAttribute('data-current-page', pageNumber);
+
+    updatePagination(pageNumber, 18);
 }
 
 function hideAllPages(exceptPage) {
@@ -65,4 +67,30 @@ function togglePage(nextPrev) {
         }
     }
     
+}
+
+function updatePagination(currentPage, totalPages) {
+    const pagination = document.getElementById('trades-pagination');
+    const pageItems = pagination.getElementsByClassName('page-number');
+    const ellipsis = pagination.querySelectorAll('.ellipsis');
+    
+    // Hide all pages initially
+    for (let item of pageItems) {
+        item.classList.add('custom-none-display');
+    }
+    debugger;
+    let start = Math.max(1, currentPage - 2);  // Show 2 pages before the current one
+    let end = Math.min(totalPages, parseInt(currentPage) + 2);  // Show 2 pages after the current one
+    
+    if (start > 1) {
+        ellipsis[0].classList.remove('custom-none-display');
+        ellipsis[1].classList.remove('custom-none-display');
+    } else {
+        ellipsis[0].classList.add('custom-none-display');
+        ellipsis[1].classList.add('custom-none-display');
+    }
+
+    for (let i = start - 1; i < end; i++) {
+        pageItems[i].classList.remove('custom-none-display');
+    }
 }
