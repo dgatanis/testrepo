@@ -208,7 +208,7 @@ async function loadTradeTransactions() {
             }
         }
     }
-    createPagination(page);
+    addPagesToTrades();
     var loadingSpinner =  document.getElementById("page-loading");
     loadingSpinner.classList.add('custom-none-display');
 }
@@ -235,7 +235,38 @@ async function getTradeTransactions() {
     return allTradeTransactions;
 }
 
-function createPagination(maxPages) {
+function addPagesToTrades() {
+    var allTrades = document.querySelectorAll('[class*=custom-transaction-row]');
+    var page;
+
+    for(let i = 0; i <= allTrades.length-1; i++)
+    {
+        
+        if(i % 10 == 0)
+        {
+           
+            page = (i / 10) + 1;
+            allTrades[i].classList.add('custom-trades-page-'+ page);
+        }
+        else
+        {
+            if(i >= 10)
+            {
+                page = Math.floor(i/10) + 1;
+                allTrades[i].classList.add('custom-trades-page-'+ page)
+            }
+            else
+            {
+                page = 1;
+                allTrades[i].classList.add('custom-trades-page-'+ page);
+            }
+        }
+    }
+
+    createPaginationList(page);
+}
+
+function createPaginationList(maxPages) {
     var paginationList = document.getElementById('trades-pagination');
 
     for(let i = parseInt(maxPages); i>0; i--)
@@ -244,15 +275,25 @@ function createPagination(maxPages) {
         pageItem.setAttribute("class", "page-item");
     
         var pageLink = document.createElement('a');
-        pageLink.setAttribute('class','page-link');
+        if(i > 5)
+        {
+            pageLink.setAttribute('class','page-link page-number custom-none-display');
+        }
+        else
+        {
+            pageLink.setAttribute('class','page-link page-number');
+        }
+        
         pageLink.setAttribute('href', "#");
         pageLink.setAttribute('onclick', "showPage('"+ i +"')");
         pageLink.innerText = i;
 
         pageItem.appendChild(pageLink);
 
-        paginationList.children[0].after(pageItem)
+        paginationList.children[1].after(pageItem);
     }
+
+
     paginationList.classList.remove('custom-none-display');
 }
 
@@ -261,11 +302,11 @@ function createTransactionRow(page) {
 
     if(page > 1)
     {
-        transactionRow.setAttribute('class', 'custom-transaction-row custom-none-display custom-trades-page-'+page.toString());
+        transactionRow.setAttribute('class', 'custom-transaction-row custom-none-display');
 
     }
     else {
-        transactionRow.setAttribute('class', 'custom-transaction-row custom-trades-page-'+page.toString());
+        transactionRow.setAttribute('class', 'custom-transaction-row');
     }
 
     var card = document.createElement('div');
