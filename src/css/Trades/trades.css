@@ -11,6 +11,12 @@
     color: var(--custom-light-gray);
 }
 
+a.page-link.page-number:focus {
+    color: #fff;
+    background-color: var(--custom-dark-blue);
+    border-color: var(--custom-blue-gray);
+}
+
 .custom-add-drop-icon {
     max-width: 1rem;
     display: inline;
@@ -230,6 +236,10 @@ img.custom-team-logo {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+    
+    ul#trades-pagination {
+        font-size: x-small;
+    }
     .custom-title {
         margin-top: 3rem;
     }

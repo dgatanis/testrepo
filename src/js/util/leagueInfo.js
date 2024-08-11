@@ -1,6 +1,6 @@
-export const leagueDisplayName = "Crush Cities ";
+export const leagueDisplayName = "The Greatest Show on Paper";//"Crush Cities ";
 export const dues = 200; 
-export const leagueUser = '467550885086490624';
+export const leagueUser = '340347079136137216';//'467550885086490624';
 export const dynasty = true; 
 export const weeklyWinner = 35; //Amount won for highest weekly scorer
 export const inauguralSeason = 2024; //year league began in Sleeper

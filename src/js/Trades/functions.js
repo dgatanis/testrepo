@@ -19,6 +19,9 @@ function openRotoWirePageDef(first_name, last_name, team){
 
 function showPage(pageNumber) {
     var trades = document.getElementsByClassName('custom-trades-page-'+pageNumber.toString());
+    var allTrades = document.querySelectorAll('[class*=custom-transaction-row]');
+    var totalPages = Math.round(allTrades.length / 10);
+
     hideAllPages(pageNumber);
 
     for(let trade of trades)
@@ -29,7 +32,8 @@ function showPage(pageNumber) {
     var paginationList = document.getElementById('trades-pagination');
     paginationList.setAttribute('data-current-page', pageNumber);
 
-    updatePagination(pageNumber, 18);
+    updatePagination(pageNumber, totalPages);
+    
 }
 
 function hideAllPages(exceptPage) {
@@ -54,6 +58,8 @@ function togglePage(nextPrev) {
         if(document.getElementsByClassName('custom-trades-page-'+pageNum.toString()).length >= 1)
         {
             showPage(pageNum);
+            var pageNumberLinks = document.getElementsByClassName('page-number')
+            pageNumberLinks[parseInt(currentPage)].focus();
         }
         
     }
@@ -64,6 +70,8 @@ function togglePage(nextPrev) {
         if(document.getElementsByClassName('custom-trades-page-'+pageNum.toString()).length >= 1)
         {
             showPage(pageNum);
+            var pageNumberLinks = document.getElementsByClassName('page-number')
+            pageNumberLinks[parseInt(currentPage)-2].focus();
         }
     }
     
@@ -87,6 +95,11 @@ function updatePagination(currentPage, totalPages) {
     } else {
         ellipsis[0].classList.add('custom-none-display');
         ellipsis[1].classList.add('custom-none-display');
+    }
+
+    if(end <= 5)
+    {
+        ellipsis[1].classList.remove('custom-none-display');
     }
 
     for (let i = start - 1; i < end; i++) {
