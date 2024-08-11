@@ -22,6 +22,28 @@
     background-color: whitesmoke;
 }
 
+.custom-loading-icon {
+    justify-content: center;
+    display: flex;
+}
+
+.pagination {
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+a.page-link {
+    background: transparent;
+    border-color: var(--custom-dark-blue);
+    color: var(--custom-dark-blue);
+}
+
+.page-link:hover {
+    color: #fff;
+    background-color: var(--custom-dark-blue);
+    border-color: var(--custom-blue-gray);
+}
+
 .custom-div-shadow {
     border-top-left-radius: unset;
 }

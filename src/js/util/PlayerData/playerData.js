@@ -3,7 +3,7 @@ import { players } from '../initData.js';
 var playerData = players;
 export function getFullPlayerName(playerid) {
 
-    let player = playerData.players.find(x => x.player_id === parseInt(playerid));
+    let player = playerData.players.find(x => x.player_id === playerid);
 
     let playerName = playerid;
 
@@ -18,25 +18,45 @@ export function getFullPlayerName(playerid) {
 
 export function createPlayerImage(playerId) {
 
-    let player = playerData.players.find(e => e.player_id === parseInt(playerId));
+    let player = playerData.players.find(e => e.player_id === playerId);
 
     if(player)
     {
-        var playerimg = document.createElement("div");
-        playerimg.setAttribute("style", "background-image:url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp); border: 2px solid var(--"+ player.position +");");
-        
-        if(playerId == '5849')
-        {
-            playerimg.setAttribute('class', "custom-tiny-player-avatar");
+        if (player.position == "DEF") {
+            var playerimg = document.createElement("div");
+            playerimg.setAttribute("style", "background-image:url(https://sleepercdn.com/images/team_logos/nfl/"+player.player_id.toString().toLowerCase()+".png); border: 2px solid var(--custom-dark-gray);");
+            
+            if(playerId == '5849')
+            {
+                playerimg.setAttribute('class', "custom-tiny-player-avatar");
+            }
+            else
+            {
+                playerimg.setAttribute('class', "custom-player-avatar");
+            }
+    
+            playerimg.setAttribute('title', getFullPlayerName(playerId));
+            
+            return playerimg;
         }
-        else
-        {
-            playerimg.setAttribute('class', "custom-player-avatar");
-        }
+        else {
+            var playerimg = document.createElement("div");
+            playerimg.setAttribute("style", "background-image:url(https://sleepercdn.com/content/nfl/players/thumb/"+player.player_id+".jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp); border: 2px solid var(--"+ player.position +");");
+            
+            if(playerId == '5849')
+            {
+                playerimg.setAttribute('class', "custom-tiny-player-avatar");
+            }
+            else
+            {
+                playerimg.setAttribute('class', "custom-player-avatar");
+            }
 
-        playerimg.setAttribute('title', getFullPlayerName(playerId));
-        
-        return playerimg;
+            playerimg.setAttribute('title', getFullPlayerName(playerId));
+            
+            return playerimg;
+
+        }
     }
 }
 
@@ -49,10 +69,11 @@ export function sortByPosition(players) {
     const wr = [];
     const te = [];
     const k = [];
+    const def = [];
 
     for(let player of players)
     {
-        let thisPlayer = playerData.players.find(e => e.player_id === parseInt(player));
+        let thisPlayer = playerData.players.find(e => e.player_id === player);
         if(thisPlayer)
         {
             if(thisPlayer.position == "QB")
@@ -90,10 +111,16 @@ export function sortByPosition(players) {
                 "position": thisPlayer.position
                 });   
             }
+            if (thisPlayer.position == "DEF") {
+                def.push({
+                    "player_id": thisPlayer.player_id,
+                    "position": thisPlayer.position
+                });
+            }
         }
     }
 
-    sortedPositions.push([qb, rb, wr, te, k]);
+    sortedPositions.push([qb, rb, wr, te, k, def]);
 
     for(let positions of sortedPositions)
     {

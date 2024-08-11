@@ -81,7 +81,7 @@ async function OpenTeamRosterModal(userid,teamname) {
                 if(localStorage.getItem("PlayerData"))
                 {
 
-                    let player = playerData.players.find(e => e.player_id === parseInt(players.player_id));
+                    let player = playerData.players.find(e => e.player_id === players.player_id);
 
                     if(player)
                     {
