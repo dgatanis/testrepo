@@ -102,6 +102,16 @@ function updatePagination(currentPage, totalPages) {
         ellipsis[1].classList.remove('custom-none-display');
     }
 
+    if(currentPage == totalPages)
+    {
+        ellipsis[1].classList.add('custom-none-display');
+    }
+
+    if(totalPages<=5)
+    {
+        ellipsis[1].classList.add('custom-none-display');
+    }
+
     for (let i = start - 1; i < end; i++) {
         pageItems[i].classList.remove('custom-none-display');
     }
