@@ -33,6 +33,7 @@ async function loadTradeTransactions() {
                 var transactionRow = createTransactionRow(page);
                 var totalPlayers = 0;
                 var totalSearchRank = 0;
+                var isNuclear = 'N';
                 var draftPicksCount = {"1": 0, "2": 0}
 
                 for (let i = 0; i < tradePartners; i++) {
@@ -85,6 +86,11 @@ async function loadTradeTransactions() {
 
                                 totalPlayers++;
                                 totalSearchRank += player.search_rank;
+
+                                if(player.search_rank && player.search_rank <= 20)
+                                {
+                                    isNuclear = 'Y';
+                                }
                             }
                         }
 
@@ -174,7 +180,17 @@ async function loadTradeTransactions() {
                 lastTeamGroup.after(handshakeImage);
 
                 //Create trade badge icon
-                if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 25 || tradePartners >=3 || draftPicksCount["1"] >= 2 || draftPicksCount["2"] >= 4 || totalPlayers >= 4)
+                if(isNuclear == 'Y')
+                {
+                    var tradeBadge = document.createElement('img');
+                    tradeBadge.setAttribute('class', 'custom-trade-badge');
+                    tradeBadge.setAttribute('src', '../src/static/images/nuclear-icon.png');
+                    tradeBadge.setAttribute('title', 'Nuclear Trade Alert!');
+
+                    lastTeamGroup.after(tradeBadge);
+                    isNuclear = 'N';
+                }
+                else if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 30 || tradePartners >=3 || draftPicksCount["1"] >= 2 || draftPicksCount["2"] >= 4 || totalPlayers >= 4)
                 {
                     var tradeBadge = document.createElement('img');
                     tradeBadge.setAttribute('class', 'custom-trade-badge');
