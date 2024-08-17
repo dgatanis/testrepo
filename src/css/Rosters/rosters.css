@@ -25,6 +25,10 @@
   display: grid;
 }
 
+.custom-bench-row .custom-player-details {
+  margin-bottom: .2rem;
+}
+
 .custom-team-details-name {
     font-style: italic;
     margin: auto;
@@ -41,6 +45,18 @@
 
 [data-playerid="5849"] td .custom-tiny-player-avatar {
   margin-top: .8rem;
+}
+
+[data-playerid="5849"] td .custom-player-nickname {
+  margin-left: 1.4rem;
+}
+
+.custom-player-nickname {
+  font-size: .5rem;
+  position: absolute;
+  bottom: 0;
+  font-style: italic;
+  margin-left: 2.4rem;
 }
 
 

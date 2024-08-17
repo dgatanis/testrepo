@@ -27,6 +27,27 @@ function loadContents() {
         //Create table rows for players
         const teams = rosterData.map((roster) => roster);
 
+        //Hide row if not used in league
+        var leaguePositions = getLeaguePositions();
+        var positionArray = leaguePositions.split(', ');
+        var K = 0;
+        for(var i=0;i<positionArray.length;i++){
+    
+            if(positionArray[i] == "K")
+            {
+                K++;
+            }
+        }
+        if(K==0)
+        {
+            var kickerRow = document.getElementsByClassName('custom-player-K-row');
+    
+            for(let row of kickerRow)
+            {
+                row.setAttribute('style', 'display:none;');
+            }
+        }
+
         //Loop through each roster of team and display player data for selected team
         for(let roster of teams) 
         {
@@ -452,7 +473,11 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     if(playerNickName != "")
     {
-        playerimg.setAttribute('title', playerNickName);
+        var nickNameDiv = document.createElement('div');
+        nickNameDiv.setAttribute('class', 'custom-player-nickname');
+        nickNameDiv.innerText = '"' + playerNickName + '"';
+
+        td.append(nickNameDiv);
     }
     
     playerDetailsDiv.appendChild(playerNumberDiv);
@@ -496,6 +521,7 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     }
     else {
+        playerNameDiv.setAttribute('style', 'vertical-align: text-top;')
         playerStatsIcon.setAttribute('onclick', 'openRotoWirePageDef(\'' + player.firstname.replaceAll("'","").replaceAll(' ', "-") + "\',\'" + player.lastname.replaceAll("'","") +"\', \'"+ player.team +"\')");
     }
 

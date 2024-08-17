@@ -7,9 +7,11 @@ table#LeagueChampsTable {
     margin-right: auto;
     width: 50%;
     text-align: center;
-    border: var(--custom-dark-blue);
+    border: var(--custom-light-gray);
     margin-top: 3rem;
     margin-bottom: 3rem;
+    background: var(--custom-dark-gray);
+    color: var(--custom-light-gray);
 }
 
 .custom-icon-container {
@@ -32,12 +34,18 @@ tr td {
     padding: 1rem !important;
 }
 
+.custom-medium-avatar {
+    background-color: whitesmoke;
+    padding: .1rem;
+}
+
 td {
     animation: revealLetter 2s forwards;
 }
 
 .custom-team-name {
     font-size: large;
+    color: whitesmoke;
 }
 
 .custom-player-name {
@@ -50,14 +58,11 @@ th {
 }
 
 .custom-finals-player {
-    border: 2px solid #7f7f7f;
     padding: .3rem;
-    border-radius: 10px;
-    background: var(--custom-light-blue);
-    box-shadow: 0 0 .5rem 0 black;
-    width: 90%;
+    background: linear-gradient(90deg, transparent, var(--custom-light-gray), transparent);
     margin: auto;
     margin-top: 1rem;
+    color: black;
 }
 
 .custom-player-pts {
