@@ -14,7 +14,8 @@ import {
     createPlayerImage,
     setLeagueName,
     inauguralSeason,
-    setLinkSource
+    setLinkSource,
+    leagueDisplayName
 } from '../util/helper.js';
 
 let userData = users;
@@ -67,32 +68,34 @@ async function loadLeagueChamps(inauguralSeason) {
 
     }
 
-    //Create rows for league winners before move to sleeper
-    for(var i = inauguralSeason-1; i>=2020; i--)
-    {
-        if(i == 2020)
+    if (leagueDisplayName.toString().trim() == "Crush Cities") {
+        //Create rows for league winners before move to sleeper
+        for(var i = inauguralSeason-1; i>=2020; i--)
         {
-            rosterId = 7;
-        }
-        if(i == 2021)
-        {
-            rosterId = 4;
-        }
-        if(i == 2022)
-        {
-            rosterId = 2;
-        }
-        if(i == 2023)
-        {
-            rosterId = 10;
-        }
+            if(i == 2020)
+            {
+                rosterId = 7;
+            }
+            if(i == 2021)
+            {
+                rosterId = 4;
+            }
+            if(i == 2022)
+            {
+                rosterId = 2;
+            }
+            if(i == 2023)
+            {
+                rosterId = 10;
+            }
 
-        var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-        var user = userData.find(x => x.user_id === roster.owner_id);
+            var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+            var user = userData.find(x => x.user_id === roster.owner_id);
 
-        var leagueChampRow = createLeagueChampRow(roster, user, i);
-        
-        tableBody.appendChild(leagueChampRow);
+            var leagueChampRow = createLeagueChampRow(roster, user, i);
+            
+            tableBody.appendChild(leagueChampRow);
+        }
     }
 }
 
@@ -117,7 +120,7 @@ async function getFinalsMatchups(leagueId) {
 
     const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/17`);//last week of season  
     const data = await res.json(); 
-
+    console.log(data);
     return data;
 }
 
@@ -136,9 +139,9 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
     tdTeam.appendChild(teamImage);
     tdTeam.appendChild(teamName);
 
-    if(year >= inauguralSeason)
+    if(matchups != null)
     {
-        var finals = matchups.find(x => x.roster_id === parseInt(roster.roster_id));//matchups.find(x => x.roster_id === parseInt(3));
+        var finals = matchups.find(x => x.roster_id === parseInt(roster.roster_id));
         var highScorer = highScorerInMatchupStarters(finals.starters, finals.players_points);
 
         if(highScorer)
