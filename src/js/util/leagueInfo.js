@@ -83,3 +83,34 @@ export async function setLinkSource(elementId) {
 
     element.setAttribute('href', `https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=${leagueId}&platform=Sleeper`)
 }
+
+export function getRandomString() {
+
+    var myArray = [
+        "What an idiot",
+        "*rolls eyes*",
+        "Every league needs a taco amirite",
+        "Well this certainly isn't going to work out",
+        "Yikes",
+        "Is this season over yet",
+        "https://www.nflshop.com/<enter jersey they're buying here>",
+        "Wack",
+        "Anyone else throw-up in their mouth a little",
+        "You're probably wondering how we got here",
+        "Softer than Charmin",
+        "Yea we're all thinking the same thing",
+        "*yawns*",
+        "Be better",
+        "Jerseys aint cheap",
+        "Tanking allegations ensuing",
+        "We can do better than this",
+        "*dry heaving*",
+        "This hurts to look at",
+        "Why are you like this"
+    ]
+    var randomNumber=Math.random()*myArray.length;
+    randomNumber= Math.random()*myArray.length;
+    var roundRandomNumber = Math.floor(randomNumber);
+
+    return myArray[roundRandomNumber];
+}
