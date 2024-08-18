@@ -20,7 +20,7 @@ function openRotoWirePageDef(first_name, last_name, team){
 function showPage(pageNumber) {
     var trades = document.getElementsByClassName('custom-trades-page-'+pageNumber.toString());
     var allTrades = document.querySelectorAll('[class*=custom-transaction-row]');
-    var totalPages = Math.round(allTrades.length / 10);
+    var totalPages = Math.ceil(allTrades.length / 10);
 
     hideAllPages(pageNumber);
 
