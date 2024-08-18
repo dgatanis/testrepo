@@ -109,12 +109,12 @@ async function initPlayoffData() {
 }
 
 async function initMatchupData() {
-    const dataStorage = localStorage.getItem("MatchupData");
+    const dataStorage = sessionStorage.getItem("MatchupData");
 
     if(!dataStorage)
     {   
         try {
-            const dataRes = await waitForLocalStorageItem("MatchupData");
+            const dataRes = await waitForSessionStorageItem("MatchupData");
 
             var data = JSON.parse(dataRes);
 

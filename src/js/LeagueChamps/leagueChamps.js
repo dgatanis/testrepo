@@ -120,7 +120,7 @@ async function getFinalsMatchups(leagueId) {
 
     const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/matchups/17`);//last week of season  
     const data = await res.json(); 
-    console.log(data);
+
     return data;
 }
 

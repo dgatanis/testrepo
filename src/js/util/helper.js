@@ -4,7 +4,7 @@ import { getPlayerPointsForWeek, getMatchupWeekWinner, getRosterHighScorerWeek, 
 import { getFullPlayerName, createPlayerImage, createNFLTeamImage, sortByPosition  } from './PlayerData/playerData.js';
 import { createOwnerAvatarImage, getTeamName } from './UserData/userData.js';
 import { getLeaguePositions, getTransactionsData } from './LeagueData/leagueData.js';
-import { leagueDisplayName, leagueDescription, setLeagueName, inauguralSeason, setLinkSource } from './leagueInfo.js';
+import { leagueDisplayName, leagueDescription, setLeagueName, inauguralSeason, setLinkSource, getRandomString } from './leagueInfo.js';
 
 export { 
     rosters, 
@@ -34,5 +34,6 @@ export {
     setLeagueName,
     inauguralSeason,
     setLinkSource,
-    getTransactionsData
+    getTransactionsData,
+    getRandomString
 };
