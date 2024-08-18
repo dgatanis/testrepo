@@ -17,8 +17,9 @@ async function setBrowserData() {
 
         const expiration = new Date().getTime() + (2*60*60*1000); //2hrs
         const now = new Date().getTime();
+        const currentExp = new Date(localStorage.getItem("expiration"));
 
-        if(!localStorage.getItem("expiration") || localStorage.getItem("expiration") < now)
+        if(!localStorage.getItem("expiration") || currentExp < now)
         {
             localStorage.clear();
             localStorage.setItem("expiration", expiration);
@@ -30,13 +31,13 @@ async function setBrowserData() {
             setLeagueDetails(currentLeagueId);
             setPlayoffsData(currentLeagueId);
             //setPlayoffsData('998356266604916736');
+        }
+        if(!sessionStorage.getItem("MatchupData") || currentExp < now)
+        {
+            sessionStorage.clear();
             setMatchupData(currentLeagueId,currentWeek);
             //setMatchupData('1003692635549462528','10');
         }
-        // if(!sessionStorage.getItem("MatchupData"))
-        // {
-
-        // }
 
     }
     catch(error){
@@ -91,7 +92,6 @@ async function setATLeagueIds() {
 
     try{
         var thisYear = await getCurrentSeason();
-        const firstSeason = inauguralSeason;
         const currentLeagueId = await leagueInfo.default();
         var lastLeagueId = currentLeagueId;
 
@@ -124,7 +124,6 @@ async function setPlayerData() {
         };
         const res  = await fetch(`https://api.sleeper.app/v1/players/nfl`);
         const data = await res.json();
-        let maxId = parseInt(Object.keys(data).sort((a, b) => b - a)); //organize by Id;
         const playerPositions = ["QB", "RB", "WR", "TE", "K", "DEF"];
 
         for(let key in data)
@@ -243,7 +242,7 @@ async function setMatchupData(leagueID, currentWeek) {
             matchupWeeks
         });
 
-        localStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
+        sessionStorage.setItem("MatchupData", JSON.stringify(upToCurrentWeekMatchups));
     }
     catch (error)
     {
