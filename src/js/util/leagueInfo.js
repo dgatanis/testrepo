@@ -50,10 +50,10 @@ async function currentLeagueId(thisYear) {
     
     for(let league of leagues)
     {
-        if(leagueData.find(x => x.name === leagueName))
+        if(league.name === leagueName)
         {
-            let currentLeagueId = league.league_id;
-            return currentLeagueId;
+            let thisLeagueId = league.league_id;
+            return thisLeagueId;
         }
     }
 }
