@@ -17,7 +17,7 @@ async function setBrowserData() {
 
         const expiration = new Date().getTime() + (2*60*60*1000); //2hrs
         const now = new Date().getTime();
-        const currentExp = new Date(localStorage.getItem("expiration"));
+        const currentExp = new Date(parseInt(localStorage.getItem("expiration")));
 
         if(!localStorage.getItem("expiration") || currentExp < now)
         {
