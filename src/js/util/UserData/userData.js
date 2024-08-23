@@ -14,6 +14,14 @@ export function createOwnerAvatarImage(userId, page = null) {
         img.setAttribute('class', "custom-medium-avatar");
         img.setAttribute('data-userid', user.user_id);
     }
+    else if (user.avatar)
+    {
+        const altURL = "https://sleepercdn.com/avatars/thumbs/" + user.avatar;
+        var img = document.createElement("img");
+        img.setAttribute('src', altURL);
+        img.setAttribute('class', "custom-medium-avatar");
+        img.setAttribute('data-userid', user.user_id);
+    }
     else
     {
         var img = document.createElement("img");
