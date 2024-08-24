@@ -122,6 +122,11 @@ img.custom-team-logo {
 
 .custom-draft-pick {
     padding: .2rem;
+    position: relative;
+}
+
+.custom-draft-pick .custom-trade-from-icon {
+    bottom: 20%;
 }
 
 .custom-team-group:nth-child(odd) {
@@ -187,7 +192,7 @@ img.custom-team-logo {
     display: inline;
     font-size: x-small;
     margin-left: .3rem;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 }
 
 img.custom-xsmall-avatar {
