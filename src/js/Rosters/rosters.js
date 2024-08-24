@@ -97,7 +97,7 @@ function loadContents() {
                 }
 
             }
-
+            var playerArray = [];
             //bench
             for(let bench of allSortedPlayers)
             {
@@ -112,7 +112,7 @@ function loadContents() {
                             if(IRPlayers && IRPlayers.includes(player.player_id.toString()))
                             {
                                 isIR = 'Y'
-                                
+                                playerArray.push(player.player_id);
                             }
                             var playerRow = createPlayerRow(player.player_id, roster.roster_id, "N", isIR);
                             playerRow.setAttribute('class', 'custom-bench-row');
@@ -121,6 +121,12 @@ function loadContents() {
                         }
                     }
                 }
+            }
+
+            for(let playerid of playerArray)
+            {
+                var element = document.querySelectorAll(`[data-playerid='${playerid}']`)
+                benchTeam.append(element[0]);
             }
 
             //taxi
@@ -487,24 +493,46 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     if(isIR == 'Y')
     {
-        var injuredReserveDiv = document.createElement('div');
-        injuredReserveDiv.setAttribute('class', 'custom-injured-reserve');
-        injuredReserveDiv.setAttribute('title', player.injury_status);
-        injuredReserveDiv.innerText = 'IR';
-        playerDetailsDiv.appendChild(injuredReserveDiv);
+        tr.setAttribute('style', 'background: #f80202a3;');
+        th.innerText = 'IR';
     }
-    else if (player.injury_status) {
+    if (player.injury_status) {
         var injuredDiv = document.createElement('div');
         injuredDiv.setAttribute('class', 'custom-injury');
-        injuredDiv.setAttribute('title', player.injury_status);
+        injuredDiv.setAttribute('title', player.injury_status + " (" + player.injury_body_part + ")");
 
         if (player.injury_status == "Questionable") {
             injuredDiv.setAttribute('style', 'color: #e87700');
             injuredDiv.innerText = 'Q';
         }
-        else if (player.injury_status == "Questionable") {
+        else if (player.injury_status == "Out") {
+            injuredDiv.setAttribute('style', 'color: var(--custom-red)');
+            injuredDiv.innerText = 'O';
+        }
+        else if (player.injury_status == "Probable") {
+            injuredDiv.setAttribute('style', 'color: var(--custom-green)');
+            injuredDiv.innerText = 'P';
+        }
+        else if (player.injury_status == "Doubtful") {
+            injuredDiv.setAttribute('style', 'color: #a52b2b');
+            injuredDiv.innerText = 'D';
+        }
+        else if (player.injury_status == "PUP") {
             injuredDiv.setAttribute('style', 'color: var(--custom-red)');
             injuredDiv.innerText = 'PUP';
+        }
+        else if (player.injury_status == "Suspended") {
+            injuredDiv.setAttribute('style', 'color: var(--custom-red)');
+            injuredDiv.innerText = 'SUS';
+        }
+        else if (player.injury_status == "IR") {
+            injuredDiv.setAttribute('style', 'color: var(--custom-red)');
+            injuredDiv.innerText = 'IR';
+        }
+
+        if(isIR == 'Y')
+        {
+            injuredDiv.setAttribute('style', 'color: #c00000;')
         }
 
         playerDetailsDiv.appendChild(injuredDiv);

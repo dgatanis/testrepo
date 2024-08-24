@@ -74,12 +74,29 @@ async function loadTradeTransactions() {
                     //Check the trade for all its components
                     if (trade.adds) {
                         let addedPlayers = Object.keys(trade.adds);
-                        var addedPlayersArray = [];
+                        let droppedPlayers = trade.drops;
                         for (let j = 0; j < addedPlayers.length; j++) {
                             if (rosterid == trade.adds[addedPlayers[j]]) {
                                 var player = playerData.players.find(x => x.player_id === addedPlayers[j]);
                                 var playerDiv = createPlayerDiv(player.player_id, 'add');
                                 var nflTeamImg = createNFLTeamImage(player.team);
+
+                                if(tradePartners > 2)
+                                {
+                                    var fromRoster = rosterData.find(x => x.roster_id === droppedPlayers[addedPlayers[j]]);
+
+                                    var previousOwner = createOwnerAvatarImage(fromRoster.owner_id);
+                                    previousOwner.setAttribute('class', 'custom-xsmall-avatar');
+                                    previousOwner.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
+
+                                    var tradeTeamIcon = document.createElement('img');
+                                    tradeTeamIcon.setAttribute('src', '../src/static/images/trade-from-icon.png');
+                                    tradeTeamIcon.setAttribute('class', 'custom-trade-from-icon');
+                                    tradeTeamIcon.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
+
+                                    playerDiv.appendChild(previousOwner);
+                                    playerDiv.appendChild(tradeTeamIcon);
+                                }
 
                                 playerDiv.append(nflTeamImg);
                                 teamGroup.appendChild(playerDiv);
@@ -358,6 +375,7 @@ function createTransactionRow(page) {
 
 function createPlayerDiv(playerid, addDrop) {
     var player = playerData.players.find(x => x.player_id === playerid);
+
     var playerDiv = document.createElement("div");
     playerDiv.setAttribute('class', 'custom-player');
 

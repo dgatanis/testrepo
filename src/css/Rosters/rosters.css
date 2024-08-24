@@ -25,10 +25,6 @@
   display: grid;
 }
 
-.custom-bench-row .custom-player-details {
-  margin-bottom: .2rem;
-}
-
 .custom-team-details-name {
     font-style: italic;
     margin: auto;
@@ -49,6 +45,10 @@
 
 [data-playerid="5849"] td .custom-player-nickname {
   margin-left: 1.4rem;
+}
+
+.custom-bench-row .custom-player-nickname {
+  margin-bottom: -.4rem;
 }
 
 .custom-player-nickname {
@@ -233,7 +233,7 @@
   border-radius: .5rem;
   width: 100%;
   border: 2px solid #616161;
-  padding: .2rem;
+  padding: .4rem;
 }
 
 .custom-player-table-group {
@@ -607,10 +607,6 @@ th, td {
 
     .custom-player-stats-container {
       max-width: 17rem;
-    }
-
-    .custom-player-name {
-      font-size: .7rem;
     }
   }
 
