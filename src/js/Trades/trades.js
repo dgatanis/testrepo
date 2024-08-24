@@ -129,17 +129,17 @@ async function loadTradeTransactions() {
 
                                 if (draftPick.round == 1) {
                                     draftPicksCount["1"]++;
-                                    formattedRound = draftPick.round + "st Round";
+                                    formattedRound = draftPick.round + "st rd";
                                 }
                                 else if (draftPick.round == 2) {
                                     draftPicksCount["2"]++;
-                                    formattedRound = draftPick.round + "nd Round";
+                                    formattedRound = draftPick.round + "nd rd";
                                 }
                                 else if (draftPick.round == 3) {
-                                    formattedRound = draftPick.round + "rd Round";
+                                    formattedRound = draftPick.round + "rd rd";
                                 }
                                 else {
-                                    formattedRound = draftPick.round + "th Round";
+                                    formattedRound = draftPick.round + "th rd";
                                 }
 
                                 draftPickDiv.setAttribute('title', formattedRound + ' pick via ' + getTeamName(originalOwner.owner_id));
@@ -155,6 +155,23 @@ async function loadTradeTransactions() {
                                     originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
                                     originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
                                     draftPickDiv.appendChild(originalOwnerDiv);
+                                }
+
+                                if(tradePartners > 2)
+                                {
+                                    var fromRoster = rosterData.find(x => x.roster_id === draftPick.previous_owner_id);
+
+                                    var previousOwner = createOwnerAvatarImage(fromRoster.owner_id);
+                                    previousOwner.setAttribute('class', 'custom-xsmall-avatar');
+                                    previousOwner.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
+
+                                    var tradeTeamIcon = document.createElement('img');
+                                    tradeTeamIcon.setAttribute('src', '../src/static/images/trade-from-icon.png');
+                                    tradeTeamIcon.setAttribute('class', 'custom-trade-from-icon');
+                                    tradeTeamIcon.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
+
+                                    draftPickDiv.appendChild(previousOwner);
+                                    draftPickDiv.appendChild(tradeTeamIcon);
                                 }
 
                                 teamGroup.appendChild(draftPickDiv);
