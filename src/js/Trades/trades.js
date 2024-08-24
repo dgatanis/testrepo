@@ -90,7 +90,7 @@ async function loadTradeTransactions() {
                                     previousOwner.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
 
                                     var tradeTeamIcon = document.createElement('img');
-                                    tradeTeamIcon.setAttribute('src', '../src/static/images/trade-from-icon.png');
+                                    tradeTeamIcon.setAttribute('src', '../src/static/images/trading-team-badge.png');
                                     tradeTeamIcon.setAttribute('class', 'custom-trade-from-icon');
                                     tradeTeamIcon.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
 
@@ -119,6 +119,7 @@ async function loadTradeTransactions() {
                             if (rosterid == draftPick.owner_id) { //owner_id = rosterId that owns the pick now
 
                                 var formattedRound;
+                                var roundPlainText;
                                 var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
                                 var draftPickDiv = document.createElement('div');
                                 var round = document.createElement('div');
@@ -129,28 +130,33 @@ async function loadTradeTransactions() {
 
                                 if (draftPick.round == 1) {
                                     draftPicksCount["1"]++;
-                                    formattedRound = draftPick.round + "st rd";
+                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">st</sup>';
+                                    roundPlainText = draftPick.round + "st rd"
+
                                 }
                                 else if (draftPick.round == 2) {
                                     draftPicksCount["2"]++;
-                                    formattedRound = draftPick.round + "nd rd";
+                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">nd</sup>';
+                                    roundPlainText = draftPick.round + "nd rd"
                                 }
                                 else if (draftPick.round == 3) {
-                                    formattedRound = draftPick.round + "rd rd";
+                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">rd</sup>';
+                                    roundPlainText = draftPick.round + "rd rd"
                                 }
                                 else {
-                                    formattedRound = draftPick.round + "th rd";
+                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">th</sup>';
+                                    roundPlainText = draftPick.round + "th rd"
                                 }
 
-                                draftPickDiv.setAttribute('title', formattedRound + ' pick via ' + getTeamName(originalOwner.owner_id));
+                                draftPickDiv.setAttribute('title', roundPlainText + ' pick via ' + getTeamName(originalOwner.owner_id));
 
-                                round.innerText = formattedRound;
+                                round.innerHTML = formattedRound;
                                 season.innerText = " - " + draftPick.season;
 
                                 draftPickDiv.appendChild(round);
                                 draftPickDiv.appendChild(season);
                                 //previous_owner_id = player that traded pick away
-                                if (draftPick.roster_id != draftPick.previous_owner_id || tradePartners > 2) { //roster_id = original owner of pick 
+                                if (draftPick.roster_id != draftPick.previous_owner_id) { //roster_id = original owner of pick 
                                     var originalOwnerDiv = document.createElement('div');
                                     originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
                                     originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
@@ -166,7 +172,7 @@ async function loadTradeTransactions() {
                                     previousOwner.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
 
                                     var tradeTeamIcon = document.createElement('img');
-                                    tradeTeamIcon.setAttribute('src', '../src/static/images/trade-from-icon.png');
+                                    tradeTeamIcon.setAttribute('src', '../src/static/images/trading-team-badge.png');
                                     tradeTeamIcon.setAttribute('class', 'custom-trade-from-icon');
                                     tradeTeamIcon.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
 
