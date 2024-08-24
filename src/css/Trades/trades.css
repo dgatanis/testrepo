@@ -168,6 +168,10 @@ img.custom-team-logo {
     text-align: justify;
 }
 
+sup {
+    top: -0.9em;
+}
+
 .custom-draft-pick-round {
     display: inline;
 }
@@ -179,13 +183,13 @@ img.custom-team-logo {
 }
 
 .custom-trade-from-icon {
-    max-width: 1rem;
+    max-width: .8rem;
     position: absolute;
     left: 3%;
-    bottom: 37%;
+    bottom: 33%;
     background: black;
-    padding: .15rem;
-    border-radius: 1rem;
+    border-radius: 10rem;
+    padding: .1rem;
 }
 
 .custom-draft-pick-original-owner {
