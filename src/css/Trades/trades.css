@@ -105,6 +105,7 @@ a.page-link {
 .custom-player {
     padding: .2rem;
     cursor: pointer;
+    position: relative;
 }
 
 img.custom-team-logo {
@@ -172,11 +173,30 @@ img.custom-team-logo {
     vertical-align: middle;
 }
 
+.custom-trade-from-icon {
+    max-width: 1rem;
+    position: absolute;
+    left: 3%;
+    bottom: 37%;
+    background: black;
+    padding: .15rem;
+    border-radius: 1rem;
+}
+
 .custom-draft-pick-original-owner {
     display: inline;
     font-size: x-small;
     margin-left: .3rem;
     vertical-align: middle;
+}
+
+img.custom-xsmall-avatar {
+    max-width: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1px;
+    background: #ffd100;
 }
 
 .custom-team-container {

@@ -152,7 +152,8 @@ async function setPlayerData() {
                         "rotowire_id": null,
                         "college": null,
                         "search_rank": null,
-                        "injury_status": null
+                        "injury_status": null,
+                        "injury_body_part": null
                     });
                 }
                 else {
@@ -170,7 +171,8 @@ async function setPlayerData() {
                         "rotowire_id": data[key].rotowire_id,
                         "college": data[key].college,
                         "search_rank": data[key].search_rank,
-                        "injury_status": data[key].injury_status
+                        "injury_status": data[key].injury_status,
+                        "injury_body_part": data[key].injury_body_part
                     });
                 }
 
