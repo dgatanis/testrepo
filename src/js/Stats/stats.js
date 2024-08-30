@@ -13,7 +13,7 @@ import {
     getMatchupWeekWinner,
     getRosterHighScorerWeek,
     highScorerInMatchupStarters,
-    previousLeagueId,
+    allTimeMatchupData,
     setLeagueName,
     setLinkSource 
     } from '../util/helper.js';
@@ -31,12 +31,26 @@ let playoffData = playoffs;
 loadContents();
 
 //This loads the page contents dynamically
-async function loadContents() {
+function loadContents() {
     try{
         setLinkSource("keep-trade-cut");
+        setLeagueName("footerName");
     }
     catch (error){
         console.error(`Error: ${error.message}`);
+    }
+
+}
+
+function setTableData()
+{
+    var tables = ['allTimeLowScorerTeam','allTimeLowScorerPlayer','allTimeHighScorerTeam','allTimeHighScorerPlayer'];
+
+    for(let table of tables)
+    {
+        var table = document.getElementById(table);
+
+
     }
 
 }
