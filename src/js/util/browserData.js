@@ -36,7 +36,7 @@ async function setBrowserData() {
         {
             sessionStorage.clear();
             setMatchupData(currentLeagueId,currentWeek);
-            setAllTimeMatchupData(currentLeagueId,currentWeek);
+            setAllTimeMatchupData();
             //setMatchupData('1003692635549462528','10');
         }
 
@@ -254,7 +254,7 @@ async function setMatchupData(leagueID, currentWeek) {
 
 }
 
-async function setAllTimeMatchupData(currentLeagueID, currentWeek) {
+async function setAllTimeMatchupData() {
     try{
         var thisYear = await getCurrentSeason();
         const currentLeagueId = await leagueInfo.default();
@@ -294,7 +294,7 @@ async function setAllTimeMatchupData(currentLeagueID, currentWeek) {
             lastLeagueId = await previousLeagueId(lastLeagueId);
             
         }
-        
+
         allTimeMatchups.push({
             matchupWeeks
         });

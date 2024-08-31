@@ -1,0 +1,68 @@
+div#allTimeStats {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-all-time-stats {
+    max-width: 35rem;
+    clear: both;
+    width: 30rem;
+    margin: 3rem;
+}
+
+.custom-all-time-stats:nth-child(odd) {
+    float:inline-end;
+    clear: inline-end;
+}
+.custom-all-time-stats:nth-child(even) {
+    float:inline-start;
+    clear: inline-start;
+}
+
+.custom-table-title {
+    text-align: center;
+}
+
+table#allTimeHighScorerTeam .custom-name {
+    margin-right: .5rem;
+}
+
+table#allTimeLowScorerTeam .custom-name {
+    margin-right: .5rem;
+}
+
+.custom-small-avatar {
+    margin-right: .2rem;
+    padding: .1rem;
+    background-color:whitesmoke;
+}
+
+.custom-xsmall-avatar {
+    max-width: 1.2rem;
+    margin-right: .1rem;
+    padding: .1rem;
+    background-color:whitesmoke;
+}
+.custom-name {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 1.5rem;
+}
+
+.custom-details {
+    display: inline;
+    font-size: x-small;
+    vertical-align: middle;
+}
+
+.custom-details-team, .custom-details-season, .custom-details-week {
+    display: inline;
+    margin-left: .1rem;
+    margin-right: .1rem;
+    vertical-align: middle;
+}
+
+.custom-details-season, .custom-details-week {
+    font-size: .5rem;
+}
