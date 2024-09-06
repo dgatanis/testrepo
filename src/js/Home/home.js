@@ -6,7 +6,8 @@ import {
     leagueDisplayName,
     leagueDescription,
     setLeagueName,
-    setLinkSource
+    setLinkSource,
+    removeSpinner
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -21,6 +22,7 @@ function loadContents() {
     setLinkSource("keep-trade-cut")
     loadLeagueDescription();
     loadTeams();
+    removeSpinner();
 }
 
 function loadLeagueDescription() {

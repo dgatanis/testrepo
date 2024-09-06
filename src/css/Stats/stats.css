@@ -11,6 +11,11 @@ div#allTimeStats {
     margin: 3rem;
 }
 
+.custom-loading-icon {
+    margin-top: 1rem;
+}
+
+
 .custom-all-time-stats:nth-child(odd) {
     float:inline-end;
     clear: inline-end;

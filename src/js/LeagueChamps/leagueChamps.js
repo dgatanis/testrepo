@@ -15,7 +15,8 @@ import {
     setLeagueName,
     inauguralSeason,
     setLinkSource,
-    leagueDisplayName
+    leagueDisplayName,
+    removeSpinner
 } from '../util/helper.js';
 
 let userData = users;
@@ -34,7 +35,7 @@ async function loadContents() {
     try{
 
         loadLeagueChamps(inauguralSeason);
-        
+        removeSpinner();
         return;
     }
     catch (error){

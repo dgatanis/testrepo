@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.custom-loading-icon {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 table#LeagueChampsTable {
     margin-left: auto;
     margin-right: auto;
