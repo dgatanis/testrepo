@@ -28,11 +28,6 @@ a.page-link.page-number:focus {
     background-color: whitesmoke;
 }
 
-.custom-loading-icon {
-    justify-content: center;
-    display: flex;
-}
-
 .pagination {
     justify-content: center;
     margin-top: 3rem;

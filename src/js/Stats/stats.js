@@ -16,7 +16,8 @@ import {
     highScorerInMatchupStarters,
     allTimeMatchupData,
     setLeagueName,
-    setLinkSource 
+    setLinkSource,
+    removeSpinner 
     } from '../util/helper.js';
 import { 
     getCurrentSeason,
@@ -38,6 +39,7 @@ function loadContents() {
         setLinkSource("keep-trade-cut");
         setLeagueName("footerName");
         initTableData();
+        removeSpinner();
     }
     catch (error){
         console.error(`Error: ${error.message}`);

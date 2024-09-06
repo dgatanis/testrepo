@@ -39,3 +39,15 @@ export {
     getRandomString,
     getRosterLowScorerWeek
 };
+
+export function removeSpinner() {
+    var loadingSpinner =  document.getElementById("page-loading");
+    loadingSpinner.classList.add('custom-none-display');
+
+    var bodyItems = document.getElementsByClassName('custom-body');
+    
+    for(let body of bodyItems)
+    {
+        body.classList.remove('custom-none-display');
+    }
+}
