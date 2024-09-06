@@ -193,24 +193,31 @@ function loadMatchups(weekNumber) {
                     if (winningTeam[0].roster_id == roster.roster_id && winningTeam[0].points != 0) {
                         teamPoints.setAttribute('style', 'color:#00a700');
 
-                        //Ifs used to set different images/colors
-                        if (Number(matchup.points) - Number(winningTeam[1].points) <= 2) {
-                            var angelImg = createMatchupIconImg();
-                            angelImg.setAttribute('src', '../src/static/images/angel-wings.png');
-                            angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
+                        if(new Date().getDay() == 1)
+                        {
+                            //Ifs used to set different images/colors
+                            if (Number(matchup.points) - Number(winningTeam[1].points) <= 2) {
+                                var angelImg = createMatchupIconImg();
+                                angelImg.setAttribute('src', '../src/static/images/angel-wings.png');
+                                angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
 
-                            teamScoreDiv.append(teamNameSpan);
-                            teamScoreDiv.append(teamPoints);
-                            teamScoreDiv.append(angelImg);
-                        }
-                        else if (Number(matchup.points) < 100) {
-                            var luckyImg = createMatchupIconImg();
-                            luckyImg.setAttribute('src', '../src/static/images/horseshoe.png');
-                            luckyImg.setAttribute('title', 'You lucky SOB');
+                                teamScoreDiv.append(teamNameSpan);
+                                teamScoreDiv.append(teamPoints);
+                                teamScoreDiv.append(angelImg);
+                            }
+                            else if (Number(matchup.points) < 100) {
+                                var luckyImg = createMatchupIconImg();
+                                luckyImg.setAttribute('src', '../src/static/images/horseshoe.png');
+                                luckyImg.setAttribute('title', 'You lucky SOB');
 
-                            teamScoreDiv.append(teamNameSpan);
-                            teamScoreDiv.append(teamPoints);
-                            teamScoreDiv.append(luckyImg);
+                                teamScoreDiv.append(teamNameSpan);
+                                teamScoreDiv.append(teamPoints);
+                                teamScoreDiv.append(luckyImg);
+                            }
+                            else {
+                                teamScoreDiv.append(teamNameSpan);
+                                teamScoreDiv.append(teamPoints);
+                            }
                         }
                         else {
                             teamScoreDiv.append(teamNameSpan);
