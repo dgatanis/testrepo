@@ -193,6 +193,7 @@ function loadMatchups(weekNumber,currentWeek) {
                     if (winningTeam[0].roster_id == roster.roster_id && winningTeam[0].points != 0) {
                         teamPoints.setAttribute('style', 'color:#00a700');
 
+
                         if(weekNumber<currentWeek)
                         {
                             //Ifs used to set different images/colors
