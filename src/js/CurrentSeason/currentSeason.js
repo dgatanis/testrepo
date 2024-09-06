@@ -43,7 +43,7 @@ async function loadContents() {
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
         loadSeasonRankings();
-        loadMatchupsList();
+        loadMatchupsList(currentWeek);
         loadBankroll(currentWeek, dues, weeklyWinnerPayout);
         //loadBankroll('10',dues,weeklyWinnerPayout); 
         loadPlayoffs(currentWeek);
@@ -125,7 +125,7 @@ function loadSeasonRankings() {
 }
 
 
-function loadMatchups(weekNumber) {
+function loadMatchups(weekNumber,currentWeek) {
 
     const noMatchup = document.getElementById("nomatchups_" + weekNumber);
 
@@ -193,7 +193,8 @@ function loadMatchups(weekNumber) {
                     if (winningTeam[0].roster_id == roster.roster_id && winningTeam[0].points != 0) {
                         teamPoints.setAttribute('style', 'color:#00a700');
 
-                        if(new Date().getDay() == 1)
+
+                        if(weekNumber<currentWeek)
                         {
                             //Ifs used to set different images/colors
                             if (Number(matchup.points) - Number(winningTeam[1].points) <= 2) {
@@ -521,7 +522,7 @@ async function getLatestTransactions(leagueId,week) {
     }
 }
 
-function loadMatchupsList(){
+function loadMatchupsList(currentWeek){
 
     var currentWeek = matchupData[0].matchupWeeks.length;
     var matchupDiv = document.getElementById("matchupWeeks");
@@ -531,7 +532,7 @@ function loadMatchupsList(){
         var accordionItem = createAccordionItem(i);
         matchupDiv.appendChild(accordionItem);
         if (currentWeek > 0) {
-            loadMatchups(i);
+            loadMatchups(i,currentWeek);
         }
 
     }
