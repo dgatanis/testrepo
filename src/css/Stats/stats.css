@@ -15,6 +15,9 @@ div#allTimeStats {
     margin-top: 1rem;
 }
 
+td.custom-score {
+    text-align: center;
+}
 
 .custom-all-time-stats:nth-child(odd) {
     float:inline-end;
@@ -70,4 +73,57 @@ table#allTimeLowScorerTeam .custom-name {
 
 .custom-details-season, .custom-details-week {
     font-size: .5rem;
+}
+
+
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {
+
+}
+
+/*Normal Laptop display styling*/
+@media screen and (max-width: 64rem) {
+}
+
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
+
+}
+
+/*Large Mobile display styling*/
+@media screen and (max-width: 26.875rem) {
+
+    .custom-body {
+        padding: unset;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 100%;
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    .custom-all-time-stats {
+        margin:unset;
+        width: 100%;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    ul.nav.nav-tabs {
+        font-size: .8rem;
+        margin-top: 3rem;
+    }
+
+    .custom-details {
+        display: block;
+    }
+
+    .custom-details-team {
+        display: inline-flex;
+    }
+
+    .custom-table-title {
+        font-size: 1.5rem;
+    }
+
 }
