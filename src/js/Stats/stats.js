@@ -134,7 +134,7 @@ async function setTableData(tableName) {
             }
             return 0;
         });
-        console.log(sortedList);
+
         for (let i = 0; i < 10; i++) {
             let roster = rosterData.find(x => x.roster_id === sortedList[i].roster_id);
             var name = tableRows[i].children[0].children[0];
