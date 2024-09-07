@@ -17,11 +17,11 @@ import {
     allTimeMatchupData,
     setLeagueName,
     setLinkSource,
-    removeSpinner 
+    removeSpinner,
     } from '../util/helper.js';
 import { 
     getCurrentSeason,
-    inauguralSeason
+    getCurrentWeek
         } from '../util/leagueInfo.js';
 
 let userData = users;
@@ -60,6 +60,7 @@ function initTableData()
 
 function getAllTimePlayerScores() {
     var playerScores = [];
+
     for (let matchupWeek of allTimeMatchups) {
 
         if (matchupWeek && matchupWeek.week != 0) {
@@ -112,16 +113,20 @@ function getAllTimeTeamScores() {
     return teamScores;
 }
 
-function setTableData(tableName) {
+async function setTableData(tableName) {
 
     var thisTable = document.getElementById(tableName);
-    var teamScores = getAllTimeTeamScores();
-    var playerScores = getAllTimePlayerScores();
+    var teamScores =  getAllTimeTeamScores();
+    var playerScores =  getAllTimePlayerScores();
+    var currentSeason = await getCurrentSeason();
+    var currentWeek = await getCurrentWeek();
+    
 
     if (tableName == 'allTimeLowScorerTeam') {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
-            if (a.team_points < b.team_points) {
+            
+            if (a.team_points < b.team_points || b.season == currentSeason && b.week >= currentWeek) {
                 return -1;
             }
             if (a.team_points > b.team_points) {
@@ -130,7 +135,6 @@ function setTableData(tableName) {
             return 0;
         });
         console.log(sortedList);
-
         for (let i = 0; i < 10; i++) {
             let roster = rosterData.find(x => x.roster_id === sortedList[i].roster_id);
             var name = tableRows[i].children[0].children[0];
@@ -159,7 +163,7 @@ function setTableData(tableName) {
     else if (tableName == 'allTimeHighScorerTeam') {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
-            if (a.team_points > b.team_points) {
+            if (a.team_points > b.team_points || b.season == currentSeason && b.week >= currentWeek) {
                 return -1;
             }
             if (a.team_points < b.team_points) {
@@ -196,7 +200,7 @@ function setTableData(tableName) {
     else if (tableName == 'allTimeLowScorerPlayer') {
         var tableRows = thisTable.children[1].children;
         var sortedList = playerScores.sort(function (a, b) {
-            if (a.player_points < b.player_points) {
+            if (a.player_points < b.player_points || b.season == currentSeason && b.week >= currentWeek) {
                 return -1;
             }
             if (a.player_points > b.player_points) {
@@ -235,7 +239,7 @@ function setTableData(tableName) {
     else if (tableName == 'allTimeHighScorerPlayer') {
         var tableRows = thisTable.children[1].children;
         var sortedList = playerScores.sort(function (a, b) {
-            if (a.player_points > b.player_points) {
+            if (a.player_points > b.player_points || b.season == currentSeason && b.week >= currentWeek) {
                 return -1;
             }
             if (a.player_points < b.player_points) {
