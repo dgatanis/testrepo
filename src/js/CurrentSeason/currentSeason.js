@@ -102,7 +102,7 @@ function loadSeasonRankings() {
             ownerImage.setAttribute('title', getRandomString());
             var teamRecord = document.createElement("div");
             teamRecord.setAttribute('class', 'custom-standings-record');
-            teamRecord.innerText = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.losses + ")";
+            teamRecord.innerText = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + ")";
             var standingsElementId = "Standings_" + rank;
             var rosterButtonId = "GetRosterButton_" + rank;
             var standing = document.getElementById(standingsElementId);
