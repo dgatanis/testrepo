@@ -147,7 +147,13 @@ function loadMatchups(weekNumber,currentWeek) {
                 let matchupId = i;
                 let counter = 0;
 
-            for (let j = 0; j < matchupsLength; j++) {
+                var versus = document.createElement('div');
+                var matchupTeams = document.createElement('div');
+                
+                versus.setAttribute('class', "custom-versus-matchup");
+                matchupTeams.setAttribute('class', "custom-matchup-teams");
+
+                for (let j = 0; j < matchupsLength; j++) {
                 let matchup = matchups[j];
 
                 if (matchup.matchup_id == matchupId) {
@@ -158,20 +164,18 @@ function loadMatchups(weekNumber,currentWeek) {
                     let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
                     let userName = getTeamName(user.user_id);
                     var matchupDiv = document.createElement("div");
-
-                    var teamNameSpan = document.createElement("span");
                     var teamScoreDiv = document.createElement("div");
-
                     var teamImage = createOwnerAvatarImage(user.user_id);
                     var teamPoints = document.createElement("div");
+                    var teamDiv = document.createElement("div");
 
+                    teamDiv.setAttribute('class', 'custom-team-matchup')
                     matchupDiv.id = "rosterid_" + matchup.roster_id;
                     matchupDiv.setAttribute("class", "custom-matchup-row");
                     teamPoints.innerText = matchup.points + " pts";
                     teamPoints.setAttribute('class', 'custom-pts');
-                    teamNameSpan.innerText = userName + ": ";
                     teamScoreDiv.setAttribute('class', 'custom-team-score');
-
+                    
                     if(matchup.points != 0)
                     {
                         let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
@@ -192,7 +196,7 @@ function loadMatchups(weekNumber,currentWeek) {
                     //if this is the winning team
                     if (winningTeam[0].roster_id == roster.roster_id && winningTeam[0].points != 0) {
                         teamPoints.setAttribute('style', 'color:#00a700');
-
+                        teamScoreDiv.setAttribute('style', 'border: 1px solid #00a700');
 
                         if(weekNumber<currentWeek)
                         {
@@ -202,7 +206,7 @@ function loadMatchups(weekNumber,currentWeek) {
                                 angelImg.setAttribute('src', '../src/static/images/angel-wings.png');
                                 angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
 
-                                teamScoreDiv.append(teamNameSpan);
+                                //teamScoreDiv.append(teamNameSpan);
                                 teamScoreDiv.append(teamPoints);
                                 teamScoreDiv.append(angelImg);
                             }
@@ -211,17 +215,17 @@ function loadMatchups(weekNumber,currentWeek) {
                                 luckyImg.setAttribute('src', '../src/static/images/horseshoe.png');
                                 luckyImg.setAttribute('title', 'You lucky SOB');
 
-                                teamScoreDiv.append(teamNameSpan);
+                                //teamScoreDiv.append(teamNameSpan);
                                 teamScoreDiv.append(teamPoints);
                                 teamScoreDiv.append(luckyImg);
                             }
                             else {
-                                teamScoreDiv.append(teamNameSpan);
+                                //teamScoreDiv.append(teamNameSpan);
                                 teamScoreDiv.append(teamPoints);
                             }
                         }
                         else {
-                            teamScoreDiv.append(teamNameSpan);
+                            //teamScoreDiv.append(teamNameSpan);
                             teamScoreDiv.append(teamPoints);
                         }
 
@@ -236,17 +240,17 @@ function loadMatchups(weekNumber,currentWeek) {
                     }
                     else if(winningTeam[0].points != 0) {
                         teamPoints.setAttribute('style', 'color:#cb1919');
-                        teamScoreDiv.append(teamNameSpan);
+                        teamScoreDiv.setAttribute('style', 'border: 1px solid #cb1919');
+                        //teamScoreDiv.append(teamNameSpan);
                         teamScoreDiv.append(teamPoints);
                     }
                     else {
                         teamPoints.setAttribute('style', 'color:yellow;');
-                        teamScoreDiv.append(teamNameSpan);
+                        //teamScoreDiv.append(teamNameSpan);
                         teamScoreDiv.append(teamPoints);
                     }
 
                     //Add all the elements to the matchup
-                    matchupDiv.prepend(teamImage);
                     matchupDiv.append(teamScoreDiv);
 
                     if(matchup.points != 0)
@@ -254,16 +258,20 @@ function loadMatchups(weekNumber,currentWeek) {
                         matchupDiv.append(playerDiv);
                     }
 
-                    var versus = document.createElement('span');
-                    versus.setAttribute('class', 'custom-versus-matchup');
-                    versus.innerText = 'Matchup ' + matchup.matchup_id;
+
+                    var teamNameSpan = document.createElement("span");
+                    teamNameSpan.innerText = userName;
+                    teamDiv.append(teamImage);
+                    teamDiv.append(teamNameSpan);
+                    versus.appendChild(teamDiv);
+                    
 
                     //Add matchup header
                     if (counter == 1) {
                         weekList.append(versus);
                     }
-
-                    weekList.append(matchupDiv);
+                    matchupTeams.append(matchupDiv);
+                    weekList.append(matchupTeams);
 
                 }
             }
