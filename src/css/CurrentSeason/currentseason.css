@@ -92,6 +92,9 @@
   .custom-team-score {
     margin-top:.5rem;
     display: inline;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: .5rem;
   }
   
   .custom-matchup-week {
@@ -119,6 +122,32 @@
 
   .game .team:nth-child(1) {
     background-color:#1818ff;
+  }
+
+  .custom-matchup-teams {
+    text-align: center;
+  }
+
+  .custom-versus-matchup .custom-team-matchup:nth-child(odd) {
+    float: left;
+    width: 50%;
+  }
+
+  .custom-versus-matchup .custom-team-matchup:nth-child(even) {
+    float: right;
+    width: 50%;
+  }
+
+  .custom-matchup-row:nth-child(even) {
+    float: right;
+    clear: right;
+    width: 50%;
+  }
+
+  .custom-matchup-row:nth-child(odd) {
+    float: left;
+    clear: left;
+    width: 50%;
   }
   
   .game .team:nth-child(3) {
@@ -159,6 +188,11 @@
     text-align: center;
   }
 
+  .custom-matchup-player {
+    margin-top: .5rem;
+    word-spacing: .2rem;
+  }
+
   .custom-roster-record {
     display: inline;
     margin-left: .3rem;
@@ -192,7 +226,7 @@
     background-color: var(--custom-dark-blue);
   }
 
-  .custom-matchup-row .custom-medium-avatar {
+  .custom-team-matchup .custom-medium-avatar {
     padding: .1rem;
     background-color: white;
   }
@@ -238,7 +272,6 @@
     animation: blinker 4s ease-in-out infinite;
     padding: 10px;
     font-size: small;
-    margin-left: 3.4rem;
     display: block;
   }
 
@@ -694,13 +727,13 @@
   }
 
   .custom-versus-matchup {
-    color: white;
+    color: whitesmoke;
     font-family: 'F5';
     text-align: center;
     font-size: larger;
-    margin-top: .6rem;
+    margin-top: 4rem;
     border-style: solid;
-    border: 1px white;
+    border: 2px whitesmoke;
     border-bottom-style: solid;
   }
 
@@ -715,10 +748,6 @@
 
   /*Large laptop display styling*/
   @media screen and (max-width: 90rem) {
-
-    .custom-matchup-player {
-      margin-left: 2.4rem;
-    }
 
     @keyframes moveInSquare {
       0% {
@@ -758,8 +787,12 @@
       overflow-y: hidden;
     }
     
-    .custom-matchup-row .custom-medium-avatar {
-      max-width: 2.5rem;
+    .custom-versus-matchup .custom-medium-avatar {
+      max-width: 2rem;
+    }
+
+    .custom-team-matchup {
+      font-size: .9rem;
     }
 
     .custom-team-score{
@@ -772,10 +805,6 @@
 
     .div#currentWeek {
       margin-top: 1.7%;
-    }
-
-    .custom-medium-avatar {
-      float: left;
     }
 
     .custom-rankings {
@@ -914,6 +943,32 @@
       }
     }
 
+    @keyframes moveInSquare {
+      0% {
+          top: 0;
+          left: 0;
+      }
+      25% {
+          top: 0;
+          left: 96%; /* Right edge */
+      }
+      50% {
+          top: 99%; /* Bottom edge */
+          left: 96%;
+      }
+      75% {
+          top: 99%;
+          left: 0; /* Left edge */
+      }
+      100% {
+          top: 0;
+          left: 0; /* Back to top left */
+      }
+    }
+
+    .custom-team-matchup {
+      font-size: .7rem;
+    }
     .custom-playoffs-label {
       font-size: 2rem !important;
     }
@@ -1018,17 +1073,6 @@
     .custom-matchup-list {
       font-size: .7rem;
     }
-
-    .custom-matchup-player {
-      clear: left;
-      padding: unset;
-      margin-left: 3rem;
-    }
-
-    .custom-medium-avatar {
-      float: left;
-    }
-  
     table#RosterTable {
       font-size: .8rem;
     }
