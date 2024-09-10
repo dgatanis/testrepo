@@ -65,13 +65,22 @@ export function sortTeamRankings() {
     if(sortedList)
     {
         return sortedList.sort(function (a, b) {
+            
+            // First, compare by wins
             if (a.wins > b.wins) {
-              return -1;
+            return -1; 
             }
-            if (a.wins < b.wins && a.fpts < b.fpts) {
-              return 1;
+            if (a.wins < b.wins) {
+                return 1; 
             }
-            return 0;
+            // If wins are the same, compare by fpts
+            if (a.fpts > b.fpts) {
+                return -1; 
+            }
+            if (a.fpts < b.fpts) {
+                return 1;  
+            }
+            return 0; // If wins and fpts are equal, leave the order unchanged
         });
     }
 

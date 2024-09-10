@@ -36,6 +36,10 @@ async function OpenTeamRosterModal(userid,teamname) {
             const leaguePositionsLink = document.getElementById("starterPositions");
             const age = document.getElementById("rosterAge");
             const highScorers = document.getElementsByClassName("custom-roster-high-scorer");
+            const wins = document.createElement('div');
+            const losses = document.createElement('div');
+            const points = document.createElement('div');
+            record.innerText = "";//Reset record after each click
 
             for(let currentHighScorer of highScorers)
             {
@@ -51,11 +55,19 @@ async function OpenTeamRosterModal(userid,teamname) {
                 rosterStats.WRpts,
                 rosterStats.TEpts
             ];
-
-            record.innerText = "Wins: " + rosterStats.wins + " Losses: " + rosterStats.losses + " Pts: " + rosterStats.fpts;
+            wins.setAttribute('class', 'custom-roster-record');
+            losses.setAttribute('class', 'custom-roster-record');
+            points.setAttribute('class', 'custom-roster-record');
+            wins.innerText = "Wins: " + rosterStats.wins;
+            losses.innerText = "Losses: " + rosterStats.losses;
+            points.innerText = "Pts: " + rosterStats.fpts;
             leaguePositionsLink.title = "Toggle Starters (" + leaguePositionList + ")";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
+
+            record.appendChild(wins);
+            record.appendChild(losses);
+            record.appendChild(points);
 
             //length of highScorers and highScorerPlayers must match
             for(let i =0; i < highScorers.length; i++)

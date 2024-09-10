@@ -159,6 +159,12 @@
     text-align: center;
   }
 
+  .custom-roster-record {
+    display: inline;
+    margin-left: .3rem;
+    margin-right: .3rem;
+  }
+
   .custom-color-black {
     color: black !important;
   }
