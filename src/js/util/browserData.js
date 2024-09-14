@@ -22,7 +22,11 @@ async function setBrowserData() {
         if(!localStorage.getItem("expiration") || currentExp < now)
         {
             localStorage.clear();
+            sessionStorage.clear();
             localStorage.setItem("expiration", expiration);
+            setMatchupData(currentLeagueId,currentWeek);
+            setAllTimeMatchupData();
+            //setMatchupData('1003692635549462528','10');
             setPlayerData();
             setATLeagueIds();
             setRosterData(currentLeagueId);
@@ -32,14 +36,38 @@ async function setBrowserData() {
             setPlayoffsData(currentLeagueId);
             //setPlayoffsData('998356266604916736');
         }
-        if(!sessionStorage.getItem("MatchupData") || currentExp < now)
+        if(!sessionStorage.getItem("MatchupData"))
         {
-            sessionStorage.clear();
             setMatchupData(currentLeagueId,currentWeek);
-            setAllTimeMatchupData();
-            //setMatchupData('1003692635549462528','10');
         }
-
+        if(!sessionStorage.getItem("ATMatchupData"))
+        {
+            setAllTimeMatchupData();
+        }
+        if(!localStorage.getItem("PlayerData"))
+        {
+            setPlayerData();
+        }
+        if(!localStorage.getItem("ATLeagueIds"))
+        {
+            setATLeagueIds();
+        }
+        if(!localStorage.getItem("RosterData"))
+        {
+            setRosterData(currentLeagueId);
+        }
+        if(!localStorage.getItem("UserData"))
+        {
+            setUserData(currentLeagueId);
+        }
+        if(!localStorage.getItem("LeagueData"))
+        {
+            setLeagueDetails(currentLeagueId);
+        }
+        if(!localStorage.getItem("PlayoffData"))
+        {
+            setPlayoffsData(currentLeagueId);
+        }
     }
     catch(error){
         console.error(`Error: ${error.message}`);
