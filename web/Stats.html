@@ -7,6 +7,7 @@
       <script type="module" src="../src/js/util/browserData.js"></script>
       <script type="module" src="../src/js/Stats/stats.js"></script>
       <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
+      <link rel="stylesheet" href="../src/css/Stats/stats.css">
       <script src="../src/js/bootstrap.js"></script>
       <script src="../src/js/bootstrap.bundle.js"></script>
       <script src="../src/js/Mobile/mobile.js"></script>
@@ -36,7 +37,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
               <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-              <li><a class="dropdown-item" href="./ComingSoon.html">Stats</a></li>
+              <li><a class="dropdown-item" href="#">Stats</a></li>
             </ul>
           </div>
           <div class="nav-item">
@@ -71,8 +72,356 @@
         </a>
       </div>
       <div>
-      <h1 id="seasonTitle">Crush Cities FF Statistics</h1>
-      </div> 
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">All-Time Stats</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Team Comparison Tool</a>
+        </li>
+      </ul>
+      <div class="custom-loading-icon">
+        <div id="page-loading" class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div class="custom-body custom-none-display">
+        <div id="allTimeStats">
+        <div class="custom-stats-container">
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 1;grid-column: 1;">
+            <div class="custom-table-title">Lowest Scoring Teams</div>
+            <table class="table" id="allTimeLowScorerTeam">
+              <thead>
+                <th style="font-family: 'F1';">Team</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr >
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 1;grid-column: 2;">
+            <div class="custom-table-title">Lowest Scoring Players</div>
+            <table class="table" id="allTimeLowScorerPlayer">
+              <thead>
+                <th style="font-family: 'F1';">Player</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr >
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="custom-stats-container">
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 2;grid-column: 1;">
+            <div class="custom-table-title">Highest Scoring Teams</div>
+            <table class="table" id="allTimeHighScorerTeam">
+              <thead>
+                <th style="font-family: 'F1';">Team</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr >
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 2;grid-column: 2;">
+            <div class="custom-table-title">Highest Scoring Players</div>
+            <table class="table" id="allTimeHighScorerPlayer">
+              <thead>
+                <th style="font-family: 'F1';">Player</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr >
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <div class="custom-name"></div>
+                    <div class="custom-details"></div>
+                  </th>
+                  <td class="custom-score"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="custom-body">
+        <div id="teamComparisonTool">
+        </div>
+      </div>
       <footer class="footer">
         <div class="container custom-footer">
           <div id="footerName"></div>

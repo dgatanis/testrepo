@@ -1,4 +1,4 @@
-import { getTransactionsData, setLinkSource, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters } from '../util/helper.js';
+import { getTransactionsData, setLinkSource, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters, removeSpinner } from '../util/helper.js';
 
 const rosterData = rosters;
 const playerData = players;
@@ -265,8 +265,7 @@ async function loadTradeTransactions() {
         }
     }
     addPagesToTrades();
-    var loadingSpinner =  document.getElementById("page-loading");
-    loadingSpinner.classList.add('custom-none-display');
+    removeSpinner();
 }
 
 async function getTradeTransactions() {

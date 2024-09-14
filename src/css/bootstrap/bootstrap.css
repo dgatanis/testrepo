@@ -11242,6 +11242,11 @@ ul.nav.nav-tabs {
     border: unset;
     color: black;
   }
+  
+  .custom-loading-icon {
+    justify-content: center;
+    display: flex;
+}
 
 /* Custom Mobile responsive display */
 

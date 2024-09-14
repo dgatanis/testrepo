@@ -1,0 +1,167 @@
+div#allTimeStats {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+}
+
+.custom-body {
+    font-family: 'F5';
+}
+
+.custom-stats-container {
+    display: grid;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.custom-all-time-stats {
+    max-width: 35rem;
+    clear: both;
+    width: 30rem;
+    margin: 3rem;
+    background: black;
+    color: whitesmoke;
+    height: fit-content;
+}
+
+table > tbody > tr:last-child {
+    border-bottom: transparent;
+}
+
+.custom-loading-icon {
+    margin-top: 1rem;
+}
+
+th {
+    color: whitesmoke;
+    font-weight: normal;
+}
+
+td.custom-score {
+    text-align: center;
+    color: whitesmoke;
+}
+
+
+
+.custom-table-title {
+    text-align: center;
+    font-family: 'F1';
+}
+
+table#allTimeHighScorerTeam .custom-name {
+    margin-right: .5rem;
+}
+
+table#allTimeLowScorerTeam .custom-name {
+    margin-right: .5rem;
+}
+
+.custom-small-avatar {
+    margin-right: .2rem;
+    padding: .1rem;
+    background-color:whitesmoke;
+}
+
+.custom-xsmall-avatar {
+    max-width: 1.2rem;
+    margin-right: .1rem;
+    padding: .1rem;
+    background-color: var(--custom-light-gray);
+}
+.custom-name {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 1.5rem;
+    word-spacing: .2rem;
+    color: white;
+    font-weight: normal;
+}
+
+.custom-details {
+    display: inline;
+    font-size: x-small;
+    vertical-align: middle;
+    font-family: 'F1';
+    color: var(--custom-light-gray);
+}
+
+.custom-details-team, .custom-details-season, .custom-details-week {
+    display: inline;
+    margin-left: .1rem;
+    margin-right: .1rem;
+    vertical-align: middle;
+}
+
+.custom-details-season, .custom-details-week {
+    font-size: .5rem;
+}
+
+
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {
+
+}
+
+/*Normal Laptop display styling*/
+@media screen and (max-width: 64rem) {
+}
+
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
+
+}
+
+/*Large Mobile display styling*/
+@media screen and (max-width: 26.875rem) {
+
+    .custom-all-time-stats.custom-div-shadow {
+        box-shadow: none;
+    }
+
+    .custom-body {
+        padding: unset;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 100%;
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    .custom-all-time-stats {
+        margin:unset;
+        width: 100%;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        grid-row: unset !important;
+        grid-column: unset !important;
+    }
+
+    .custom-all-time-stats:nth-child(odd) {
+        float:inline-end;
+        clear: inline-end;
+    }
+    .custom-all-time-stats:nth-child(even) {
+        float:inline-start;
+        clear: inline-start;
+    }
+
+    ul.nav.nav-tabs {
+        font-size: .8rem;
+        margin-top: 3rem;
+    }
+
+    .custom-details {
+        display: block;
+    }
+
+    .custom-details-team {
+        display: inline-flex;
+    }
+
+    .custom-table-title {
+        font-size: 1.5rem;
+    }
+
+}

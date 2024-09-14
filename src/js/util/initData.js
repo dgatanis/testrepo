@@ -153,6 +153,28 @@ async function initATLeagueIdData() {
     }
 }
 
+async function initATMatchupData() {
+    const dataStorage = sessionStorage.getItem("ATMatchupData");
+
+    if(!dataStorage)
+    {   
+        try {
+            const dataRes = await waitForSessionStorageItem("ATMatchupData");
+
+            var data = JSON.parse(dataRes);
+
+            return data;
+
+        } catch (error) {
+            console.error('Error loading or executing script:', error);
+        }
+    }
+    else
+    {
+        return JSON.parse(dataStorage);
+    }
+}
+
 function waitForLocalStorageItem(key) {
     return new Promise((resolve) => {
         const checkLocalStorage = () => {
@@ -188,6 +210,7 @@ const players = await initPlayerData();
 const playoffs = await initPlayoffData();
 const matchups = await initMatchupData();
 const allTimeLeagueIds = await initATLeagueIdData();
+const allTimeMatchupData = await initATMatchupData();
 
 export { 
     rosters, 
@@ -196,5 +219,6 @@ export {
     players,
     playoffs,
     matchups,
-    allTimeLeagueIds
+    allTimeLeagueIds,
+    allTimeMatchupData
 };

@@ -18,6 +18,11 @@
     display: grid;
 }
 
+.custom-loading-icon {
+    margin-bottom: 1rem;
+}
+
+
 .custom-teams {
     grid-row: 2;
     grid-column: 1;

@@ -36,6 +36,7 @@ async function setBrowserData() {
         {
             sessionStorage.clear();
             setMatchupData(currentLeagueId,currentWeek);
+            setAllTimeMatchupData();
             //setMatchupData('1003692635549462528','10');
         }
 
@@ -250,5 +251,60 @@ async function setMatchupData(leagueID, currentWeek) {
     {
         console.error(`Error: ${error.message}`);
     }
+
+}
+
+async function setAllTimeMatchupData() {
+    try{
+        var thisYear = await getCurrentSeason();
+        const currentLeagueId = await leagueInfo.default();
+        var lastLeagueId = currentLeagueId;
+        let matchupWeeks = [];
+        let allTimeMatchups = [];
+
+        while(lastLeagueId != 0 && lastLeagueId != null)
+        {
+            for(let i = 0; i<=18; i++)
+            {
+                const matchup = await fetch(`https://api.sleeper.app/v1/league/${lastLeagueId}/matchups/${i}`);
+                const matchupData = await matchup.json();
+                let matchupsArray = [];
+
+                if(matchupData)
+                {
+                    for(let matchups of matchupData)
+                    {
+                        if(matchups)
+                        {
+                            matchupsArray.push({
+                                ...matchups
+                            });
+                        }
+                    }
+                    matchupWeeks.push({
+                        ...matchupsArray
+                        ,"year": thisYear.toString()
+                        ,"week": i
+                    });
+    
+    
+                }
+            }
+            thisYear = thisYear - 1;
+            lastLeagueId = await previousLeagueId(lastLeagueId);
+            
+        }
+
+        allTimeMatchups.push({
+            matchupWeeks
+        });
+
+        sessionStorage.setItem("ATMatchupData", JSON.stringify(allTimeMatchups));
+
+    }
+    catch (error){
+        console.error(`Error: ${error.message}`);
+    }
+    
 
 }

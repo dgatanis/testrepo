@@ -37,7 +37,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Current Season</a></li>
               <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-              <li><a class="dropdown-item" href="./ComingSoon.html">Stats</a></li>
+              <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
             </ul>
           </div>
           <div class="nav-item">
@@ -63,7 +63,7 @@
         <div id="mobileLinks" class="custom-mobile-hide">
           <a href="../index.html">Home</a>
           <a href="./LeagueChamps.html">League Champs</a>
-          <a href="./ComingSoon.html">Stats</a>
+          <a href="./Stats.html">Stats</a>
           <a href="./Rosters.html">Rosters</a>
           <a href="./Trades.html">Trades</a>
         </div>
@@ -142,8 +142,13 @@
         </div>
       </div>
       <h3 id="seasonTitle" style="text-align: center;margin-top:1rem;">Current Season</h3>
+      <div class="custom-loading-icon">
+        <div id="page-loading" class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
       <br>
-      <div class="custom-body">
+      <div class="custom-body custom-none-display">
         <div class="custom-rankings float-start">
           <div style = "text-align: center;">
           <font class="display-4">Standings</font>
@@ -256,7 +261,7 @@
           </div>
         </div>
     </div>
-    <div class="custom-body" style="padding: unset;margin: unset;">
+    <div class="custom-body custom-none-display" style="padding: unset;margin: unset;">
       <div class="custom-body-container">
         <div class="custom-bankroll">
           <table class="table" id="bankrollTable">

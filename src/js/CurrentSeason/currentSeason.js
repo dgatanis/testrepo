@@ -18,7 +18,8 @@ import {
     setLeagueName,
     setLinkSource,
     getTransactionsData,
-    getRandomString
+    getRandomString,
+    removeSpinner
 } from '../util/helper.js';
 
 let userData = users;
@@ -49,7 +50,7 @@ async function loadContents() {
         loadPlayoffs(currentWeek);
         getLatestTransactions(currentLeagueId, currentWeek);
         setSeasonTitle(currentSeason);
-
+        removeSpinner();
         return;
     }
     catch (error) {
