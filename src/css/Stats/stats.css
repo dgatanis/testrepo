@@ -2,6 +2,17 @@ div#allTimeStats {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    display: grid;
+}
+
+.custom-body {
+    font-family: 'F5';
+}
+
+.custom-stats-container {
+    display: grid;
+    overflow: auto;
+    overflow-y: hidden;
 }
 
 .custom-all-time-stats {
@@ -9,27 +20,34 @@ div#allTimeStats {
     clear: both;
     width: 30rem;
     margin: 3rem;
+    background: black;
+    color: whitesmoke;
+    height: fit-content;
+}
+
+table > tbody > tr:last-child {
+    border-bottom: transparent;
 }
 
 .custom-loading-icon {
     margin-top: 1rem;
 }
 
-td.custom-score {
-    text-align: center;
+th {
+    color: whitesmoke;
+    font-weight: normal;
 }
 
-.custom-all-time-stats:nth-child(odd) {
-    float:inline-end;
-    clear: inline-end;
+td.custom-score {
+    text-align: center;
+    color: whitesmoke;
 }
-.custom-all-time-stats:nth-child(even) {
-    float:inline-start;
-    clear: inline-start;
-}
+
+
 
 .custom-table-title {
     text-align: center;
+    font-family: 'F1';
 }
 
 table#allTimeHighScorerTeam .custom-name {
@@ -50,18 +68,23 @@ table#allTimeLowScorerTeam .custom-name {
     max-width: 1.2rem;
     margin-right: .1rem;
     padding: .1rem;
-    background-color:whitesmoke;
+    background-color: var(--custom-light-gray);
 }
 .custom-name {
     display: inline;
     vertical-align: middle;
     margin-right: 1.5rem;
+    word-spacing: .2rem;
+    color: white;
+    font-weight: normal;
 }
 
 .custom-details {
     display: inline;
     font-size: x-small;
     vertical-align: middle;
+    font-family: 'F1';
+    color: var(--custom-light-gray);
 }
 
 .custom-details-team, .custom-details-season, .custom-details-week {
@@ -93,6 +116,10 @@ table#allTimeLowScorerTeam .custom-name {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .custom-all-time-stats.custom-div-shadow {
+        box-shadow: none;
+    }
+
     .custom-body {
         padding: unset;
         display: grid;
@@ -107,6 +134,17 @@ table#allTimeLowScorerTeam .custom-name {
         width: 100%;
         margin-bottom: 1rem;
         margin-top: 1rem;
+        grid-row: unset !important;
+        grid-column: unset !important;
+    }
+
+    .custom-all-time-stats:nth-child(odd) {
+        float:inline-end;
+        clear: inline-end;
+    }
+    .custom-all-time-stats:nth-child(even) {
+        float:inline-start;
+        clear: inline-start;
     }
 
     ul.nav.nav-tabs {

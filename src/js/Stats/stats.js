@@ -17,7 +17,7 @@ import {
     allTimeMatchupData,
     setLeagueName,
     setLinkSource,
-    removeSpinner,
+    removeSpinner
     } from '../util/helper.js';
 import { 
     getCurrentSeason,
@@ -126,7 +126,11 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
             
-            if (a.team_points < b.team_points || b.season == currentSeason && b.week >= currentWeek) {
+            if(a.week == currentWeek)
+            {
+                return 1;
+            }
+            if (a.team_points < b.team_points) {
                 return -1;
             }
             if (a.team_points > b.team_points) {
@@ -163,7 +167,12 @@ async function setTableData(tableName) {
     else if (tableName == 'allTimeHighScorerTeam') {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
-            if (a.team_points > b.team_points || b.season == currentSeason && b.week >= currentWeek) {
+
+            if(a.week == currentWeek)
+            {
+                return 1;
+            }
+            if (a.team_points > b.team_points) {
                 return -1;
             }
             if (a.team_points < b.team_points) {
@@ -200,7 +209,12 @@ async function setTableData(tableName) {
     else if (tableName == 'allTimeLowScorerPlayer') {
         var tableRows = thisTable.children[1].children;
         var sortedList = playerScores.sort(function (a, b) {
-            if (a.player_points < b.player_points || b.season == currentSeason && b.week >= currentWeek) {
+
+            if(a.week == currentWeek)
+            {
+                return 1;
+            }
+            if (a.player_points < b.player_points) {
                 return -1;
             }
             if (a.player_points > b.player_points) {
@@ -239,7 +253,12 @@ async function setTableData(tableName) {
     else if (tableName == 'allTimeHighScorerPlayer') {
         var tableRows = thisTable.children[1].children;
         var sortedList = playerScores.sort(function (a, b) {
-            if (a.player_points > b.player_points || b.season == currentSeason && b.week >= currentWeek) {
+
+            if(a.week == currentWeek)
+            {
+                return 1;
+            }
+            if (a.player_points > b.player_points) {
                 return -1;
             }
             if (a.player_points < b.player_points) {

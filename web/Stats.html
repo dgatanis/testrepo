@@ -78,7 +78,7 @@
           <a class="nav-link active" aria-current="page" href="#">All-Time Stats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Team Comparison Tool</a>
+          <a class="nav-link active" href="#">Team Comparison Tool</a>
         </li>
       </ul>
       <div class="custom-loading-icon">
@@ -88,12 +88,13 @@
       </div>
       <div class="custom-body custom-none-display">
         <div id="allTimeStats">
-          <div class="custom-all-time-stats custom-div-shadow">
+        <div class="custom-stats-container">
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 1;grid-column: 1;">
             <div class="custom-table-title">Lowest Scoring Teams</div>
             <table class="table" id="allTimeLowScorerTeam">
               <thead>
-                <th>Team</th>
-                <th style="text-align: center;">Points</th>
+                <th style="font-family: 'F1';">Team</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
               </thead>
               <tbody>
                 <tr>
@@ -169,12 +170,12 @@
               </tbody>
             </table>
           </div>
-          <div class="custom-all-time-stats custom-div-shadow">
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 1;grid-column: 2;">
             <div class="custom-table-title">Lowest Scoring Players</div>
             <table class="table" id="allTimeLowScorerPlayer">
               <thead>
-                <th>Player</th>
-                <th style="text-align: center;">Points</th>
+                <th style="font-family: 'F1';">Player</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
               </thead>
               <tbody>
                 <tr>
@@ -250,12 +251,14 @@
               </tbody>
             </table>
           </div>
-          <div class="custom-all-time-stats custom-div-shadow">
+        </div>
+        <div class="custom-stats-container">
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 2;grid-column: 1;">
             <div class="custom-table-title">Highest Scoring Teams</div>
             <table class="table" id="allTimeHighScorerTeam">
               <thead>
-                <th>Team</th>
-                <th style="text-align: center;">Points</th>
+                <th style="font-family: 'F1';">Team</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
               </thead>
               <tbody>
                 <tr>
@@ -331,12 +334,12 @@
               </tbody>
             </table>
           </div>
-          <div class="custom-all-time-stats custom-div-shadow">
+          <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 2;grid-column: 2;">
             <div class="custom-table-title">Highest Scoring Players</div>
             <table class="table" id="allTimeHighScorerPlayer">
               <thead>
-                <th>Player</th>
-                <th style="text-align: center;">Points</th>
+                <th style="font-family: 'F1';">Player</th>
+                <th style="text-align: center; font-family: 'F1';">Points</th>
               </thead>
               <tbody>
                 <tr>
@@ -412,6 +415,7 @@
               </tbody>
             </table>
           </div>
+        </div>
         </div>
       </div>
       <div class="custom-body">
