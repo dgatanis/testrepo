@@ -126,7 +126,7 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
             
-            if(a.week == currentWeek)
+            if(a.week == currentWeek && a.season == currentSeason)
             {
                 return 1;
             }
@@ -168,7 +168,7 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
 
-            if(a.week == currentWeek)
+            if(a.week == currentWeek && a.season == currentSeason)
             {
                 return 1;
             }
@@ -210,7 +210,7 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         var sortedList = playerScores.sort(function (a, b) {
 
-            if(a.week == currentWeek)
+            if(a.week == currentWeek && a.season == currentSeason)
             {
                 return 1;
             }
@@ -254,7 +254,7 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         var sortedList = playerScores.sort(function (a, b) {
 
-            if(a.week == currentWeek)
+            if(a.week == currentWeek && a.season == currentSeason)
             {
                 return 1;
             }
