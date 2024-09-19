@@ -10964,7 +10964,7 @@ textarea.form-control-lg {
   clear: inline-end;
 }
 
-.custom-mobile-show{
+.custom-mobile-show a{
   visibility: visible;
   background: rgb(97 97 97 / 97%);
   animation: revealLetter 1s forwards;

@@ -1,0 +1,63 @@
+.custom-page-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.custom-rankings-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .flip-list-title-header {
+    width: 50%  !important;
+    margin: unset !important;
+    padding: unset !important;
+}
+
+.flip-entry-last-modified {
+    margin: unset !important;
+    width: 50% !important;
+}
+
+.flip-entry-info {
+    display: inline-block !important;
+    width: 50% !important;
+}
+
+.flip-list-last-modified-header {
+    width: 50% !important;
+    margin: unset !important;
+} */
+
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {
+
+}
+
+/*Normal Laptop display styling*/
+@media screen and (max-width: 64rem) {
+    .custom-rankings-container {
+        width: 80%;
+    }
+}
+
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
+    .custom-rankings-container {
+        width: 90%;
+    }
+}
+
+
+/*Large Mobile display styling*/
+@media screen and (max-width: 26.875rem) {
+    .custom-rankings-container {
+        width: 100%;
+        margin: unset;
+    }
+
+    .custom-page-title {
+        margin-top: 3rem;
+    }
+}
