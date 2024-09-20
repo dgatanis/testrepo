@@ -935,7 +935,7 @@
       }
     }
 
-    .custom-player-avatar {
+    .custom-matchup-teams .custom-player-avatar {
       display: block;
       margin-right: auto;
       margin-left: auto;
@@ -980,12 +980,6 @@
           top: 0;
           left: 0; /* Back to top left */
       }
-    }
-
-    .custom-player-avatar {
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
     }
 
     .custom-matchup-player {
