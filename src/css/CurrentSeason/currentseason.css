@@ -91,10 +91,13 @@
 
   .custom-team-score {
     margin-top:.5rem;
-    display: inline;
+    display: block;
     border: 1px solid;
     border-radius: 10px;
     padding: .5rem;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
   }
   
   .custom-matchup-week {
@@ -717,6 +720,12 @@
   #bankrollTable td {
     text-align: center;
   }
+
+  .custom-team-matchup span {
+    clear: both;
+    display: block;
+    word-spacing: .2rem;
+  }
   
   .custom-ghost-playoff {
     max-width: .75rem;
@@ -733,7 +742,7 @@
     font-size: larger;
     margin-top: 4rem;
     border-style: solid;
-    border: 2px whitesmoke;
+    border: 2px yellow;
     border-bottom-style: solid;
   }
 
@@ -925,6 +934,17 @@
           left: 0; /* Back to top left */
       }
     }
+
+    .custom-player-avatar {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .custom-matchup-player {
+      font-size: smaller;
+    }
+
   }
 
   /*Large Mobile display styling*/
@@ -960,6 +980,16 @@
           top: 0;
           left: 0; /* Back to top left */
       }
+    }
+
+    .custom-player-avatar {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .custom-matchup-player {
+      font-size: smaller;
     }
 
     .custom-team-matchup {
