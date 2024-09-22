@@ -41,6 +41,7 @@ th {
 td.custom-score {
     text-align: center;
     color: whitesmoke;
+    vertical-align: middle;
 }
 
 
