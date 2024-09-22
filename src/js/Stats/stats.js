@@ -77,7 +77,8 @@ function getAllTimePlayerScores() {
                                 "player_points": matchupWeek[i].players_points[starter],
                                 "season": matchupWeek.year,
                                 "week": matchupWeek.week,
-                                "roster_id": matchupWeek[i].roster_id
+                                "roster_id": matchupWeek[i].roster_id,
+                                "matchup_id": matchupWeek[i].matchup_id
                             });
                         }
 
@@ -103,12 +104,14 @@ function getAllTimeTeamScores() {
                         "roster_id": matchupWeek[i].roster_id,
                         "team_points": matchupWeek[i].points,
                         "season": matchupWeek.year,
-                        "week": matchupWeek.week
+                        "week": matchupWeek.week,
+                        "matchup_id": matchupWeek[i].matchup_id
                     });
                 }
             }
         }
     }
+
 
     return teamScores;
 }
