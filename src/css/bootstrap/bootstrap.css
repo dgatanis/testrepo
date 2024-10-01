@@ -10924,6 +10924,15 @@ textarea.form-control-lg {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @font-face {
   font-family: F1;
   src: url("../../static/font/Lato-Black.ttf") format('truetype');
@@ -10964,16 +10973,36 @@ textarea.form-control-lg {
   clear: inline-end;
 }
 
-.custom-mobile-show{
+.custom-mobile-show a{
   visibility: visible;
-  background: rgb(97 97 97 / 97%);
+  background: rgb(81 81 81 / 97%);
   animation: revealLetter 1s forwards;
+}
+
+.custom-fade-in img{
+  visibility: visible;
+  animation: fadeIn 1.75s ease-in-out forwards;
 }
 
 .custom-mobile-hide{
   visibility: hidden;
   background: transparent;
   display: none;
+}
+
+.custom-league-logo-mobile {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.custom-league-logo-image{
+  max-width: 2rem;
+  border-radius: 1rem;
+  visibility: hidden;
+  margin-top: .25rem;
+  margin-right: .2rem;
 }
 
 .custom-nav{

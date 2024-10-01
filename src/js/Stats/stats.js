@@ -71,7 +71,7 @@ function getAllTimePlayerScores() {
                 if (matchupWeek[i] && matchupWeek[i].starters && matchupWeek.week != 0) {
                     for (let starter of matchupWeek[i].starters) {
                         let player = playerData.players.find(e => e.player_id === starter);
-                        if (matchupWeek[i].players_points[starter] && player.position != "DEF") {
+                        if (matchupWeek[i].players_points[starter] && player && player.position != "DEF") {
                             playerScores.push({
                                 "player_id": starter,
                                 "player_points": matchupWeek[i].players_points[starter],

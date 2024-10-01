@@ -8,15 +8,14 @@
     <script type="module" src="../src/js/util/browserData.js"></script>
     <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../src/css/Trades/trades.css">
-    <script type="module" src="../src/js/Trades/trades.js"></script>
-    <script src="../src/js/Trades/functions.js"></script>
+    <link rel="stylesheet" href="../src/css/PowerRankings/powerRankings.css">
+    <script type="module" src="../src/js/PowerRankings/powerRankings.js"></script>
     <script src="../src/js/bootstrap.bundle.min.js"></script>
     <script src="../src/js/Mobile/mobile.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
     </head>
     <title>
-        Trades
+        Power Rankings
     </title>
 
 <body>
@@ -53,16 +52,16 @@
                         </button>
                     </a>
                 </div>
-            <div class="nav-item custom-selected-nav">
-                <a href="#">
+            <div class="nav-item">
+                <a href="./Trades.html">
                     <button class="nav-link custom-nav">
                         <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
                         <span class="custom-nav-label">Trades</span>
                     </button>
                 </a>
             </div>
-            <div class="nav-item">
-                <a href="./PowerRankings.html">
+            <div class="nav-item custom-selected-nav">
+                <a href="#">
                     <button class="nav-link custom-nav">
                         <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
                         <span class="custom-nav-label">Power Rankings</span>
@@ -72,15 +71,15 @@
         </ul>
     </div>
     <div class="mobilenav">
-        <a href="#" class="active">Trades</a>
+        <a href="#" class="active">Power Rankings</a>
         <div id="mobileLinks" class="custom-mobile-hide">
             <a href="../index.html">Home</a>
             <a href="./CurrentSeason.html">Current Season</a>
             <a href="./LeagueChamps.html">League Champs</a>
             <a href="./Stats.html">Stats</a>
             <a href="./Rosters.html">Rosters</a>
-            <a href="./PowerRankings.html">Power Rankings</a>
-            <div onclick="toggleMobileMenu()" style="height: 100rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
+            <a href="./Trades.html">Trades</a>
+            <div onclick="toggleMobileMenu()" style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
         </div>
         <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
             <font>☰</font>
@@ -89,29 +88,16 @@
             <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
         </div>
     </div>
-    <h3 class="custom-title" id="pageTitle">Trades</h3>
-    <nav aria-label="Page navigation">
-        <ul id="trades-pagination" class="pagination custom-none-display" data-current-page="1">
-            <li class="page-item">
-                <a class="page-link" onclick="togglePage('P')"  href="#">Previous</a>
-            </li>
-            <li class="page-item ellipsis custom-none-display">
-                <a class="page-link"  href="#">...</a>
-            </li>
-            <li class="page-item ellipsis custom-none-display">
-                <a class="page-link"  href="#">...</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" onclick="togglePage('N')" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    <h3 class="custom-page-title" id="pageTitle">Power Rankings</h3>
     <div class="custom-loading-icon">
         <div id="page-loading" class="spinner-border text-dark" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
-    </div>
+      </div>
     <div class="custom-body custom-none-display">
+        <div class="custom-rankings-container">
+            <iframe src="https://drive.google.com/embeddedfolderview?id=1_NKAEX_tOn2Wt9brOuayBBT1rYsDBC-T#list&q=type:pdf" style="width: 100%; height: 600px; border: 0;"></iframe>
+        </div>
     </div>
     <footer class="footer">
         <div class="container custom-footer">
