@@ -143,7 +143,7 @@ function loadSeasonRankings() {
             points.setAttribute('class', 'custom-points-for-standings');
             ownerImage.setAttribute('title', getRandomString());
             teamRecord.setAttribute('class', 'custom-standings-record');
-            points.innerHTML = "PF: " + team.fpts + "pts  · " + pointsForRank + formattedNum;
+            points.innerHTML = team.fpts + "pts  · " + pointsForRank + formattedNum;
             teamRecord.innerText = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + ")";
 
             standing.append(ownerImage);
