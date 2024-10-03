@@ -304,6 +304,18 @@
   .table-dark {
     --bs-table-bg: var(--custom-dark-mode-background);
   }
+
+  .custom-points-for-standings {
+    font-size: .45rem;
+    width: fit-content;
+    padding-top: .1rem;
+    color: var(--custom-dark-gray);
+    margin-left: .35rem;
+  }
+
+  #Standings tbody tr td{
+    position: relative;
+  }
   
   .custom-stats-card-body {
     text-align: center;
@@ -780,7 +792,6 @@
           left: 0; /* Back to top left */
       }
     }
-
     .custom-date-transaction {
       margin-left: 8rem;
     }
@@ -864,6 +875,10 @@
           top: 0;
           left: 0; /* Back to top left */
       }
+    }
+    
+    .custom-points-for-standings {
+      margin-left: unset;
     }
 
     .custom-team-score{
