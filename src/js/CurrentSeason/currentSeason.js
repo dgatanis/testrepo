@@ -71,14 +71,25 @@ function loadSeasonRankings() {
 
         var rank = 1;
         const sortedTeams = sortTeamRankings();
-
+        const sortedTeamsPointsFor = sortTeamRankings().sort(function (a, b) {
+            // If wins are the same, compare by fpts
+            if (a.fpts > b.fpts) {
+                return -1; 
+            }
+            if (a.fpts < b.fpts) {
+                return 1;  
+            }
+            return 0; // If fpts are equal, leave the order unchanged
+        });
+        
         for (let team of sortedTeams) {
+            
             let roster = rosterData.find(x => x.owner_id === team.owner_id);
             let user = userData.find(x => x.user_id === team.owner_id);
             var rosterStats = getRosterStats(roster.roster_id);
             var teamNameDisplay = getTeamName(user.user_id);
-
             var teamName = document.createElement("div");
+            
             teamName.setAttribute('class', 'custom-teamname-normal');
 
             if (rank <= 2) {
@@ -100,18 +111,45 @@ function loadSeasonRankings() {
             }
 
             var ownerImage = createOwnerAvatarImage(user.user_id);
-            ownerImage.setAttribute('title', getRandomString());
             var teamRecord = document.createElement("div");
-            teamRecord.setAttribute('class', 'custom-standings-record');
-            teamRecord.innerText = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + ")";
+            var pointsForRank = sortedTeamsPointsFor.findIndex(function(item) {
+                return item.owner_id === team.owner_id;
+                
+            }) + 1;
+            var points = document.createElement('div');
             var standingsElementId = "Standings_" + rank;
             var rosterButtonId = "GetRosterButton_" + rank;
             var standing = document.getElementById(standingsElementId);
             var rosterButton = document.getElementById(rosterButtonId);
+            var formattedNum
+
+            if(pointsForRank == 1)
+            {
+                formattedNum = '<sup style="font-size: .35rem;">st</sup>';
+            }
+            else if (pointsForRank == 2)
+            {
+                formattedNum = '<sup style="font-size: .35rem;">nd</sup>';
+            }
+            else if (pointsForRank == 3)
+            {
+                formattedNum = '<sup style="font-size: .35rem;">rd</sup>';
+            }
+            else 
+            {
+                formattedNum = '<sup style="font-size: .35rem;">th</sup>';
+            }
+
+            points.setAttribute('class', 'custom-points-for-standings');
+            ownerImage.setAttribute('title', getRandomString());
+            teamRecord.setAttribute('class', 'custom-standings-record');
+            points.innerHTML = "PF: " + team.fpts + "pts  · " + pointsForRank + formattedNum;
+            teamRecord.innerText = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + ")";
 
             standing.append(ownerImage);
             standing.append(teamName);
             standing.append(teamRecord);
+            standing.append(points);
 
             rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamNameDisplay + "')");
 
