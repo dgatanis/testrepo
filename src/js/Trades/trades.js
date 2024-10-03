@@ -32,7 +32,7 @@ async function loadTradeTransactions() {
             for(let [index, trade] of trades.data.entries())
             {
                 //Used for pagination
-                if(index % 10 == 0)
+                if((index + 1) % 10 == 0)
                 {
                     page += 1
                 }
@@ -294,7 +294,7 @@ async function getTradeTransactions() {
             });
         }
     }
-    console.log(allTradeTransactions);
+
     return allTradeTransactions;
 }
 
