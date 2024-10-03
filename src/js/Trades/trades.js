@@ -16,9 +16,17 @@ async function loadTradeTransactions() {
     var allTradeTransactions = await getTradeTransactions();
     var body = document.getElementsByClassName('custom-body')[0];
     var page = 0;
-
+    allTradeTransactions.sort(function (a, b) {
+        // First compare by season (descending)
+        if (a.season !== b.season) {
+            return b.season - a.season;
+        }
+        // If seasons are the same, compare by week (descending)
+        return b.week - a.week;
+    });
     for(let trades of allTradeTransactions)
     {
+        
         if(trades.data.length >= 1)
         {
             for(let [index, trade] of trades.data.entries())
@@ -286,7 +294,7 @@ async function getTradeTransactions() {
             });
         }
     }
-
+    console.log(allTradeTransactions);
     return allTradeTransactions;
 }
 
