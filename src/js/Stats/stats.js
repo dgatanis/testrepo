@@ -49,7 +49,7 @@ function loadContents() {
 
 function initTableData()
 {
-    var tables = ['allTimeLowScorerTeam','allTimeLowScorerPlayer','allTimeHighScorerTeam','allTimeHighScorerPlayer'];
+    var tables = ['allTimeLowScorerTeam','allTimeLowScorerPlayer','allTimeHighScorerTeam','allTimeHighScorerPlayer', 'allTimeMostWins', 'allTimeMostLosses'];
 
     for(let table of tables)
     {
@@ -77,7 +77,8 @@ function getAllTimePlayerScores() {
                                 "player_points": matchupWeek[i].players_points[starter],
                                 "season": matchupWeek.year,
                                 "week": matchupWeek.week,
-                                "roster_id": matchupWeek[i].roster_id
+                                "roster_id": matchupWeek[i].roster_id,
+                                "matchup_id": matchupWeek[i].matchup_id
                             });
                         }
 
@@ -103,12 +104,14 @@ function getAllTimeTeamScores() {
                         "roster_id": matchupWeek[i].roster_id,
                         "team_points": matchupWeek[i].points,
                         "season": matchupWeek.year,
-                        "week": matchupWeek.week
+                        "week": matchupWeek.week,
+                        "matchup_id": matchupWeek[i].matchup_id
                     });
                 }
             }
         }
     }
+
 
     return teamScores;
 }
@@ -154,9 +157,9 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
             season.setAttribute('class', 'custom-details-season');
-            season.innerText = sortedList[i].season;
+            season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "wk: " + sortedList[i].week;
+            week.innerText = "week " + sortedList[i].week;
 
             name.appendChild(teamImage);
             name.appendChild(team);
@@ -196,9 +199,9 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
             season.setAttribute('class', 'custom-details-season');
-            season.innerText = sortedList[i].season;
+            season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "wk: " + sortedList[i].week;
+            week.innerText = "week " + sortedList[i].week;
 
             name.appendChild(teamImage);
             name.appendChild(team);
@@ -240,9 +243,9 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
             season.setAttribute('class', 'custom-details-season');
-            season.innerText = sortedList[i].season;
+            season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "wk: " + sortedList[i].week;
+            week.innerText = "week " + sortedList[i].week;
 
             details.append(teamImage);
             details.append(team);
@@ -284,9 +287,9 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
             season.setAttribute('class', 'custom-details-season');
-            season.innerText = sortedList[i].season;
+            season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "wk: " + sortedList[i].week;
+            week.innerText = "week " + sortedList[i].week;
 
             details.append(teamImage);
             details.append(team);
@@ -294,5 +297,127 @@ async function setTableData(tableName) {
             details.append(season);
         }
     }
+    else if(tableName == 'allTimeMostWins') {
+        var teamTotalWins = getAllTimeWins(currentWeek, currentSeason);
+        var tableRows = thisTable.children[1].children;
+        for (let i = 0; i < 10; i++) {
+            let roster = rosterData.find(x => x.roster_id === teamTotalWins[i].roster_id);
+            var name = tableRows[i].children[0].children[0];
+            var details = tableRows[i].children[0].children[1];
+            var score = tableRows[i].children[1];
+            var teamImage = createOwnerAvatarImage(roster.owner_id);
+            var team = document.createElement('div');
+            
+            score.innerText = teamTotalWins[i].wins;
+            teamImage.setAttribute('class','custom-small-avatar');
+            team.setAttribute('class', 'custom-details-team');
+            team.innerText = getTeamName(roster.owner_id);
 
+            name.append(teamImage);
+            name.appendChild(team);
+        }
+    }
+    else if(tableName == 'allTimeMostLosses') {
+        var teamTotalLosses = getAllTimeLosses(currentWeek, currentSeason);
+        var tableRows = thisTable.children[1].children;
+        for (let i = 0; i < 10; i++) {
+            let roster = rosterData.find(x => x.roster_id === teamTotalLosses[i].roster_id);
+            var name = tableRows[i].children[0].children[0];
+            var details = tableRows[i].children[0].children[1];
+            var score = tableRows[i].children[1];
+            var teamImage = createOwnerAvatarImage(roster.owner_id);
+            var team = document.createElement('div');
+
+            score.innerText = teamTotalLosses[i].losses;
+            teamImage.setAttribute('class','custom-small-avatar');
+            team.setAttribute('class', 'custom-details-team');
+            team.innerText = getTeamName(roster.owner_id);
+
+
+            name.append(teamImage);
+            name.appendChild(team);
+
+        }
+    }
+}
+
+function getAllTimeWins(currentWeek, currentSeason) {
+    let winCounter = [];
+
+    for(let week of allTimeMatchups)
+    {  
+        
+        if(week.week != 0 && week[0].points !=0 && (parseInt(week.year) <= currentSeason && week.week < currentWeek))
+        {
+            
+            var thisWeek = week.week;
+            var thisYear = week.year;
+            var totalMatchups = Object.keys(week).length;
+
+            delete week.week;
+            delete week.year;
+            
+            for(var i = 1; i<totalMatchups/2; i++)
+            {
+                var winner = getMatchupWeekWinner(week,i)[0];
+                let rosterId = winner.roster_id;
+                let existingEntry = winCounter.find(entry => entry.roster_id === rosterId);
+
+
+                if (existingEntry) {
+                    existingEntry.wins++;  // Increment wins count
+                } else {
+                    winCounter.push({ roster_id: rosterId, wins: 1 });  // Initialize wins count
+                }
+            } 
+            
+            week.year = thisYear;
+            week.week = thisWeek;
+        }
+    }
+    
+    winCounter.sort((a, b) => b.wins - a.wins);
+
+    return winCounter;
+}
+
+function getAllTimeLosses(currentWeek, currentSeason) {
+    let lossCounter = [];
+
+    for(let week of allTimeMatchups)
+    {  
+
+        if(week.week != 0 && week[0].points !=0 && (parseInt(week.year) <= currentSeason && week.week < currentWeek))
+        {
+            
+            var thisWeek = week.week;
+            var thisYear = week.year;
+            var totalMatchups = Object.keys(week).length;
+
+            delete week.week;
+            delete week.year;
+
+            for(var i = 1; i<totalMatchups/2; i++)
+            {
+                var loser = getMatchupWeekWinner(week,i)[1]; //loser is second in list
+                let rosterId = loser.roster_id;
+                let existingEntry = lossCounter.find(entry => entry.roster_id === rosterId);
+
+
+                if (existingEntry) {
+                    existingEntry.losses++;  // Increment wins count
+                } else {
+                    lossCounter.push({ roster_id: rosterId, losses: 1 });  // Initialize wins count
+                }
+                
+            } 
+
+            week.year = thisYear;
+            week.week = thisWeek;
+        }
+    }
+    lossCounter.push({ roster_id: 10, losses: 0 }); //keep for now can remove once they lose
+    lossCounter.sort((a, b) => b.losses - a.losses);
+
+    return lossCounter;
 }
