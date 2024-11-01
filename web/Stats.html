@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script type="module" src="../src/js/util/browserData.js"></script>
       <script type="module" src="../src/js/Stats/stats.js"></script>
+      <script src="../src/js/Stats/functions.js"></script>
       <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
       <link rel="stylesheet" href="../src/css/Stats/stats.css">
       <script src="../src/js/bootstrap.js"></script>
@@ -88,10 +89,10 @@
       </div>
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">All-Time Stats</a>
+          <a class="nav-link active" id="statsTab" aria-current="page" href="#">All-Time Stats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Team Comparison Tool</a>
+          <a class="nav-link active" id="teamCompTab" href="#">Team Comparison Tool</a>
         </li>
       </ul>
       <div class="custom-loading-icon">
@@ -103,6 +104,7 @@
         <div id="allTimeStats">
         <div class="custom-stats-container">
           <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 1;grid-column: 1;">
+            <img src="../src/static/images/lastPlace.png" class="custom-table-icon">
             <div class="custom-table-title">Lowest Scoring Teams</div>
             <table class="table" id="allTimeLowScorerTeam">
               <thead>
@@ -184,6 +186,7 @@
             </table>
           </div>
           <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 1;grid-column: 2;">
+            <img src="../src/static/images/sad-face.png" class="custom-table-icon">
             <div class="custom-table-title">Lowest Scoring Players</div>
             <table class="table" id="allTimeLowScorerPlayer">
               <thead>
@@ -267,6 +270,7 @@
         </div>
         <div class="custom-stats-container">
           <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 2;grid-column: 1;">
+            <img src="../src/static/images/crown.png" class="custom-table-icon">
             <div class="custom-table-title">Highest Scoring Teams</div>
             <table class="table" id="allTimeHighScorerTeam">
               <thead>
@@ -348,6 +352,7 @@
             </table>
           </div>
           <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 2;grid-column: 2;">
+            <img src="../src/static/images/mvp-icon.png" class="custom-table-icon" style="max-width: 5rem;max-height: 3rem;padding: unset;margin-top: unset;">
             <div class="custom-table-title">Highest Scoring Players</div>
             <table class="table" id="allTimeHighScorerPlayer">
               <thead>
@@ -431,6 +436,7 @@
         </div>
         <div class="custom-stats-container">
           <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 3;grid-column: 1;">
+            <img src="../src/static/images/medal.png" class="custom-table-icon">
             <div class="custom-table-title">Most Team Wins</div>
             <table class="table" id="allTimeMostWins">
               <thead>
@@ -512,6 +518,7 @@
             </table>
           </div>
           <div class="custom-all-time-stats custom-div-shadow" style="grid-row: 3;grid-column: 2;">
+            <img src="../src/static/images/loser-icon.png" class="custom-table-icon" style="max-width: 8rem;">
             <div class="custom-table-title">Most Team Losses</div>
             <table class="table" id="allTimeMostLosses">
               <thead>
@@ -595,8 +602,33 @@
         </div>
         </div>
       </div>
-      <div class="custom-body">
+      <div class="custom-body custom-none-display">
         <div id="teamComparisonTool">
+          <div class="custom-comparison-container">
+            <div class="btn-group" id="team1">
+              <button id="teamButton1" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Choose Team
+              </button>
+              <ul class="dropdown-menu" id="teamDropdown1">
+              </ul>
+            </div>
+            <div class="btn-group" id="team2">
+              <button id="teamButton2" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Choose Team
+              </button>
+              <ul class="dropdown-menu" id="teamDropdown2">
+              </ul>
+            </div>
+          </div>
+          <div class="custom-comparison-container">
+            <div class="btn-group" id="submitButton">
+              <button type="button" class="btn btn-primary">
+                Compare Teams
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <footer class="footer">

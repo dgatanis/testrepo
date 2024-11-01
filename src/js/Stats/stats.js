@@ -40,6 +40,8 @@ function loadContents() {
         setLeagueName("footerName");
         initTableData();
         removeSpinner();
+        fillDropdownLists();
+        hideShowTabs();
     }
     catch (error){
         console.error(`Error: ${error.message}`);
@@ -420,4 +422,60 @@ function getAllTimeLosses(currentWeek, currentSeason) {
     lossCounter.sort((a, b) => b.losses - a.losses);
 
     return lossCounter;
+}
+
+function fillDropdownLists() {
+    var team_1 = document.getElementById('teamDropdown1');
+    var team_2 = document.getElementById('teamDropdown2');
+
+    for(let i = 0; i < rosterData.length; i++)
+    {
+        var listItem = document.createElement('li');
+        var item = document.createElement('button');
+        item.setAttribute('class', 'dropdown-item');
+        item.setAttribute('type', 'button');
+        item.setAttribute('onclick', "optionSelected();");
+        item.innerText = getTeamName(rosterData[i].owner_id);
+        listItem.addEventListener("click", function(event) {
+            const selectedTeam = event.target.innerText; // The element that was clicked
+            const teamButton = document.getElementById("teamButton1")
+            teamButton.innerText = selectedTeam;
+        });
+        listItem.appendChild(item);
+        team_1.appendChild(listItem);
+    }
+
+    for(let i = 0; i < rosterData.length; i++)
+    {
+        var listItem = document.createElement('li');
+        var item = document.createElement('button');
+        item.setAttribute('class', 'dropdown-item');
+        item.setAttribute('type', 'button');
+        item.setAttribute('onclick', "optionSelected();");
+        item.innerText = getTeamName(rosterData[i].owner_id);
+        listItem.addEventListener("click", function(event) {
+            const selectedTeam = event.target.innerText; // The element that was clicked
+            const teamButton = document.getElementById("teamButton2")
+            teamButton.innerText = selectedTeam;
+            
+        });
+        listItem.appendChild(item);
+        team_2.appendChild(listItem);
+    }
+}
+
+function hideShowTabs() {
+    var statsDiv = document.getElementById("allTimeStats");
+    var toolDiv = document.getElementById("teamComparisonTool");
+    var statsTab = document.getElementById("statsTab");
+    var toolTab = document.getElementById("teamCompTab");
+
+    statsTab.addEventListener("click", function(event) {
+        toolDiv.style.display = 'none';
+        statsDiv.style.display = 'block';
+    });
+    toolTab.addEventListener("click", function(event) {
+        statsDiv.style.display = 'none';
+        toolDiv.style.display = 'block';
+    });
 }
