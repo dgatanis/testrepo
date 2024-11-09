@@ -604,7 +604,7 @@
       <div class="custom-body custom-none-display">
         <div id="teamComparisonTool">
           <div class="custom-comparison-container">
-            <div class="custom-team-header">TEAM 1</div>
+            <!-- <div class="custom-team-header">TEAM 1</div> -->
             <div class="btn-group" id="team1">
               <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -613,7 +613,7 @@
               <ul class="dropdown-menu" id="teamDropdown1">
               </ul>
             </div>
-            <div class="custom-team-header">TEAM 2</div>
+            <!-- <div class="custom-team-header">TEAM 2</div> -->
             <div class="btn-group" id="team2">
               <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -626,37 +626,42 @@
           <div class="custom-comparison-container">
             <div class="btn-group" id="submitButton">
               <button type="button" onclick="submitTeams();" class="btn btn-primary">
-                Go
+                Run
               </button>
             </div>
           </div>
           <div class="custom-comparison-container">
           <table class="table table-dark custom-none-display" id="teamComparison">
             <thead>
-              <th id="team1Header" scope="col" style="text-align: center;">Team 1</th>
+              <th id="team1Header" scope="col" style="text-align: center;"><span class="custom-team-name">Team 1</span></th>
               <th scope="col"></th>
-              <th id="team2Header" scope="col" style="text-align: center;">Team 2</th>
+              <th id="team2Header" scope="col" style="text-align: center;"><span class="custom-team-name">Team 2</span></th>
             </thead>
             <tbody>
               <tr id="wins">
-                <td class="custom-team1-result">Test Name</td>
+                <td class="custom-team1-result"></td>
                 <td>Wins</td>
-                <td class="custom-team2-result">Testasdfasdf</td>
+                <td class="custom-team2-result"></td>
               </tr>
               <tr id="losses">
-                <td class="custom-team1-result">Test Name</td>
+                <td class="custom-team1-result"></td>
                 <td>Losses</td>
-                <td class="custom-team2-result">Testasdfasdf</td>
+                <td class="custom-team2-result"></td>
               </tr>
               <tr id="avgPtsFor">
-                <td class="custom-team1-result">Test Name</td>
+                <td class="custom-team1-result"></td>
                 <td>Avg Pts For</td>
-                <td class="custom-team2-result">Testasdfasdf</td>
+                <td class="custom-team2-result"></td>
               </tr>
               <tr id="avgPtsAgnst">
-                <td class="custom-team1-result">Test Name</td>
+                <td class="custom-team1-result"></td>
                 <td>Avg Pts Against</td>
-                <td class="custom-team2-result">Testasdfasdf</td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="highScorePlayers">
+                <td class="custom-team1-result"></td>
+                <td>High Scorer</td>
+                <td class="custom-team2-result"></td>
               </tr>
             </tbody>
           </table>

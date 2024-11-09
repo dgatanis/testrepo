@@ -15,12 +15,21 @@ div#allTimeStats {
     overflow-y: hidden;
 }
 
+.custom-player-name {
+    font-family: 'F1';
+}
+
+.custom-player-points {
+    font-size: large;
+    display: block;
+}
+
 .custom-comparison-container {
     display: grid;
     margin-left: auto;
     margin-right: auto;
     min-width: fit-content;
-    width: 50%;
+    width: 75%;
 }
 
 .custom-table-icon {
@@ -34,10 +43,39 @@ div#allTimeStats {
     display: none;
 }
 
+#teamComparison td{
+    column-width: auto;
+}
+
+#teamComparison th{
+    background: transparent;
+}
+
+th#team1Header {
+    max-width: 10rem;
+}
+
+th#team2Header {
+    max-width: 10rem;
+}
+
 .btn-group {
     width: fit-content;
     margin-right: auto;
     margin-left: auto;
+}
+
+.custom-medium-avatar {
+    max-width: 2rem;
+    background: var(--custom-dark-gray);
+    padding: .125rem;
+    margin: unset;
+}
+
+.custom-team-name {
+    display: block;
+    margin-top: .5rem;
+    color: var(--custom-dark-gray);
 }
 
 .custom-team-header {
@@ -97,12 +135,25 @@ table > tbody > tr:last-child {
     text-align: center;
 }
 
+.custom-player-details {
+    font-family: 'F1';
+    font-size: xx-small;
+    word-spacing: .1rem;
+    font-style: italic;
+}
+
 .custom-team1-superior {
-    background: linear-gradient(90deg, var(--bs-table-bg), green, green, green, red, var(--bs-table-bg));
+    background-image: url(/src/static/images/green-arrow.gif);
+    background-size: 1.25rem;
+    background-position-x: left;
+    background-repeat: repeat-y;
 }
 
 .custom-team2-superior {
-    background: linear-gradient(90deg, var(--bs-table-bg), red, green, green, green, var(--bs-table-bg));
+    background-image: url(/src/static/images/green-arrow.gif);
+    background-size: 1.25rem;
+    background-repeat: repeat-y;
+    background-position-x: right;
 }
 
 .custom-team1-result, .custom-team2-result {
@@ -201,6 +252,18 @@ table#allTimeLowScorerTeam .custom-name {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    tr#highScorePlayers {
+        font-size: x-small;
+    }
+
+    .custom-player-points {
+        font-size: medium;
+    }
+
+    .custom-player-details {
+        font-size: .4rem;
+    }
+
     .custom-comparison-container {
         display: block;
         width: 100%;
@@ -211,7 +274,7 @@ table#allTimeLowScorerTeam .custom-name {
     }
 
     #team1Header, #team2Header {
-        font-size: smaller;
+        font-size: .55rem;
     }
 
     #teamComparison th {

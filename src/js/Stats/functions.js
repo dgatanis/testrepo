@@ -1,75 +1,107 @@
 async function submitTeams() {
     const helper = await import('../util/helper.js');
-    const allTimeMatchups = helper.allTimeMatchupData[0].matchupWeeks;
     const leagueInfo = await import('../util/leagueInfo.js');
     const currentSeason = await leagueInfo.getCurrentSeason();
     const currentWeek = await leagueInfo.getCurrentWeek();
+    const allTimeMatchups = helper.allTimeMatchupData[0].matchupWeeks;
+
     var team1Name = document.getElementById('teamButton1').innerText;
     var team2Name = document.getElementById('teamButton2').innerText;
     var teamComparisonTable = document.getElementById('teamComparison');
-
     var team1UserId = helper.getUserByName(team1Name);
     var team2UserId = helper.getUserByName(team2Name);
-
     var rosterId1 = helper.getRosterByUserId(team1UserId);
     var rosterId2 = helper.getRosterByUserId(team2UserId);
-
-    var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
     var winsRow = document.getElementById("wins");
     var lossesRow = document.getElementById("losses");
     var avgPtsForRow = document.getElementById("avgPtsFor");
     var avgPtsAgnstRow = document.getElementById("avgPtsAgnst");
+    var highScorePlayersRow = document.getElementById("highScorePlayers");
+    var test = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+
     if (rosterId1 != rosterId2) {
 
-    var team1Header = document.getElementById('team1Header');
-    var team2Header = document.getElementById('team2Header');
-    team1Header.innerText = team1Name;
-    team2Header.innerText = team2Name;
-    teamComparisonTable.classList.remove("custom-none-display");
-    if(winsRow)
-    {
-        var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1);
-        var team1Result = winsRow.getElementsByClassName('custom-team1-result')[0];
-        var team2Result = winsRow.getElementsByClassName('custom-team2-result')[0];
-        team1Result.innerText = winsLosses.team1.wins;
-        team2Result.innerText = winsLosses.team2.wins;
+        //Set team info
+        var team1Header = document.getElementById('team1Header');
+        var team2Header = document.getElementById('team2Header');
+        var ownerName1 = team1Header.getElementsByTagName('span')[0];
+        var ownerName2 = team2Header.getElementsByTagName('span')[0];
+        var team1Image = helper.createOwnerAvatarImage(team1UserId);
+        var team2Image = helper.createOwnerAvatarImage(team2UserId);
+        ownerName1.innerText = team1Name;
+        ownerName2.innerText = team2Name;
+        teamComparisonTable.classList.remove("custom-none-display");
 
-        if (winsLosses.team1.wins > winsLosses.team2.wins) {
-            winsRow.children[1].classList.add('custom-team1-superior');
-            winsRow.children[1].classList.remove('custom-team2-superior');
+        //remove already existing images
+        if(team1Header.getElementsByTagName('img').length > 0 || team2Header.getElementsByTagName('img').length > 0) {
+            team1Header.getElementsByTagName('img')[0].remove();
+            team2Header.getElementsByTagName('img')[0].remove();
+
+            team1Header.prepend(team1Image);
+            team2Header.prepend(team2Image);
         }
         else {
-            winsRow.children[1].classList.add('custom-team2-superior');
-            winsRow.children[1].classList.remove('custom-team1-superior');
+            team1Header.prepend(team1Image);
+            team2Header.prepend(team2Image);
         }
-    }
-    if(lossesRow)
-    {
-        var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1);
-        var team1Result = lossesRow.getElementsByClassName('custom-team1-result')[0];
-        var team2Result = lossesRow.getElementsByClassName('custom-team2-result')[0];
-        team1Result.innerText = winsLosses.team1.losses;
-        team2Result.innerText = winsLosses.team2.losses;
 
-        if (winsLosses.team1.losses < winsLosses.team2.losses) {
-            lossesRow.children[1].classList.add('custom-team1-superior');
-            lossesRow.children[1].classList.remove('custom-team2-superior');
-        }
+        if (winsRow && lossesRow) { //Wins losses rows
+            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1);
+            var team1WinsResult = winsRow.getElementsByClassName('custom-team1-result')[0];
+            var team2WinsResult = winsRow.getElementsByClassName('custom-team2-result')[0];
+            team1WinsResult.innerText = winsLosses.team1.wins;
+            team2WinsResult.innerText = winsLosses.team2.wins;
+            var team1LossesResult = lossesRow.getElementsByClassName('custom-team1-result')[0];
+            var team2LossesResult = lossesRow.getElementsByClassName('custom-team2-result')[0];
+            team1LossesResult.innerText = winsLosses.team1.losses;
+            team2LossesResult.innerText = winsLosses.team2.losses;
+
+            if (winsLosses.team1.losses < winsLosses.team2.losses) {
+                lossesRow.children[1].classList.add('custom-team1-superior');
+                lossesRow.children[1].classList.remove('custom-team2-superior');
+            }
             else {
                 lossesRow.children[1].classList.add('custom-team2-superior');
                 lossesRow.children[1].classList.remove('custom-team1-superior');
             }
-        }
-        if (avgPtsForRow) {
-            var totalPoints = getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper);
-            var team1Val = parseInt(totalPoints.team1.pointsFor) / teamMatchups.length;
-            var team2Val = parseInt(totalPoints.team2.pointsFor) / teamMatchups.length;
-            var team1Result = avgPtsForRow.getElementsByClassName('custom-team1-result')[0];
-            var team2Result = avgPtsForRow.getElementsByClassName('custom-team2-result')[0];
-            team1Result.innerText = team1Val.toFixed(2);
-            team2Result.innerText = team2Val.toFixed(2);
 
-            if (team1Val > team2Val) {
+            if (winsLosses.team1.wins > winsLosses.team2.wins) {
+                winsRow.children[1].classList.add('custom-team1-superior');
+                winsRow.children[1].classList.remove('custom-team2-superior');
+            }
+            else {
+                winsRow.children[1].classList.add('custom-team2-superior');
+                winsRow.children[1].classList.remove('custom-team1-superior');
+            }
+        }
+        if (avgPtsForRow && avgPtsAgnstRow) { //Avg pts for/against rows
+            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var totalPoints = getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper);
+
+            var team1avgPtsVal = totalPoints.team1.pointsFor / teamMatchups.length;
+            var team2avgPtsVal = totalPoints.team2.pointsFor / teamMatchups.length;
+            var team1avgPtsResult = avgPtsForRow.getElementsByClassName('custom-team1-result')[0];
+            var team2avgPtsResult = avgPtsForRow.getElementsByClassName('custom-team2-result')[0];
+            team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
+            team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
+
+            var team1AvgPtsAgnstVal = totalPoints.team1.pointsAgainst / teamMatchups.length;
+            var team2AvgPtsAgnstVal = totalPoints.team2.pointsAgainst / teamMatchups.length;
+            var team1AvgPtsAgnstResult = avgPtsAgnstRow.getElementsByClassName('custom-team1-result')[0];
+            var team2AvgPtsAgnstResult = avgPtsAgnstRow.getElementsByClassName('custom-team2-result')[0];
+            team1AvgPtsAgnstResult.innerText = team1AvgPtsAgnstVal.toFixed(2);
+            team2AvgPtsAgnstResult.innerText = team2AvgPtsAgnstVal.toFixed(2);
+
+            if (team1AvgPtsAgnstVal < team2AvgPtsAgnstVal) {
+                avgPtsAgnstRow.children[1].classList.add('custom-team1-superior');
+                avgPtsAgnstRow.children[1].classList.remove('custom-team2-superior');
+            }
+            else {
+                avgPtsAgnstRow.children[1].classList.add('custom-team2-superior');
+                avgPtsAgnstRow.children[1].classList.remove('custom-team1-superior');
+            }
+            if (team1avgPtsVal > team2avgPtsVal) {
                 avgPtsForRow.children[1].classList.add('custom-team1-superior');
                 avgPtsForRow.children[1].classList.remove('custom-team2-superior');
             }
@@ -78,22 +110,83 @@ async function submitTeams() {
                 avgPtsForRow.children[1].classList.remove('custom-team1-superior');
             }
         }
-        if (avgPtsAgnstRow) {
-            var totalPoints = getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper);
-            var team1Val = parseInt(totalPoints.team1.pointsAgainst) / teamMatchups.length;
-            var team2Val = parseInt(totalPoints.team2.pointsAgainst) / teamMatchups.length;
-            var team1Result = avgPtsAgnstRow.getElementsByClassName('custom-team1-result')[0];
-            var team2Result = avgPtsAgnstRow.getElementsByClassName('custom-team2-result')[0];
-            team1Result.innerText = team1Val.toFixed(2);
-            team2Result.innerText = team2Val.toFixed(2);
+        if(highScorePlayersRow){ //High scorer in matchups
+            var highScorePlayers = getHighScorerPlayerInMatchups(teamMatchups, helper);
+            let sortedHighestEntries = Object.entries(highScorePlayers.players)
+            .map(([player_id, entries]) => {
+                //Find the highest points for each player
+                const maxPointsEntry = entries.reduce((max, entry) => {
+                    return entry.points > max.points ? entry : max;
+                }, entries[0]);
+                
+                return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
+            })
+            .sort((a, b) => b.maxPoints - a.maxPoints);
 
-            if (team1Val > team2Val) {
-                avgPtsAgnstRow.children[1].classList.add('custom-team1-superior');
-                avgPtsAgnstRow.children[1].classList.remove('custom-team2-superior');
+            // Step 4: Convert back to an object if needed
+            let sortedTeamHighScorer = {};
+            sortedHighestEntries.forEach(({ playerId, entries }) => {
+            sortedTeamHighScorer[playerId] = entries;
+            });
+
+            var team1Player = sortedHighestEntries.find(player => player.roster_id === rosterId1);
+            var team2Player = sortedHighestEntries.find(player => player.roster_id === rosterId2);
+            var team1PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
+            var team2PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
+
+            var player2Name = helper.getFullPlayerName(team2Player.player_id);
+            var player1Year = team1Player.year;
+            var player2Year = team2Player.year;
+            var player1Date = "week " + team1Player.week + " '" + player1Year.toString().substring(2,4)
+            var player2Date = "week " + team2Player.week + " '" + player2Year.toString().substring(2,4)
+
+            var player1Div = document.createElement('div');
+            var player1Details = document.createElement('div');
+            var playerName_1 = document.createElement('span');
+            var playerPoints_1 = document.createElement('span');
+            var player2Div = document.createElement('div');
+            var player2Details = document.createElement('div');
+            var playerName_2 = document.createElement('span');
+            var playerPoints_2 = document.createElement('span');
+
+            playerName_1.innerText = helper.getFullPlayerName(team1Player.player_id);
+            playerName_2.innerText = helper.getFullPlayerName(team2Player.player_id);
+            playerPoints_1.innerText = team1Player.maxPoints
+            playerPoints_2.innerText = team2Player.maxPoints
+            player1Details.setAttribute('class', 'custom-player-details');
+            player1Details.innerText = player1Date
+            player2Details.setAttribute('class', 'custom-player-details');
+            player2Details.innerText = player2Date
+            playerName_1.setAttribute('class', 'custom-player-name');
+            playerName_2.setAttribute('class', 'custom-player-name');
+            playerPoints_1.setAttribute('class', 'custom-player-points');
+            playerPoints_2.setAttribute('class', 'custom-player-points');
+
+
+            while (team1PlayerResult.firstChild) {
+                team1PlayerResult.removeChild(team1PlayerResult.firstChild);
+            }
+
+            while (team2PlayerResult.firstChild) {
+                team2PlayerResult.removeChild(team2PlayerResult.firstChild);
+            }
+
+            player1Div.appendChild(playerName_1);
+            player1Div.appendChild(playerPoints_1);
+            player2Div.appendChild(playerName_2);
+            player2Div.appendChild(playerPoints_2);
+            team1PlayerResult.appendChild(player1Div);
+            team1PlayerResult.appendChild(player1Details);
+            team2PlayerResult.appendChild(player2Div);
+            team2PlayerResult.appendChild(player2Details);
+
+            if (team1Player.maxPoints > team2Player.maxPoints) {
+                highScorePlayersRow.children[1].classList.add('custom-team1-superior');
+                highScorePlayersRow.children[1].classList.remove('custom-team2-superior');
             }
             else {
-                avgPtsAgnstRow.children[1].classList.add('custom-team2-superior');
-                avgPtsAgnstRow.children[1].classList.remove('custom-team1-superior');
+                highScorePlayersRow.children[1].classList.add('custom-team2-superior');
+                highScorePlayersRow.children[1].classList.remove('custom-team1-superior');
             }
         }
     }
@@ -117,7 +210,7 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
             {
 
                 let thisMatchup = Object.values(matchupWeek).filter(e => e.matchup_id == matchup_id && e.matchup_id !== null);
-                if (thisMatchup && parseInt(thisMatchup[0].points) !== 0 && parseInt(thisMatchup[1].points) !== 0 
+                if (thisMatchup && parseInt(thisMatchup[0].points) !== 0 && parseInt(thisMatchup[1].points) !== 0
                     &&  thisMatchup[0].roster_id == rosterid_2 || thisMatchup[1].roster_id == rosterid_2)
                 {
                     allMatchups.push({...thisMatchup, "week":matchupWeek.week, "year":matchupWeek.year});
@@ -128,7 +221,7 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
     }
 
     return allMatchups.sort(function (a, b) {
-            
+
         if(parseInt(a.season) !== parseInt(b.season))
         {
             return parseInt(b.season) - parseInt(a.season)
@@ -140,7 +233,6 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
 }
 
 function getRostersWinsLosses(teamMatchups, helper, rosterId1) {
-
     let teamsRecord = {
         "team1": {
             wins: 0,
@@ -151,32 +243,25 @@ function getRostersWinsLosses(teamMatchups, helper, rosterId1) {
             losses: 0
         }
     };
-
-    for(matchup of teamMatchups)
+    var allMatchups = teamMatchups
+    for(matchup of allMatchups)
     {
-        var week = matchup.week;
-        var season = matchup.year;
-        delete matchup.week;
-        delete matchup.year;
-        var teamMatchups = helper.getMatchupWeekWinner(matchup, matchup[0].matchup_id);
-        matchup.week = week;
-        matchup.year = season;
+        matchupWinners = helper.getMatchupWeekWinner(matchup, matchup[0].matchup_id);
 
-        if(teamMatchups[0].roster_id === rosterId1)
+        if(matchupWinners[0].roster_id === rosterId1)
         {
-            teamsRecord.team1.wins += 1 
-            teamsRecord.team2.losses += 1 
+            teamsRecord.team1.wins += 1
+            teamsRecord.team2.losses += 1
         }
         else
         {
-            teamsRecord.team2.wins += 1 
-            teamsRecord.team1.losses += 1 
+            teamsRecord.team2.wins += 1
+            teamsRecord.team1.losses += 1
         }
-
     }
 
     return teamsRecord;
-    
+
 }
 
 function getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper) {
@@ -192,13 +277,9 @@ function getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper) {
             totalGames: teamMatchups.length
         }
     };
-
-    for (matchup of teamMatchups) {
-        var week = matchup.week;
-        var season = matchup.year;
-        delete matchup.week;
-        delete matchup.year;
-
+    var allMatchups = teamMatchups
+    for (matchup of allMatchups) {
+        matchup = helper.getMatchupWeekWinner(matchup, matchup[0].matchup_id);
         if (matchup[0].roster_id === rosterId1) {
             teamsPoints.team1.pointsFor += matchup[0].points;
             teamsPoints.team2.pointsAgainst += matchup[0].points;
@@ -206,18 +287,57 @@ function getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper) {
             teamsPoints.team2.pointsFor += matchup[1].points;
             teamsPoints.team1.pointsAgainst += matchup[1].points;
         }
-        else if (matchup[0].roster_id === rosterId2) {
-            teamsPoints.team1.pointsFor += matchup[0].points;
-            teamsPoints.team2.pointsAgainst += matchup[0].points;
+        else {
+            teamsPoints.team1.pointsAgainst += matchup[0].points;
+            teamsPoints.team2.pointsFor += matchup[0].points;
 
-            teamsPoints.team2.pointsFor += matchup[1].points;
-            teamsPoints.team1.pointsAgainst += matchup[1].points;
+            teamsPoints.team2.pointsAgainst += matchup[1].points;
+            teamsPoints.team1.pointsFor += matchup[1].points;
         }
-
-        matchup.week = week;
-        matchup.year = season;
-
     }
 
     return teamsPoints;
+}
+
+function getHighScorerPlayerInMatchups(teamMatchups, helper) {
+    let teamHighScorer = {
+        "players":{}
+    };
+    var allMatchups = teamMatchups;
+    for(matchup of allMatchups)
+    {
+
+        var team1Starters = matchup[0].starters;
+        var team1Points = matchup[0].players_points;
+        var team2Starters = matchup[1].starters;
+        var team2Points = matchup[1].players_points;
+        var team1Player = helper.highScorerInMatchupStarters(team1Starters, team1Points);
+        var team2Player = helper.highScorerInMatchupStarters(team2Starters, team2Points);
+        if(team1Player)
+        {
+            if(!teamHighScorer.players[team1Player.player_id])
+            {
+                teamHighScorer.players[team1Player.player_id] = [];
+                teamHighScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+            }
+            else
+            {
+                teamHighScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+            }
+
+        }
+        if(team2Player)
+        {
+            if(!teamHighScorer.players[team2Player.player_id])
+            {
+                teamHighScorer.players[team2Player.player_id] = [];
+                teamHighScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+            }
+            else {
+                teamHighScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+            }
+            
+        }
+    }
+    return teamHighScorer;
 }

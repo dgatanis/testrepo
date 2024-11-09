@@ -29,7 +29,7 @@ export function getMatchupWeekWinner(matchups,matchupid) {
     {
         let matchup = matchups[i];
 
-        if(matchup.matchup_id==matchupid)
+        if(matchup && matchup.matchup_id==matchupid)
         {
             matchupScore.push({
                 "roster_id" : matchup.roster_id,
