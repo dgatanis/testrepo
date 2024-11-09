@@ -33,10 +33,13 @@ div#allTimeStats {
 }
 
 .custom-table-icon {
-    max-width: 2rem;
-    position: absolute;
+    max-width: 2.5rem;
     padding: .2rem;
-    max-height: 2rem;
+    max-height: 2.5rem;
+    display: block;
+    margin: auto;
+    border-radius: 5rem;
+    box-shadow: 0 .1rem 0.5rem black;
 }
 
 #teamComparisonTool {
@@ -110,6 +113,7 @@ button#teamButton2, button#teamButton1, .dropdown-item, button#submitButton {
 
 table {
     margin-top: .5rem;
+    border-radius: 1rem;
 }
 
 .custom-all-time-stats {
@@ -117,7 +121,6 @@ table {
     clear: both;
     width: 30rem;
     margin: 3rem;
-    background: black;
     color: whitesmoke;
     height: fit-content;
     position: relative;
@@ -171,10 +174,15 @@ table > tbody > tr:last-child {
     font-weight: normal;
 }
 
+.custom-all-time-stats table {
+    background: black;
+}
+
 td.custom-score {
     text-align: center;
     color: whitesmoke;
     vertical-align: middle;
+    font-family: 'F5';
 }
 
 #teamComparison td {
@@ -184,6 +192,8 @@ td.custom-score {
 .custom-table-title {
     text-align: center;
     font-family: 'F1';
+    color: black;
+    font-size: x-large;
 }
 
 table#allTimeHighScorerTeam .custom-name {
@@ -251,7 +261,13 @@ table#allTimeLowScorerTeam .custom-name {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+    .custom-team2-superior {
+        background-size: 3rem;
+    }
 
+    .custom-team1-superior {
+        background-size: .5rem;
+    }
     tr#highScorePlayers {
         font-size: x-small;
     }

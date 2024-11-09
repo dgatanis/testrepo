@@ -17,7 +17,6 @@ async function submitTeams() {
     var avgPtsForRow = document.getElementById("avgPtsFor");
     var avgPtsAgnstRow = document.getElementById("avgPtsAgnst");
     var highScorePlayersRow = document.getElementById("highScorePlayers");
-    var test = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
 
     if (rosterId1 != rosterId2) {
 
@@ -126,15 +125,13 @@ async function submitTeams() {
             // Step 4: Convert back to an object if needed
             let sortedTeamHighScorer = {};
             sortedHighestEntries.forEach(({ playerId, entries }) => {
-            sortedTeamHighScorer[playerId] = entries;
+                sortedTeamHighScorer[playerId] = entries;
             });
 
             var team1Player = sortedHighestEntries.find(player => player.roster_id === rosterId1);
             var team2Player = sortedHighestEntries.find(player => player.roster_id === rosterId2);
             var team1PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
-
-            var player2Name = helper.getFullPlayerName(team2Player.player_id);
             var player1Year = team1Player.year;
             var player2Year = team2Player.year;
             var player1Date = "week " + team1Player.week + " '" + player1Year.toString().substring(2,4)
