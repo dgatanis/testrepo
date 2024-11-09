@@ -1,4 +1,4 @@
-import { users } from '../initData.js';
+import { users, rosters } from '../initData.js';
 
 var userData = users;
 
@@ -56,4 +56,33 @@ export function getTeamName(userid) {
     }
 
     return userName.toString();
+}
+
+export function getUserByName(teamName) {
+    let userId = "";
+
+    for(let i = 0; i < userData.length; i++)
+    {
+        if(userData[i].metadata.team_name != undefined)
+        {
+            if(userData[i].metadata.team_name.toString().trim() == teamName.toString().trim())
+            {
+                return userData[i].user_id.toString();
+            }
+        }
+        else
+        {
+            if(userData[i].display_name.toString().trim() == teamName.toString().trim())
+            {
+                return userData[i].user_id.toString();
+            }
+        }
+    }
+}
+
+export function getRosterByUserId(userId) {
+
+    let roster = rosters.find(x => x.owner_id === userId.toString());
+
+    return roster.roster_id;
 }

@@ -39,9 +39,9 @@ function loadContents() {
         setLinkSource("keep-trade-cut");
         setLeagueName("footerName");
         initTableData();
-        removeSpinner();
         fillDropdownLists();
         hideShowTabs();
+        removeSpinner();
     }
     catch (error){
         console.error(`Error: ${error.message}`);
@@ -418,7 +418,6 @@ function getAllTimeLosses(currentWeek, currentSeason) {
             week.week = thisWeek;
         }
     }
-    lossCounter.push({ roster_id: 10, losses: 0 }); //keep for now can remove once they lose
     lossCounter.sort((a, b) => b.losses - a.losses);
 
     return lossCounter;
@@ -434,7 +433,6 @@ function fillDropdownLists() {
         var item = document.createElement('button');
         item.setAttribute('class', 'dropdown-item');
         item.setAttribute('type', 'button');
-        item.setAttribute('onclick', "optionSelected();");
         item.innerText = getTeamName(rosterData[i].owner_id);
         listItem.addEventListener("click", function(event) {
             const selectedTeam = event.target.innerText; // The element that was clicked
@@ -451,7 +449,6 @@ function fillDropdownLists() {
         var item = document.createElement('button');
         item.setAttribute('class', 'dropdown-item');
         item.setAttribute('type', 'button');
-        item.setAttribute('onclick', "optionSelected();");
         item.innerText = getTeamName(rosterData[i].owner_id);
         listItem.addEventListener("click", function(event) {
             const selectedTeam = event.target.innerText; // The element that was clicked

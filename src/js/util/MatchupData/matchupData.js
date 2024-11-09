@@ -22,7 +22,6 @@ export function getPlayerPointsForWeek(playerid,week) {
 }
 
 export function getMatchupWeekWinner(matchups,matchupid) {
-
     let matchupScore = [];
     let matchupsLength = Object.keys(matchups).length;
 
