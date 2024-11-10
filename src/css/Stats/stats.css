@@ -6,7 +6,7 @@ div#allTimeStats {
 }
 
 .custom-body {
-    font-family: 'F5';
+    font-family: 'F1';
 }
 
 .custom-stats-container {
@@ -15,14 +15,137 @@ div#allTimeStats {
     overflow-y: hidden;
 }
 
+.custom-player-name {
+    font-family: 'F1';
+    font-size: large;
+    text-decoration: underline;
+}
+
+.custom-versus-icon{
+    max-width: 5rem;
+}
+
+.custom-player-points {
+    font-size: large;
+    display: block;
+}
+
+.custom-comparison-container {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: fit-content;
+    width: 75%;
+}
+
+.custom-table-icon {
+    max-width: 2.5rem;
+    padding: .2rem;
+    max-height: 2.5rem;
+    display: block;
+    margin: auto;
+    border-radius: 2rem;
+    box-shadow: 0 .1rem 0.5rem black;
+}
+
+table#teamComparison {
+    margin-top: 4rem;
+}
+
+#teamComparison td {
+    column-width: 10rem;
+    max-width: 10rem;
+}
+
+button.btn.btn-primary {
+    font-size: x-small;
+}
+
+#teamComparisonTool {
+    display: none;
+}
+
+#teamComparison td{
+    column-width: auto;
+}
+
+#teamComparison th{
+    background: transparent;
+}
+
+th#team1Header {
+    max-width: 10rem;
+    min-width: 10rem;
+}
+
+th#team2Header {
+    max-width: 10rem;
+    min-width: 10rem;
+}
+
+.btn-group {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.custom-medium-avatar {
+    max-width: 2rem;
+    background: var(--custom-dark-gray);
+    padding: .125rem;
+    margin: unset;
+}
+
+.custom-team-name {
+    display: block;
+    margin-top: .5rem;
+    color: var(--custom-dark-gray);
+    font-family: 'F7';
+}
+
+.custom-team-header {
+    margin: auto;
+    font-size: large;
+    word-spacing: .2rem;
+    font-family: 'F5';
+}
+
+#team1 {
+    margin-bottom: 1rem;
+}
+
+#team2 {
+    margin-bottom: 1rem;
+}
+
+div#submitButton {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'F1';
+}
+
+button#teamButton2, button#teamButton1, .dropdown-item, button#submitButton {
+    word-spacing: .1rem;
+}
+
+.btn-secondary {
+    background-color: var(--custom-dark-blue);
+    border-color: var(--custom-dark-blue);
+}
+
+table {
+    margin-top: .5rem;
+    border-radius: 1rem;
+}
+
 .custom-all-time-stats {
     max-width: 35rem;
     clear: both;
     width: 30rem;
     margin: 3rem;
-    background: black;
     color: whitesmoke;
     height: fit-content;
+    position: relative;
 }
 
 table > tbody > tr:last-child {
@@ -33,22 +156,68 @@ table > tbody > tr:last-child {
     margin-top: 1rem;
 }
 
-th {
+#teamComparison tbody {
+    text-align: center;
+}
+
+.custom-player-details {
+    font-family: 'F1';
+    font-size: xx-small;
+    word-spacing: .1rem;
+    font-style: italic;
+}
+
+.custom-team1-superior {
+    background-image: url(/src/static/images/green-arrow.gif);
+    background-size: 1.25rem;
+    background-position-x: left;
+    background-repeat: repeat-y;
+}
+
+.custom-team2-superior {
+    background-image: url(/src/static/images/green-arrow.gif);
+    background-size: 1.25rem;
+    background-repeat: repeat-y;
+    background-position-x: right;
+}
+
+.custom-team1-result, .custom-team2-result {
+    font-family: 'F5';
+    word-spacing: .2rem;
+    font-size: larger;
+}
+
+#teamComparison td:nth-child(2) {
+    font-size: small;
+    font-family: 'F7';
+}
+
+#allTimeStats th {
     color: whitesmoke;
     font-weight: normal;
+}
+
+.custom-all-time-stats table {
+    background: black;
 }
 
 td.custom-score {
     text-align: center;
     color: whitesmoke;
     vertical-align: middle;
+    font-family: 'F5';
 }
 
-
+#teamComparison td {
+    vertical-align: middle;
+    text-align: center;
+}
 
 .custom-table-title {
     text-align: center;
     font-family: 'F1';
+    color: black;
+    font-size: x-large;
 }
 
 table#allTimeHighScorerTeam .custom-name {
@@ -117,8 +286,64 @@ table#allTimeLowScorerTeam .custom-name {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    #teamComparison td {
+        column-width: 8rem;
+    }
+
+    #teamComparison td:nth-child(2) {
+        font-size: x-small;
+    }
+
+    th#team1Header {
+        min-width: unset;
+    }
+    
+    th#team2Header {
+        min-width: unset;
+    }
+
+    .custom-player-name {
+        font-size: small;
+    }
+
+    tr#highScorePlayers {
+        font-size: x-small;
+    }
+
+    .custom-player-points {
+        font-size: medium;
+    }
+
+    .custom-player-details {
+        font-size: .4rem;
+    }
+
+    .custom-comparison-container {
+        display: block;
+        width: 100%;
+    }
+
+    .btn-group {
+        display: block;
+    }
+
+    #team1Header, #team2Header {
+        font-size: .55rem;
+    }
+
+    #teamComparison th {
+        max-width: 5rem;
+    }
+
+    .custom-team-header {
+        text-align: center;
+    }
+
     .custom-all-time-stats.custom-div-shadow {
         box-shadow: none;
+    }
+    .custom-table-icon {
+        margin-top: .2rem;
     }
 
     .custom-body {

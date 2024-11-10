@@ -22,7 +22,6 @@ export function getPlayerPointsForWeek(playerid,week) {
 }
 
 export function getMatchupWeekWinner(matchups,matchupid) {
-
     let matchupScore = [];
     let matchupsLength = Object.keys(matchups).length;
 
@@ -30,7 +29,7 @@ export function getMatchupWeekWinner(matchups,matchupid) {
     {
         let matchup = matchups[i];
 
-        if(matchup.matchup_id==matchupid)
+        if(matchup && matchup.matchup_id==matchupid)
         {
             matchupScore.push({
                 "roster_id" : matchup.roster_id,
@@ -102,6 +101,32 @@ export function highScorerInMatchupStarters(starters, playerPoints){
         return highestScorer;
     }
 }
+
+export function lowScorerInMatchupStarters(starters, playerPoints){
+
+    let startersPoints = [];
+
+    for(let starter of starters)
+    {
+        if(playerPoints[starter])
+        {
+            startersPoints.push({
+                "player_id": starter,
+                "points" : playerPoints[starter]
+            });
+        }
+    }
+
+    if(startersPoints)
+    {
+        startersPoints.sort((a, b) => a.points - b.points);
+
+        let highestScorer = startersPoints[0];
+
+        return highestScorer;
+    }
+}
+
 
 export function getRosterLowScorerWeek(matchups) {
 

@@ -39,6 +39,8 @@ function loadContents() {
         setLinkSource("keep-trade-cut");
         setLeagueName("footerName");
         initTableData();
+        fillDropdownLists();
+        hideShowTabs();
         removeSpinner();
     }
     catch (error){
@@ -68,7 +70,7 @@ function getAllTimePlayerScores() {
             const matchupsLength = Object.keys(matchupWeek).length;
             for (let i = 0; i < matchupsLength; i++) {
 
-                if (matchupWeek[i] && matchupWeek[i].starters && matchupWeek.week != 0) {
+                if (matchupWeek[i] && matchupWeek[i].matchup_id !== null && matchupWeek[i].starters && matchupWeek.week != 0) {
                     for (let starter of matchupWeek[i].starters) {
                         let player = playerData.players.find(e => e.player_id === starter);
                         if (matchupWeek[i].players_points[starter] && player && player.position != "DEF") {
@@ -99,7 +101,7 @@ function getAllTimeTeamScores() {
             const matchupsLength = Object.keys(matchupWeek).length;
             for (let i = 0; i < matchupsLength; i++) {
 
-                if (matchupWeek[i] && matchupWeek[i].points) {
+                if (matchupWeek[i] && matchupWeek[i].points && matchupWeek[i].matchup_id !== null) {
                     teamScores.push({
                         "roster_id": matchupWeek[i].roster_id,
                         "team_points": matchupWeek[i].points,
@@ -346,10 +348,9 @@ function getAllTimeWins(currentWeek, currentSeason) {
 
     for(let week of allTimeMatchups)
     {  
-        
-        if(week.week != 0 && week[0].points !=0 && (parseInt(week.year) <= currentSeason && week.week < currentWeek))
+
+        if (week.week != 0 && week[0].points != 0 && ((parseInt(week.year) == parseInt(currentSeason) && week.week < currentWeek) || parseInt(week.year) < parseInt(currentSeason)))
         {
-            
             var thisWeek = week.week;
             var thisYear = week.year;
             var totalMatchups = Object.keys(week).length;
@@ -360,14 +361,15 @@ function getAllTimeWins(currentWeek, currentSeason) {
             for(var i = 1; i<totalMatchups/2; i++)
             {
                 var winner = getMatchupWeekWinner(week,i)[0];
-                let rosterId = winner.roster_id;
-                let existingEntry = winCounter.find(entry => entry.roster_id === rosterId);
+                if (winner) {
+                    let rosterId = winner.roster_id;
+                    let existingEntry = winCounter.find(entry => entry.roster_id === rosterId);
 
-
-                if (existingEntry) {
-                    existingEntry.wins++;  // Increment wins count
-                } else {
-                    winCounter.push({ roster_id: rosterId, wins: 1 });  // Initialize wins count
+                    if (existingEntry) {
+                        existingEntry.wins++;  // Increment wins count
+                    } else {
+                        winCounter.push({ roster_id: rosterId, wins: 1 });  // Initialize wins count
+                    }
                 }
             } 
             
@@ -400,14 +402,15 @@ function getAllTimeLosses(currentWeek, currentSeason) {
             for(var i = 1; i<totalMatchups/2; i++)
             {
                 var loser = getMatchupWeekWinner(week,i)[1]; //loser is second in list
-                let rosterId = loser.roster_id;
-                let existingEntry = lossCounter.find(entry => entry.roster_id === rosterId);
+                if (loser) {
+                    let rosterId = loser.roster_id;
+                    let existingEntry = lossCounter.find(entry => entry.roster_id === rosterId);
 
-
-                if (existingEntry) {
-                    existingEntry.losses++;  // Increment wins count
-                } else {
-                    lossCounter.push({ roster_id: rosterId, losses: 1 });  // Initialize wins count
+                    if (existingEntry) {
+                        existingEntry.losses++;  // Increment wins count
+                    } else {
+                        lossCounter.push({ roster_id: rosterId, losses: 1 });  // Initialize wins count
+                    }
                 }
                 
             } 
@@ -416,8 +419,61 @@ function getAllTimeLosses(currentWeek, currentSeason) {
             week.week = thisWeek;
         }
     }
-    lossCounter.push({ roster_id: 10, losses: 0 }); //keep for now can remove once they lose
     lossCounter.sort((a, b) => b.losses - a.losses);
 
     return lossCounter;
+}
+
+function fillDropdownLists() {
+    var team_1 = document.getElementById('teamDropdown1');
+    var team_2 = document.getElementById('teamDropdown2');
+
+    for(let i = 0; i < rosterData.length; i++)
+    {
+        var listItem = document.createElement('li');
+        var item = document.createElement('button');
+        item.setAttribute('class', 'dropdown-item');
+        item.setAttribute('type', 'button');
+        item.innerText = getTeamName(rosterData[i].owner_id);
+        listItem.addEventListener("click", function(event) {
+            const selectedTeam = event.target.innerText; // The element that was clicked
+            const teamButton = document.getElementById("teamButton1")
+            teamButton.innerText = selectedTeam;
+        });
+        listItem.appendChild(item);
+        team_1.appendChild(listItem);
+    }
+
+    for(let i = 0; i < rosterData.length; i++)
+    {
+        var listItem = document.createElement('li');
+        var item = document.createElement('button');
+        item.setAttribute('class', 'dropdown-item');
+        item.setAttribute('type', 'button');
+        item.innerText = getTeamName(rosterData[i].owner_id);
+        listItem.addEventListener("click", function(event) {
+            const selectedTeam = event.target.innerText; // The element that was clicked
+            const teamButton = document.getElementById("teamButton2")
+            teamButton.innerText = selectedTeam;
+            
+        });
+        listItem.appendChild(item);
+        team_2.appendChild(listItem);
+    }
+}
+
+function hideShowTabs() {
+    var statsDiv = document.getElementById("allTimeStats");
+    var toolDiv = document.getElementById("teamComparisonTool");
+    var statsTab = document.getElementById("statsTab");
+    var toolTab = document.getElementById("teamCompTab");
+
+    statsTab.addEventListener("click", function(event) {
+        toolDiv.style.display = 'none';
+        statsDiv.style.display = 'block';
+    });
+    toolTab.addEventListener("click", function(event) {
+        statsDiv.style.display = 'none';
+        toolDiv.style.display = 'block';
+    });
 }
