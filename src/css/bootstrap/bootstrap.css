@@ -10968,6 +10968,11 @@ textarea.form-control-lg {
   src: url("../../static/font/Lato-Regular.ttf") format('truetype');
 }
 
+@font-face {
+  font-family: F7;
+  src: url("../../static/font/CartoonCheck-Black.ttf") format('truetype');
+}
+
 .custom-body {
   margin: 1rem;
   clear: inline-end;

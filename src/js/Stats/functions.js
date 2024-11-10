@@ -17,6 +17,7 @@ async function submitTeams() {
     var avgPtsForRow = document.getElementById("avgPtsFor");
     var avgPtsAgnstRow = document.getElementById("avgPtsAgnst");
     var highScorePlayersRow = document.getElementById("highScorePlayers");
+    var lowScorePlayersRow = document.getElementById("lowScorePlayers");
 
     if (rosterId1 != rosterId2) {
 
@@ -56,23 +57,6 @@ async function submitTeams() {
             team1LossesResult.innerText = winsLosses.team1.losses;
             team2LossesResult.innerText = winsLosses.team2.losses;
 
-            if (winsLosses.team1.losses < winsLosses.team2.losses) {
-                lossesRow.children[1].classList.add('custom-team1-superior');
-                lossesRow.children[1].classList.remove('custom-team2-superior');
-            }
-            else {
-                lossesRow.children[1].classList.add('custom-team2-superior');
-                lossesRow.children[1].classList.remove('custom-team1-superior');
-            }
-
-            if (winsLosses.team1.wins > winsLosses.team2.wins) {
-                winsRow.children[1].classList.add('custom-team1-superior');
-                winsRow.children[1].classList.remove('custom-team2-superior');
-            }
-            else {
-                winsRow.children[1].classList.add('custom-team2-superior');
-                winsRow.children[1].classList.remove('custom-team1-superior');
-            }
         }
         if (avgPtsForRow && avgPtsAgnstRow) { //Avg pts for/against rows
             var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
@@ -92,44 +76,11 @@ async function submitTeams() {
             team1AvgPtsAgnstResult.innerText = team1AvgPtsAgnstVal.toFixed(2);
             team2AvgPtsAgnstResult.innerText = team2AvgPtsAgnstVal.toFixed(2);
 
-            if (team1AvgPtsAgnstVal < team2AvgPtsAgnstVal) {
-                avgPtsAgnstRow.children[1].classList.add('custom-team1-superior');
-                avgPtsAgnstRow.children[1].classList.remove('custom-team2-superior');
-            }
-            else {
-                avgPtsAgnstRow.children[1].classList.add('custom-team2-superior');
-                avgPtsAgnstRow.children[1].classList.remove('custom-team1-superior');
-            }
-            if (team1avgPtsVal > team2avgPtsVal) {
-                avgPtsForRow.children[1].classList.add('custom-team1-superior');
-                avgPtsForRow.children[1].classList.remove('custom-team2-superior');
-            }
-            else {
-                avgPtsForRow.children[1].classList.add('custom-team2-superior');
-                avgPtsForRow.children[1].classList.remove('custom-team1-superior');
-            }
         }
         if(highScorePlayersRow){ //High scorer in matchups
             var highScorePlayers = getHighScorerPlayerInMatchups(teamMatchups, helper);
-            let sortedHighestEntries = Object.entries(highScorePlayers.players)
-            .map(([player_id, entries]) => {
-                //Find the highest points for each player
-                const maxPointsEntry = entries.reduce((max, entry) => {
-                    return entry.points > max.points ? entry : max;
-                }, entries[0]);
-                
-                return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
-            })
-            .sort((a, b) => b.maxPoints - a.maxPoints);
-
-            // Step 4: Convert back to an object if needed
-            let sortedTeamHighScorer = {};
-            sortedHighestEntries.forEach(({ playerId, entries }) => {
-                sortedTeamHighScorer[playerId] = entries;
-            });
-
-            var team1Player = sortedHighestEntries.find(player => player.roster_id === rosterId1);
-            var team2Player = sortedHighestEntries.find(player => player.roster_id === rosterId2);
+            var team1Player = highScorePlayers.find(player => player.roster_id === rosterId1);
+            var team2Player = highScorePlayers.find(player => player.roster_id === rosterId2);
             var team1PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
             var player1Year = team1Player.year;
@@ -177,14 +128,57 @@ async function submitTeams() {
             team2PlayerResult.appendChild(player2Div);
             team2PlayerResult.appendChild(player2Details);
 
-            if (team1Player.maxPoints > team2Player.maxPoints) {
-                highScorePlayersRow.children[1].classList.add('custom-team1-superior');
-                highScorePlayersRow.children[1].classList.remove('custom-team2-superior');
+        }
+        if(lowScorePlayersRow){ //Low scorer in matchups
+            var lowScorePlayers = getLowScorerPlayerInMatchups(teamMatchups, helper);
+            var team1Player = lowScorePlayers.find(player => player.roster_id === rosterId1);
+            var team2Player = lowScorePlayers.find(player => player.roster_id === rosterId2);
+            var team1PlayerResult = lowScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
+            var team2PlayerResult = lowScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
+            var player1Year = team1Player.year;
+            var player2Year = team2Player.year;
+            var player1Date = "week " + team1Player.week + " '" + player1Year.toString().substring(2,4)
+            var player2Date = "week " + team2Player.week + " '" + player2Year.toString().substring(2,4)
+
+            var player1Div = document.createElement('div');
+            var player1Details = document.createElement('div');
+            var playerName_1 = document.createElement('span');
+            var playerPoints_1 = document.createElement('span');
+            var player2Div = document.createElement('div');
+            var player2Details = document.createElement('div');
+            var playerName_2 = document.createElement('span');
+            var playerPoints_2 = document.createElement('span');
+
+            playerName_1.innerText = helper.getFullPlayerName(team1Player.player_id);
+            playerName_2.innerText = helper.getFullPlayerName(team2Player.player_id);
+            playerPoints_1.innerText = team1Player.maxPoints
+            playerPoints_2.innerText = team2Player.maxPoints
+            player1Details.setAttribute('class', 'custom-player-details');
+            player1Details.innerText = player1Date
+            player2Details.setAttribute('class', 'custom-player-details');
+            player2Details.innerText = player2Date
+            playerName_1.setAttribute('class', 'custom-player-name');
+            playerName_2.setAttribute('class', 'custom-player-name');
+            playerPoints_1.setAttribute('class', 'custom-player-points');
+            playerPoints_2.setAttribute('class', 'custom-player-points');
+
+
+            while (team1PlayerResult.firstChild) {
+                team1PlayerResult.removeChild(team1PlayerResult.firstChild);
             }
-            else {
-                highScorePlayersRow.children[1].classList.add('custom-team2-superior');
-                highScorePlayersRow.children[1].classList.remove('custom-team1-superior');
+
+            while (team2PlayerResult.firstChild) {
+                team2PlayerResult.removeChild(team2PlayerResult.firstChild);
             }
+
+            player1Div.appendChild(playerName_1);
+            player1Div.appendChild(playerPoints_1);
+            player2Div.appendChild(playerName_2);
+            player2Div.appendChild(playerPoints_2);
+            team1PlayerResult.appendChild(player1Div);
+            team1PlayerResult.appendChild(player1Details);
+            team2PlayerResult.appendChild(player2Div);
+            team2PlayerResult.appendChild(player2Details);
         }
     }
     else
@@ -336,5 +330,85 @@ function getHighScorerPlayerInMatchups(teamMatchups, helper) {
             
         }
     }
-    return teamHighScorer;
+
+    let sortedHighestEntries = Object.entries(teamHighScorer.players)
+    .map(([player_id, entries]) => {
+        //Find the highest points for each player
+        const maxPointsEntry = entries.reduce((max, entry) => {
+            return entry.points > max.points ? entry : max;
+        }, entries[0]);
+        
+        return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
+    })
+    .sort((a, b) => b.maxPoints - a.maxPoints);
+
+    // Step 4: Convert back to an object if needed
+    let sortedTeamHighScorer = {};
+    sortedHighestEntries.forEach(({ playerId, entries }) => {
+        sortedTeamHighScorer[playerId] = entries;
+    });
+
+    return sortedHighestEntries;
+}
+
+function getLowScorerPlayerInMatchups(teamMatchups, helper) {
+    let teamLowScorer = {
+        "players":{}
+    };
+    var allMatchups = teamMatchups;
+    for(matchup of allMatchups)
+    {
+
+        var team1Starters = matchup[0].starters;
+        var team1Points = matchup[0].players_points;
+        var team2Starters = matchup[1].starters;
+        var team2Points = matchup[1].players_points;
+        var team1Player = helper.lowScorerInMatchupStarters(team1Starters, team1Points);
+        var team2Player = helper.lowScorerInMatchupStarters(team2Starters, team2Points);
+
+        if(team1Player)
+        {
+            if(!teamLowScorer.players[team1Player.player_id])
+            {
+                teamLowScorer.players[team1Player.player_id] = [];
+                teamLowScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+            }
+            else
+            {
+                teamLowScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+            }
+
+        }
+        if(team2Player)
+        {
+            if(!teamLowScorer.players[team2Player.player_id])
+            {
+                teamLowScorer.players[team2Player.player_id] = [];
+                teamLowScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+            }
+            else {
+                teamLowScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+            }
+            
+        }
+    }
+
+    let sortedLowestEntries = Object.entries(teamLowScorer.players)
+    .map(([player_id, entries]) => {
+        //Find the highest points for each player
+        const maxPointsEntry = entries.reduce((max, entry) => {
+            return entry.points > max.points ? entry : max;
+        }, entries[0]);
+        
+        return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
+    })
+    .sort((a, b) => a.maxPoints - b.maxPoints);
+
+    // Step 4: Convert back to an object if needed
+    let sortedTeamLowScorer = {};
+    sortedLowestEntries.forEach(({ playerId, entries }) => {
+        sortedTeamLowScorer[playerId] = entries;
+    });
+
+    return sortedLowestEntries;
 }

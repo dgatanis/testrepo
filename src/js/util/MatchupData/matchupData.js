@@ -102,6 +102,32 @@ export function highScorerInMatchupStarters(starters, playerPoints){
     }
 }
 
+export function lowScorerInMatchupStarters(starters, playerPoints){
+
+    let startersPoints = [];
+
+    for(let starter of starters)
+    {
+        if(playerPoints[starter])
+        {
+            startersPoints.push({
+                "player_id": starter,
+                "points" : playerPoints[starter]
+            });
+        }
+    }
+
+    if(startersPoints)
+    {
+        startersPoints.sort((a, b) => a.points - b.points);
+
+        let highestScorer = startersPoints[0];
+
+        return highestScorer;
+    }
+}
+
+
 export function getRosterLowScorerWeek(matchups) {
 
     let rosters = [];
