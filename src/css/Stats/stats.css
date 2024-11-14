@@ -30,6 +30,12 @@ div#allTimeStats {
     display: block;
 }
 
+a#keep-trade-roster-comp {
+    font-size: x-small;
+    clear: both;
+    display: block;
+}
+
 .custom-comparison-container {
     display: grid;
     margin-left: auto;
@@ -50,6 +56,8 @@ div#allTimeStats {
 
 table#teamComparison {
     margin-top: 4rem;
+    border-collapse: separate;
+    border-spacing: .4rem;
 }
 
 #teamComparison td {
@@ -187,9 +195,37 @@ table > tbody > tr:last-child {
     font-size: larger;
 }
 
+#teamComparison th {
+    border-style: none !important;
+}
+
+#teamComparison td:nth-child(1) {
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-top-right-radius: 2rem;
+    border: transparent;
+    /* background: linear-gradient(90deg, var(--bs-table-bg), #333333, #333333de, #33333396, transparent); */
+    padding: 1rem;
+}
+
 #teamComparison td:nth-child(2) {
     font-size: small;
     font-family: 'F7';
+    background: transparent;
+    color: var(--custom-dark-gray);
+    border: transparent;
+    vertical-align: bottom;
+    padding: 1rem;
+    padding-bottom: unset;
+}
+
+#teamComparison td:nth-child(3) {
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    border-top-left-radius: 2rem;
+    border: transparent;
+    /* background: linear-gradient(90deg, transparent, #33333396, #333333de, #333333, var(--bs-table-bg)); */
+    padding: 1rem;
 }
 
 #allTimeStats th {

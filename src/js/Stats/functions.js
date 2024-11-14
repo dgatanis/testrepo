@@ -18,7 +18,6 @@ async function submitTeams() {
     var avgPtsAgnstRow = document.getElementById("avgPtsAgnst");
     var highScorePlayersRow = document.getElementById("highScorePlayers");
     var lowScorePlayersRow = document.getElementById("lowScorePlayers");
-
     if (rosterId1 != rosterId2) {
 
         //Set team info
@@ -28,6 +27,8 @@ async function submitTeams() {
         var ownerName2 = team2Header.getElementsByTagName('span')[0];
         var team1Image = helper.createOwnerAvatarImage(team1UserId);
         var team2Image = helper.createOwnerAvatarImage(team2UserId);
+
+        helper.setLinkSource('keep-trade-roster-comp', team1UserId, team2UserId);
         ownerName1.innerText = team1Name;
         ownerName2.innerText = team2Name;
         teamComparisonTable.classList.remove("custom-none-display");

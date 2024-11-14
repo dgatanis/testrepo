@@ -77,11 +77,19 @@ export function setLeagueName(elementId) {
     element.innerText = leagueDisplayName.trim() + " FFL"
 }
 
-export async function setLinkSource(elementId) {
+export async function setLinkSource(elementId, userID1 = null, userID2 = null) {
     var element = document.getElementById(elementId);
     var leagueId = await getCurrentLeagueId();
 
-    element.setAttribute('href', `https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=${leagueId}&platform=Sleeper`)
+    if(userID1 != null && userID2 != null) //sets link on for roster comparison
+    {
+        element.setAttribute('href', `https://keeptradecut.com/dynasty/power-rankings/team-comparison?leagueId=${leagueId}&platform=Sleeper&teamOne=${userID1}&teamTwo=${userID2}`)
+    }
+    else 
+    {
+        element.setAttribute('href', `https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=${leagueId}&platform=Sleeper`)
+    }
+    
 }
 
 export function getRandomString() {
