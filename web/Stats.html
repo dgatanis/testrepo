@@ -605,21 +605,23 @@
       <div class="custom-body custom-none-display">
         <div id="teamComparisonTool">
           <div class="custom-comparison-container">
-            <div class="btn-group" id="team1">
-              <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Choose Team
-              </button>
-              <ul class="dropdown-menu" id="teamDropdown1">
-              </ul>
-            </div>
-            <div class="btn-group" id="team2">
-              <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Choose Team
-              </button>
-              <ul class="dropdown-menu" id="teamDropdown2">
-              </ul>
+            <div class="custom-button-container">
+              <div class="btn-group" id="team1">
+                <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Choose Team
+                </button>
+                <ul class="dropdown-menu" id="teamDropdown1">
+                </ul>
+              </div>
+              <div class="btn-group" id="team2">
+                <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Choose Team
+                </button>
+                <ul class="dropdown-menu" id="teamDropdown2">
+                </ul>
+              </div>
             </div>
           </div>
           <div class="custom-comparison-container">
@@ -647,35 +649,45 @@
               </th>
             </thead>
             <tbody>
+              <tr>
+                <td style="background:transparent;"></td>
+                <td style="color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;">Regular Season</td>
+                <td style="background:transparent;"></td>
+              </tr>
               <tr id="wins">
                 <td class="custom-team1-result"></td>
-                <td>Wins</td>
+                <td><div class="h2h-header">Wins</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="losses">
                 <td class="custom-team1-result"></td>
-                <td>Losses</td>
+                <td><div class="h2h-header">Losses</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="avgPtsFor">
                 <td class="custom-team1-result"></td>
-                <td>Avg Pts For</td>
+                <td><div class="h2h-header">Avg Pts For</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="avgPtsAgnst">
                 <td class="custom-team1-result"></td>
-                <td>Avg Pts Against</td>
+                <td><div class="h2h-header">Avg Pts Against</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="highScorePlayers">
                 <td class="custom-team1-result"></td>
-                <td>High Scorer</td>
+                <td><div class="h2h-header">High Scorer</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="lowScorePlayers">
                 <td class="custom-team1-result"></td>
-                <td>Low Scorer</td>
+                <td><div class="h2h-header">Low Scorer</div></td>
                 <td class="custom-team2-result"></td>
+              </tr>
+              <tr>
+                <td style="background:transparent;"></td>
+                <td style="color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;">Post-Season</td>
+                <td style="background:transparent;"></td>
               </tr>
             </tbody>
           </table>

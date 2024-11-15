@@ -15,6 +15,11 @@ div#allTimeStats {
     overflow-y: hidden;
 }
 
+.custom-button-container {
+    display: grid;
+    margin-top: 2rem;
+}
+
 .custom-player-name {
     font-family: 'F1';
     font-size: large;
@@ -57,7 +62,8 @@ a#keep-trade-roster-comp {
 table#teamComparison {
     margin-top: 4rem;
     border-collapse: separate;
-    border-spacing: .4rem;
+    --webkit-border-vertical-spacing: 0rem;
+    --webkit-border-horizontal-spacing: .4rem;
 }
 
 #teamComparison td {
@@ -133,7 +139,11 @@ div#submitButton {
 }
 
 button#teamButton2, button#teamButton1, .dropdown-item, button#submitButton {
-    word-spacing: .1rem;
+    word-spacing: .1rem;    min-width: 18rem;
+}
+
+button#teamButton2, button#teamButton1 {
+    min-width: 18rem;
 }
 
 .btn-secondary {
@@ -176,17 +186,19 @@ table > tbody > tr:last-child {
 }
 
 .custom-team1-superior {
-    background-image: url(/src/static/images/green-arrow.gif);
-    background-size: 1.25rem;
-    background-position-x: left;
-    background-repeat: repeat-y;
+    background: linear-gradient(90deg, transparent, #008000d6, green, green, green, red);
+    border-radius: 1rem;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+    padding: .2rem;
 }
 
 .custom-team2-superior {
-    background-image: url(/src/static/images/green-arrow.gif);
-    background-size: 1.25rem;
-    background-repeat: repeat-y;
-    background-position-x: right;
+    background: linear-gradient(90deg, red, green, green, green, #008000d6, transparent);
+    border-radius: 1rem;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    padding: .2rem;
 }
 
 .custom-team1-result, .custom-team2-result {
@@ -199,12 +211,15 @@ table > tbody > tr:last-child {
     border-style: none !important;
 }
 
+.h2h-header {
+    color: var(--bs-table-bg);
+}
+
 #teamComparison td:nth-child(1) {
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 1.5rem;
     border: transparent;
-    /* background: linear-gradient(90deg, var(--bs-table-bg), #333333, #333333de, #33333396, transparent); */
     padding: 1rem;
 }
 
@@ -212,19 +227,17 @@ table > tbody > tr:last-child {
     font-size: small;
     font-family: 'F7';
     background: transparent;
-    color: var(--custom-dark-gray);
+    color: whitesmoke;
     border: transparent;
-    vertical-align: bottom;
-    padding: 1rem;
-    padding-bottom: unset;
+    vertical-align: top;
+    padding: unset;
 }
 
 #teamComparison td:nth-child(3) {
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 1.5rem;
     border: transparent;
-    /* background: linear-gradient(90deg, transparent, #33333396, #333333de, #333333, var(--bs-table-bg)); */
     padding: 1rem;
 }
 
@@ -321,6 +334,15 @@ table#allTimeLowScorerTeam .custom-name {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    .custom-button-container {
+        display: flex;
+    }
+
+    button#teamButton2, button#teamButton1 {
+        font-size: x-small;
+        min-width: 12rem;
+    }
 
     #teamComparison td {
         column-width: 8rem;

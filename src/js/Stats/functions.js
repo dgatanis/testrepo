@@ -58,6 +58,23 @@ async function submitTeams() {
             team1LossesResult.innerText = winsLosses.team1.losses;
             team2LossesResult.innerText = winsLosses.team2.losses;
 
+            // if (winsLosses.team1.losses < winsLosses.team2.losses) {
+            //     lossesRow.children[1].children[0].classList.add('custom-team1-superior');
+            //     lossesRow.children[1].children[0].classList.remove('custom-team2-superior');
+            // }
+            // else {
+            //     lossesRow.children[1].children[0].classList.add('custom-team2-superior');
+            //     lossesRow.children[1].children[0].classList.remove('custom-team1-superior');
+            // }
+            // if (winsLosses.team1.wins > winsLosses.team2.wins) {
+            //     winsRow.children[1].children[0].classList.add('custom-team1-superior');
+            //     winsRow.children[1].children[0].classList.remove('custom-team2-superior');
+            // }
+            // else {
+            //     winsRow.children[1].children[0].classList.add('custom-team2-superior');
+            //     winsRow.children[1].children[0].classList.remove('custom-team1-superior');
+            // }
+
         }
         if (avgPtsForRow && avgPtsAgnstRow) { //Avg pts for/against rows
             var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
@@ -76,6 +93,23 @@ async function submitTeams() {
             var team2AvgPtsAgnstResult = avgPtsAgnstRow.getElementsByClassName('custom-team2-result')[0];
             team1AvgPtsAgnstResult.innerText = team1AvgPtsAgnstVal.toFixed(2);
             team2AvgPtsAgnstResult.innerText = team2AvgPtsAgnstVal.toFixed(2);
+
+            // if (team1AvgPtsAgnstVal < team2AvgPtsAgnstVal) {
+            //     avgPtsAgnstRow.children[1].children[0].classList.add('custom-team1-superior');
+            //     avgPtsAgnstRow.children[1].children[0].classList.remove('custom-team2-superior');
+            // }
+            // else {
+            //     avgPtsAgnstRow.children[1].children[0].classList.add('custom-team2-superior');
+            //     avgPtsAgnstRow.children[1].children[0].classList.remove('custom-team1-superior');
+            // }
+            // if (team1avgPtsVal > team2avgPtsVal) {
+            //     avgPtsForRow.children[1].children[0].classList.add('custom-team1-superior');
+            //     avgPtsForRow.children[1].children[0].classList.remove('custom-team2-superior');
+            // }
+            // else {
+            //     avgPtsForRow.children[1].children[0].classList.add('custom-team2-superior');
+            //     avgPtsForRow.children[1].children[0].classList.remove('custom-team1-superior');
+            // }
 
         }
         if(highScorePlayersRow){ //High scorer in matchups
@@ -129,6 +163,15 @@ async function submitTeams() {
             team2PlayerResult.appendChild(player2Div);
             team2PlayerResult.appendChild(player2Details);
 
+            // if (team1Player.maxPoints > team2Player.maxPoints) {
+            //     highScorePlayersRow.children[1].children[0].classList.add('custom-team1-superior');
+            //     highScorePlayersRow.children[1].children[0].classList.remove('custom-team2-superior');
+            // }
+            // else {
+            //     highScorePlayersRow.children[1].children[0].classList.add('custom-team2-superior');
+            //     highScorePlayersRow.children[1].children[0].classList.remove('custom-team1-superior');
+            // }
+
         }
         if(lowScorePlayersRow){ //Low scorer in matchups
             var lowScorePlayers = getLowScorerPlayerInMatchups(teamMatchups, helper);
@@ -180,6 +223,15 @@ async function submitTeams() {
             team1PlayerResult.appendChild(player1Details);
             team2PlayerResult.appendChild(player2Div);
             team2PlayerResult.appendChild(player2Details);
+
+            // if (team1Player.maxPoints > team2Player.maxPoints) {
+            //     lowScorePlayersRow.children[1].children[0].classList.add('custom-team1-superior');
+            //     lowScorePlayersRow.children[1].children[0].classList.remove('custom-team2-superior');
+            // }
+            // else {
+            //     lowScorePlayersRow.children[1].children[0].classList.add('custom-team2-superior');
+            //     lowScorePlayersRow.children[1].children[0].classList.remove('custom-team1-superior');
+            // }
         }
     }
     else
