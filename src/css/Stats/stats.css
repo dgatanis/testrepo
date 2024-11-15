@@ -62,8 +62,8 @@ a#keep-trade-roster-comp {
 table#teamComparison {
     margin-top: 4rem;
     border-collapse: separate;
-    --webkit-border-vertical-spacing: 0rem;
-    --webkit-border-horizontal-spacing: .4rem;
+    -webkit-border-vertical-spacing: .4rem;
+    -webkit-border-horizontal-spacing: 0rem;
 }
 
 #teamComparison td {
@@ -108,6 +108,7 @@ th#team2Header {
     background: var(--custom-dark-gray);
     padding: .125rem;
     margin: unset;
+    box-shadow: 0 .1rem 0.5rem black;
 }
 
 .custom-team-name {
@@ -218,9 +219,9 @@ table > tbody > tr:last-child {
 #teamComparison td:nth-child(1) {
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: 1.5rem;
     border: transparent;
     padding: 1rem;
+    background: linear-gradient(90deg, var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), transparent);
 }
 
 #teamComparison td:nth-child(2) {
@@ -229,16 +230,16 @@ table > tbody > tr:last-child {
     background: transparent;
     color: whitesmoke;
     border: transparent;
-    vertical-align: top;
+    vertical-align: middle;
     padding: unset;
 }
 
 #teamComparison td:nth-child(3) {
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    border-bottom-left-radius: 1.5rem;
     border: transparent;
     padding: 1rem;
+    background: linear-gradient(90deg, transparent, var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg));
 }
 
 #allTimeStats th {
@@ -335,13 +336,17 @@ table#allTimeLowScorerTeam .custom-name {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .custom-versus-icon {
+        max-width: 3rem;
+    }
+
     .custom-button-container {
         display: flex;
     }
 
     button#teamButton2, button#teamButton1 {
         font-size: x-small;
-        min-width: 12rem;
+        min-width: 10rem;
     }
 
     #teamComparison td {
@@ -354,10 +359,12 @@ table#allTimeLowScorerTeam .custom-name {
 
     th#team1Header {
         min-width: unset;
+        padding: unset;
     }
     
     th#team2Header {
         min-width: unset;
+        padding: unset;
     }
 
     .custom-player-name {
