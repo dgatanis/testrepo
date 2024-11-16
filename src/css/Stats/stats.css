@@ -186,20 +186,12 @@ table > tbody > tr:last-child {
     font-style: italic;
 }
 
-.custom-team1-superior {
-    background: linear-gradient(90deg, transparent, #008000d6, green, green, green, red);
-    border-radius: 1rem;
-    border-top-left-radius: unset;
-    border-bottom-left-radius: unset;
-    padding: .2rem;
+.custom-team-superior {
+    background-color: var(--custom-green) !important;
 }
 
-.custom-team2-superior {
-    background: linear-gradient(90deg, red, green, green, green, #008000d6, transparent);
-    border-radius: 1rem;
-    border-top-right-radius: unset;
-    border-bottom-right-radius: unset;
-    padding: .2rem;
+.custom-team-inferior {
+    background-color: var(--custom-red) !important;
 }
 
 .custom-team1-result, .custom-team2-result {
@@ -208,12 +200,24 @@ table > tbody > tr:last-child {
     font-size: larger;
 }
 
+.custom-team1-result img.custom-xsmall-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.custom-team2-result img.custom-xsmall-avatar {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 #teamComparison th {
     border-style: none !important;
 }
 
 .h2h-header {
-    color: var(--bs-table-bg);
+    color: var(--custom-dark-gray);
 }
 
 #teamComparison td:nth-child(1) {
@@ -222,12 +226,13 @@ table > tbody > tr:last-child {
     border: transparent;
     padding: 1rem;
     background: linear-gradient(90deg, var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), transparent);
+    position: relative;
 }
 
 #teamComparison td:nth-child(2) {
     font-size: small;
     font-family: 'F7';
-    background: transparent;
+    background: #d1d1d14a;
     color: whitesmoke;
     border: transparent;
     vertical-align: middle;
@@ -240,6 +245,7 @@ table > tbody > tr:last-child {
     border: transparent;
     padding: 1rem;
     background: linear-gradient(90deg, transparent, var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg));
+    position: relative;
 }
 
 #allTimeStats th {
@@ -268,6 +274,11 @@ td.custom-score {
     font-family: 'F1';
     color: black;
     font-size: x-large;
+}
+
+.custom-title-details {
+    color: var(--custom-dark-gray);
+    font-size: .5rem;
 }
 
 table#allTimeHighScorerTeam .custom-name {
@@ -335,6 +346,11 @@ table#allTimeLowScorerTeam .custom-name {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    .custom-title-details {
+        color: var(--custom-dark-gray);
+        font-size: .35rem;
+    }
 
     .custom-versus-icon {
         max-width: 3rem;
