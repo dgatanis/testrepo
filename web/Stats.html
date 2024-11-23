@@ -94,11 +94,6 @@
           <a class="nav-link active" id="teamCompTab" href="#">H2H Comparison Tool</a>
         </li>
       </ul>
-      <div class="custom-loading-icon">
-        <div id="page-loading" class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
       <div class="custom-body custom-none-display">
         <div id="allTimeStats">
           <div class="custom-stats-container">
@@ -653,7 +648,7 @@
             <tbody>
               <tr>
                 <td style="background:transparent;"></td>
-                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;">Regular Season</td>
+                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;font-size:.8rem;">Regular Season</td>
                 <td style="background:transparent;"></td>
               </tr>
               <tr id="wins">
@@ -661,19 +656,9 @@
                 <td><div class="h2h-header">Wins</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
-              <tr id="losses">
-                <td class="custom-team1-result"></td>
-                <td><div class="h2h-header">Losses</div></td>
-                <td class="custom-team2-result"></td>
-              </tr>
               <tr id="avgPtsFor">
                 <td class="custom-team1-result"></td>
                 <td><div class="h2h-header">Avg Pts For</div></td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="avgPtsAgnst">
-                <td class="custom-team1-result"></td>
-                <td><div class="h2h-header">Avg Pts Against</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="highScorePlayers">
@@ -688,17 +673,72 @@
               </tr>
               <tr id="startSitAcc">
                 <td class="custom-team1-result"></td>
-                <td><div class="h2h-header">Start/Sit Accuracy</div><span title="Calculated by best possible lineup per position (QB/RB/WR/TE)" class="custom-title-details">*Calculated by best possible lineup per position (QB/RB/WR/TE)</span></td>
+                <td><div class="h2h-header">*Start/Sit Accuracy</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr>
                 <td style="background:transparent;"></td>
-                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;">Post-Season</td>
+                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;font-size:.8rem;">Post-Season</td>
                 <td style="background:transparent;"></td>
+              </tr>
+              <tr id="postseasonWins">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Wins</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonAvgPtsFor">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Avg Pts For</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonHighScorePlayers">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">High Scorer</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonLowScorePlayers">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Low Scorer</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonStartSitAcc">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">*Start/Sit Accuracy</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr>
+                <td style="background:transparent;"></td>
+                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;font-size:.8rem;">Overall</td>
+                <td style="background:transparent;"></td>
+              </tr>
+              <tr id="overallTrades">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Trades</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="record">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Record</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="overallAvgPtsFor">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Avg Pts For</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="overallStartSitAcc">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">*Start/Sit Accuracy</div></td>
+                <td class="custom-team2-result"></td>
               </tr>
             </tbody>
           </table>
-          </div>
+          <legend id="h2hLegend" class="custom-none-display">* - Calculated via best possible lineup per position (QB/RB/WR/TE)</legend>
+        </div>
+      </div>
+      <div class="custom-loading-icon">
+        <div id="page-loading" class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
       </div>
       <footer class="footer">

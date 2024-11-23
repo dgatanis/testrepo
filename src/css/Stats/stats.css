@@ -194,6 +194,11 @@ table > tbody > tr:last-child {
     background-color: var(--custom-red) !important;
 }
 
+#h2hLegend{
+    font-size: xx-small;
+    color: var(--custom-dark-gray);
+}
+
 .custom-team1-result, .custom-team2-result {
     font-family: 'F5';
     word-spacing: .2rem;
