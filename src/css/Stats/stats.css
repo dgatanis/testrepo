@@ -173,6 +173,7 @@ table > tbody > tr:last-child {
 
 .custom-loading-icon {
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #teamComparison tbody {
