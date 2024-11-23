@@ -108,7 +108,7 @@ export function lowScorerInMatchupStarters(starters, playerPoints){
 
     for(let starter of starters)
     {
-        if(playerPoints[starter])
+        if(playerPoints[starter] !== null || playerPoints[starter] !== undefined)
         {
             startersPoints.push({
                 "player_id": starter,
@@ -116,7 +116,7 @@ export function lowScorerInMatchupStarters(starters, playerPoints){
             });
         }
     }
-
+    
     if(startersPoints)
     {
         startersPoints.sort((a, b) => a.points - b.points);

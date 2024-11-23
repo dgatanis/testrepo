@@ -91,14 +91,9 @@
           <a class="nav-link active" id="statsTab" aria-current="page" href="#">All-Time Stats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" id="teamCompTab" href="#">Team Comparison Tool</a>
+          <a class="nav-link active" id="teamCompTab" href="#">H2H Comparison Tool</a>
         </li>
       </ul>
-      <div class="custom-loading-icon">
-        <div id="page-loading" class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
       <div class="custom-body custom-none-display">
         <div id="allTimeStats">
           <div class="custom-stats-container">
@@ -605,21 +600,23 @@
       <div class="custom-body custom-none-display">
         <div id="teamComparisonTool">
           <div class="custom-comparison-container">
-            <div class="btn-group" id="team1">
-              <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Choose Team
-              </button>
-              <ul class="dropdown-menu" id="teamDropdown1">
-              </ul>
-            </div>
-            <div class="btn-group" id="team2">
-              <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Choose Team
-              </button>
-              <ul class="dropdown-menu" id="teamDropdown2">
-              </ul>
+            <div class="custom-button-container">
+              <div class="btn-group" id="team1">
+                <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Choose Team
+                </button>
+                <ul class="dropdown-menu" id="teamDropdown1">
+                </ul>
+              </div>
+              <div class="btn-group" id="team2">
+                <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Choose Team
+                </button>
+                <ul class="dropdown-menu" id="teamDropdown2">
+                </ul>
+              </div>
             </div>
           </div>
           <div class="custom-comparison-container">
@@ -632,50 +629,116 @@
           <div class="custom-comparison-container">
           <table class="table table-dark custom-none-display" id="teamComparison">
             <thead>
-              <th id="team1Header" scope="col" style="text-align: center;">
-                <span class="custom-team-name">Team 1</span>
-              </th>
-              <th scope="col" style="vertical-align: middle;text-align: center;">
-                <img class="custom-versus-icon" src="../src/static/images/versus-icon.png">
-              </th>
-              <th id="team2Header" scope="col" style="text-align: center;">
-                <span class="custom-team-name">Team 2</span>
-              </th>
+              <tr style="vertical-align: text-bottom;">
+                <th id="team1Header" scope="col" style="text-align: center;word-wrap: break-word;">
+                  <span class="custom-team-name">Team 1</span>
+                </th>
+                <th scope="col" style="text-align: center;">
+                  <img class="custom-versus-icon" src="../src/static/images/versus-icon.png">
+                  <a id="keep-trade-roster-comp"class="custom-roster-comp" href=""
+                  title="Keep Trade Cut Roster Comparison" target="_blank">
+                  Compare Rosters
+                </a>
+                </th>
+                <th id="team2Header" scope="col" style="text-align: center;word-wrap: break-word;">
+                  <span class="custom-team-name">Team 2</span>
+                </th>
+              </tr>
             </thead>
             <tbody>
+              <tr>
+                <td style="background:transparent;"></td>
+                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;font-size:.8rem;">Regular Season</td>
+                <td style="background:transparent;"></td>
+              </tr>
               <tr id="wins">
                 <td class="custom-team1-result"></td>
-                <td>Wins</td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="losses">
-                <td class="custom-team1-result"></td>
-                <td>Losses</td>
+                <td><div class="h2h-header">Wins</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="avgPtsFor">
                 <td class="custom-team1-result"></td>
-                <td>Avg Pts For</td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="avgPtsAgnst">
-                <td class="custom-team1-result"></td>
-                <td>Avg Pts Against</td>
+                <td><div class="h2h-header">Avg Pts For</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="highScorePlayers">
                 <td class="custom-team1-result"></td>
-                <td>High Scorer</td>
+                <td><div class="h2h-header">High Scorer</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
               <tr id="lowScorePlayers">
                 <td class="custom-team1-result"></td>
-                <td>Low Scorer</td>
+                <td><div class="h2h-header">Low Scorer</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="startSitAcc">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">*Start/Sit Accuracy</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr>
+                <td style="background:transparent;"></td>
+                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;font-size:.8rem;">Post-Season</td>
+                <td style="background:transparent;"></td>
+              </tr>
+              <tr id="postseasonWins">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Wins</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonAvgPtsFor">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Avg Pts For</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonHighScorePlayers">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">High Scorer</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonLowScorePlayers">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Low Scorer</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="postseasonStartSitAcc">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">*Start/Sit Accuracy</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr>
+                <td style="background:transparent;"></td>
+                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;text-decoration:underline;font-size:.8rem;">Overall</td>
+                <td style="background:transparent;"></td>
+              </tr>
+              <tr id="overallTrades">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Trades</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="record">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Record</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="overallAvgPtsFor">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">Avg Pts For</div></td>
+                <td class="custom-team2-result"></td>
+              </tr>
+              <tr id="overallStartSitAcc">
+                <td class="custom-team1-result"></td>
+                <td><div class="h2h-header">*Start/Sit Accuracy</div></td>
                 <td class="custom-team2-result"></td>
               </tr>
             </tbody>
           </table>
-          </div>
+          <legend id="h2hLegend" class="custom-none-display">* - Calculated via best possible lineup per position (QB/RB/WR/TE)</legend>
+        </div>
+      </div>
+      <div class="custom-loading-icon">
+        <div id="page-loading" class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
       </div>
       <footer class="footer">
