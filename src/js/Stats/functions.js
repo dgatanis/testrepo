@@ -72,13 +72,13 @@ async function submitTeams() {
             image1.setAttribute('class', 'custom-xsmall-avatar');
             image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (winsLosses.team1.wins < winsLosses.team2.wins) { //change avatar image background color 
+            if (winsLosses.team1.wins > winsLosses.team2.wins) { //change avatar image background color 
                 image2.classList.add('custom-team-inferior');
                 image2.classList.remove('custom-team-superior');
                 image1.classList.add('custom-team-superior');
                 image1.classList.remove('custom-team-inferior');
             }
-            else if (winsLosses.team1.wins > winsLosses.team2.wins) {
+            else if (winsLosses.team1.wins < winsLosses.team2.wins) {
                 image2.classList.add('custom-team-superior');
                 image2.classList.remove('custom-team-inferior');
                 image1.classList.add('custom-team-inferior');
@@ -325,13 +325,13 @@ async function submitTeams() {
             image1.setAttribute('class', 'custom-xsmall-avatar');
             image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (winsLosses.team1.wins < winsLosses.team2.wins) { //change avatar image background color 
+            if (winsLosses.team1.wins > winsLosses.team2.wins) { //change avatar image background color 
                 image2.classList.add('custom-team-inferior');
                 image2.classList.remove('custom-team-superior');
                 image1.classList.add('custom-team-superior');
                 image1.classList.remove('custom-team-inferior');
             }
-            else if (winsLosses.team1.wins > winsLosses.team2.wins) {
+            else if (winsLosses.team1.wins < winsLosses.team2.wins) {
                 image2.classList.add('custom-team-superior');
                 image2.classList.remove('custom-team-inferior');
                 image1.classList.add('custom-team-inferior');
@@ -617,13 +617,13 @@ async function submitTeams() {
             image1.setAttribute('class', 'custom-xsmall-avatar');
             image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (winsLosses.team1.wins < winsLosses.team2.wins) { //change avatar image background color 
+            if (winsLosses.team1.wins > winsLosses.team2.wins) { //change avatar image background color 
                 image2.classList.add('custom-team-inferior');
                 image2.classList.remove('custom-team-superior');
                 image1.classList.add('custom-team-superior');
                 image1.classList.remove('custom-team-inferior');
             }
-            else if (winsLosses.team1.wins > winsLosses.team2.wins) {
+            else if (winsLosses.team1.wins < winsLosses.team2.wins) {
                 image2.classList.add('custom-team-superior');
                 image2.classList.remove('custom-team-inferior');
                 image1.classList.add('custom-team-inferior');
