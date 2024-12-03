@@ -982,7 +982,7 @@ function getTradesBetweenRosters(allTrades, roster_id1, roster_id2) {
     .map(([player_id, entries]) => {
         //Find the highest points for each player
         const maxPointsEntry = entries.reduce((max, entry) => {
-            return entry.points > max.points ? entry : max;
+            return entry.points < max.points ? entry : max;
         }, entries[0]);
         
         return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
