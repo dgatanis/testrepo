@@ -46,6 +46,14 @@ async function submitTeams() {
         ownerName2.innerText = team2Name;
         teamComparisonTable.classList.remove("custom-none-display");
 
+        var progressBars = teamComparisonTable.getElementsByClassName('progress-bar');
+
+        for(progress of progressBars) //reset progress bars
+        {
+            progress.setAttribute('style', 'width: 50%');
+            progress.setAttribute('aria-valuenow', '50');
+        }
+
         //remove already existing images
         if(team1Header.getElementsByTagName('img').length > 0 || team2Header.getElementsByTagName('img').length > 0) {
             team1Header.getElementsByTagName('img')[0].remove();
@@ -59,84 +67,85 @@ async function submitTeams() {
             team2Header.prepend(team2Image);
         }
 
+        const allMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+        var postSeasonMatchups = 0;
+        var regularSeasonMatchups = 0;
+
+        for (matchup of allMatchups)
+        {
+            if(matchup.week <= 14) 
+            {
+                regularSeasonMatchups++;
+            }
+            else if(matchup.week > 14) 
+            {
+                postSeasonMatchups++;
+            }
+        }
+
         if (winsRow) { //Wins losses rows
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1, rosterId2, 'N');
             var team1WinsResult = winsRow.getElementsByClassName('custom-team1-result')[0];
             var team2WinsResult = winsRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = winsRow.getElementsByClassName('progress')[0];
+            
 
             team1WinsResult.innerText = winsLosses.team1.wins;
             team2WinsResult.innerText = winsLosses.team2.wins;
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (winsLosses.team1.wins > winsLosses.team2.wins) { //change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if(winsLosses.team1.wins > 0)
+            {
+                var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
+                var team1Percentage = parseFloat(winsLosses.team1.wins / totalWins).toFixed(2);
+                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (winsLosses.team1.wins < winsLosses.team2.wins) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
+            else if(winsLosses.team2.wins > 0)
+            {
+                var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
+                var team2Percentage = parseFloat(winsLosses.team2.wins / totalWins).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
+                var team1Percentage = parseFloat(100 - team2Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
             }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1WinsResult.appendChild(image1);
-            team2WinsResult.appendChild(image2);
 
         }
         if (avgPtsForRow) { //Avg pts for/against rows
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var totalPoints = getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper, 'N');
-            var team1avgPtsVal = totalPoints.team1.pointsFor / teamMatchups.length;
-            var team2avgPtsVal = totalPoints.team2.pointsFor / teamMatchups.length;
+            var team1avgPtsVal = totalPoints.team1.pointsFor / parseInt(regularSeasonMatchups);
+            var team2avgPtsVal = totalPoints.team2.pointsFor / parseInt(regularSeasonMatchups);
             var team1avgPtsResult = avgPtsForRow.getElementsByClassName('custom-team1-result')[0];
             var team2avgPtsResult = avgPtsForRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = avgPtsForRow.getElementsByClassName('progress')[0];
+            var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
 
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
             team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
             team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
 
-            if (parseFloat(team1avgPtsVal) > parseFloat(team2avgPtsVal)) { //change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (totalPoints) { 
+                var team1Percentage = parseFloat((team1avgPtsVal / totalPoints) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (parseFloat(team2avgPtsVal) > parseFloat(team1avgPtsVal)) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1avgPtsResult.appendChild(image1);//add images to result
-            team2avgPtsResult.appendChild(image2);
-
         }
         if(highScorePlayersRow){ //High scorer in matchups
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
+            var teamMatchups = allMatchups;
             var highScorePlayers = getHighScorerPlayerInMatchups(teamMatchups, helper, 'N');
             var team1Player = highScorePlayers.find(player => player.roster_id === rosterId1);
             var team2Player = highScorePlayers.find(player => player.roster_id === rosterId2);
             var team1PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = highScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = highScorePlayersRow.getElementsByClassName('progress')[0];
             var player1Year = team1Player.year;
             var player2Year = team2Player.year;
             var player1Date = "week " + team1Player.week + " '" + player1Year.toString().substring(2,4)
@@ -163,8 +172,6 @@ async function submitTeams() {
             playerName_2.setAttribute('class', 'custom-player-name');
             playerPoints_1.setAttribute('class', 'custom-player-points');
             playerPoints_2.setAttribute('class', 'custom-player-points');
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
 
             while (team1PlayerResult.firstChild) {
                 team1PlayerResult.removeChild(team1PlayerResult.firstChild);
@@ -174,22 +181,16 @@ async function submitTeams() {
                 team2PlayerResult.removeChild(team2PlayerResult.firstChild);
             }
 
-            if (team1Player.maxPoints > team2Player.maxPoints) {//change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (team1Player.maxPoints && team2Player.maxPoints) {
+                var totalPoints = parseFloat(team1Player.maxPoints + team2Player.maxPoints).toFixed(2);
+                var team1Percentage = parseFloat((team1Player.maxPoints / totalPoints) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (team1Player.maxPoints < team2Player.maxPoints) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
+
 
             player1Div.appendChild(playerName_1);
             player1Div.appendChild(playerPoints_1);
@@ -197,20 +198,18 @@ async function submitTeams() {
             player2Div.appendChild(playerPoints_2);
             team1PlayerResult.appendChild(player1Div);
             team1PlayerResult.appendChild(player1Details);
-            team1PlayerResult.appendChild(image1);
             team2PlayerResult.appendChild(player2Div);
             team2PlayerResult.appendChild(player2Details);
-            team2PlayerResult.appendChild(image2);
 
         }
         if(lowScorePlayersRow){ //Low scorer in matchups
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
+            var teamMatchups = allMatchups;
             var lowScorePlayers = getLowScorerPlayerInMatchups(teamMatchups, helper, 'N');
             var team1Player = lowScorePlayers.find(player => player.roster_id === rosterId1);
             var team2Player = lowScorePlayers.find(player => player.roster_id === rosterId2);
             var team1PlayerResult = lowScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = lowScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = lowScorePlayersRow.getElementsByClassName('progress')[0];
             var player1Year = team1Player.year;
             var player2Year = team2Player.year;
             var player1Date = "week " + team1Player.week + " '" + player1Year.toString().substring(2,4)
@@ -237,9 +236,6 @@ async function submitTeams() {
             playerName_2.setAttribute('class', 'custom-player-name');
             playerPoints_1.setAttribute('class', 'custom-player-points');
             playerPoints_2.setAttribute('class', 'custom-player-points');
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
-
 
             while (team1PlayerResult.firstChild) {
                 team1PlayerResult.removeChild(team1PlayerResult.firstChild);
@@ -249,21 +245,14 @@ async function submitTeams() {
                 team2PlayerResult.removeChild(team2PlayerResult.firstChild);
             }
 
-            if (team1Player.maxPoints > team2Player.maxPoints) {//change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
-            }
-            else if (team1Player.maxPoints < team2Player.maxPoints) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
+            if (team1Player.maxPoints && team2Player.maxPoints) {
+                var totalPoints = parseFloat(team1Player.maxPoints + team2Player.maxPoints).toFixed(2);
+                var team1Percentage = parseFloat((team1Player.maxPoints / totalPoints) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
 
             player1Div.appendChild(playerName_1);
@@ -272,124 +261,95 @@ async function submitTeams() {
             player2Div.appendChild(playerPoints_2);
             team1PlayerResult.appendChild(player1Div);
             team1PlayerResult.appendChild(player1Details);
-            team1PlayerResult.appendChild(image1);
             team2PlayerResult.appendChild(player2Div);
             team2PlayerResult.appendChild(player2Details);
-            team2PlayerResult.appendChild(image2);
         }
         if(startSitAccRow){
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var team1PlayerResult = startSitAccRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = startSitAccRow.getElementsByClassName('custom-team2-result')[0];
             var teamStartSitAcc = allTeamMatchupAccuracy(teamMatchups, playerData, rosterId1, rosterId2, 'N');
-            var team1Accuracy = (teamStartSitAcc.team1.totalAcc / parseInt(teamStartSitAcc.team1.totalMatchups)).toFixed(2);
-            var team2Accuracy = (teamStartSitAcc.team2.totalAcc / parseInt(teamStartSitAcc.team2.totalMatchups)).toFixed(2);
+            var team1Accuracy = parseFloat(teamStartSitAcc.team1.totalAcc / parseInt(regularSeasonMatchups)).toFixed(2);
+            var team2Accuracy = parseFloat(teamStartSitAcc.team2.totalAcc / parseInt(regularSeasonMatchups)).toFixed(2);
+            var progress = startSitAccRow.getElementsByClassName('progress')[0];
 
             team1PlayerResult.innerText = team1Accuracy + "%";
             team2PlayerResult.innerText = team2Accuracy + "%";
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (team1Accuracy > team2Accuracy) {//change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (team1Accuracy && team2Accuracy) {
+                var team1Percentage = parseFloat((team1Accuracy / 200) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (team1Accuracy < team2Accuracy) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1PlayerResult.appendChild(image1);
-            team2PlayerResult.appendChild(image2);
         }
         if (postWinsRow) {
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1, rosterId2, 'Y');
             var team1WinsResult = postWinsRow.getElementsByClassName('custom-team1-result')[0];
             var team2WinsResult = postWinsRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = postWinsRow.getElementsByClassName('progress')[0];
 
             team1WinsResult.innerText = winsLosses.team1.wins;
             team2WinsResult.innerText = winsLosses.team2.wins;
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (winsLosses.team1.wins > winsLosses.team2.wins) { //change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if(winsLosses.team1.wins > 0)
+            {
+                var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
+                var team1Percentage = parseFloat(winsLosses.team1.wins / totalWins).toFixed(2);
+                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (winsLosses.team1.wins < winsLosses.team2.wins) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
+            else if(winsLosses.team2.wins > 0)
+            {
+                var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
+                var team2Percentage = parseFloat(winsLosses.team2.wins / totalWins).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
+                var team1Percentage = parseFloat(100 - team2Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
             }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1WinsResult.appendChild(image1);
-            team2WinsResult.appendChild(image2);
         }
         if (postAvgPtsForRow) { //Avg pts for/against rows
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var totalPoints = getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper, 'Y');
-            var team1avgPtsVal = totalPoints.team1.pointsFor / teamMatchups.length;
-            var team2avgPtsVal = totalPoints.team2.pointsFor / teamMatchups.length;
+            var team1avgPtsVal = parseFloat(totalPoints.team1.pointsFor / parseInt(postSeasonMatchups));
+            var team2avgPtsVal = parseFloat(totalPoints.team2.pointsFor / parseInt(postSeasonMatchups));
             var team1avgPtsResult = postAvgPtsForRow.getElementsByClassName('custom-team1-result')[0];
             var team2avgPtsResult = postAvgPtsForRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = postAvgPtsForRow.getElementsByClassName('progress')[0];
+            var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
 
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
-            team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
-            team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
-
-            if (parseFloat(team1avgPtsVal) > parseFloat(team2avgPtsVal)) { //change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (team1avgPtsVal > 0 && team2avgPtsVal > 0) { 
+                team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
+                team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
+                var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
+                var team1Percentage = parseFloat((team1avgPtsVal / totalPoints) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (parseFloat(team2avgPtsVal) > parseFloat(team1avgPtsVal)) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
+            else
+            {
+                team1avgPtsResult.innerText = '00.00%';
+                team2avgPtsResult.innerText = '00.00%';
             }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1avgPtsResult.appendChild(image1);//add images to result
-            team2avgPtsResult.appendChild(image2);
 
         }
         if (postHighScorePlayersRow) { //High scorer in matchups
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
+            var teamMatchups = allMatchups;
             var highScorePlayers = getHighScorerPlayerInMatchups(teamMatchups, helper, 'Y');
             var team1PlayerResult = postHighScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = postHighScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
-
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
+            var progress = postHighScorePlayersRow.getElementsByClassName('progress')[0];
 
             if (highScorePlayers.length > 0) {
                 var team1Player = highScorePlayers.find(player => player.roster_id === rosterId1);
@@ -428,21 +388,14 @@ async function submitTeams() {
                     team2PlayerResult.removeChild(team2PlayerResult.firstChild);
                 }
 
-                if (team1Player.maxPoints > team2Player.maxPoints) {//change avatar image background color 
-                    image2.classList.add('custom-team-inferior');
-                    image2.classList.remove('custom-team-superior');
-                    image1.classList.add('custom-team-superior');
-                    image1.classList.remove('custom-team-inferior');
-                }
-                else if (team1Player.maxPoints < team2Player.maxPoints) {
-                    image2.classList.add('custom-team-superior');
-                    image2.classList.remove('custom-team-inferior');
-                    image1.classList.add('custom-team-inferior');
-                    image1.classList.remove('custom-team-superior');
-                }
-                else {
-                    image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                    image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
+                if (team1Player.maxPoints && team2Player.maxPoints) {
+                    var totalPoints = parseFloat(team1Player.maxPoints + team2Player.maxPoints).toFixed(2);
+                    var team1Percentage = parseFloat((team1Player.maxPoints / totalPoints) * 100).toFixed(2);
+                    progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                    progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                    var team2Percentage = parseFloat(100 - team1Percentage);
+                    progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                    progress.children[1].setAttribute('aria-valuenow', team2Percentage);
                 }
 
                 player1Div.appendChild(playerName_1);
@@ -451,30 +404,21 @@ async function submitTeams() {
                 player2Div.appendChild(playerPoints_2);
                 team1PlayerResult.appendChild(player1Div);
                 team1PlayerResult.appendChild(player1Details);
-                team1PlayerResult.appendChild(image1);
                 team2PlayerResult.appendChild(player2Div);
                 team2PlayerResult.appendChild(player2Details);
-                team2PlayerResult.appendChild(image2);
             }
             else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
                 team1PlayerResult.innerText = 'N/A';
                 team2PlayerResult.innerText = 'N/A';
-                team1PlayerResult.appendChild(image1);
-                team2PlayerResult.appendChild(image2);
             }
 
         }
         if (postLowScorePlayersRow) {
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
+            var teamMatchups = allMatchups;
             var lowScorePlayers = getLowScorerPlayerInMatchups(teamMatchups, helper, 'Y');
             var team1PlayerResult = postLowScorePlayersRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = postLowScorePlayersRow.getElementsByClassName('custom-team2-result')[0];
-
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
+            var progress = postLowScorePlayersRow.getElementsByClassName('progress')[0];
 
             if (lowScorePlayers.length > 0) {
                 var team1Player = lowScorePlayers.find(player => player.roster_id === rosterId1);
@@ -514,21 +458,14 @@ async function submitTeams() {
                     team2PlayerResult.removeChild(team2PlayerResult.firstChild);
                 }
 
-                if (team1Player.maxPoints > team2Player.maxPoints) {//change avatar image background color 
-                    image2.classList.add('custom-team-inferior');
-                    image2.classList.remove('custom-team-superior');
-                    image1.classList.add('custom-team-superior');
-                    image1.classList.remove('custom-team-inferior');
-                }
-                else if (team1Player.maxPoints < team2Player.maxPoints) {
-                    image2.classList.add('custom-team-superior');
-                    image2.classList.remove('custom-team-inferior');
-                    image1.classList.add('custom-team-inferior');
-                    image1.classList.remove('custom-team-superior');
-                }
-                else {
-                    image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                    image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
+                if (team1Player.maxPoints && team2Player.maxPoints) {
+                    var totalPoints = parseFloat(team1Player.maxPoints + team2Player.maxPoints).toFixed(2);
+                    var team1Percentage = parseFloat((team1Player.maxPoints / totalPoints) * 100).toFixed(2);
+                    progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                    progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                    var team2Percentage = parseFloat(100 - team1Percentage);
+                    progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                    progress.children[1].setAttribute('aria-valuenow', team2Percentage);
                 }
 
                 player1Div.appendChild(playerName_1);
@@ -537,177 +474,122 @@ async function submitTeams() {
                 player2Div.appendChild(playerPoints_2);
                 team1PlayerResult.appendChild(player1Div);
                 team1PlayerResult.appendChild(player1Details);
-                team1PlayerResult.appendChild(image1);
                 team2PlayerResult.appendChild(player2Div);
                 team2PlayerResult.appendChild(player2Details);
-                team2PlayerResult.appendChild(image2);
             }
             else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
                 team1PlayerResult.innerText = 'N/A';
                 team2PlayerResult.innerText = 'N/A';
-                team1PlayerResult.appendChild(image1);
-                team2PlayerResult.appendChild(image2);
             }
         }
         if (postStartSitAccRow) {
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var team1PlayerResult = postStartSitAccRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = postStartSitAccRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = postStartSitAccRow.getElementsByClassName('progress')[0];
             var teamStartSitAcc = allTeamMatchupAccuracy(teamMatchups, playerData, rosterId1, rosterId2, 'Y');
-            var team1Accuracy = (teamStartSitAcc.team1.totalAcc / parseInt(teamStartSitAcc.team1.totalMatchups)).toFixed(2);
-            var team2Accuracy = (teamStartSitAcc.team2.totalAcc / parseInt(teamStartSitAcc.team2.totalMatchups)).toFixed(2);
+            var team1Accuracy = parseFloat(teamStartSitAcc.team1.totalAcc / parseInt(postSeasonMatchups)).toFixed(2);
+            var team2Accuracy = parseFloat(teamStartSitAcc.team2.totalAcc / parseInt(postSeasonMatchups)).toFixed(2);
 
-            team1PlayerResult.innerText = team1Accuracy + "%";
-            team2PlayerResult.innerText = team2Accuracy + "%";
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
-
-            if (team1Accuracy > team2Accuracy) {//change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (team1Accuracy > 0 && team2Accuracy > 0) {
+                team1PlayerResult.innerText = team1Accuracy + "%";
+                team2PlayerResult.innerText = team2Accuracy + "%";
+                var team1Percentage = parseFloat((team1Accuracy / 200) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (team1Accuracy > team2Accuracy) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
+            else
+            {
+                team1PlayerResult.innerText = '00.00%';
+                team2PlayerResult.innerText = '00.00%';
             }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1PlayerResult.appendChild(image1);
-            team2PlayerResult.appendChild(image2);
         }
         if (overallTradesRow) {
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
             var trades = getTradesBetweenRosters(allTrades, rosterId1, rosterId2);
             var team1Result = overallTradesRow.getElementsByClassName('custom-team1-result')[0];
             var team2Result = overallTradesRow.getElementsByClassName('custom-team2-result')[0];
-
             team1Result.innerText = trades.total;
             team2Result.innerText = trades.total;
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
-            image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            
 
-            team1Result.appendChild(image1);
-            team2Result.appendChild(image2);
         }
         if (overallRecordRow) { //Wins losses rows
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1, rosterId2);
             var team1WinsResult = overallRecordRow.getElementsByClassName('custom-team1-result')[0];
             var team2WinsResult = overallRecordRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = overallRecordRow.getElementsByClassName('progress')[0];
+            var totalMatchups = teamMatchups.length;
 
             team1WinsResult.innerText = winsLosses.team1.wins + '-' + winsLosses.team1.losses + '-' + winsLosses.team1.ties;
             team2WinsResult.innerText = winsLosses.team2.wins + '-' + winsLosses.team2.losses + '-' + winsLosses.team2.ties;
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (winsLosses.team1.wins > winsLosses.team2.wins) { //change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if(winsLosses.team1.wins > 0)
+            {
+                var team1Percentage = parseFloat((winsLosses.team1.wins / totalMatchups) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (winsLosses.team1.wins < winsLosses.team2.wins) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
+            else if(winsLosses.team2.wins > 0)
+            {
+                var team2Percentage = parseFloat((winsLosses.team2.wins / totalMatchups) * 100).toFixed(2);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
+                var team1Percentage = parseFloat(100 - team2Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
             }
 
-            team1WinsResult.appendChild(image1);
-            team2WinsResult.appendChild(image2);
 
         }
         if (overallAvgPtsForRow) { //Avg pts for/against rows
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var totalPoints = getTotalPtsInMatchup(teamMatchups, rosterId1, rosterId2, helper);
             var team1avgPtsVal = totalPoints.team1.pointsFor / teamMatchups.length;
             var team2avgPtsVal = totalPoints.team2.pointsFor / teamMatchups.length;
             var team1avgPtsResult = overallAvgPtsForRow.getElementsByClassName('custom-team1-result')[0];
             var team2avgPtsResult = overallAvgPtsForRow.getElementsByClassName('custom-team2-result')[0];
+            var progress = overallAvgPtsForRow.getElementsByClassName('progress')[0];
+            var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
 
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
             team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
             team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
 
-            if (parseFloat(team1avgPtsVal) > parseFloat(team2avgPtsVal)) { //change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (totalPoints) { 
+                var team1Percentage = parseFloat((team1avgPtsVal / totalPoints) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (parseFloat(team2avgPtsVal) > parseFloat(team1avgPtsVal)) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1avgPtsResult.appendChild(image1);//add images to result
-            team2avgPtsResult.appendChild(image2);
 
         }
         if(overallStartSitAccRow){
-            const image1 = team1Image.cloneNode(true);
-            const image2 = team2Image.cloneNode(true);
-            var teamMatchups = getMatchupsBetweenRosters(rosterId1, rosterId2, allTimeMatchups, currentWeek, currentSeason);
+            var teamMatchups = allMatchups;
             var team1PlayerResult = overallStartSitAccRow.getElementsByClassName('custom-team1-result')[0];
             var team2PlayerResult = overallStartSitAccRow.getElementsByClassName('custom-team2-result')[0];
             var teamStartSitAcc = allTeamMatchupAccuracy(teamMatchups, playerData, rosterId1, rosterId2);
-            var team1Accuracy = (teamStartSitAcc.team1.totalAcc / parseInt(teamStartSitAcc.team1.totalMatchups)).toFixed(2);
-            var team2Accuracy = (teamStartSitAcc.team2.totalAcc / parseInt(teamStartSitAcc.team2.totalMatchups)).toFixed(2);
+            var team1Accuracy = (teamStartSitAcc.team1.totalAcc / parseInt(postSeasonMatchups + regularSeasonMatchups)).toFixed(2);
+            var team2Accuracy = (teamStartSitAcc.team2.totalAcc / parseInt(postSeasonMatchups + regularSeasonMatchups)).toFixed(2);
+            var progress = overallStartSitAccRow.getElementsByClassName('progress')[0];
 
             team1PlayerResult.innerText = team1Accuracy + "%";
             team2PlayerResult.innerText = team2Accuracy + "%";
-            image1.setAttribute('class', 'custom-xsmall-avatar');
-            image2.setAttribute('class', 'custom-xsmall-avatar');
 
-            if (team1Accuracy > team2Accuracy) {//change avatar image background color 
-                image2.classList.add('custom-team-inferior');
-                image2.classList.remove('custom-team-superior');
-                image1.classList.add('custom-team-superior');
-                image1.classList.remove('custom-team-inferior');
+            if (team1Accuracy && team2Accuracy) {
+                var team1Percentage = parseFloat((team1Accuracy / 200) * 100).toFixed(2);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
+                var team2Percentage = parseFloat(100 - team1Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
-            else if (team1Accuracy < team2Accuracy) {
-                image2.classList.add('custom-team-superior');
-                image2.classList.remove('custom-team-inferior');
-                image1.classList.add('custom-team-inferior');
-                image1.classList.remove('custom-team-superior');
-            }
-            else {
-                image1.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-                image2.setAttribute('style', 'background-color: var(--custom-dark-gray);');
-            }
-
-            team1PlayerResult.appendChild(image1);
-            team2PlayerResult.appendChild(image2);
         }
 
         document.getElementById('h2hLegend').classList.remove('custom-none-display');
@@ -763,7 +645,7 @@ function getTradesBetweenRosters(allTrades, roster_id1, roster_id2) {
     return totalTrades;
 }
 
-    function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, currentWeek, currentSeason) {
+function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, currentWeek, currentSeason) {
     const allMatchups = [];
     for (matchupWeek of allTimeMatchups) {
         Object.keys(matchupWeek).forEach(key => {
@@ -1042,7 +924,7 @@ function calculatePointsSurrendered(startingPlayers, benchPlayers) {
     };
 }
 
-    function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2, postseasonFilter = null) {
+function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2, postseasonFilter = null) {
 
     let teamStartSitAcc = {
         "team1": {

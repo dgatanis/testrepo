@@ -61,9 +61,6 @@ a#keep-trade-roster-comp {
 
 table#teamComparison {
     margin-top: 4rem;
-    border-collapse: separate;
-    -webkit-border-vertical-spacing: .4rem;
-    -webkit-border-horizontal-spacing: 0rem;
 }
 
 #teamComparison td {
@@ -187,8 +184,18 @@ table > tbody > tr:last-child {
     font-style: italic;
 }
 
+tr#wins, tr#avgPtsFor, tr#highScorePlayers, tr#lowScorePlayers, tr#startSitAcc, tr#postseasonWins, tr#postseasonAvgPtsFor, tr#postseasonHighScorePlayers, tr#postseasonLowScorePlayers, 
+tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#overallStartSitAcc {
+    height: 5rem;
+    border: 1px solid var(--bs-table-bg);
+    border-left-style: none;
+    border-right-style: none;
+}
+
 .custom-team-superior {
-    background-color: var(--custom-green) !important;
+    margin: unset;
+    box-shadow: 0 .1rem 0.5rem #ffe500;
+    padding: unset !important;
 }
 
 .custom-team-inferior {
@@ -227,8 +234,6 @@ table > tbody > tr:last-child {
 }
 
 #teamComparison td:nth-child(1) {
-    border-top-left-radius: .5rem;
-    border-bottom-left-radius: .5rem;
     border: transparent;
     padding: 1rem;
     background: linear-gradient(90deg, var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), transparent);
@@ -246,8 +251,6 @@ table > tbody > tr:last-child {
 }
 
 #teamComparison td:nth-child(3) {
-    border-top-right-radius: .5rem;
-    border-bottom-right-radius: .5rem;
     border: transparent;
     padding: 1rem;
     background: linear-gradient(90deg, transparent, var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg), var(--bs-table-bg));
