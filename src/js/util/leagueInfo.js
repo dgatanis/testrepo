@@ -10,7 +10,11 @@ export const leagueDescription = "Welcome to the Crush Cities dynasty fantasy fo
 export default async function getCurrentLeagueId() {
     try {
         const thisSeason = await getCurrentSeason();
-        const myLeagueId = await currentLeagueId(thisSeason);
+        var myLeagueId = await currentLeagueId(thisSeason);
+        if(myLeagueId == null) //If current season isnt setup go back 1 year
+        {
+            myLeagueId = await currentLeagueId(thisSeason - 1);
+        }
 
         return myLeagueId;
     }
