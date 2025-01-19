@@ -54,6 +54,7 @@ export function sortTeamRankings() {
     for(let roster of rosters)
     {
         sortedList.push({
+            "roster_id": roster.roster_id,
             "owner_id": roster.owner_id,
             "wins": roster.settings.wins,
             "losses": roster.settings.losses,

@@ -14,27 +14,32 @@ async function setBrowserData() {
 
         const currentWeek = await getCurrentWeek();
         const currentLeagueId = await leagueInfo.default();
+        const previousLeague = await previousLeagueId(currentLeagueId);
 
         const expiration = new Date().getTime() + (2*60*60*1000); //2hrs
-        const now = new Date().getTime();
+        const now = new Date()
         const currentExp = new Date(parseInt(localStorage.getItem("expiration")));
 
-        if(!localStorage.getItem("expiration") || currentExp < now)
+        if(!localStorage.getItem("expiration") || currentExp < now.getTime())
         {
             localStorage.clear();
             sessionStorage.clear();
             localStorage.setItem("expiration", expiration);
             setMatchupData(currentLeagueId,currentWeek);
             setAllTimeMatchupData();
-            //setMatchupData('1003692635549462528','10');
             setPlayerData();
             setATLeagueIds();
             setRosterData(currentLeagueId);
             setUserData(currentLeagueId);
-            //setUserData('1054609254864269312');
             setLeagueDetails(currentLeagueId);
-            setPlayoffsData(currentLeagueId);
-            //setPlayoffsData('998356266604916736');
+            if(now.getMonth() >=5)
+            {
+                setPlayoffsData(currentLeagueId);
+            }
+            else
+            {
+                setPlayoffsData(previousLeague);
+            }
         }
         if(!sessionStorage.getItem("MatchupData"))
         {
@@ -66,8 +71,16 @@ async function setBrowserData() {
         }
         if(!localStorage.getItem("PlayoffData"))
         {
-            setPlayoffsData(currentLeagueId);
+            if(now.getMonth() >=5)
+            {
+                setPlayoffsData(currentLeagueId);
+            }
+            else
+            {
+                setPlayerData(previousLeague);
+            }
         }
+        
     }
     catch(error){
         console.error(`Error: ${error.message}`);

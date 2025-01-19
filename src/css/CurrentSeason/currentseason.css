@@ -83,10 +83,16 @@
     font-size: x-small;
     width: fit-content;
     margin-left: .7rem;
+    display: inline;
+    vertical-align: middle;
   }
 
   td[id^="PowerRanking_"] {
     text-align: unset !important;
+  }
+
+  .custom-team-details-container {
+    position: relative;
   }
 
   .custom-team-score {
@@ -306,11 +312,14 @@
   }
 
   .custom-points-for-standings {
-    font-size: .45rem;
+    font-size: .55rem;
     width: fit-content;
     padding-top: .1rem;
-    color: var(--custom-dark-gray);
-    margin-left: .35rem;
+    color: var(--custom-dark-blue);
+    margin-left: .2rem;
+    display: inline;
+    vertical-align: middle;
+    word-spacing: .1rem;
   }
 
   #Standings tbody tr td{
@@ -877,10 +886,6 @@
       }
     }
     
-    .custom-points-for-standings {
-      margin-left: unset;
-    }
-
     .custom-team-score{
       display: block;
       margin-top: .3rem;
@@ -995,6 +1000,10 @@
           top: 0;
           left: 0; /* Back to top left */
       }
+    }
+
+    .custom-standings-record {
+      vertical-align: bottom;
     }
 
     .custom-matchup-player {

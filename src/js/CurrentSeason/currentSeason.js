@@ -111,6 +111,7 @@ function loadSeasonRankings() {
             }
 
             var ownerImage = createOwnerAvatarImage(user.user_id);
+            var teamDetailsContainer = document.createElement("div");
             var teamRecord = document.createElement("div");
             var pointsForRank = sortedTeamsPointsFor.findIndex(function(item) {
                 return item.owner_id === team.owner_id;
@@ -143,13 +144,15 @@ function loadSeasonRankings() {
             points.setAttribute('class', 'custom-points-for-standings');
             ownerImage.setAttribute('title', getRandomString());
             teamRecord.setAttribute('class', 'custom-standings-record');
-            points.innerHTML = team.fpts + "pts  · " + pointsForRank + formattedNum;
-            teamRecord.innerText = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + ")";
-
+            points.innerHTML = "| Pts: " + team.fpts + "  · " + pointsForRank + formattedNum;
+            teamRecord.innerText = "" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + "";
+            teamDetailsContainer.setAttribute('class', 'custom-team-details-container');
+            
+            teamDetailsContainer.appendChild(teamRecord);
+            teamDetailsContainer.appendChild(points);
             standing.append(ownerImage);
             standing.append(teamName);
-            standing.append(teamRecord);
-            standing.append(points);
+            standing.append(teamDetailsContainer);
 
             rosterButton.setAttribute("onclick", "OpenTeamRosterModal(" + user.user_id + ", '" + teamNameDisplay + "')");
 
@@ -173,7 +176,7 @@ function loadMatchups(weekNumber,currentWeek) {
         var arrayNum = parseInt(weekNumber) - 1;
         const matchups = matchupData[0].matchupWeeks[arrayNum];
 
-        if (matchups && noMatchup.classList.contains('custom-block-display')) {
+        if (matchups[0] && noMatchup.classList.contains('custom-block-display')) {
             const matchupsLength = Object.keys(matchups).length;
 
             const highScoreTeam = getRosterHighScorerWeek(matchups);
@@ -327,33 +330,33 @@ function loadMatchups(weekNumber,currentWeek) {
     }
 }
 
-function loadBankroll(week,dues,weeklyWinnerPayout) {
-
+function loadBankroll(week, dues, weeklyWinnerPayout) {
     try {
         let thisWeek = parseInt(week);
-        let highScorers = getHighScorerCount(thisWeek);
         let rosterBankrolls = [];
-
+        //if (thisWeek <= 14 && matchupData[0].matchupWeeks[thisWeek]) {
+        let highScorers = getHighScorerCount(thisWeek);
         for (let roster of rosterData) {
             let highScoreCount = highScorers[roster.roster_id];
             let weeksWon = 0;
             var totalBankRoll = 0;
 
-            if (highScoreCount) {
-                weeksWon = highScoreCount;
-            }
-            totalBankRoll = weeksWon * parseInt(weeklyWinnerPayout);
+                    if (highScoreCount) {
+                        weeksWon = highScoreCount;
+                    }
+                    totalBankRoll = weeksWon * parseInt(weeklyWinnerPayout);
 
-            if (roster.owner_id) {
-            rosterBankrolls.push({
-                "roster_id": roster.roster_id,
-                "user_id": roster.owner_id,
-                "bankroll": totalBankRoll,
-                "weeks_won": weeksWon
-            });
-        }
+                    if (roster.owner_id) {
+                        rosterBankrolls.push({
+                            "roster_id": roster.roster_id,
+                            "user_id": roster.owner_id,
+                            "bankroll": totalBankRoll,
+                            "weeks_won": weeksWon
+                        });
+                    }
+                }
 
-        }
+        //}
 
         rosterBankrolls.sort((a, b) => b.bankroll - a.bankroll);
 
@@ -364,45 +367,45 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
             let rowBankRoll = row.getElementsByTagName('td');
             let rowTeamName = rowTeam[0].getElementsByClassName('custom-teamname-normal');
 
-            var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
-            var teamName = getTeamName(rosterBankrolls[i].user_id);
-            ownerAvatar.setAttribute('class', 'custom-small-avatar');
+                var ownerAvatar = createOwnerAvatarImage(rosterBankrolls[i].user_id);
+                var teamName = getTeamName(rosterBankrolls[i].user_id);
+                ownerAvatar.setAttribute('class', 'custom-small-avatar');
 
-            rowTeamName[0].innerText = teamName;
-            rowTeamName[0].setAttribute("style", "display: inline;");
-            rowTeam[0].prepend(ownerAvatar);
-            rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
-            rowBankRoll[0].setAttribute('style', 'padding-top:1rem;');
+                rowTeamName[0].innerText = teamName;
+                rowTeamName[0].setAttribute("style", "display: inline;");
+                rowTeam[0].prepend(ownerAvatar);
+                rowBankRoll[0].innerText = "$" + rosterBankrolls[i].bankroll;
+                rowBankRoll[0].setAttribute('style', 'padding-top:1rem;');
 
-            if (rosterBankrolls[i].weeks_won > 3) {
-                row.setAttribute('style', 'background:#006f005c;');
+                if (rosterBankrolls[i].weeks_won > 3) {
+                    row.setAttribute('style', 'background:#006f005c;');
+                }
+                else if (rosterBankrolls[i].weeks_won == 3) {
+                    row.setAttribute('style', 'background:#ffc8003d;');
+                }
+                else if (rosterBankrolls[i].weeks_won == 2) {
+                    row.setAttribute('style', 'background:#ed990069;');
+                }
+                else if (rosterBankrolls[i].weeks_won == 1) {
+                    row.setAttribute('style', 'background:#d3571a94;');
+                }
+                else if (rosterBankrolls[i].bankroll == 0 && rosterBankrolls[i].weeks_won < 1) {
+                    row.setAttribute('style', 'background:#a3a3a3;');
+                }
+                else {
+                    row.setAttribute('style', 'background:#cb19198c;');
+                }
+
+                for (let j = 0; j < rosterBankrolls[i].weeks_won; j++) {
+                    var highScorerImg = createMatchupIconImg();
+                    highScorerImg.setAttribute('src', '../src/static/images/crown.png');
+                    highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
+                    highScorerImg.setAttribute('style', 'padding-top: .5rem');
+                    highScorerImg.setAttribute('title', 'Weekly high scorer');
+
+                    rowTeam[0].append(highScorerImg);
+                }
             }
-        else if (rosterBankrolls[i].weeks_won == 3) {
-            row.setAttribute('style', 'background:#ffc8003d;');
-        }
-        else if (rosterBankrolls[i].weeks_won == 2) {
-            row.setAttribute('style', 'background:#ed990069;');
-        }
-        else if (rosterBankrolls[i].weeks_won == 1) {
-            row.setAttribute('style', 'background:#d3571a94;');
-        }
-        else if (rosterBankrolls[i].bankroll == 0 && rosterBankrolls[i].weeks_won < 1) {
-            row.setAttribute('style', 'background:#a3a3a3;');
-        }
-        else {
-            row.setAttribute('style', 'background:#cb19198c;');
-        }
-
-            for (let j = 0; j < rosterBankrolls[i].weeks_won; j++) {
-                var highScorerImg = createMatchupIconImg();
-                highScorerImg.setAttribute('src', '../src/static/images/crown.png');
-                highScorerImg.setAttribute('class', 'custom-matchup-icon-small');
-                highScorerImg.setAttribute('style', 'padding-top: .5rem');
-                highScorerImg.setAttribute('title', 'Weekly high scorer');
-
-                rowTeam[0].append(highScorerImg);
-            }
-        }
 
         var legend = document.getElementById('bankrollLegend');
         legend.innerText = "Weekly Payouts: $" + weeklyWinnerPayout + " Dues: $" + dues;
@@ -410,7 +413,6 @@ function loadBankroll(week,dues,weeklyWinnerPayout) {
     catch (error) {
         console.error(`Error: ${error.message}`);
     }
-
 }
 
 async function getLatestTransactions(leagueId,week) {
@@ -592,52 +594,59 @@ function loadMatchupsList(currentWeek){
 }
 
 function loadPlayoffs(currentWeek) {
-
     var thePlayoffs = playoffData;
+    const rankings = sortTeamRankings();
 
     for (let playoffRound of thePlayoffs) {
         var matchupId = playoffRound.m;
         var winner = null;
 
-        if (playoffRound.r == 1)//Round 1
-        {
-            var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
-            var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
+        if ((playoffRound.p != 3 && playoffRound.p !=5) //Not 3rd of 5th place game
+            &&
+            (rankings.findIndex(x => x.roster_id === parseInt(playoffRound.t1)) <= 6 //Team is in the playoffs (non-loser bracket)
+            || 
+            rankings.findIndex(x => x.roster_id === parseInt(playoffRound.t2)) <= 6)) {
 
-            if (team1 && team2) {
-                winner = playoffRound.w;
-                createPlayoffMatchup('round1', team1, team2, matchupId, winner); //round string param is the id of the element
-            }
-
-        }
-        else if (playoffRound.r == 2)//Semis
-        {
-            var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
-            var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
-
-            if (team1 && team2 && !playoffRound.t1_from)//t1_from.w signals that this matchup comes from winners of another matchup 
+            if (playoffRound.r == 1)//Round 1
             {
-                winner = playoffRound.w;
-                createPlayoffMatchup('round2', team1, team2, matchupId, winner);
-            }
-        else if (team1 && !team2 && !playoffRound.t1_from) {
-                winner = playoffRound.w;
-            createPlayoffMatchup('round2', team1, null, matchupId, winner);
-            }
-        }
-        else if (playoffRound.r == 3)//Finals
-        {
-            var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
-            var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
+                var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
+                var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
 
-            if (team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
-            {
-                winner = playoffRound.w;
-                createPlayoffMatchup('round3', team1, team2, matchupId, winner);
+                if (team1 && team2) {
+                    winner = playoffRound.w;
+                    createPlayoffMatchup('round1', team1, team2, matchupId, winner); //round string param is the id of the element
+                }
+
             }
-        else if (playoffRound.t1_from.w && (!team1 || !team2)) {
-                winner = playoffRound.w;
-                createPlayoffMatchup('round3', null, null, matchupId, winner);
+            else if (playoffRound.r == 2)//Semis
+            {
+                var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
+                var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
+
+                if (team1 && team2 && !playoffRound.t1_from)//t1_from.w signals that this matchup comes from winners of another matchup 
+                {
+                    winner = playoffRound.w;
+                    createPlayoffMatchup('round2', team1, team2, matchupId, winner);
+                }
+            else if (team1 && !team2 && !playoffRound.t1_from) {
+                    winner = playoffRound.w;
+                createPlayoffMatchup('round2', team1, null, matchupId, winner);
+                }
+            }
+            else if (playoffRound.r == 3)//Finals
+            {
+                var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
+                var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
+
+                if (team1 && team2 && playoffRound.t1_from.w) //t1_from.w signals that this matchup comes from winners of another matchup
+                {
+                    winner = playoffRound.w;
+                    createPlayoffMatchup('round3', team1, team2, matchupId, winner);
+                }
+            else if (playoffRound.t1_from.w && (!team1 || !team2)) {
+                    winner = playoffRound.w;
+                    createPlayoffMatchup('round3', null, null, matchupId, winner);
+                }
             }
         }
 
@@ -864,12 +873,21 @@ function getHighScorerCount(week) {
 
     for (let i = 0; i < thisWeek; i++) {
         let matchups = matchupData[0].matchupWeeks[i];
-        let highScorer = getRosterHighScorerWeek(matchups);
-        if (highScorer.points > 0) {
-        rosterHighScorers.push ({
-            "roster_id": highScorer.roster_id,
-            "wk_won": i +1
-        });
+        if (matchups[0]) {
+            let highScorer = getRosterHighScorerWeek(matchups);
+            if (highScorer.points > 0) {
+                rosterHighScorers.push({
+                    "roster_id": highScorer.roster_id,
+                    "wk_won": i + 1
+                });
+            }
+            else {
+                rosterHighScorers.push({
+                    "roster_id": highScorer.roster_id,
+                    "wk_won": i + 0
+                });
+            }
+
     }
 
     }

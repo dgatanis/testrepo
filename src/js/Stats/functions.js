@@ -90,14 +90,13 @@ async function submitTeams() {
             var team2WinsResult = winsRow.getElementsByClassName('custom-team2-result')[0];
             var progress = winsRow.getElementsByClassName('progress')[0];
             
-
             team1WinsResult.innerText = winsLosses.team1.wins;
             team2WinsResult.innerText = winsLosses.team2.wins;
 
             if(winsLosses.team1.wins > 0)
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
-                var team1Percentage = parseFloat(winsLosses.team1.wins / totalWins).toFixed(2);
+                var team1Percentage = (parseFloat(winsLosses.team1.wins / totalWins) * 100).toFixed(2);
                 progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
                 progress.children[1].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
@@ -107,7 +106,7 @@ async function submitTeams() {
             else if(winsLosses.team2.wins > 0)
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
-                var team2Percentage = parseFloat(winsLosses.team2.wins / totalWins).toFixed(2);
+                var team2Percentage = (parseFloat(winsLosses.team2.wins / totalWins) * 100).toFixed(2);
                 progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
                 progress.children[0].setAttribute('aria-valuenow', team2Percentage);
                 var team1Percentage = parseFloat(100 - team2Percentage);
@@ -245,9 +244,8 @@ async function submitTeams() {
                 team2PlayerResult.removeChild(team2PlayerResult.firstChild);
             }
 
-            if (team1Player.maxPoints && team2Player.maxPoints) {
-                var totalPoints = parseFloat(team1Player.maxPoints + team2Player.maxPoints).toFixed(2);
-                var team1Percentage = parseFloat((team1Player.maxPoints / totalPoints) * 100).toFixed(2);
+            if (team1Player && team2Player) {
+                var team1Percentage = team1Player.maxPoints > team2Player.maxPoints ? 66.67 : 33.33;
                 progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
                 progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
@@ -277,7 +275,7 @@ async function submitTeams() {
             team2PlayerResult.innerText = team2Accuracy + "%";
 
             if (team1Accuracy && team2Accuracy) {
-                var team1Percentage = parseFloat((team1Accuracy / 200) * 100).toFixed(2);
+                var team1Percentage = (parseFloat(team1Accuracy - team2Accuracy)+ 50).toFixed(2);
                 progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
                 progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
@@ -298,7 +296,7 @@ async function submitTeams() {
             if(winsLosses.team1.wins > 0)
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
-                var team1Percentage = parseFloat(winsLosses.team1.wins / totalWins).toFixed(2);
+                var team1Percentage = (parseFloat(winsLosses.team1.wins / totalWins) * 100).toFixed(2);
                 progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
                 progress.children[1].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
@@ -308,7 +306,7 @@ async function submitTeams() {
             else if(winsLosses.team2.wins > 0)
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
-                var team2Percentage = parseFloat(winsLosses.team2.wins / totalWins).toFixed(2);
+                var team2Percentage = (parseFloat(winsLosses.team2.wins / totalWins) * 100).toFixed(2);
                 progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
                 progress.children[0].setAttribute('aria-valuenow', team2Percentage);
                 var team1Percentage = parseFloat(100 - team2Percentage);
@@ -458,9 +456,8 @@ async function submitTeams() {
                     team2PlayerResult.removeChild(team2PlayerResult.firstChild);
                 }
 
-                if (team1Player.maxPoints && team2Player.maxPoints) {
-                    var totalPoints = parseFloat(team1Player.maxPoints + team2Player.maxPoints).toFixed(2);
-                    var team1Percentage = parseFloat((team1Player.maxPoints / totalPoints) * 100).toFixed(2);
+                if (team1Player && team2Player) {
+                    var team1Percentage = team1Player.maxPoints > team2Player.maxPoints ? 66.67 : 33.33;
                     progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
                     progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                     var team2Percentage = parseFloat(100 - team1Percentage);
@@ -494,7 +491,7 @@ async function submitTeams() {
             if (team1Accuracy > 0 && team2Accuracy > 0) {
                 team1PlayerResult.innerText = team1Accuracy + "%";
                 team2PlayerResult.innerText = team2Accuracy + "%";
-                var team1Percentage = parseFloat((team1Accuracy / 200) * 100).toFixed(2);
+                var team1Percentage = (parseFloat(team1Accuracy - team2Accuracy)+ 50).toFixed(2);
                 progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
                 progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
@@ -583,7 +580,7 @@ async function submitTeams() {
             team2PlayerResult.innerText = team2Accuracy + "%";
 
             if (team1Accuracy && team2Accuracy) {
-                var team1Percentage = parseFloat((team1Accuracy / 200) * 100).toFixed(2);
+                var team1Percentage = (parseFloat(team1Accuracy - team2Accuracy)+ 50).toFixed(2) ;
                 progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
                 progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
