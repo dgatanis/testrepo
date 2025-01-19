@@ -184,6 +184,11 @@ table > tbody > tr:last-child {
     font-style: italic;
 }
 
+.custom-legend {
+    font-size: x-small;
+    color: black;
+}
+
 tr#wins, tr#avgPtsFor, tr#highScorePlayers, tr#lowScorePlayers, tr#startSitAcc, tr#postseasonWins, tr#postseasonAvgPtsFor, tr#postseasonHighScorePlayers, tr#postseasonLowScorePlayers, 
 tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#overallStartSitAcc {
     height: 5rem;
