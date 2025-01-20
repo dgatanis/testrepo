@@ -9,6 +9,10 @@ div#allTimeStats {
     font-family: 'F1';
 }
 
+.progress {
+    height: .5rem;
+}
+
 .custom-stats-container {
     display: grid;
     overflow: auto;
