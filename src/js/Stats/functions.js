@@ -97,21 +97,21 @@ async function submitTeams() {
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
                 var team1Percentage = (parseFloat(winsLosses.team1.wins / totalWins) * 100).toFixed(2);
-                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
-                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
-                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
-                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
             else if(winsLosses.team2.wins > 0)
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
                 var team2Percentage = (parseFloat(winsLosses.team2.wins / totalWins) * 100).toFixed(2);
-                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
-                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
                 var team1Percentage = parseFloat(100 - team2Percentage);
-                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
-                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
             }
 
         }
@@ -297,21 +297,21 @@ async function submitTeams() {
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
                 var team1Percentage = (parseFloat(winsLosses.team1.wins / totalWins) * 100).toFixed(2);
-                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
-                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
                 var team2Percentage = parseFloat(100 - team1Percentage);
-                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
-                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
             }
             else if(winsLosses.team2.wins > 0)
             {
                 var totalWins = winsLosses.team1.wins + winsLosses.team2.wins;
                 var team2Percentage = (parseFloat(winsLosses.team2.wins / totalWins) * 100).toFixed(2);
-                progress.children[0].setAttribute('style', 'width: ' + team2Percentage + '%');
-                progress.children[0].setAttribute('aria-valuenow', team2Percentage);
+                progress.children[1].setAttribute('style', 'width: ' + team2Percentage + '%');
+                progress.children[1].setAttribute('aria-valuenow', team2Percentage);
                 var team1Percentage = parseFloat(100 - team2Percentage);
-                progress.children[1].setAttribute('style', 'width: ' + team1Percentage + '%');
-                progress.children[1].setAttribute('aria-valuenow', team1Percentage);
+                progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
+                progress.children[0].setAttribute('aria-valuenow', team1Percentage);
             }
         }
         if (postAvgPtsForRow) { //Avg pts for/against rows
