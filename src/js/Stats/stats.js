@@ -430,7 +430,7 @@ function getAllTimeLosses(currentWeek, currentSeason) {
     for(let week of allTimeMatchups)
     {  
 
-        if(week[0] && (week.week != 0 && week.week <=14) && (parseInt(week.year) <= currentSeason && week.week < currentWeek))
+        if(week[0] && (week.week != 0 && week.week <=14) && (parseInt(week.year) <= currentSeason && week.week < currentWeek || parseInt(week.year) < parseInt(currentSeason)))
         {
             
             var thisWeek = week.week;

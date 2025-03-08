@@ -47,7 +47,8 @@ async function submitTeams() {
         teamComparisonTable.classList.remove("custom-none-display");
 
         var progressBars = teamComparisonTable.getElementsByClassName('progress-bar');
-
+        team1Image.classList.add("custom-team1-image-display");
+        team2Image.classList.add("custom-team2-image-display");
         for(progress of progressBars) //reset progress bars
         {
             progress.setAttribute('style', 'width: 50%');
@@ -58,7 +59,6 @@ async function submitTeams() {
         if(team1Header.getElementsByTagName('img').length > 0 || team2Header.getElementsByTagName('img').length > 0) {
             team1Header.getElementsByTagName('img')[0].remove();
             team2Header.getElementsByTagName('img')[0].remove();
-
             team1Header.prepend(team1Image);
             team2Header.prepend(team2Image);
         }
@@ -125,8 +125,8 @@ async function submitTeams() {
             var progress = avgPtsForRow.getElementsByClassName('progress')[0];
             var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
 
-            team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
-            team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
+            team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2) + " pts";
+            team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2) + " pts";
 
             if (totalPoints) { 
                 var team1Percentage = parseFloat((team1avgPtsVal / totalPoints) * 100).toFixed(2);
@@ -161,8 +161,8 @@ async function submitTeams() {
 
             playerName_1.innerText = helper.getFullPlayerName(team1Player.player_id);
             playerName_2.innerText = helper.getFullPlayerName(team2Player.player_id);
-            playerPoints_1.innerText = team1Player.maxPoints
-            playerPoints_2.innerText = team2Player.maxPoints
+            playerPoints_1.innerText = team1Player.maxPoints + " pts"
+            playerPoints_2.innerText = team2Player.maxPoints + " pts"
             player1Details.setAttribute('class', 'custom-player-details');
             player1Details.innerText = player1Date
             player2Details.setAttribute('class', 'custom-player-details');
@@ -225,8 +225,8 @@ async function submitTeams() {
 
             playerName_1.innerText = helper.getFullPlayerName(team1Player.player_id);
             playerName_2.innerText = helper.getFullPlayerName(team2Player.player_id);
-            playerPoints_1.innerText = team1Player.maxPoints
-            playerPoints_2.innerText = team2Player.maxPoints
+            playerPoints_1.innerText = team1Player.maxPoints + " pts";
+            playerPoints_2.innerText = team2Player.maxPoints + " pts";
             player1Details.setAttribute('class', 'custom-player-details');
             player1Details.innerText = player1Date
             player2Details.setAttribute('class', 'custom-player-details');
@@ -325,8 +325,8 @@ async function submitTeams() {
             var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
 
             if (team1avgPtsVal > 0 && team2avgPtsVal > 0) { 
-                team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
-                team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
+                team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2) + " pts";;
+                team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2) + " pts";;
                 var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
                 var team1Percentage = parseFloat((team1avgPtsVal / totalPoints) * 100).toFixed(2);
                 progress.children[0].setAttribute('style', 'width: ' + team1Percentage + '%');
@@ -337,8 +337,8 @@ async function submitTeams() {
             }
             else
             {
-                team1avgPtsResult.innerText = '00.00%';
-                team2avgPtsResult.innerText = '00.00%';
+                team1avgPtsResult.innerText = '00.00';
+                team2avgPtsResult.innerText = '00.00';
             }
 
         }
@@ -367,8 +367,8 @@ async function submitTeams() {
 
                 playerName_1.innerText = helper.getFullPlayerName(team1Player.player_id);
                 playerName_2.innerText = helper.getFullPlayerName(team2Player.player_id);
-                playerPoints_1.innerText = team1Player.maxPoints
-                playerPoints_2.innerText = team2Player.maxPoints
+                playerPoints_1.innerText = team1Player.maxPoints + " pts"
+                playerPoints_2.innerText = team2Player.maxPoints + " pts"
                 player1Details.setAttribute('class', 'custom-player-details');
                 player1Details.innerText = player1Date
                 player2Details.setAttribute('class', 'custom-player-details');
@@ -437,8 +437,8 @@ async function submitTeams() {
 
                 playerName_1.innerText = helper.getFullPlayerName(team1Player.player_id);
                 playerName_2.innerText = helper.getFullPlayerName(team2Player.player_id);
-                playerPoints_1.innerText = team1Player.maxPoints
-                playerPoints_2.innerText = team2Player.maxPoints
+                playerPoints_1.innerText = team1Player.maxPoints + " pts";
+                playerPoints_2.innerText = team2Player.maxPoints + " pts";
                 player1Details.setAttribute('class', 'custom-player-details');
                 player1Details.innerText = player1Date
                 player2Details.setAttribute('class', 'custom-player-details');
@@ -554,8 +554,8 @@ async function submitTeams() {
             var progress = overallAvgPtsForRow.getElementsByClassName('progress')[0];
             var totalPoints = parseFloat(team1avgPtsVal + team2avgPtsVal).toFixed(2);
 
-            team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2);
-            team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2);
+            team1avgPtsResult.innerText = team1avgPtsVal.toFixed(2) + " pts";
+            team2avgPtsResult.innerText = team2avgPtsVal.toFixed(2) + " pts";
 
             if (totalPoints) { 
                 var team1Percentage = parseFloat((team1avgPtsVal / totalPoints) * 100).toFixed(2);
