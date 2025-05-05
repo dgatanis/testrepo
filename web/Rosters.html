@@ -1,1643 +1,1697 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script type="module" src="../src/js/util/browserData.js"></script>
-      <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
-      <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
-      <link rel="stylesheet" href="../src/css/Rosters/rosters.css">
-      <script type="module" src="../src/js/Rosters/rosters.js"></script>
-      <script src="../src/js/Rosters/functions.js"></script>
-      <script src="../src/js/bootstrap.bundle.min.js"></script>
-      <script src="../src/js/Mobile/mobile.js"></script>
-      <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
-    </head>
-    <title>
-      Rosters
-    </title>
-    <body>
-      <div class="custom-nav-container">
-        <div class="custom-header">
-          <img class="custom-header-image" src="../src/static/images/league-logo.png">
-        </div>
-        <ul class="nav nav-tabs desktopnav">
-          <div class="nav-item">
-            <a href="../index.html">
-              <button class="nav-link custom-nav">
-                <img src="../src/static/images/home.png" class="custom-nav-icon">
-                <span class="custom-nav-label">Home</span>
-              </button>
-            </a>
-          </div>
-          <div class="nav-item dropdown">
-            <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../src/static/images/history.png" class="custom-nav-icon">
-              <span class="custom-nav-label">History</span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
-              <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-              <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
-            </ul>
-          </div>
-          <div class="nav-item custom-selected-nav">
-            <a href="#">
-              <button class="nav-link custom-nav">
-                <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
-                <span class="custom-nav-label">Rosters</span>
-              </button>
-            </a>
-          </div>
-          <div class="nav-item">
-            <a href="./Trades.html">
-                <button class="nav-link custom-nav">
-                    <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
-                    <span class="custom-nav-label">Trades</span>
-                </button>
-            </a>
-        </div>
-        <div class="nav-item">
-          <a href="./PowerRankings.html">
-              <button class="nav-link custom-nav">
-                  <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
-                  <span class="custom-nav-label">Power Rankings</span>
-              </button>
-          </a>
-        </div>
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="../src/js/util/browserData.js"></script>
+  <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../src/css/Rosters/rosters.css">
+  <script type="module" src="../src/js/Rosters/rosters.js"></script>
+  <script src="../src/js/Rosters/functions.js"></script>
+  <script src="../src/js/bootstrap.bundle.min.js"></script>
+  <script src="../src/js/Mobile/mobile.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+</head>
+<title>
+  Rosters
+</title>
+
+<body>
+  <div class="custom-nav-container">
+    <div class="custom-header">
+      <img class="custom-header-image" src="../src/static/images/league-logo.png">
+    </div>
+    <ul class="nav nav-tabs desktopnav">
+      <div class="nav-item">
+        <a href="../index.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/home.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Home</span>
+          </button>
+        </a>
+      </div>
+      <div class="nav-item dropdown">
+        <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../src/static/images/history.png" class="custom-nav-icon">
+          <span class="custom-nav-label">History</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
+          <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
+          <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
+          <li><a class="dropdown-item" href="./Matchups.html">Matchups</a></li>
         </ul>
       </div>
-      <div class="mobilenav">
-        <a href="#" class="active">Rosters</a>
-        <div id="mobileLinks" class="custom-mobile-hide">
-          <a href="../index.html">Home</a>
-          <a href="./CurrentSeason.html">Current Season</a>
-          <a href="./LeagueChamps.html">League Champs</a>
-          <a href="./Stats.html">Stats</a>
-          <a href="./Trades.html">Trades</a>
-          <a href="./PowerRankings.html">Power Rankings</a>
-          <div onclick="toggleMobileMenu()" style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
-          <font>☰</font>
+      <div class="nav-item custom-selected-nav">
+        <a href="#">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Rosters</span>
+          </button>
         </a>
-        <div id="league-logo-mobile" class="custom-league-logo-mobile">
-          <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
       </div>
+      <div class="nav-item">
+        <a href="./Trades.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Trades</span>
+          </button>
+        </a>
       </div>
-      <div style="text-align: center; margin-bottom: 3rem;">
-          <h3 id="rostersTitle">Rosters</h3>
-       <div>
-        <div style="font-size: x-small;font-style: italic;margin-bottom: -.5rem;">Click on team to expand full roster</div>
-        <button type="button" class="btn btn-primary custom-expand-collapse-button" onclick="expandAll();">
-          Expand All
-        </button>
-        <button type="button" class="btn btn-primary custom-expand-collapse-button" onclick="collapseAll();">
-          Collapse All
-        </button>
-       </div>
+      <div class="nav-item">
+        <a href="./PowerRankings.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Power Rankings</span>
+          </button>
+        </a>
       </div>
-      <div class="custom-loading-icon">
-        <div id="page-loading" class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
+    </ul>
+  </div>
+  <div class="mobilenav">
+    <a href="#" class="active">Rosters</a>
+    <div id="mobileLinks" class="custom-mobile-hide">
+      <a href="../index.html">Home</a>
+      <a href="./CurrentSeason.html">Current Season</a>
+      <a href="./LeagueChamps.html">League Champs</a>
+      <a href="./Stats.html">Stats</a>
+      <a href="./Matchups.html">Matchups</a>
+      <a href="./Trades.html">Trades</a>
+      <a href="./PowerRankings.html">Power Rankings</a>
+      <div onclick="toggleMobileMenu()"
+        style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+      <font>☰</font>
+    </a>
+    <div id="league-logo-mobile" class="custom-league-logo-mobile">
+      <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
+    </div>
+  </div>
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <h3 id="rostersTitle">Rosters</h3>
+    <div>
+      <div style="font-size: x-small;font-style: italic;margin-bottom: -.5rem;">Click on team to expand full roster
+      </div>
+      <button type="button" class="btn btn-primary custom-expand-collapse-button" onclick="expandAll();">
+        Expand All
+      </button>
+      <button type="button" class="btn btn-primary custom-expand-collapse-button" onclick="collapseAll();">
+        Collapse All
+      </button>
+    </div>
+  </div>
+  <div class="custom-loading-icon">
+    <div id="page-loading" class="spinner-border text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <div class="custom-body custom-none-display">
+    <div class="custom-roster-group">
+      <div class="custom-team-roster" style="grid-row: 1;grid-column: 1;">
+        <div class="custom-team-name" id="team1">
+          <div></div>
         </div>
-      </div>
-      <div class="custom-body custom-none-display">
-        <div class="custom-roster-group"> 
-          <div class="custom-team-roster" style="grid-row: 1;grid-column: 1;">
-            <div class="custom-team-name" id="team1">
-              <div></div>
+        <div class="accordion" id="teamGroup1">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_1">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam1"
+                aria-expanded="true" aria-controls="startersTeam1" id="buttonStartersTeam1">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_1" id="startersTeam1">
+              <div class="accordion-body">
+                <table id="startersTable1" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="accordion" id="teamGroup1">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_1">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam1" aria-expanded="true" aria-controls="startersTeam1" id="buttonStartersTeam1">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_1" id="startersTeam1">
-                  <div class="accordion-body">
-                    <table id="startersTable1" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader1">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam1" aria-expanded="true" aria-controls="benchTeam1" id="buttonBenchTeam1">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_1" id="benchTeam1">
+              <div class="accordion-body">
+                <table id="benchTable1" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader1">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam1" aria-expanded="true" aria-controls="benchTeam1" id="buttonBenchTeam1">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_1" id="benchTeam1">
-                  <div class="accordion-body">
-                    <table id="benchTable1" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader1">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam1" aria-expanded="true" aria-controls="taxiTeam1" id="buttonTaxiTeam1">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_1" id="taxiTeam1">
-                  <div class="accordion-body">
-                    <table id="taxiTable1" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader1">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam1" aria-expanded="true" aria-controls="taxiTeam1" id="buttonTaxiTeam1">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_1" id="taxiTeam1">
+              <div class="accordion-body">
+                <table id="taxiTable1" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader1">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam1" aria-expanded="false" aria-controls="statsTeam1" id="buttonStatsTeam1">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_1" id="statsTeam1">
-                  <div class="accordion-body">
-                    <table id="statsTable1" class="table custom-player-table-group">
-                      <tbody>
-                      <tr class="custom-stats-position-count-row">
-                        <td style="width:100%">
-                          <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                          <div id="positionCount_1" class="custom-position-count">
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader1">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam1" aria-expanded="false" aria-controls="statsTeam1" id="buttonStatsTeam1">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_1" id="statsTeam1">
+              <div class="accordion-body">
+                <table id="statsTable1" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_1" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
                           </div>
-                        </td>
-                      </tr>
-                      <tr class="custom-stats-players-age-row">
-                        <td style="width:100%">
-                          <div class="custom-stats-label">Roster Age</div>
-                          <div class="custom-stats-players-age">
+                          <div class="custom-block-display custom-stacks-player">
+                            None
                           </div>
-                        </td>
-                      </tr>
-                      <tr class="custom-stats-position-age-row">
-                        <td>
-                          <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-team-roster" style="grid-row: 1;grid-column: 2;">
+        <div class="custom-team-name" id="team2">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup2">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_2">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam2"
+                aria-expanded="true" aria-controls="startersTeam2" id="buttonStartersTeam2">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_2" id="startersTeam2">
+              <div class="accordion-body">
+                <table id="startersTable2" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam2" aria-expanded="true" aria-controls="benchTeam2" id="buttonBenchTeam2">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_2" id="benchTeam2">
+              <div class="accordion-body">
+                <table id="benchTable2" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam2" aria-expanded="true" aria-controls="taxiTeam2" id="buttonTaxiTeam2">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_2" id="taxiTeam2">
+              <div class="accordion-body">
+                <table id="taxiTable2" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam2" aria-expanded="false" aria-controls="statsTeam2" id="buttonStatsTeam2">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_2" id="statsTeam2">
+              <div class="accordion-body">
+                <table id="statsTable2" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_2" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
                           </div>
-                        </td>
-                      </tr>
-                      <tr class="custom-stats-stacks-row">
-                        <td style="width: 90%;">
-                          <div class="custom-stacks-team-group">
-                            <div class="custom-stats-label">
-                              QB Stacks
-                            </div>
-                            <div class="custom-block-display custom-stacks-player">
-                              None
-                            </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
                           </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
-            </div>
-          </div>
-          <div class="custom-team-roster" style="grid-row: 1;grid-column: 2;">
-            <div class="custom-team-name" id="team2">
-              <div></div>
-            </div>
-            <div class="accordion" id="teamGroup2">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_2">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam2" aria-expanded="true" aria-controls="startersTeam2" id="buttonStartersTeam2">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_2" id="startersTeam2">
-                  <div class="accordion-body">
-                    <table id="startersTable2" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam2" aria-expanded="true" aria-controls="benchTeam2" id="buttonBenchTeam2">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_2" id="benchTeam2">
-                  <div class="accordion-body">
-                    <table id="benchTable2" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam2" aria-expanded="true" aria-controls="taxiTeam2" id="buttonTaxiTeam2">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_2" id="taxiTeam2">
-                  <div class="accordion-body">
-                    <table id="taxiTable2" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>  
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam2" aria-expanded="false" aria-controls="statsTeam2" id="buttonStatsTeam2">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_2" id="statsTeam2">
-                  <div class="accordion-body">
-                    <table id="statsTable2" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_2" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;"> 
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>        
-            </div>
-          </div>
-          <div class="custom-team-roster" style="grid-row: 1;grid-column: 3;">
-            <div class="custom-team-name" id="team3">
-              <div></div>
-            </div>
-            <div class="accordion" id="teamGroup3">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_3">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam3" aria-expanded="true" aria-controls="startersTeam3" id="buttonStartersTeam3">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_3" id="startersTeam3">
-                  <div class="accordion-body">
-                    <table id="startersTable3" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam3" aria-expanded="true" aria-controls="benchTeam3" id="buttonBenchTeam3">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_3"  id="benchTeam3">
-                  <div class="accordion-body">
-                    <table id="benchTable3" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam3" aria-expanded="true" aria-controls="taxiTeam3" id="buttonTaxiTeam3">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxTeam_3" id="taxiTeam3">
-                  <div class="accordion-body">
-                    <table id="taxiTable3" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam3" aria-expanded="false" aria-controls="statsTeam3" id="buttonStatsTeam3">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_3" id="statsTeam3">
-                  <div class="accordion-body">
-                    <table id="statsTable3" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_3" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
         </div>
       </div>
-      <div class="custom-body custom-none-display">
-        <div class="custom-roster-group"> 
-          <div class="custom-team-roster" style="grid-row: 2;grid-column: 1;">
-            <div class="custom-team-name" id="team4">
-              <div></div>
-            </div>
-            <div class="accordion" id="teamGroup4">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_4">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam4" aria-expanded="true" aria-controls="startersTeam4" id="buttonStartersTeam4">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_4" id="startersTeam4">
-                  <div class="accordion-body">
-                    <table id="startersTable4" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+      <div class="custom-team-roster" style="grid-row: 1;grid-column: 3;">
+        <div class="custom-team-name" id="team3">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup3">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_3">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam3"
+                aria-expanded="true" aria-controls="startersTeam3" id="buttonStartersTeam3">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_3" id="startersTeam3">
+              <div class="accordion-body">
+                <table id="startersTable3" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam4" aria-expanded="true" aria-controls="benchTeam4" id="buttonBenchTeam4">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_4" id="benchTeam4">
-                  <div class="accordion-body">
-                    <table id="benchTable4" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam4" aria-expanded="true" aria-controls="taxiTeam4" id="buttonTaxiTeam4">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_4" id="taxiTeam4">
-                  <div class="accordion-body">
-                    <table id="taxiTable4" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam4" aria-expanded="false" aria-controls="statsTeam4" id="buttonStatsTeam4">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_4" id="statsTeam4">
-                  <div class="accordion-body">
-                    <table id="statsTable4" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_4" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
-          <div class="custom-team-roster" style="grid-row: 2;grid-column: 2;">
-            <div class="custom-team-name" id="team5">
-              <div></div>
-            </div>
-            <div class="accordion" id="teamGroup5">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_5">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam5" aria-expanded="true" aria-controls="startersTeam5" id="buttonStartersTeam5">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_5" id="startersTeam5">
-                  <div class="accordion-body">
-                    <table id="startersTable5" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam3" aria-expanded="true" aria-controls="benchTeam3" id="buttonBenchTeam3">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_3" id="benchTeam3">
+              <div class="accordion-body">
+                <table id="benchTable3" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader5">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam5" aria-expanded="true" aria-controls="benchTeam5" id="buttonBenchTeam5">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_5" id="benchTeam5">
-                  <div class="accordion-body">
-                    <table id="benchTable5" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader5">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam5" aria-expanded="true" aria-controls="taxiTeam5" id="buttonTaxiTeam5">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_5" id="taxiTeam5">
-                  <div class="accordion-body">
-                    <table id="taxiTable5" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader5">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam5" aria-expanded="false" aria-controls="statsTeam5" id="buttonStatsTeam5">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_5" id="statsTeam5">
-                  <div class="accordion-body">
-                    <table id="statsTable5" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_5" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
-          <div class="custom-team-roster" style="grid-row: 2;grid-column: 3;">
-            <div class="custom-team-name" id="team6">
-              <div></div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam3" aria-expanded="true" aria-controls="taxiTeam3" id="buttonTaxiTeam3">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxTeam_3" id="taxiTeam3">
+              <div class="accordion-body">
+                <table id="taxiTable3" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="accordion" id="teamGroup6">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_6">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam6" aria-expanded="true" aria-controls="startersTeam6" id="buttonStartersTeam6">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_6"  id="startersTeam6">
-                  <div class="accordion-body">
-                    <table id="startersTable6" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam3" aria-expanded="false" aria-controls="statsTeam3" id="buttonStatsTeam3">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_3" id="statsTeam3">
+              <div class="accordion-body">
+                <table id="statsTable3" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_3" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader6">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam6" aria-expanded="true" aria-controls="benchTeam6" id="buttonBenchTeam6">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_6" id="benchTeam6">
-                  <div class="accordion-body">
-                    <table id="benchTable6" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader6">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam6" aria-expanded="true" aria-controls="taxiTeam6" id="buttonTaxiTeam6">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_6" id="taxiTeam6">
-                  <div class="accordion-body">
-                    <table id="taxiTable6" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader6">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam6" aria-expanded="false" aria-controls="statsTeam6" id="buttonStatsTeam6">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_6" id="statsTeam6">
-                  <div class="accordion-body">
-                    <table id="statsTable6" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_6" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%"> 
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
         </div>
       </div>
-      <div class="custom-body custom-none-display">
-        <div class="custom-roster-group"> 
-          <div class="custom-team-roster" style="grid-row: 3;grid-column: 1;">
-            <div class="custom-team-name" id="team7">
-              <div></div>
-            </div>
-            <div class="accordion" id="teamGroup7">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_7">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam7" aria-expanded="true" aria-controls="startersTeam7" id="buttonStartersTeam7">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_7" id="startersTeam7">
-                  <div class="accordion-body">
-                    <table id="startersTable7" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+    </div>
+  </div>
+  <div class="custom-body custom-none-display">
+    <div class="custom-roster-group">
+      <div class="custom-team-roster" style="grid-row: 2;grid-column: 1;">
+        <div class="custom-team-name" id="team4">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup4">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_4">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam4"
+                aria-expanded="true" aria-controls="startersTeam4" id="buttonStartersTeam4">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_4" id="startersTeam4">
+              <div class="accordion-body">
+                <table id="startersTable4" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader7">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam7" aria-expanded="true" aria-controls="benchTeam7" id="buttonBenchTeam7">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_7" id="benchTeam7">
-                  <div class="accordion-body">
-                    <table id="benchTable7" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader7">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam7" aria-expanded="true" aria-controls="taxiTeam7" id="buttonTaxiTeam7">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_7" id="taxiTeam7">
-                  <div class="accordion-body">
-                    <table id="taxiTable7" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader7">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam7" aria-expanded="false" aria-controls="statsTeam7" id="buttonStatsTeam7">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_7" id="statsTeam7">
-                  <div class="accordion-body">
-                    <table id="statsTable7" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_7" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
-          <div class="custom-team-roster" style="grid-row: 3;grid-column: 2;">
-            <div class="custom-team-name" id="team8">
-              <div></div>
-            </div>
-            <div class="accordion" id="teamGroup8">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_8">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam8" aria-expanded="true" aria-controls="startersTeam8" id="buttonStartersTeam8">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_8"  id="startersTeam8">
-                  <div class="accordion-body">
-                    <table id="startersTable8" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam4" aria-expanded="true" aria-controls="benchTeam4" id="buttonBenchTeam4">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_4" id="benchTeam4">
+              <div class="accordion-body">
+                <table id="benchTable4" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader8">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam8" aria-expanded="true" aria-controls="benchTeam8" id="buttonBenchTeam8">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_8"  id="benchTeam8">
-                  <div class="accordion-body">
-                    <table id="benchTable8" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader8">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam8" aria-expanded="true" aria-controls="taxiTeam8" id="buttonTaxiTeam8">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_8" id="taxiTeam8">
-                  <div class="accordion-body">
-                    <table id="taxiTable8" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader8">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam8" aria-expanded="false" aria-controls="statsTeam8" id="buttonStatsTeam8">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_8" id="statsTeam8">
-                  <div class="accordion-body">
-                    <table id="statsTable8" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_8" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
-          <div class="custom-team-roster" style="grid-row: 3;grid-column: 3;">
-            <div class="custom-team-name" id="team9">
-              <div></div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam4" aria-expanded="true" aria-controls="taxiTeam4" id="buttonTaxiTeam4">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_4" id="taxiTeam4">
+              <div class="accordion-body">
+                <table id="taxiTable4" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="accordion" id="teamGroup9">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_9">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam9" aria-expanded="true" aria-controls="startersTeam9" id="buttonStartersTeam9">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_9" id="startersTeam9">
-                  <div class="accordion-body">
-                    <table id="startersTable9" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam4" aria-expanded="false" aria-controls="statsTeam4" id="buttonStatsTeam4">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_4" id="statsTeam4">
+              <div class="accordion-body">
+                <table id="statsTable4" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_4" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader9">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam9" aria-expanded="true" aria-controls="benchTeam9" id="buttonBenchTeam9">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_9" id="benchTeam9">
-                  <div class="accordion-body">
-                    <table id="benchTable9" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader9">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam9" aria-expanded="true" aria-controls="taxiTeam9" id="buttonTaxiTeam9">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_9"  id="taxiTeam9">
-                  <div class="accordion-body">
-                    <table id="taxiTable9" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader9">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam9" aria-expanded="false" aria-controls="statsTeam9" id="buttonStatsTeam9">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_9" id="statsTeam9">
-                  <div class="accordion-body">
-                    <table id="statsTable9" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_9" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-players-age-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label">Roster Age</div>
-                            <div class="custom-stats-players-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-position-age-row">
-                          <td>
-                            <div class="custom-stats-position-age">
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
             </div>
           </div>
         </div>
       </div>
-      <div class="custom-body custom-none-display">
-        <div class="custom-roster-group" style="margin: auto;"> 
-          <div class="custom-team-roster" style="grid-row: 4;grid-column: 2;">
-            <div class="custom-team-name" id="team10">
-              <div></div>
+      <div class="custom-team-roster" style="grid-row: 2;grid-column: 2;">
+        <div class="custom-team-name" id="team5">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup5">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_5">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam5"
+                aria-expanded="true" aria-controls="startersTeam5" id="buttonStartersTeam5">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_5" id="startersTeam5">
+              <div class="accordion-body">
+                <table id="startersTable5" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="accordion" id="teamGroup10">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="startersHeader_10">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam10" aria-expanded="true" aria-controls="startersTeam10" id="buttonStartersTeam10">
-                    Starters
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_10" id="startersTeam10">
-                  <div class="accordion-body">
-                    <table id="startersTable10" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-player-QB-row">
-                          <th class="custom-qb-roster" scope="row">
-                            QB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-RB-row">
-                          <th class="custom-rb-roster" scope="row">
-                            RB
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-WR-row">
-                          <th class="custom-wr-roster" scope="row">
-                            WR
-                          </th>
-                        </tr>
-                        <tr class="custom-player-TE-row">
-                          <th class="custom-te-roster" scope="row">
-                            TE
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-FLEX-row">
-                          <th class="custom-FLEX-roster" scope="row">
-                            FLEX
-                          </th>
-                        </tr>
-                        <tr class="custom-player-SF-row">
-                          <th class="custom-SF-roster" scope="row">
-                            SF
-                          </th>
-                        </tr>
-                        <tr class="custom-player-K-row">
-                          <th class="custom-k-roster" scope="row">
-                            K
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader5">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam5" aria-expanded="true" aria-controls="benchTeam5" id="buttonBenchTeam5">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_5" id="benchTeam5">
+              <div class="accordion-body">
+                <table id="benchTable5" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="benchHeader10">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#benchTeam10" aria-expanded="true" aria-controls="benchTeam10" id="buttonBenchTeam10">
-                    Bench
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="benchTeam_10" id="benchTeam10">
-                  <div class="accordion-body">
-                    <table id="benchTable10" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="taxiHeader10">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#taxiTeam10" aria-expanded="true" aria-controls="taxiTeam10" id="buttonTaxiTeam10">
-                    Taxi
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_10" id="taxiTeam10">
-                  <div class="accordion-body">
-                    <table id="taxiTable10" class="table custom-player-table-group">
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader5">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam5" aria-expanded="true" aria-controls="taxiTeam5" id="buttonTaxiTeam5">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_5" id="taxiTeam5">
+              <div class="accordion-body">
+                <table id="taxiTable5" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="statsHeader10">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#statsTeam10" aria-expanded="false" aria-controls="statsTeam10" id="buttonStatsTeam10">
-                    Details
-                  </button>
-                </h2>
-                <div class="accordion-collapse collapse" aria-labelledby="statsTeam_10" id="statsTeam10">
-                  <div class="accordion-body">
-                    <table id="statsTable10" class="table custom-player-table-group">
-                      <tbody>
-                        <tr class="custom-stats-position-count-row">
-                          <td style="width:100%">
-                            <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
-                            <div id="positionCount_10" class="custom-position-count">
-                            </div>
-                          </td>
-                        </tr>
-                          <tr class="custom-stats-players-age-row">
-                            <td style="width:100%">
-                              <div class="custom-stats-label">Roster Age</div>
-                              <div class="custom-stats-players-age">
-                              </div>
-                            </td>
-                        </tr>
-                          <tr class="custom-stats-position-age-row">
-                            <td>
-                              <div class="custom-stats-position-age">
-                              </div>
-                            </td>
-                        </tr>
-                        <tr class="custom-stats-stacks-row">
-                          <td style="width: 90%;">
-                            <div class="custom-stacks-team-group">
-                              <div class="custom-stats-label">
-                                QB Stacks
-                              </div>
-                              <div class="custom-block-display custom-stacks-player">
-                                None
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>          
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader5">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam5" aria-expanded="false" aria-controls="statsTeam5" id="buttonStatsTeam5">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_5" id="statsTeam5">
+              <div class="accordion-body">
+                <table id="statsTable5" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_5" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container custom-footer">
-          <div id="footerName"></div>
-          <div class="custom-footer-links">
-            <a href="https://sleeper.com/leagues/" title="Sleeper" target="_blank" style="color: transparent;">
-              <img class="left-nav-logo" src="../src/static/images/sleeper.png" alt="Sleeper" style="max-width: 4rem;margin-bottom: .2rem;">
-            </a>
-            <a href="https://www.rotowire.com/football/news.php" target="_blank" title="Rotowire" style="text-decoration: none;">
-                <img class="left-nav-logo" src="../src/static/images/rotowire.png" style="max-width: 3rem;margin-bottom: .4rem;margin-left: 1.5rem;margin-right: 1.5rem;">
-            </a>
-            <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/" title="Fanduel" target="_blank">
-                <img class="left-nav-logo" src="../src/static/images/fanduel.png" style="max-width: 4rem;margin-bottom: .3rem;">
-            </a>
-            <a id="keep-trade-cut" href="" title="Keep Trade Cut League Analyzer" target="_blank">
-              <img class="left-nav-logo" src="../src/static/images/keep-trade-cut.png" style="max-width: 4rem;margin-bottom: .3rem; margin-left:1rem;">
-            </a>
+      <div class="custom-team-roster" style="grid-row: 2;grid-column: 3;">
+        <div class="custom-team-name" id="team6">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup6">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_6">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam6"
+                aria-expanded="true" aria-controls="startersTeam6" id="buttonStartersTeam6">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_6" id="startersTeam6">
+              <div class="accordion-body">
+                <table id="startersTable6" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam6" aria-expanded="true" aria-controls="benchTeam6" id="buttonBenchTeam6">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_6" id="benchTeam6">
+              <div class="accordion-body">
+                <table id="benchTable6" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam6" aria-expanded="true" aria-controls="taxiTeam6" id="buttonTaxiTeam6">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_6" id="taxiTeam6">
+              <div class="accordion-body">
+                <table id="taxiTable6" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam6" aria-expanded="false" aria-controls="statsTeam6" id="buttonStatsTeam6">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_6" id="statsTeam6">
+              <div class="accordion-body">
+                <table id="statsTable6" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_6" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-      <script>
-        document.addEventListener('DOMContentLoaded', function(event) {
-          window.onload = function() {
-            //Open roster from another page
-            if (new URLSearchParams(window.location.search).get('callFunction') === 'openRoster') {
-              var rosterId = new URLSearchParams(window.location.search).get('rosterId');
-              collapseAll();
-              expandCollapseTeam(rosterId);
-            }
-          };
-        });
-     </script>
-    </body>
-  </html>
+      </div>
+    </div>
+  </div>
+  <div class="custom-body custom-none-display">
+    <div class="custom-roster-group">
+      <div class="custom-team-roster" style="grid-row: 3;grid-column: 1;">
+        <div class="custom-team-name" id="team7">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup7">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_7">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam7"
+                aria-expanded="true" aria-controls="startersTeam7" id="buttonStartersTeam7">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_7" id="startersTeam7">
+              <div class="accordion-body">
+                <table id="startersTable7" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader7">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam7" aria-expanded="true" aria-controls="benchTeam7" id="buttonBenchTeam7">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_7" id="benchTeam7">
+              <div class="accordion-body">
+                <table id="benchTable7" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader7">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam7" aria-expanded="true" aria-controls="taxiTeam7" id="buttonTaxiTeam7">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_7" id="taxiTeam7">
+              <div class="accordion-body">
+                <table id="taxiTable7" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader7">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam7" aria-expanded="false" aria-controls="statsTeam7" id="buttonStatsTeam7">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_7" id="statsTeam7">
+              <div class="accordion-body">
+                <table id="statsTable7" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_7" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-team-roster" style="grid-row: 3;grid-column: 2;">
+        <div class="custom-team-name" id="team8">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup8">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_8">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam8"
+                aria-expanded="true" aria-controls="startersTeam8" id="buttonStartersTeam8">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_8" id="startersTeam8">
+              <div class="accordion-body">
+                <table id="startersTable8" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam8" aria-expanded="true" aria-controls="benchTeam8" id="buttonBenchTeam8">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_8" id="benchTeam8">
+              <div class="accordion-body">
+                <table id="benchTable8" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam8" aria-expanded="true" aria-controls="taxiTeam8" id="buttonTaxiTeam8">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_8" id="taxiTeam8">
+              <div class="accordion-body">
+                <table id="taxiTable8" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam8" aria-expanded="false" aria-controls="statsTeam8" id="buttonStatsTeam8">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_8" id="statsTeam8">
+              <div class="accordion-body">
+                <table id="statsTable8" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_8" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-team-roster" style="grid-row: 3;grid-column: 3;">
+        <div class="custom-team-name" id="team9">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup9">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_9">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam9"
+                aria-expanded="true" aria-controls="startersTeam9" id="buttonStartersTeam9">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_9" id="startersTeam9">
+              <div class="accordion-body">
+                <table id="startersTable9" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader9">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam9" aria-expanded="true" aria-controls="benchTeam9" id="buttonBenchTeam9">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_9" id="benchTeam9">
+              <div class="accordion-body">
+                <table id="benchTable9" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader9">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam9" aria-expanded="true" aria-controls="taxiTeam9" id="buttonTaxiTeam9">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_9" id="taxiTeam9">
+              <div class="accordion-body">
+                <table id="taxiTable9" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader9">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam9" aria-expanded="false" aria-controls="statsTeam9" id="buttonStatsTeam9">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_9" id="statsTeam9">
+              <div class="accordion-body">
+                <table id="statsTable9" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_9" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="custom-body custom-none-display">
+    <div class="custom-roster-group" style="margin: auto;">
+      <div class="custom-team-roster" style="grid-row: 4;grid-column: 2;">
+        <div class="custom-team-name" id="team10">
+          <div></div>
+        </div>
+        <div class="accordion" id="teamGroup10">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="startersHeader_10">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#startersTeam10"
+                aria-expanded="true" aria-controls="startersTeam10" id="buttonStartersTeam10">
+                Starters
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse show" aria-labelledby="startersTeam_10" id="startersTeam10">
+              <div class="accordion-body">
+                <table id="startersTable10" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-player-QB-row">
+                      <th class="custom-qb-roster" scope="row">
+                        QB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-RB-row">
+                      <th class="custom-rb-roster" scope="row">
+                        RB
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-WR-row">
+                      <th class="custom-wr-roster" scope="row">
+                        WR
+                      </th>
+                    </tr>
+                    <tr class="custom-player-TE-row">
+                      <th class="custom-te-roster" scope="row">
+                        TE
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-FLEX-row">
+                      <th class="custom-FLEX-roster" scope="row">
+                        FLEX
+                      </th>
+                    </tr>
+                    <tr class="custom-player-SF-row">
+                      <th class="custom-SF-roster" scope="row">
+                        SF
+                      </th>
+                    </tr>
+                    <tr class="custom-player-K-row">
+                      <th class="custom-k-roster" scope="row">
+                        K
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="benchHeader10">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#benchTeam10" aria-expanded="true" aria-controls="benchTeam10" id="buttonBenchTeam10">
+                Bench
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="benchTeam_10" id="benchTeam10">
+              <div class="accordion-body">
+                <table id="benchTable10" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="taxiHeader10">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#taxiTeam10" aria-expanded="true" aria-controls="taxiTeam10" id="buttonTaxiTeam10">
+                Taxi
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="taxiTeam_10" id="taxiTeam10">
+              <div class="accordion-body">
+                <table id="taxiTable10" class="table custom-player-table-group">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="statsHeader10">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#statsTeam10" aria-expanded="false" aria-controls="statsTeam10" id="buttonStatsTeam10">
+                Details
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" aria-labelledby="statsTeam_10" id="statsTeam10">
+              <div class="accordion-body">
+                <table id="statsTable10" class="table custom-player-table-group">
+                  <tbody>
+                    <tr class="custom-stats-position-count-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label" style="margin-bottom: -3rem;">Position Count</div>
+                        <div id="positionCount_10" class="custom-position-count">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-players-age-row">
+                      <td style="width:100%">
+                        <div class="custom-stats-label">Roster Age</div>
+                        <div class="custom-stats-players-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-position-age-row">
+                      <td>
+                        <div class="custom-stats-position-age">
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="custom-stats-stacks-row">
+                      <td style="width: 90%;">
+                        <div class="custom-stacks-team-group">
+                          <div class="custom-stats-label">
+                            QB Stacks
+                          </div>
+                          <div class="custom-block-display custom-stacks-player">
+                            None
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container custom-footer">
+      <div id="footerName"></div>
+      <div class="custom-footer-links">
+        <a href="https://sleeper.com/leagues/" title="Sleeper" target="_blank" style="color: transparent;">
+          <img class="left-nav-logo" src="../src/static/images/sleeper.png" alt="Sleeper"
+            style="max-width: 4rem;margin-bottom: .2rem;">
+        </a>
+        <a href="https://www.rotowire.com/football/news.php" target="_blank" title="Rotowire"
+          style="text-decoration: none;">
+          <img class="left-nav-logo" src="../src/static/images/rotowire.png"
+            style="max-width: 3rem;margin-bottom: .4rem;margin-left: 1.5rem;margin-right: 1.5rem;">
+        </a>
+        <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/"
+          title="Fanduel" target="_blank">
+          <img class="left-nav-logo" src="../src/static/images/fanduel.png"
+            style="max-width: 4rem;margin-bottom: .3rem;">
+        </a>
+        <a id="keep-trade-cut" href="" title="Keep Trade Cut League Analyzer" target="_blank">
+          <img class="left-nav-logo" src="../src/static/images/keep-trade-cut.png"
+            style="max-width: 4rem;margin-bottom: .3rem; margin-left:1rem;">
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function (event) {
+      window.onload = function () {
+        //Open roster from another page
+        if (new URLSearchParams(window.location.search).get('callFunction') === 'openRoster') {
+          var rosterId = new URLSearchParams(window.location.search).get('rosterId');
+          collapseAll();
+          expandCollapseTeam(rosterId);
+        }
+      };
+    });
+  </script>
+</body>
+
+</html>

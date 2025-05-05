@@ -1,0 +1,47 @@
+.accordion-container {
+    padding: .5rem;
+}
+
+.custom-matchup-container {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-team-table {
+    margin: 1rem;
+    width: 15em;
+}
+
+.custom-body {
+    justify-content: center;
+    display: flex;
+}
+
+.custom-matchups {
+    width: 70%;
+}
+
+.custom-medium-avatar {
+    max-width: 2rem;
+}
+
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {
+
+}
+
+/*Normal Laptop display styling*/
+@media screen and (max-width: 64rem) {
+}
+
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {
+
+}
+
+/*Large Mobile display styling*/
+@media screen and (max-width: 26.875rem) {
+    .custom-matchups {
+        width: 100%;
+    }
+}

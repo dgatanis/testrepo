@@ -1,1018 +1,1064 @@
 <!-- index.html -->
 <!DOCTYPE html>
-  <html>
-    <head>
-      <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script type="module" src="../src/js/util/browserData.js"></script>
-      <script type="module" src="../src/js/Stats/stats.js"></script>
-      <script src="../src/js/Stats/functions.js"></script>
-      <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
-      <link rel="stylesheet" href="../src/css/Stats/stats.css">
-      <script src="../src/js/bootstrap.bundle.min.js"></script>
-      <script src="../src/js/Mobile/mobile.js"></script>
-    </head>
-    <title>
-      Stats
-    </title>
-    <body>
-      <div class="custom-nav-container">
-        <div class="custom-header">
-          <img class="custom-header-image" src="../src/static/images/league-logo.png">
-        </div>
-        <ul class="nav nav-tabs desktopnav">
-          <div class="nav-item">
-            <a href="../index.html">
-              <button class="nav-link custom-nav">
-                <img src="../src/static/images/home.png" class="custom-nav-icon">
-                <span class="custom-nav-label">Home</span>
-              </button>
-            </a>
-          </div>
-          <div class="nav-item dropdown custom-selected-nav">
-            <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../src/static/images/history.png" class="custom-nav-icon">
-              <span class="custom-nav-label">History</span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
-              <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-              <li><a class="dropdown-item" href="#">Stats</a></li>
-            </ul>
-          </div>
-          <div class="nav-item">
-            <a href="./Rosters.html">
-              <button class="nav-link custom-nav">
-                <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
-                <span class="custom-nav-label">Rosters</span>
-              </button>
-            </a>
-          </div>
-          <div class="nav-item">
-            <a href="./Trades.html">
-                <button class="nav-link custom-nav">
-                    <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
-                    <span class="custom-nav-label">Trades</span>
-                </button>
-            </a>
-        </div>
-        <div class="nav-item">
-          <a href="./PowerRankings.html">
-              <button class="nav-link custom-nav">
-                  <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
-                  <span class="custom-nav-label">Power Rankings</span>
-              </button>
-          </a>
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="../src/js/util/browserData.js"></script>
+  <script type="module" src="../src/js/Stats/stats.js"></script>
+  <script src="../src/js/Stats/functions.js"></script>
+  <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../src/css/Stats/stats.css">
+  <script src="../src/js/bootstrap.bundle.min.js"></script>
+  <script src="../src/js/Mobile/mobile.js"></script>
+</head>
+<title>
+  Stats
+</title>
+
+<body>
+  <div class="custom-nav-container">
+    <div class="custom-header">
+      <img class="custom-header-image" src="../src/static/images/league-logo.png">
+    </div>
+    <ul class="nav nav-tabs desktopnav">
+      <div class="nav-item">
+        <a href="../index.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/home.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Home</span>
+          </button>
+        </a>
       </div>
+      <div class="nav-item dropdown custom-selected-nav">
+        <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../src/static/images/history.png" class="custom-nav-icon">
+          <span class="custom-nav-label">History</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
+          <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
+          <li><a class="dropdown-item" href="#">Stats</a></li>
+          <li><a class="dropdown-item" href="./Matchups.html">Matchups</a></li>
         </ul>
       </div>
-      <div class="mobilenav">
-        <a href="#" class="active">Stats</a>
-        <div id="mobileLinks" class="custom-mobile-hide">
-          <a href="../index.html">Home</a>
-          <a href="./CurrentSeason.html">Current Season</a>
-          <a href="./LeagueChamps.html">League Champs</a>
-          <a href="./Rosters.html">Rosters</a>
-          <a href="./Trades.html">Trades</a>
-          <a href="./PowerRankings.html">Power Rankings</a>
-          <div onclick="toggleMobileMenu()" style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
-          <font>☰</font>
+      <div class="nav-item">
+        <a href="./Rosters.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Rosters</span>
+          </button>
         </a>
-        <div id="league-logo-mobile" class="custom-league-logo-mobile">
-          <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
       </div>
+      <div class="nav-item">
+        <a href="./Trades.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Trades</span>
+          </button>
+        </a>
       </div>
-      <div>
+      <div class="nav-item">
+        <a href="./PowerRankings.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Power Rankings</span>
+          </button>
+        </a>
       </div>
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" id="statsTab" aria-current="page" href="#">All-Time Stats</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" id="teamCompTab" href="#">H2H Comparison Tool</a>
-        </li>
-      </ul>
-      <div class="custom-body custom-none-display">
-        <div id="allTimeStats">
-          <div class="custom-stats-container">
-            <div class="custom-all-time-stats" style="grid-row: 2;grid-column: 1;">
-              <div class="custom-table-title">Highest Scoring Teams</div>
-              <img src="../src/static/images/crown.png" class="custom-table-icon">
-              <table class="table" id="allTimeHighScorerTeam">
-                <thead>
-                  <th style="font-family: 'F1';">Team</th>
-                  <th style="text-align: center; font-family: 'F1';">Points</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="custom-all-time-stats" style="grid-row: 2;grid-column: 2;">
-              <div class="custom-table-title">Highest Scoring Players</div>
-              <img src="../src/static/images/mvp-icon.png" class="custom-table-icon"
-                style="max-width: 5rem;max-height: 3rem;padding: unset;margin-top: unset;">
-              <table class="table" id="allTimeHighScorerPlayer">
-                <thead>
-                  <th style="font-family: 'F1';">Player</th>
-                  <th style="text-align: center; font-family: 'F1';">Points</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="custom-name"></div>
-                      <div class="custom-details"></div>
-                    </th>
-                    <td class="custom-score"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            </div>
-        <div class="custom-stats-container">
-          <div class="custom-all-time-stats" style="grid-row: 1;grid-column: 1;">
-            <div class="custom-table-title">Lowest Scoring Teams</div>
-            <img src="../src/static/images/lastPlace.png" class="custom-table-icon">
-            <table class="table" id="allTimeLowScorerTeam">
-              <thead>
-                <th style="font-family: 'F1';">Team</th>
-                <th style="text-align: center; font-family: 'F1';">Points</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr >
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="custom-all-time-stats" style="grid-row: 1;grid-column: 2;">
-            <div class="custom-table-title">Lowest Scoring Players</div>
-            <img src="../src/static/images/sad-face.png" class="custom-table-icon">
-            <table class="table" id="allTimeLowScorerPlayer">
-              <thead>
-                <th style="font-family: 'F1';">Player</th>
-                <th style="text-align: center; font-family: 'F1';">Points</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr >
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="custom-stats-container">
-          <div class="custom-all-time-stats" style="grid-row: 3;grid-column: 1;">
-            <div class="custom-table-title">Most Team Wins</div>
-            <img src="../src/static/images/medal.png" class="custom-table-icon">
-            <table class="table" id="allTimeMostWins" style="margin-bottom: unset;">
-              <thead>
-                <th style="font-family: 'F1';">Team</th>
-                <th style="text-align: center; font-family: 'F1';">Wins</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr >
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-              </tbody>
-            </table>
-            <legend class="custom-legend">* Regular Season</legend>
-          </div>
-        <div class="custom-all-time-stats" style="grid-row: 3;grid-column: 2;">
-          <div class="custom-table-title">Most Team Losses</div>
-            <img src="../src/static/images/loser-icon.png" class="custom-table-icon" style="max-width: 8rem;">
-            <table class="table" id="allTimeMostLosses" style="margin-bottom: unset;">
-              <thead>
-                <th style="font-family: 'F1';">Team</th>
-                <th style="text-align: center; font-family: 'F1';">Losses</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr >
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-              </tbody>
-            </table>
-            <legend class="custom-legend">* Regular Season</legend>
-          </div>
-        </div>
-        <div class="custom-stats-container">
-          <div class="custom-all-time-stats" style="grid-row: 4;grid-column: 1;">
-            <div class="custom-table-title">Most High Scoring Weeks</div>
-            <img src="../src/static/images/money-icon.png" class="custom-table-icon" style="max-width: 8rem;">
-            <table class="table" id="allTimeHighScorerWeeks" style="margin-bottom: unset;">
-              <thead>
-                <th style="font-family: 'F1';">Team</th>
-                <th style="text-align: center; font-family: 'F1';">Amount</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-              </tbody>
-            </table>
-            <legend class="custom-legend">* Regular Season</legend>
-          </div>
-          <div class="custom-all-time-stats" style="grid-row: 4;grid-column: 2;">
-            <div class="custom-table-title">Most Low Scoring Weeks</div>
-            <img src="../src/static/images/pay-money-icon.png" class="custom-table-icon" style="max-width: 8rem;">
-            <table class="table" id="allTimeLowScorerWeeks" style="margin-bottom: unset;">
-              <thead>
-                <th style="font-family: 'F1';">Team</th>
-                <th style="text-align: center; font-family: 'F1';">Amount</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="custom-name"></div>
-                    <div class="custom-details"></div>
-                  </th>
-                  <td class="custom-score"></td>
-                </tr>
-              </tbody>
-            </table>
-            <legend class="custom-legend">* Regular Season</legend>
-          </div>
-        </div>
-        </div>
-        </div>
-      </div>
-      <div class="custom-body custom-none-display">
-        <div id="teamComparisonTool">
-          <div class="custom-comparison-container">
-            <div class="custom-button-container">
-              <div class="btn-group" id="team1">
-                <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Choose Team
-                </button>
-                <ul class="dropdown-menu" id="teamDropdown1">
-                </ul>
-              </div>
-              <div class="btn-group" id="team2">
-                <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Choose Team
-                </button>
-                <ul class="dropdown-menu" id="teamDropdown2">
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="custom-comparison-container">
-            <div class="btn-group" id="submitButton">
-              <button type="button" onclick="submitTeams();" class="btn btn-primary">
-                Submit
-              </button>
-            </div>
-          </div>
-          <div class="custom-comparison-container">
-          <table class="table table-dark custom-none-display" id="teamComparison">
+    </ul>
+  </div>
+  <div class="mobilenav">
+    <a href="#" class="active">Stats</a>
+    <div id="mobileLinks" class="custom-mobile-hide">
+      <a href="../index.html">Home</a>
+      <a href="./CurrentSeason.html">Current Season</a>
+      <a href="./LeagueChamps.html">League Champs</a>
+      <a href="./Matchups.html">Matchups</a>
+      <a href="./Rosters.html">Rosters</a>
+      <a href="./Trades.html">Trades</a>
+      <a href="./PowerRankings.html">Power Rankings</a>
+      <div onclick="toggleMobileMenu()"
+        style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+      <font>☰</font>
+    </a>
+    <div id="league-logo-mobile" class="custom-league-logo-mobile">
+      <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
+    </div>
+  </div>
+  <div>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" id="statsTab" aria-current="page" href="#">All-Time Stats</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="teamCompTab" href="#">H2H Comparison Tool</a>
+    </li>
+  </ul>
+  <div class="custom-body custom-none-display">
+    <div id="allTimeStats">
+      <div class="custom-stats-container">
+        <div class="custom-all-time-stats" style="grid-row: 2;grid-column: 1;">
+          <div class="custom-table-title">Highest Scoring Teams</div>
+          <img src="../src/static/images/crown.png" class="custom-table-icon">
+          <table class="table" id="allTimeHighScorerTeam">
             <thead>
-              <tr style="vertical-align: text-bottom;">
-                <th id="team1Header" scope="col" style="text-align: center;word-wrap: break-word;">
-                  <span class="custom-team-name">Team 1</span>
-                </th>
-                <th scope="col" style="text-align: center; vertical-align:  bottom;">
-                  <a id="keep-trade-roster-comp"class="custom-roster-comp" href=""
-                  title="Keep Trade Cut Roster Comparison" target="_blank">
-                  Compare Rosters
-                </a>
-                </th>
-                <th id="team2Header" scope="col" style="text-align: center;word-wrap: break-word;">
-                  <span class="custom-team-name">Team 2</span>
-                </th>
-              </tr>
+              <th style="font-family: 'F1';">Team</th>
+              <th style="text-align: center; font-family: 'F1';">Points</th>
             </thead>
             <tbody>
               <tr>
-                <td style="background:transparent;"></td>
-                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size: .6rem;">Regular Season</td>
-                <td style="background:transparent;"></td>
-              </tr>
-              <tr id="wins">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Wins</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="avgPtsFor">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Avg Pts For</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="highScorePlayers">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">High Scorer</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div></td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="lowScorePlayers">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Low Scorer</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="startSitAcc">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Start/Sit Accuracy *</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
               <tr>
-                <td style="background:transparent;"></td>
-                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size: .6rem;">Post-Season</td>
-                <td style="background:transparent;"></td>
-              </tr>
-              <tr id="postseasonWins">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Wins</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="postseasonAvgPtsFor">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Avg Pts For</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="postseasonHighScorePlayers">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">High Scorer</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="postseasonLowScorePlayers">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Low Scorer</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
-              </tr>
-              <tr id="postseasonStartSitAcc">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Start/Sit Accuracy *</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
               <tr>
-                <td style="background:transparent;"></td>
-                <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size:.6rem;">Overall</td>
-                <td style="background:transparent;"></td>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
-              <tr id="overallTrades">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Trades</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
-              <tr id="record">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Record</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
-              <tr id="overallAvgPtsFor">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Avg Pts For</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
-              <tr id="overallStartSitAcc">
-                <td class="custom-team1-result"></td>
-                <td>
-                  <div class="h2h-header">Start/Sit Accuracy *</div>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </td>
-                <td class="custom-team2-result"></td>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
               </tr>
             </tbody>
           </table>
-          <legend id="h2hLegend" class="custom-none-display">* - Calculated via best possible lineup per position (QB/RB/WR/TE)</legend>
+        </div>
+        <div class="custom-all-time-stats" style="grid-row: 2;grid-column: 2;">
+          <div class="custom-table-title">Highest Scoring Players</div>
+          <img src="../src/static/images/mvp-icon.png" class="custom-table-icon"
+            style="max-width: 5rem;max-height: 3rem;padding: unset;margin-top: unset;">
+          <table class="table" id="allTimeHighScorerPlayer">
+            <thead>
+              <th style="font-family: 'F1';">Player</th>
+              <th style="text-align: center; font-family: 'F1';">Points</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      </div>
-      <div class="custom-loading-icon">
-        <div id="page-loading" class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
+      <div class="custom-stats-container">
+        <div class="custom-all-time-stats" style="grid-row: 1;grid-column: 1;">
+          <div class="custom-table-title">Lowest Scoring Teams</div>
+          <img src="../src/static/images/lastPlace.png" class="custom-table-icon">
+          <table class="table" id="allTimeLowScorerTeam">
+            <thead>
+              <th style="font-family: 'F1';">Team</th>
+              <th style="text-align: center; font-family: 'F1';">Points</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="custom-all-time-stats" style="grid-row: 1;grid-column: 2;">
+          <div class="custom-table-title">Lowest Scoring Players</div>
+          <img src="../src/static/images/sad-face.png" class="custom-table-icon">
+          <table class="table" id="allTimeLowScorerPlayer">
+            <thead>
+              <th style="font-family: 'F1';">Player</th>
+              <th style="text-align: center; font-family: 'F1';">Points</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container custom-footer">
-          <div id="footerName"></div>
-          <div class="custom-footer-links">
-            <a href="https://sleeper.com/leagues/" title="Sleeper" target="_blank" style="color: transparent;">
-              <img class="left-nav-logo" src="../src/static/images/sleeper.png" alt="Sleeper" style="max-width: 4rem;margin-bottom: .2rem;">
-            </a>
-            <a href="https://www.rotowire.com/football/news.php" target="_blank" title="Rotowire" style="text-decoration: none;">
-                <img class="left-nav-logo" src="../src/static/images/rotowire.png" style="max-width: 3rem;margin-bottom: .4rem;margin-left: 1.5rem;margin-right: 1.5rem;">
-            </a>
-            <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/" title="Fanduel" target="_blank">
-                <img class="left-nav-logo" src="../src/static/images/fanduel.png" style="max-width: 4rem;margin-bottom: .3rem;">
-            </a>
-            <a id="keep-trade-cut" href="" title="Keep Trade Cut League Analyzer" target="_blank">
-              <img class="left-nav-logo" src="../src/static/images/keep-trade-cut.png" style="max-width: 4rem;margin-bottom: .3rem; margin-left:1rem;">
-            </a>
+      <div class="custom-stats-container">
+        <div class="custom-all-time-stats" style="grid-row: 3;grid-column: 1;">
+          <div class="custom-table-title">Most Team Wins</div>
+          <img src="../src/static/images/medal.png" class="custom-table-icon">
+          <table class="table" id="allTimeMostWins" style="margin-bottom: unset;">
+            <thead>
+              <th style="font-family: 'F1';">Team</th>
+              <th style="text-align: center; font-family: 'F1';">Wins</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
+          <legend class="custom-legend">* Regular Season</legend>
+        </div>
+        <div class="custom-all-time-stats" style="grid-row: 3;grid-column: 2;">
+          <div class="custom-table-title">Most Team Losses</div>
+          <img src="../src/static/images/loser-icon.png" class="custom-table-icon" style="max-width: 8rem;">
+          <table class="table" id="allTimeMostLosses" style="margin-bottom: unset;">
+            <thead>
+              <th style="font-family: 'F1';">Team</th>
+              <th style="text-align: center; font-family: 'F1';">Losses</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
+          <legend class="custom-legend">* Regular Season</legend>
+        </div>
+      </div>
+      <div class="custom-stats-container">
+        <div class="custom-all-time-stats" style="grid-row: 4;grid-column: 1;">
+          <div class="custom-table-title">Most High Scoring Weeks</div>
+          <img src="../src/static/images/money-icon.png" class="custom-table-icon" style="max-width: 8rem;">
+          <table class="table" id="allTimeHighScorerWeeks" style="margin-bottom: unset;">
+            <thead>
+              <th style="font-family: 'F1';">Team</th>
+              <th style="text-align: center; font-family: 'F1';">Amount</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
+          <legend class="custom-legend">* Regular Season</legend>
+        </div>
+        <div class="custom-all-time-stats" style="grid-row: 4;grid-column: 2;">
+          <div class="custom-table-title">Most Low Scoring Weeks</div>
+          <img src="../src/static/images/pay-money-icon.png" class="custom-table-icon" style="max-width: 8rem;">
+          <table class="table" id="allTimeLowScorerWeeks" style="margin-bottom: unset;">
+            <thead>
+              <th style="font-family: 'F1';">Team</th>
+              <th style="text-align: center; font-family: 'F1';">Amount</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <div class="custom-name"></div>
+                  <div class="custom-details"></div>
+                </th>
+                <td class="custom-score"></td>
+              </tr>
+            </tbody>
+          </table>
+          <legend class="custom-legend">* Regular Season</legend>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="custom-body custom-none-display">
+    <div id="teamComparisonTool">
+      <div class="custom-comparison-container">
+        <div class="custom-button-container">
+          <div class="btn-group" id="team1">
+            <button id="teamButton1" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Choose Team
+            </button>
+            <ul class="dropdown-menu" id="teamDropdown1">
+            </ul>
+          </div>
+          <div class="btn-group" id="team2">
+            <button id="teamButton2" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Choose Team
+            </button>
+            <ul class="dropdown-menu" id="teamDropdown2">
+            </ul>
           </div>
         </div>
-      </footer>
-    </body>
-  </html>
+      </div>
+      <div class="custom-comparison-container">
+        <div class="btn-group" id="submitButton">
+          <button type="button" onclick="submitTeams();" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </div>
+      <div class="custom-comparison-container">
+        <table class="table table-dark custom-none-display" id="teamComparison">
+          <thead>
+            <tr style="vertical-align: text-bottom;">
+              <th id="team1Header" scope="col" style="text-align: center;word-wrap: break-word;">
+                <span class="custom-team-name">Team 1</span>
+              </th>
+              <th scope="col" style="text-align: center; vertical-align:  bottom;">
+                <a id="keep-trade-roster-comp" class="custom-roster-comp" href=""
+                  title="Keep Trade Cut Roster Comparison" target="_blank">
+                  Compare Rosters
+                </a>
+              </th>
+              <th id="team2Header" scope="col" style="text-align: center;word-wrap: break-word;">
+                <span class="custom-team-name">Team 2</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background:transparent;"></td>
+              <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size: .6rem;">
+                Regular Season</td>
+              <td style="background:transparent;"></td>
+            </tr>
+            <tr id="wins">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Wins</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="avgPtsFor">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Avg Pts For</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="highScorePlayers">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">High Scorer</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="lowScorePlayers">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Low Scorer</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="startSitAcc">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Start/Sit Accuracy *</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr>
+              <td style="background:transparent;"></td>
+              <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size: .6rem;">
+                Post-Season</td>
+              <td style="background:transparent;"></td>
+            </tr>
+            <tr id="postseasonWins">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Wins</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="postseasonAvgPtsFor">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Avg Pts For</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="postseasonHighScorePlayers">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">High Scorer</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="postseasonLowScorePlayers">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Low Scorer</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="postseasonStartSitAcc">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Start/Sit Accuracy *</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr>
+              <td style="background:transparent;"></td>
+              <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size:.6rem;">
+                Overall</td>
+              <td style="background:transparent;"></td>
+            </tr>
+            <tr id="overallTrades">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Trades</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="record">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Record</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="overallAvgPtsFor">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Avg Pts For</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+            <tr id="overallStartSitAcc">
+              <td class="custom-team1-result"></td>
+              <td>
+                <div class="h2h-header">Start/Sit Accuracy *</div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </td>
+              <td class="custom-team2-result"></td>
+            </tr>
+          </tbody>
+        </table>
+        <legend id="h2hLegend" class="custom-none-display">* - Calculated via best possible lineup per position
+          (QB/RB/WR/TE)</legend>
+      </div>
+    </div>
+  </div>
+  <div class="custom-loading-icon">
+    <div id="page-loading" class="spinner-border text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container custom-footer">
+      <div id="footerName"></div>
+      <div class="custom-footer-links">
+        <a href="https://sleeper.com/leagues/" title="Sleeper" target="_blank" style="color: transparent;">
+          <img class="left-nav-logo" src="../src/static/images/sleeper.png" alt="Sleeper"
+            style="max-width: 4rem;margin-bottom: .2rem;">
+        </a>
+        <a href="https://www.rotowire.com/football/news.php" target="_blank" title="Rotowire"
+          style="text-decoration: none;">
+          <img class="left-nav-logo" src="../src/static/images/rotowire.png"
+            style="max-width: 3rem;margin-bottom: .4rem;margin-left: 1.5rem;margin-right: 1.5rem;">
+        </a>
+        <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/"
+          title="Fanduel" target="_blank">
+          <img class="left-nav-logo" src="../src/static/images/fanduel.png"
+            style="max-width: 4rem;margin-bottom: .3rem;">
+        </a>
+        <a id="keep-trade-cut" href="" title="Keep Trade Cut League Analyzer" target="_blank">
+          <img class="left-nav-logo" src="../src/static/images/keep-trade-cut.png"
+            style="max-width: 4rem;margin-bottom: .3rem; margin-left:1rem;">
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

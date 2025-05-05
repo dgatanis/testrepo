@@ -1,21 +1,19 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="module" src="../src/js/util/browserData.js"></script>
+    <script type="module" src="../src/js/util/browserData.js" defer></script>
     <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="../src/css/PowerRankings/powerRankings.css">
-    <script type="module" src="../src/js/PowerRankings/powerRankings.js"></script>
+    <link rel="stylesheet" href="../src/css/Matchups/matchups.css">
+    <script type="module" src="../src/js/Matchups/matchups.js"></script>
     <script src="../src/js/bootstrap.bundle.min.js"></script>
     <script src="../src/js/Mobile/mobile.js"></script>
-    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
 </head>
 <title>
-    Power Rankings
+    Current Season
 </title>
 
 <body>
@@ -32,7 +30,7 @@
                     </button>
                 </a>
             </div>
-            <div class="nav-item dropdown">
+            <div class="nav-item dropdown custom-selected-nav">
                 <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../src/static/images/history.png" class="custom-nav-icon">
@@ -42,7 +40,7 @@
                     <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
                     <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
                     <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
-                    <li><a class="dropdown-item" href="./Matchups.html">Matchups</a></li>
+                    <li><a class="dropdown-item" href="#">Matchups</a></li>
                 </ul>
             </div>
             <div class="nav-item">
@@ -61,8 +59,8 @@
                     </button>
                 </a>
             </div>
-            <div class="nav-item custom-selected-nav">
-                <a href="#">
+            <div class="nav-item">
+                <a href="./PowerRankings.html">
                     <button class="nav-link custom-nav">
                         <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
                         <span class="custom-nav-label">Power Rankings</span>
@@ -72,15 +70,15 @@
         </ul>
     </div>
     <div class="mobilenav">
-        <a href="#" class="active">Power Rankings</a>
+        <a href="#" class="active">Matchups</a>
         <div id="mobileLinks" class="custom-mobile-hide">
             <a href="../index.html">Home</a>
             <a href="./CurrentSeason.html">Current Season</a>
             <a href="./LeagueChamps.html">League Champs</a>
             <a href="./Stats.html">Stats</a>
-            <a href="./Matchups.html">Matchups</a>
             <a href="./Rosters.html">Rosters</a>
             <a href="./Trades.html">Trades</a>
+            <a href="./PowerRankings.html">Power Rankings</a>
             <div onclick="toggleMobileMenu()"
                 style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
         </div>
@@ -91,17 +89,19 @@
             <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
         </div>
     </div>
-    <h3 class="custom-page-title" id="pageTitle">Power Rankings</h3>
+    <h3 id="seasonTitle" style="text-align: center;margin-top:1rem;">Matchups</h3>
     <div class="custom-loading-icon">
         <div id="page-loading" class="spinner-border text-dark" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
+    <br>
     <div class="custom-body custom-none-display">
-        <div class="custom-rankings-container">
-            <iframe
-                src="https://drive.google.com/embeddedfolderview?id=1_NKAEX_tOn2Wt9brOuayBBT1rYsDBC-T#list&q=type:pdf"
-                style="width: 100%; height: 600px; border: 0;"></iframe>
+        <div class="custom-matchups">
+            <div style="text-align: center;">
+                <div id="allTimeMatchups">
+                </div>
+            </div>
         </div>
     </div>
     <footer class="footer">
