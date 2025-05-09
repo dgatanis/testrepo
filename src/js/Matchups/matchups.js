@@ -101,46 +101,71 @@ function loadMatchups(weekNumber, season) {
             matchupDiv.setAttribute("data-year", year);
             matchupDiv.setAttribute("data-week", week);
             matchupDiv.setAttribute("class", "custom-matchup-container");
+            var counter = 0;
+            var teamScore = 0;
 
             for (let j = 0; j < Object.keys(matchupWeek).length; j++) {
                 let matchup = matchupWeek[j];
-                
 
                 if (matchup.matchup_id == matchupId) {
+                    counter++;
                     let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
                     let user = userData.find(x => x.user_id === roster.owner_id);
-
-                    //create table and insert players in each row
-                    var teamTable = createTeamTable(matchup.starters.length);
+                    var teamTable = createTeamTable(matchup.starters.length);//create table and insert players in each row
                     var starters = matchup.starters;
                     var teamContainer = document.createElement("div");
-                    teamTable.setAttribute("class", "custom-team-table");
+                    let winningTeam = getMatchupWeekWinner(matchupWeek, matchup.matchup_id)[0];
+                    
+                    teamTable.setAttribute("class", "table custom-team-table custom-team-table-"+counter);
+                    teamScore = matchup.points;
 
                     for (let k = 0; k < starters.length; k++) {
                         let player = playerData.players.find(x => x.player_id == starters[k]);
                         if (player) {
-                            let playerCell = teamTable.rows[k].cells[0];
-                            let pointsCell = teamTable.rows[k].cells[1];
-
+                            let positionCell = teamTable.rows[k].cells[0];
+                            let playerCell = teamTable.rows[k].cells[1];
+                            let pointsCell = teamTable.rows[k].cells[2];
+                            const positionDiv = document.createElement("div");
                             const playerDiv = document.createElement("div");
                             const pointsDiv = document.createElement("div");
+
+                            if(counter > 1) { //flip the cells
+                                positionCell = teamTable.rows[k].cells[2];
+                                playerCell = teamTable.rows[k].cells[1];
+                                pointsCell = teamTable.rows[k].cells[0];
+                            }
+                            teamTable.rows[k].classList.add("custom-player-"+player.position); 
+                            positionDiv.innerText = player.position;
                             playerDiv.innerText = getFullPlayerName(player.player_id);
+                            playerDiv.classList.add("custom-player-name");
                             pointsDiv.innerText = matchup.players_points[player.player_id];
+
+                            positionCell.appendChild(positionDiv);
                             playerCell.appendChild(playerDiv);
                             pointsCell.appendChild(pointsDiv);
                         }
 
                     }
+                    
                     var teamDetailsDiv = document.createElement("div");
                     var teamNameDiv = document.createElement("div");
                     var teamScoreDiv = document.createElement("div");
                     var teamImage = createOwnerAvatarImage(user.user_id);
+
                     teamNameDiv.innerText = getTeamName(user.user_id);
+                    teamNameDiv.classList.add("custom-team-name");
                     teamScoreDiv.innerText = matchup.points;
+                    teamDetailsDiv.classList.add("custom-team-details");
+                    if(winningTeam.roster_id == matchup.roster_id) {
+                        teamScoreDiv.classList = "custom-team-score custom-winning-score";
+                    }
+                    else {
+                        teamScoreDiv.classList = "custom-team-score custom-losing-score";
+                    }
 
                     teamDetailsDiv.appendChild(teamImage);
                     teamDetailsDiv.appendChild(teamNameDiv);
-                    teamDetailsDiv.appendChild(teamScoreDiv);
+                    teamDetailsDiv.appendChild(teamScoreDiv);;
                     teamContainer.appendChild(teamDetailsDiv);
                     teamContainer.appendChild(teamTable);
                     matchupDiv.appendChild(teamContainer);
@@ -160,6 +185,7 @@ function createTeamTable(maxPlayers) {
 
     for (let i = 0; i < maxPlayers; i++) {
         var tableRow = table.insertRow();
+        tableRow.insertCell();
         tableRow.insertCell();
         tableRow.insertCell();
     }

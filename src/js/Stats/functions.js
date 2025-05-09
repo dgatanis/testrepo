@@ -1020,3 +1020,14 @@ function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2
 
         return teamStartSitAcc;
 }
+
+function openMatchupsPage(season,week) {
+    var newURL = new URL('https://dgatanis.github.io/CrushCitiesFFL/web/Matchups.html');
+    newURL.searchParams.append('callFunction', 'expandSeasonWeek');
+    newURL.searchParams.append('season', season);
+    newURL.searchParams.append('week', week);
+
+    history.pushState({}, '', newURL);
+    window.location.href = newURL;
+    return;
+}
