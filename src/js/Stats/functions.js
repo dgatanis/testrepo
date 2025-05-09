@@ -1022,8 +1022,8 @@ function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2
 }
 
 function openMatchupsPage(season, week, matchupId) {
-    //var newURL = new URL('https://dgatanis.github.io/CrushCitiesFFL/web/Matchups.html');
-    var newURL = new URL('http://127.0.0.1:5500/web/Matchups.html');
+    var newURL = new URL('https://dgatanis.github.io/testrepo/web/Matchups.html');
+    //var newURL = new URL('http://127.0.0.1:5500/web/Matchups.html');
     newURL.searchParams.append('callFunction', 'expandSeasonWeek');
     newURL.searchParams.append('season', season);
     newURL.searchParams.append('week', week);
