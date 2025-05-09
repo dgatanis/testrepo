@@ -21,6 +21,7 @@ import {
     setLinkSource,
     getTransactionsData,
     getRandomString,
+    getPlayoffsData,
     removeSpinner
 } from '../util/helper.js';
 
@@ -33,17 +34,16 @@ let leaugeIds = allTimeLeagueIds;
 loadContents();
 
 async function loadContents() {
-
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
     try {
 
         const leagueInfo = await import('../util/leagueInfo.js');
-        const currentLeagueId = await leagueInfo.default();
         const currentSeason = await leagueInfo.getCurrentSeason();
         const currentWeek = await leagueInfo.getCurrentWeek();
         loadMatchupsList(currentWeek, currentSeason);
         removeSpinner();
+        
         return;
     }
     catch (error) {
@@ -58,13 +58,12 @@ function loadMatchupsList(currentWeek, currentSeason) {
     var year = null;
     var seasonAccordionItem = null;
     var accordionContainer = null;
-
+    
     for (let i = 0; i < matchupData.length; i++) {
         var thisWeek = matchupData[i];
         var thisYear = matchupData[i].year;
-
-        if (thisWeek.week != 0 && (thisWeek > currentWeek && thisWeek.year <= currentSeason || (thisWeek.year < currentSeason))) {
-            //console.log(thisWeek);
+        //TODO Figure out how to incorporate just playoff teams in weeks 15-17
+        if (thisWeek.week != 18 && thisWeek.week != 0 && (thisWeek > currentWeek && thisWeek.year <= currentSeason || (thisWeek.year < currentSeason))) {
             if (year == null || year != thisYear) {
                 year = thisYear;
                 accordionContainer = document.createElement("div"); //create accordion container per season
@@ -171,6 +170,9 @@ function loadMatchups(weekNumber, season) {
                     matchupDiv.appendChild(teamContainer);
                 }
             }
+            var anchor = document.createElement("a");
+            anchor.setAttribute("id", "#matchup_" + matchupId + "_season_" + season + "_" + weekNumber);
+            weekMatchups.appendChild(anchor);
             weekMatchups.appendChild(matchupDiv);
         }
         return weekMatchups;
@@ -246,7 +248,16 @@ function createMatchupButtonElement(num) {
 
     if (num > 2000) {
         button.innerText = num;
-        button.style = "display: block;text-align: center;font-size: 1em;"
+        button.style = "font-size: 1em;"
+    }
+    else if(num == 15){
+        button.innerText = "Playoffs Round 1"
+    }
+    else if(num == 16){
+        button.innerText = "Semifinals"
+    }
+    else if(num == 17){
+        button.innerText = "Championship"
     }
     else {
         button.innerText = "Week #" + num;

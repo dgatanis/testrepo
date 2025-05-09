@@ -14,7 +14,7 @@
     <script src="../src/js/Mobile/mobile.js"></script>
 </head>
 <title>
-    Current Season
+    Matchups
 </title>
 
 <body>
@@ -131,14 +131,15 @@
         </div>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function (event) {
-          window.onload = function () {
+        window.addEventListener('DOMContentLoaded', function (event) {
+            setTimeout(() => {
             if (new URLSearchParams(window.location.search).get('callFunction') === 'expandSeasonWeek') {
-              var season = new URLSearchParams(window.location.search).get('season');
-              var week = new URLSearchParams(window.location.search).get('week');
-              expandSeasonWeek(season, week);
+                var season = new URLSearchParams(window.location.search).get('season');
+                var week = new URLSearchParams(window.location.search).get('week');
+                var matchupId = new URLSearchParams(window.location.search).get('matchupId');
+                expandSeasonWeek(season, week, matchupId);
             }
-          };
+            }, 500);
         });
       </script>
 </body>

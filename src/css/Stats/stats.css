@@ -344,6 +344,7 @@ table#allTimeLowScorerTeam .custom-name {
     vertical-align: middle;
     font-family: 'F1';
     color: var(--custom-light-gray);
+    cursor: pointer;
 }
 
 .custom-details-team, .custom-details-season, .custom-details-week {

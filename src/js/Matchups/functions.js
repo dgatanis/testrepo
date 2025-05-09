@@ -1,7 +1,7 @@
-function expandSeasonWeek(season, week) {
+function expandSeasonWeek(season, week, matchupId) {
 
     var seasonGroup = document.getElementById('season_'+season);
-    var seasonButton = document.getElementById('buttonWeek_'+season);
+    var seasonButton = document.getElementById('buttonWeek_'+week);
     var teamGroupChildren = seasonGroup.children;
     var showFields = true;
 
@@ -44,4 +44,10 @@ function expandSeasonWeek(season, week) {
             }
         }
     }
+    jump(season, week, matchupId);
+}
+
+function jump(season, week, matchupId){             
+    let anchor = "#matchup_"+ matchupId + "_season_" + season + "_" + week;                 
+    document.getElementById(anchor).scrollIntoView({ behavior: 'smooth' });
 }

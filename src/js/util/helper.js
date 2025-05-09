@@ -4,7 +4,7 @@ import { getPlayerPointsForWeek, getMatchupWeekWinner, getRosterHighScorerWeek, 
 import { getFullPlayerName, createPlayerImage, createNFLTeamImage, sortByPosition  } from './PlayerData/playerData.js';
 import { createOwnerAvatarImage, getTeamName, getUserByName, getRosterByUserId } from './UserData/userData.js';
 import { getLeaguePositions, getTransactionsData } from './LeagueData/leagueData.js';
-import { leagueDisplayName, leagueDescription, setLeagueName, inauguralSeason, setLinkSource, getRandomString } from './leagueInfo.js';
+import { leagueDisplayName, leagueDescription, setLeagueName, inauguralSeason, setLinkSource, getRandomString, getPlayoffsData } from './leagueInfo.js';
 
 export { 
     rosters, 
@@ -40,7 +40,8 @@ export {
     getRosterLowScorerWeek,
     getUserByName,
     getRosterByUserId,
-    lowScorerInMatchupStarters
+    lowScorerInMatchupStarters,
+    getPlayoffsData
 };
 
 export function removeSpinner() {
