@@ -130,6 +130,17 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function (event) {
+          window.onload = function () {
+            if (new URLSearchParams(window.location.search).get('callFunction') === 'expandSeasonWeek') {
+              var season = new URLSearchParams(window.location.search).get('season');
+              var week = new URLSearchParams(window.location.search).get('week');
+              expandSeasonWeek(season, week);
+            }
+          };
+        });
+      </script>
 </body>
 
 </html>

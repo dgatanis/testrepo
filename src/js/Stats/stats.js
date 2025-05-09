@@ -166,7 +166,7 @@ async function setTableData(tableName) {
 
             name.appendChild(teamImage);
             name.appendChild(team);
-            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season.slice(-2) + ", " + sortedList[i].week +")");
+            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i] + ", " + sortedList[i].week +")");
             details.append(week);
             details.append(season);
         }
@@ -209,7 +209,7 @@ async function setTableData(tableName) {
 
             name.appendChild(teamImage);
             name.appendChild(team);
-            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season.slice(-2) + ", " + sortedList[i].week +")");
+            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i] + ", " + sortedList[i].week +")");
             details.append(week);
             details.append(season);
         }
@@ -252,7 +252,7 @@ async function setTableData(tableName) {
             week.setAttribute('class', 'custom-details-week');
             week.innerText = "week " + sortedList[i].week;
 
-            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season.slice(-2) + ", " + sortedList[i].week +")");
+            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i] + ", " + sortedList[i].week +")");
             details.append(teamImage);
             details.append(team);
             details.append(week);
@@ -297,7 +297,7 @@ async function setTableData(tableName) {
             week.setAttribute('class', 'custom-details-week');
             week.innerText = "week " + sortedList[i].week;
 
-            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season.slice(-2) + ", " + sortedList[i].week +")");
+            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season + ", " + sortedList[i].week +")");
             details.append(teamImage);
             details.append(team);
             details.append(week);
