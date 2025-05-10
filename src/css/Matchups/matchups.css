@@ -51,6 +51,7 @@
 
 .custom-team-table-1 td:nth-child(2) {
     text-align: center;
+    padding:unset;
 }
 
 .custom-team-table-2 td:nth-child(1) {
@@ -59,6 +60,7 @@
 
 .custom-team-table-2 td:nth-child(2) {
     text-align: center;
+    padding:unset;
 }
 
 .custom-body {
@@ -142,10 +144,10 @@
     }
 
     .custom-team-table {
-        width: 95%;
         margin: .5rem;
         margin-top: unset;
         margin-bottom: 2rem;
+        width:15em;
     }
 
     table {
@@ -158,5 +160,19 @@
 
     .custom-player-name {
         font-size:.6rem;
+    }
+}
+
+/*Medium Mobile display styling*/
+@media screen and (max-width: 23.438rem) {
+    .custom-team-table {
+        width:14em;
+    }
+}
+
+/*Small Mobile display styling*/
+@media screen and (max-width: 20rem) {
+    .custom-team-table {
+        width:12em;
     }
 }
