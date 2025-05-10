@@ -196,6 +196,10 @@ table > tbody > tr:last-child {
     word-spacing: .1rem;
     font-style: italic;
     color: #a4a4a4;
+    background: #8080805e;
+    border-radius: 1rem;
+    border: 1px black solid;
+    cursor: pointer;
 }
 
 .custom-legend {
@@ -344,6 +348,7 @@ table#allTimeLowScorerTeam .custom-name {
     vertical-align: middle;
     font-family: 'F1';
     color: var(--custom-light-gray);
+    cursor: pointer;
 }
 
 .custom-details-team, .custom-details-season, .custom-details-week {

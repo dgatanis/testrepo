@@ -44,9 +44,7 @@ async function loadContents() {
         const weeklyWinnerPayout = leagueInfo.weeklyWinner;
         const dues = leagueInfo.dues;
         loadSeasonRankings();
-        loadMatchupsList(currentWeek);
-        loadBankroll(currentWeek, dues, weeklyWinnerPayout);
-        //loadBankroll('10',dues,weeklyWinnerPayout); 
+        loadBankroll(currentWeek, dues, weeklyWinnerPayout); 
         loadPlayoffs(currentWeek);
         getLatestTransactions(currentLeagueId, currentWeek);
         setSeasonTitle(currentSeason);
@@ -163,170 +161,6 @@ function loadSeasonRankings() {
     }
     catch (error) {
         console.error(`Error ${error.message}`);
-    }
-}
-
-
-function loadMatchups(weekNumber,currentWeek) {
-
-    const noMatchup = document.getElementById("nomatchups_" + weekNumber);
-
-    try {
-
-        var arrayNum = parseInt(weekNumber) - 1;
-        const matchups = matchupData[0].matchupWeeks[arrayNum];
-
-        if (matchups[0] && noMatchup.classList.contains('custom-block-display')) {
-            const matchupsLength = Object.keys(matchups).length;
-
-            const highScoreTeam = getRosterHighScorerWeek(matchups);
-            const totalMatchups = matchupsLength / 2; //Every matchup should have two rosters
-
-            var weekList = document.getElementById("matchupWeekList_" + weekNumber);
-            var highScoringWeekRoster = highScoreTeam.roster_id;
-
-            for (let i = 1; i <= totalMatchups; i++) {
-                let matchupId = i;
-                let counter = 0;
-
-                var versus = document.createElement('div');
-                var matchupTeams = document.createElement('div');
-                
-                versus.setAttribute('class', "custom-versus-matchup");
-                matchupTeams.setAttribute('class', "custom-matchup-teams");
-
-                for (let j = 0; j < matchupsLength; j++) {
-                let matchup = matchups[j];
-
-                if (matchup.matchup_id == matchupId) {
-                    counter++;
-                    let roster = rosterData.find(x => x.roster_id === matchup.roster_id);
-                    let user = userData.find(x => x.user_id === roster.owner_id);
-
-                    let winningTeam = getMatchupWeekWinner(matchups, matchup.matchup_id);
-                    let userName = getTeamName(user.user_id);
-                    var matchupDiv = document.createElement("div");
-                    var teamScoreDiv = document.createElement("div");
-                    var teamImage = createOwnerAvatarImage(user.user_id);
-                    var teamPoints = document.createElement("div");
-                    var teamDiv = document.createElement("div");
-
-                    teamDiv.setAttribute('class', 'custom-team-matchup')
-                    matchupDiv.id = "rosterid_" + matchup.roster_id;
-                    matchupDiv.setAttribute("class", "custom-matchup-row");
-                    teamPoints.innerText = matchup.points + " pts";
-                    teamPoints.setAttribute('class', 'custom-pts');
-                    teamScoreDiv.setAttribute('class', 'custom-team-score');
-                    
-                    if(matchup.points != 0)
-                    {
-                        let highestScorer = highScorerInMatchupStarters(matchup.starters, matchup.players_points);
-                        let playerName = getFullPlayerName(highestScorer.player_id);
-                        var playerDiv = document.createElement("div");
-                        var playerimg = createPlayerImage(highestScorer.player_id);
-                        var playerNickName = getPlayerNickNames(roster.roster_id, highestScorer.player_id);
-                        let playerPoints = highestScorer.points + " pts";
-                        playerDiv.innerText = playerName + ": " + playerPoints;
-                        playerDiv.setAttribute("class", "custom-matchup-player");
-                        playerDiv.prepend(playerimg);
-
-                        if (playerNickName != "") {
-                            playerimg.setAttribute('title', playerNickName);
-                        }
-    
-                    }
-                    //if this is the winning team
-                    if (winningTeam[0].roster_id == roster.roster_id && winningTeam[0].points != 0) {
-                        teamPoints.setAttribute('style', 'color:#00a700');
-                        teamScoreDiv.setAttribute('style', 'border: 1px solid #00a700');
-
-                        if(weekNumber<currentWeek)
-                        {
-                            //Ifs used to set different images/colors
-                            if (Number(matchup.points) - Number(winningTeam[1].points) <= 2) {
-                                var angelImg = createMatchupIconImg();
-                                angelImg.setAttribute('src', '../src/static/images/angel-wings.png');
-                                angelImg.setAttribute('title', 'The Fantasy Gods shine upon you');
-
-                                //teamScoreDiv.append(teamNameSpan);
-                                teamScoreDiv.append(teamPoints);
-                                teamScoreDiv.append(angelImg);
-                            }
-                            else if (Number(matchup.points) < 100) {
-                                var luckyImg = createMatchupIconImg();
-                                luckyImg.setAttribute('src', '../src/static/images/horseshoe.png');
-                                luckyImg.setAttribute('title', 'You lucky SOB');
-
-                                //teamScoreDiv.append(teamNameSpan);
-                                teamScoreDiv.append(teamPoints);
-                                teamScoreDiv.append(luckyImg);
-                            }
-                            else {
-                                //teamScoreDiv.append(teamNameSpan);
-                                teamScoreDiv.append(teamPoints);
-                            }
-                        }
-                        else {
-                            //teamScoreDiv.append(teamNameSpan);
-                            teamScoreDiv.append(teamPoints);
-                        }
-
-                        if (roster.roster_id == highScoringWeekRoster) {
-                            var weeklyHighScorer = createMatchupIconImg();
-                            weeklyHighScorer.setAttribute('src', '../src/static/images/crown.png');
-                            weeklyHighScorer.setAttribute('title', 'Weekly high scorer');
-
-                            teamScoreDiv.append(weeklyHighScorer);
-                        }
-
-                    }
-                    else if(winningTeam[0].points != 0) {
-                        teamPoints.setAttribute('style', 'color:#cb1919');
-                        teamScoreDiv.setAttribute('style', 'border: 1px solid #cb1919');
-                        //teamScoreDiv.append(teamNameSpan);
-                        teamScoreDiv.append(teamPoints);
-                    }
-                    else {
-                        teamPoints.setAttribute('style', 'color:yellow;');
-                        //teamScoreDiv.append(teamNameSpan);
-                        teamScoreDiv.append(teamPoints);
-                    }
-
-                    //Add all the elements to the matchup
-                    matchupDiv.append(teamScoreDiv);
-
-                    if(matchup.points != 0)
-                    {
-                        matchupDiv.append(playerDiv);
-                    }
-
-
-                    var teamNameSpan = document.createElement("span");
-                    teamNameSpan.innerText = userName;
-                    teamDiv.append(teamImage);
-                    teamDiv.append(teamNameSpan);
-                    versus.appendChild(teamDiv);
-                    
-
-                    //Add matchup header
-                    if (counter == 1) {
-                        weekList.append(versus);
-                    }
-                    matchupTeams.append(matchupDiv);
-                    weekList.append(matchupTeams);
-
-                }
-            }
-
-        }
-
-            noMatchup.classList.remove('custom-block-display');
-            noMatchup.classList.add('custom-none-display');
-
-        }
-    }
-    catch (error) {
-        console.error(`Error: ${error.message}`);
     }
 }
 
@@ -571,27 +405,6 @@ async function getLatestTransactions(leagueId,week) {
     }
 }
 
-function loadMatchupsList(currentWeek){
-
-    var currentWeek = matchupData[0].matchupWeeks.length;
-    var matchupDiv = document.getElementById("matchupWeeks");
-    var week = document.getElementById("currentWeek");
-
-    for (let i = 1; i < 15; i++) {
-        var accordionItem = createAccordionItem(i);
-        matchupDiv.appendChild(accordionItem);
-        if (currentWeek > 0) {
-            loadMatchups(i,currentWeek);
-        }
-
-    }
-    if (currentWeek > 0) {
-        week.innerText = "Week: " + currentWeek;
-    }
-    else {
-        week.innerText = "N/A";
-    }
-}
 
 function loadPlayoffs(currentWeek) {
     var thePlayoffs = playoffData;
@@ -620,6 +433,7 @@ function loadPlayoffs(currentWeek) {
             }
             else if (playoffRound.r == 2)//Semis
             {
+                console.log(playoffRound)
                 var team1 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t1));
                 var team2 = rosterData.find(x => x.roster_id === parseInt(playoffRound.t2));
 
@@ -963,83 +777,6 @@ function createTransactionCarouselItem() {
 
 
     return carouselItem;
-}
-
-function createAccordionItem(weekNumber) {
-    var headerId = "weekHeader_" + weekNumber;
-    var colors = ["pink", "red", "yellow"];
-
-    var accordionItem = document.createElement("div");
-    accordionItem.setAttribute("class", "accordion-item");
-
-    var accordionHeader = document.createElement("h2");
-    accordionHeader.setAttribute("class", "accordion-header");
-    accordionHeader.setAttribute("id", headerId);
-
-    var button = createMatchupButtonElement(weekNumber);
-    accordionHeader.appendChild(button);
-
-    var accordionCollapsible = document.createElement("div");
-    accordionCollapsible.setAttribute("class", "accordion-collapse collapse");
-    accordionCollapsible.setAttribute("aria-labelledby", headerId);
-    accordionCollapsible.setAttribute("data-bs-parent", "#matchupWeeks");
-    accordionCollapsible.setAttribute("id", "week_" + weekNumber);
-
-    var accordionBody = document.createElement("div");
-    accordionBody.setAttribute("class", "accordion-body custom-matchup-list");
-
-    var pacman = document.createElement("img");
-    var color = colors[Math.floor(Math.random() * 3)];
-    pacman.setAttribute("src", "../src/static/images/ghost-" + color + ".gif");
-    pacman.setAttribute('id', 'ghost');
-
-    var listItems = createMatchupListElement(weekNumber);
-
-    //Add list items to body and add them to the collapsible
-    accordionBody.appendChild(pacman);
-    accordionBody.appendChild(listItems);
-    accordionCollapsible.appendChild(accordionBody);
-
-    //add header and collapsible with sub items to whole accordion
-    accordionItem.appendChild(accordionHeader);
-    accordionItem.appendChild(accordionCollapsible);
-
-    return accordionItem;
-}
-
-function createMatchupButtonElement(weekNumber){
-    var button = document.createElement("button");
-    button.setAttribute("class", "accordion-button custom-matchup-week collapsed");
-    button.setAttribute("type", "button");
-    button.setAttribute("data-bs-toggle", "collapse");
-    button.setAttribute("data-bs-target", "#week_" + weekNumber);
-    button.setAttribute("aria-expanded", "false");
-    button.setAttribute("aria-controls", "week_" + weekNumber);
-    button.setAttribute("id", "buttonWeek_" + weekNumber)
-    button.innerText = "Week #" + weekNumber;
-
-    return button;
-}   
-
-function createMatchupListElement(weekNumber) {
-    var list = document.createElement("ul");
-    list.setAttribute("id", "matchupWeekList_" + weekNumber);
-    list.setAttribute("class", "list-group custom-matchup-list list-group-flush");
-
-    var firstListItem = document.createElement("li");
-    firstListItem.setAttribute("class", "h4 list-group-item custom-matchup-list-item shadow p-3 mb-5 bg-body rounded");
-    firstListItem.innerText = "Matchups and High Scorer";
-    firstListItem.setAttribute('style', 'border-bottom: none;');
-
-    var noMatchups = document.createElement("div");
-    noMatchups.setAttribute("class", "custom-block-display custom-nomatchup");
-    noMatchups.setAttribute("id", "nomatchups_" + weekNumber);
-    noMatchups.innerText = "Check back when this week has started...";    
-
-    list.appendChild(firstListItem);
-    list.append(noMatchups);
-
-    return list;
 }
 
 function createMatchupIconImg(){

@@ -44,6 +44,13 @@ export async function getCurrentWeek() {
 
 }
 
+export async function getPlayoffsData(leagueId) {
+    const res = await fetch(`https://api.sleeper.app/v1/league/${leagueId}/winners_bracket`); 
+    const data = await res.json(); 
+
+   return data;
+}
+
 async function currentLeagueId(thisYear) {
     const myUserId = leagueUser;
     const leagueName = leagueDisplayName;

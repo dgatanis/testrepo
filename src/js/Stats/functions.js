@@ -164,9 +164,11 @@ async function submitTeams() {
             playerPoints_1.innerText = team1Player.maxPoints + " pts"
             playerPoints_2.innerText = team2Player.maxPoints + " pts"
             player1Details.setAttribute('class', 'custom-player-details');
-            player1Details.innerText = player1Date
+            player1Details.innerText = player1Date;
+            player1Details.setAttribute("onclick", "openMatchupsPage(" + player1Year + ", " + team1Player.week + ", " + team1Player.matchup_id + ")");
             player2Details.setAttribute('class', 'custom-player-details');
-            player2Details.innerText = player2Date
+            player2Details.innerText = player2Date;
+            player2Details.setAttribute("onclick", "openMatchupsPage(" + player2Year + ", " + team2Player.week + ", " + team2Player.matchup_id + ")");
             playerName_1.setAttribute('class', 'custom-player-name');
             playerName_2.setAttribute('class', 'custom-player-name');
             playerPoints_1.setAttribute('class', 'custom-player-points');
@@ -229,8 +231,10 @@ async function submitTeams() {
             playerPoints_2.innerText = team2Player.maxPoints + " pts";
             player1Details.setAttribute('class', 'custom-player-details');
             player1Details.innerText = player1Date
+            player1Details.setAttribute("onclick", "openMatchupsPage(" + player1Year + ", " + team1Player.week + ", " + team1Player.matchup_id + ")");
             player2Details.setAttribute('class', 'custom-player-details');
-            player2Details.innerText = player2Date
+            player2Details.innerText = player2Date 
+            player2Details.setAttribute("onclick", "openMatchupsPage(" + player2Year + ", " + team2Player.week + ", " + team2Player.matchup_id + ")");
             playerName_1.setAttribute('class', 'custom-player-name');
             playerName_2.setAttribute('class', 'custom-player-name');
             playerPoints_1.setAttribute('class', 'custom-player-points');
@@ -371,8 +375,10 @@ async function submitTeams() {
                 playerPoints_2.innerText = team2Player.maxPoints + " pts"
                 player1Details.setAttribute('class', 'custom-player-details');
                 player1Details.innerText = player1Date
+                player1Details.setAttribute("onclick", "openMatchupsPage(" + player1Year + ", " + team1Player.week + ", " + team1Player.matchup_id + ")");
                 player2Details.setAttribute('class', 'custom-player-details');
                 player2Details.innerText = player2Date
+                player2Details.setAttribute("onclick", "openMatchupsPage(" + player2Year + ", " + team2Player.week + ", " + team2Player.matchup_id + ")");
                 playerName_1.setAttribute('class', 'custom-player-name');
                 playerName_2.setAttribute('class', 'custom-player-name');
                 playerPoints_1.setAttribute('class', 'custom-player-points');
@@ -441,8 +447,10 @@ async function submitTeams() {
                 playerPoints_2.innerText = team2Player.maxPoints + " pts";
                 player1Details.setAttribute('class', 'custom-player-details');
                 player1Details.innerText = player1Date
+                player1Details.setAttribute("onclick", "openMatchupsPage(" + player1Year + ", " + team1Player.week + ", " + team1Player.matchup_id + ")");
                 player2Details.setAttribute('class', 'custom-player-details');
                 player2Details.innerText = player2Date
+                player2Details.setAttribute("onclick", "openMatchupsPage(" + player2Year + ", " + team2Player.week + ", " + team2Player.matchup_id + ")");
                 playerName_1.setAttribute('class', 'custom-player-name');
                 playerName_2.setAttribute('class', 'custom-player-name');
                 playerPoints_1.setAttribute('class', 'custom-player-points');
@@ -767,16 +775,17 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
         var team2Points = matchup[1].players_points;
         var team1Player = helper.highScorerInMatchupStarters(team1Starters, team1Points);
         var team2Player = helper.highScorerInMatchupStarters(team2Starters, team2Points);
+
         if(team1Player)
         {
             if(!teamHighScorer.players[team1Player.player_id])
             {
                 teamHighScorer.players[team1Player.player_id] = [];
-                teamHighScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+                teamHighScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id, "matchup_id":matchup[0].matchup_id});
             }
             else
             {
-                teamHighScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+                teamHighScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id, "matchup_id":matchup[0].matchup_id});
             }
 
         }
@@ -785,10 +794,10 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
             if(!teamHighScorer.players[team2Player.player_id])
             {
                 teamHighScorer.players[team2Player.player_id] = [];
-                teamHighScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+                teamHighScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id, "matchup_id":matchup[1].matchup_id});
             }
             else {
-                teamHighScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+                teamHighScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id, "matchup_id":matchup[1].matchup_id});
             }
             
         }
@@ -801,7 +810,7 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
             return entry.points > max.points ? entry : max;
         }, entries[0]);
         
-        return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
+        return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id, matchup_id: maxPointsEntry.matchup_id };
     })
     .sort((a, b) => b.maxPoints - a.maxPoints);
 
@@ -835,11 +844,11 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
             if(!teamLowScorer.players[team1Player.player_id])
             {
                 teamLowScorer.players[team1Player.player_id] = [];
-                teamLowScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+                teamLowScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id, "matchup_id":matchup[0].matchup_id});
             }
             else
             {
-                teamLowScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id});
+                teamLowScorer.players[team1Player.player_id].push({"points": team1Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[0].roster_id, "matchup_id":matchup[0].matchup_id});
             }
 
         }
@@ -848,10 +857,10 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
             if(!teamLowScorer.players[team2Player.player_id])
             {
                 teamLowScorer.players[team2Player.player_id] = [];
-                teamLowScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+                teamLowScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id, "matchup_id":matchup[1].matchup_id});
             }
             else {
-                teamLowScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id});
+                teamLowScorer.players[team2Player.player_id].push({"points": team2Player.points, "week": matchup.week, "year": matchup.year, "roster_id":matchup[1].roster_id, "matchup_id":matchup[1].matchup_id});
             }
             
         }
@@ -864,7 +873,7 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
             return entry.points < max.points ? entry : max;
         }, entries[0]);
         
-        return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id };
+        return { player_id, maxPoints: maxPointsEntry.points, week: maxPointsEntry.week, year: maxPointsEntry.year, roster_id: maxPointsEntry.roster_id, matchup_id: maxPointsEntry.matchup_id };
     })
     .sort((a, b) => a.maxPoints - b.maxPoints);
 
@@ -1019,4 +1028,16 @@ function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2
     }
 
         return teamStartSitAcc;
+}
+
+function openMatchupsPage(season, week, matchupId) {
+    var newURL = new URL('https://dgatanis.github.io/testrepo/web/Matchups.html');
+    newURL.searchParams.append('callFunction', 'expandSeasonWeek');
+    newURL.searchParams.append('season', season);
+    newURL.searchParams.append('week', week);
+    newURL.searchParams.append('matchupId', matchupId);
+
+    history.pushState({}, '', newURL);
+    window.location.href = newURL;
+    return;
 }

@@ -1,443 +1,468 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script type="module" src="../src/js/util/browserData.js" defer></script>
-      <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
-      <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
-      <link rel="stylesheet" href="../src/css/CurrentSeason/currentseason.css">
-      <script type="module" src="../src/js/CurrentSeason/currentSeason.js"></script>
-      <script src="../src/js/CurrentSeason/functions.js"></script>
-      <script src="../src/js/bootstrap.bundle.min.js"></script>
-      <script src="../src/js/Mobile/mobile.js"></script>
-    </head>
-    <title>
-      Current Season
-    </title>
-    <body>
-      <div class="custom-nav-container">
-        <div class="custom-header">
-          <img class="custom-header-image" src="../src/static/images/league-logo.png">
-        </div>
-        <ul class="nav nav-tabs desktopnav">
-          <div class="nav-item">
-            <a href="../index.html">
-              <button class="nav-link custom-nav">
-                <img src="../src/static/images/home.png" class="custom-nav-icon">
-                <span class="custom-nav-label">Home</span>
-              </button>
-            </a>
-          </div>
-          <div class="nav-item dropdown custom-selected-nav">
-            <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../src/static/images/history.png" class="custom-nav-icon">
-              <span class="custom-nav-label">History</span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Current Season</a></li>
-              <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-              <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
-            </ul>
-          </div>
-          <div class="nav-item">
-            <a href="./Rosters.html">
-              <button class="nav-link custom-nav">
-                <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
-                <span class="custom-nav-label">Rosters</span>
-              </button>
-            </a>
-          </div>
-          <div class="nav-item">
-            <a href="./Trades.html">
-                <button class="nav-link custom-nav">
-                    <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
-                    <span class="custom-nav-label">Trades</span>
-                </button>
-            </a>
-          </div>
-          <div class="nav-item">
-            <a href="./PowerRankings.html">
-                <button class="nav-link custom-nav">
-                    <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
-                    <span class="custom-nav-label">Power Rankings</span>
-                </button>
-            </a>
-          </div>
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="../src/static/images/league-logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="../src/js/util/browserData.js" defer></script>
+  <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../src/css/CurrentSeason/currentseason.css">
+  <script type="module" src="../src/js/CurrentSeason/currentSeason.js"></script>
+  <script src="../src/js/CurrentSeason/functions.js"></script>
+  <script src="../src/js/bootstrap.bundle.min.js"></script>
+  <script src="../src/js/Mobile/mobile.js"></script>
+</head>
+<title>
+  Current Season
+</title>
+
+<body>
+  <div class="custom-nav-container">
+    <div class="custom-header">
+      <img class="custom-header-image" src="../src/static/images/league-logo.png">
+    </div>
+    <ul class="nav nav-tabs desktopnav">
+      <div class="nav-item">
+        <a href="../index.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/home.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Home</span>
+          </button>
+        </a>
+      </div>
+      <div class="nav-item dropdown custom-selected-nav">
+        <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../src/static/images/history.png" class="custom-nav-icon">
+          <span class="custom-nav-label">History</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Current Season</a></li>
+          <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
+          <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
+          <li><a class="dropdown-item" href="./Matchups.html">Matchups</a></li>
         </ul>
       </div>
-      <div class="mobilenav">
-        <a href="#" class="active">Current Season</a>
-        <div id="mobileLinks" class="custom-mobile-hide">
-          <a href="../index.html">Home</a>
-          <a href="./LeagueChamps.html">League Champs</a>
-          <a href="./Stats.html">Stats</a>
-          <a href="./Rosters.html">Rosters</a>
-          <a href="./Trades.html">Trades</a>
-          <a href="./PowerRankings.html">Power Rankings</a>
-          <div onclick="toggleMobileMenu()" style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
-          <font>☰</font>
+      <div class="nav-item">
+        <a href="./Rosters.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/roster-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Rosters</span>
+          </button>
         </a>
-        <div id="league-logo-mobile" class="custom-league-logo-mobile">
-          <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
       </div>
+      <div class="nav-item">
+        <a href="./Trades.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Trades</span>
+          </button>
+        </a>
       </div>
-      <div class="modal fade" id="RosterModal" tabindex="-1" aria-labelledby="Team" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalRosterTeamName">Team Name</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="ModalRosterBody">
-              <div class="accordion" id="rosterStats">
-                <div class="accordion-item" style="border: none;">
-                  <h2 class="accordion-header" id="rosterBreakdown">
-                    <button class="accordion-button custom-roster-breakdown collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stats" aria-expanded="false" aria-controls="stats">
-                      Roster Details
-                    </button>
-                  </h2>
-                  <div id="stats" class="accordion-collapse collapse" aria-labelledby="rosterBreakdown" data-bs-parent="#rosterStats">
-                    <div class="accordion-body" id="accordionRosterBody">
-                      <div class="card custom-roster-breakdown-shadow">
-                        <div class="card-body custom-stats-card-body">
-                          Record
-                          <div class="custom-card-inner-body" id="rosterRecord"></div>
+      <div class="nav-item">
+        <a href="./PowerRankings.html">
+          <button class="nav-link custom-nav">
+            <img src="../src/static/images/rankings-icon.png" class="custom-nav-icon">
+            <span class="custom-nav-label">Power Rankings</span>
+          </button>
+        </a>
+      </div>
+    </ul>
+  </div>
+  <div class="mobilenav">
+    <a href="#" class="active">Current Season</a>
+    <div id="mobileLinks" class="custom-mobile-hide">
+      <a href="../index.html">Home</a>
+      <a href="./LeagueChamps.html">League Champs</a>
+      <a href="./Stats.html">Stats</a>
+      <a href="./Matchups.html">Matchups</a>
+      <a href="./Rosters.html">Rosters</a>
+      <a href="./Trades.html">Trades</a>
+      <a href="./PowerRankings.html">Power Rankings</a>
+      <div onclick="toggleMobileMenu()"
+        style="height: 50rem;background: #bbbbbbb8; animation: fadeIn 1s ease-in-out forwards;"></div>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMobileMenu()">
+      <font>☰</font>
+    </a>
+    <div id="league-logo-mobile" class="custom-league-logo-mobile">
+      <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
+    </div>
+  </div>
+  <div class="modal fade" id="RosterModal" tabindex="-1" aria-labelledby="Team" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalRosterTeamName">Team Name</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="ModalRosterBody">
+          <div class="accordion" id="rosterStats">
+            <div class="accordion-item" style="border: none;">
+              <h2 class="accordion-header" id="rosterBreakdown">
+                <button class="accordion-button custom-roster-breakdown collapsed" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#stats" aria-expanded="false" aria-controls="stats">
+                  Roster Details
+                </button>
+              </h2>
+              <div id="stats" class="accordion-collapse collapse" aria-labelledby="rosterBreakdown"
+                data-bs-parent="#rosterStats">
+                <div class="accordion-body" id="accordionRosterBody">
+                  <div class="card custom-roster-breakdown-shadow">
+                    <div class="card-body custom-stats-card-body">
+                      Record
+                      <div class="custom-card-inner-body" id="rosterRecord"></div>
+                    </div>
+                  </div>
+                  <div class="card custom-roster-breakdown-shadow">
+                    <div class="card-body custom-stats-card-body">
+                      Average Age of Roster
+                      <div class="custom-card-inner-body" id="rosterAge"></div>
+                    </div>
+                  </div>
+                  <div class="card custom-roster-breakdown-shadow">
+                    <div class="card-body custom-stats-card-body">
+                      Highest Scorers
+                      <div class="custom-card-inner-body" id="rosterHighScorers">
+                        <div class="custom-roster-high-scorer">
                         </div>
-                      </div>
-                      <div class="card custom-roster-breakdown-shadow">
-                        <div class="card-body custom-stats-card-body">
-                          Average Age of Roster
-                          <div class="custom-card-inner-body" id="rosterAge"></div>
+                        <div class="custom-roster-high-scorer">
                         </div>
-                      </div>
-                      <div class="card custom-roster-breakdown-shadow">
-                        <div class="card-body custom-stats-card-body">
-                          Highest Scorers
-                          <div class="custom-card-inner-body" id="rosterHighScorers">
-                            <div class="custom-roster-high-scorer">
-                            </div>
-                            <div class="custom-roster-high-scorer">
-                            </div>
-                            <div class="custom-roster-high-scorer">
-                            </div>
-                            <div class="custom-roster-high-scorer">
-                            </div>
-                          </div>
+                        <div class="custom-roster-high-scorer">
                         </div>
-                      </div>
-                      <div class="custom-league-positions" id="leaguePositions">
-                        <button id="starterPositions" class="btn btn-primary" title="Toggle Starters (QB, RB, RB, WR, WR, TE, FLEX, FLEX, SF, K)" onclick="toggleStarters(-1);">Starters</button>
+                        <div class="custom-roster-high-scorer">
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                </div>
-              </div>
-              <table id="RosterTable" class="table table-secondary custom-list-group">
-                <thead>
-                  <tr>
-                    <th scope="col">Position</th>
-                    <th style="text-align:justify;" scope="col">Player Name</th>
-                    <th style="text-align:justify;" scope="col">Age</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h3 id="seasonTitle" style="text-align: center;margin-top:1rem;">Current Season</h3>
-      <div class="custom-loading-icon">
-        <div id="page-loading" class="spinner-border text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-      <br>
-      <div class="custom-body custom-none-display">
-        <div class="custom-rankings float-start">
-          <div style = "text-align: center;">
-          <font class="display-4">Standings</font>
-          <table id="Standings" class="table custom-list-group custom-div-shadow">
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td id="Standings_1"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_1"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td id="Standings_2"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_2"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td id="Standings_3"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_3"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td id="Standings_4"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_4"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td id="Standings_5"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_5"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td id="Standings_6"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_6"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td id="Standings_7"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_7"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td id="Standings_8"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_8"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td id="Standings_9"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_9"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-              <tr style="border-bottom: transparent;">
-                <th scope="row">10</th>
-                <td id="Standings_10"></td>
-                <td>
-                  <button type="button" id="GetRosterButton_10"" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RosterModal">
-                    Roster
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <legend>
-            <div style="float: left;display: inline;">x - Playoffs</div>
-            <div style="float: left;clear: left;">z - First Round Bye</div>
-          </legend>
-        </div>
-        </div>
-        <div class="custom-matchups float-end">
-          <div style = "text-align: center;">
-            <div style="display:inline;padding-right: 0.5rem;"><font class="display-4">Matchups</font></div>
-            <div id="currentWeek" title="Current Week of Season">Week: </div>
-            <div class="accordion custom-div-shadow" id="matchupWeeks">
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="custom-body custom-none-display" style="padding: unset;margin: unset;">
-      <div class="custom-body-container">
-        <div class="custom-bankroll">
-          <table class="table" id="bankrollTable">
-            </thead>
-            <tbody>
-              <tr id="bankrollTeam_0">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_1">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_2">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_3">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_4">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_5">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_6">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_7">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_8">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-              <tr id="bankrollTeam_9">
-                <th scope="row">
-                  <div class="custom-teamname-normal"></div>
-                </th>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <legend id="bankrollLegend">Weekly Payout: Dues:</legend>
-        </div>
-        <div class="custom-carousel">
-          <div id="carouselTransactions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner custom-transaction-carousel" id="custom_transaction_inner">
-              <div id="noTransactions" class="carousel-item custom-carousel-item custom-block-display">
-                <div style = "margin-top: 40%;background: transparent;border: none;" class="card">
-                  <div class="card-body">
-                    No Transactions yet...
+                  <div class="custom-league-positions" id="leaguePositions">
+                    <button id="starterPositions" class="btn btn-primary"
+                      title="Toggle Starters (QB, RB, RB, WR, WR, TE, FLEX, FLEX, SF, K)"
+                      onclick="toggleStarters(-1);">Starters</button>
                   </div>
                 </div>
               </div>
+
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTransactions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTransactions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
+          <table id="RosterTable" class="table table-secondary custom-list-group">
+            <thead>
+              <tr>
+                <th scope="col">Position</th>
+                <th style="text-align:justify;" scope="col">Player Name</th>
+                <th style="text-align:justify;" scope="col">Age</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
         </div>
-        <div class="custom-playoffs-bracket">
-          <div class="custom-playoff-bracket-container">
-            <div class="custom-playoff-container">
-              <div class="custom-playoffs-label">Playoffs</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 id="seasonTitle" style="text-align: center;margin-top:1rem;">Current Season</h3>
+  <div class="custom-loading-icon">
+    <div id="page-loading" class="spinner-border text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <br>
+  <div class="custom-body custom-none-display" style="display: grid;">
+    <div class="custom-rankings">
+      <div style="text-align: center;">
+        <font class="display-4">Standings</font>
+        <table id="Standings" class="table custom-list-group custom-div-shadow">
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td id="Standings_1"></td>
+              <td>
+                <button type="button" id="GetRosterButton_1"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td id="Standings_2"></td>
+              <td>
+                <button type="button" id="GetRosterButton_2"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td id="Standings_3"></td>
+              <td>
+                <button type="button" id="GetRosterButton_3"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td id="Standings_4"></td>
+              <td>
+                <button type="button" id="GetRosterButton_4"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td id="Standings_5"></td>
+              <td>
+                <button type="button" id="GetRosterButton_5"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td id="Standings_6"></td>
+              <td>
+                <button type="button" id="GetRosterButton_6"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td id="Standings_7"></td>
+              <td>
+                <button type="button" id="GetRosterButton_7"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td id="Standings_8"></td>
+              <td>
+                <button type="button" id="GetRosterButton_8"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td id="Standings_9"></td>
+              <td>
+                <button type="button" id="GetRosterButton_9"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: transparent;">
+              <th scope="row">10</th>
+              <td id="Standings_10"></td>
+              <td>
+                <button type="button" id="GetRosterButton_10"" class=" btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#RosterModal">
+                  Roster
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <legend>
+          <div style="float: left;display: inline;">x - Playoffs</div>
+          <div style="float: left;clear: left;">z - First Round Bye</div>
+        </legend>
+      </div>
+    </div>
+      <div class="custom-playoffs-bracket">
+        <div class="custom-playoff-bracket-container">
+          <div class="custom-playoff-container">
+            <div class="custom-playoffs-label">Playoffs</div>
+          </div>
+          <div class="playoff-bracket">
+            <!-- Round 1 -->
+            <div class="custom-round">
+              <div class="h3">Round 1<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
+                  src="../src/static/images/ghost-yellow.gif" class="custom-ghost-playoff"></div>
             </div>
-            <div class="playoff-bracket">
-              <!-- Round 1 -->
-              <div class="custom-round">
-                <div class="h3">Round 1<img class="custom-pacman" src="../src/static/images/pacman.gif"><img src="../src/static/images/ghost-yellow.gif" class="custom-ghost-playoff"></div>
+            <div id="round1" class="round">
+              <div id="r1g1" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
               </div>
-              <div id="round1" class="round">
-                <div id="r1g1" class="game">
-                  <div class="team"></div>
-                  <div class="versus">v</div>
-                  <div class="team"></div>
-                </div>
-                <div id="r1g2" class="game">
-                  <div class="team"></div>
-                  <div class="versus">v</div>
-                  <div class="team"></div>
-                </div>
+              <div id="r1g2" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
               </div>
-              <!-- Round 2 -->
-              <div class="custom-round">
-                <div class="h3">Semis<img class="custom-pacman" src="../src/static/images/pacman.gif"><img style="max-height: .8rem;max-width: .8rem;"src="../src/static/images/ghost-pink.gif" class="custom-ghost-playoff">
-                </div>
+            </div>
+            <!-- Round 2 -->
+            <div class="custom-round">
+              <div class="h3">Semis<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
+                  style="max-height: .8rem;max-width: .8rem;" src="../src/static/images/ghost-pink.gif"
+                  class="custom-ghost-playoff">
               </div>
-              <div id="round2" class="round">
-                <div id="r2g1" class="game">
-                  <div class="team"></div>
-                  <div class="versus">v</div>
-                  <div class="team"></div>
-                </div>
-                <div id="r2g2" class="game">
-                  <div class="team"></div>
-                  <div class="versus">v</div>
-                  <div class="team"></div>
-                </div>
+            </div>
+            <div id="round2" class="round">
+              <div id="r2g1" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
               </div>
-              <!-- Round 3 -->
-              <div class="custom-round" style="width: fit-content;">
-                <div class="h3">Championship<img class="custom-pacman" src="../src/static/images/pacman.gif"><img src="../src/static/images/ghost-red.gif" class="custom-ghost-playoff"></div>
+              <div id="r2g2" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
               </div>
-              <div id="round3" class="round">
-                <div id="r3g1" class="game">
-                  <div class="team"></div>
-                  <div class="versus">v</div>
-                  <div class="team"></div>
+            </div>
+            <!-- Round 3 -->
+            <div class="custom-round" style="width: fit-content;">
+              <div class="h3">Championship<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
+                  src="../src/static/images/ghost-red.gif" class="custom-ghost-playoff"></div>
+            </div>
+            <div id="round3" class="round">
+              <div id="r3g1" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    <footer class="footer">
-      <div class="container custom-footer">
-        <div id="footerName"></div>
-        <div class="custom-footer-links">
-          <a href="https://sleeper.com/leagues/" title="Sleeper" target="_blank" style="color: transparent;">
-            <img class="left-nav-logo" src="../src/static/images/sleeper.png" alt="Sleeper" style="max-width: 4rem;margin-bottom: .2rem;">
-          </a>
-          <a href="https://www.rotowire.com/football/news.php" target="_blank" title="Rotowire" style="text-decoration: none;">
-              <img class="left-nav-logo" src="../src/static/images/rotowire.png" style="max-width: 3rem;margin-bottom: .4rem;margin-left: 1.5rem;margin-right: 1.5rem;">
-          </a>
-          <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/" title="Fanduel" target="_blank">
-              <img class="left-nav-logo" src="../src/static/images/fanduel.png" style="max-width: 4rem;margin-bottom: .3rem;">
-          </a>
-          <a id="keep-trade-cut" href="" title="Keep Trade Cut League Analyzer" target="_blank">
-            <img class="left-nav-logo" src="../src/static/images/keep-trade-cut.png" style="max-width: 4rem;margin-bottom: .3rem; margin-left:1rem;">
-          </a>
+  </div>
+  <div class="custom-body custom-none-display" style="padding: unset;margin: unset;">
+    <div class="custom-body-container">
+      <div class="custom-bankroll">
+        <table class="table" id="bankrollTable">
+          </thead>
+          <tbody>
+            <tr id="bankrollTeam_0">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_1">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_2">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_3">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_4">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_5">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_6">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_7">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_8">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+            <tr id="bankrollTeam_9">
+              <th scope="row">
+                <div class="custom-teamname-normal"></div>
+              </th>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <legend id="bankrollLegend">Weekly Payout: Dues:</legend>
+      </div>
+      <div class="custom-carousel">
+        <div id="carouselTransactions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner custom-transaction-carousel" id="custom_transaction_inner">
+            <div id="noTransactions" class="carousel-item custom-carousel-item custom-block-display">
+              <div style="margin-top: 40%;background: transparent;border: none;" class="card">
+                <div class="card-body">
+                  No Transactions yet...
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselTransactions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselTransactions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-    </footer>
-    </body>
-  </html>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container custom-footer">
+      <div id="footerName"></div>
+      <div class="custom-footer-links">
+        <a href="https://sleeper.com/leagues/" title="Sleeper" target="_blank" style="color: transparent;">
+          <img class="left-nav-logo" src="../src/static/images/sleeper.png" alt="Sleeper"
+            style="max-width: 4rem;margin-bottom: .2rem;">
+        </a>
+        <a href="https://www.rotowire.com/football/news.php" target="_blank" title="Rotowire"
+          style="text-decoration: none;">
+          <img class="left-nav-logo" src="../src/static/images/rotowire.png"
+            style="max-width: 3rem;margin-bottom: .4rem;margin-left: 1.5rem;margin-right: 1.5rem;">
+        </a>
+        <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/"
+          title="Fanduel" target="_blank">
+          <img class="left-nav-logo" src="../src/static/images/fanduel.png"
+            style="max-width: 4rem;margin-bottom: .3rem;">
+        </a>
+        <a id="keep-trade-cut" href="" title="Keep Trade Cut League Analyzer" target="_blank">
+          <img class="left-nav-logo" src="../src/static/images/keep-trade-cut.png"
+            style="max-width: 4rem;margin-bottom: .3rem; margin-left:1rem;">
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

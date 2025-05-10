@@ -25,9 +25,9 @@ export function getMatchupWeekWinner(matchups,matchupid) {
     let matchupScore = [];
     let matchupsLength = Object.keys(matchups).length;
 
-    for(let i =0; i<matchupsLength; i++)
+    for(const key in matchups)
     {
-        let matchup = matchups[i];
+        let matchup = matchups[key];
 
         if(matchup && matchup.matchup_id==matchupid)
         {
