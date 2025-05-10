@@ -171,8 +171,8 @@
     </div>
   </div>
   <br>
-  <div class="custom-body custom-none-display">
-    <div class="custom-rankings float-start">
+  <div class="custom-body custom-none-display" style="display: grid;">
+    <div class="custom-rankings">
       <div style="text-align: center;">
         <font class="display-4">Standings</font>
         <table id="Standings" class="table custom-list-group custom-div-shadow">
@@ -285,16 +285,63 @@
         </legend>
       </div>
     </div>
-    <div class="custom-matchups float-end">
-      <div style="text-align: center;">
-        <div style="display:inline;padding-right: 0.5rem;">
-          <font class="display-4">Matchups</font>
-        </div>
-        <div id="currentWeek" title="Current Week of Season">Week: </div>
-        <div class="accordion custom-div-shadow" id="matchupWeeks">
+      <div class="custom-playoffs-bracket">
+        <div class="custom-playoff-bracket-container">
+          <div class="custom-playoff-container">
+            <div class="custom-playoffs-label">Playoffs</div>
+          </div>
+          <div class="playoff-bracket">
+            <!-- Round 1 -->
+            <div class="custom-round">
+              <div class="h3">Round 1<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
+                  src="../src/static/images/ghost-yellow.gif" class="custom-ghost-playoff"></div>
+            </div>
+            <div id="round1" class="round">
+              <div id="r1g1" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
+              </div>
+              <div id="r1g2" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
+              </div>
+            </div>
+            <!-- Round 2 -->
+            <div class="custom-round">
+              <div class="h3">Semis<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
+                  style="max-height: .8rem;max-width: .8rem;" src="../src/static/images/ghost-pink.gif"
+                  class="custom-ghost-playoff">
+              </div>
+            </div>
+            <div id="round2" class="round">
+              <div id="r2g1" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
+              </div>
+              <div id="r2g2" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
+              </div>
+            </div>
+            <!-- Round 3 -->
+            <div class="custom-round" style="width: fit-content;">
+              <div class="h3">Championship<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
+                  src="../src/static/images/ghost-red.gif" class="custom-ghost-playoff"></div>
+            </div>
+            <div id="round3" class="round">
+              <div id="r3g1" class="game">
+                <div class="team"></div>
+                <div class="versus">v</div>
+                <div class="team"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
   </div>
   <div class="custom-body custom-none-display" style="padding: unset;margin: unset;">
     <div class="custom-body-container">
@@ -387,63 +434,6 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div>
-      </div>
-      <div class="custom-playoffs-bracket">
-        <div class="custom-playoff-bracket-container">
-          <div class="custom-playoff-container">
-            <div class="custom-playoffs-label">Playoffs</div>
-          </div>
-          <div class="playoff-bracket">
-            <!-- Round 1 -->
-            <div class="custom-round">
-              <div class="h3">Round 1<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
-                  src="../src/static/images/ghost-yellow.gif" class="custom-ghost-playoff"></div>
-            </div>
-            <div id="round1" class="round">
-              <div id="r1g1" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-              <div id="r1g2" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-            </div>
-            <!-- Round 2 -->
-            <div class="custom-round">
-              <div class="h3">Semis<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
-                  style="max-height: .8rem;max-width: .8rem;" src="../src/static/images/ghost-pink.gif"
-                  class="custom-ghost-playoff">
-              </div>
-            </div>
-            <div id="round2" class="round">
-              <div id="r2g1" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-              <div id="r2g2" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-            </div>
-            <!-- Round 3 -->
-            <div class="custom-round" style="width: fit-content;">
-              <div class="h3">Championship<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
-                  src="../src/static/images/ghost-red.gif" class="custom-ghost-playoff"></div>
-            </div>
-            <div id="round3" class="round">
-              <div id="r3g1" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@
 .custom-matchup-container {
     display: flex;
     justify-content: center;
+    margin-top: .5rem;
 }
 
 #seasonTitle {
@@ -14,6 +15,35 @@
 
 .custom-body {
     margin-bottom: 2rem;
+}
+
+
+.custom-player-position {
+    font-size: 1rem;
+    padding: .1rem;
+    text-align: center;
+    font-family: 'F7';
+    padding: unset;
+}
+
+.custom-player-points {
+    font-size: .8rem;
+    border: 1px black solid;
+    text-align: center;
+    border-radius: .3rem;
+    background: #80808080;
+    padding: .1rem;
+    vertical-align: middle;
+    font-family: 'F7';
+    padding-top: .2rem;
+    width: 3.5em;
+    margin: auto;
+}
+
+.custom-team-details {
+    width: 18em;
+    display: grid;
+    height: 3.5rem;
 }
 
 .accordion-button {
@@ -45,22 +75,8 @@
     vertical-align: middle;
 }
 
-.custom-team-table-1 td:nth-child(1) {
-    text-align: left;
-}
-
-.custom-team-table-1 td:nth-child(2) {
-    text-align: center;
-    padding:unset;
-}
-
-.custom-team-table-2 td:nth-child(1) {
-    text-align: center;
-}
-
-.custom-team-table-2 td:nth-child(2) {
-    text-align: center;
-    padding:unset;
+.custom-team-table td{
+    padding: .1rem;
 }
 
 .custom-body {
@@ -82,30 +98,101 @@
 
 .custom-medium-avatar {
     max-width: 2rem;
+    grid-column: 1;
+    grid-row: 1;
+    margin-right: unset;
+    border: 1px solid whitesmoke;
 }
 
 .custom-team-score {
     font-size: 1.4rem;
+    font-family: 'F7';
+    border: 1px black solid;
+    text-align: center;
+    border-radius: .3rem;
+    background: #313131;
+    padding: .1rem;
+    width: 5.5rem;
+    padding-top: .3rem;
 }
 
 .custom-player-QB {
-    background: #ff2a6d91;
+    background: #ff2a6d75;
 }
 
 .custom-player-RB {
-    background: #00ceb88f;
+    background: #00ceb86e;
 }
 
 .custom-player-WR {
-    background: #58a7ffb3;
+    background: #58a7ff91;
 }
 
 .custom-player-TE {
-    background: #ffae58ad;
+    background: #ffae588c;
 }
 
 .custom-player-K {
-    background: #bd66ff8f;
+    background: #bd66ff6b;
+}
+
+.custom-team-table tr{
+    height: 2rem;
+}
+
+.custom-team-name-1{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+}
+
+.custom-team-name-2{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+}
+
+.custom-team-score-1 {
+    grid-row: 1;
+    grid-column: 3;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.custom-team-score-2 {
+    grid-row: 1;
+    grid-column: 1;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.custom-medium-avatar-1 {
+    grid-row: 1;
+    grid-column: 1;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.custom-medium-avatar-2 {
+    grid-row: 1;
+    grid-column: 3;
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
+.custom-team-name {
+    margin: auto;
+    font-size: .9rem;
+}
+
+.custom-team-table-container {
+    background: #8080804a;
+    border-radius: .5rem;
+    overflow: auto;
 }
 
 /*Large laptop display styling*/
@@ -115,6 +202,9 @@
 
 /*Normal Laptop display styling*/
 @media screen and (max-width: 64rem) {
+    .custom-matchups {
+        width: 95%;
+    }
 }
 
 /*Tablet display styling*/
@@ -127,12 +217,28 @@
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .custom-matchup-list{
+        padding: unset;
+    }
+
+    .custom-medium-avatar {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
     .custom-team-details {
-        height: 5rem;
+        width: 10.5em;
+        margin-left: .5rem;
+        margin-right: .5rem;
+        height: 2.35rem;
+        background: #80808085;
+        padding: .3rem;
+        border-top-right-radius: .5rem;
+        border-top-left-radius: .5rem;
     }
 
     .custom-team-name {
-        font-size: small;
+        font-size: .5rem;
     }
 
     #seasonTitle {
@@ -141,6 +247,11 @@
 
     .custom-matchups {
         width: 100%;
+    }
+
+    .custom-player-points {
+        font-size: .6rem;
+        padding-top: .4rem;
     }
 
     .custom-team-table {
@@ -159,15 +270,24 @@
     }
 
     .custom-player-name {
-        font-size:.6rem;
+        font-size: .7rem;
+    }
+
+    .custom-player-position {
+        font-size: .7rem;
+        padding-top: .4em;
+    }
+
+    .custom-team-score {
+        font-size: .8rem;
+        font-family: 'F7';
+        width: 3rem;
     }
 }
 
 /*Medium Mobile display styling*/
 @media screen and (max-width: 23.438rem) {
-    .custom-team-table {
-        width:14em;
-    }
+
 }
 
 /*Small Mobile display styling*/
