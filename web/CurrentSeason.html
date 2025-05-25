@@ -40,8 +40,8 @@
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="#">Current Season</a></li>
           <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
-          <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
           <li><a class="dropdown-item" href="./Matchups.html">Matchups</a></li>
+          <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
         </ul>
       </div>
       <div class="nav-item">
@@ -75,8 +75,8 @@
     <div id="mobileLinks" class="custom-mobile-hide">
       <a href="../index.html">Home</a>
       <a href="./LeagueChamps.html">League Champs</a>
-      <a href="./Stats.html">Stats</a>
       <a href="./Matchups.html">Matchups</a>
+      <a href="./Stats.html">Stats</a>
       <a href="./Rosters.html">Rosters</a>
       <a href="./Trades.html">Trades</a>
       <a href="./PowerRankings.html">Power Rankings</a>
@@ -172,6 +172,7 @@
   </div>
   <br>
   <div class="custom-body custom-none-display" style="display: grid;">
+    <div class="custom-body-container">
     <div class="custom-rankings">
       <div style="text-align: center;">
         <font class="display-4">Standings</font>
@@ -181,7 +182,7 @@
               <th scope="row">1</th>
               <td id="Standings_1"></td>
               <td>
-                <button type="button" id="GetRosterButton_1"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_1" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -191,7 +192,7 @@
               <th scope="row">2</th>
               <td id="Standings_2"></td>
               <td>
-                <button type="button" id="GetRosterButton_2"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_2" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -201,7 +202,7 @@
               <th scope="row">3</th>
               <td id="Standings_3"></td>
               <td>
-                <button type="button" id="GetRosterButton_3"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_3" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -211,7 +212,7 @@
               <th scope="row">4</th>
               <td id="Standings_4"></td>
               <td>
-                <button type="button" id="GetRosterButton_4"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_4" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -221,7 +222,7 @@
               <th scope="row">5</th>
               <td id="Standings_5"></td>
               <td>
-                <button type="button" id="GetRosterButton_5"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_5" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -231,7 +232,7 @@
               <th scope="row">6</th>
               <td id="Standings_6"></td>
               <td>
-                <button type="button" id="GetRosterButton_6"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_6" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -241,7 +242,7 @@
               <th scope="row">7</th>
               <td id="Standings_7"></td>
               <td>
-                <button type="button" id="GetRosterButton_7"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_7" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -251,7 +252,7 @@
               <th scope="row">8</th>
               <td id="Standings_8"></td>
               <td>
-                <button type="button" id="GetRosterButton_8"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_8" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -261,7 +262,7 @@
               <th scope="row">9</th>
               <td id="Standings_9"></td>
               <td>
-                <button type="button" id="GetRosterButton_9"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_9" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -271,7 +272,7 @@
               <th scope="row">10</th>
               <td id="Standings_10"></td>
               <td>
-                <button type="button" id="GetRosterButton_10"" class=" btn btn-primary" data-bs-toggle="modal"
+                <button type="button" id="GetRosterButton_10" class=" btn btn-primary" data-bs-toggle="modal"
                   data-bs-target="#RosterModal">
                   Roster
                 </button>
@@ -285,63 +286,26 @@
         </legend>
       </div>
     </div>
-      <div class="custom-playoffs-bracket">
-        <div class="custom-playoff-bracket-container">
-          <div class="custom-playoff-container">
-            <div class="custom-playoffs-label">Playoffs</div>
-          </div>
-          <div class="playoff-bracket">
-            <!-- Round 1 -->
-            <div class="custom-round">
-              <div class="h3">Round 1<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
-                  src="../src/static/images/ghost-yellow.gif" class="custom-ghost-playoff"></div>
-            </div>
-            <div id="round1" class="round">
-              <div id="r1g1" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-              <div id="r1g2" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-            </div>
-            <!-- Round 2 -->
-            <div class="custom-round">
-              <div class="h3">Semis<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
-                  style="max-height: .8rem;max-width: .8rem;" src="../src/static/images/ghost-pink.gif"
-                  class="custom-ghost-playoff">
-              </div>
-            </div>
-            <div id="round2" class="round">
-              <div id="r2g1" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-              <div id="r2g2" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-            </div>
-            <!-- Round 3 -->
-            <div class="custom-round" style="width: fit-content;">
-              <div class="h3">Championship<img class="custom-pacman" src="../src/static/images/pacman.gif"><img
-                  src="../src/static/images/ghost-red.gif" class="custom-ghost-playoff"></div>
-            </div>
-            <div id="round3" class="round">
-              <div id="r3g1" class="game">
-                <div class="team"></div>
-                <div class="versus">v</div>
-                <div class="team"></div>
-              </div>
-            </div>
-          </div>
+    <div class="card custom-contenders-rankings">
+      <div class="card-body custom-contenders-container">
+        <span class="custom-contenders-header">Contenders</span>
+        <div class="custom-teams-container">
+          <ol class="list-group list-group-numbered custom-contenders-teams-list">
+          </ol>
+        </div>
+        <span class="custom-contenders-header">Pretenders</span>
+        <div class="custom-teams-container">
+          <ol class="list-group list-group-numbered custom-pretenders-teams-list">
+          </ol>
+        </div>
+        <span class="custom-contenders-header">Rear-enders</span>
+        <div class="custom-teams-container">
+          <ol class="list-group list-group-numbered custom-rearenders-teams-list">
+          </ol>
         </div>
       </div>
+    </div>
+    </div>
   </div>
   <div class="custom-body custom-none-display" style="padding: unset;margin: unset;">
     <div class="custom-body-container">

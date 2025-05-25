@@ -28,6 +28,21 @@
     margin-left: 1.5rem;
   }
 
+  .list-group {
+    background: var(--custom-transp-blue);
+    text-align: center;
+  }
+
+  .custom-contenders-header {
+    font-size:2.5rem;
+    letter-spacing:.3rem;
+    display: block;
+    text-align: center;
+    font-family: 'F7';
+    text-emphasis: dot open;
+    text-emphasis-position: under;
+  }
+
   .custom-draft-pick-round {
     display: inline;
   }
@@ -49,12 +64,6 @@
     color: black;
   }
 
-  .custom-playoff-bracket-container {
-    position: relative;
-    box-shadow: 0 0 5px var(--custom-dark-blue);
-    border-radius: 20px;
-  }
-
   @property --aa {
     syntax: "<angle>";
     inherits: false;
@@ -68,15 +77,6 @@
       100% {
           --aa: 360deg;
       }
-  }
-
-  .custom-playoff-bracket-container::after {
-      position: absolute;
-      content: "";
-      inset: 8px;
-      background: black;
-      border-radius:5px;
-      filter: blur(1px);
   }
 
   .custom-standings-record {
@@ -296,20 +296,6 @@
     margin: auto;
   }
 
-  .custom-playoff-container {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-  }
-
-  .custom-playoffs-label {
-    text-align: center;
-    color: white;
-    font-family: 'F5';
-    font-size: xxx-large;
-    animation: blinker 8s ease-in-out infinite;
-  }
-
   #RosterTable th {
     text-align: center;
   }
@@ -386,12 +372,22 @@
     padding: 2rem;
   }
 
-  .custom-playoffs-bracket {
+  li.list-group-item {
+    background: transparent;
+  }
+
+  .custom-teams-container {
+    background: var(--custom-light-gray);
+    margin-bottom: 2rem;
+  }
+
+  .custom-contenders-rankings {
     grid-row: 1;
     grid-column: 2;
     margin: auto;
-    max-width: fit-content;
+    width: 28rem;
     padding-bottom: 2rem;
+    background: transparent;
   }
 
   #custom_transaction_inner {
@@ -545,22 +541,6 @@
     }
   }
 
-  .playoff-bracket {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-  }
-
-  .custom-playoff-team-name {
-    clear: both;
-    color: white;
-    word-spacing: .1rem;
-  }
-
   .round {
     display: flex;
     margin-bottom: 20px;
@@ -574,13 +554,6 @@
   .versus {
     color: white;
     font-family: 'F5';
-  }
-
-  .playoff-bracket .h3 {
-    margin-right: 1rem;
-    font-family: F5;
-    font-size: xx-large;
-    margin-bottom: unset;
   }
 
  .custom-round {
@@ -635,22 +608,10 @@
     font-size: x-small;
   }
 
-  .list-group-item{
-    border-color: #878787;
-    margin-bottom: 1rem;
-  }
-
   #bankrollTable td {
     text-align: center;
   }
   
-  .custom-ghost-playoff {
-    max-width: .75rem;
-    max-height: .75rem;
-    position: absolute;
-    z-index: 1;
-    margin-top: .8rem;
-  }
 
   @keyframes run {
     0% {
@@ -730,6 +691,11 @@
   /*Normal Laptop display styling*/
   @media screen and (max-width: 64rem) {
 
+      .custom-contenders-rankings {
+        width: fit-content;
+        margin-left: 3rem;
+      }
+
     @keyframes moveInSquare {
       0% {
           top: 0;
@@ -779,10 +745,6 @@
         width: 25rem;
     }
 
-    .custom-playoff-bracket {
-        width: 30rem;
-    }
-
     .custom-date-transaction {
       margin-left: 7rem;
     }
@@ -824,8 +786,10 @@
 
     .custom-player-avatar {
       display: block;
-      margin-right: auto;
-      margin-left: auto;
+    }
+
+      .custom-body {
+      overflow: scroll;
     }
 
   }
@@ -869,20 +833,8 @@
       vertical-align: bottom;
     }
 
-    .custom-playoffs-label {
-      font-size: 2rem !important;
-    }
-
-    .custom-playoff-team-name {
-      font-size: smaller;
-    }
-
     .custom-xsmall-avatar {
       max-width: 1.4rem;
-    }
-    
-    .custom-playoff-container {
-      margin-left: unset;
     }
 
     #latestTransactions h6 {
@@ -919,11 +871,21 @@
       max-height: 1.5rem;
     }
 
-    .custom-playoffs-bracket {
+    .custom-contenders-rankings {
       grid-column: 1;
       grid-row: 2;
       margin: auto;
       margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    .custom-body-container {
+      overflow: unset;
+      overflow-y: unset;
+    }
+
+    .custom-contenders-header {
+      font-size: 2rem;
     }
 
     body {
