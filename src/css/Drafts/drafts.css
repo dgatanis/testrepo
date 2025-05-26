@@ -1,0 +1,64 @@
+.custom-grid-container {
+    overflow: scroll;
+    overflow-y: hidden;
+    width: fit-content;
+    margin: auto;
+}
+
+.row {
+    flex-wrap: nowrap;
+}
+
+.col {
+    height: 8rem;
+    background: var(--custom-dark-mode-background);
+    border-radius: 1rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    color: #323232;
+}
+
+.custom-pick-container {
+    width: 10rem;
+    display: grid;
+    height: 8rem;
+}
+
+.custom-user {
+    background: linear-gradient(90deg, #2c363fc7, var(--custom-dark-mode-background), var(--custom-dark-mode-background), #2c363fc7);
+    color: whitesmoke;
+    border-radius: 1rem;
+    font-size: x-small;
+    height: fit-content;
+    font-family: 'F7';
+}
+
+.custom-player-name {
+    margin-top: .5rem;
+}
+
+.custom-player-avatar {
+    margin: auto;
+    border: 2px solid black !important;
+    border-radius:2rem;
+}
+
+.custom-QB-position {
+    background: var(--QB);
+}
+
+.custom-RB-position {
+    background: var(--RB);
+}
+
+.custom-WR-position {
+    background: var(--WR);
+}
+
+.custom-TE-position {
+    background: var(--TE);
+}
+
+.custom-K-position {
+    background: var(--K);
+}
