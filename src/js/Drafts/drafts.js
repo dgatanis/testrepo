@@ -14,16 +14,20 @@ import {
     getDraftPicks,
     removeSpinner,
     getDraftOrder,
-    createPlayerImage
+    createPlayerImage,
+    getPlayerNickNames
     } from '../util/helper.js';
 
 let leagueIds = allTimeLeagueIds.ATLeagueId;
 let playerData = players;
 let userData = users;
+let rosterData = rosters;
 
 loadContents();
 
 async function loadContents() {
+    setLeagueName("footerName");
+    setLinkSource("keep-trade-cut");
     loadDraftData();
     removeSpinner();
 }
@@ -47,8 +51,16 @@ async function loadDraftData() {
                 draftGrid = createDraftGrid(draft_order[0].draft_order, draft_order[0].rounds);
             }
             for(let draft_pick of draft_data) {
-                var pick_slot = draftGrid.getElementsByClassName("row")[draft_pick.round-1].getElementsByClassName("col")[draft_pick.draft_slot-1];
-                var grid_item = createDraftPickGridItem(draft_pick.round, draft_pick.draft_slot, draft_pick.metadata.player_id, draft_pick.picked_by, pick_slot.getAttribute("data-original-pick-owner"));
+                var pick_slot = draftGrid.getElementsByClassName("row")[draft_pick.round].getElementsByClassName("col")[draft_pick.draft_slot - 1];
+                var grid_item = createDraftPickGridItem(draft_pick.metadata.player_id, draft_pick.picked_by, pick_slot.getAttribute("data-original-pick-owner"));
+                var selection_num = document.createElement("div");
+                selection_num.setAttribute("class", "custom-selection-number");
+                selection_num.innerText = draft_pick.round + ".0" + draft_pick.draft_slot;
+
+                if(draft_pick.draft_slot >= 10){
+                    selection_num.innerText = draft_pick.round + "." + draft_pick.draft_slot;
+                }
+                grid_item.appendChild(selection_num);
                 pick_slot.appendChild(grid_item);
                 pick_slot.classList.add("custom-" + draft_pick.metadata.position + "-position");
             }
@@ -65,16 +77,35 @@ function createDraftGrid(draft_order, rounds) {
     container.setAttribute("class", "container text-center");
     scrollContainer.setAttribute("class", "custom-grid-container");
 
-    for(let i = 1; i<=rounds; i++){
+    for (let i = 0; i <= rounds; i++) {//loop through rounds
         var row = document.createElement("div");
+        const sorted_draft_order = Object.fromEntries(
+            Object.entries(draft_order).sort(([, a], [, b]) => a - b)
+        );
+
         row.setAttribute("class", "row");
         row.setAttribute("data-round", i);
 
-        Object.entries(draft_order).forEach(([key, value], index) => {
+        Object.entries(sorted_draft_order).forEach(([key, value], index) => { //loop through user/draft order mapping
             var column = document.createElement("col");
             column.setAttribute("class", "col");
             column.setAttribute("data-pick", index + 1);
             column.setAttribute("data-original-pick-owner", key);
+
+            if (i == 0) {
+                var user = userData.find(e => e.user_id === key);
+                var team_div = document.createElement("div");
+                var pick_container = document.createElement("div");
+                var team_image = createOwnerAvatarImage(user.user_id);
+
+                team_div.innerText = getTeamName(user.user_id);
+                pick_container.setAttribute("class", "custom-pick-container");
+
+                pick_container.appendChild(team_image);
+                pick_container.appendChild(team_div);
+                column.appendChild(pick_container);
+            }
+
             row.appendChild(column);
         });
         container.appendChild(row);
@@ -83,27 +114,32 @@ function createDraftGrid(draft_order, rounds) {
     return scrollContainer;
 }
 
-function createDraftPickGridItem(round, pick_num, player_id, picked_by, original_owner) {
+function createDraftPickGridItem(player_id, picked_by, original_owner) {
+    var roster = rosterData.find(e => e.owner_id === picked_by);
     var pick_container = document.createElement("div");
     var player = playerData.players.find(e => e.player_id === player_id);
     var player_div = document.createElement("div");
     var player_image = createPlayerImage(player.player_id);
+    var nickname_div = document.createElement("div");
+    var user_div = document.createElement("div");
 
+    nickname_div.innerText = getPlayerNickNames(roster.roster_id, player_id);
+    nickname_div.setAttribute("class", "custom-player-nickname");
     player_div.setAttribute("class", "custom-player-name");
     player_div.innerText = player.firstname + " " + player.lastname;
     pick_container.setAttribute("class", "custom-pick-container");
-    pick_container.appendChild(player_div);
-    pick_container.appendChild(player_image);
+    user_div.setAttribute("class", "custom-user");
 
     if(picked_by.toString() != original_owner.toString()) {
         var user = userData.find(e => e.user_id === picked_by);
-        var user_div = document.createElement("div");
-        
-        user_div.setAttribute("class", "custom-user");
+
         user_div.innerText = user.display_name;
-        pick_container.appendChild(user_div);
-        pick_container.appendChild(user_div);
-    }
+    }          
+    
+    pick_container.appendChild(player_div);
+    pick_container.appendChild(nickname_div);
+    pick_container.appendChild(player_image);
+    pick_container.appendChild(user_div);
 
     return pick_container;
 }
