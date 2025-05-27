@@ -52,7 +52,7 @@ async function loadDraftData() {
 
             if(leagueId != league.leagueId) {//If new season create new grid
                 leagueId = league.league_id;
-                draftGrid = createDraftGrid(draft_order[0].draft_order, draft_order[0].rounds);
+                draftGrid = createDraftGrid(draft_order[0].draft_order, draft_order[0].rounds, league.year);
             }
             for(let draft_pick of draft_data) {
                 var pick_slot = draftGrid.getElementsByClassName("row")[draft_pick.round].getElementsByClassName("col")[draft_pick.draft_slot - 1];
@@ -76,10 +76,11 @@ async function loadDraftData() {
     
 }
 
-function createDraftGrid(draft_order, rounds) {
+function createDraftGrid(draft_order, rounds, year) {
     var scrollContainer = document.createElement("div");
     var container = document.createElement("div");
     container.setAttribute("class", "container text-center");
+    container.setAttribute("data-grid-year", year);
     scrollContainer.setAttribute("class", "custom-grid-container");
 
     for (let i = 0; i <= rounds; i++) {//loop through rounds
@@ -105,7 +106,7 @@ function createDraftGrid(draft_order, rounds) {
 
                 team_div.innerText = getTeamName(user.user_id);
                 team_div.setAttribute("class", "custom-team-name");
-                team_image.setAttribute("onclick", "getTeamPicks('"+user.user_id+"')");
+                team_image.setAttribute("onclick", "getTeamPicks('"+user.user_id+"', '" + year + "')");
                 pick_container.setAttribute("class", "custom-pick-container");
 
                 pick_container.appendChild(team_image);

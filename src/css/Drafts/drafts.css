@@ -85,11 +85,17 @@
     padding-top: .2rem;
 }
 
+.custom-highlighted-team {
+    background: #80808052;
+    border-radius: 1rem;
+}
+
 .custom-medium-avatar {
     border: 3px solid var(--custom-dark-mode-background);
     margin: auto;
     margin-bottom: unset;
     max-width: 3rem;
+    cursor: pointer;
 }
 .custom-player-name {
     margin-top: .5rem;
