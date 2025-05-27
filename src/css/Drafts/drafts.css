@@ -1,0 +1,156 @@
+.custom-grid-container {
+    overflow: scroll;
+    overflow-y: hidden;
+    width: fit-content;
+    margin: auto;
+    background: var(--custom-light-gray);
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+.custom-highlighted-item {
+    box-shadow: 0  .1rem 0.5rem black;
+}
+
+.custom-unhighlighted-item {
+    background-color: var(--custom-light-grey) !important;
+}
+
+.custom-revert-item {
+    background: revert-layer;
+}
+
+.row {
+    flex-wrap: nowrap;
+}
+
+.custom-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.custom-player-nickname {
+    font-size: x-small;
+    font-style: italic;
+    padding-top: .2rem;
+}
+
+.custom-team-name {
+    font-size: small;
+    margin: auto;
+    color: black;
+}
+
+.custom-season-header {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'F7';
+    width: 150%;
+}
+
+.col {
+    height: 8rem;
+    background: transparent;
+    border-radius: 1rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    color: var(--custom-dark-mode-background);
+    border: 4px solid black;
+}
+
+[data-round="0"] col.col {
+    border-color: transparent;
+}
+
+.custom-selection-number {
+    position: absolute;
+    color: black;
+    font-family: 'F7';
+    font-size: x-small;
+}
+
+.custom-pick-container {
+    width: 10rem;
+    display: grid;
+    height: 8rem;
+    position: relative;
+}
+
+.custom-user {
+    color: whitesmoke;
+    border-radius: 1rem;
+    font-size: .5rem;
+    height: fit-content;
+    font-family: 'F7';
+    padding-top: .2rem;
+}
+
+.custom-highlighted-team {
+    background: #80808052;
+    border-radius: 1rem;
+}
+
+.custom-medium-avatar {
+    border: 3px solid var(--custom-dark-mode-background);
+    margin: auto;
+    margin-bottom: unset;
+    max-width: 3rem;
+    cursor: pointer;
+}
+.custom-player-name {
+    margin-top: .5rem;
+    color: black;
+}
+
+.custom-player-avatar {
+    margin: auto;
+    border: 2px solid black !important;
+    border-radius:2rem;
+}
+
+.custom-QB-position {
+    background: var(--QB);
+}
+
+.custom-RB-position {
+    background: var(--RB);
+}
+
+.custom-WR-position {
+    background: var(--WR);
+}
+
+.custom-TE-position {
+    background: var(--TE);
+}
+
+.custom-K-position {
+    background: var(--K);
+}
+/*Large laptop display styling*/
+@media screen and (max-width: 90rem) {}
+
+/*Normal Laptop display styling*/
+@media screen and (max-width: 64rem) {}
+
+/*Tablet display styling*/
+@media screen and (max-width: 48rem) {    
+    .custom-season-header {
+        width: 250%;
+    }
+}
+
+/*Large Mobile display styling*/
+@media screen and (max-width: 26.875rem) {
+    .custom-grid-container {
+        width: 100%;
+    }
+
+    .custom-title {
+        margin-top: 3rem;
+    }
+
+    .custom-season-header {
+        width: unset;
+    }
+}
