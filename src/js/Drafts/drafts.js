@@ -42,7 +42,11 @@ async function loadDraftData() {
         var draft_id = await getLeagueDrafts(league.league_id);
         var draft_data = await getDraftPicks(draft_id);
         var draft_order = await getDraftOrder(draft_id);
+        var draft_season = document.createElement("div");
         var draftGrid;
+
+        draft_season.innerText = league.year + " Season";
+        draft_season.setAttribute("class", "custom-season-header");
 
         if(draft_data.length >= 1) {
 
@@ -66,6 +70,7 @@ async function loadDraftData() {
             }
 
             body.appendChild(draftGrid);
+            draftGrid.prepend(draft_season);
         }
     }
     
@@ -99,6 +104,8 @@ function createDraftGrid(draft_order, rounds) {
                 var team_image = createOwnerAvatarImage(user.user_id);
 
                 team_div.innerText = getTeamName(user.user_id);
+                team_div.setAttribute("class", "custom-team-name");
+                team_image.setAttribute("onclick", "getTeamPicks('"+user.user_id+"')");
                 pick_container.setAttribute("class", "custom-pick-container");
 
                 pick_container.appendChild(team_image);
@@ -123,17 +130,18 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
     var nickname_div = document.createElement("div");
     var user_div = document.createElement("div");
 
-    nickname_div.innerText = getPlayerNickNames(roster.roster_id, player_id);
+    nickname_div.innerText = getPlayerNickNames(roster.roster_id, player_id); 
     nickname_div.setAttribute("class", "custom-player-nickname");
     player_div.setAttribute("class", "custom-player-name");
     player_div.innerText = player.firstname + " " + player.lastname;
     pick_container.setAttribute("class", "custom-pick-container");
+    pick_container.setAttribute("data-picked-by-user",picked_by);
     user_div.setAttribute("class", "custom-user");
 
     if(picked_by.toString() != original_owner.toString()) {
         var user = userData.find(e => e.user_id === picked_by);
-
-        user_div.innerText = user.display_name;
+        user_div.style = "background:linear-gradient(90deg, #0000004d, black, black, #0000004d);";
+        user_div.innerText = getTeamName(user.user_id);
     }          
     
     pick_container.appendChild(player_div);

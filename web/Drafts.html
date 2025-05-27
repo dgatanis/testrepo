@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../src/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../src/css/Drafts/drafts.css">
     <script type="module" src="../src/js/Drafts/drafts.js"></script>
+    <script src="../src/js/Drafts/functions.js"></script>
     <script src="../src/js/bootstrap.bundle.min.js"></script>
     <script src="../src/js/Mobile/mobile.js"></script>
 </head>
@@ -31,7 +32,7 @@
                     </button>
                 </a>
             </div>
-            <div class="nav-item dropdown">
+            <div class="nav-item dropdown custom-selected-nav">
                 <button class="nav-link active dropdown-toggle custom-nav" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../src/static/images/history.png" class="custom-nav-icon">
@@ -39,6 +40,7 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="./CurrentSeason.html">Current Season</a></li>
+                    <li><a class="dropdown-item" href="#">Drafts</a></li>
                     <li><a class="dropdown-item" href="./LeagueChamps.html">League Champs</a></li>
                     <li><a class="dropdown-item" href="./Matchups.html">Matchups</a></li>
                     <li><a class="dropdown-item" href="./Stats.html">Stats</a></li>
@@ -52,8 +54,8 @@
                     </button>
                 </a>
             </div>
-            <div class="nav-item custom-selected-nav">
-                <a href="#">
+            <div class="nav-item">
+                <a href="./Trades.html">
                     <button class="nav-link custom-nav">
                         <img src="../src/static/images/trade-icon.png" class="custom-nav-icon">
                         <span class="custom-nav-label">Trades</span>
@@ -71,13 +73,14 @@
         </ul>
     </div>
     <div class="mobilenav">
-        <a href="#" class="active">Trades</a>
+        <a href="#" class="active">Drafts</a>
         <div id="mobileLinks" class="custom-mobile-hide">
             <a href="../index.html">Home</a>
             <a href="./CurrentSeason.html">Current Season</a>
             <a href="./LeagueChamps.html">League Champs</a>
             <a href="./Matchups.html">Matchups</a>
             <a href="./Stats.html">Stats</a>
+            <a href="./Trades.html">Trades</a>
             <a href="./Rosters.html">Rosters</a>
             <a href="./PowerRankings.html">Power Rankings</a>
             <div onclick="toggleMobileMenu()"

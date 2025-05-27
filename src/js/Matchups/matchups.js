@@ -383,7 +383,7 @@ function createMatchupButtonElement(num) {
     button.setAttribute("id", "buttonWeek_" + num)
 
     if (num > 2000) {
-        button.innerText = "Season " + num;
+        button.innerText = num + " Season" ;
         button.style = "font-size: 1em;"
     }
     else if(num == 15){
