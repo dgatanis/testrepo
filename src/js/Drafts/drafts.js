@@ -44,7 +44,7 @@ async function loadDraftData() {
         var draft_data = await getDraftPicks(draft_id);
         var draft_order = await getDraftOrder(draft_id);
         var draft_season = document.createElement("div");
-        var draftGrid;
+        var draft_grid;
 
         draft_season.innerText = league.year + " Season";
         draft_season.setAttribute("class", "custom-season-header");
@@ -53,10 +53,10 @@ async function loadDraftData() {
 
             if(leagueId != league.leagueId) {//If new season create new grid
                 leagueId = league.league_id;
-                draftGrid = createDraftGrid(draft_order[0].draft_order, draft_order[0].rounds, league.year);
+                draft_grid = createDraftGrid(draft_order[0].draft_order, draft_order[0].rounds, league.year);
             }
             for(let draft_pick of draft_data) {
-                var pick_slot = draftGrid.getElementsByClassName("row")[draft_pick.round].getElementsByClassName("col")[draft_pick.draft_slot - 1];
+                var pick_slot = draft_grid.getElementsByClassName("row")[draft_pick.round].getElementsByClassName("col")[draft_pick.draft_slot - 1];
                 var grid_item = createDraftPickGridItem(draft_pick.metadata.player_id, draft_pick.picked_by, pick_slot.getAttribute("data-original-pick-owner"));
                 var selection_num = document.createElement("div");
                 selection_num.setAttribute("class", "custom-selection-number");
@@ -70,10 +70,28 @@ async function loadDraftData() {
                 pick_slot.classList.add("custom-" + draft_pick.metadata.position + "-position");
             }
 
-            body.appendChild(draftGrid);
-            draftGrid.prepend(draft_season);
+            if(league.year >= 2025) {
+                var button = document.createElement("button");
+                button.setAttribute("class","btn btn-primary");
+                button.setAttribute("onclick","toggleGraph(" + league.year + ")");
+                button.innerText = league.year;
+                draft_grid.appendChild(button);
+                var scatter_div = document.createElement("div");
+                scatter_div.setAttribute('id', league.year + "_scatter");
+                scatter_div.setAttribute('class', "custom-scatter custom-none-display");
+                setScatterPlots(league.year);
+                body.appendChild(scatter_div);
+            }
+            body.appendChild(draft_grid);
+            draft_grid.prepend(draft_season);
+            
         }
+        var scatter_div = document.createElement("div");
+        scatter_div.setAttribute('id', league.year + "_scatter");
+        scatter_div.setAttribute('class', "custom-scatter custom-none-display");
         setScatterPlots(league.year);
+        body.appendChild(scatter_div);
+        
     }
     
 }
@@ -179,7 +197,6 @@ async function setScatterPlots (year) {
         };
 
         var scatterData = [ scatterLine ];
-        var counter = 0;
         
         for(let row of data) {
             //row: name,team,position,age,sleeperId,selected,ranked,comments
@@ -187,19 +204,22 @@ async function setScatterPlots (year) {
             if(row[0] != 'name') {
                 var round_selected = parseInt(row[5].split('.')[0]);
                 var pick_selected = parseInt(row[5].split('.')[1]);
+                var round_ranked = parseInt(row[6].split('.')[0]);
+                var selected_ranked = parseInt(row[6].split('.')[1]);
                 
                 if(round_selected && pick_selected) {
-                    var plot_point;
-                    if(round_selected >=2){ plot_point = pick_selected + ((round_selected-1) * 10) }
-                    else {plot_point = pick_selected}
+                    var overall_pick = (round_selected - 1) * 10 + pick_selected;
+                    var ranked_pick = (round_ranked - 1) * 10 + selected_ranked;
+                    var pick_diff = overall_pick - ranked_pick;
+                    var plot_point = overall_pick + pick_diff;
 
                     var trace = {
-                        x: [plot_point],
+                        x: [overall_pick],
                         y: [plot_point],
                         mode: 'markers+text',
                         type: 'scatter',
                         name: `(${row[5]}) ${row[0]}`, //Player name and draft position
-                        text: [`${row[0]}`], //Player Name
+                        text: `${row[0]}`, //Player Name
                         textposition: 'right',
                         textfont: {
                             family:  'Raleway, sans-serif'
@@ -214,31 +234,40 @@ async function setScatterPlots (year) {
             }
 
         }
-
         var layout = {
-        
-        hoverlabel: {
-            namelength: -1 // -1 displays the whole name
-        },
-        xaxis: {
-            range: [0, 40]
-        },
-        yaxis: {
-            range: [40, 0]
-        },
-        legend: {
-            y: 5,
-            yref: 'paper',
-            font: {
-            family: 'Arial, sans-serif',
-            size: 20,
-            color: 'grey',
-            }
-        },
-        title: {text: 'Average Draft Position vs. Actual Draft Position'}
+            hoverlabel: {
+                namelength: -1 // -1 displays the whole name
+            },
+            showlegend: false,
+            autosize: true,
+            minreducedwidth: 410,
+            margin: {
+                pad: 0,
+                r:0,
+                l:35
+            },
+            xaxis: {
+                range: [0, 45],
+                automargin: false,
+                title: 'Average Draft Position (ADP)',
+                tickmode: 'linear',
+                dtick: 10
+            },
+            yaxis: {
+                range: [45, 0],
+                automargin: false,
+                title: 'Actual Draft Position',
+                tickmode: 'linear',
+                dtick: 10
+            },
+            title: {text: 'Actual Draft Position vs. ADP'}
         };
 
-        Plotly.newPlot('myDiv', scatterData, layout);
+        var config = {
+            modeBarButtonsToRemove: ['zoom2d', 'pan2d', 'select2d','lasso2d' ]
+        };
+
+        Plotly.newPlot(`${year}_scatter`, scatterData, layout, config);
     }
 }
 
@@ -247,6 +276,7 @@ async function fetchCSVData(url) {
     try {
         const response = await fetch(url);
         const data = await response.text();
+
         if(data && response.ok) {
             const rows = data.trim().replaceAll("\r", "").split('\n').map(row => row.split(','));
             return rows;

@@ -16,6 +16,16 @@
     margin-top: 3rem;
 }
 
+.custom-scatter {
+    width: 100%;
+    overflow: scroll;
+}
+
+button.btn.btn-primary {
+    margin-top: 2rem;
+    margin-left:.5rem;
+}
+
 .custom-unhighlighted-item {
     background-color: var(--custom-light-grey) !important;
 }
