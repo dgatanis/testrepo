@@ -30,6 +30,7 @@ async function loadContents() {
     setLinkSource("keep-trade-cut");
     loadDraftData();
     removeSpinner();
+
 }
 
 async function loadDraftData() {
@@ -72,6 +73,7 @@ async function loadDraftData() {
             body.appendChild(draftGrid);
             draftGrid.prepend(draft_season);
         }
+        setScatterPlots(league.year);
     }
     
 }
@@ -152,3 +154,107 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
 
     return pick_container;
 }
+
+async function setScatterPlots (year) {
+
+    var data = await fetchCSVData(`../src/static/rookie_rankings/${year}_rookie_rankings.csv`);
+
+    let colorMapping = new Map([
+        ['QB', '#ff2a6d'],
+        ['RB', '#00ceb8'],
+        ['WR', '#58a7ff'],
+        ['TE', '#ffae58'],
+        ['K', '#bd66ff']
+    ]);
+
+
+    if(data) {
+        var scatterLine = {
+            x: [1,10,20,30,40],
+            y: [1,10,20,30,40],
+            mode: 'lines',
+            type: 'scatter',
+            name: 'Average Draft Position',
+            marker: {color: '#00c14157'}
+        };
+
+        var scatterData = [ scatterLine ];
+        var counter = 0;
+        
+        for(let row of data) {
+            //row: name,team,position,age,sleeperId,selected,ranked,comments
+
+            if(row[0] != 'name') {
+                var round_selected = parseInt(row[5].split('.')[0]);
+                var pick_selected = parseInt(row[5].split('.')[1]);
+                
+                if(round_selected && pick_selected) {
+                    var plot_point;
+                    if(round_selected >=2){ plot_point = pick_selected + ((round_selected-1) * 10) }
+                    else {plot_point = pick_selected}
+
+                    var trace = {
+                        x: [plot_point],
+                        y: [plot_point],
+                        mode: 'markers+text',
+                        type: 'scatter',
+                        name: `(${row[5]}) ${row[0]}`, //Player name and draft position
+                        text: [`${row[0]}`], //Player Name
+                        textposition: 'right',
+                        textfont: {
+                            family:  'Raleway, sans-serif'
+                        },
+                        marker: { opacity:0.5, size: 10, color:colorMapping.get(row[2])},
+                        hovertemplate: 'Super overdrafted totally bad pick terrible bad',//Comments
+                        showlegend: false
+                    };
+                    scatterData.push(trace);
+                }
+
+            }
+
+        }
+
+        var layout = {
+        
+        hoverlabel: {
+            namelength: -1 // -1 displays the whole name
+        },
+        xaxis: {
+            range: [0, 40]
+        },
+        yaxis: {
+            range: [40, 0]
+        },
+        legend: {
+            y: 5,
+            yref: 'paper',
+            font: {
+            family: 'Arial, sans-serif',
+            size: 20,
+            color: 'grey',
+            }
+        },
+        title: {text: 'Average Draft Position vs. Actual Draft Position'}
+        };
+
+        Plotly.newPlot('myDiv', scatterData, layout);
+    }
+}
+
+
+async function fetchCSVData(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.text();
+        if(data && response.ok) {
+            const rows = data.trim().replaceAll("\r", "").split('\n').map(row => row.split(','));
+            return rows;
+        }
+
+    } catch (error) {
+        console.error('Error fetching CSV:', error);
+    }
+
+}
+
