@@ -12,6 +12,10 @@
     box-shadow: 0  .1rem 0.5rem black;
 }
 
+.container.text-center {
+    margin-top: 3rem;
+}
+
 .custom-unhighlighted-item {
     background-color: var(--custom-light-grey) !important;
 }
@@ -33,6 +37,7 @@
     font-size: x-small;
     font-style: italic;
     padding-top: .2rem;
+    margin: auto;
 }
 
 .custom-team-name {
@@ -45,7 +50,8 @@
     text-align: center;
     font-size: 2rem;
     font-family: 'F7';
-    width: 150%;
+    position: absolute;
+    left: 42%;
 }
 
 .col {
@@ -83,11 +89,13 @@
     height: fit-content;
     font-family: 'F7';
     padding-top: .2rem;
+    margin-bottom: .1rem;
 }
 
 .custom-highlighted-team {
     background: #80808052;
-    border-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .custom-medium-avatar {
@@ -128,15 +136,23 @@
     background: var(--K);
 }
 /*Large laptop display styling*/
-@media screen and (max-width: 90rem) {}
+@media screen and (max-width: 90rem) {
+    .custom-season-header {
+        left: 42%;
+    }
+}
 
 /*Normal Laptop display styling*/
-@media screen and (max-width: 64rem) {}
+@media screen and (max-width: 64rem) {
+    .custom-season-header {
+        left: 40%;
+    }
+}
 
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {    
-    .custom-season-header {
-        width: 250%;
+    .custom-grid-container {
+        width: 100%;
     }
 }
 
@@ -152,5 +168,7 @@
 
     .custom-season-header {
         width: unset;
+        left: 20%;
     }
+
 }

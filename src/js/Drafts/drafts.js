@@ -141,7 +141,7 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
 
     if(picked_by.toString() != original_owner.toString()) {
         var user = userData.find(e => e.user_id === picked_by);
-        user_div.style = "background:linear-gradient(90deg, #0000004d, black, black, #0000004d);";
+        user_div.style = "background:black";
         user_div.innerText = getTeamName(user.user_id);
     }          
     
