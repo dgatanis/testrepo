@@ -16,6 +16,13 @@
     margin-top: 3rem;
 }
 
+.btn-primary {
+    background-color: rgb(174 174 174 / 48%);
+    color: #000000;
+    border-color: #000000;
+    font-family: 'F7';
+}
+
 .custom-scatter {
     width: 100%;
     overflow: scroll;

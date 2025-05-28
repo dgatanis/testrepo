@@ -70,28 +70,22 @@ async function loadDraftData() {
                 pick_slot.classList.add("custom-" + draft_pick.metadata.position + "-position");
             }
 
-            if(league.year >= 2025) {
-                var button = document.createElement("button");
-                button.setAttribute("class","btn btn-primary");
-                button.setAttribute("onclick","toggleGraph(" + league.year + ")");
-                button.innerText = league.year;
-                draft_grid.appendChild(button);
-                var scatter_div = document.createElement("div");
-                scatter_div.setAttribute('id', league.year + "_scatter");
-                scatter_div.setAttribute('class', "custom-scatter custom-none-display");
-                setScatterPlots(league.year);
-                body.appendChild(scatter_div);
-            }
+            var button = document.createElement("button");
+            button.setAttribute("class","btn btn-primary");
+            button.setAttribute("onclick","toggleGraph(" + league.year + ")");
+            button.innerText = "Values & Reaches";
+            draft_grid.appendChild(button);
+            var scatter_div = document.createElement("div");
+            scatter_div.setAttribute('id', league.year + "_scatter");
+            scatter_div.setAttribute('class', "custom-scatter custom-none-display");
+            setScatterPlots(league.year);
+                        
             body.appendChild(draft_grid);
+            body.appendChild(scatter_div);
+
             draft_grid.prepend(draft_season);
             
-        }
-        var scatter_div = document.createElement("div");
-        scatter_div.setAttribute('id', league.year + "_scatter");
-        scatter_div.setAttribute('class', "custom-scatter custom-none-display");
-        setScatterPlots(league.year);
-        body.appendChild(scatter_div);
-        
+        } 
     }
     
 }
@@ -225,7 +219,7 @@ async function setScatterPlots (year) {
                             family:  'Raleway, sans-serif'
                         },
                         marker: { opacity:0.5, size: 10, color:colorMapping.get(row[2])},
-                        hovertemplate: 'Super overdrafted totally bad pick terrible bad',//Comments
+                        hovertemplate: `Value: ${pick_diff}`,//Comments
                         showlegend: false
                     };
                     scatterData.push(trace);
@@ -240,7 +234,7 @@ async function setScatterPlots (year) {
             },
             showlegend: false,
             autosize: true,
-            minreducedwidth: 410,
+            minreducedwidth: 400,
             margin: {
                 pad: 0,
                 r:0,
@@ -260,7 +254,7 @@ async function setScatterPlots (year) {
                 tickmode: 'linear',
                 dtick: 10
             },
-            title: {text: 'Actual Draft Position vs. ADP'}
+            title: {text: `${year} Actual Draft Position vs. ADP`}
         };
 
         var config = {
