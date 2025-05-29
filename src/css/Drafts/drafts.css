@@ -21,6 +21,7 @@
     color: #000000;
     border-color: #000000;
     font-family: 'F7';
+    margin-bottom: 1rem;
 }
 
 .custom-player-position {
@@ -28,19 +29,19 @@
     top: 0;
     right: 0;
     font-family: 'F7';
-    font-size: small;
+    font-size: x-small;
 }
 
 .custom-team-logo {
     max-width: 1rem;
     display: inline;
-    margin-top: 1rem;
+    margin-top: .9rem;
     margin-left: 1rem;
 }
 
 .custom-scatter {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 button.btn.btn-primary {

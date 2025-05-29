@@ -75,7 +75,7 @@ async function loadDraftData() {
             var scatter_div = document.createElement("div");
             button.setAttribute("class","btn btn-primary");
             button.setAttribute("onclick","toggleGraph(" + league.year + ")");
-            button.innerText = "Values & Reaches";
+            button.innerText = league.year + " ADP Chart";
             scatter_div.setAttribute('id', league.year + "_scatter");
             scatter_div.setAttribute('class', "custom-scatter custom-none-display");
             
@@ -243,9 +243,6 @@ async function setScatterPlots (year) {
 
         }
         var layout = {
-            hoverlabel: {
-                namelength: -1 // -1 displays the whole name
-            },
             showlegend: false,
             autosize: true,
             minreducedwidth: 400,
@@ -271,7 +268,7 @@ async function setScatterPlots (year) {
                 dtick: 10
             },
             dragmode: "pan",
-            hoverlabel : {bordercolor: "black", font:{color:"black"}},
+            hoverlabel : {bordercolor: "black", font:{color:"black"}, namelength: -1},
             title: {text: `${year} Actual Draft Position vs. ADP`}
         };
 
