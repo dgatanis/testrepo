@@ -50,3 +50,11 @@ function getTeamPicks(user_id, year) {
         }
     }
 }
+
+function toggleGraph(year) {
+    var graph = document.getElementById(`${year}_scatter`);
+    if(graph.classList.contains("custom-none-display"))
+        graph.classList.remove("custom-none-display");
+    else
+        graph.classList.add("custom-none-display");
+}

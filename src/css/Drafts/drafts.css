@@ -16,6 +16,40 @@
     margin-top: 3rem;
 }
 
+.btn-primary {
+    background-color: rgb(174 174 174 / 48%);
+    color: #000000;
+    border-color: #000000;
+    font-family: 'F7';
+    margin-bottom: 1rem;
+}
+
+.custom-player-position {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'F7';
+    font-size: x-small;
+}
+
+.custom-team-logo {
+    max-width: 1rem;
+    display: inline;
+    margin-top: .9rem;
+    margin-left: 1rem;
+}
+
+.custom-scatter {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+button.btn.btn-primary {
+    font-size: small;
+    margin-top: 1rem;
+    margin-left: .5rem;
+}
+
 .custom-unhighlighted-item {
     background-color: var(--custom-light-grey) !important;
 }
@@ -36,8 +70,8 @@
 .custom-player-nickname {
     font-size: x-small;
     font-style: italic;
-    padding-top: .2rem;
     margin: auto;
+    height: 1rem;
 }
 
 .custom-team-name {
@@ -85,11 +119,11 @@
 .custom-user {
     color: whitesmoke;
     border-radius: 1rem;
-    font-size: .5rem;
-    height: fit-content;
+    font-size: .4rem;
+    height: .8rem;
     font-family: 'F7';
+    margin-bottom: .3rem;
     padding-top: .2rem;
-    margin-bottom: .1rem;
 }
 
 .custom-highlighted-team {
@@ -105,6 +139,14 @@
     max-width: 3rem;
     cursor: pointer;
 }
+
+.custom-player-college {
+    height: .5rem;
+    font-size: x-small;
+    grid-row: 1;
+    grid-column: 1;
+}
+
 .custom-player-name {
     margin-top: .5rem;
     color: black;
