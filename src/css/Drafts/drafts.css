@@ -23,14 +23,30 @@
     font-family: 'F7';
 }
 
+.custom-player-position {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'F7';
+    font-size: small;
+}
+
+.custom-team-logo {
+    max-width: 1rem;
+    display: inline;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
 .custom-scatter {
     width: 100%;
-    overflow: scroll;
+    margin-top: 3rem;
 }
 
 button.btn.btn-primary {
-    margin-top: 2rem;
-    margin-left:.5rem;
+    font-size: small;
+    margin-top: 1rem;
+    margin-left: .5rem;
 }
 
 .custom-unhighlighted-item {
@@ -53,8 +69,8 @@ button.btn.btn-primary {
 .custom-player-nickname {
     font-size: x-small;
     font-style: italic;
-    padding-top: .2rem;
     margin: auto;
+    height: 1rem;
 }
 
 .custom-team-name {
@@ -102,11 +118,11 @@ button.btn.btn-primary {
 .custom-user {
     color: whitesmoke;
     border-radius: 1rem;
-    font-size: .5rem;
-    height: fit-content;
+    font-size: .4rem;
+    height: .8rem;
     font-family: 'F7';
+    margin-bottom: .3rem;
     padding-top: .2rem;
-    margin-bottom: .1rem;
 }
 
 .custom-highlighted-team {
@@ -122,6 +138,14 @@ button.btn.btn-primary {
     max-width: 3rem;
     cursor: pointer;
 }
+
+.custom-player-college {
+    height: .5rem;
+    font-size: x-small;
+    grid-row: 1;
+    grid-column: 1;
+}
+
 .custom-player-name {
     margin-top: .5rem;
     color: black;

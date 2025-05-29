@@ -15,7 +15,8 @@ import {
     removeSpinner,
     getDraftOrder,
     createPlayerImage,
-    getPlayerNickNames
+    getPlayerNickNames,
+    createNFLTeamImage
     } from '../util/helper.js';
 
 let leagueIds = allTimeLeagueIds.ATLeagueId;
@@ -71,18 +72,17 @@ async function loadDraftData() {
             }
 
             var button = document.createElement("button");
+            var scatter_div = document.createElement("div");
             button.setAttribute("class","btn btn-primary");
             button.setAttribute("onclick","toggleGraph(" + league.year + ")");
             button.innerText = "Values & Reaches";
-            draft_grid.appendChild(button);
-            var scatter_div = document.createElement("div");
             scatter_div.setAttribute('id', league.year + "_scatter");
             scatter_div.setAttribute('class', "custom-scatter custom-none-display");
+            
             setScatterPlots(league.year);
-                        
+            draft_grid.appendChild(button);
+            draft_grid.appendChild(scatter_div);   
             body.appendChild(draft_grid);
-            body.appendChild(scatter_div);
-
             draft_grid.prepend(draft_season);
             
         } 
@@ -144,7 +144,14 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
     var player_image = createPlayerImage(player.player_id);
     var nickname_div = document.createElement("div");
     var user_div = document.createElement("div");
+    var team_div = createNFLTeamImage(player.team);
+    var player_position_div = document.createElement("div");
+    var player_college_div = document.createElement("div");
 
+    player_college_div.setAttribute("class", "custom-player-college");
+    player_college_div.innerText = player.college;
+    player_position_div.setAttribute("class", "custom-player-position");
+    player_position_div.innerText = player.position;
     nickname_div.innerText = getPlayerNickNames(roster.roster_id, player_id); 
     nickname_div.setAttribute("class", "custom-player-nickname");
     player_div.setAttribute("class", "custom-player-name");
@@ -159,10 +166,13 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
         user_div.innerText = getTeamName(user.user_id);
     }          
     
+    player_image.appendChild(team_div);
     pick_container.appendChild(player_div);
+    pick_container.appendChild(player_college_div);
     pick_container.appendChild(nickname_div);
     pick_container.appendChild(player_image);
     pick_container.appendChild(user_div);
+    pick_container.appendChild(player_position_div);
 
     return pick_container;
 }
@@ -206,6 +216,9 @@ async function setScatterPlots (year) {
                     var ranked_pick = (round_ranked - 1) * 10 + selected_ranked;
                     var pick_diff = overall_pick - ranked_pick;
                     var plot_point = overall_pick + pick_diff;
+                    if(pick_diff > 0) {
+                        pick_diff = "+"+pick_diff;
+                    }
 
                     var trace = {
                         x: [overall_pick],
@@ -218,10 +231,11 @@ async function setScatterPlots (year) {
                         textfont: {
                             family:  'Raleway, sans-serif'
                         },
-                        marker: { opacity:0.5, size: 10, color:colorMapping.get(row[2])},
-                        hovertemplate: `Value: ${pick_diff}`,//Comments
+                        marker: { size: 10, color:colorMapping.get(row[2]), opacity:.75},
+                        hovertemplate: `Value: ${pick_diff} <br>${row[7]}`,//Comments
                         showlegend: false
                     };
+                    
                     scatterData.push(trace);
                 }
 
@@ -243,6 +257,7 @@ async function setScatterPlots (year) {
             xaxis: {
                 range: [0, 45],
                 automargin: false,
+                autorange: true,
                 title: 'Average Draft Position (ADP)',
                 tickmode: 'linear',
                 dtick: 10
@@ -250,10 +265,13 @@ async function setScatterPlots (year) {
             yaxis: {
                 range: [45, 0],
                 automargin: false,
+                autorange: true,
                 title: 'Actual Draft Position',
                 tickmode: 'linear',
                 dtick: 10
             },
+            dragmode: "pan",
+            hoverlabel : {bordercolor: "black", font:{color:"black"}},
             title: {text: `${year} Actual Draft Position vs. ADP`}
         };
 
