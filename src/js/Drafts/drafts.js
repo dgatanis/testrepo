@@ -232,7 +232,7 @@ async function setScatterPlots (year) {
                             family:  'Raleway, sans-serif'
                         },
                         marker: { size: 10, color:colorMapping.get(row[2]), opacity:.75},
-                        hovertemplate: `Value: ${pick_diff} <br>${row[7]}`,//Comments
+                        hovertemplate: `Projected: ${row[6]} <br>Value: ${pick_diff} <br>${row[7]}`,//Comments
                         showlegend: false
                     };
                     
