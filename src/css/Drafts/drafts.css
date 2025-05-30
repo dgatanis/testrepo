@@ -139,6 +139,7 @@ button.btn.btn-primary {
     margin-bottom: unset;
     max-width: 3rem;
     cursor: pointer;
+    box-shadow: 0 .1rem 0.5rem black;
 }
 
 .custom-player-college {
