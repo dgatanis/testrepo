@@ -190,6 +190,7 @@ img.custom-team-logo {
     height: -webkit-fill-available;
     background: #575757;
     min-width: 20rem;
+    position: relative;
 }
 
 .custom-date {
@@ -255,6 +256,7 @@ sup {
     font-size: x-small;
     vertical-align: text-bottom;
     grid-column: 1 / -1;
+    font-style: italic;
 }
 
 img.custom-xsmall-avatar {
@@ -399,6 +401,5 @@ img.custom-xsmall-avatar {
     .custom-team-group {
         padding: .5rem;
         min-width: 10rem;
-        gap: .3rem;
     }
 }

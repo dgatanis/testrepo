@@ -168,7 +168,7 @@ async function loadTradeTransactions() {
                                 if (draftPick.roster_id != draftPick.previous_owner_id) { //roster_id = original owner of pick 
                                     var originalOwnerDiv = document.createElement('div');
                                     originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
-                                    originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
+                                    originalOwnerDiv.innerText = "via " + getTeamName(originalOwner.owner_id);
                                     draftPickDiv.appendChild(originalOwnerDiv);
                                 }
 
