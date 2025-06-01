@@ -127,6 +127,9 @@ th {
 
 .custom-throne-img {
     max-width: 7rem;
+    background: #57575730;
+    border-radius: 5rem;
+    box-shadow: 0 0rem 0.5rem black;
 }
 
 #LeagueChampsTable > tbody > tr:last-child { 
