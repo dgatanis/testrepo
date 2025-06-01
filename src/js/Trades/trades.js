@@ -43,7 +43,8 @@ async function loadTradeTransactions() {
                 var totalSearchRank = 0;
                 var isNuclear = 'N';
                 var draftPicksCount = {"1": 0, "2": 0}
-
+                transactionRow.setAttribute("data-transaction-date", trade.created);
+                
                 for (let i = 0; i < tradePartners; i++) {
                     var rosterid = trade.roster_ids[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
@@ -52,7 +53,8 @@ async function loadTradeTransactions() {
                     if (i >= 2) {
                         var lastTeamGroup = transactionRow.getElementsByClassName('custom-team-group')[transactionRow.getElementsByClassName('custom-team-group').length - 1];
                         var teamGroup = document.createElement("div");
-                        teamGroup.setAttribute('class', 'custom-team-group');
+                        teamGroup.setAttribute('class', 'custom-team-group col');
+                        teamGroup.setAttribute('style', 'grid-column:' + (i +1));
 
                         lastTeamGroup.after(teamGroup);
                     }
@@ -92,12 +94,12 @@ async function loadTradeTransactions() {
                                 if(tradePartners > 2)
                                 {
                                     var fromRoster = rosterData.find(x => x.roster_id === droppedPlayers[addedPlayers[j]]);
-
                                     var previousOwner = createOwnerAvatarImage(fromRoster.owner_id);
+                                    var tradeTeamIcon = document.createElement('img');
+                                    
+                                    transactionRow.getElementsByClassName("custom-card")[0].style = "overflow-x:scroll;"
                                     previousOwner.setAttribute('class', 'custom-xsmall-avatar');
                                     previousOwner.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
-
-                                    var tradeTeamIcon = document.createElement('img');
                                     tradeTeamIcon.setAttribute('src', '../src/static/images/trading-team-badge.png');
                                     tradeTeamIcon.setAttribute('class', 'custom-trade-from-icon');
                                     tradeTeamIcon.setAttribute('title', 'Acquired from ' + getTeamName(fromRoster.owner_id));
@@ -159,7 +161,7 @@ async function loadTradeTransactions() {
                                 draftPickDiv.setAttribute('title', roundPlainText + ' pick via ' + getTeamName(originalOwner.owner_id));
 
                                 round.innerHTML = formattedRound;
-                                season.innerText = " - " + draftPick.season;
+                                season.innerText = draftPick.season;
 
                                 draftPickDiv.appendChild(round);
                                 draftPickDiv.appendChild(season);
@@ -167,7 +169,7 @@ async function loadTradeTransactions() {
                                 if (draftPick.roster_id != draftPick.previous_owner_id) { //roster_id = original owner of pick 
                                     var originalOwnerDiv = document.createElement('div');
                                     originalOwnerDiv.setAttribute('class', 'custom-draft-pick-original-owner');
-                                    originalOwnerDiv.innerText = "(via " + getTeamName(originalOwner.owner_id) + ")";
+                                    originalOwnerDiv.innerText = "via " + getTeamName(originalOwner.owner_id);
                                     draftPickDiv.appendChild(originalOwnerDiv);
                                 }
 
@@ -220,12 +222,9 @@ async function loadTradeTransactions() {
                 dateOfTransaction.innerText = formattedDate;
 
                 //Create handshake icon
+                var icongroup = document.createElement("div");
+                icongroup.setAttribute("class", "col custom-icon-group")
                 var lastTeamGroup = transactionRow.getElementsByClassName('custom-team-group')[transactionRow.getElementsByClassName('custom-team-group').length - 1];
-                var handshakeImage = document.createElement('img');
-                handshakeImage.setAttribute('src', '../src/static/images/trading-icon.png');
-                handshakeImage.setAttribute('class', 'custom-handshake-icon');
-
-                lastTeamGroup.after(handshakeImage);
 
                 //Create trade badge icon
                 if(isNuclear == 'Y')
@@ -235,8 +234,9 @@ async function loadTradeTransactions() {
                     tradeBadge.setAttribute('src', '../src/static/images/nuclear-icon.png');
                     tradeBadge.setAttribute('title', 'Nuclear Trade Alert!');
 
-                    lastTeamGroup.after(tradeBadge);
+                    //lastTeamGroup.after(tradeBadge);
                     isNuclear = 'N';
+                    icongroup.appendChild(tradeBadge);
                 }
                 else if(totalPlayers >=1 && totalSearchRank/totalPlayers <= 30 || tradePartners >=3 || draftPicksCount["1"] >= 2 || draftPicksCount["2"] >= 4 || totalPlayers >= 4)
                 {
@@ -245,17 +245,19 @@ async function loadTradeTransactions() {
                     tradeBadge.setAttribute('src', '../src/static/images/alert.png');
                     tradeBadge.setAttribute('title', 'Big Trade Alert!');
 
-                    lastTeamGroup.after(tradeBadge);
+                    //lastTeamGroup.after(tradeBadge);
+                    icongroup.appendChild(tradeBadge);
                 }
                 else if (totalPlayers >= 1 && totalSearchRank / totalPlayers <= 60 || draftPicksCount["2"] >= 3 || draftPicksCount["1"] >= 1)
                 {
                     var tradeBadge = document.createElement('img');
                     tradeBadge.setAttribute('class', 'custom-trade-badge');
                     tradeBadge.setAttribute('src', '../src/static/images/wow-icon.png');
-                    tradeBadge.setAttribute('style', 'width:2.5rem;');
+                    tradeBadge.setAttribute('style', 'width:4rem;');
                     tradeBadge.setAttribute('title', 'Wow!');
 
-                    lastTeamGroup.after(tradeBadge);
+                    //lastTeamGroup.after(tradeBadge);
+                    icongroup.appendChild(tradeBadge);
                 }
                 else if(totalPlayers == 1 && draftPicksCount["2"] == 0 && draftPicksCount["1"] == 0)
                 {
@@ -264,9 +266,11 @@ async function loadTradeTransactions() {
                     tradeBadge.setAttribute('src', '../src/static/images/puke-emoji.png');
                     tradeBadge.setAttribute('title', 'Gross!');
 
-                    lastTeamGroup.after(tradeBadge);
+                    //lastTeamGroup.after(tradeBadge);
+                    icongroup.appendChild(tradeBadge);
                 }
 
+                lastTeamGroup.after(icongroup);
                 //append trade to the body
                 body.appendChild(transactionRow);
             }
@@ -365,7 +369,7 @@ function createPaginationList(maxPages) {
 function createTransactionRow(page) {
     var transactionRow = document.createElement('div');
 
-    if(page > 1)
+    if(page >= 1)
     {
         transactionRow.setAttribute('class', 'custom-transaction-row custom-none-display');
 
@@ -375,19 +379,19 @@ function createTransactionRow(page) {
     }
 
     var card = document.createElement('div');
-    card.setAttribute('class', 'card custom-card custom-div-shadow');
+    card.setAttribute('class', 'container custom-card');
 
     var cardBody = document.createElement('div');
-    cardBody.setAttribute('class', 'card-body');
+    cardBody.setAttribute('class', 'row');
 
     var teamGroup = document.createElement('div');
-    teamGroup.setAttribute('class', 'custom-team-group');
+    teamGroup.setAttribute('class', 'custom-team-group col');
 
     var teamGroup2 = document.createElement('div');
-    teamGroup2.setAttribute('class', 'custom-team-group');
+    teamGroup2.setAttribute('class', 'custom-team-group col');
 
     var transactionDate = document.createElement('div');
-    transactionDate.setAttribute('class', 'custom-transaction-date');
+    transactionDate.setAttribute('class', 'custom-transaction-date col');
 
     var date = document.createElement('div');
     date.setAttribute('class', 'custom-date');
@@ -429,7 +433,7 @@ function createPlayerDiv(playerid, addDrop) {
     if (player) 
     {
         playerName.innerText = getFullPlayerName(playerid);
-        playerPosition.innerText = "- " + player.position;
+        playerPosition.innerText = player.position;
         playerPosition.setAttribute('class', 'custom-player-position');
         playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
         addDropIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
@@ -438,7 +442,7 @@ function createPlayerDiv(playerid, addDrop) {
         playerName.innerText = getFullPlayerName(playerid);
     }
     
-    playerDiv.append(addDropIcon);
+    playerImg.append(addDropIcon);
     playerDiv.append(playerImg);
     playerDiv.append(playerName);
     playerDiv.append(playerPosition);
