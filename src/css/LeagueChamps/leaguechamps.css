@@ -7,16 +7,36 @@
     margin-bottom: 1rem;
 }
 
-table#LeagueChampsTable {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    text-align: center;
-    border: var(--custom-light-gray);
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    background: var(--custom-dark-gray);
-    color: var(--custom-light-gray);
+.row {
+    gap: 2rem;
+}
+
+.custom-year {
+    color: whitesmoke;
+    border-radius: 1rem;
+    background: black;
+    width: fit-content;
+    margin: auto;
+    padding: .3rem;
+    margin-top: .3rem;
+    padding-top: unset;
+    padding-bottom: unset;
+    font-size: small;
+}
+
+.col {
+    padding: unset;
+    min-width: 20rem;
+    background:#575757;
+    border-radius: 1rem;
+    min-height: 10rem;
+}
+
+.custom-player-container {
+    padding:.5rem;
+    width: fit-content;
+    margin: auto;
+    color: whitesmoke;
 }
 
 .custom-icon-container {
@@ -39,9 +59,22 @@ tr td {
     padding: 1rem !important;
 }
 
+.custom-label-container{
+    color: black;
+    border-radius: 1rem;
+    box-shadow: 0 0rem 0.4rem black;
+    margin: auto;
+    margin-bottom: .5rem;
+    background: var(--custom-light-gray);
+}
+
 .custom-medium-avatar {
     background-color: whitesmoke;
     padding: .1rem;
+    position: absolute;
+    top: -40px;
+    max-width: 2.5rem;
+    box-shadow: 0 0rem 0.4rem black;
 }
 
 td {
@@ -49,8 +82,13 @@ td {
 }
 
 .custom-team-name {
-    font-size: large;
+    font-size: 1.5rem;
     color: whitesmoke;
+}
+
+.custom-team {
+    position: relative;
+    display: grid;
 }
 
 .custom-player-name {
@@ -63,11 +101,11 @@ th {
 }
 
 .custom-finals-player {
-    padding: .3rem;
-    background: linear-gradient(90deg, transparent, var(--custom-light-gray), transparent);
+    padding: .5rem;
     margin: auto;
     margin-top: 1rem;
     color: black;
+    width: 75%;
 }
 
 .custom-player-pts {
@@ -89,6 +127,9 @@ th {
 
 .custom-throne-img {
     max-width: 7rem;
+    background: #57575730;
+    border-radius: 5rem;
+    box-shadow: 0 0rem 0.5rem black;
 }
 
 #LeagueChampsTable > tbody > tr:last-child { 
@@ -117,12 +158,12 @@ th {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
-    th {
-        width: 8rem;
+    .custom-body {
+        margin: 1rem;
     }
 
-    .custom-finals-player {
-        width: 100%;
+    th {
+        width: 8rem;
     }
 
     .custom-title-container {
@@ -131,7 +172,7 @@ th {
     }
 
     .custom-team-name {
-        font-size: large;
+        font-size: 1.5rem;
     }
 
     table#LeagueChampsTable {
