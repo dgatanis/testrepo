@@ -106,10 +106,12 @@ a.page-link {
     left: .5rem;
     top: .5rem;
     border: 1px solid var(--custom-green);
+    max-width: .8rem;
 }
 
 .custom-player-avatar {
     margin-right:.2rem;
+    border-radius: 1rem;
 }
 
 .custom-player-position {
@@ -130,6 +132,7 @@ a.page-link {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/src/static/images/add-sign.png);
 }
 
 img.custom-team-logo {
@@ -365,10 +368,30 @@ img.custom-xsmall-avatar {
         overflow: scroll;
     }
 
+    .custom-team-group {
+        height: revert;
+    }
+
 }
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    .custom-player-avatar, .custom-player-position, .custom-playername-large, .custom-team-logo {
+        margin: auto;
+    }
+
+    .custom-add-icon{
+        margin-bottom: .5rem;
+    }
+
+    .custom-player-avatar {
+        height: 25px;
+        width: 25px;
+        background-size: auto 30px;
+        border-radius: 1rem;
+    }
+
     .custom-small-avatar {
         margin-top: .5rem;
         width: 2rem;
