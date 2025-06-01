@@ -401,5 +401,6 @@ img.custom-xsmall-avatar {
     .custom-team-group {
         padding: .5rem;
         min-width: 10rem;
+        height: fit-content;
     }
 }
