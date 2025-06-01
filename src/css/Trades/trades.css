@@ -7,7 +7,7 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    background: #575757;
+    background: transparent;
     color: var(--custom-light-gray);
 }
 
@@ -49,20 +49,25 @@ a.page-link {
     border-top-left-radius: unset;
 }
 
+.custom-icon-group {
+    grid-column: 1 / -1;
+    display: grid;
+    padding: unset;
+}
+
 .custom-trade-badge {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    max-width: 2.5rem;
-    border-radius: 1rem;
-    width: 2rem;
+    max-width: 3.5rem;
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1;
+    width: 2.5rem;
 }
 
 .custom-handshake-icon {
     max-width: 2.5rem;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    margin-left: auto;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .custom-playername-large {
@@ -71,24 +76,40 @@ a.page-link {
 }
 
 .custom-waiver-budget {
-    padding: .2rem;
     font-size: small;
+    box-shadow: 0 .1rem 0.5rem black;
+    border-radius: 1rem;
+    height: 2rem;
+    background: #808080b3;
+    position: relative;
+    color: whitesmoke;
+    padding: .2rem;
+    padding-top: .3rem;
 }
 
 .custom-teamname-small {
     cursor: pointer;
+    margin: auto;
+    font-family: 'F7';
 }
 
 .custom-small-avatar {
     background-color: whitesmoke;
     padding: .1rem;
     cursor: pointer;
+    margin: auto;
+    box-shadow: 0 0rem .5rem whitesmoke;
+    margin-top: .6rem;
 }
 
 .custom-add-icon {
     left: .5rem;
     top: .5rem;
     border: 1px solid var(--custom-green);
+}
+
+.custom-player-avatar {
+    margin-right:.2rem;
 }
 
 .custom-player-position {
@@ -101,23 +122,40 @@ a.page-link {
     padding: .2rem;
     cursor: pointer;
     position: relative;
+    box-shadow: 0 .1rem 0.5rem black;
+    border-radius: 1rem;
+    height: 2.3rem;
+    background: #808080b3;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 img.custom-team-logo {
     display: inline;
-    max-width: 1rem;
+    max-width: 1.5rem;
     max-height: 1.5rem;
-    margin-left: .2rem;
+    margin-left: .2rem;    
 }
 
 .custom-transaction-row {
     padding: 1.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .custom-draft-pick {
     padding: .2rem;
+    box-shadow: 0 .1rem 0.5rem black;
+    border-radius: 1rem;
+    height: fit-content;
+    background:#808080b3;
     position: relative;
+    color: whitesmoke;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .custom-draft-pick .custom-trade-from-icon {
@@ -128,12 +166,30 @@ img.custom-team-logo {
     float: inline-end;
     clear: inline-end;
     text-align: center;
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.custom-team-group:nth-child(even) {
+    float: inline-start;
+    text-align: center;
+    clear: inline-start;
+    grid-row: 2;
+    grid-column: 1;
 }
 
 .custom-team-group {
-    width: 18rem;
-    padding: .3rem;
-    margin-bottom: 1.5rem;
+    display: grid;
+    box-shadow: 0 .1rem 0.5rem black;
+    border-radius: 1rem;
+    margin: auto;
+    margin-top: unset;
+    gap: 10px;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    height: -webkit-fill-available;
+    background: #575757;
+    min-width: 20rem;
 }
 
 .custom-date {
@@ -145,18 +201,20 @@ img.custom-team-logo {
 
 .custom-transaction-date {
     text-align: center;
-    color: whitesmoke;
-    margin-bottom: .5rem;
-    margin-top: .5rem;
+    color: #575757;
     font-size: small;
     font-style: italic;
+    grid-column: 1 / -1;
 }
 
-.custom-team-group:nth-child(even) {
-    float: inline-start;
-    text-align: center;
-    clear: inline-start;
+
+.row {
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem .5rem;
 }
+
 
 .custom-draft-picks {
     margin-top: .2rem;
@@ -168,13 +226,18 @@ sup {
 }
 
 .custom-draft-pick-round {
-    display: inline;
+    grid-row: 1;
+    grid-column: 1;
+    margin-left: auto;
 }
 
 .custom-draft-pick-season {
     display: inline;
     font-size: x-small;
     vertical-align: middle;
+    grid-row: 1;
+    grid-column: 2;
+    margin-right: auto;
 }
 
 .custom-trade-from-icon {
@@ -190,8 +253,8 @@ sup {
 .custom-draft-pick-original-owner {
     display: inline;
     font-size: x-small;
-    margin-left: .3rem;
     vertical-align: text-bottom;
+    grid-column: 1 / -1;
 }
 
 img.custom-xsmall-avatar {
@@ -215,9 +278,12 @@ img.custom-xsmall-avatar {
 .custom-team-container {
     text-align: center;
     font-size: larger;
-    border-bottom: 2px solid whitesmoke;
-    margin-bottom: .5rem;
     color: whitesmoke;
+    height: 5rem;
+    display: grid;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background: linear-gradient(0deg, transparent, #808080ad);
 }
 
 .custom-player:hover {
@@ -252,33 +318,80 @@ img.custom-xsmall-avatar {
 
 /*Normal Laptop display styling*/
 @media screen and (max-width: 64rem) {
+
     .custom-card {
         width: 85%;
     }
     .custom-date {
         width: 30%;
     }
+
+    .custom-teamname-small {
+        font-size: 1rem;
+    }
 }
 
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {
+
     .custom-card {
         width: 98%;
     }
+
+    .custom-teamname-small {
+        font-size: .8rem;
+    }
+
+    .custom-playername-large {
+        font-size: x-small;
+    }
+
+    .custom-player-position {
+        font-size: .4rem;
+    }
+
+    .custom-draft-pick-round {
+        font-size: .8rem;
+    }
+
+    .custom-draft-pick-original-owner {
+        font-size: .5rem;
+    }
+
+    .custom-card {
+        overflow: scroll;
+    }
+
 }
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
-    
+    .custom-small-avatar {
+        margin-top: .5rem;
+        width: 2rem;
+    }
+
+    .custom-teamname-small {
+        font-size: .6rem;
+    }
+
+    .custom-transaction-row {
+        padding: .5rem;
+    }
+
     ul#trades-pagination {
         font-size: x-small;
     }
+
     .custom-title {
         margin-top: 3rem;
     }
+
     .custom-card {
         width: 95%;
+        overflow: scroll;
     }
+
     .custom-date {
         width: 100%;
     }
@@ -287,6 +400,6 @@ img.custom-xsmall-avatar {
         margin-right: auto;
         margin-left: auto;
         float: unset !important;
-        margin-top: 2rem;
+        min-width: 10rem;
     }
 }
