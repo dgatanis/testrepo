@@ -397,9 +397,8 @@ img.custom-xsmall-avatar {
     }
 
     .custom-team-group {
-        margin-right: auto;
-        margin-left: auto;
         padding: .5rem;
         min-width: 10rem;
+        gap: .3rem;
     }
 }
