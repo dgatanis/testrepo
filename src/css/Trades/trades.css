@@ -399,7 +399,7 @@ img.custom-xsmall-avatar {
     .custom-team-group {
         margin-right: auto;
         margin-left: auto;
-        float: unset !important;
+        padding: .5rem;
         min-width: 10rem;
     }
 }
