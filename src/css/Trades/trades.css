@@ -191,7 +191,7 @@ img.custom-team-logo {
     background: #575757;
     min-width: 20rem;
     position: relative;
-    min-height: -webkit-fill-available;
+    min-height: 100%;
 }
 
 .custom-date {
@@ -402,6 +402,6 @@ img.custom-xsmall-avatar {
     .custom-team-group {
         padding: .5rem;
         min-width: 10rem;
-
+        height: revert;
     }
 }
