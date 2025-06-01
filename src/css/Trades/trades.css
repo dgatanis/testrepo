@@ -77,8 +77,8 @@ a.page-link {
 
 .custom-waiver-budget {
     font-size: small;
-    box-shadow: 0 .1rem 0.5rem black;
-    border-radius: 1rem;
+    box-shadow: 0 0rem 0.3rem black;
+    border-radius: 5rem;
     height: 2rem;
     background: #808080b3;
     position: relative;
@@ -124,8 +124,8 @@ a.page-link {
     padding: .2rem;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 .1rem 0.5rem black;
-    border-radius: 1rem;
+    box-shadow: 0 0rem 0.3rem black;
+    border-radius: 5rem;
     height: 2.3rem;
     background: #808080b3;
     color: whitesmoke;
@@ -133,6 +133,7 @@ a.page-link {
     align-items: center;
     justify-content: center;
     background-image: url(/src/static/images/add-sign.png);
+    
 }
 
 img.custom-team-logo {
@@ -149,8 +150,8 @@ img.custom-team-logo {
 
 .custom-draft-pick {
     padding: .2rem;
-    box-shadow: 0 .1rem 0.5rem black;
-    border-radius: 1rem;
+    box-shadow: 0 0rem 0.3rem black;
+    border-radius: 5rem;
     height: fit-content;
     background:#808080b3;
     position: relative;
@@ -187,7 +188,7 @@ img.custom-team-logo {
     border-radius: 1rem;
     margin: auto;
     margin-top: unset;
-    gap: 10px;
+    gap: 15px;
     padding-bottom: 2rem;
     padding-top: 1rem;
     height: -webkit-fill-available;
@@ -208,7 +209,6 @@ img.custom-team-logo {
     text-align: center;
     color: #575757;
     font-size: small;
-    font-style: italic;
     grid-column: 1 / -1;
 }
 
@@ -234,6 +234,8 @@ sup {
     grid-row: 1;
     grid-column: 1;
     margin-left: auto;
+    margin-right: .1rem;
+    font-size: 1.2rem;
 }
 
 .custom-draft-pick-season {
@@ -243,16 +245,19 @@ sup {
     grid-row: 1;
     grid-column: 2;
     margin-right: auto;
+    margin-left: .1rem;
+    font-style: italic;
 }
 
 .custom-trade-from-icon {
     max-width: .8rem;
+    left: 5px;
+    opacity: .75;
     position: absolute;
-    left: 3%;
-    bottom: 33%;
+    top: 0px;
     background: black;
-    border-radius: 10rem;
     padding: .1rem;
+    border-radius: 1rem;
 }
 
 .custom-draft-pick-original-owner {
@@ -265,21 +270,15 @@ sup {
 
 img.custom-xsmall-avatar {
     max-width: 1.2rem;
-    position: absolute;
     left: 0;
-    top: 0;
-    padding: 1px;
-    background: #ffd100;
+    opacity: .75;
+    position: absolute;
+    margin: auto;
+    top: -10px;
+    background: #000000b3;
+    padding: .1rem;
 }
 
-img.custom-xsmall-avatar {
-    max-width: 1.2rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 1px;
-    background: #ffd100;
-}
 
 .custom-team-container {
     text-align: center;
@@ -357,7 +356,7 @@ img.custom-xsmall-avatar {
     }
 
     .custom-draft-pick-round {
-        font-size: .8rem;
+        font-size: 1rem;
     }
 
     .custom-draft-pick-original-owner {

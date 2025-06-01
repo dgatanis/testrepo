@@ -43,7 +43,8 @@ async function loadTradeTransactions() {
                 var totalSearchRank = 0;
                 var isNuclear = 'N';
                 var draftPicksCount = {"1": 0, "2": 0}
-
+                transactionRow.setAttribute("data-transaction-date", trade.created);
+                
                 for (let i = 0; i < tradePartners; i++) {
                     var rosterid = trade.roster_ids[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
@@ -160,7 +161,7 @@ async function loadTradeTransactions() {
                                 draftPickDiv.setAttribute('title', roundPlainText + ' pick via ' + getTeamName(originalOwner.owner_id));
 
                                 round.innerHTML = formattedRound;
-                                season.innerText = " - " + draftPick.season;
+                                season.innerText = draftPick.season;
 
                                 draftPickDiv.appendChild(round);
                                 draftPickDiv.appendChild(season);
@@ -368,7 +369,7 @@ function createPaginationList(maxPages) {
 function createTransactionRow(page) {
     var transactionRow = document.createElement('div');
 
-    if(page > 1)
+    if(page >= 1)
     {
         transactionRow.setAttribute('class', 'custom-transaction-row custom-none-display');
 
