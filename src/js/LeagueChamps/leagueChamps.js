@@ -46,12 +46,13 @@ async function loadContents() {
 
 async function loadLeagueChamps(inauguralSeason) {
 
-    var table = document.getElementById('LeagueChampsTable');
-    var tableBody = table.children[0];
+    var tableBody = document.getElementById('LeagueChampsTable');
+    var row = document.createElement("div");
     var leagues = allTimeLeagueIds;
-
     var rosterId;
 
+    row.setAttribute("class", "row");
+    
     //Create rows for all of the league ids in sleeper
     for(let league of leagues.ATLeagueId)
     {
@@ -64,7 +65,8 @@ async function loadLeagueChamps(inauguralSeason) {
             var matchups =  await getFinalsMatchups(league.league_id);
             var leagueChampRow = createLeagueChampRow(roster, user, league.year, matchups);
             
-            tableBody.appendChild(leagueChampRow);
+            row.appendChild(leagueChampRow);
+            tableBody.appendChild(row);
         }
 
     }
@@ -95,7 +97,8 @@ async function loadLeagueChamps(inauguralSeason) {
 
             var leagueChampRow = createLeagueChampRow(roster, user, i);
             
-            tableBody.appendChild(leagueChampRow);
+            row.appendChild(leagueChampRow);
+            tableBody.appendChild(row)
         }
     }
 }
@@ -127,18 +130,20 @@ async function getFinalsMatchups(leagueId) {
 
 function createLeagueChampRow(roster, user, year, matchups = null) {
 
-    var tr = document.createElement('tr');
-    var thYear = document.createElement('th');
-    var tdTeam = document.createElement('td');
+    var col = document.createElement('div');
+    var year_div = document.createElement('div');
+    var team_div = document.createElement('div');
     var teamImage = createOwnerAvatarImage(user.user_id);
     var teamName = document.createElement('div');
 
     teamName.setAttribute('class', 'custom-team-name');
     teamName.innerText=getTeamName(user.user_id);
-    thYear.innerText = year;
-
-    tdTeam.appendChild(teamImage);
-    tdTeam.appendChild(teamName);
+    year_div.innerText = year;
+    year_div.setAttribute('class', 'custom-year');
+    team_div.setAttribute('class', 'custom-team');
+    col.setAttribute("class", "col");
+    team_div.appendChild(teamImage);
+    team_div.appendChild(teamName);
 
     if(matchups != null)
     {
@@ -149,20 +154,21 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
         {
             var playerDiv = createPlayerDiv(highScorer);
 
-            tdTeam.appendChild(playerDiv);
+            team_div.appendChild(playerDiv);
         }
 
     }
 
-    tr.appendChild(thYear);
-    tr.appendChild(tdTeam);
+    col.appendChild(year_div);
+    col.appendChild(team_div);
 
-    return tr;
+    return col;
 }
 
 function createPlayerDiv(highScorer) {
 
     var playerDiv = document.createElement('div');
+    var playerContainer = document.createElement('div');
     var playerName = document.createElement('div');
     var playerPts = document.createElement('div');
     var labelDiv = document.createElement('div');
@@ -170,6 +176,7 @@ function createPlayerDiv(highScorer) {
     var lionImg = document.createElement('img');
     var playerImg = createPlayerImage(highScorer.player_id);
 
+    labelDiv.setAttribute("class", "custom-label-container")
     label.innerText = 'King of the Finals';
     label.setAttribute('class','custom-finals-label');
     lionImg.setAttribute('src', '../src/static/images/lion.png');
@@ -180,14 +187,16 @@ function createPlayerDiv(highScorer) {
     playerName.setAttribute('class', 'custom-player-name');
     playerName.innerText = getFullPlayerName(highScorer.player_id) + ":";
     playerDiv.setAttribute('class', 'custom-finals-player');
+    playerContainer.setAttribute('class', 'custom-player-container');
 
 
     labelDiv.appendChild(label);
-    labelDiv.appendChild(lionImg)
+    labelDiv.appendChild(lionImg);
+    playerContainer.appendChild(playerImg);
+    playerContainer.appendChild(playerName);
+    playerContainer.appendChild(playerPts);
     playerDiv.appendChild(labelDiv);
-    playerDiv.appendChild(playerImg);
-    playerDiv.appendChild(playerName);
-    playerDiv.appendChild(playerPts);
-    
+    playerDiv.appendChild(playerContainer);
+
     return playerDiv;
 }
