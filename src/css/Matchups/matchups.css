@@ -5,12 +5,35 @@
 .custom-matchup-container {
     display: flex;
     justify-content: center;
-    margin-top: .5rem;
+    margin-top: 1rem;
+    background: #57575773;
+    border-radius: 1rem;
 }
 
 #seasonTitle {
     text-align: center; 
     margin-top: 1rem;
+}
+
+.row {
+    gap: .5rem;
+    width: 100%;
+}
+
+.col {
+    min-width: 100%;
+    display: flex;
+    border-radius: 3rem;
+    min-height: 2rem;
+    border: 2px solid black;
+    flex-wrap: initial;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    width: 25rem;
+    gap: .2rem;
 }
 
 .custom-body {
@@ -20,30 +43,72 @@
 
 .custom-player-position {
     font-size: 1rem;
-    padding: .1rem;
     text-align: center;
     font-family: 'F7';
-    padding: unset;
+    border-radius: 3rem;
+    min-width: 4rem;
+    height: 100%;
+    padding: .3rem;
+    padding-top: .6rem;
 }
 
-.custom-player-points {
-    font-size: .8rem;
-    border: 1px black solid;
-    text-align: center;
-    border-radius: .3rem;
-    background: #80808080;
-    padding: .1rem;
-    vertical-align: middle;
-    font-family: 'F7';
-    padding-top: .2rem;
-    width: 3.5em;
+.custom-team-table-1 .custom-player-points {
+    margin-left: auto;
+}
+
+.custom-team-table-2 .custom-player-points {
+    margin-right: auto;
+}
+
+.custom-team-table-1 .custom-player-position {
+    margin-right: auto;
+}
+
+.custom-team-table-2 .custom-player-position {
+    margin-left: auto;
+}
+
+.custom-team-table-1 .custom-player-points,  .custom-team-table-2 .custom-player-position {
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+}
+
+.custom-team-table-2 .custom-player-points, .custom-team-table-1 .custom-player-position {
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+}
+
+.custom-team-table-1 .col {
+    padding-right: unset;
+}
+
+.custom-team-table-2 .col {
+    padding-left: unset;
+}
+
+.custom-player-name {
     margin: auto;
 }
 
+.custom-player-points {
+    font-size: .9rem;
+    text-align: center;
+    padding: .3rem;
+    font-family: 'F7';
+    padding-top: .6rem;
+    background: #8080806e;
+    border-radius: 3rem;
+    min-width: 3.2rem;
+    height: 100%;
+}
+
 .custom-team-details {
-    width: 18em;
+    width: 100%;
     display: grid;
-    height: 3.5rem;
+    padding: .2rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+    margin-top: .5rem;
 }
 
 .accordion-button {
@@ -69,9 +134,7 @@
 }
 
 .custom-team-table {
-    margin-right: 1rem;
-    margin-bottom: 2rem;
-    width: 18em;
+    padding: .2rem;
     vertical-align: middle;
 }
 
@@ -82,6 +145,24 @@
 .custom-body {
     justify-content: center;
     display: flex;
+}
+
+.row.table.custom-team-table.custom-team-table-2 {
+    margin-left: auto;
+}
+
+.row.table.custom-team-table.custom-team-table-1 {
+    margin-right: auto;
+}
+
+.custom-team-container-1 .custom-team-name-container, .custom-team-container-1 .custom-medium-avatar {
+    margin:unset;
+    margin-right: auto;
+}
+
+.custom-team-container-2 .custom-team-name-container, .custom-team-container-2 .custom-medium-avatar {
+    margin:unset;
+    margin-left: auto;
 }
 
 .custom-winning-score {
@@ -97,11 +178,12 @@
 }
 
 .custom-medium-avatar {
-    max-width: 2rem;
+    max-width: 3rem;
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
     margin-right: unset;
-    border: 1px solid whitesmoke;
+    border: 3px solid whitesmoke;
+    box-shadow: 0 0rem 0.2rem black;
 }
 
 .custom-team-score {
@@ -112,51 +194,56 @@
     border-radius: .3rem;
     background: #313131;
     padding: .1rem;
-    width: 5.5rem;
-    padding-top: .3rem;
+    box-shadow: 0 0rem 0.3rem black;
+    height: fit-content;
+    margin-top: auto;
+    width: 75%;
+}
+
+.custom-team-table-2 .col {
+    padding-right: unset;
+}
+
+.custom-team-table-1 .col {
+    padding-left: unset;
+}
+
+.custom-team-table-2 .custom-player-points {
+    border-right: 2px solid black;
+}
+
+.custom-team-table-1 .custom-player-points {
+    border-left: 2px solid black;
 }
 
 .custom-player-QB {
-    background: #ff2a6d75;
+    background: var(--QB);
 }
 
 .custom-player-RB {
-    background: #00ceb86e;
+    background: var(--RB);
 }
 
 .custom-player-WR {
-    background: #58a7ff91;
+    background: var(--WR);
 }
 
 .custom-player-TE {
-    background: #ffae588c;
+    background: var(--TE);
 }
 
 .custom-player-K {
-    background: #bd66ff6b;
+    background: var(--K);
 }
 
 .custom-team-table tr{
     height: 2rem;
 }
 
-.custom-team-name-1{
-    grid-row: 1;
-    grid-column: 2;
-    margin: auto;
-}
-
-.custom-team-name-2{
-    grid-row: 1;
-    grid-column: 2;
-    margin: auto;
-}
-
 .custom-team-score-1 {
     grid-row: 1;
-    grid-column: 3;
+    grid-column: 2;
     margin-left: auto;
-    margin-top: auto;
     margin-bottom: auto;
 }
 
@@ -164,33 +251,51 @@
     grid-row: 1;
     grid-column: 1;
     margin-right: auto;
-    margin-top: auto;
     margin-bottom: auto;
 }
 
 .custom-medium-avatar-1 {
     grid-row: 1;
-    grid-column: 1;
-    margin-top: auto;
-    margin-right: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
+
+.custom-team-image-container {
+    display: grid;
+}
+
+.custom-team-container-1 .custom-team-record {
+    margin-right: auto;
+}
+
+.custom-team-container-2 .custom-team-record {
+    margin-left: auto;
+}
+
+.custom-team-record {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    margin: auto;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+}
+
 
 .custom-medium-avatar-2 {
     grid-row: 1;
-    grid-column: 3;
-    margin-top: auto;
-    margin-left: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
 
-.custom-team-name {
+.custom-team-name-container {
     margin: auto;
-    font-size: .9rem;
+    font-size: 1.2rem;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black
 }
 
 .custom-team-table-container {
-    background: #8080804a;
     border-radius: .5rem;
     overflow: auto;
 }
@@ -212,33 +317,67 @@
     .custom-matchups {
         width: 95%;
     }
+
+    .custom-team-score {
+        font-size: 1rem;
+    }
+
+    .custom-player-position {
+        min-width: 3rem;
+    }
+
+    .custom-team-container-1 .custom-team-record {
+        padding-left: 1rem;
+    }
+
+    .custom-team-container-2 .custom-team-record {
+        padding-right: 1rem;
+    }
+
+        .custom-medium-avatar {
+        max-width: 2rem;
+        border: 2px solid whitesmoke;
+    }
 }
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .container {
+        width: 100%;
+    }
+
+
+    .custom-team-container-1 .custom-team-record {
+        margin-right: auto;
+        padding-left: 1rem;
+    }
+
+    .custom-team-container-2 .custom-team-record {
+        margin-left: auto;
+        padding-right: 1rem;
+    }
+
+    .custom-team-record {
+        font-size: .7rem;
+    }
+
+    .row {
+        min-width: fit-content;
+        width: 100%;
+    }
+
+    .custom-medium-avatar {
+        max-width: 2rem;
+        border: 2px solid whitesmoke;
+    }
+
     .custom-matchup-list{
         padding: unset;
     }
 
-    .custom-medium-avatar {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-    .custom-team-details {
-        width: 10.5em;
-        margin-left: .5rem;
-        margin-right: .5rem;
-        height: 2.35rem;
-        background: #80808085;
-        padding: .3rem;
-        border-top-right-radius: .5rem;
-        border-top-left-radius: .5rem;
-    }
-
     .custom-team-name {
-        font-size: .5rem;
+        font-size: .8rem;
     }
 
     #seasonTitle {
@@ -250,19 +389,16 @@
     }
 
     .custom-player-points {
-        font-size: .6rem;
-        padding-top: .4rem;
+        font-size: .7rem;
     }
 
-    .custom-team-table {
-        margin: .5rem;
-        margin-top: unset;
-        margin-bottom: 2rem;
-        width:15em;
-    }
 
     table {
         font-size: .7rem;
+    }
+
+    .custom-team-table {
+        padding: unset;
     }
 
     .custom-team-table tr{
@@ -270,29 +406,27 @@
     }
 
     .custom-player-name {
-        font-size: .7rem;
+        font-size: .6rem;
     }
 
     .custom-player-position {
         font-size: .7rem;
-        padding-top: .1rem;
+        min-width: 2rem;
     }
 
     .custom-team-score {
         font-size: .8rem;
-        font-family: 'F7';
-        width: 3rem;
     }
 }
 
 /*Medium Mobile display styling*/
 @media screen and (max-width: 23.438rem) {
-
+    .custom-player-points {
+        min-width: 2.5rem;
+    }
 }
 
 /*Small Mobile display styling*/
 @media screen and (max-width: 20rem) {
-    .custom-team-table {
-        width:12em;
-    }
+
 }
