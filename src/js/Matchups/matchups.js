@@ -171,25 +171,20 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var starters = matchup.starters;
                         var teamContainer = document.createElement("div");
                         var winningTeam = getMatchupWeekWinner(matchupWeek, matchup.matchup_id)[0];
-                        teamTable.setAttribute("class", "table custom-team-table custom-team-table-" + counter);
+
+                        teamTable.setAttribute("class", "row table custom-team-table custom-team-table-" + counter);
                         teamScore = matchup.points;
+                        teamContainer.setAttribute("class", "container text-center custom-team-container-"+counter);
 
                         for (let k = 0; k < starters.length; k++) {
                             let player = playerData.players.find(x => x.player_id == starters[k]);
                             if (player) {
-                                let positionCell = teamTable.rows[k].cells[0];
-                                let playerCell = teamTable.rows[k].cells[1];
-                                let pointsCell = teamTable.rows[k].cells[2];
+                                let cell = teamTable.children[k];
                                 const positionDiv = document.createElement("div");
                                 const playerDiv = document.createElement("div");
                                 const pointsDiv = document.createElement("div");
 
-                                if (counter > 1) { //flip the cells
-                                    positionCell = teamTable.rows[k].cells[2];
-                                    playerCell = teamTable.rows[k].cells[1];
-                                    pointsCell = teamTable.rows[k].cells[0];
-                                }
-                                teamTable.rows[k].classList.add("custom-player-" + player.position);
+                                cell.classList.add("custom-player-" + player.position);
                                 positionDiv.innerText = player.position;
                                 positionDiv.classList.add("custom-player-position")
                                 playerDiv.innerText = getFullPlayerName(player.player_id);
@@ -197,18 +192,28 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                                 pointsDiv.innerText = matchup.players_points[player.player_id];
                                 pointsDiv.classList.add("custom-player-points");
 
-                                positionCell.appendChild(positionDiv);
-                                playerCell.appendChild(playerDiv);
-                                pointsCell.appendChild(pointsDiv);
+                                if (counter > 1) {
+                                    cell.appendChild(pointsDiv);
+                                    cell.appendChild(playerDiv);
+                                    cell.appendChild(positionDiv);
+                                }
+                                else {
+                                    cell.appendChild(positionDiv);
+                                    cell.appendChild(playerDiv);
+                                    cell.appendChild(pointsDiv);
+                                }
+
                             }
 
                         }
 
                         var teamDetailsDiv = document.createElement("div");
                         var teamNameDiv = document.createElement("div");
+                        var teamNameContainer = document.createElement("div");
                         var teamScoreDiv = document.createElement("div");
                         var teamImage = createOwnerAvatarImage(user.user_id);
 
+                        teamNameContainer.setAttribute("class","custom-team-name-container");
                         teamNameDiv.innerText = getTeamName(user.user_id);
                         teamNameDiv.classList.add("custom-team-name-" + counter, "custom-team-name");
                         teamScoreDiv.innerText = matchup.points;
@@ -223,8 +228,9 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                             teamScoreDiv.classList.add("custom-losing-score");
                         }
 
+                        teamNameContainer.appendChild(teamNameDiv);
                         teamDetailsDiv.appendChild(teamImage);
-                        teamDetailsDiv.appendChild(teamNameDiv);
+                        teamDetailsDiv.appendChild(teamNameContainer);
                         teamDetailsDiv.appendChild(teamScoreDiv);;
                         teamContainer.appendChild(teamDetailsDiv);
                         teamContainer.appendChild(teamTable);
@@ -245,25 +251,19 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var teamContainer = document.createElement("div");
                         let winningTeam = getMatchupWeekWinner(matchupWeek, matchup.matchup_id)[0];
 
-                        teamTable.setAttribute("class", "table custom-team-table custom-team-table-" + counter);
+                        teamTable.setAttribute("class", "row table custom-team-table custom-team-table-" + counter);
                         teamScore = matchup.points;
+                        teamContainer.setAttribute("class", "container text-center custom-team-container-"+counter);
 
                         for (let k = 0; k < starters.length; k++) {
                             let player = playerData.players.find(x => x.player_id == starters[k]);
                             if (player) {
-                                let positionCell = teamTable.rows[k].cells[0];
-                                let playerCell = teamTable.rows[k].cells[1];
-                                let pointsCell = teamTable.rows[k].cells[2];
+                                let cell = teamTable.children[k];
                                 const positionDiv = document.createElement("div");
                                 const playerDiv = document.createElement("div");
                                 const pointsDiv = document.createElement("div");
 
-                                if (counter > 1) { //flip the cells
-                                    positionCell = teamTable.rows[k].cells[2];
-                                    playerCell = teamTable.rows[k].cells[1];
-                                    pointsCell = teamTable.rows[k].cells[0];
-                                }
-                                teamTable.rows[k].classList.add("custom-player-" + player.position);
+                                cell.classList.add("custom-player-" + player.position);
                                 positionDiv.innerText = player.position;
                                 positionDiv.classList.add("custom-player-position")
                                 playerDiv.innerText = getFullPlayerName(player.player_id);
@@ -271,18 +271,27 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                                 pointsDiv.innerText = matchup.players_points[player.player_id];
                                 pointsDiv.classList.add("custom-player-points");
 
-                                positionCell.appendChild(positionDiv);
-                                playerCell.appendChild(playerDiv);
-                                pointsCell.appendChild(pointsDiv);
+                                if (counter > 1) {
+                                    cell.appendChild(pointsDiv);
+                                    cell.appendChild(playerDiv);
+                                    cell.appendChild(positionDiv);
+                                }
+                                else {
+                                    cell.appendChild(positionDiv);
+                                    cell.appendChild(playerDiv);
+                                    cell.appendChild(pointsDiv);
+                                }
                             }
 
                         }
 
                         var teamDetailsDiv = document.createElement("div");
                         var teamNameDiv = document.createElement("div");
+                        var teamNameContainer = document.createElement("div");
                         var teamScoreDiv = document.createElement("div");
                         var teamImage = createOwnerAvatarImage(user.user_id);
 
+                        teamNameContainer.setAttribute("class","custom-team-name-container");
                         teamNameDiv.innerText = getTeamName(user.user_id);
                         teamNameDiv.classList.add("custom-team-name-" + counter, "custom-team-name");
                         teamScoreDiv.innerText = matchup.points;
@@ -297,8 +306,9 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                             teamScoreDiv.classList.add("custom-losing-score");
                         }
 
+                        teamNameContainer.appendChild(teamNameDiv);
                         teamDetailsDiv.appendChild(teamImage);
-                        teamDetailsDiv.appendChild(teamNameDiv);
+                        teamDetailsDiv.appendChild(teamNameContainer);
                         teamDetailsDiv.appendChild(teamScoreDiv);;
                         teamContainer.appendChild(teamDetailsDiv);
                         teamContainer.appendChild(teamTable);
@@ -319,15 +329,13 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
 }
 
 function createTeamTable(maxPlayers) {
-    var table = document.createElement("table");
+    var table = document.createElement("div");
 
     for (let i = 0; i < maxPlayers; i++) {
-        var tableRow = table.insertRow();
-        tableRow.insertCell();
-        tableRow.insertCell();
-        tableRow.insertCell();
+        var col = document.createElement("col");
+        col.setAttribute("class", "col");
+        table.appendChild(col);
     }
-
     return table;
 }
 
@@ -402,11 +410,3 @@ function createMatchupButtonElement(num) {
 
     return button;
 }   
-
-function createMatchupIconImg(){
-
-    var img = document.createElement("img");
-    img.setAttribute('class', "custom-matchup-icon-medium");
-
-    return img;
-}

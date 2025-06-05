@@ -19,7 +19,7 @@
     margin: auto;
     padding: .3rem;
     margin-top: .3rem;
-    padding-top: unset;
+    padding-top: .1rem;
     padding-bottom: unset;
     font-size: small;
 }
@@ -30,6 +30,7 @@
     background:#575757;
     border-radius: 1rem;
     min-height: 10rem;
+    box-shadow: 0 0rem 0.4rem black;
 }
 
 .custom-player-container {
