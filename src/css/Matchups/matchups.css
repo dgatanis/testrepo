@@ -208,6 +208,14 @@
     padding-left: unset;
 }
 
+.custom-team-table-2 .custom-player-points {
+    border-right: 2px solid black;
+}
+
+.custom-team-table-1 .custom-player-points {
+    border-left: 2px solid black;
+}
+
 .custom-player-QB {
     background: var(--QB);
 }
