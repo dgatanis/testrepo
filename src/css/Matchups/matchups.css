@@ -27,7 +27,7 @@
     min-height: 2rem;
     border: 2px solid black;
     flex-wrap: initial;
-    align-items: baseline;
+    align-items: center;
 }
 
 .container {
@@ -43,10 +43,14 @@
 
 .custom-player-position {
     font-size: 1rem;
-    padding: .1rem;
     text-align: center;
     font-family: 'F7';
-    padding: unset;
+    background: #ffffff52;
+    border-radius: 3rem;
+    min-width: 4rem;
+    height: 100%;
+    padding: .3rem;
+    padding-top: .6rem;
 }
 
 .custom-team-table-1 .custom-player-points {
@@ -59,20 +63,18 @@
 
 .custom-team-table-1 .custom-player-position {
     margin-right: auto;
-    width: 1.5rem;
 }
 
 .custom-team-table-2 .custom-player-position {
     margin-left: auto;
-    width: 1.5rem;
 }
 
-.custom-team-table-1 .custom-player-points {
+.custom-team-table-1 .custom-player-points,  .custom-team-table-2 .custom-player-position {
     border-top-left-radius: unset;
     border-bottom-left-radius: unset;
 }
 
-.custom-team-table-2 .custom-player-points {
+.custom-team-table-2 .custom-player-points, .custom-team-table-1 .custom-player-position {
     border-top-right-radius: unset;
     border-bottom-right-radius: unset;
 }
@@ -199,6 +201,42 @@
     width: 75%;
 }
 
+.custom-team-table-2 .col {
+    padding-right: unset;
+}
+
+.custom-team-table-1 .col {
+    padding-left: unset;
+}
+
+.custom-team-table-1 .custom-player-position, .custom-team-table-2 .custom-player-points {
+    border-right: 2px solid black;
+}
+
+.custom-team-table-2 .custom-player-position, .custom-team-table-1 .custom-player-points {
+    border-left: 2px solid black;
+}
+
+.custom-player-QB .custom-player-position {
+    background: var(--QB);
+}
+
+.custom-player-RB .custom-player-position {
+    background: var(--RB);
+}
+
+.custom-player-WR .custom-player-position {
+    background: var(--WR);
+}
+
+.custom-player-TE .custom-player-position {
+    background: var(--TE);
+}
+
+.custom-player-K .custom-player-position {
+    background: var(--K);
+}
+
 .custom-player-QB {
     background: #ff2a6d75;
 }
@@ -227,23 +265,45 @@
     grid-row: 1;
     grid-column: 2;
     margin-left: auto;
+    margin-bottom: auto;
 }
 
 .custom-team-score-2 {
     grid-row: 1;
     grid-column: 1;
     margin-right: auto;
+    margin-bottom: auto;
 }
 
 .custom-medium-avatar-1 {
     grid-row: 1;
-    grid-column: 1;
     margin: auto;
 }
 
+.custom-team-image-container {
+    display: grid;
+}
+
+.custom-team-container-1 .custom-team-record {
+    margin-right: auto;
+}
+
+.custom-team-container-2 .custom-team-record {
+    margin-left: auto;
+}
+
+.custom-team-record {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    margin: auto;
+    font-size: 1rem;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+}
+
+
 .custom-medium-avatar-2 {
     grid-row: 1;
-    grid-column: 2;
     margin: auto;
 }
 
@@ -253,7 +313,7 @@
     grid-row: 2;
     grid-column: 1 / -1;
     color: whitesmoke;
-    text-shadow: 0 1px black;
+    text-shadow: 1px 1px 1px black
 }
 
 .custom-team-table-container {
@@ -282,22 +342,55 @@
     .custom-team-score {
         font-size: 1rem;
     }
+
+    .custom-player-position {
+        min-width: 3rem;
+    }
+
+    .custom-team-container-1 .custom-team-record {
+        padding-left: 1rem;
+    }
+
+    .custom-team-container-2 .custom-team-record {
+        padding-right: 1rem;
+    }
+
+        .custom-medium-avatar {
+        max-width: 2rem;
+        border: 2px solid whitesmoke;
+    }
 }
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .container {
+        width: 100%;
+    }
+
+
+    .custom-team-container-1 .custom-team-record {
+        margin-right: auto;
+        padding-left: 1rem;
+    }
+
+    .custom-team-container-2 .custom-team-record {
+        margin-left: auto;
+        padding-right: 1rem;
+    }
+
+    .custom-team-record {
+        font-size: .7rem;
+    }
+
+    .row {
+        min-width: fit-content;
+        width: 100%;
+    }
+
     .custom-medium-avatar {
         max-width: 2rem;
         border: 2px solid whitesmoke;
-    }
-
-    .custom-team-table-2 .col {
-        padding-right: unset;
-    }
-
-    .custom-team-table-1 .col {
-        padding-left: unset;
     }
 
     .custom-matchup-list{
@@ -305,7 +398,7 @@
     }
 
     .custom-team-name {
-        font-size: .7rem;
+        font-size: .8rem;
     }
 
     #seasonTitle {
@@ -325,17 +418,21 @@
         font-size: .7rem;
     }
 
+    .custom-team-table {
+        padding: unset;
+    }
+
     .custom-team-table tr{
         height: 5em;
     }
 
     .custom-player-name {
-        font-size: .7rem;
+        font-size: .6rem;
     }
 
     .custom-player-position {
         font-size: .7rem;
-        padding-top: .1rem;
+        min-width: 2rem;
     }
 
     .custom-team-score {
@@ -345,12 +442,12 @@
 
 /*Medium Mobile display styling*/
 @media screen and (max-width: 23.438rem) {
-
+    .custom-player-points {
+        min-width: 2.5rem;
+    }
 }
 
 /*Small Mobile display styling*/
 @media screen and (max-width: 20rem) {
-    .custom-team-table {
-        width:12em;
-    }
+
 }

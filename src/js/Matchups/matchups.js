@@ -19,8 +19,6 @@ import {
     createNFLTeamImage,
     setLeagueName,
     setLinkSource,
-    getTransactionsData,
-    getRandomString,
     getPlayoffsData,
     removeSpinner
 } from '../util/helper.js';
@@ -30,6 +28,7 @@ let rosterData = rosters;
 let playerData = players;
 let matchupData = allTimeMatchupData[0].matchupWeeks;
 let leagueIds = allTimeLeagueIds;
+let winLossRecords = [];
 
 loadContents();
 
@@ -72,7 +71,7 @@ async function loadMatchupsList(currentWeek, currentSeason) {
     for (let i = 0; i < matchupData.length; i++) {
         var thisWeek = matchupData[i];
         var thisYear = matchupData[i].year;
-        //TODO Figure out how to incorporate just playoff teams in weeks 15-17
+
         if (thisWeek.week != 18 && thisWeek.week != 0 && (thisWeek > currentWeek && thisWeek.year <= currentSeason || (thisWeek.year < currentSeason))) {
             if (year == null || year != thisYear) {
                 year = thisYear;
@@ -89,6 +88,7 @@ async function loadMatchupsList(currentWeek, currentSeason) {
             weekAccordionItem.getElementsByClassName("accordion-body")[0].appendChild(matchup);
         }
     }
+    console.log(winLossRecords);
 }
 
 async function loadPlayoffs(leagueId, year){
@@ -176,6 +176,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamScore = matchup.points;
                         teamContainer.setAttribute("class", "container text-center custom-team-container-"+counter);
 
+
                         for (let k = 0; k < starters.length; k++) {
                             let player = playerData.players.find(x => x.player_id == starters[k]);
                             if (player) {
@@ -211,8 +212,42 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var teamNameDiv = document.createElement("div");
                         var teamNameContainer = document.createElement("div");
                         var teamScoreDiv = document.createElement("div");
+                        var teamRecord = document.createElement("div");
+                        var teamImageContainer = document.createElement("div");
                         var teamImage = createOwnerAvatarImage(user.user_id);
 
+                        if (winningTeam.roster_id == matchup.roster_id) {
+                            teamScoreDiv.classList.add("custom-winning-score");
+                            let existingEntry = winLossRecords.find(entry => entry.season === season && entry.roster_id === roster.roster_id)
+                            if (existingEntry) {
+                                existingEntry.wins++;
+                            }
+                            else {
+                                winLossRecords.push({
+                                    "season": season,
+                                    "roster_id": roster.roster_id,
+                                    "wins": 1,
+                                    "losses": 0
+                                })
+                            }
+                        }
+                        else {
+                            teamScoreDiv.classList.add("custom-losing-score");
+                            let existingEntry = winLossRecords.find(entry => entry.season === season && entry.roster_id === roster.roster_id)
+                            if (existingEntry) {
+                                existingEntry.losses++;
+                            }
+                            else {
+                                winLossRecords.push({
+                                    "season": season,
+                                    "roster_id": roster.roster_id,
+                                    "wins": 0,
+                                    "losses": 1
+                                })
+                            }
+                        }
+
+                        var record = winLossRecords.find(entry => entry.season === season && entry.roster_id === roster.roster_id);
                         teamNameContainer.setAttribute("class","custom-team-name-container");
                         teamNameDiv.innerText = getTeamName(user.user_id);
                         teamNameDiv.classList.add("custom-team-name-" + counter, "custom-team-name");
@@ -220,16 +255,14 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamScoreDiv.classList.add("custom-team-score", "custom-team-score-" + counter);
                         teamDetailsDiv.classList.add("custom-team-details");
                         teamImage.classList.add("custom-medium-avatar-" + counter);
-
-                        if (winningTeam.roster_id == matchup.roster_id) {
-                            teamScoreDiv.classList.add("custom-winning-score");
-                        }
-                        else {
-                            teamScoreDiv.classList.add("custom-losing-score");
-                        }
+                        teamRecord.setAttribute("class", "custom-team-record");
+                        teamRecord.innerText = record.wins + "-" + record.losses;
+                        teamImageContainer.setAttribute("class", "custom-team-image-container");
 
                         teamNameContainer.appendChild(teamNameDiv);
-                        teamDetailsDiv.appendChild(teamImage);
+                        teamImageContainer.appendChild(teamImage);
+                        teamImageContainer.appendChild(teamRecord);
+                        teamDetailsDiv.appendChild(teamImageContainer);
                         teamDetailsDiv.appendChild(teamNameContainer);
                         teamDetailsDiv.appendChild(teamScoreDiv);;
                         teamContainer.appendChild(teamDetailsDiv);
@@ -289,8 +322,44 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var teamNameDiv = document.createElement("div");
                         var teamNameContainer = document.createElement("div");
                         var teamScoreDiv = document.createElement("div");
+                        var teamRecord = document.createElement("div");
+                        var teamImageContainer = document.createElement("div");
                         var teamImage = createOwnerAvatarImage(user.user_id);
 
+                        if (winningTeam.roster_id == matchup.roster_id) {
+                            teamScoreDiv.classList.add("custom-winning-score");
+
+                            let existingEntry = winLossRecords.find(entry => entry.season === season && entry.roster_id === roster.roster_id)
+                            if (existingEntry) {
+                                existingEntry.wins++;
+                            }
+                            else {
+                                winLossRecords.push({
+                                    "season": season,
+                                    "roster_id": roster.roster_id,
+                                    "wins": 1,
+                                    "losses": 0
+                                })
+                            }
+                        }
+                        else {
+                            teamScoreDiv.classList.add("custom-losing-score");
+
+                            let existingEntry = winLossRecords.find(entry => entry.season === season && entry.roster_id === roster.roster_id)
+                            if (existingEntry) {
+                                existingEntry.losses++;
+                            }
+                            else {
+                                winLossRecords.push({
+                                    "season": season,
+                                    "roster_id": roster.roster_id,
+                                    "wins": 0,
+                                    "losses": 1
+                                })
+                            }
+                        }
+
+                        var record = winLossRecords.find(entry => entry.season === season && entry.roster_id === roster.roster_id);
                         teamNameContainer.setAttribute("class","custom-team-name-container");
                         teamNameDiv.innerText = getTeamName(user.user_id);
                         teamNameDiv.classList.add("custom-team-name-" + counter, "custom-team-name");
@@ -298,16 +367,14 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamScoreDiv.classList.add("custom-team-score", "custom-team-score-" + counter);
                         teamDetailsDiv.classList.add("custom-team-details");
                         teamImage.classList.add("custom-medium-avatar-" + counter);
-
-                        if (winningTeam.roster_id == matchup.roster_id) {
-                            teamScoreDiv.classList.add("custom-winning-score");
-                        }
-                        else {
-                            teamScoreDiv.classList.add("custom-losing-score");
-                        }
+                        teamRecord.setAttribute("class", "custom-team-record");
+                        teamRecord.innerText = record.wins + "-" + record.losses;
+                        teamImageContainer.setAttribute("class", "custom-team-image-container");
 
                         teamNameContainer.appendChild(teamNameDiv);
-                        teamDetailsDiv.appendChild(teamImage);
+                        teamImageContainer.appendChild(teamImage);
+                        teamImageContainer.appendChild(teamRecord);
+                        teamDetailsDiv.appendChild(teamImageContainer);
                         teamDetailsDiv.appendChild(teamNameContainer);
                         teamDetailsDiv.appendChild(teamScoreDiv);;
                         teamContainer.appendChild(teamDetailsDiv);
