@@ -45,7 +45,6 @@
     font-size: 1rem;
     text-align: center;
     font-family: 'F7';
-    background: #ffffff52;
     border-radius: 3rem;
     min-width: 4rem;
     height: 100%;
@@ -209,52 +208,24 @@
     padding-left: unset;
 }
 
-.custom-team-table-1 .custom-player-position, .custom-team-table-2 .custom-player-points {
-    border-right: 2px solid black;
-}
-
-.custom-team-table-2 .custom-player-position, .custom-team-table-1 .custom-player-points {
-    border-left: 2px solid black;
-}
-
-.custom-player-QB .custom-player-position {
+.custom-player-QB {
     background: var(--QB);
 }
 
-.custom-player-RB .custom-player-position {
+.custom-player-RB {
     background: var(--RB);
 }
 
-.custom-player-WR .custom-player-position {
+.custom-player-WR {
     background: var(--WR);
 }
 
-.custom-player-TE .custom-player-position {
+.custom-player-TE {
     background: var(--TE);
 }
 
-.custom-player-K .custom-player-position {
-    background: var(--K);
-}
-
-.custom-player-QB {
-    background: #ff2a6d75;
-}
-
-.custom-player-RB {
-    background: #00ceb86e;
-}
-
-.custom-player-WR {
-    background: #58a7ff91;
-}
-
-.custom-player-TE {
-    background: #ffae588c;
-}
-
 .custom-player-K {
-    background: #bd66ff6b;
+    background: var(--K);
 }
 
 .custom-team-table tr{
