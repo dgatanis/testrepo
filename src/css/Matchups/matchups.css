@@ -8,6 +8,7 @@
     margin-top: 1rem;
     background: #57575773;
     border-radius: 1rem;
+    padding: 1rem;
 }
 
 #seasonTitle {
@@ -17,7 +18,7 @@
 
 .row {
     gap: .5rem;
-    width: 100%;
+    width: fit-content;
 }
 
 .col {
@@ -28,6 +29,8 @@
     border: 2px solid black;
     flex-wrap: initial;
     align-items: center;
+    box-shadow: 0 0rem 0.2rem black;
+    color: black;
 }
 
 .container {
@@ -100,12 +103,12 @@
     border-radius: 3rem;
     min-width: 3.2rem;
     height: 100%;
+    color: #333333;
 }
 
 .custom-team-details {
     width: 100%;
     display: grid;
-    padding: .2rem;
     grid-template-columns: repeat(2, 1fr);
     margin: auto;
     margin-top: .5rem;
@@ -155,12 +158,12 @@
     margin-right: auto;
 }
 
-.custom-team-container-1 .custom-team-name-container, .custom-team-container-1 .custom-medium-avatar {
+ .custom-team-container-1 .custom-medium-avatar {
     margin:unset;
     margin-right: auto;
 }
 
-.custom-team-container-2 .custom-team-name-container, .custom-team-container-2 .custom-medium-avatar {
+.custom-team-container-2 .custom-medium-avatar {
     margin:unset;
     margin-left: auto;
 }
@@ -243,15 +246,13 @@
 .custom-team-score-1 {
     grid-row: 1;
     grid-column: 2;
-    margin-right: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
 
 .custom-team-score-2 {
     grid-row: 1;
     grid-column: 1;
-    margin-left: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
 
 .custom-medium-avatar-1 {
@@ -265,17 +266,28 @@
 
 .custom-team-container-1 .custom-team-record {
     margin-right: auto;
+    margin-top: auto;
+    background: #313131;
+    border-radius: 1rem;
+    padding: .2rem;
+    border: 1px solid black;
+    box-shadow: 0 0rem 0.2rem black;
 }
 
 .custom-team-container-2 .custom-team-record {
     margin-left: auto;
+    margin-top: auto;
+    background: #313131;
+    border-radius: 1rem;
+    padding: .2rem;
+    border: 1px solid black;
+    box-shadow: 0 0rem 0.2rem black;
 }
 
 .custom-team-record {
     grid-row: 1;
     grid-column: 1 / -1;
-    margin: auto;
-    font-size: 1rem;
+    font-size: .5rem;
     color: whitesmoke;
     text-shadow: 1px 1px 1px black;
 }
@@ -326,40 +338,20 @@
         min-width: 3rem;
     }
 
-    .custom-team-container-1 .custom-team-record {
-        padding-left: 1rem;
-    }
-
-    .custom-team-container-2 .custom-team-record {
-        padding-right: 1rem;
-    }
-
-        .custom-medium-avatar {
-        max-width: 2rem;
-        border: 2px solid whitesmoke;
+    .custom-player-name {
+        font-size: .9rem;
     }
 }
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .custom-team-record {
+        font-size: .5rem;
+    }
+
     .container {
         width: 100%;
-    }
-
-
-    .custom-team-container-1 .custom-team-record {
-        margin-right: auto;
-        padding-left: 1rem;
-    }
-
-    .custom-team-container-2 .custom-team-record {
-        margin-left: auto;
-        padding-right: 1rem;
-    }
-
-    .custom-team-record {
-        font-size: .7rem;
     }
 
     .row {
@@ -368,7 +360,6 @@
     }
 
     .custom-medium-avatar {
-        max-width: 2rem;
         border: 2px solid whitesmoke;
     }
 
@@ -412,6 +403,7 @@
     .custom-player-position {
         font-size: .7rem;
         min-width: 2rem;
+        padding-top: .5rem;
     }
 
     .custom-team-score {
