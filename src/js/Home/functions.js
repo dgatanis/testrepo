@@ -3,7 +3,8 @@ function openRostersPage(rosterid) {
     newURL.searchParams.append('callFunction', 'openRoster');
     newURL.searchParams.append('rosterId', rosterid);
 
-    history.pushState({}, '', newURL);
-    window.location.href = newURL;
+    history.replaceState(null, null, newURL.toString());
+    history.pushState(null, null, newURL.toString());
+    //window.location.href = newURL;
     return;
 }
