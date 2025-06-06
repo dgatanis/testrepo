@@ -243,14 +243,14 @@
 .custom-team-score-1 {
     grid-row: 1;
     grid-column: 2;
-    margin-left: auto;
+    margin-right: auto;
     margin-bottom: auto;
 }
 
 .custom-team-score-2 {
     grid-row: 1;
     grid-column: 1;
-    margin-right: auto;
+    margin-left: auto;
     margin-bottom: auto;
 }
 

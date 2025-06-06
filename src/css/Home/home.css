@@ -31,15 +31,26 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 4rem;
+    width: 75%;
 }
 
-.card {
-    background: var(--custom-transp-blue);;
-    border-color: var(--custom-dark-blue);
-    color: var(--custom-dark-blue);
+.card-custom {
+    background: var(--custom-light-gray);;
+    border: 2px solid black;
+    color: black;
     display: block;
     padding: 1rem;
     cursor: pointer;
+    width: 100%;
+    margin: auto; 
+    border-radius: 1rem;
+}
+
+.custom-medium-avatar {
+    max-width: 4rem;
+    background-color: black;
+    padding: .1rem;
+    box-shadow: 0 0rem 0.2rem black;
 }
 
 .card-body {
@@ -49,21 +60,20 @@
 
 .custom-team-card {
     padding: .3rem;
-    width: 25rem;
     text-align: center;
     cursor: pointer;
 }
 
-.card:hover, .card:active {
-    color: #fff;
+.card-custom:hover, .card-custom:active {
+    color: whitesmoke;
     background-color: #475664;
     border-color: transparent;
     transition: all .75s ease;
 }
 
-.card:hover .custom-medium-avatar {
-    background-color: white;
-    padding: .1rem;
+.card-custom:hover .custom-medium-avatar {
+    box-shadow: 0 0rem 0.4rem whitesmoke;
+    background-color: whitesmoke;
     transition: all .5s ease;
 }
 
@@ -100,7 +110,7 @@
 
     .custom-league-description {
         margin-bottom: 2rem;
-        width: 80%;
+        width: 95%;
     }
 
     .custom-team-card {
@@ -112,7 +122,6 @@
         grid-column: 1;
         margin-bottom: 1.5rem;
         display: block;
-        margin: unset;
-        margin-bottom: 1.5rem;
+        width: 100%;
     }
 }
