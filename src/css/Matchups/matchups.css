@@ -197,7 +197,6 @@
     border-radius: .3rem;
     background: #313131;
     padding: .1rem;
-    box-shadow: 0 0rem 0.3rem black;
     height: fit-content;
     margin-top: auto;
     width: 75%;
@@ -368,7 +367,7 @@
     }
 
     .custom-team-name {
-        font-size: .8rem;
+        font-size: .7rem;
     }
 
     #seasonTitle {
