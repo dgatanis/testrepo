@@ -284,7 +284,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var teamContainer = document.createElement("div");
                         let winningTeam = getMatchupWeekWinner(matchupWeek, matchup.matchup_id)[0];
 
-                        teamTable.setAttribute("class", "row table custom-team-table custom-team-table-" + counter);
+                        teamTable.setAttribute("class", "row custom-team-table custom-team-table-" + counter);
                         teamScore = matchup.points;
                         teamContainer.setAttribute("class", "container text-center custom-team-container-"+counter);
 
