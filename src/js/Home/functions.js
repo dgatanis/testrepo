@@ -5,6 +5,6 @@ function openRostersPage(rosterid) {
 
     history.replaceState(null, null, newURL.toString());
     history.pushState(null, null, newURL.toString());
-    //window.location.href = newURL;
+    window.location.href = newURL;
     return;
 }
