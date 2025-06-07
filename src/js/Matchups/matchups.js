@@ -215,6 +215,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var teamRecord = document.createElement("div");
                         var teamImageContainer = document.createElement("div");
                         var teamImage = createOwnerAvatarImage(user.user_id);
+                        var scoreSpan = document.createElement("span");
 
                         if (winningTeam.roster_id == matchup.roster_id) {
                             teamScoreDiv.classList.add("custom-winning-score");
@@ -251,7 +252,8 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamNameContainer.setAttribute("class","custom-team-name-container");
                         teamNameDiv.innerText = getTeamName(user.user_id);
                         teamNameDiv.classList.add("custom-team-name-" + counter, "custom-team-name");
-                        teamScoreDiv.innerText = matchup.points;
+                        scoreSpan.innerText = matchup.points;
+                        scoreSpan.setAttribute("class", "custom-score-span");
                         teamScoreDiv.classList.add("custom-team-score", "custom-team-score-" + counter);
                         teamDetailsDiv.classList.add("custom-team-details");
                         teamImage.classList.add("custom-medium-avatar-" + counter);
@@ -259,6 +261,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamRecord.innerText = record.wins + "-" + record.losses;
                         teamImageContainer.setAttribute("class", "custom-team-image-container");
 
+                        teamScoreDiv.appendChild(scoreSpan);
                         teamNameContainer.appendChild(teamNameDiv);
                         teamImageContainer.appendChild(teamImage);
                         teamImageContainer.appendChild(teamRecord);
@@ -325,6 +328,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         var teamRecord = document.createElement("div");
                         var teamImageContainer = document.createElement("div");
                         var teamImage = createOwnerAvatarImage(user.user_id);
+                        var scoreSpan = document.createElement("span");
 
                         if (winningTeam.roster_id == matchup.roster_id) {
                             teamScoreDiv.classList.add("custom-winning-score");
@@ -363,7 +367,8 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamNameContainer.setAttribute("class","custom-team-name-container");
                         teamNameDiv.innerText = getTeamName(user.user_id);
                         teamNameDiv.classList.add("custom-team-name-" + counter, "custom-team-name");
-                        teamScoreDiv.innerText = matchup.points;
+                        scoreSpan.innerText = matchup.points;
+                        scoreSpan.setAttribute("class", "custom-score-span");
                         teamScoreDiv.classList.add("custom-team-score", "custom-team-score-" + counter);
                         teamDetailsDiv.classList.add("custom-team-details");
                         teamImage.classList.add("custom-medium-avatar-" + counter);
@@ -371,6 +376,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamRecord.innerText = record.wins + "-" + record.losses;
                         teamImageContainer.setAttribute("class", "custom-team-image-container");
 
+                        teamScoreDiv.appendChild(scoreSpan);
                         teamNameContainer.appendChild(teamNameDiv);
                         teamImageContainer.appendChild(teamImage);
                         teamImageContainer.appendChild(teamRecord);
