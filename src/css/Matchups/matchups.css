@@ -196,10 +196,9 @@
     text-align: center;
     border-radius: .3rem;
     background: #313131;
-    padding: .1rem;
-    height: fit-content;
-    margin-top: auto;
-    width: 75%;
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .custom-team-table-2 .col {
@@ -283,6 +282,15 @@
     box-shadow: 0 0rem 0.2rem black;
 }
 
+.custom-score-span {
+    line-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 1px black;
+}
+
 .custom-team-record {
     grid-row: 1;
     grid-column: 1 / -1;
@@ -330,7 +338,7 @@
     }
 
     .custom-team-score {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .custom-player-position {
@@ -360,6 +368,7 @@
 
     .custom-medium-avatar {
         border: 2px solid whitesmoke;
+        max-width: 2.7rem;
     }
 
     .custom-matchup-list{
@@ -410,7 +419,7 @@
     }
 
     .custom-team-score {
-        font-size: .8rem;
+        font-size: 1.2rem;
     }
 }
 
