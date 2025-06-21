@@ -379,15 +379,26 @@
   }
 
   .custom-card {
-    background: linear-gradient(87deg, transparent, var(--custom-dark-blue), var(--custom-dark-blue), transparent);
+    background: #4d4d4d;
     color: whitesmoke;
-    border: none;
+    border: 2px solid black;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 1px black;
   }
 
   .accordion-button:not(.collapsed) {
     color: whitesmoke;
-    background-color: var(--custom-dark-blue);
+    background-color: var(--custom-dark-gray);
+    border: unset;
+    transition: all 1s ease;
+  }
+
+  .accordion-button {
+    color: whitesmoke;
+    background-color: var(--custom-dark-gray);
+    border: 2px solid black;
+    text-shadow: 1px 1px 1px black;
+    transition: all 1s ease;
   }
 
   .custom-hidden-row {
@@ -527,12 +538,13 @@
     left: 3.1rem;
     background-color: whitesmoke;
     margin-top: .9rem;
+    margin-left: .2rem;
   }
 
   .custom-add-player {
     border: 2px solid var(--custom-green) !important;
     background-color: var(--Add) !important;
-    border-radius: 3px;
+    border-radius: 3rem;
   }
 
   .custom-waiver-bid {
@@ -551,7 +563,7 @@
   .custom-drop-player {
     border: 2px solid var(--custom-red) !important;
     background-color: var(--Drop) !important;
-    border-radius: 3px;
+    border-radius: 3rem;
   }
 
   .custom-add-icon {
@@ -820,7 +832,7 @@
   @media screen and (max-width: 64rem) {
 
       .custom-contenders-rankings {
-        width: 20rem;
+        width: fit-content;
         margin-left: 3rem;
       }
 
@@ -910,6 +922,10 @@
           top: 0;
           left: 0; /* Back to top left */
       }
+    }
+
+    .custom-contenders-rankings {
+      width: 20rem;
     }
 
     .custom-contenders-header {
