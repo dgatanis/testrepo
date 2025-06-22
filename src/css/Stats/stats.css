@@ -64,6 +64,7 @@ a#keep-trade-roster-comp {
 
 table#teamComparison {
     margin-top: 4rem;
+    background: linear-gradient(90deg, transparent, var(--custom-light-gray), var(--custom-light-gray), transparent);
 }
 
 #teamComparison td {
@@ -90,11 +91,15 @@ button.btn.btn-primary {
 th#team1Header {
     max-width: 10rem;
     min-width: 10rem;
+    background: linear-gradient(90deg, #0000ff69, transparent);
+    border-top-left-radius: 1rem;
 }
 
 th#team2Header {
     max-width: 10rem;
     min-width: 10rem;
+    background: linear-gradient(90deg, transparent, #ff00006b);
+    border-top-right-radius: 1rem;
 }
 
 .btn-group {
@@ -114,8 +119,10 @@ th#team2Header {
 .custom-team-name {
     display: block;
     margin-top: .5rem;
-    color: var(--custom-dark-gray);
+    color: black;
     font-family: 'F7';
+    text-shadow: 1px 1px 1px black;
+    color: white;
 }
 
 .custom-team-header {
@@ -148,8 +155,21 @@ button#teamButton2, button#teamButton1 {
 }
 
 .btn-secondary {
-    background-color: var(--custom-dark-blue);
-    border-color: var(--custom-dark-blue);
+    background-color: var(--custom-dark-gray);
+    border-color: black;
+    text-shadow: 1px 1px 1px black;
+}
+
+.btn-secondary:hover {
+    color: black;
+    background-color: var(--custom-light-gray);
+    text-shadow: unset;
+}
+
+.btn-secondary:active {
+    color: black;
+    background-color: var(--custom-light-gray);
+    text-shadow: unset;
 }
 
 table {
@@ -177,12 +197,12 @@ table > tbody > tr:last-child {
 }
 
 .custom-team1-image-display {
-    box-shadow: 0 .1rem 0.5rem blue;
+    box-shadow: 0 0rem 0.3rem blue;
     background: #0000ffcc;
 }
 
 .custom-team2-image-display {
-    box-shadow: 0 .1rem 0.5rem red;
+    box-shadow: 0 0rem 0.3rem red;
     background: #ff0000c4;
 }
 
@@ -195,11 +215,21 @@ table > tbody > tr:last-child {
     font-size: xx-small;
     word-spacing: .1rem;
     font-style: italic;
-    color: #a4a4a4;
-    background: #8080805e;
+    color: var(--custom-dark-gray);
     border-radius: 1rem;
-    border: 1px black solid;
+    border: 1px white solid;
     cursor: pointer;
+    min-width: fit-content;
+    width: 5rem;
+    background: var(--custom-light-gray);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-player-details:hover {
+    background: var(--custom-dark-gray);
+    color: whitesmoke;
+    transition: all 1s ease;
 }
 
 .custom-legend {
@@ -231,7 +261,7 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 }
 
 .custom-team1-result, .custom-team2-result {
-    font-family: 'F5';
+    font-family: 'F7';
     word-spacing: .2rem;
     font-size: larger;
 }
@@ -287,6 +317,7 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 
 .custom-all-time-stats table {
     background: black;
+    box-shadow: 0 0 .2rem 0 black;
 }
 
 td.custom-score {
@@ -355,6 +386,13 @@ table#allTimeLowScorerTeam .custom-name {
     border-radius: 1rem;
     margin-top: .2rem;
     padding: .2rem;
+    border: 1px solid white;
+}
+
+.custom-details:hover {
+    background: var(--custom-dark-gray);
+    color: whitesmoke;
+    transition: all 1s ease;
 }
 
 .custom-details-team, .custom-details-season, .custom-details-week {
@@ -420,12 +458,10 @@ table#allTimeLowScorerTeam .custom-name {
 
     th#team1Header {
         min-width: unset;
-        padding: unset;
     }
     
     th#team2Header {
         min-width: unset;
-        padding: unset;
     }
 
     .custom-player-name {

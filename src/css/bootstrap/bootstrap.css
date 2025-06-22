@@ -2961,14 +2961,14 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  background-color: var(--custom-transp-blue);
-  color: var(--custom-dark-blue);
-  border-color: var(--custom-dark-blue);
+  background-color: var(--custom-light-gray);
+  color: black;
+  border-color: black;
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: var(--custom-dark-blue);
-  border-color: var(--custom-blue-gray);
+  color: whitesmoke;
+  background-color: var(--custom-dark-gray);
+  border-color: var(--custom-dark-gray);
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;

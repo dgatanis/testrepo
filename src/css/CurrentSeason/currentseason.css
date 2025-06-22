@@ -393,6 +393,10 @@
     transition: all 1s ease;
   }
 
+  .accordion-button:hover {
+    text-shadow: unset;
+  }
+
   .accordion-button {
     color: whitesmoke;
     background-color: var(--custom-dark-gray);
