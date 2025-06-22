@@ -117,20 +117,10 @@
 .accordion-button {
     display: block;
     text-align: center;
-    color: var(--custom-dark-blue);
-    background-color: var(--custom-light-gray);
-    transition: all 1s ease;
+    color: whitesmoke;
+    background-color: var(--custom-dark-gray);
 }
 
-.accordion-button:hover {
-    background-color: var(--custom-dark-blue);
-    color: whitesmoke;
-}  
-
-.accordion-button:not(.collapsed) {
-    background-color: var(--custom-dark-blue);
-    color: whitesmoke;
-}
 
 .custom-matchup-list {
     background-color: #80808029;
@@ -311,7 +301,7 @@
     grid-row: 2;
     grid-column: 1 / -1;
     color: whitesmoke;
-    text-shadow: 1px 1px 1px black
+    text-shadow: 1px 1px 1px black;
 }
 
 .custom-team-table-container {

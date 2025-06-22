@@ -320,6 +320,7 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
 
+            details.style.display = "none";
             name.append(teamImage);
             name.appendChild(team);
         }
@@ -340,7 +341,7 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
 
-
+            details.style.display = "none";
             name.append(teamImage);
             name.appendChild(team);
 
@@ -362,6 +363,7 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
 
+            details.style.display = "none";
             name.append(teamImage);
             name.appendChild(team);
         }
@@ -382,6 +384,7 @@ async function setTableData(tableName) {
             team.setAttribute('class', 'custom-details-team');
             team.innerText = getTeamName(roster.owner_id);
 
+            details.style.display = "none";
             name.append(teamImage);
             name.appendChild(team);
         }

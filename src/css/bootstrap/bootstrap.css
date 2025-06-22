@@ -11108,7 +11108,7 @@ a.custom-nav:hover {
   background-position: center;
   background-repeat: no-repeat;
   overflow: visible;
-  border-radius: 3px;
+  border-radius: 3rem;
 }
 
 
@@ -11171,13 +11171,14 @@ ul.nav.nav-tabs {
   margin-top: .3rem;
 }
 
+
 .accordion-button:hover {
-  color: whitesmoke;
-  background-color: var(--custom-dark-blue);
+  color: var(--custom-dark-gray);
+  background-color: var(--custom-light-gray);
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--custom-dark-blue);
+  color: var(--custom-dark-gray);
   background-color: var(--custom-light-gray); 
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
@@ -11255,7 +11256,7 @@ ul.nav.nav-tabs {
   }
   
   .btn-primary:active {
-    background-color: var(--custom-dark-blue);
+    background-color: var(--custom-dark-gray);
     border-color: var(--custom-blue-gray);
   }
 
