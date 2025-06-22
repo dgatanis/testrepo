@@ -91,6 +91,7 @@ a.page-link {
     cursor: pointer;
     margin: auto;
     font-family: 'F7';
+    text-shadow: 1px 1px 1px black;
 }
 
 .custom-small-avatar {
