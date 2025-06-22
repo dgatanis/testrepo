@@ -110,21 +110,21 @@
               </h2>
               <div id="stats" class="accordion-collapse collapse" aria-labelledby="rosterBreakdown"
                 data-bs-parent="#rosterStats">
-                <div class="accordion-body" id="accordionRosterBody">
-                  <div class="card custom-roster-breakdown-shadow">
-                    <div class="card-body custom-stats-card-body">
+                <div class="container custom-roster-container" id="accordionRosterBody">
+                  <div class="row custom-roster-breakdown-shadow" id="recordContainer">
+                    <div class="custom-stats-card-body col">
                       Record
                       <div class="custom-card-inner-body" id="rosterRecord"></div>
                     </div>
                   </div>
-                  <div class="card custom-roster-breakdown-shadow">
-                    <div class="card-body custom-stats-card-body">
-                      Average Age of Roster
+                  <div class="row custom-roster-breakdown-shadow" id="ageContainer">
+                    <div class="custom-stats-card-body col">
+                      Roster Age
                       <div class="custom-card-inner-body" id="rosterAge"></div>
                     </div>
                   </div>
-                  <div class="card custom-roster-breakdown-shadow">
-                    <div class="card-body custom-stats-card-body">
+                  <div class="row custom-roster-breakdown-shadow" id="highScorersContainer">
+                    <div class="custom-stats-card-body col">
                       Highest Scorers
                       <div class="custom-card-inner-body" id="rosterHighScorers">
                         <div class="custom-roster-high-scorer">
@@ -148,17 +148,10 @@
 
             </div>
           </div>
-          <table id="RosterTable" class="table table-secondary custom-list-group">
-            <thead>
-              <tr>
-                <th scope="col">Position</th>
-                <th style="text-align:justify;" scope="col">Player Name</th>
-                <th style="text-align:justify;" scope="col">Age</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+          <div id="RosterTable" class="custom-list-group">
+              <div class="custom-roster-players-container text-center container custom-default-background">
+              </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>

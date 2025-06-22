@@ -5,7 +5,7 @@ async function OpenTeamRosterModal(userid,teamname) {
     
     var modalRosterTeamName = document.querySelector('#ModalRosterTeamName');
     var rosterTable = document.querySelector('#RosterTable');
-    var tablebody = rosterTable.childNodes[3];
+    var tablebody = rosterTable.childNodes[1];
     const leaguePositionList = helper.getLeaguePositions();
 
     modalRosterTeamName.innerText = teamname;
@@ -58,16 +58,13 @@ async function OpenTeamRosterModal(userid,teamname) {
             wins.setAttribute('class', 'custom-roster-record');
             losses.setAttribute('class', 'custom-roster-record');
             points.setAttribute('class', 'custom-roster-record');
-            wins.innerText = "Wins: " + rosterStats.wins;
-            losses.innerText = "Losses: " + rosterStats.losses;
-            points.innerText = "Pts: " + rosterStats.fpts;
+            wins.innerText = rosterStats.wins + "-" + rosterStats.losses + " (" +rosterStats.fpts + " pts)";
             leaguePositionsLink.title = "Toggle Starters (" + leaguePositionList + ")";
             leaguePositionsLink.setAttribute('onclick', 'toggleStarters(' + roster.roster_id +')');
             age.innerText = rosterStats.AvgAge + " yrs";
 
             record.appendChild(wins);
-            record.appendChild(losses);
-            record.appendChild(points);
+
 
             //length of highScorers and highScorerPlayers must match
             for(let i =0; i < highScorers.length; i++)
@@ -77,11 +74,15 @@ async function OpenTeamRosterModal(userid,teamname) {
                 
                 var playerName = helper.getFullPlayerName(highScorerPlayers[i].player_id);
                 var playerNameDiv = document.createElement("div");
+                var playerPointsDiv = document.createElement("div");
+
+                playerPointsDiv.innerText = highScorerPlayers[i].points + " pts";
                 playerNameDiv.setAttribute('class', 'custom-playername-small');
-                playerNameDiv.setAttribute('style', 'margin-top:.2rem;');
-                playerNameDiv.innerText = playerName + ": " + highScorerPlayers[i].points + "pts"
-                 
+                playerPointsDiv.setAttribute('class', 'custom-player-points');
+                playerNameDiv.innerText = playerName;
+                
                 highScorers[i].append(playerNameDiv);
+                highScorers[i].append(playerPointsDiv);
                 highScorers[i].prepend(playerImg);
             }
 
@@ -100,19 +101,21 @@ async function OpenTeamRosterModal(userid,teamname) {
                         let playerName = player.firstname + " " + player.lastname;
                         let playerTeam = player.team;
                         var playerimg = helper.createPlayerImage(player.player_id);
-                        var tr = document.createElement("tr");
-                        var th = document.createElement("th");
-                        th.innerText=player.position;
-                        th.setAttribute('scope', 'row');
-                        tr.setAttribute('class', 'custom-shown-row')
+                        var tr = document.createElement("div");
+                        var playerposition = document.createElement("div");
+                        playerposition.innerText=player.position;
+                        playerposition.setAttribute('class', 'custom-roster-player-position col');
+                        tr.setAttribute('class', 'custom-shown-row row')
                         tr.setAttribute('data-playerid', player.player_id);
-                        tr.appendChild(th);
-                        var nameOfPlayer = document.createElement("td");
+                        tr.appendChild(playerposition);
+                        var nameOfPlayer = document.createElement("div");
                         nameOfPlayer.innerText=playerName + " (" + playerTeam + ")";
+                        nameOfPlayer.setAttribute("class", "custom-roster-player-name col");
                         nameOfPlayer.prepend(playerimg);
                         tr.appendChild(nameOfPlayer);
-                        var yrsExp = document.createElement("td");
-                        yrsExp.innerText=player.age;
+                        var yrsExp = document.createElement("div");
+                        yrsExp.innerText=player.age + " yrs";
+                        yrsExp.setAttribute("class", "custom-roster-player-age col");
                         tr.appendChild(yrsExp);
                         tablebody.append(tr);
                     }
@@ -129,7 +132,8 @@ async function toggleStarters(rosterId) {
     let roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
     let tableRows = document.querySelectorAll('.custom-shown-row');
     let hiddenRows = document.querySelectorAll('.custom-hidden-row');
-    let rosterTable = document.getElementById('RosterTable');
+    let rosterTable = document.getElementsByClassName('custom-roster-players-container')[0];
+    let rosterDetails = document.getElementsByClassName('custom-roster-container')[0];
 
     let starters = roster.starters;
 
@@ -137,10 +141,13 @@ async function toggleStarters(rosterId) {
     {
         for(let row of hiddenRows)
         {
-            row.setAttribute('class', 'custom-shown-row');
+            row.setAttribute('class', 'custom-shown-row row');
         }
-        rosterTable.classList.add('table-secondary');
-        rosterTable.classList.remove('table-dark');
+        rosterTable.classList.add("custom-default-background");
+        rosterDetails.classList.add("custom-default-background");
+
+        rosterTable.classList.remove("custom-selected-background");
+        rosterDetails.classList.remove("custom-selected-background");
     }
     else
     {
@@ -148,10 +155,13 @@ async function toggleStarters(rosterId) {
         {
             if(!starters.includes(row.dataset.playerid))
             {
-                row.setAttribute('class', 'custom-hidden-row');
+                row.setAttribute('class', 'custom-hidden-row row');
             }
         }
-        rosterTable.classList.remove('table-secondary');
-        rosterTable.classList.add('table-dark');
+        rosterTable.classList.add("custom-selected-background");
+        rosterDetails.classList.add("custom-selected-background");
+
+        rosterTable.classList.remove("custom-default-background");
+        rosterDetails.classList.remove("custom-default-background");
     }
 }

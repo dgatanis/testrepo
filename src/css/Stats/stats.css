@@ -293,7 +293,7 @@ td.custom-score {
     text-align: center;
     color: whitesmoke;
     vertical-align: middle;
-    font-family: 'F5';
+    font-family: 'F7';
 }
 
 #teamComparison td {
@@ -325,6 +325,7 @@ table#allTimeLowScorerTeam .custom-name {
     margin-right: .2rem;
     padding: .1rem;
     background-color:whitesmoke;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 .custom-xsmall-avatar {
@@ -332,6 +333,7 @@ table#allTimeLowScorerTeam .custom-name {
     margin-right: .1rem;
     padding: .1rem;
     background-color: var(--custom-light-gray);
+    box-shadow: 0 0rem 0.2rem black;
 }
 .custom-name {
     display: inline;
@@ -343,12 +345,16 @@ table#allTimeLowScorerTeam .custom-name {
 }
 
 .custom-details {
-    display: inline;
     font-size: x-small;
     vertical-align: middle;
-    font-family: 'F1';
-    color: var(--custom-light-gray);
+    font-family: 'F2';
+    color: black;
     cursor: pointer;
+    width: fit-content;
+    background: var(--custom-light-gray);
+    border-radius: 1rem;
+    margin-top: .2rem;
+    padding: .2rem;
 }
 
 .custom-details-team, .custom-details-season, .custom-details-week {
