@@ -143,6 +143,11 @@ async function toggleStarters(rosterId) {
         {
             row.setAttribute('class', 'custom-shown-row row');
         }
+        for (let row of tableRows) {
+
+            row.classList.remove('custom-starter');
+
+        }
         rosterTable.classList.add("custom-default-background");
         rosterDetails.classList.add("custom-default-background");
 
@@ -156,6 +161,9 @@ async function toggleStarters(rosterId) {
             if(!starters.includes(row.dataset.playerid))
             {
                 row.setAttribute('class', 'custom-hidden-row row');
+            }
+            else {
+                row.classList.add('custom-starter');
             }
         }
         rosterTable.classList.add("custom-selected-background");

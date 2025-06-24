@@ -154,6 +154,8 @@
   .custom-roster-player-name.col {
     grid-row: 1;
     grid-column: 2;
+    text-align: left;
+    margin-left: 1rem;
   }
 
   .custom-roster-player-age.col {
@@ -182,7 +184,7 @@
     background: var(--custom-light-gray);
     color: black;
     border: 2px solid black;
-    border-radius: 1rem;
+    border-radius: 2rem;
     padding: .2rem;
   }
 
@@ -194,6 +196,11 @@
   .custom-selected-background {
     background: #5b5b5b;
     transition: all 1s ease;
+  }
+
+  .custom-starter {
+    border: 2px solid white;
+    box-shadow: 0 0 .3rem 0 whitesmoke;
   }
 
   #bankrollTable > tbody > tr:last-child {
@@ -311,7 +318,7 @@
   }
 
   .custom-roster-high-scorer {
-    min-width: 15rem;
+    min-width: 7rem;
     padding: .2rem;
     border: 2px solid black;
     border-radius: 4rem;
@@ -975,6 +982,10 @@
           top: 0;
           left: 0; /* Back to top left */
       }
+    }
+
+    .custom-roster-player-name.col {
+      margin-left: .5rem;
     }
 
     .custom-body-container{
