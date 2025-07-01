@@ -91,14 +91,14 @@ button.btn.btn-primary {
 th#team1Header {
     max-width: 10rem;
     min-width: 10rem;
-    background: linear-gradient(90deg, #0000ff69, #808080d4, transparent);
+    background: #808080d4;
     border-top-left-radius: 1rem;
 }
 
 th#team2Header {
     max-width: 10rem;
     min-width: 10rem;
-    background: linear-gradient(90deg, transparent, #808080d4, #ff00006b);
+    background: #808080d4;
     border-top-right-radius: 1rem;
 }
 

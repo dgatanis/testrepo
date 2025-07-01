@@ -77,7 +77,6 @@ a.page-link {
 
 .custom-waiver-budget {
     font-size: small;
-    box-shadow: 0 0rem 0.3rem black;
     border-radius: 5rem;
     height: 2rem;
     background: #808080b3;
@@ -85,6 +84,7 @@ a.page-link {
     color: whitesmoke;
     padding: .2rem;
     padding-top: .3rem;
+    border: 1px solid black;
 }
 
 .custom-teamname-small {
@@ -125,7 +125,6 @@ a.page-link {
     padding: .2rem;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 0rem 0.3rem black;
     border-radius: 5rem;
     height: 2.3rem;
     background: #808080b3;
@@ -134,6 +133,7 @@ a.page-link {
     align-items: center;
     justify-content: center;
     background-image: url(/src/static/images/add-sign.png);
+    border: 1px solid black;
     
 }
 
@@ -151,7 +151,6 @@ img.custom-team-logo {
 
 .custom-draft-pick {
     padding: .2rem;
-    box-shadow: 0 0rem 0.3rem black;
     border-radius: 5rem;
     height: fit-content;
     background:#808080b3;
@@ -161,6 +160,7 @@ img.custom-team-logo {
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
+    border: 1px solid black;
 }
 
 .custom-draft-pick .custom-trade-from-icon {
@@ -197,6 +197,7 @@ img.custom-team-logo {
     min-width: 20rem;
     position: relative;
     min-height: 100%;
+    border: 2px solid black;
 }
 
 .custom-date {

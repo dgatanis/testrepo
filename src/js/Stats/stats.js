@@ -348,7 +348,7 @@ async function setTableData(tableName) {
         }
     }
     else if(tableName == 'allTimeHighScorerWeeks') {
-        var highScorers = getAllTimeHighScorerWeeks();
+        var highScorers = getAllTimeHighScorerWeeks(currentWeek, currentSeason);
         var tableRows = thisTable.children[1].children;
         for (let i = 0; i < highScorers.length; i++) {
             let roster = rosterData.find(x => x.roster_id === highScorers[i].roster_id);
@@ -369,7 +369,7 @@ async function setTableData(tableName) {
         }
     }
     else if(tableName == 'allTimeLowScorerWeeks') {
-        var lowScorers = getAllTimeLowScorerWeeks();
+        var lowScorers = getAllTimeLowScorerWeeks(currentWeek, currentSeason);
         var tableRows = thisTable.children[1].children;
         for (let i = 0; i < lowScorers.length; i++) {
             let roster = rosterData.find(x => x.roster_id === lowScorers[i].roster_id);
@@ -472,7 +472,7 @@ function getAllTimeLosses(currentWeek, currentSeason) {
     return lossCounter;
 }
 
-function getAllTimeHighScorerWeeks() {
+function getAllTimeHighScorerWeeks(currentWeek, currentSeason) {
 
     let counter = [];
 
@@ -482,7 +482,7 @@ function getAllTimeHighScorerWeeks() {
     }
     for(let matchups of allTimeMatchups)
     {
-       if(matchups[0] && matchups.week <=14)
+       if(matchups[0] && (matchups.week != 0 && matchups.week <=14) && (parseInt(matchups.year) <= currentSeason && matchups.week < currentWeek || parseInt(matchups.year) < parseInt(currentSeason)))
        {
             var thisWeek = matchups.week;
             var thisYear = matchups.year;
@@ -510,7 +510,7 @@ function getAllTimeHighScorerWeeks() {
     
 }
 
-function getAllTimeLowScorerWeeks() {
+function getAllTimeLowScorerWeeks(currentWeek, currentSeason) {
 
     let counter = [];
 
@@ -520,7 +520,7 @@ function getAllTimeLowScorerWeeks() {
     }
     for(let matchups of allTimeMatchups)
     {
-       if(matchups[0] && matchups.week <=14)
+       if(matchups[0] && (matchups.week != 0 && matchups.week <=14) && (parseInt(matchups.year) <= currentSeason && matchups.week < currentWeek || parseInt(matchups.year) < parseInt(currentSeason)))
        {
             var thisWeek = matchups.week;
             var thisYear = matchups.year;
