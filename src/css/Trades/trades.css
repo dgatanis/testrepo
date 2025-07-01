@@ -424,7 +424,7 @@ img.custom-xsmall-avatar {
     }
 
     .custom-team-group {
-        padding: .5rem;
+        padding: .1rem;
         min-width: 10rem;
         height: revert;
     }
