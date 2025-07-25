@@ -126,7 +126,6 @@ async function setTableData(tableName) {
     var playerScores =  getAllTimePlayerScores();
     var currentSeason = await getCurrentSeason();
     var currentWeek = await getCurrentWeek();
-    var relativePath = './web/Matchups.html'
 
     if (tableName == 'allTimeLowScorerTeam') {
         var tableRows = thisTable.children[1].children;
@@ -240,8 +239,6 @@ async function setTableData(tableName) {
             var team = document.createElement('div');
             var season = document.createElement('div');
             var week = document.createElement('div');
-            var link = document.createElement('a');
-            var linkURL = new URL(relativePath, getLeagueURL());
 
             name.innerText = getFullPlayerName(sortedList[i].player_id);
             score.innerText = sortedList[i].player_points;
@@ -253,19 +250,11 @@ async function setTableData(tableName) {
             week.setAttribute('class', 'custom-details-week');
             week.innerText = "week " + sortedList[i].week;
 
-                
-            linkURL.searchParams.append('callFunction', 'expandSeasonWeek');
-            linkURL.searchParams.append('season', sortedList[i].season);
-            linkURL.searchParams.append('week', sortedList[i].week);
-            linkURL.searchParams.append('matchupId', sortedList[i].matchup_id);
-            //console.log(url);
-            link.setAttribute("href", linkURL);
-            //details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season + ", " + sortedList[i].week + ", " + sortedList[i].matchup_id + ")");
+            details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season + ", " + sortedList[i].week + ", " + sortedList[i].matchup_id + ")");
             details.append(teamImage);
             details.append(team);
             details.append(week);
             details.append(season);
-            details.appendChild(link);
         }
     }
     else if (tableName == 'allTimeHighScorerPlayer') {
