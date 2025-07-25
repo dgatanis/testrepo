@@ -204,7 +204,7 @@
 
   .custom-starter {
     border: 2px solid white;
-    box-shadow: 0 0 .3rem 0 whitesmoke;
+    box-shadow: 0 0 .1rem 0 whitesmoke;
   }
 
   #bankrollTable > tbody > tr:last-child {
