@@ -13,7 +13,7 @@ import {
     getMatchupWeekWinner,
     getRosterHighScorerWeek,
     getRosterLowScorerWeek,
-    highScorerInMatchupStarters,
+    getLeagueURL,
     allTimeMatchupData,
     setLeagueName,
     setLinkSource,
@@ -126,7 +126,6 @@ async function setTableData(tableName) {
     var playerScores =  getAllTimePlayerScores();
     var currentSeason = await getCurrentSeason();
     var currentWeek = await getCurrentWeek();
-    
 
     if (tableName == 'allTimeLowScorerTeam') {
         var tableRows = thisTable.children[1].children;
@@ -240,7 +239,6 @@ async function setTableData(tableName) {
             var team = document.createElement('div');
             var season = document.createElement('div');
             var week = document.createElement('div');
-
 
             name.innerText = getFullPlayerName(sortedList[i].player_id);
             score.innerText = sortedList[i].player_points;

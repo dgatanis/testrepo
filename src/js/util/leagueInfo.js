@@ -5,6 +5,7 @@ export const dynasty = true;
 export const weeklyWinner = 35; //Amount won for highest weekly scorer
 export const inauguralSeason = 2024; //year league began in Sleeper
 
+
 export const leagueDescription = "Welcome to the Crush Cities dynasty fantasy football league, founded in the summer of 2020. This league is comprised of 10 members who dream of bringing home a jersey of their choice, each and every year. However, some owners' dreams are just that, dreams. At the conclusion of the season, the champion is given the opportunity to select our new destination to draft rookies that will almost certainly become future waiver additions for someone else. Luck? Skill? Who cares. The only thing that matters is: Don't. Finish. Last."
 
 export default async function getCurrentLeagueId() {
@@ -50,6 +51,7 @@ export async function getPlayoffsData(leagueId) {
 
    return data;
 }
+
 
 async function currentLeagueId(thisYear) {
     const myUserId = leagueUser;
@@ -101,6 +103,15 @@ export async function setLinkSource(elementId, userID1 = null, userID2 = null) {
         element.setAttribute('href', `https://keeptradecut.com/dynasty/power-rankings/league-overview?leagueId=${leagueId}&platform=Sleeper`)
     }
     
+}
+
+export function getLeagueURL() {
+    const leagueURL = 'https://dgatanis.github.io/testrepo';
+    let baseURL = new URL(leagueURL);
+    if (!baseURL.pathname.endsWith('/')) {
+        baseURL.pathname += '/';  // Ensure the trailing slash
+    }
+    return baseURL;
 }
 
 export function getRandomString() {

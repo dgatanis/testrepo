@@ -1030,14 +1030,15 @@ function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2
         return teamStartSitAcc;
 }
 
-function openMatchupsPage(season, week, matchupId) {
-    var newURL = new URL('https://dgatanis.github.io/testrepo/web/Matchups.html');
+async function openMatchupsPage(season, week, matchupId) {
+    const leagueInfo = await import('../util/leagueInfo.js');
+    var relativePath = './web/Matchups.html'
+    var newURL = new URL(relativePath, leagueInfo.getLeagueURL());
     newURL.searchParams.append('callFunction', 'expandSeasonWeek');
     newURL.searchParams.append('season', season);
     newURL.searchParams.append('week', week);
     newURL.searchParams.append('matchupId', matchupId);
 
-    history.pushState({}, '', newURL);
-    window.location.href = newURL;
+    window.open(newURL.href,'_blank');
     return;
 }

@@ -79,6 +79,7 @@ function expandCollapseTeam(rosterid) {
 
         }
     }
+    jump(rosterid);
 }
 
 function openRotoWirePage(rotowire_id, first_name, last_name){
@@ -93,4 +94,9 @@ function openRotoWirePageDef(first_name, last_name, team){
     var formatTeam = team.toString().toLowerCase();
     window.open(`https://www.rotowire.com/football/team/${formatFirstName}-${formatLastName}-${formatTeam}`,'_blank');
     return;
+}
+
+function jump(roster_id){             
+    let anchor = "#rosterid_" + roster_id;                 
+    document.getElementById(anchor).scrollIntoView({ behavior: 'smooth' });
 }
