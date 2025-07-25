@@ -88,7 +88,6 @@ async function loadMatchupsList(currentWeek, currentSeason) {
             weekAccordionItem.getElementsByClassName("accordion-body")[0].appendChild(matchup);
         }
     }
-    console.log(winLossRecords);
 }
 
 async function loadPlayoffs(leagueId, year){
