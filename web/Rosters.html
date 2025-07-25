@@ -1694,14 +1694,14 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function (event) {
-      window.onload = function () {
+      setTimeout(() => {
         //Open roster from another page
         if (new URLSearchParams(window.location.search).get('callFunction') === 'openRoster') {
           var rosterId = new URLSearchParams(window.location.search).get('rosterId');
           collapseAll();
           expandCollapseTeam(rosterId);
         }
-      };
+      }, 1000);
     });
   </script>
 </body>
