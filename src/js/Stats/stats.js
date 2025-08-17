@@ -17,7 +17,8 @@ import {
     allTimeMatchupData,
     setLeagueName,
     setLinkSource,
-    removeSpinner
+    removeSpinner,
+    setDarkMode
     } from '../util/helper.js';
 import { 
     getCurrentSeason,
@@ -36,6 +37,7 @@ loadContents();
 //This loads the page contents dynamically
 function loadContents() {
     try{
+        setDarkMode();
         setLinkSource("keep-trade-cut");
         setLeagueName("footerName");
         initTableData();

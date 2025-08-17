@@ -93,7 +93,7 @@ a.page-link {
 }
 
 .custom-small-avatar {
-    background-color: whitesmoke;
+    background-color: var(--custom-dark-mode-background);
     padding: .1rem;
     cursor: pointer;
     margin: auto;
@@ -188,7 +188,7 @@ img.custom-team-logo {
 
 .custom-team-group {
     display: grid;
-    box-shadow: 0 .1rem 0.5rem black;
+    box-shadow: 0 0rem 0.2rem black;
     border-radius: 1rem;
     margin: auto;
     margin-top: unset;
@@ -201,6 +201,10 @@ img.custom-team-logo {
     position: relative;
     min-height: 100%;
     border: 2px solid black;
+}
+
+a.page-link {
+    background: var(--custom-light-gray);
 }
 
 .custom-date {

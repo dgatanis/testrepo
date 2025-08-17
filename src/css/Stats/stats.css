@@ -180,7 +180,6 @@ table {
     clear: both;
     width: 30rem;
     margin: 3rem;
-    color: whitesmoke;
     height: fit-content;
     position: relative;
 }
@@ -334,7 +333,6 @@ td.custom-score {
 .custom-table-title {
     text-align: center;
     font-family: 'F1';
-    color: black;
     font-size: x-large;
 }
 
@@ -355,7 +353,6 @@ table#allTimeLowScorerTeam .custom-name {
     margin-right: .2rem;
     padding: .1rem;
     background-color:whitesmoke;
-    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 .custom-xsmall-avatar {

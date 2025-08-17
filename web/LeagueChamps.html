@@ -12,6 +12,7 @@
   <script src="../src/js/bootstrap.js"></script>
   <script src="../src/js/bootstrap.bundle.js"></script>
   <script src="../src/js/Mobile/mobile.js"></script>
+  <script src="../src/js/util/navigation.js"></script>
 </head>
 <title>
   League Champs
@@ -21,6 +22,7 @@
   <div class="custom-nav-container">
     <div class="custom-header">
       <img class="custom-header-image" src="../src/static/images/league-logo.png">
+      <img title="Toggle Dark Mode" onclick="toggleDarkMode()" class="custom-dark-mode-image" src="../src/static/images/dark-mode.png">
     </div>
     <ul class="nav nav-tabs desktopnav">
       <div class="nav-item">
@@ -93,6 +95,7 @@
     </a>
     <div id="league-logo-mobile" class="custom-league-logo-mobile">
       <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
+      <img id="custom-dark-mode-image" title="Toggle Dark Mode" onclick="toggleDarkMode()" class="custom-dark-mode-image" src="../src/static/images/dark-mode.png">
     </div>
   </div>
   <div class="custom-title-container">
@@ -102,7 +105,7 @@
     <img src="../src/static/images/throne.png" class="custom-throne-img" title="The Throne">
   </div>
   <div class="custom-loading-icon">
-    <div id="page-loading" class="spinner-border text-dark" role="status">
+    <div id="page-loading" class="spinner-border text-secondary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>

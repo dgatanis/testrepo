@@ -1,4 +1,4 @@
-import { getTransactionsData, setLinkSource, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters, removeSpinner } from '../util/helper.js';
+import { setDarkMode, getTransactionsData, setLinkSource, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters, removeSpinner } from '../util/helper.js';
 
 const rosterData = rosters;
 const playerData = players;
@@ -6,6 +6,7 @@ const playerData = players;
 loadContents();
 
 function loadContents() {
+    setDarkMode();
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
     loadTradeTransactions();

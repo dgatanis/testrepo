@@ -16,7 +16,8 @@ import {
     getDraftOrder,
     createPlayerImage,
     getPlayerNickNames,
-    createNFLTeamImage
+    createNFLTeamImage,
+    setDarkMode
     } from '../util/helper.js';
 
 let leagueIds = allTimeLeagueIds.ATLeagueId;
@@ -27,6 +28,7 @@ let rosterData = rosters;
 loadContents();
 
 async function loadContents() {
+    setDarkMode();
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
     loadDraftData();
@@ -167,7 +169,7 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
 
     if(picked_by.toString() != original_owner.toString()) {
         var user = userData.find(e => e.user_id === picked_by);
-        user_div.style = "background:var(--custom-dark-mode-primary);";
+        user_div.style = "background:var(--custom-dark-mode-background);";
         user_div.innerText = getTeamName(user.user_id);
     }          
     

@@ -20,7 +20,8 @@ import {
     setLeagueName,
     setLinkSource,
     getPlayoffsData,
-    removeSpinner
+    removeSpinner,
+    setDarkMode
 } from '../util/helper.js';
 
 let userData = users;
@@ -33,6 +34,7 @@ let winLossRecords = [];
 loadContents();
 
 async function loadContents() {
+    setDarkMode();
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
     try {

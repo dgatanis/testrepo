@@ -412,6 +412,10 @@
     transition: all 1s ease;
   }
 
+  .modal-title {
+    color: black;
+  }
+
   .accordion-button:hover {
     text-shadow: unset;
   }
@@ -665,8 +669,8 @@
 
   .custom-carousel-item {
     height: fit-content;
-    background: transparent;
-    color: #5a5a5ade;
+    background: #232323b3;
+    color: #7c7c7c;
     padding:1rem;
     border-radius:.5rem;
     max-height: 45rem;
@@ -674,8 +678,10 @@
   }
 
   .custom-carousel-item:hover {
-    background: #8080801f;
-    color: #000000;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    border: 2px solid black;
+    transition: all 1s ease;
   }
 
   .custom-transaction-description {
@@ -692,16 +698,16 @@
   .custom-carousel-item {
     &:hover {
       .custom-transaction-description {
-        color: black;
+        color: whitesmoke;
         border-radius: 1rem;
         transition: all 1s ease;
       }
       .custom-team-record {
-        color: black;
+        color: whitesmoke;
         transition: all 1s ease;
       }
       .custom-date-transaction {
-        color: black;
+        color: whitesmoke;
         transition: all 1s ease;
       }
       .custom-waiver-bid {

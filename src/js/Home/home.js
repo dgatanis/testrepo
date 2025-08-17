@@ -7,7 +7,8 @@ import {
     leagueDescription,
     setLeagueName,
     setLinkSource,
-    removeSpinner
+    removeSpinner,
+    setDarkMode
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -16,7 +17,7 @@ let playoffData = playoffs;
 loadContents();
 
 function loadContents() {
-
+    setDarkMode();
     setLeagueName("footerName");
     setLeagueName("pageTitle");
     setLinkSource("keep-trade-cut")

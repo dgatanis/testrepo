@@ -115,6 +115,10 @@
     border-color: transparent;
 }
 
+[data-round="0"] col.col:hover {
+    box-shadow: 0 .1rem 0.5rem whitesmoke;
+}
+
 .custom-selection-number {
     position: absolute;
     color: black;
@@ -144,7 +148,7 @@
 }
 
 .custom-medium-avatar {
-    border: 3px solid var(--custom-light-gray);
+    border: 3px solid var(--custom-dark-mode-background);
     margin: auto;
     margin-bottom: unset;
     max-width: 3rem;
@@ -152,7 +156,7 @@
 }
 
 .custom-highlighted-icon {
-    box-shadow: 0 .1rem 0.5rem black;
+    box-shadow: 0 0rem 0.3rem whitesmoke;
 }
 
 .custom-player-college {

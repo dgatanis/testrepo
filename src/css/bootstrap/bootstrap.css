@@ -44,9 +44,9 @@
   --custom-blue-gray: #8c9ba9;
   --custom-dark-blue: #475664;
   --custom-light-gray: #ededed;
-  --custom-dark-gray: #575757;
+  --custom-dark-gray: #232323;
   --custom-orange: #b76e36;
-  --custom-dark-mode-background: #282831;
+  --custom-dark-mode-background: #171a23;
   --custom-dark-mode-transparent: #232332d6;
   --custom-dark-mode-primary: #293142;
   --custom-dark-mode-secondary: #3e4a64;
@@ -10976,6 +10976,7 @@ textarea.form-control-lg {
 .custom-body {
   margin: 1rem;
   clear: inline-end;
+  margin-bottom: 4rem;
 }
 
 .custom-mobile-show a{
@@ -11145,10 +11146,14 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: var(--custom-dark-blue);
+  background: var(--custom-dark-gray);
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .custom-footer-links {
@@ -11171,6 +11176,10 @@ ul.nav.nav-tabs {
   margin-top: .3rem;
 }
 
+.custom-dark-mode {
+  background-color: var(--custom-dark-mode-background);
+  color: whitesmoke;
+}
 
 .accordion-button:hover {
   color: var(--custom-light-gray);
@@ -11215,6 +11224,23 @@ ul.nav.nav-tabs {
     background-color: #ffffffde;;
   }
 
+  img.custom-dark-mode-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+
+  .custom-light-mode-background {
+    background: whitesmoke !important;
+  }
+
+  .custom-dark-mode-background {
+    background: transparent !important;
+  }
+
   /* Style the mobile navigation menu */
   .mobilenav {
     overflow: hidden;
@@ -11250,7 +11276,7 @@ ul.nav.nav-tabs {
   }
 
   .active {
-    background-color: var(--custom-dark-blue);
+    background-color: var(--custom-dark-gray);
     color: whitesmoke;
     text-align: center;
   }
@@ -11289,6 +11315,7 @@ ul.nav.nav-tabs {
   .custom-body {
     padding: unset;
     margin: unset;
+    margin-bottom: 4rem;
   }
 
   .custom-footer-links{
@@ -11303,7 +11330,6 @@ ul.nav.nav-tabs {
     height: 2rem;
     padding: unset;
     width: 100%;
-    position: static;
   }
 
   .mobilenav {
