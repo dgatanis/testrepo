@@ -15,7 +15,8 @@ import {
     setLinkSource,
     getTransactionsData,
     getRandomString,
-    removeSpinner
+    removeSpinner,
+    setDarkMode
 } from '../util/helper.js';
 
 let userData = users;
@@ -27,7 +28,7 @@ loadContents();
 
 //This loads the page contents dynamically
 async function loadContents() {
-
+    setDarkMode();
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
     try {

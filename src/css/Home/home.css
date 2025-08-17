@@ -35,22 +35,22 @@
 }
 
 .card-custom {
-    background: var(--custom-light-gray);;
+    color: whitesmoke;
+    background-color: var(--custom-dark-mode-primary);
     border: 2px solid black;
-    color: black;
     display: block;
     padding: 1rem;
     cursor: pointer;
     width: 100%;
     margin: auto; 
     border-radius: 1rem;
+    text-shadow: 1px 1px 1px black;
 }
 
 .custom-medium-avatar {
     max-width: 4rem;
-    background-color: black;
+    background-color: whitesmoke;
     padding: .1rem;
-    box-shadow: 0 0rem 0.2rem black;
 }
 
 .card-body {
@@ -66,9 +66,9 @@
 
 .card-custom:hover, .card-custom:active {
     color: whitesmoke;
-    background-color: #475664;
-    border-color: transparent;
+    background-color: var(--custom-dark-mode-transparent);
     transition: all .75s ease;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 .card-custom:hover .custom-medium-avatar {
@@ -106,6 +106,7 @@
         overflow: unset;
         padding: unset;
         margin: unset;
+        margin-bottom: 4rem;
     }
 
     .custom-league-description {

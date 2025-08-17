@@ -60,3 +60,34 @@ export function removeSpinner() {
         body.classList.remove('custom-none-display');
     }
 }
+
+export function setDarkMode() {
+
+    var darkModeImages = document.getElementsByClassName("custom-dark-mode-image");
+
+    if(localStorage.getItem("DarkMode")) {
+        var isDarkMode = localStorage.getItem("DarkMode");
+        if(isDarkMode == 'N') {
+            document.body.classList.remove('custom-dark-mode');
+            for(var image of darkModeImages){
+                image.classList.remove("custom-dark-mode-background");
+                image.classList.add("custom-light-mode-background");
+            }
+        }
+        else {
+            document.body.classList.add('custom-dark-mode');
+            for(var image of darkModeImages){
+                image.classList.add("custom-dark-mode-background");
+                image.classList.remove("custom-light-mode-background");
+            }
+        }
+    }
+    else {
+        localStorage.setItem("DarkMode", "N");
+        for(var image of darkModeImages){
+            image.classList.add("custom-dark-mode-background");
+            image.classList.remove("custom-light-mode-background");
+        }
+    }
+    
+}

@@ -25,6 +25,7 @@ async function setBrowserData() {
             localStorage.clear();
             sessionStorage.clear();
             localStorage.setItem("expiration", expiration);
+            localStorage.setItem("DarkMode", "N");
             setMatchupData(currentLeagueId,currentWeek);
             setAllTimeMatchupData();
             setPlayerData();

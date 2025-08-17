@@ -14,7 +14,7 @@
 .custom-year {
     color: whitesmoke;
     border-radius: 1rem;
-    background: black;
+    background: var(--custom-dark-mode-background);
     width: fit-content;
     margin: auto;
     padding: .3rem;
@@ -28,7 +28,7 @@
 .col {
     padding: unset;
     min-width: 20rem;
-    background:#575757;
+    background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     min-height: 10rem;
     box-shadow: 0 0rem 0.4rem black;
@@ -65,11 +65,11 @@ tr td {
 .custom-label-container{
     color: black;
     border-radius: 1rem;
-    box-shadow: 0 0rem 0.4rem black;
     margin: auto;
     margin-bottom: .5rem;
     background: var(--custom-light-gray);
-    border: 1px solid black;
+    border: 2px solid var(--custom-dark-mode-background);
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 .custom-medium-avatar {
@@ -172,6 +172,7 @@ th {
 
     .custom-body {
         margin: 1rem;
+        margin-bottom: 4rem;
     }
 
     th {

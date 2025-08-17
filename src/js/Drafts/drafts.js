@@ -16,7 +16,8 @@ import {
     getDraftOrder,
     createPlayerImage,
     getPlayerNickNames,
-    createNFLTeamImage
+    createNFLTeamImage,
+    setDarkMode
     } from '../util/helper.js';
 
 let leagueIds = allTimeLeagueIds.ATLeagueId;
@@ -27,6 +28,7 @@ let rosterData = rosters;
 loadContents();
 
 async function loadContents() {
+    setDarkMode();
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
     loadDraftData();
@@ -72,7 +74,9 @@ async function loadDraftData() {
             }
 
             var button = document.createElement("button");
+            var buttonDiv = document.createElement("div");
             var scatter_div = document.createElement("div");
+            buttonDiv.setAttribute("class", "custom-button-container");
             button.setAttribute("class","btn btn-primary");
             button.setAttribute("onclick","toggleGraph(" + league.year + ")");
             button.innerText = league.year + " ADP Chart";
@@ -80,7 +84,8 @@ async function loadDraftData() {
             scatter_div.setAttribute('class', "custom-scatter custom-none-display");
             
             setScatterPlots(league.year);
-            draft_grid.appendChild(button);
+            buttonDiv.appendChild(button);
+            draft_grid.appendChild(buttonDiv);
             draft_grid.appendChild(scatter_div);   
             body.appendChild(draft_grid);
             draft_grid.prepend(draft_season);
@@ -154,15 +159,17 @@ function createDraftPickGridItem(player_id, picked_by, original_owner) {
     player_position_div.innerText = player.position;
     nickname_div.innerText = getPlayerNickNames(roster.roster_id, player_id); 
     nickname_div.setAttribute("class", "custom-player-nickname");
+    nickname_div.setAttribute("title", getPlayerNickNames(roster.roster_id, player_id));
     player_div.setAttribute("class", "custom-player-name");
     player_div.innerText = player.firstname + " " + player.lastname;
+    player_div.setAttribute("title", player.firstname + " " + player.lastname);
     pick_container.setAttribute("class", "custom-pick-container");
     pick_container.setAttribute("data-picked-by-user",picked_by);
     user_div.setAttribute("class", "custom-user");
 
     if(picked_by.toString() != original_owner.toString()) {
         var user = userData.find(e => e.user_id === picked_by);
-        user_div.style = "background:black";
+        user_div.style = "background:var(--custom-dark-mode-background);";
         user_div.innerText = getTeamName(user.user_id);
     }          
     

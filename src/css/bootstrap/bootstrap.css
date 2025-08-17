@@ -43,10 +43,13 @@
   --custom-transp-blue: rgb(200 217 237 / 48%);
   --custom-blue-gray: #8c9ba9;
   --custom-dark-blue: #475664;
-  --custom-light-gray: #d1d1d1;
-  --custom-dark-gray: #575757;
+  --custom-light-gray: #ededed;
+  --custom-dark-gray: #232323;
   --custom-orange: #b76e36;
-  --custom-dark-mode-background: #2c363f;
+  --custom-dark-mode-background: #171a23;
+  --custom-dark-mode-transparent: #232332d6;
+  --custom-dark-mode-primary: #293142;
+  --custom-dark-mode-secondary: #3e4a64;
   --custom-light-blue: rgb(222 232 243);
 }
 
@@ -2962,13 +2965,14 @@ textarea.form-control-lg {
 
 .btn-primary {
   background-color: var(--custom-light-gray);
-  color: black;
-  border-color: black;
+  color: var(--custom-dark-mode-primary);
+  border-color: var(--custom-dark-mode-secondary)
 }
 .btn-primary:hover {
-  color: whitesmoke;
-  background-color: var(--custom-dark-gray);
-  border-color: var(--custom-dark-gray);
+  color: var(--custom-light-gray);
+  background-color: var(--custom-dark-mode-secondary);
+  border-color: black;
+  box-shadow: 0 0rem .2rem whitesmoke;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -4436,9 +4440,9 @@ textarea.form-control-lg {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
-  color: #212529;
+  color: var(--custom-light-gray);
   text-align: left;
-  background-color: #fff;
+  background-color: var(--custom-dark-mode-transparent);
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
@@ -4449,11 +4453,7 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-.accordion-button:not(.collapsed) {
-  color: #0c63e4;
-  background-color: #e7f1ff;
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
-}
+
 .accordion-button:not(.collapsed)::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   transform: rotate(-180deg);
@@ -4489,8 +4489,8 @@ textarea.form-control-lg {
 }
 
 .accordion-item {
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: var(--custom-light-gray);
+  border: 1px solid var(--custom-light-gray);
 }
 .accordion-item:first-of-type {
   border-top-left-radius: 0.25rem;
@@ -10976,6 +10976,7 @@ textarea.form-control-lg {
 .custom-body {
   margin: 1rem;
   clear: inline-end;
+  margin-bottom: 4rem;
 }
 
 .custom-mobile-show a{
@@ -11145,10 +11146,14 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: var(--custom-dark-blue);
+  background: var(--custom-dark-gray);
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .custom-footer-links {
@@ -11171,15 +11176,19 @@ ul.nav.nav-tabs {
   margin-top: .3rem;
 }
 
+.custom-dark-mode {
+  background-color: var(--custom-dark-mode-background);
+  color: whitesmoke;
+}
 
 .accordion-button:hover {
-  color: var(--custom-dark-gray);
-  background-color: var(--custom-light-gray);
+  color: var(--custom-light-gray);
+  background-color: var(--custom-dark-mode-primary);
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--custom-dark-gray);
-  background-color: var(--custom-light-gray); 
+  color: var(--custom-light-gray);
+  background-color: var(--custom-dark-mode-primary);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 
@@ -11213,6 +11222,23 @@ ul.nav.nav-tabs {
   .custom-nav-container {
     padding-top: .2rem;
     background-color: #ffffffde;;
+  }
+
+  img.custom-dark-mode-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+
+  .custom-light-mode-background {
+    background: whitesmoke !important;
+  }
+
+  .custom-dark-mode-background {
+    background: transparent !important;
   }
 
   /* Style the mobile navigation menu */
@@ -11250,7 +11276,7 @@ ul.nav.nav-tabs {
   }
 
   .active {
-    background-color: var(--custom-dark-blue);
+    background-color: var(--custom-dark-gray);
     color: whitesmoke;
     text-align: center;
   }
@@ -11289,6 +11315,7 @@ ul.nav.nav-tabs {
   .custom-body {
     padding: unset;
     margin: unset;
+    margin-bottom: 4rem;
   }
 
   .custom-footer-links{
@@ -11303,7 +11330,6 @@ ul.nav.nav-tabs {
     height: 2rem;
     padding: unset;
     width: 100%;
-    position: static;
   }
 
   .mobilenav {

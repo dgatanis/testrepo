@@ -1,12 +1,13 @@
 .accordion-container {
     padding: .5rem;
+    background: var(--custom-dark-mode-background);
 }
 
 .custom-matchup-container {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
-    background: #57575773;
+    background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     padding: 1rem;
     border: 3px solid black;
@@ -39,10 +40,6 @@
     display: grid;
     width: 25rem;
     gap: .2rem;
-}
-
-.custom-body {
-    margin-bottom: 2rem;
 }
 
 
@@ -117,15 +114,13 @@
 }
 
 .accordion-button {
-    display: block;
+    display: grid;
     text-align: center;
-    color: whitesmoke;
-    background-color: var(--custom-dark-gray);
 }
 
 
 .custom-matchup-list {
-    background-color: #80808029;
+    background: var(--custom-dark-mode-background)
 }
 
 .custom-team-table {
@@ -184,13 +179,14 @@
 .custom-team-score {
     font-size: 1.4rem;
     font-family: 'F7';
-    border: 1px black solid;
+    border: 3px black solid;
     text-align: center;
     border-radius: .3rem;
     background: #313131;
     height: 100%;
     width: 100%;
     position: relative;
+    display: flex;
 }
 
 .custom-team-table-2 .col {
@@ -275,12 +271,9 @@
 }
 
 .custom-score-span {
-    line-height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-shadow: 1px 1px 1px black;
+    margin: auto;
+    line-height: 100%;
 }
 
 .custom-team-record {

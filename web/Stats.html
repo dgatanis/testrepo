@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../src/css/Stats/stats.css">
   <script src="../src/js/bootstrap.bundle.min.js"></script>
   <script src="../src/js/Mobile/mobile.js"></script>
+  <script src="../src/js/util/navigation.js"></script>
 </head>
 <title>
   Stats
@@ -21,6 +22,7 @@
   <div class="custom-nav-container">
     <div class="custom-header">
       <img class="custom-header-image" src="../src/static/images/league-logo.png">
+      <img title="Toggle Dark Mode" onclick="toggleDarkMode()" class="custom-dark-mode-image" src="../src/static/images/dark-mode.png">
     </div>
     <ul class="nav nav-tabs desktopnav">
       <div class="nav-item">
@@ -90,6 +92,7 @@
     </a>
     <div id="league-logo-mobile" class="custom-league-logo-mobile">
       <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
+      <img id="custom-dark-mode-image" title="Toggle Dark Mode" onclick="toggleDarkMode()" class="custom-dark-mode-image" src="../src/static/images/dark-mode.png">
     </div>
   </div>
   <div>
@@ -825,10 +828,10 @@
           </thead>
           <tbody>
             <tr>
-              <td style="background: #808080d4;"></td>
+              <td style="background: transparent;"></td>
               <td style="background:transparent;color: var(--custom-dark-gray);vertical-align:bottom;font-size: .6rem;">
                 Regular Season</td>
-              <td style="background: #808080d4;"></td>
+              <td style="background: transparent;"></td>
             </tr>
             <tr id="wins">
               <td class="custom-team1-result"></td>
@@ -1032,7 +1035,7 @@
     </div>
   </div>
   <div class="custom-loading-icon">
-    <div id="page-loading" class="spinner-border text-dark" role="status">
+    <div id="page-loading" class="spinner-border text-secondary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>

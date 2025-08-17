@@ -14,6 +14,7 @@
     <script src="../src/js/bootstrap.bundle.min.js"></script>
     <script src="../src/js/Mobile/mobile.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+    <script src="../src/js/util/navigation.js"></script>
 </head>
 <title>
     Trades
@@ -23,6 +24,7 @@
     <div class="custom-nav-container">
         <div class="custom-header">
             <img class="custom-header-image" src="../src/static/images/league-logo.png">
+            <img title="Toggle Dark Mode" onclick="toggleDarkMode()" class="custom-dark-mode-image" src="../src/static/images/dark-mode.png">
         </div>
         <ul class="nav nav-tabs desktopnav">
             <div class="nav-item">
@@ -92,6 +94,7 @@
         </a>
         <div id="league-logo-mobile" class="custom-league-logo-mobile">
             <img src="../src/static/images/league-logo.png" class="custom-league-logo-image">
+            <img id="custom-dark-mode-image" title="Toggle Dark Mode" onclick="toggleDarkMode()" class="custom-dark-mode-image" src="../src/static/images/dark-mode.png">
         </div>
     </div>
     <h3 class="custom-title" id="pageTitle">Trades</h3>
@@ -112,7 +115,7 @@
         </ul>
     </nav>
     <div class="custom-loading-icon">
-        <div id="page-loading" class="spinner-border text-dark" role="status">
+        <div id="page-loading" class="spinner-border text-secondary" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>

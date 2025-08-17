@@ -3,9 +3,10 @@
     overflow-y: hidden;
     width: fit-content;
     margin: auto;
-    background: var(--custom-light-gray);
+    background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     margin-top: 2rem;
+    border: 3px solid black;
 }
 
 .custom-highlighted-item {
@@ -16,12 +17,23 @@
     margin-top: 3rem;
 }
 
+.custom-button-container {
+    margin: 1rem;
+}
+
 .btn-primary {
-    background-color: rgb(174 174 174 / 48%);
-    color: #000000;
+    background-color: var(--custom-light-gray);
+    color: var(--custom-dark-mode-background);
     border-color: #000000;
     font-family: 'F7';
     margin-bottom: 1rem;
+    font-size: small;
+    margin: auto;
+}
+
+.btn-primary:hover {
+    background-color: #d1d1d19c;
+    color: var(--custom-dark-mode-background);
 }
 
 .custom-player-position {
@@ -45,14 +57,8 @@
     margin-top: 2rem;
 }
 
-button.btn.btn-primary {
-    font-size: small;
-    margin-top: 1rem;
-    margin-left: .5rem;
-}
-
 .custom-unhighlighted-item {
-    background-color: var(--custom-light-grey) !important;
+    background-color: var(--custom-light-gray) !important;
 }
 
 .custom-revert-item {
@@ -73,12 +79,17 @@ button.btn.btn-primary {
     font-style: italic;
     margin: auto;
     height: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
 }
 
 .custom-team-name {
     font-size: small;
     margin: auto;
-    color: black;
+    color: var(--custom-light-gray);
+    text-shadow: 1px 1px 1px black;
 }
 
 .custom-season-header {
@@ -87,6 +98,7 @@ button.btn.btn-primary {
     font-family: 'F7';
     position: absolute;
     left: 42%;
+    color: var(--custom-light-gray);
 }
 
 .col {
@@ -101,6 +113,10 @@ button.btn.btn-primary {
 
 [data-round="0"] col.col {
     border-color: transparent;
+}
+
+[data-round="0"] col.col:hover {
+    box-shadow: 0 .1rem 0.5rem whitesmoke;
 }
 
 .custom-selection-number {
@@ -118,7 +134,7 @@ button.btn.btn-primary {
 }
 
 .custom-user {
-    color: whitesmoke;
+    color: var(--custom-light-gray);
     border-radius: 1rem;
     font-size: .4rem;
     height: .8rem;
@@ -129,8 +145,6 @@ button.btn.btn-primary {
 
 .custom-highlighted-team {
     background: #80808052;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
 }
 
 .custom-medium-avatar {
@@ -139,7 +153,10 @@ button.btn.btn-primary {
     margin-bottom: unset;
     max-width: 3rem;
     cursor: pointer;
-    box-shadow: 0 .1rem 0.5rem black;
+}
+
+.custom-highlighted-icon {
+    box-shadow: 0 0rem 0.3rem whitesmoke;
 }
 
 .custom-player-college {
@@ -152,6 +169,10 @@ button.btn.btn-primary {
 .custom-player-name {
     margin-top: .5rem;
     color: black;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
 }
 
 .custom-player-avatar {
@@ -203,7 +224,7 @@ button.btn.btn-primary {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
     .custom-grid-container {
-        width: 100%;
+        width: 98%;
     }
 
     .custom-title {

@@ -22,6 +22,10 @@
     border-radius: 10px;
   }
 
+  #RosterTable {
+    background: var(--custom-dark-mode-background);
+  }
+
   .custom-body-container{
     padding-left: 1rem;
     padding-right: 1rem;
@@ -41,7 +45,7 @@
   }
 
   .list-group {
-    background: var(--custom-light-gray);
+    background: var(--custom-dark-mode-secondary);
     text-align: center;
     box-shadow: 0 0 .2rem 0 #000000;
   }
@@ -179,44 +183,49 @@
     border-bottom-left-radius: 1rem;
   }
 
+  .custom-list-group {
+    background-color: var(--custom-dark-mode-primary);
+    color: var(--custom-light-gray);
+  }
+
+  #Standings .custom-teamname-normal{
+    color: var(--custom-light-gray);
+    text-shadow: 1px 1px 1px black;
+  }
+
   .custom-shown-row {
     align-items: center;
     display: grid;
     width: fit-content;
     grid-template-columns: 3rem 20rem 5rem;
     text-align: center;
-    background: var(--custom-light-gray);
-    color: black;
+    background: var(--custom-dark-mode-primary);
+    color: var(--custom-light-gray);
+    box-shadow: 0 0 .1rem 0 whitesmoke;
     border: 2px solid black;
     border-radius: 2rem;
     padding: .2rem;
+    transition: all 2s ease;
+    text-shadow: 1px 1px 1px black;
   }
 
   .custom-default-background {
-    background: #a2a2a2;
-    transition: all 1s ease;
-  }
-
-  .custom-selected-background {
-    background: #5b5b5b;
+    background: var(--custom-dark-mode-background);
     transition: all 1s ease;
   }
 
   .custom-starter {
     border: 2px solid white;
     box-shadow: 0 0 .1rem 0 whitesmoke;
+    background: var(--custom-dark-mode-secondary);
+    color: var(--custom-light-gray);
+    transition: all 1s ease;
   }
 
   #bankrollTable > tbody > tr:last-child {
     border-bottom: transparent;
   }
 
-  .custom-roster-breakdown {
-    background-color: var(--custom-dark-blue);
-    color: whitesmoke;
-    display: block;
-    text-align: center;
-  }
 
   .custom-roster-record {
     display: inline;
@@ -231,21 +240,22 @@
   .custom-roster-breakdown-shadow {
     box-shadow: 0 0 .5rem 0 black;
     border-radius: 10px;
-    background-color: var(--custom-light-gray);
+    background-color: var(--custom-dark-mode-transparent);
     animation: revealLetter 1.5s forwards;
     border: 2px solid black;
+    color: var(--custom-light-gray);
+    text-shadow: 1px 1px 1px black;
   }
 
   .custom-small-avatar {
     background: var(--custom-dark-mode-background);
     padding: .1rem;
-    box-shadow: 0 0 .2rem 0 #000000;
   }
 
   .custom-medium-avatar {
     padding: .1rem;
     background-color: var(--custom-dark-mode-background);
-    box-shadow: 0 0rem 0.2rem black;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
   }
   
   .custom-rankings {
@@ -258,7 +268,7 @@
   }
 
   div#stats{
-    background: #a2a2a2;
+    background: var(--custom-dark-mode-background);
   }
 
   .custom-player-position {
@@ -298,7 +308,7 @@
     font-size: .55rem;
     width: fit-content;
     padding-top: .1rem;
-    color: #000000ba;
+    color: #bababa;
     margin-left: .2rem;
     display: inline;
     vertical-align: middle;
@@ -326,7 +336,7 @@
     padding: .2rem;
     border: 2px solid black;
     border-radius: 4rem;
-    background: #c1c1c1;
+    background: var(--custom-dark-mode-primary);
   }
 
   #recordContainer {
@@ -390,7 +400,7 @@
   }
 
   .custom-card {
-    background: #4d4d4d;
+    background: var(--custom-dark-mode-primary);
     color: whitesmoke;
     border: 2px solid black;
     margin-bottom: 2rem;
@@ -398,10 +408,12 @@
   }
 
   .accordion-button:not(.collapsed) {
-    color: whitesmoke;
-    background-color: var(--custom-dark-gray);
     border: unset;
     transition: all 1s ease;
+  }
+
+  .modal-title {
+    color: black;
   }
 
   .accordion-button:hover {
@@ -409,8 +421,8 @@
   }
 
   .accordion-button {
-    color: whitesmoke;
-    background-color: var(--custom-dark-gray);
+    color: var(--custom-light-gray);
+    background-color: var(--custom-dark-mode-primary);
     border: 2px solid black;
     text-shadow: 1px 1px 1px black;
     transition: all 1s ease;
@@ -520,11 +532,16 @@
 
   li.list-group-item {
     background: transparent;
+    color: whitesmoke;
   }
 
   .custom-teams-container {
-    background: var(--custom-light-gray);
+    background: var(--custom-dark-mode-primary);
     margin-bottom: 2rem;
+  }
+
+  #Standings tr {
+    border-color: transparent;
   }
 
   .custom-contenders-rankings {
@@ -533,8 +550,9 @@
     margin: auto;
     width: 28rem;
     padding-bottom: 2rem;
-    background: transparent;
+    background: var(--custom-dark-mode-primary);
     box-shadow: 0 0 .2rem 0 #000000;
+    color: var(--custom-light-gray);
   }
 
   #custom_transaction_inner {
@@ -596,9 +614,15 @@
 
   .custom-player-points {
     font-size: .6rem;
-    color: #4c4c4c;
+    color: #a2a2a2;
     font-family: 'F2';
-}
+  }
+
+  .custom-roster-breakdown {
+    background-color: var(--custom-dark-mode-primary);
+    display: block;
+    text-align: center;
+  }
 
   .custom-playername-normal {
     display: inline;
@@ -632,11 +656,6 @@
     text-align: justify;
   }
 
-  .btn-primary {
-    background-color: var(--custom-light-gray);
-    color: black;
-    border-color: black;
-  }
 
   .custom-date-transaction {
     color: transparent;
@@ -650,8 +669,8 @@
 
   .custom-carousel-item {
     height: fit-content;
-    background: transparent;
-    color: #5a5a5ade;
+    background: #232323b3;
+    color: #7c7c7c;
     padding:1rem;
     border-radius:.5rem;
     max-height: 45rem;
@@ -659,8 +678,10 @@
   }
 
   .custom-carousel-item:hover {
-    background: #8080801f;
-    color: #000000;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    border: 2px solid black;
+    transition: all 1s ease;
   }
 
   .custom-transaction-description {
@@ -677,16 +698,16 @@
   .custom-carousel-item {
     &:hover {
       .custom-transaction-description {
-        color: black;
+        color: whitesmoke;
         border-radius: 1rem;
         transition: all 1s ease;
       }
       .custom-team-record {
-        color: black;
+        color: whitesmoke;
         transition: all 1s ease;
       }
       .custom-date-transaction {
-        color: black;
+        color: whitesmoke;
         transition: all 1s ease;
       }
       .custom-waiver-bid {
