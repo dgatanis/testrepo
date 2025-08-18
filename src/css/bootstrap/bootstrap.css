@@ -11231,6 +11231,7 @@ ul.nav.nav-tabs {
     max-width: 2rem;
     cursor: pointer;
     border-radius: 1rem;
+    margin-top: .2rem;
   }
 
   .custom-light-mode-background {
