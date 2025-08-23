@@ -69,7 +69,7 @@ th {
   font-size: .75rem;
   border-radius: 10px;
   color: black;
-  border: 2px solid var(--custom-dark-mode-background);
+  border: 1px solid var(--custom-dark-mode-background);
   width: 3rem;
   margin-left: .2rem;
   line-height: 100%;
@@ -169,13 +169,7 @@ th {
     grid-column: 3;
 }
 
-/* tr {
-  margin-top: 1rem;
-  display: inline-flex;
-  align-items: center;
-}
-
-*/ tr:not([class^='custom-stats']) {
+tr:not([class^='custom-stats']) {
   margin-top: 1rem;
   display: flex;
   border-radius: 3rem;
@@ -187,6 +181,7 @@ th {
   column-gap: .2rem;
   height: 4rem;
   box-shadow: 0 0 .2rem 0 black;
+  position: relative;
 }
 
 .custom-medium-avatar {
@@ -266,7 +261,7 @@ th {
 .custom-starter-stats-icon {
   max-width: 1.5rem;
   cursor: pointer;
-    grid-row: 1 / 3;
+  grid-row: 1 / 3;
   position: absolute;
   right: 0;
   align-self: anchor-center;
@@ -423,17 +418,13 @@ td {
     .custom-player-stats-container {
       max-width: 16rem;
     }
-    .custom-player-name {
-      font-size: unset;
-      margin-top: .3rem;
-    }
 
     .custom-medium-avatar{
       margin-left: 43%;
     }
 
     .custom-team-roster {
-      max-width: 22rem;
+      max-width: 25rem;
     }
 
     .custom-position-age {
@@ -485,11 +476,6 @@ td {
 
     #rostersTitle {
       margin-top: 3rem;
-    }
-
-    .custom-player-name {
-      font-size: large;
-      margin-top: -.2rem;
     }
 
     .btn-primary {
