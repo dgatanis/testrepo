@@ -64,7 +64,7 @@ a#keep-trade-roster-comp {
 
 table#teamComparison {
     margin-top: 4rem;
-    background: linear-gradient(90deg, transparent, var(--custom-light-gray), var(--custom-light-gray), transparent);
+    color: inherit;
 }
 
 #teamComparison td {
@@ -153,7 +153,7 @@ button#teamButton2, button#teamButton1 {
 }
 
 .btn-secondary {
-    background-color: var(--custom-dark-gray);
+    background-color: var(--custom-dark-mode-primary);
     border-color: black;
     text-shadow: 1px 1px 1px black;
 }
@@ -254,7 +254,6 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 
 #h2hLegend{
     font-size: xx-small;
-    color: var(--custom-dark-gray);
 }
 
 .custom-team1-result, .custom-team2-result {
@@ -280,7 +279,7 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 }
 
 .h2h-header {
-    color: var(--custom-dark-gray);
+    color: inherit;
 }
 
 #teamComparison td:nth-child(1) {
@@ -288,13 +287,13 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
     padding: 1rem;
     background: var(--bs-table-bg);
     position: relative;
+    color: whitesmoke;
 }
 
 #teamComparison td:nth-child(2) {
     font-size: small;
     font-family: 'F7';
     background: #d1d1d14a;
-    color: whitesmoke;
     border: transparent;
     vertical-align: middle;
     padding: unset;
@@ -305,6 +304,7 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
     padding: 1rem;
     background: var(--bs-table-bg);
     position: relative;
+    color: whitesmoke;
 }
 
 #allTimeStats th {
@@ -343,6 +343,14 @@ td.custom-score {
 
 table#allTimeHighScorerTeam .custom-name {
     margin-right: .5rem;
+}
+
+a#statsTab {
+    color: inherit;
+}
+
+a#teamCompTab {
+    color: inherit;
 }
 
 table#allTimeLowScorerTeam .custom-name {

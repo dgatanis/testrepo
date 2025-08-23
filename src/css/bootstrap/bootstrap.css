@@ -50,6 +50,7 @@
   --custom-dark-mode-transparent: #232332d6;
   --custom-dark-mode-primary: #293142;
   --custom-dark-mode-secondary: #3e4a64;
+  --custom-dark-mode-text-color: #cecece;
   --custom-light-blue: rgb(222 232 243);
 }
 
@@ -11178,16 +11179,16 @@ ul.nav.nav-tabs {
 
 .custom-dark-mode {
   background-color: var(--custom-dark-mode-background);
-  color: whitesmoke;
+  color: var(--custom-dark-mode-text-color);
 }
 
 .accordion-button:hover {
-  color: var(--custom-light-gray);
+  color: var(--custom-dark-mode-text-color);
   background-color: var(--custom-dark-mode-primary);
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--custom-light-gray);
+  color: var(--custom-dark-mode-text-color);
   background-color: var(--custom-dark-mode-primary);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
@@ -11198,10 +11199,11 @@ ul.nav.nav-tabs {
   }
 
   .nav-item:hover {
-    background: var(--custom-transp-blue);
+    background: #b4b4b487;
     transition: all .5s ease;
-    color: var(--custom-dark-blue);
     cursor: pointer;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
   }
 
   .custom-selected-nav {
@@ -11221,7 +11223,7 @@ ul.nav.nav-tabs {
 
   .custom-nav-container {
     padding-top: .2rem;
-    background-color: #ffffffde;;
+    background-color: #bdbdbd96;
   }
 
   img.custom-dark-mode-image {
