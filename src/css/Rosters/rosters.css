@@ -264,7 +264,7 @@ tr:not([class^='custom-stats']) {
   grid-row: 1 / 3;
   position: absolute;
   right: 0;
-  align-self: anchor-center;
+  align-self: center;
 }
 
 .custom-injury {
