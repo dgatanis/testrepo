@@ -29,6 +29,7 @@
   grid-row: 1;
   display: flex;
   white-space: nowrap;
+  align-items: center;
 }
 .custom-team-details-name {
     font-family: 'F2';
@@ -524,4 +525,5 @@ td {
         margin-left: 39%;
       }
     }
+
 
