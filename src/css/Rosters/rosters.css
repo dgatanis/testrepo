@@ -182,7 +182,7 @@ tr:not([class^='custom-stats']) {
   animation: revealLetter 1.5s forwards;
   column-gap: .2rem;
   height: 4rem;
-  box-shadow: 0 0 .2rem 0 black;
+  box-shadow: 0 0 .2rem 0 whitesmoke;
   position: relative;
   overflow: hidden;
 }
@@ -525,5 +525,6 @@ td {
         margin-left: 39%;
       }
     }
+
 
 
