@@ -8,7 +8,6 @@
     margin-left: auto;
     margin-right: auto;
     background: transparent;
-    color: var(--custom-light-gray);
 }
 
 a.page-link.page-number:focus {
@@ -216,7 +215,6 @@ a.page-link {
 
 .custom-transaction-date {
     text-align: center;
-    color: #575757;
     font-size: small;
     grid-column: 1 / -1;
 }

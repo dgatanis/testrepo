@@ -247,22 +247,22 @@ function loadContents() {
 
                     var qbAge = document.createElement('div');
                     qbAge.setAttribute('class', 'custom-position-age');
-                    qbAge.setAttribute('style', 'color: #ff2a6d;');
+                    qbAge.setAttribute('style', 'color: #ca2458;');
                     qbAge.innerText = qbAgeString;
 
                     var rbAge = document.createElement('div');
                     rbAge.setAttribute('class', 'custom-position-age');
-                    rbAge.setAttribute('style', 'color: #00ceb8;');
+                    rbAge.setAttribute('style', 'color: #009d8c;');
                     rbAge.innerText = rbAgeString;
 
                     var wrAge = document.createElement('div');
                     wrAge.setAttribute('class', 'custom-position-age');
-                    wrAge.setAttribute('style', 'color: #58a7ff;');
+                    wrAge.setAttribute('style', 'color: #4687ce;');
                     wrAge.innerText = wrAgeString;
 
                     var teAge = document.createElement('div');
                     teAge.setAttribute('class', 'custom-position-age');
-                    teAge.setAttribute('style', 'color: #ffae58;');
+                    teAge.setAttribute('style', 'color: #e77e10;');
                     teAge.innerText = teAgeString;                   
 
                     positionAgeChild.append(qbAge);
@@ -283,15 +283,14 @@ function loadContents() {
                         
                         if(sameTeam == "" || sameTeam != player.team)
                         {
-                            var stacksTeamName = document.createElement('div');
+                            var stacksTeamImage = createNFLTeamImage(player.team);
                             var stacksPlayer = document.createElement('div');
 
-                            stacksTeamName.setAttribute('class', 'custom-stacks-teamname');
-                            stacksTeamName.innerText = player.team;
+                            stacksTeamImage.setAttribute('class', 'custom-stacks-team');
                             stacksPlayer.setAttribute('class', 'custom-stacks-player');
-                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
+                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " (" + player.position + ")";
 
-                            statsStacksChild.append(stacksTeamName);
+                            statsStacksChild.append(stacksTeamImage);
                             statsStacksChild.append(stacksPlayer);
 
                             sameTeam = player.team;
@@ -300,9 +299,10 @@ function loadContents() {
                         else
                         {
                             var stacksPlayer = document.createElement('div');
+                            var playerPosition = document.createElement('div');
                             stacksPlayer.setAttribute('class', 'custom-stacks-player');
-                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " - " + player.position;
-                            var teamStacks = statsStacksChild.getElementsByClassName("custom-stacks-teamname");
+                            stacksPlayer.innerText = getFullPlayerName(player.player_id) + " (" + player.position + ")";
+                            var teamStacks = statsStacksChild.getElementsByClassName("custom-stacks-team");
                             var mostRecentTeam = teamStacks[teamStacks.length-1];
 
                             if(player.position == "QB")
@@ -461,11 +461,15 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
     var playerNumberDiv = document.createElement('div');
     var playerHeightDiv = document.createElement('div');
     var playerWeightDiv = document.createElement('div');
+    var playerNameContainer = document.createElement('div');
+    var nickNameDiv = document.createElement('div');
     var tr = document.createElement("tr");
     var th = document.createElement("th");
     var td = document.createElement("td");
 
+    playerNameContainer.setAttribute("class", "custom-player-name-container");
     th.innerText=player.position;
+    
     th.setAttribute('scope', 'row');
     tr.setAttribute('data-playerid', player.player_id);
     playerNameDiv.setAttribute('class', 'custom-player-name');
@@ -480,15 +484,27 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
     playerHeightDiv.innerText = calculateHeight(player.height);
     playerWeightDiv .setAttribute('class', 'custom-player-weight');
     playerWeightDiv.innerText = player.weight + " lbs";
+    nickNameDiv.setAttribute('class', 'custom-player-nickname');
 
+    if(isIR == 'Y'){
+        th.setAttribute("class", "custom-IR-roster");
+    }
+    else {
+        th.setAttribute("class", "custom-" + player.position.toLowerCase() + "-roster");
+    }
+    
+
+
+    
+    
+    
     if(playerNickName != "")
     {
-        var nickNameDiv = document.createElement('div');
-        nickNameDiv.setAttribute('class', 'custom-player-nickname');
         nickNameDiv.innerText = '"' + playerNickName + '"';
-
-        td.append(nickNameDiv);
     }
+
+    td.append(nickNameDiv);
+    
     
     playerDetailsDiv.appendChild(playerNumberDiv);
     playerDetailsDiv.appendChild(playerAgeDiv);
@@ -497,7 +513,7 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     if(isIR == 'Y')
     {
-        tr.setAttribute('style', 'background: #f80202a3;');
+        tr.setAttribute('style', 'background: #f8020270;');
         th.innerText = 'IR';
     }
     if (player.injury_status) {
@@ -534,11 +550,6 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
             injuredDiv.innerText = 'IR';
         }
 
-        if(isIR == 'Y')
-        {
-            injuredDiv.setAttribute('style', 'color: #c00000;')
-        }
-
         playerDetailsDiv.appendChild(injuredDiv);
     }
 
@@ -563,7 +574,9 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
 
     if(player.position != "DEF")
     {
-        td.append(teamImage);
+        playerNameContainer.appendChild(playerNameDiv);
+        playerNameContainer.appendChild(teamImage);
+        td.append(playerNameContainer);
         td.append(playerDetailsDiv);
     }
 
@@ -574,12 +587,8 @@ function createPlayerRow(playerid, rosterid, starter, isIR = null) {
     }
     else
     {
-        var containerDiv = document.createElement("div");
         playerStatsIcon.setAttribute('class', 'custom-player-stats-icon');
-        containerDiv.setAttribute('class', 'custom-player-stats-container');
-
-        containerDiv.append(playerStatsIcon);
-        td.append(containerDiv);
+        td.append(playerStatsIcon);
     }
     
     tr.appendChild(td);
