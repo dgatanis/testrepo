@@ -417,6 +417,11 @@
     text-shadow: 1px 1px 1px black;
   }
 
+  .accordion-item:last-of-type .accordion-collapse {
+    border-bottom-right-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+  }
+
   .accordion-button:not(.collapsed) {
     border: unset;
     transition: all 1s ease;
@@ -424,6 +429,10 @@
 
   .modal-title {
     color: black;
+  }
+
+  .modal-content {
+    background-color: #c4c4c4;
   }
 
   .accordion-button:hover {
@@ -434,7 +443,6 @@
     color: var(--custom-light-gray);
     background-color: var(--custom-dark-mode-primary);
     border: 2px solid black;
-    text-shadow: 1px 1px 1px black;
     transition: all 1s ease;
   }
 

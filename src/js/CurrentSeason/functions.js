@@ -148,11 +148,6 @@ async function toggleStarters(rosterId) {
             row.classList.remove('custom-starter');
 
         }
-        rosterTable.classList.add("custom-default-background");
-        rosterDetails.classList.add("custom-default-background");
-
-        rosterTable.classList.remove("custom-selected-background");
-        rosterDetails.classList.remove("custom-selected-background");
     }
     else
     {
@@ -166,10 +161,5 @@ async function toggleStarters(rosterId) {
                 row.classList.add('custom-starter');
             }
         }
-        rosterTable.classList.add("custom-selected-background");
-        rosterDetails.classList.add("custom-selected-background");
-
-        rosterTable.classList.remove("custom-default-background");
-        rosterDetails.classList.remove("custom-default-background");
     }
 }

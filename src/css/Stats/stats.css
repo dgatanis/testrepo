@@ -58,8 +58,6 @@ a#keep-trade-roster-comp {
     max-height: 2.5rem;
     display: block;
     margin: auto;
-    border-radius: 2rem;
-    box-shadow: 0 .1rem 0.5rem black;
 }
 
 table#teamComparison {
