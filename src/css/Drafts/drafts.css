@@ -6,7 +6,8 @@
     background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     margin-top: 2rem;
-    border: 3px solid black;
+    border: 3px solid var(--custom-dark-mode-background);
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 .custom-highlighted-item {

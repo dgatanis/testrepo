@@ -1,6 +1,6 @@
 .accordion-container {
     padding: .5rem;
-    background: var(--custom-dark-mode-background);
+    background: transparent;
 }
 
 .custom-matchup-container {
@@ -13,6 +13,11 @@
     border: 3px solid black;
     padding-left: unset;
     padding-right: unset;
+}
+
+.accordion-item {
+    background: transparent;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 #seasonTitle {
@@ -120,7 +125,7 @@
 
 
 .custom-matchup-list {
-    background: var(--custom-dark-mode-background)
+    background: transparent;
 }
 
 .custom-team-table {

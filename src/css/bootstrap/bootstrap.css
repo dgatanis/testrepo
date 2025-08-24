@@ -44,7 +44,7 @@
   --custom-blue-gray: #8c9ba9;
   --custom-dark-blue: #475664;
   --custom-light-gray: #ededed;
-  --custom-dark-gray: #232323;
+  --custom-dark-gray: #393939;
   --custom-orange: #b76e36;
   --custom-dark-mode-background: #171a23;
   --custom-dark-mode-transparent: #232332d6;
@@ -11219,6 +11219,7 @@ ul.nav.nav-tabs {
     max-width: 6rem;
     margin-bottom: 1rem;
     border-radius: 3rem;
+    box-shadow: 0 0rem 0.5rem whitesmoke;
   }
 
   .custom-nav-container {
