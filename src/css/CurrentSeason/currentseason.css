@@ -186,6 +186,9 @@
   .custom-list-group {
     background-color: var(--custom-dark-mode-primary);
     color: var(--custom-light-gray);
+    border: 2px solid var(--custom-dark-mode-background);
+    box-shadow: 0 0rem 0.2rem whitesmoke;
+    border-radius: .3rem;
   }
 
   #Standings .custom-teamname-normal{
@@ -391,6 +394,13 @@
     padding: .2rem;
   }
 
+  img.custom-matchup-icon-small {
+    background-repeat: no-repeat;
+    max-width: 2rem;
+    vertical-align: baseline;
+    margin: unset;
+}
+
   .custom-small-player-avatar {
     margin-right: .2rem;
     border-radius: 5rem;
@@ -407,6 +417,11 @@
     text-shadow: 1px 1px 1px black;
   }
 
+  .accordion-item:last-of-type .accordion-collapse {
+    border-bottom-right-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+  }
+
   .accordion-button:not(.collapsed) {
     border: unset;
     transition: all 1s ease;
@@ -414,6 +429,10 @@
 
   .modal-title {
     color: black;
+  }
+
+  .modal-content {
+    background-color: #c4c4c4;
   }
 
   .accordion-button:hover {
@@ -424,7 +443,6 @@
     color: var(--custom-light-gray);
     background-color: var(--custom-dark-mode-primary);
     border: 2px solid black;
-    text-shadow: 1px 1px 1px black;
     transition: all 1s ease;
   }
 
@@ -551,8 +569,9 @@
     width: 28rem;
     padding-bottom: 2rem;
     background: var(--custom-dark-mode-primary);
-    box-shadow: 0 0 .2rem 0 #000000;
     color: var(--custom-light-gray);
+    border: 2px solid var(--custom-dark-mode-background);
+    box-shadow: 0 0rem 0.2rem whitesmoke;
   }
 
   #custom_transaction_inner {
@@ -674,13 +693,12 @@
     padding:1rem;
     border-radius:.5rem;
     max-height: 45rem;
-    transition: all 1s ease;
+    border: 2px solid var(--custom-dark-mode-background);
+    box-shadow: 0 0rem 0.2rem whitesmoke;
   }
 
   .custom-carousel-item:hover {
     color: whitesmoke;
-    text-shadow: 1px 1px 1px black;
-    border: 2px solid black;
     transition: all 1s ease;
   }
 
@@ -699,7 +717,6 @@
     &:hover {
       .custom-transaction-description {
         color: whitesmoke;
-        border-radius: 1rem;
         transition: all 1s ease;
       }
       .custom-team-record {

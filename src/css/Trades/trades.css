@@ -82,6 +82,7 @@ a.page-link {
     padding: .2rem;
     padding-top: .3rem;
     border: 1px solid black;
+    margin-bottom: .5rem;
 }
 
 .custom-teamname-small {
@@ -136,7 +137,7 @@ a.page-link {
     justify-content: center;
     background-image: url(/src/static/images/add-sign.png);
     border: 1px solid black;
-    
+    margin-bottom: .5rem;
 }
 
 img.custom-team-logo {
@@ -163,6 +164,7 @@ img.custom-team-logo {
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     border: 1px solid black;
+    margin-bottom: .5rem;
 }
 
 .custom-draft-pick .custom-trade-from-icon {
@@ -187,7 +189,7 @@ img.custom-team-logo {
 
 .custom-team-group {
     display: grid;
-    box-shadow: 0 0rem 0.2rem black;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
     border-radius: 1rem;
     margin: auto;
     margin-top: unset;
@@ -199,7 +201,7 @@ img.custom-team-logo {
     min-width: 20rem;
     position: relative;
     min-height: 100%;
-    border: 2px solid black;
+    border: 2px solid var(--custom-dark-mode-background);
 }
 
 a.page-link {

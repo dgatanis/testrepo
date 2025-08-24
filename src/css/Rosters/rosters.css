@@ -459,6 +459,11 @@ td {
 
   /*Large Mobile display styling*/
   @media screen and (max-width: 26.875rem) {
+    .custom-starter-stats-icon, .custom-player-stats-icon {
+      margin-right: .4rem;
+      margin-top: .8rem;
+    }
+
     .custom-player-stats-container {
       max-width: 18rem;
     }

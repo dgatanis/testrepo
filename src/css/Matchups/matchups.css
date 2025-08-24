@@ -1,6 +1,6 @@
 .accordion-container {
     padding: .5rem;
-    background: var(--custom-dark-mode-background);
+    background: transparent;
 }
 
 .custom-matchup-container {
@@ -13,6 +13,11 @@
     border: 3px solid black;
     padding-left: unset;
     padding-right: unset;
+}
+
+.accordion-item {
+    background: transparent;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 #seasonTitle {
@@ -49,9 +54,9 @@
     font-family: 'F7';
     border-radius: 3rem;
     min-width: 4rem;
-    height: 100%;
-    padding: .3rem;
-    padding-top: .6rem;
+    line-height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .custom-team-table-1 .custom-player-points {
@@ -120,7 +125,7 @@
 
 
 .custom-matchup-list {
-    background: var(--custom-dark-mode-background)
+    background: transparent;
 }
 
 .custom-team-table {
@@ -395,8 +400,7 @@
 
     .custom-player-position {
         font-size: .7rem;
-        min-width: 2rem;
-        padding-top: .5rem;
+        min-width: 1.5rem;
     }
 
     .custom-player-points {

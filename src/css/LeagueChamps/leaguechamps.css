@@ -31,8 +31,8 @@
     background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     min-height: 10rem;
-    box-shadow: 0 0rem 0.4rem black;
-    border: 2px solid black;
+    border: 3px solid var(--custom-dark-mode-background);
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 .custom-player-container {
@@ -76,9 +76,10 @@ tr td {
     background-color: whitesmoke;
     padding: .1rem;
     position: absolute;
-    top: -40px;
-    max-width: 2.5rem;
-    box-shadow: 0 0rem 0.4rem black;
+    top: -41px;
+    left: -4px;
+    max-width: 3rem;
+    box-shadow: 0 0rem 0.1rem black;
 }
 
 .custom-player-avatar {
@@ -140,8 +141,7 @@ th {
     max-width: 7rem;
     background: #57575730;
     border-radius: 5rem;
-    box-shadow: 0 0rem 0.5rem black;
-    border: 1px solid black;
+    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 #LeagueChampsTable > tbody > tr:last-child { 
