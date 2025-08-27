@@ -39,6 +39,7 @@
     flex-wrap: initial;
     align-items: center;
     color: black;
+    position: relative;
 }
 
 .container {
@@ -49,14 +50,18 @@
 
 
 .custom-player-position {
-    font-size: 1rem;
-    text-align: center;
-    font-family: 'F7';
+    width: 2rem;
+    position: absolute;
+    background: var(--custom-dark-mode-transparent);
+    color: white;
+    font-family: 'F1';
+    padding: .2rem;
     border-radius: 3rem;
-    min-width: 4rem;
-    line-height: 100%;
-    margin-top: auto;
-    margin-bottom: auto;
+    border: 2px solid var(--custom-dark-mode-background);
+    text-align: center;
+    box-shadow: 0 0rem 0.2rem black;
+    font-size: .8rem;
+    text-shadow: 1px 1px 1px black;
 }
 
 .custom-team-table-1 .custom-player-points {
@@ -68,19 +73,21 @@
 }
 
 .custom-team-table-1 .custom-player-position {
-    margin-right: auto;
+    top: -11px;
+    left: -3px;
 }
 
 .custom-team-table-2 .custom-player-position {
-    margin-left: auto;
+    top: -11px;
+    right: -3px;
 }
 
-.custom-team-table-1 .custom-player-points,  .custom-team-table-2 .custom-player-position {
+.custom-team-table-1 .custom-player-points,  .custom-team-table-2 {
     border-top-left-radius: unset;
     border-bottom-left-radius: unset;
 }
 
-.custom-team-table-2 .custom-player-points, .custom-team-table-1 .custom-player-position {
+.custom-team-table-2 .custom-player-points, .custom-team-table-1 {
     border-top-right-radius: unset;
     border-bottom-right-radius: unset;
 }
@@ -93,8 +100,19 @@
     padding-left: unset;
 }
 
+.custom-team-table-1 .custom-player-name {
+    margin-left: auto;
+}
+
+.custom-team-table-2 .custom-player-name {
+    margin-right: auto;
+}
+
 .custom-player-name {
-    margin: auto;
+    text-align: justify;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .custom-player-points {
@@ -323,16 +341,21 @@
 
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {
+
+    .custom-team-table-1 .custom-player-name {
+        margin-left: 2rem;
+    }
+
+    .custom-team-table-2 .custom-player-name {
+        margin-right: 2rem;
+    }
+
     .custom-matchups {
         width: 95%;
     }
 
     .custom-team-score {
         font-size: 1.5rem;
-    }
-
-    .custom-player-position {
-        min-width: 3rem;
     }
 
     .custom-player-name {
@@ -399,8 +422,16 @@
     }
 
     .custom-player-position {
-        font-size: .7rem;
-        min-width: 1.5rem;
+        font-size: .6rem;
+        width: 1.8rem;
+    }
+
+    .custom-team-table-1 .custom-player-name {
+        margin-left: 1.5rem;
+    }
+
+    .custom-team-table-2 .custom-player-name {
+        margin-right: 1.5rem;
     }
 
     .custom-player-points {
