@@ -48,7 +48,7 @@
   --custom-orange: #b76e36;
   --custom-dark-mode-background: #171a23;
   --custom-dark-mode-transparent: #232332d6;
-  --custom-dark-mode-primary: #293142;
+  --custom-dark-mode-primary: #212735;
   --custom-dark-mode-secondary: #3e4a64;
   --custom-dark-mode-text-color: #cecece;
   --custom-light-blue: rgb(222 232 243);
@@ -11147,7 +11147,7 @@ ul.nav.nav-tabs {
 }
 
 .footer {
-  background: var(--custom-dark-gray);
+  background: linear-gradient(180deg, var(--custom-dark-mode-primary), var(--custom-dark-mode-background), var(--custom-dark-mode-background));
   height: 4rem;
   padding-top: 1rem;
   padding: unset;
@@ -11155,6 +11155,10 @@ ul.nav.nav-tabs {
   left: 0;
   bottom: 0;
   width: 100%;
+  border-top-right-radius: .5rem;
+  border-top-left-radius: .5rem;
+  border: 1px solid black;
+  border-bottom: unset;
 }
 
 .custom-footer-links {
@@ -11284,6 +11288,10 @@ ul.nav.nav-tabs {
     color: whitesmoke;
     text-align: center;
   }
+
+  .mobilenav .active {
+    background: linear-gradient(360deg, var(--custom-dark-mode-primary), var(--custom-dark-mode-background), var(--custom-dark-mode-background));
+  }
   
   .btn-primary:active {
     background-color: var(--custom-dark-gray);
@@ -11344,6 +11352,8 @@ ul.nav.nav-tabs {
     top: 0;
     left: 0;
     z-index: 1030;
+    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
   }
 
   .desktopnav {
