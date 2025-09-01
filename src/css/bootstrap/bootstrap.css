@@ -11354,8 +11354,6 @@ ul.nav.nav-tabs {
     z-index: 1030;
     border-bottom-right-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    border: 1px solid black;
-    border-top: unset;
   }
 
   .desktopnav {
