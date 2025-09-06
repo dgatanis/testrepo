@@ -95,12 +95,12 @@ function getAllTimePlayerScores() {
     return playerScores;
 }
 
-function getAllTimeTeamScores() {
+function getAllTimeTeamScores(currentWeek,currentSeason) {
     var teamScores = [];
     for (let matchupWeek of allTimeMatchups) {
 
-        if (matchupWeek && matchupWeek.week != 0) {
-
+        if (matchupWeek && matchupWeek.week != 0 && ((parseInt(matchupWeek.year) < parseInt(currentSeason)) || (parseInt(matchupWeek.week) < parseInt(currentWeek) && parseInt(matchupWeek.year) <= parseInt(currentSeason)))) {
+            
             const matchupsLength = Object.keys(matchupWeek).length;
             for (let i = 0; i < matchupsLength; i++) {
 
@@ -124,10 +124,10 @@ function getAllTimeTeamScores() {
 async function setTableData(tableName) {
 
     var thisTable = document.getElementById(tableName);
-    var teamScores =  getAllTimeTeamScores();
     var playerScores =  getAllTimePlayerScores();
     var currentSeason = await getCurrentSeason();
     var currentWeek = await getCurrentWeek();
+    var teamScores =  getAllTimeTeamScores(currentWeek,currentSeason);
 
     if (tableName == 'allTimeLowScorerTeam') {
         var tableRows = thisTable.children[1].children;

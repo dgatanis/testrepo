@@ -31,6 +31,8 @@
   white-space: nowrap;
   align-items: center;
 }
+
+
 .custom-team-details-name {
     font-family: 'F2';
     margin: auto;
@@ -321,6 +323,7 @@ tr:not([class^='custom-stats']) {
 
 td {
   border-bottom: unset;
+  color: black;
 }
 .custom-tiny-player-avatar {
   vertical-align: text-top;
