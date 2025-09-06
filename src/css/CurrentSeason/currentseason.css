@@ -220,7 +220,6 @@
   .custom-starter {
     border: 2px solid white;
     box-shadow: 0 0 .1rem 0 whitesmoke;
-    background: var(--custom-dark-mode-secondary);
     color: var(--custom-light-gray);
     transition: all 1s ease;
   }
