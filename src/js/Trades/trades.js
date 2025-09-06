@@ -92,7 +92,6 @@ async function loadTradeTransactions() {
                             if (rosterid == trade.adds[addedPlayers[j]]) {
                                 var player = playerData.players.find(x => x.player_id === addedPlayers[j]);
                                 var playerDiv = createPlayerDiv(player.player_id, 'add');
-                                var nflTeamImg = createNFLTeamImage(player.team);
 
                                 if(tradePartners > 2)
                                 {
@@ -111,7 +110,6 @@ async function loadTradeTransactions() {
                                     playerDiv.appendChild(tradeTeamIcon);
                                 }
 
-                                playerDiv.append(nflTeamImg);
                                 teamGroup.appendChild(playerDiv);
 
                                 totalPlayers++;
@@ -412,9 +410,14 @@ function createTransactionRow(page) {
 
 function createPlayerDiv(playerid, addDrop) {
     var player = playerData.players.find(x => x.player_id === playerid);
-
+    var nflTeamImg = createNFLTeamImage(player.team);
+    var playerDetailsDiv = document.createElement("div");
+    var detailsDiv = document.createElement("div");
     var playerDiv = document.createElement("div");
+    
     playerDiv.setAttribute('class', 'custom-player');
+    playerDetailsDiv.setAttribute('class', 'custom-player-details');
+    detailsDiv.setAttribute('class', 'custom-details-container');
 
     if(player.position != "DEF")
     {
@@ -429,6 +432,7 @@ function createPlayerDiv(playerid, addDrop) {
     var playerImg = createPlayerImage(playerid);
     var playerName = document.createElement("div");
     var playerPosition = document.createElement("div");
+    var playerNumber = document.createElement("div");
     var addDropIcon = createAddDropImg(addDrop);
 
     playerName.setAttribute('class', 'custom-playername-large');
@@ -437,18 +441,24 @@ function createPlayerDiv(playerid, addDrop) {
     {
         playerName.innerText = getFullPlayerName(playerid);
         playerPosition.innerText = player.position;
+        playerNumber.innerText = "#" + player.number;
         playerPosition.setAttribute('class', 'custom-player-position');
         playerImg.classList.add('custom-' + addDrop.toLowerCase() + '-player');
         addDropIcon.classList.add('custom-' + addDrop.toLowerCase() + '-icon');
+        playerNumber.classList.add('custom-player-number');
     }
     else {
         playerName.innerText = getFullPlayerName(playerid);
     }
-    
+
     playerImg.append(addDropIcon);
+    detailsDiv.append(playerNumber);
+    detailsDiv.append(nflTeamImg);
+    detailsDiv.append(playerPosition);
+    playerDetailsDiv. append(playerName);
+    playerDetailsDiv.append(detailsDiv);
     playerDiv.append(playerImg);
-    playerDiv.append(playerName);
-    playerDiv.append(playerPosition);
+    playerDiv.append(playerDetailsDiv);
 
     return playerDiv;
 }
