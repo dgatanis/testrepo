@@ -17,7 +17,7 @@ function expandSeasonWeek(season, week, matchupId) {
 
         for(let accordionBody of accordionBodys)
         {
-            if(accordionBody.id == ("collapse_" + week.toString()) || accordionBody.id == ("collapse_" + season.toString())) { //only open chosen season/week
+            if(accordionBody.id == ("collapse_" + week.toString() + "_" + season.toString()) || accordionBody.id == ("collapse_" + season.toString() + "_" + season.toString())) { //only open chosen season/week
                 
                 if(showFields){
                     accordionBody.setAttribute('class', 'accordion-collapse collapse show');
