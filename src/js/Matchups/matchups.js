@@ -54,7 +54,6 @@ async function loadContents() {
 }
 
 async function loadMatchupsList(currentWeek, currentSeason) {
-    var currentWeek = matchupData.length;
     var matchupDiv = document.getElementById("allTimeMatchups");
     var year = null;
     var seasonAccordionItem = null;
@@ -74,17 +73,18 @@ async function loadMatchupsList(currentWeek, currentSeason) {
         var thisWeek = matchupData[i];
         var thisYear = matchupData[i].year;
 
-        if (thisWeek.week != 18 && thisWeek.week != 0 && (thisWeek > currentWeek && thisWeek.year <= currentSeason || (thisWeek.year < currentSeason))) {
+        if (thisWeek.week != 18 && thisWeek.week != 0 && ((parseInt(thisWeek.week) < parseInt(currentWeek) && parseInt(thisYear) <= parseInt(currentSeason)) || (parseInt(thisYear) < parseInt(currentSeason)))) {
+
             if (year == null || year != thisYear) {
                 year = thisYear;
                 accordionContainer = document.createElement("div"); //create accordion container per season
                 accordionContainer.setAttribute("class", "accordion custom-div-shadow accordion-container-season")
                 accordionContainer.setAttribute("id", "season_" + thisWeek.year);
-                seasonAccordionItem = createAccordionItem(thisYear, "#season_" + thisWeek.year);
+                seasonAccordionItem = createAccordionItem(thisYear, "#season_" + thisWeek.year, thisWeek.year);
                 accordionContainer.appendChild(seasonAccordionItem);
                 matchupDiv.appendChild(accordionContainer);
             }
-            var weekAccordionItem = createAccordionItem(thisWeek.week, "#week_" + thisWeek.year); //create and append week accordion to season accordion
+            var weekAccordionItem = createAccordionItem(thisWeek.week, "#week_" + thisWeek.year, thisWeek.year); //create and append week accordion to season accordion
             seasonAccordionItem.getElementsByClassName("accordion-container")[0].appendChild(weekAccordionItem);
             var matchup = loadMatchups(thisWeek.week, thisWeek.year, fullPlayoffData); //create matchup and append to the designated week
             weekAccordionItem.getElementsByClassName("accordion-body")[0].appendChild(matchup);
@@ -413,7 +413,7 @@ function createTeamTable(maxPlayers) {
     return table;
 }
 
-function createAccordionItem(num, dataParent) {
+function createAccordionItem(num, dataParent, year) {
     var headerId = "itemHeader_" + num;
 
     var accordionItem = document.createElement("div");
@@ -423,14 +423,14 @@ function createAccordionItem(num, dataParent) {
     accordionHeader.setAttribute("class", "accordion-header");
     accordionHeader.setAttribute("id", headerId);
 
-    var button = createMatchupButtonElement(num);
+    var button = createMatchupButtonElement(num, year);
     accordionHeader.appendChild(button);
 
     var accordionCollapsible = document.createElement("div"); 
     accordionCollapsible.setAttribute("class", "accordion-collapse collapse");
     accordionCollapsible.setAttribute("aria-labelledby", headerId);
     accordionCollapsible.setAttribute("data-bs-parent", dataParent);
-    accordionCollapsible.setAttribute("id", "collapse_" + num);
+    accordionCollapsible.setAttribute("id", "collapse_" + num + "_" + year);
 
     var accordionBody = document.createElement("div");
     accordionBody.setAttribute("class", "accordion-body custom-matchup-list");
@@ -454,12 +454,12 @@ function createAccordionItem(num, dataParent) {
     return accordionItem;
 }
 
-function createMatchupButtonElement(num) {
+function createMatchupButtonElement(num, year) {
     var button = document.createElement("button");
     button.setAttribute("class", "accordion-button custom-matchup-week collapsed");
     button.setAttribute("type", "button");
     button.setAttribute("data-bs-toggle", "collapse");
-    button.setAttribute("data-bs-target", "#collapse_" + num);
+    button.setAttribute("data-bs-target", "#collapse_" + num + "_" + year);
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-controls", "collapse_" + num);
     button.setAttribute("id", "buttonWeek_" + num)
