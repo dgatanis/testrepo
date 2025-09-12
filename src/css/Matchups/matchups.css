@@ -6,7 +6,7 @@
 .custom-matchup-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     padding: 1rem;
