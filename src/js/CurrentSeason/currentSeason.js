@@ -254,25 +254,25 @@ function loadContendersRankings(currentWeek) {
 
     if (currentWeek > 1) {
         var record_500 = Math.floor(currentWeek / 2);
-
+        
         for (let roster of seasonRankings) {
             var rosterStats = getRosterStats(roster.roster_id);
             var currentRanking = seasonRankings.findIndex(x => x.roster_id === roster.roster_id) + 1;
             var listItem = document.createElement("li");
             listItem.setAttribute("class", "list-group-item");
             var winLossRecord = "(" + rosterStats.wins + "-" + rosterStats.losses + "-" + rosterStats.ties + ")";
-
-            if (rosterStats.wins > (record_500 + 2) || (currentRanking <= 4 && rosterStats.wins > (record_500 + 1))) {
+            
+            if (rosterStats.wins >= (record_500 + 1) || (currentRanking <= 4 && rosterStats.wins > (record_500 + 1))) {
                 var teamName = getTeamName(rosterStats.owner_id);
                 listItem.innerText = teamName + " " + winLossRecord;
                 contenderTeams.appendChild(listItem);
             }
-            else if (rosterStats.wins <= (record_500 + 2) && rosterStats.wins >= (record_500 - 2)) {
+            else if (rosterStats.wins <= (record_500 + 1) && rosterStats.wins >= (record_500 - 1)) {
                 var teamName = getTeamName(rosterStats.owner_id);
                 listItem.innerText = teamName + " " + winLossRecord;
                 pretenderTeams.appendChild(listItem);
             }
-            else if (rosterStats.wins < (record_500 - 2)) {
+            else if (rosterStats.wins <= (record_500)) {
                 var teamName = getTeamName(rosterStats.owner_id);
                 listItem.innerText = teamName + " " + winLossRecord;
                 rearEnderTeams.appendChild(listItem);
