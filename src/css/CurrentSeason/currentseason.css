@@ -157,6 +157,7 @@
   .custom-roster-player-position.col {
     grid-row: 1;
     grid-column: 1;
+    color: #d1d1d1;
   }
 
   .custom-roster-player-name.col {
@@ -164,11 +165,13 @@
     grid-column: 2;
     text-align: left;
     margin-left: 1rem;
+    color: #d1d1d1;
   }
 
   .custom-roster-player-age.col {
     grid-row: 1;
     grid-column: 3;
+    color: #d1d1d1;
   }
 
   .custom-roster-players-container {
@@ -218,7 +221,7 @@
   }
 
   .custom-starter {
-    border: 2px solid white;
+    border: 2px solid #7a7a7a;
     box-shadow: 0 0 .1rem 0 whitesmoke;
     color: var(--custom-light-gray);
     transition: all 1s ease;
