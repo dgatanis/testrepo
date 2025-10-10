@@ -27,6 +27,7 @@ async function submitTeams() {
     var overallRecordRow = document.getElementById("record");
     var overallAvgPtsForRow = document.getElementById("overallAvgPtsFor");
     var overallStartSitAccRow = document.getElementById("overallStartSitAcc");
+    var lastFiveGamesRow = document.getElementById("Last5Games");
 
     if (rosterId1 != rosterId2) {
         teamComparisonTable.classList.add('custom-none-display');
@@ -83,6 +84,15 @@ async function submitTeams() {
             }
         }
 
+        if(lastFiveGamesRow) { //Last 5 games record row
+            var teamMatchups = allMatchups;
+            var winsLosses = getLast5GamesBetweenRosters(teamMatchups, helper, rosterId1, rosterId2, null);
+            var team1Last5 = lastFiveGamesRow.getElementsByClassName("custom-team1-result")[0];
+            var team2Last5 = lastFiveGamesRow.getElementsByClassName("custom-team2-result")[0];
+            
+            team1Last5.innerText = winsLosses["roster_id1"].record;
+            team2Last5.innerText = winsLosses["roster_id2"].record;
+        }
         if (winsRow) { //Wins losses rows
             var teamMatchups = allMatchups;
             var winsLosses = getRostersWinsLosses(teamMatchups, helper, rosterId1, rosterId2, 'N');
@@ -682,7 +692,7 @@ function getMatchupsBetweenRosters(rosterid_1, rosterid_2, allTimeMatchups, curr
     });
 }
 
-    function getRostersWinsLosses(teamMatchups, helper, rosterId1, rosterId2, postseasonFilter = null) {
+function getRostersWinsLosses(teamMatchups, helper, rosterId1, rosterId2, postseasonFilter = null) {
     let teamsRecord = {
         "team1": {
             wins: 0,
@@ -1028,6 +1038,64 @@ function allTeamMatchupAccuracy(teamMatchups, playerData, roster_id1, roster_id2
     }
 
         return teamStartSitAcc;
+}
+
+
+function getLast5GamesBetweenRosters(teamMatchups, helper, rosterId1, rosterId2, postseasonFilter = null) {
+    let lastGamesRecord = {
+        "roster_id1": {
+            roster_id: rosterId1,
+            "record": ""
+        },
+        "roster_id2": {
+            roster_id: rosterId2,
+            "record": ""
+        }
+    };
+    var matchupCounter = 0;
+    var allMatchups = teamMatchups.sort((a, b) => {
+                                        const yearA = parseInt(a.year);
+                                        const yearB = parseInt(b.year);
+                                        const weekA = a.week;
+                                        const weekB = b.week;
+
+                                        if (yearA !== yearB) {
+                                            return yearB - yearA;
+                                        } else {
+                                            return weekB - weekA;
+                                        }
+                                    });
+    console.log(allMatchups);
+    for(matchup of allMatchups)
+    {
+        matchupCounter++;
+        console.log(matchupCounter);
+        if(matchupCounter <= 5)
+        {
+            if (postseasonFilter && postseasonFilter == 'Y' && matchup.week <= 14) continue;
+            if (postseasonFilter && postseasonFilter == 'N' && matchup.week >= 15) continue;
+            matchupWinners = helper.getMatchupWeekWinner(matchup, matchup[0].matchup_id);
+            if(matchupWinners[0].roster_id === rosterId1 && matchupWinners[0].points != matchupWinners[1].points)
+            {
+                lastGamesRecord["roster_id1"].record += "W "
+                lastGamesRecord["roster_id2"].record += "L "
+            }
+            else if(matchupWinners[0].roster_id === rosterId2 && matchupWinners[0].points != matchupWinners[1].points)
+            {
+                lastGamesRecord["roster_id1"].record += "L "
+                lastGamesRecord["roster_id2"].record += "W "
+            }
+            else
+            {
+                lastGamesRecord["roster_id1"].record += "D "
+                lastGamesRecord["roster_id2"].record += "D "
+            }
+        }
+        
+    }
+
+    return lastGamesRecord;
+
 }
 
 async function openMatchupsPage(season, week, matchupId) {

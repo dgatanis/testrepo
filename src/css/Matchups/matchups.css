@@ -52,17 +52,13 @@
 .custom-player-position {
     width: 2rem;
     position: absolute;
-    background: var(--custom-dark-mode-transparent);
-    color: white;
-    font-family: 'F1';
+    color: #2a2a2a;
+    font-family: 'F2';
     padding: .2rem;
     border-radius: 3rem;
-    border: 2px solid var(--custom-dark-mode-background);
     text-align: center;
-    box-shadow: 0 0rem 0.2rem black;
-    font-size: .8rem;
-    text-shadow: 1px 1px 1px black;
-    top: -11px;
+    font-size: .6rem;
+    top: 0;
 }
 
 .custom-team-table-1 .custom-player-points {
@@ -120,7 +116,7 @@
     padding: .3rem;
     font-family: 'F7';
     padding-top: .6rem;
-    background: #8080806e;
+    background: #808080c2;
     border-radius: 3rem;
     min-width: 3.2rem;
     height: 100%;
@@ -228,23 +224,23 @@
 }
 
 .custom-player-QB {
-    background: var(--QB);
+    background: #ff2a6dc9
 }
 
 .custom-player-RB {
-    background: var(--RB);
+    background: #00ceb8c4;
 }
 
 .custom-player-WR {
-    background: var(--WR);
+    background: #58a7ffcc;
 }
 
 .custom-player-TE {
-    background: var(--TE);
+    background: #ffae58c2;
 }
 
 .custom-player-K {
-    background: var(--K);
+    background: #bd66ffb0;
 }
 
 .custom-team-table tr{
@@ -423,7 +419,6 @@
     .custom-player-position {
         font-size: .4rem;
         width: 1.3rem;
-        top: -8px;
     }
 
     .custom-team-table-1 .custom-player-name {

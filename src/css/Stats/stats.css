@@ -34,8 +34,8 @@ div#allTimeStats {
 }
 
 .custom-player-points {
-    font-size: large;
     display: block;
+    font-size: .9rem;
 }
 
 a#keep-trade-roster-comp {
@@ -50,6 +50,17 @@ a#keep-trade-roster-comp {
     margin-right: auto;
     min-width: fit-content;
     width: 75%;
+}
+
+.custom-last-five-games {
+    font-family: 'F2' !important;
+    font-size: .7rem !important;
+    word-spacing: -.1rem !important;
+}
+
+.custom-last-5-games-header {
+    font-size: .45rem;
+    margin-bottom: .2rem;
 }
 
 .custom-table-icon {
@@ -106,8 +117,6 @@ th#team2Header {
 
 .custom-medium-avatar {
     max-width: 2rem;
-    background: var(--custom-dark-gray);
-    padding: .125rem;
     margin: unset;
     box-shadow: 0 .1rem 0.5rem black;
 }
@@ -192,11 +201,11 @@ table > tbody > tr:last-child {
 }
 
 .custom-team1-image-display {
-    box-shadow: 0 0rem 0.2rem #1151ff;
+    box-shadow: 0 0rem 0.3rem #1151ff;
 }
 
 .custom-team2-image-display {
-    box-shadow: 0 0rem 0.2rem red;
+    box-shadow: 0 0rem 0.3rem red;
 }
 
 #teamComparison tbody {
@@ -254,7 +263,6 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 .custom-team1-result, .custom-team2-result {
     font-family: 'F7';
     word-spacing: .2rem;
-    font-size: larger;
 }
 
 .custom-team1-result img.custom-xsmall-avatar {
@@ -275,6 +283,8 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 
 .h2h-header {
     color: inherit;
+    font-size: .6rem;
+    word-spacing: .1rem;
 }
 
 #teamComparison td:nth-child(1) {
@@ -434,10 +444,10 @@ table#allTimeLowScorerTeam .custom-name {
     }
 
     #teamComparison td:nth-child(1) {
-        font-size: medium;
+        font-size: .8rem;
     }
     #teamComparison td:nth-child(3) {
-        font-size: medium;
+        font-size: .8rem;
     }
     .custom-button-container {
         display: flex;
@@ -465,12 +475,12 @@ table#allTimeLowScorerTeam .custom-name {
     }
 
     .custom-player-name {
-        font-size: small;
         width: 100%;
         display: block;
         word-wrap: break-word;
         word-spacing: normal;
         margin-bottom: .5rem;
+        font-size: .7rem;
     }
 
     tr#highScorePlayers {
@@ -478,7 +488,7 @@ table#allTimeLowScorerTeam .custom-name {
     }
 
     .custom-player-points {
-        font-size: .9rem;
+        font-size: .6rem;
     }
 
     .custom-player-details {
