@@ -11,6 +11,8 @@ div#allTimeStats {
 
 .progress {
     height: .5rem;
+    margin-left: .2rem;
+    margin-right: .2rem;
 }
 
 .custom-stats-container {
@@ -74,6 +76,8 @@ a#keep-trade-roster-comp {
 table#teamComparison {
     margin-top: 4rem;
     color: inherit;
+    border-collapse: separate;
+    border-spacing: 0 4px;
 }
 
 #teamComparison td {
@@ -124,10 +128,12 @@ th#team2Header {
 .custom-team-name {
     display: block;
     margin-top: .5rem;
-    color: black;
-    font-family: 'F7';
-    text-shadow: 1px 1px 1px black;
-    color: white;
+    font-family: 'F1';
+    color: inherit;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .custom-team-header {
@@ -163,6 +169,10 @@ button#teamButton2, button#teamButton1 {
     background-color: var(--custom-dark-mode-primary);
     border-color: black;
     text-shadow: 1px 1px 1px black;
+}
+
+.custom-all-time-stats tr {
+    border-color: #39393947;
 }
 
 .btn-secondary:hover {
@@ -217,20 +227,20 @@ table > tbody > tr:last-child {
     font-size: xx-small;
     word-spacing: .1rem;
     font-style: italic;
-    color: var(--custom-dark-gray);
+    color: var(--custom-dark-mode-text-color);
     border-radius: 1rem;
-    border: 1px white solid;
     cursor: pointer;
     min-width: fit-content;
     width: 5rem;
-    background: var(--custom-light-gray);
     margin-left: auto;
     margin-right: auto;
+    background: #aaaaaa1c;
+    border: 1px solid #7575755c;
 }
 
 .custom-player-details:hover {
-    background: var(--custom-dark-gray);
     color: whitesmoke;
+    box-shadow: 0 0 .2rem 0 var(--custom-light-gray);
     transition: all 1s ease;
 }
 
@@ -241,7 +251,6 @@ table > tbody > tr:last-child {
 tr#wins, tr#avgPtsFor, tr#highScorePlayers, tr#lowScorePlayers, tr#startSitAcc, tr#postseasonWins, tr#postseasonAvgPtsFor, tr#postseasonHighScorePlayers, tr#postseasonLowScorePlayers, 
 tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#overallStartSitAcc {
     height: 5rem;
-    border: 1px solid black;
     border-left-style: none;
     border-right-style: none;
 }
@@ -290,14 +299,15 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 #teamComparison td:nth-child(1) {
     border: transparent;
     padding: 1rem;
-    background: var(--bs-table-bg);
+    background: var(--custom-dark-mode-primary);
     position: relative;
-    color: whitesmoke;
+    color: var(--custom-dark-mode-text-color);
+    border-radius: .7rem;
 }
 
 #teamComparison td:nth-child(2) {
     font-size: small;
-    background: #d1d1d14a;
+    background: transparent;
     border: transparent;
     vertical-align: middle;
     padding: unset;
@@ -306,9 +316,10 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 #teamComparison td:nth-child(3) {
     border: transparent;
     padding: 1rem;
-    background: var(--bs-table-bg);
+    background: var(--custom-dark-mode-primary);
     position: relative;
-    color: whitesmoke;
+    color: var(--custom-dark-mode-text-color);
+    border-radius: .7rem;
 }
 
 #allTimeStats th {
@@ -318,12 +329,12 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 
 .custom-all-time-stats table {
     background: var(--custom-dark-mode-primary);
-    box-shadow: 0 0 .2rem 0 black;
+    box-shadow: 0 0 .2rem 0 var(--custom-light-gray);
 }
 
 td.custom-score {
     text-align: center;
-    color: whitesmoke;
+    color: var(--custom-dark-mode-text-color);
     vertical-align: middle;
     font-family: 'F7';
     text-shadow: 1px 1px 1px black;
@@ -379,22 +390,22 @@ table#allTimeLowScorerTeam .custom-name {
     vertical-align: middle;
     margin-right: 1.5rem;
     word-spacing: .2rem;
-    color: white;
     font-weight: normal;
+    color: var(--custom-dark-mode-text-color);
 }
 
 .custom-details {
     font-size: x-small;
     vertical-align: middle;
     font-family: 'F2';
-    color: black;
+    color: var(--custom-light-gray);
     cursor: pointer;
     width: fit-content;
-    background: var(--custom-light-gray);
+    background: #aaaaaa1c;
     border-radius: 1rem;
     margin-top: .2rem;
     padding: .2rem;
-    border: 1px solid white;
+    border: 1px solid #7575755c;
     line-height: 100%;
 }
 
@@ -433,6 +444,14 @@ table#allTimeLowScorerTeam .custom-name {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    div#allTimeStats {
+        width: 100%;
+    }
+
+    .custom-team-name {
+        font-size: .7rem;
+    }
 
     .custom-title-details {
         color: var(--custom-dark-gray);
