@@ -4443,7 +4443,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   color: var(--custom-light-gray);
   text-align: left;
-  background-color: var(--custom-dark-mode-transparent);
+  background-color: var(--custom-dark-mode-primary);
   border: 0;
   border-radius: 0;
   overflow-anchor: none;
@@ -11193,7 +11193,7 @@ ul.nav.nav-tabs {
 
 .accordion-button:not(.collapsed) {
   color: var(--custom-dark-mode-text-color);
-  background-color: var(--custom-dark-mode-primary);
+  background-color: var(--custom-dark-mode-transparent);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 

@@ -221,8 +221,7 @@
   }
 
   .custom-starter {
-    border: 2px solid #7a7a7a;
-    box-shadow: 0 0 .1rem 0 whitesmoke;
+    border: 1px solid #7a7a7a;
     color: var(--custom-light-gray);
     transition: all 1s ease;
   }
@@ -245,7 +244,7 @@
   .custom-roster-breakdown-shadow {
     box-shadow: 0 0 .5rem 0 black;
     border-radius: 10px;
-    background-color: var(--custom-dark-mode-transparent);
+    background-color: var(--custom-dark-mode-primary);
     animation: revealLetter 1.5s forwards;
     border: 2px solid black;
     color: var(--custom-light-gray);
@@ -341,7 +340,7 @@
     padding: .2rem;
     border: 2px solid black;
     border-radius: 4rem;
-    background: var(--custom-dark-mode-primary);
+    background: var(--custom-dark-mode-transparent);
   }
 
   #recordContainer {
