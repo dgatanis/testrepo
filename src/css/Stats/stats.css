@@ -297,12 +297,13 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 }
 
 #teamComparison td:nth-child(1) {
-    border: transparent;
+    border: 2px solid black;
     padding: 1rem;
     background: var(--custom-dark-mode-primary);
     position: relative;
     color: var(--custom-dark-mode-text-color);
     border-radius: .7rem;
+    box-shadow: 0 0 .1rem 0 var(--custom-light-gray);
 }
 
 #teamComparison td:nth-child(2) {
@@ -314,12 +315,13 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 }
 
 #teamComparison td:nth-child(3) {
-    border: transparent;
+    border: 2px solid black;
     padding: 1rem;
     background: var(--custom-dark-mode-primary);
     position: relative;
     color: var(--custom-dark-mode-text-color);
     border-radius: .7rem;
+    box-shadow: 0 0 .1rem 0 var(--custom-light-gray);
 }
 
 #allTimeStats th {

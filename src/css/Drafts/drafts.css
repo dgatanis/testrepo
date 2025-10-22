@@ -116,10 +116,6 @@
     border-color: transparent;
 }
 
-[data-round="0"] col.col:hover {
-    box-shadow: 0 .1rem 0.5rem whitesmoke;
-}
-
 .custom-selection-number {
     position: absolute;
     color: black;
@@ -145,7 +141,7 @@
 }
 
 .custom-highlighted-team {
-    background: #80808052;
+    background: #80808024;
 }
 
 .custom-medium-avatar {
