@@ -296,6 +296,10 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
     word-spacing: .1rem;
 }
 
+.custom-losing-team {
+    background-color: red !important;
+}
+
 #teamComparison td:nth-child(1) {
     border: 2px solid black;
     padding: 1rem;
