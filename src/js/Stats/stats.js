@@ -1,19 +1,12 @@
 import { 
     rosters, 
-    users, 
     players, 
-    matchups, 
-    playoffs, 
     getFullPlayerName, 
     createOwnerAvatarImage, 
-    getRosterStats, 
-    sortTeamRankings, 
-    createPlayerImage,
     getTeamName,
     getMatchupWeekWinner,
     getRosterHighScorerWeek,
     getRosterLowScorerWeek,
-    getLeagueURL,
     allTimeMatchupData,
     setLeagueName,
     setLinkSource,
@@ -25,11 +18,8 @@ import {
     getCurrentWeek
         } from '../util/leagueInfo.js';
 
-let userData = users;
 let rosterData = rosters;
 let playerData = players;
-let matchupData = matchups;
-let playoffData = playoffs;
 let allTimeMatchups = allTimeMatchupData[0].matchupWeeks;
 
 loadContents();
@@ -54,7 +44,8 @@ function loadContents() {
 function initTableData()
 {
     var tables = ['allTimeLowScorerTeam','allTimeLowScorerPlayer','allTimeHighScorerTeam','allTimeHighScorerPlayer', 
-                  'allTimeMostWins', 'allTimeMostLosses', 'allTimeHighScorerWeeks', 'allTimeLowScorerWeeks'];
+                  'allTimeMostWins', 'allTimeMostLosses', 'allTimeHighScorerWeeks', 'allTimeLowScorerWeeks', 'allTimeLargestMarginVictory',
+                  'allTimeSmallestMarginVictory'];
 
     for(let table of tables)
     {
@@ -128,7 +119,7 @@ async function setTableData(tableName) {
     var currentSeason = await getCurrentSeason();
     var currentWeek = await getCurrentWeek();
     var teamScores =  getAllTimeTeamScores(currentWeek,currentSeason);
-
+    
     if (tableName == 'allTimeLowScorerTeam') {
         var tableRows = thisTable.children[1].children;
         var sortedList = teamScores.sort(function (a, b) {
@@ -388,6 +379,86 @@ async function setTableData(tableName) {
             name.append(teamImage);
             name.appendChild(team);
         }
+        
+    }
+    else if(tableName == 'allTimeLargestMarginVictory') {
+
+        var marginList = getMarginOfVictories(currentWeek, currentSeason);
+        marginList.sort((a, b) => b.margin - a.margin);
+        var tableRows = thisTable.children[1].children;
+        for (let i = 0; i < 10; i++) {
+            let winningRoster = rosterData.find(x => x.roster_id === marginList[i].winner_roster);
+            let losingRoster = rosterData.find(x => x.roster_id === marginList[i].loser_roster);
+            var name = tableRows[i].children[0].children[0];
+            var details = tableRows[i].children[0].children[1];
+            var score = tableRows[i].children[1];
+            var winningTeamImage = createOwnerAvatarImage(winningRoster.owner_id);
+            var losingTeamImage = createOwnerAvatarImage(losingRoster.owner_id);
+            var winningTeam = document.createElement('div');
+            var losingTeam = document.createElement('div');
+            var season = document.createElement('div');
+            var week = document.createElement('div');
+
+            score.innerText = marginList[i].margin;
+            winningTeamImage.setAttribute('class','custom-small-avatar');
+            losingTeamImage.setAttribute('class','custom-xsmall-avatar custom-losing-team');
+            losingTeam.setAttribute('class', 'custom-details-team');
+            winningTeam.setAttribute('class', 'custom-details-team');
+            winningTeam.innerText = getTeamName(winningRoster.owner_id);
+            losingTeam.innerText = getTeamName(losingRoster.owner_id);
+            season.setAttribute('class', 'custom-details-season');
+            season.innerText = "'" + marginList[i].season.slice(-2);
+            week.setAttribute('class', 'custom-details-week');
+            week.innerText = "week " + marginList[i].week;
+
+            details.setAttribute("onclick", "openMatchupsPage(" + marginList[i].season + ", " + marginList[i].week + ", " + marginList[i].matchupId + ")");
+            details.append(losingTeamImage);
+            details.append(losingTeam);
+            details.append(week);
+            details.append(season);
+            name.append(winningTeamImage);
+            name.appendChild(winningTeam);
+        }
+    }
+    else if(tableName == 'allTimeSmallestMarginVictory') {
+
+        var marginList = getMarginOfVictories(currentWeek, currentSeason);
+        marginList.sort((a, b) => a.margin - b.margin);
+        console.log(marginList);
+        var tableRows = thisTable.children[1].children;
+        for (let i = 0; i < 10; i++) {
+            let winningRoster = rosterData.find(x => x.roster_id === marginList[i].winner_roster);
+            let losingRoster = rosterData.find(x => x.roster_id === marginList[i].loser_roster);
+            var name = tableRows[i].children[0].children[0];
+            var details = tableRows[i].children[0].children[1];
+            var score = tableRows[i].children[1];
+            var winningTeamImage = createOwnerAvatarImage(winningRoster.owner_id);
+            var losingTeamImage = createOwnerAvatarImage(losingRoster.owner_id);
+            var winningTeam = document.createElement('div');
+            var losingTeam = document.createElement('div');
+            var season = document.createElement('div');
+            var week = document.createElement('div');
+
+            score.innerText = marginList[i].margin;
+            winningTeamImage.setAttribute('class','custom-small-avatar');
+            losingTeamImage.setAttribute('class','custom-xsmall-avatar custom-losing-team');
+            losingTeam.setAttribute('class', 'custom-details-team');
+            winningTeam.setAttribute('class', 'custom-details-team');
+            winningTeam.innerText = getTeamName(winningRoster.owner_id);
+            losingTeam.innerText = getTeamName(losingRoster.owner_id);
+            season.setAttribute('class', 'custom-details-season');
+            season.innerText = "'" + marginList[i].season.slice(-2);
+            week.setAttribute('class', 'custom-details-week');
+            week.innerText = "week " + marginList[i].week;
+
+            details.setAttribute("onclick", "openMatchupsPage(" + marginList[i].season + ", " + marginList[i].week + ", " + marginList[i].matchupId + ")");
+            details.append(losingTeamImage);
+            details.append(losingTeam);
+            details.append(week);
+            details.append(season);
+            name.append(winningTeamImage);
+            name.appendChild(winningTeam);
+        }
     }
 }
 
@@ -546,6 +617,54 @@ function getAllTimeLowScorerWeeks(currentWeek, currentSeason) {
 
     return counter;
     
+}
+
+function getMarginOfVictories(currentWeek, currentSeason) {
+
+    const marginList = [];
+
+    for(let matchups of allTimeMatchups)
+    {
+        if(matchups[0] && matchups.week != 0  && (parseInt(matchups.year) <= currentSeason && matchups.week < currentWeek || parseInt(matchups.year) < parseInt(currentSeason)))
+        {
+            const teams = Object.values(matchups).filter(x => typeof x === "object" && x.points !== undefined);
+
+            const matchupsList = {};
+
+            //Group by matchupid
+            teams.forEach(team => {
+                const mid = team.matchup_id;
+                if (!matchupsList[mid]) matchupsList[mid] = [];
+                matchupsList[mid].push(team);
+            });
+
+            //Calculate margin of victory for each matchup
+            const results = Object.entries(matchupsList).map(([matchupId, teams]) => {
+                if (teams.length !== 2) {
+                    return { matchupId, error: "Matchup does not have exactly 2 teams", margin: null };
+                }
+
+                const [teamA, teamB] = teams;
+                const diff = Math.abs(teamA.points - teamB.points);
+
+                const winner = teamA.points > teamB.points ? teamA : teamB;
+                const loser  = teamA.points > teamB.points ? teamB : teamA;
+
+                marginList.push({
+                    matchupId: Number(matchupId),
+                    winner_roster: winner.roster_id,
+                    loser_roster: loser.roster_id,
+                    winner_points: winner.points,
+                    loser_points: loser.points,
+                    margin: parseFloat(diff.toFixed(2)),
+                    season: matchups.year,
+                    week: matchups.week
+                });
+            });
+        }
+    }
+
+    return marginList;
 }
 
 function fillDropdownLists() {
