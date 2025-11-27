@@ -209,16 +209,16 @@ function loadBankroll(week, dues, weeklyWinnerPayout) {
                 rowBankRoll[0].setAttribute('style', 'padding-top:1rem;');
 
                 if (rosterBankrolls[i].weeks_won > 3) {
-                    row.setAttribute('style', 'background:#006f005c;');
+                    row.setAttribute('style', 'background:#005f00b8;');
                 }
                 else if (rosterBankrolls[i].weeks_won == 3) {
-                    row.setAttribute('style', 'background:#ffc8003d;');
+                    row.setAttribute('style', 'background:#ffc800bd;');
                 }
                 else if (rosterBankrolls[i].weeks_won == 2) {
-                    row.setAttribute('style', 'background:#ed990069;');
+                    row.setAttribute('style', 'background:#ed9900b0;');
                 }
                 else if (rosterBankrolls[i].weeks_won == 1) {
-                    row.setAttribute('style', 'background:#d3571a94;');
+                    row.setAttribute('style', 'background:#d3571acf;');
                 }
                 else if (rosterBankrolls[i].bankroll == 0 && rosterBankrolls[i].weeks_won < 1) {
                     row.setAttribute('style', 'background:#a3a3a3;');

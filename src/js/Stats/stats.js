@@ -395,17 +395,14 @@ async function setTableData(tableName) {
             var winningTeamImage = createOwnerAvatarImage(winningRoster.owner_id);
             var losingTeamImage = createOwnerAvatarImage(losingRoster.owner_id);
             var winningTeam = document.createElement('div');
-            var losingTeam = document.createElement('div');
             var season = document.createElement('div');
             var week = document.createElement('div');
 
             score.innerText = marginList[i].margin;
             winningTeamImage.setAttribute('class','custom-small-avatar');
             losingTeamImage.setAttribute('class','custom-xsmall-avatar custom-losing-team');
-            losingTeam.setAttribute('class', 'custom-details-team');
             winningTeam.setAttribute('class', 'custom-details-team');
             winningTeam.innerText = getTeamName(winningRoster.owner_id);
-            losingTeam.innerText = getTeamName(losingRoster.owner_id);
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + marginList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
@@ -413,7 +410,6 @@ async function setTableData(tableName) {
 
             details.setAttribute("onclick", "openMatchupsPage(" + marginList[i].season + ", " + marginList[i].week + ", " + marginList[i].matchupId + ")");
             details.append(losingTeamImage);
-            details.append(losingTeam);
             details.append(week);
             details.append(season);
             name.append(winningTeamImage);
@@ -424,7 +420,6 @@ async function setTableData(tableName) {
 
         var marginList = getMarginOfVictories(currentWeek, currentSeason);
         marginList.sort((a, b) => a.margin - b.margin);
-        console.log(marginList);
         var tableRows = thisTable.children[1].children;
         for (let i = 0; i < 10; i++) {
             let winningRoster = rosterData.find(x => x.roster_id === marginList[i].winner_roster);
@@ -435,17 +430,14 @@ async function setTableData(tableName) {
             var winningTeamImage = createOwnerAvatarImage(winningRoster.owner_id);
             var losingTeamImage = createOwnerAvatarImage(losingRoster.owner_id);
             var winningTeam = document.createElement('div');
-            var losingTeam = document.createElement('div');
             var season = document.createElement('div');
             var week = document.createElement('div');
 
             score.innerText = marginList[i].margin;
             winningTeamImage.setAttribute('class','custom-small-avatar');
             losingTeamImage.setAttribute('class','custom-xsmall-avatar custom-losing-team');
-            losingTeam.setAttribute('class', 'custom-details-team');
             winningTeam.setAttribute('class', 'custom-details-team');
             winningTeam.innerText = getTeamName(winningRoster.owner_id);
-            losingTeam.innerText = getTeamName(losingRoster.owner_id);
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + marginList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
@@ -453,7 +445,6 @@ async function setTableData(tableName) {
 
             details.setAttribute("onclick", "openMatchupsPage(" + marginList[i].season + ", " + marginList[i].week + ", " + marginList[i].matchupId + ")");
             details.append(losingTeamImage);
-            details.append(losingTeam);
             details.append(week);
             details.append(season);
             name.append(winningTeamImage);
