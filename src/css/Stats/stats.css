@@ -297,7 +297,7 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 }
 
 .custom-losing-team {
-    background-color: red !important;
+    background-color: #ff0000a6 !important;
 }
 
 #teamComparison td:nth-child(1) {
