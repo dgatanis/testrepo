@@ -1,6 +1,5 @@
 import { 
     setLinkSource,
-    leagueDisplayName,
     removeSpinner,
     setLeagueName,
     setDarkMode
