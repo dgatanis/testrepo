@@ -72,36 +72,35 @@ async function loadLeagueChamps(inauguralSeason) {
 
     }
 
-    if (leagueDisplayName.toString().trim() == "Crush Cities") {
-        //Create rows for league winners before move to sleeper
-        for(var i = inauguralSeason-1; i>=2020; i--)
+    //Create rows for league winners before move to sleeper
+    for(var i = inauguralSeason-1; i>=2020; i--)
+    {
+        if(i == 2020)
         {
-            if(i == 2020)
-            {
-                rosterId = 7;
-            }
-            if(i == 2021)
-            {
-                rosterId = 4;
-            }
-            if(i == 2022)
-            {
-                rosterId = 2;
-            }
-            if(i == 2023)
-            {
-                rosterId = 10;
-            }
-
-            var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
-            var user = userData.find(x => x.user_id === roster.owner_id);
-
-            var leagueChampRow = createLeagueChampRow(roster, user, i);
-            
-            row.appendChild(leagueChampRow);
-            tableBody.appendChild(row)
+            rosterId = 7;
         }
+        if(i == 2021)
+        {
+            rosterId = 4;
+        }
+        if(i == 2022)
+        {
+            rosterId = 2;
+        }
+        if(i == 2023)
+        {
+            rosterId = 10;
+        }
+
+        var roster = rosterData.find(x => x.roster_id === parseInt(rosterId));
+        var user = userData.find(x => x.user_id === roster.owner_id);
+
+        var leagueChampRow = createLeagueChampRow(roster, user, i);
+        
+        row.appendChild(leagueChampRow);
+        tableBody.appendChild(row)
     }
+    
 }
 
 async function getChampionshipPlayoffRound(leagueId) {
