@@ -78,7 +78,7 @@ a.page-link {
 
 .custom-waiver-budget {
     font-size: small;
-    border-radius: 5rem;
+    border-radius: .5rem;
     height: 2rem;
     background: var(--custom-dark-mode-secondary);
     position: relative;
@@ -152,7 +152,7 @@ a.page-link {
 .custom-player {
     cursor: pointer;
     position: relative;
-    border-radius: 5rem;
+    border-radius: .5rem;
     height: fit-content;
     background: var(--custom-dark-mode-secondary);
     color: whitesmoke;
@@ -178,7 +178,7 @@ img.custom-team-logo {
 
 .custom-draft-pick {
     padding: .2rem;
-    border-radius: 5rem;
+    border-radius: .5rem;
     height: fit-content;
     background: var(--custom-dark-mode-secondary);
     position: relative;
@@ -325,25 +325,25 @@ img.custom-xsmall-avatar {
 
 .custom-player:hover {
     background: var(--custom-dark-mode-transparent);
-    border-radius: .5rem;
+    border-radius: 5rem;
     box-shadow: 0 0rem .2rem whitesmoke;
-    transition: all 1s ease;
+    transition: all 1.5s ease;
 }
 
 .custom-draft-pick:hover {
     cursor: default;
     background: var(--custom-dark-mode-transparent);
-    border-radius: .5rem;
+    border-radius: 5rem;
     box-shadow: 0 0rem .2rem whitesmoke;
-    transition: all 1s ease;
+    transition: all 1.5s ease;
 }
 
 .custom-waiver-budget:hover {
     cursor: default;
     background: var(--custom-dark-mode-transparent);
-    border-radius: .5rem;
+    border-radius: 5rem;
     box-shadow: 0 0rem .2rem whitesmoke;
-    transition: all 1s ease;
+    transition: all 1.5s ease;
 }
 
 /*Large laptop display styling*/
