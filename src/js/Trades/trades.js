@@ -9,6 +9,7 @@ function loadContents() {
     setDarkMode();
     setLeagueName("footerName");
     setLinkSource("keep-trade-cut");
+    fillDropdownLists();
     loadTradeTransactions();
 }
 
@@ -17,8 +18,9 @@ async function loadTradeTransactions() {
     var allTradeTransactions = await getTradeTransactions();
     var body = document.getElementsByClassName('custom-body')[0];
     var page = 0;
+    var counter = 0;
     allTradeTransactions.sort(function (a, b) {
-        // First compare by season (descending)
+        // Compare by season (descending)
         if (a.season !== b.season) {
             return b.season - a.season;
         }
@@ -32,20 +34,18 @@ async function loadTradeTransactions() {
         {
             for(let [index, trade] of trades.data.entries())
             {
-                //Used for pagination
-                if((index + 1) % 10 == 0)
-                {
-                    page += 1
-                }
+                
                 
                 var tradePartners = Object.keys(trade.roster_ids).length;
-                var transactionRow = createTransactionRow(page);
+                var transactionRow = createTransactionRow(counter);
                 var totalPlayers = 0;
                 var totalSearchRank = 0;
                 var isNuclear = 'N';
                 var draftPicksCount = {"1": 0, "2": 0}
+
                 transactionRow.setAttribute("data-transaction-date", trade.created);
-                
+                counter++;
+
                 for (let i = 0; i < tradePartners; i++) {
                     var rosterid = trade.roster_ids[i];
                     let roster = rosterData.find(x => x.roster_id === parseInt(rosterid));
@@ -81,7 +81,6 @@ async function loadTradeTransactions() {
 
                     teamContainer.appendChild(teamImg);
                     teamContainer.appendChild(teamName);
-
                     teamGroup.prepend(teamContainer);
 
                     //Check the trade for all its components
@@ -314,19 +313,16 @@ function addPagesToTrades() {
         {
            
             page = (i / 10) + 1;
-            allTrades[i].classList.add('custom-trades-page-'+ page);
         }
         else
         {
             if(i >= 10)
             {
                 page = Math.floor(i/10) + 1;
-                allTrades[i].classList.add('custom-trades-page-'+ page)
             }
             else
             {
                 page = 1;
-                allTrades[i].classList.add('custom-trades-page-'+ page);
             }
         }
     }
@@ -369,15 +365,15 @@ function createPaginationList(maxPages) {
 
 function createTransactionRow(page) {
     var transactionRow = document.createElement('div');
+    transactionRow.setAttribute('class', 'custom-transaction-row');
+    transactionRow.setAttribute("data-shown", "true");
 
-    if(page >= 1)
+    if(page >= 10)
     {
-        transactionRow.setAttribute('class', 'custom-transaction-row custom-none-display');
+        transactionRow.classList.add('custom-none-display');
+        transactionRow.setAttribute("data-shown", "false");
+    }
 
-    }
-    else {
-        transactionRow.setAttribute('class', 'custom-transaction-row');
-    }
 
     var card = document.createElement('div');
     card.setAttribute('class', 'container custom-card');
@@ -476,4 +472,26 @@ function createAddDropImg(addDrop) {
     }
 
     return img
+}
+
+function fillDropdownLists() {
+    var teams = document.getElementById('teamDropdown');
+
+    for(let i = 0; i < rosterData.length; i++)
+    {
+        var listItem = document.createElement('li');
+        var item = document.createElement('button');
+        var teamImage = createOwnerAvatarImage(rosterData[i].owner_id);
+        item.setAttribute('class', 'dropdown-item');
+        item.setAttribute('type', 'button');
+        item.innerText = getTeamName(rosterData[i].owner_id);
+        listItem.addEventListener("click", function(event) {
+            const selectedTeam = event.target.innerText; // The element that was clicked
+            const teamButton = document.getElementById("custom-team-selector-input")
+            teamButton.innerText = selectedTeam;
+        });
+        listItem.appendChild(teamImage);
+        listItem.appendChild(item);
+        teams.appendChild(listItem);
+    }
 }

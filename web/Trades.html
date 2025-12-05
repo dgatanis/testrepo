@@ -98,7 +98,37 @@
         </div>
     </div>
     <h3 class="custom-title" id="pageTitle">Trades</h3>
-    <nav aria-label="Page navigation">
+    <div class="custom-filters-container">
+        <div class="custom-options-container">
+            <div class="btn-group" id="team">
+                <button id="custom-team-selector-input" type="button" class="btn btn-secondary dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Choose Team
+                </button>
+                <ul class="dropdown-menu" id="teamDropdown">
+                </ul>
+            </div>
+            <div class="custom-dates-container btn-group">
+                <div class="custom-input-date-container">
+                    <input id="startDate" class="form-control" type="text" placeholder="From Date" onfocus="(this.type='date')"
+                        onblur="if(!this.value || this.value != '') this.type='text'" />
+                </div>
+                <div class="custom-input-date-container">
+                    <input id="endDate" class="form-control" type="text" placeholder="To Date" onfocus="(this.type='date')"
+                        onblur="if(!this.value || this.value != '') this.type='text'" />
+                </div>
+            </div>
+            <div class="btn-group" id="submitButton">
+                <button type="button" onclick="filterTrades();" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+        </div>
+        <div class="btn-group" id="resetButton">
+            <a href="#" onclick="resetTradeFilters();">Reset</a>
+        </div>
+    </div>
+    <nav id="trade-page-navigation-container"aria-label="Page navigation">
         <ul id="trades-pagination" class="pagination custom-none-display" data-current-page="1">
             <li class="page-item">
                 <a class="page-link" onclick="togglePage('P')" href="#">Previous</a>
