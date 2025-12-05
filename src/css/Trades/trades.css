@@ -48,14 +48,14 @@ a.page-link {
 }
 
 .btn-secondary {
-    background-color: var(--custom-light-gray);
+    background-color: #bdbdbdde;
     border-color: black;
     color: var(--custom-dark-mode-primary);
 }
 
 .form-control {
     font-size: .8rem;
-    background: var(--custom-light-gray);
+    background: #bdbdbdde;
     border-color: black;
 }
 
@@ -99,7 +99,7 @@ a.page-link {
     height: 2rem;
     background: var(--custom-dark-mode-secondary);
     position: relative;
-    color: whitesmoke;
+    color: var(--custom-light-gray);
     padding: .2rem;
     padding-top: .3rem;
     border: 1px solid black;
@@ -172,7 +172,7 @@ a.page-link {
     border-radius: .5rem;
     height: fit-content;
     background: var(--custom-dark-mode-secondary);
-    color: whitesmoke;
+    color: var(--custom-light-gray);;
     align-items: center;
     justify-content: center;
     background-image: url(/src/static/images/add-sign.png);
@@ -199,7 +199,7 @@ img.custom-team-logo {
     height: fit-content;
     background: var(--custom-dark-mode-secondary);
     position: relative;
-    color: whitesmoke;
+    color: var(--custom-light-gray);;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -333,7 +333,7 @@ img.custom-xsmall-avatar {
 .custom-team-container {
     text-align: center;
     font-size: larger;
-    color: whitesmoke;
+    color: var(--custom-light-gray);
     height: 5rem;
     display: grid;
     border-top-left-radius: 1rem;
@@ -380,7 +380,9 @@ button#custom-team-selector-input {
 
 .btn-primary {
     font-size: .7rem;
+    background-color: #ededed52;
 }
+
 
 #submitButton {
     width: fit-content;
@@ -423,11 +425,6 @@ button#custom-team-selector-input {
 
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {
-    
-    #submitButton {
-        display: block;
-        margin-left:auto;
-    }
 
     .custom-input-date-container {
         width: fit-content;
@@ -481,11 +478,29 @@ button#custom-team-selector-input {
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .custom-input-date-container {
+        margin: auto;
+    }
+
+    .custom-dates-container {
+        margin-top:.2rem;
+    }
+
+    #submitButton {
+        margin-top:.3rem;
+    }
+
+    #resetButton {
+        margin-right: .2rem;
+    }
+
     .custom-player-details {
         margin-left: -1rem;
     }
 
-
+    #team {
+        display: flex;
+    }
     
     img.custom-team-logo {
         max-width: .8rem;

@@ -217,3 +217,22 @@ function resetTradeFilters() {
     document.getElementById("trade-page-navigation-container").classList.remove("custom-none-display");
     updatePagination(1, totalPages);
 }
+
+function showPage(pageNum) {
+    var allTrades = document.querySelectorAll('[class*="custom-transaction-row"]');
+    var totalPages = Math.ceil(allTrades.length / 10);
+    var endIndex = parseInt(pageNum) * 10;
+
+    for(const [index, trade] of allTrades.entries()) {
+        if(index < endIndex && index > endIndex - 11 ) {
+            trade.setAttribute("data-shown", "true");
+            trade.classList.remove("custom-none-display");
+        }
+        else {
+            trade.setAttribute("data-shown", "false");
+            trade.classList.add("custom-none-display");
+        }
+    }
+    document.getElementById('trades-pagination').setAttribute('data-current-page', pageNum);
+    updatePagination(pageNum, totalPages);
+}
