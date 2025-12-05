@@ -47,6 +47,18 @@ a.page-link {
     background-color: var(--custom-dark-mode-secondary) !important;
 }
 
+.btn-secondary {
+    background-color: var(--custom-light-gray);
+    border-color: black;
+    color: var(--custom-dark-mode-primary);
+}
+
+.form-control {
+    font-size: .8rem;
+    background: var(--custom-light-gray);
+    border-color: black;
+}
+
 .custom-div-shadow {
     border-top-left-radius: unset;
 }
@@ -358,11 +370,33 @@ button#custom-team-selector-input {
 }
 
 .custom-input-date-container {
-    width: 10rem;
+    width: 8rem;
+    margin-left: 1rem;
 }
 
 .custom-filters-container {
     text-align: center;
+}
+
+.btn-primary {
+    font-size: .7rem;
+}
+
+#submitButton {
+    width: fit-content;
+    margin-left: .5rem;
+}
+
+#resetButton {
+    margin-left: auto;
+    margin-right: 1.2rem;
+    font-size: .6rem;
+    margin-top: .2rem;
+}
+
+.custom-filters-container {
+    display: grid;
+    justify-content: center;
 }
 
 /*Large laptop display styling*/
@@ -389,6 +423,26 @@ button#custom-team-selector-input {
 
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {
+    
+    #submitButton {
+        display: block;
+        margin-left:auto;
+    }
+
+    .custom-input-date-container {
+        width: fit-content;
+        margin-left: .5rem;
+    }
+
+    .form-control {
+        font-size: .7rem;
+        width: 7rem;
+    }
+
+    button#custom-team-selector-input {
+        min-width: 14rem;
+        font-size: .7rem;
+    }
 
     .custom-card {
         width: 98%;

@@ -139,7 +139,10 @@ async function filterTrades() {
     var selectedStartDate = startDate.value == '' ? '1/1/1901' : startDate.value;
     var selectedEndDate = endDate.value == '' ? '1/1/2099' : endDate.value;
 
-    if (validateFilters(selectedUserId, selectedStartDate, selectedEndDate) == 1) return;
+    document.getElementById("trade-page-navigation-container").classList.add("custom-none-display"); //hide the pagination
+
+    if(validateFilters(selectedUserId, selectedStartDate, selectedEndDate) == 1) return;
+    if(selectedUserId == null && startDate.value == '' && endDate.value == '') resetTradeFilters();
 
     for (var trade of allTrades) {
         var date = parseInt(trade.getAttribute("data-transaction-date"));
@@ -150,7 +153,7 @@ async function filterTrades() {
                 var user = trade.querySelectorAll(`[data-userid='${selectedUserId}']`);
 
                 if (user.length >= 1) {
-                    trade.classList = 'custom-transaction-row custom-trades-page-1';
+                    trade.classList = 'custom-transaction-row';
                 }
                 else {
                     if (!trade.classList.contains("custom-none-display")) {
@@ -159,7 +162,7 @@ async function filterTrades() {
                 }
             }
             else {
-                trade.classList = 'custom-transaction-row custom-trades-page-1';
+                trade.classList = 'custom-transaction-row';
             }
         }
         else {
@@ -169,7 +172,7 @@ async function filterTrades() {
         }
     }
 
-    document.getElementById("trade-page-navigation-container").classList.add("custom-none-display");
+    
 
 }
 
@@ -186,8 +189,31 @@ function validateFilters(selectedUserId, selectedStartDate, selectedEndDate) {
     }
 }
 
-function createFilterDescription(selectedUserId, selectedStartDate, selectedEndDate) {
-    var descriptionContainer = document.createElement("div");
-    var teamFilter = document.createElement("div");
-    var dateFilterContainer
+function resetTradeFilters() {
+    document.getElementById('trades-pagination').setAttribute('data-current-page',"1");
+    var allTrades = document.querySelectorAll('[class*="custom-transaction-row"]');
+    var allShownTrades = document.querySelectorAll(`[data-shown='true']`);
+    var totalPages = Math.ceil(allTrades.length / 10);
+ 
+    for (var trade of allShownTrades) {
+        trade.setAttribute("data-shown", "false");
+        trade.classList.add("custom-none-display");
+    }
+
+    for(const [index, trade] of allTrades.entries()) {
+        if(index < 10 ) {
+            trade.setAttribute("data-shown", "true");
+            trade.classList.remove("custom-none-display");
+        }
+        else {
+            trade.setAttribute("data-shown", "false");
+            trade.classList.add("custom-none-display");
+        }
+    }
+    document.getElementById("startDate").value = '';
+    document.getElementById("endDate").value = '';
+    document.getElementById("custom-team-selector-input").value = '';
+    document.getElementById("custom-team-selector-input").innerText = 'Choose Team';
+    document.getElementById("trade-page-navigation-container").classList.remove("custom-none-display");
+    updatePagination(1, totalPages);
 }
