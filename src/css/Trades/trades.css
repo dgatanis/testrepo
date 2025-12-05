@@ -42,6 +42,11 @@ a.page-link {
     background-color: var(--custom-dark-mode-secondary);
 }
 
+.custom-active {
+    color: var(--custom-light-gray) !important;
+    background-color: var(--custom-dark-mode-secondary) !important;
+}
+
 .custom-div-shadow {
     border-top-left-radius: unset;
 }
@@ -344,6 +349,20 @@ img.custom-xsmall-avatar {
     border-radius: 5rem;
     box-shadow: 0 0rem .2rem whitesmoke;
     transition: all 1.5s ease;
+}
+
+button#custom-team-selector-input {
+    word-spacing: .1rem;    
+    min-width: 18rem;
+    font-size: .8rem;
+}
+
+.custom-input-date-container {
+    width: 10rem;
+}
+
+.custom-filters-container {
+    text-align: center;
 }
 
 /*Large laptop display styling*/
