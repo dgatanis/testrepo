@@ -26,6 +26,10 @@ a.page-link.page-number:focus {
     background-color: whitesmoke;
 }
 
+.dropdown-item {
+    padding-left: .3rem;
+}
+
 .pagination {
     justify-content: center;
     margin-top: 3rem;
@@ -316,6 +320,20 @@ sup {
     vertical-align: text-bottom;
     grid-column: 1 / -1;
     font-style: italic;
+}
+
+li{
+    display: inline-flex;
+    align-items: anchor-center;
+}
+
+.custom-medium-avatar {
+    max-width: 1.75rem;
+    margin-right: unset;
+    max-height: 1.75rem;
+    padding: 1px;
+    background: var(--custom-dark-mode-primary);
+    margin-left: .3rem;
 }
 
 img.custom-xsmall-avatar {

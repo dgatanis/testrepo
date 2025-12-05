@@ -481,6 +481,7 @@ function fillDropdownLists() {
     {
         var listItem = document.createElement('li');
         var item = document.createElement('button');
+        var teamImage = createOwnerAvatarImage(rosterData[i].owner_id);
         item.setAttribute('class', 'dropdown-item');
         item.setAttribute('type', 'button');
         item.innerText = getTeamName(rosterData[i].owner_id);
@@ -489,6 +490,7 @@ function fillDropdownLists() {
             const teamButton = document.getElementById("custom-team-selector-input")
             teamButton.innerText = selectedTeam;
         });
+        listItem.appendChild(teamImage);
         listItem.appendChild(item);
         teams.appendChild(listItem);
     }
