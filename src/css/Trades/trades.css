@@ -314,6 +314,17 @@ sup {
     border-radius: 1rem;
 }
 
+.custom-total-number-trades-container {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    font-size: .7rem;
+}
+
+.custom-total-number-trades {
+    margin-left: .2rem;
+}
+
 .custom-draft-pick-original-owner {
     display: inline;
     font-size: x-small;
@@ -322,9 +333,18 @@ sup {
     font-style: italic;
 }
 
-li{
+#teamDropdown li{
     display: inline-flex;
     align-items: anchor-center;
+    width: 100%;
+}
+
+.custom-filtered-team .custom-medium-avatar {
+    max-width: 4rem;
+    max-height: 4rem;
+    padding: 2px;
+    background: var(--custom-dark-mode-primary);
+    box-shadow: 0 0rem .2rem var(--custom-light-gray);
 }
 
 .custom-medium-avatar {
@@ -398,13 +418,14 @@ button#custom-team-selector-input {
 
 .btn-primary {
     font-size: .7rem;
-    background-color: #ededed52;
+    background-color: #ededed80;
 }
 
 
 #submitButton {
     width: fit-content;
     margin-left: .5rem;
+    color: black;
 }
 
 #resetButton {
@@ -539,6 +560,7 @@ button#custom-team-selector-input {
         width: 25px;
         background-size: auto 30px;
         border-radius: 1rem;
+        margin-bottom: .07rem;
     }
 
     .custom-small-avatar {

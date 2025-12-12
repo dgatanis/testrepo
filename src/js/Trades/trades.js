@@ -1,4 +1,5 @@
 import { setDarkMode, getTransactionsData, setLinkSource, createOwnerAvatarImage, getTeamName, allTimeLeagueIds, setLeagueName, createPlayerImage, getFullPlayerName, createNFLTeamImage, players, rosters, removeSpinner } from '../util/helper.js';
+import fleaflicker_trades from '../../static/fleaflicker_trades/fleaflicker_trades_data.json' with { type: 'json' };
 
 const rosterData = rosters;
 const playerData = players;
@@ -16,7 +17,9 @@ function loadContents() {
 async function loadTradeTransactions() {
 
     var allTradeTransactions = await getTradeTransactions();
+    allTradeTransactions.push(...fleaflicker_trades);
     var body = document.getElementsByClassName('custom-body')[0];
+    var total_trades = document.getElementsByClassName("custom-total-number-trades")[0];
     var page = 0;
     var counter = 0;
     allTradeTransactions.sort(function (a, b) {
@@ -27,22 +30,23 @@ async function loadTradeTransactions() {
         // If seasons are the same, compare by week (descending)
         return b.week - a.week;
     });
+
+    
+
     for(let trades of allTradeTransactions)
     {
         
         if(trades.data.length >= 1)
         {
+
             for(let [index, trade] of trades.data.entries())
             {
-                
-                
                 var tradePartners = Object.keys(trade.roster_ids).length;
                 var transactionRow = createTransactionRow(counter);
                 var totalPlayers = 0;
                 var totalSearchRank = 0;
                 var isNuclear = 'N';
                 var draftPicksCount = {"1": 0, "2": 0}
-
                 transactionRow.setAttribute("data-transaction-date", trade.created);
                 counter++;
 
@@ -207,7 +211,7 @@ async function loadTradeTransactions() {
 
                     }
                 }
-                var transactionDate = new Date(trade.created);
+                var transactionDate = new Date(parseInt(trade.created));
                 var dateString = transactionDate.toLocaleString().replaceAll(",", "");
                 var dateOfTransaction = transactionRow.getElementsByClassName('custom-date')[0];
 
@@ -276,6 +280,7 @@ async function loadTradeTransactions() {
             }
         }
     }
+    total_trades.innerText = document.querySelectorAll("[class*='custom-transaction-row']").length;
     addPagesToTrades();
     removeSpinner();
 }
@@ -484,9 +489,11 @@ function fillDropdownLists() {
         var teamImage = createOwnerAvatarImage(rosterData[i].owner_id);
         item.setAttribute('class', 'dropdown-item');
         item.setAttribute('type', 'button');
+        item.setAttribute('data-value', getTeamName(rosterData[i].owner_id));
+        teamImage.setAttribute('data-value', getTeamName(rosterData[i].owner_id));
         item.innerText = getTeamName(rosterData[i].owner_id);
         listItem.addEventListener("click", function(event) {
-            const selectedTeam = event.target.innerText; // The element that was clicked
+            const selectedTeam = event.target.getAttribute("data-value"); // The element that was clicked
             const teamButton = document.getElementById("custom-team-selector-input")
             teamButton.innerText = selectedTeam;
         });
