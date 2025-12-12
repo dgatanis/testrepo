@@ -489,10 +489,11 @@ function fillDropdownLists() {
         var teamImage = createOwnerAvatarImage(rosterData[i].owner_id);
         item.setAttribute('class', 'dropdown-item');
         item.setAttribute('type', 'button');
-        item.setAttribute('value', getTeamName(rosterData[i].owner_id));
+        item.setAttribute('data-value', getTeamName(rosterData[i].owner_id));
+        teamImage.setAttribute('data-value', getTeamName(rosterData[i].owner_id));
         item.innerText = getTeamName(rosterData[i].owner_id);
         listItem.addEventListener("click", function(event) {
-            const selectedTeam = event.target.innerText; // The element that was clicked
+            const selectedTeam = event.target.getAttribute("data-value"); // The element that was clicked
             const teamButton = document.getElementById("custom-team-selector-input")
             teamButton.innerText = selectedTeam;
         });
