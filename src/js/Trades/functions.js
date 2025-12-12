@@ -133,16 +133,17 @@ async function filterTrades() {
     const helper = await import('../util/helper.js');
     var allTrades = document.querySelectorAll(`[data-transaction-date]`);
     var teamDropdown = document.getElementById("custom-team-selector-input");
+    var total_trades = document.getElementsByClassName("custom-total-number-trades")[0];
+    var team_image = document.getElementsByClassName("custom-filtered-team")[0];
     var startDate = document.getElementById("startDate");
     var endDate = document.getElementById("endDate");
-    var selectedUserId = teamDropdown.innerText == '' ? null : helper.getUserByName(teamDropdown.innerText);
-    var selectedStartDate = startDate.value == '' ? '1/1/1901' : startDate.value;
-    var selectedEndDate = endDate.value == '' ? '1/1/2099' : endDate.value;
+    var selectedUserId = teamDropdown.innerText === '' ? null : helper.getUserByName(teamDropdown.innerText);
+    var selectedStartDate = startDate.value === '' ? '1/1/1901' : startDate.value;
+    var selectedEndDate = endDate.value === '' ? '1/1/2099' : endDate.value;
 
     document.getElementById("trade-page-navigation-container").classList.add("custom-none-display"); //hide the pagination
 
     if(validateFilters(selectedUserId, selectedStartDate, selectedEndDate) == 1) return;
-    if(selectedUserId == null && startDate.value == '' && endDate.value == '') resetTradeFilters();
 
     for (var trade of allTrades) {
         var date = parseInt(trade.getAttribute("data-transaction-date"));
@@ -154,26 +155,33 @@ async function filterTrades() {
 
                 if (user.length >= 1) {
                     trade.classList = 'custom-transaction-row';
+                    trade.setAttribute("data-shown", "true");
                 }
                 else {
                     if (!trade.classList.contains("custom-none-display")) {
                         trade.classList.add("custom-none-display");
+                        trade.setAttribute("data-shown", "false");
                     }
                 }
             }
             else {
                 trade.classList = 'custom-transaction-row';
+                trade.setAttribute("data-shown", "true");
             }
         }
         else {
             if (!trade.classList.contains("custom-none-display")) {
-                trade.classList.add("custom-none-display")
+                trade.classList.add("custom-none-display");
+                trade.setAttribute("data-shown", "false");
             }
         }
     }
-
     
-
+    var num = [...allTrades].filter(el => el.getAttribute('data-shown') === 'true').length;
+    total_trades.innerText = num;
+    var selectedUser_image = helper.createOwnerAvatarImage(selectedUserId);
+    if(team_image.firstChild) team_image.removeChild(team_image.firstChild);
+    team_image.appendChild(selectedUser_image);
 }
 
 function validateFilters(selectedUserId, selectedStartDate, selectedEndDate) {
@@ -182,6 +190,10 @@ function validateFilters(selectedUserId, selectedStartDate, selectedEndDate) {
 
     if (endDate.getTime() < startDate.getTime()) {
         window.alert("From Date cannot precede To Date.");
+        return 1;
+    }
+    else if(selectedUserId == null && selectedStartDate == '1/1/1901' && selectedEndDate == '1/1/2099') {
+        resetTradeFilters();
         return 1;
     }
     else {
@@ -193,8 +205,12 @@ function resetTradeFilters() {
     document.getElementById('trades-pagination').setAttribute('data-current-page',"1");
     var allTrades = document.querySelectorAll('[class*="custom-transaction-row"]');
     var allShownTrades = document.querySelectorAll(`[data-shown='true']`);
+    var team_image = document.getElementsByClassName("custom-filtered-team")[0];
+    var total_trades = document.getElementsByClassName("custom-total-number-trades")[0];
     var totalPages = Math.ceil(allTrades.length / 10);
- 
+
+    if(team_image.firstChild) team_image.removeChild(team_image.firstChild);
+
     for (var trade of allShownTrades) {
         trade.setAttribute("data-shown", "false");
         trade.classList.add("custom-none-display");
@@ -209,7 +225,9 @@ function resetTradeFilters() {
             trade.setAttribute("data-shown", "false");
             trade.classList.add("custom-none-display");
         }
+        total_trades.innerText = index + 1;
     }
+    if(validateFilters)
     document.getElementById("startDate").value = '';
     document.getElementById("endDate").value = '';
     document.getElementById("custom-team-selector-input").value = '';

@@ -119,13 +119,19 @@
                 </div>
             </div>
             <div class="btn-group" id="submitButton">
-                <button type="button" onclick="filterTrades();" class="btn btn-primary">
+                <button type="button" onclick="filterTrades();" class="btn btn-primary" style="color: black;">
                     Submit
                 </button>
             </div>
-        </div>
-        <div class="btn-group" id="resetButton">
-            <a href="#" onclick="resetTradeFilters();">Reset</a>
+            <div class="custom-total-number-trades-container">
+                <div class="custom-total-number-trades-label">Total: </div>
+                <div class="custom-total-number-trades"></div>
+                <div id="resetButton">
+                    <a href="#" onclick="resetTradeFilters();">Reset</a>
+                </div>
+            </div>
+            <div class="custom-filtered-team">
+            </div>
         </div>
     </div>
     <nav id="trade-page-navigation-container"aria-label="Page navigation">
