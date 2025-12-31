@@ -78,8 +78,10 @@
 }
 
 .custom-throne-icon-medium {
-    border-radius: 2rem;
-    background-color: #a3a3a34a;
+    border-radius: 1rem;
+    margin: auto;
+    float: unset;
+    background: linear-gradient(90deg, transparent, #80808042, transparent);
 }
 
 /*creates 2 columns for teams*/
@@ -125,4 +127,5 @@
         display: block;
         width: 100%;
     }
+
 }
