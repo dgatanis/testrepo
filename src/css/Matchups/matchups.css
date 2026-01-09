@@ -13,11 +13,21 @@
     border: 3px solid black;
     padding-left: unset;
     padding-right: unset;
+    padding-bottom: 2rem;
+    position:relative;
+}
+
+.custom-week-of-season {
+    position: absolute;
+    bottom: 0;
+    left: .5rem;
+    font-size: .8rem;
+    font-style: italic;
+    color: var(--custom-light-gray);
 }
 
 .accordion-item {
     background: transparent;
-    box-shadow: 0 0rem 0.2rem whitesmoke;
 }
 
 #seasonTitle {

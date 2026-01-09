@@ -8,7 +8,9 @@ import {
     setLeagueName,
     setLinkSource,
     removeSpinner,
-    setDarkMode
+    setDarkMode,
+    getCurrentSeason,
+    league
     } from '../util/helper.js';
 
 let rosterData = rosters;
@@ -32,11 +34,16 @@ function loadLeagueDescription() {
     description[0].innerText = leagueDescription;
 }
 
-function loadTeams() {
+async function loadTeams() {
     try{
         var teams = document.querySelectorAll('[id*=team]');
         var champRosterId = null;
+        var currentSeason = await getCurrentSeason()
 
+        if(league.status === 'pre_draft') {
+            currentSeason = currentSeason - 1;
+        }
+        
         for(let playoffRound of playoffData)
         {
             if(playoffRound.r == 3 && playoffRound.t1_from.w)
@@ -63,7 +70,8 @@ function loadTeams() {
                 throneImg.setAttribute('src','src/static/images/throne.png');
                 throneImg.setAttribute('class', 'custom-throne-icon-medium');
                 throneImg.setAttribute('title', 'The Throne');
-    
+                throneImg.setAttribute('onclick', 'openMatchupsPage(' + currentSeason + ',17,1)')
+     
     
                 teams[i].children[0].append(throneImg);
             }
