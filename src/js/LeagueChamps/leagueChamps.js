@@ -152,7 +152,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
 
         if(highScorer)
         {
-            var playerDiv = createPlayerDiv(highScorer);
+            var playerDiv = createPlayerDiv(highScorer, year);
 
             team_div.appendChild(playerDiv);
         }
@@ -165,7 +165,7 @@ function createLeagueChampRow(roster, user, year, matchups = null) {
     return col;
 }
 
-function createPlayerDiv(highScorer) {
+function createPlayerDiv(highScorer, year) {
 
     var playerDiv = document.createElement('div');
     var playerContainer = document.createElement('div');
@@ -183,11 +183,13 @@ function createPlayerDiv(highScorer) {
     lionImg.setAttribute('class', 'custom-lion-image');
     lionImg.setAttribute('title', 'King of the Finals');
     playerPts.setAttribute('class', 'custom-player-pts');
-    playerPts.innerText = highScorer.points + "pts";
+    playerPts.innerText = highScorer.points + " pts";
     playerName.setAttribute('class', 'custom-player-name');
     playerName.innerText = getFullPlayerName(highScorer.player_id) + ":";
     playerDiv.setAttribute('class', 'custom-finals-player');
     playerContainer.setAttribute('class', 'custom-player-container');
+    playerContainer.setAttribute('onclick', 'openMatchupsPage('+ year + ',17,1)');
+    playerContainer.setAttribute('title', 'Go to Championship Week');
 
 
     labelDiv.appendChild(label);

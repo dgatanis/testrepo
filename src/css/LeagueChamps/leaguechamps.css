@@ -64,12 +64,17 @@ tr td {
 
 .custom-label-container{
     color: black;
-    border-radius: 1rem;
     margin: auto;
     margin-bottom: .5rem;
     background: var(--custom-light-gray);
     border: 2px solid var(--custom-dark-mode-background);
     box-shadow: 0 0rem 0.2rem whitesmoke;
+}
+
+.custom-player-container:hover {
+    background: #80808040;
+    border-radius: 1rem;
+    cursor: pointer;
 }
 
 .custom-medium-avatar {

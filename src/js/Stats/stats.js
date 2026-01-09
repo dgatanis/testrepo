@@ -154,7 +154,7 @@ async function setTableData(tableName) {
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "week " + sortedList[i].week;
+            week.innerText = getWeekTitle(sortedList[i].week);
 
             name.appendChild(teamImage);
             name.appendChild(team);
@@ -197,7 +197,7 @@ async function setTableData(tableName) {
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "week " + sortedList[i].week;
+            week.innerText = getWeekTitle(sortedList[i].week);
 
             name.appendChild(teamImage);
             name.appendChild(team);
@@ -237,11 +237,10 @@ async function setTableData(tableName) {
             score.innerText = sortedList[i].player_points;
             teamImage.setAttribute('class','custom-xsmall-avatar');
             team.setAttribute('class', 'custom-details-team');
-            team.innerText = getTeamName(roster.owner_id);
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "week " + sortedList[i].week;
+            week.innerText = getWeekTitle(sortedList[i].week);
 
             details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season + ", " + sortedList[i].week + ", " + sortedList[i].matchup_id + ")");
             details.append(teamImage);
@@ -282,11 +281,10 @@ async function setTableData(tableName) {
             score.innerText = sortedList[i].player_points;
             teamImage.setAttribute('class','custom-xsmall-avatar');
             team.setAttribute('class', 'custom-details-team');
-            team.innerText = getTeamName(roster.owner_id);
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + sortedList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "week " + sortedList[i].week;
+            week.innerText = getWeekTitle(sortedList[i].week);
 
             details.setAttribute("onclick", "openMatchupsPage(" + sortedList[i].season + ", " + sortedList[i].week + ", " + sortedList[i].matchup_id + ")");
             details.append(teamImage);
@@ -388,28 +386,24 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         for (let i = 0; i < 10; i++) {
             let winningRoster = rosterData.find(x => x.roster_id === marginList[i].winner_roster);
-            let losingRoster = rosterData.find(x => x.roster_id === marginList[i].loser_roster);
             var name = tableRows[i].children[0].children[0];
             var details = tableRows[i].children[0].children[1];
             var score = tableRows[i].children[1];
             var winningTeamImage = createOwnerAvatarImage(winningRoster.owner_id);
-            var losingTeamImage = createOwnerAvatarImage(losingRoster.owner_id);
             var winningTeam = document.createElement('div');
             var season = document.createElement('div');
             var week = document.createElement('div');
 
             score.innerText = marginList[i].margin;
             winningTeamImage.setAttribute('class','custom-small-avatar');
-            losingTeamImage.setAttribute('class','custom-xsmall-avatar custom-losing-team');
             winningTeam.setAttribute('class', 'custom-details-team');
             winningTeam.innerText = getTeamName(winningRoster.owner_id);
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + marginList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "week " + marginList[i].week;
+            week.innerText = getWeekTitle(marginList[i].week);
 
             details.setAttribute("onclick", "openMatchupsPage(" + marginList[i].season + ", " + marginList[i].week + ", " + marginList[i].matchupId + ")");
-            details.append(losingTeamImage);
             details.append(week);
             details.append(season);
             name.append(winningTeamImage);
@@ -423,28 +417,24 @@ async function setTableData(tableName) {
         var tableRows = thisTable.children[1].children;
         for (let i = 0; i < 10; i++) {
             let winningRoster = rosterData.find(x => x.roster_id === marginList[i].winner_roster);
-            let losingRoster = rosterData.find(x => x.roster_id === marginList[i].loser_roster);
             var name = tableRows[i].children[0].children[0];
             var details = tableRows[i].children[0].children[1];
             var score = tableRows[i].children[1];
             var winningTeamImage = createOwnerAvatarImage(winningRoster.owner_id);
-            var losingTeamImage = createOwnerAvatarImage(losingRoster.owner_id);
             var winningTeam = document.createElement('div');
             var season = document.createElement('div');
             var week = document.createElement('div');
 
             score.innerText = marginList[i].margin;
             winningTeamImage.setAttribute('class','custom-small-avatar');
-            losingTeamImage.setAttribute('class','custom-xsmall-avatar custom-losing-team');
             winningTeam.setAttribute('class', 'custom-details-team');
             winningTeam.innerText = getTeamName(winningRoster.owner_id);
             season.setAttribute('class', 'custom-details-season');
             season.innerText = "'" + marginList[i].season.slice(-2);
             week.setAttribute('class', 'custom-details-week');
-            week.innerText = "week " + marginList[i].week;
+            week.innerText = getWeekTitle(marginList[i].week);
 
             details.setAttribute("onclick", "openMatchupsPage(" + marginList[i].season + ", " + marginList[i].week + ", " + marginList[i].matchupId + ")");
-            details.append(losingTeamImage);
             details.append(week);
             details.append(season);
             name.append(winningTeamImage);
@@ -710,4 +700,19 @@ function hideShowTabs() {
         statsDiv.style.display = 'none';
         toolDiv.style.display = 'block';
     });
+}
+
+function getWeekTitle(week) {
+
+    if (week === 15) {
+        return "Playoffs Round 1";
+    } else if (week === 16) {
+        return "Semifinals";
+    } else if (week === 17) {
+        return "Championship";
+    }
+    else {
+        return "week " + week;
+    }
+        
 }

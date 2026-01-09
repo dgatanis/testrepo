@@ -70,10 +70,12 @@ async function loadMatchupsList(currentWeek, currentSeason) {
     }
 
     for (let i = 0; i < matchupData.length; i++) {
+        console.log(matchupData[i])
         var thisWeek = matchupData[i];
         var thisYear = matchupData[i].year;
 
-        if (thisWeek.week != 18 && thisWeek.week != 0 && ((parseInt(thisWeek.week) < parseInt(currentWeek) && parseInt(thisYear) <= parseInt(currentSeason)) || (parseInt(thisYear) < parseInt(currentSeason)))) {
+        if (matchupData[i][0] && thisWeek.week != 18 && thisWeek.week != 0 && 
+            ((parseInt(thisWeek.week) < parseInt(currentWeek) && parseInt(thisYear) <= parseInt(currentSeason)) || (parseInt(thisYear) < parseInt(currentSeason)))) {
 
             if (year == null || year != thisYear) {
                 year = thisYear;
@@ -153,6 +155,9 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
             }
 
             var matchupDiv = document.createElement("div");
+            var weekOfSeason = document.createElement("div");
+            weekOfSeason.innerText = "Week " + weekNumber;
+            weekOfSeason.setAttribute("class", "custom-week-of-season");
             matchupDiv.setAttribute("data-matchup-id", matchupId);
             matchupDiv.setAttribute("data-year", year);
             matchupDiv.setAttribute("data-week", week);
@@ -271,6 +276,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamDetailsDiv.appendChild(teamScoreDiv);;
                         teamContainer.appendChild(teamDetailsDiv);
                         teamContainer.appendChild(teamTable);
+                        matchupDiv.appendChild(weekOfSeason);
                         matchupDiv.appendChild(teamContainer);
                     }
                 }
@@ -386,6 +392,7 @@ function loadMatchups(weekNumber, season, fullPlayoffData) {
                         teamDetailsDiv.appendChild(teamScoreDiv);;
                         teamContainer.appendChild(teamDetailsDiv);
                         teamContainer.appendChild(teamTable);
+                        matchupDiv.appendChild(weekOfSeason);
                         matchupDiv.appendChild(teamContainer);
                     }
                 }

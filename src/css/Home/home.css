@@ -45,6 +45,7 @@
     margin: auto; 
     border-radius: 1rem;
     text-shadow: 1px 1px 1px black;
+    position: relative;
 }
 
 .custom-medium-avatar {
@@ -78,10 +79,14 @@
 }
 
 .custom-throne-icon-medium {
-    border-radius: 1rem;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: .6rem;
     margin: auto;
     float: unset;
-    background: linear-gradient(90deg, transparent, #80808042, transparent);
+    background: linear-gradient(90deg, #80808042, #80808042, transparent);
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 /*creates 2 columns for teams*/

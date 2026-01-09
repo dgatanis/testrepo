@@ -387,7 +387,7 @@ table#allTimeLowScorerTeam .custom-name {
 .custom-xsmall-avatar {
     max-width: 1.2rem;
     margin-right: .1rem;
-    padding: .1rem;
+    padding: .07rem;
     background-color: var(--custom-light-gray);
     box-shadow: 0 0rem 0.2rem black;
 }
