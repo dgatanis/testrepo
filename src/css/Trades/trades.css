@@ -95,6 +95,8 @@ a.page-link {
     white-space: nowrap;
     overflow: hidden;
     word-spacing: .05rem;
+    font-size: 1.5rem;
+    color: #cecece96;
 }
 
 .custom-waiver-budget {
@@ -128,7 +130,7 @@ a.page-link {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    color: #cecece4a;
+    color: var(--custom-dark-mode-text-color);
     width: 100%;
     position: absolute;
     top: 0;
@@ -162,9 +164,10 @@ a.page-link {
 
 .custom-player-details {
     display: grid;
-    margin-right: auto;
-    margin-left: -2rem;
     color: var(--custom-dark-mode-text-color);
+    position: absolute;
+    left: 3rem;
+    align-items: center;
 }
 
 .custom-player-avatar {
@@ -180,11 +183,11 @@ a.page-link {
 }
 
 .custom-details-container {
-    display: flex;
-    grid-row: 2;
-    grid-column: 1/2;
+    display: grid;
+    grid-row: 1;
+    grid-column: 2;
     align-items: center;
-    column-gap: .5rem;
+    column-gap: .2rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -204,7 +207,7 @@ a.page-link {
     display: flex;
     padding-left: .2rem;
     padding-right: .2rem;
-    min-height: 3rem;
+    min-height: 3.5rem;
 }
 
 img.custom-team-logo {
@@ -353,7 +356,7 @@ sup {
     vertical-align: text-bottom;
     font-style: italic;
     bottom: 0;
-    right: 0.7rem;
+    right: 0.8rem;
     color: #cecece4a;
 }
 
@@ -513,10 +516,6 @@ button#custom-team-selector-input {
         font-size: 1.5rem;
     }
 
-    .custom-playername-large {
-        font-size: .75rem;
-    }
-
     .custom-player-position, .custom-player-number {
         font-size: .5rem;
     }
@@ -535,6 +534,10 @@ button#custom-team-selector-input {
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    .custom-playername-large {
+        font-size: 1rem;
+    }
 
     .custom-team-container {
         height: 4.5rem;
