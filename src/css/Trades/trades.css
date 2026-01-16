@@ -493,6 +493,10 @@ button#custom-team-selector-input {
 /*Tablet display styling*/
 @media screen and (max-width: 48rem) {
 
+    .custom-team-group {
+        height: revert;
+    }
+
     .custom-input-date-container {
         width: fit-content;
         margin-left: .5rem;
@@ -633,5 +637,6 @@ button#custom-team-selector-input {
         padding: .4rem;
         padding-top: unset;
         min-width: 10rem;
+        height: revert;
     }
 }
