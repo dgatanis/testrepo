@@ -130,11 +130,10 @@ a.page-link {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    color: var(--custom-dark-mode-text-color);
+    color: #cecece96;
     width: 100%;
     position: absolute;
     top: 0;
-    text-shadow: 0 0 #11131a78;
     font-size: 1.2rem;
 }
 
@@ -168,11 +167,12 @@ a.page-link {
     position: absolute;
     left: 3rem;
     align-items: center;
+    width: -webkit-fill-available;
 }
 
 .custom-player-avatar {
     margin-right: auto;
-    border-radius: 1rem;
+    border-radius: .9rem;
     height: 35px;
     width: 35px;
     border: unset !important;
@@ -180,16 +180,15 @@ a.page-link {
 
 .custom-player-position, .custom-player-number {
     font-size: .5rem;
+    color: #cecece4a;
 }
 
 .custom-details-container {
-    display: grid;
     grid-row: 1;
     grid-column: 2;
     align-items: center;
     column-gap: .2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 .custom-player {
@@ -310,7 +309,7 @@ sup {
 .custom-draft-pick-round {
     position: absolute;
     left: 0.5rem;
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: #cecece96;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -479,7 +478,7 @@ button#custom-team-selector-input {
 /*Normal Laptop display styling*/
 @media screen and (max-width: 64rem) {
     .custom-draft-pick-round, .custom-waiver-budget {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .custom-card {
@@ -532,15 +531,18 @@ button#custom-team-selector-input {
         overflow: scroll;
     }
 
-
-
 }
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
 
+    .custom-details-container {
+        margin-right: .2rem;
+    }
+
     .custom-playername-large {
-        font-size: 1rem;
+        font-size: .8rem;
+        text-align: justify;
     }
 
     .custom-team-container {
