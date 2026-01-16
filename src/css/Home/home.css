@@ -73,7 +73,7 @@
 }
 
 .card-custom:hover .custom-medium-avatar {
-    box-shadow: 0 0rem 0.4rem whitesmoke;
+    box-shadow: 0 0rem 0.4rem #5a5a5a94;
     background-color: whitesmoke;
     transition: all .5s ease;
 }

@@ -21,9 +21,9 @@
     position: absolute;
     bottom: 0;
     left: .5rem;
-    font-size: .8rem;
+    font-size: .7rem;
     font-style: italic;
-    color: var(--custom-light-gray);
+    color: #edededc9;
 }
 
 .accordion-item {
@@ -373,6 +373,11 @@
 
 /*Large Mobile display styling*/
 @media screen and (max-width: 26.875rem) {
+
+    .custom-week-of-season {
+        font-size: .6rem;
+        left: .3rem;
+    }
 
     .custom-team-table-1 .custom-player-position {
         margin-left: .3rem;
