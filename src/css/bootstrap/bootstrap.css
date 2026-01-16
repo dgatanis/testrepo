@@ -52,6 +52,7 @@
   --custom-dark-mode-secondary: #3e4a64;
   --custom-dark-mode-text-color: #cecece;
   --custom-light-blue: rgb(222 232 243);
+  --custom-fade: linear-gradient(90deg, #3e4a648a, transparent, transparent, #3e4a648a);
 }
 
 *,

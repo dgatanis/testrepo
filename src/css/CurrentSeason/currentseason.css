@@ -190,7 +190,7 @@
     background-color: var(--custom-dark-mode-primary);
     color: var(--custom-light-gray);
     border: 2px solid var(--custom-dark-mode-background);
-    box-shadow: 0 0rem 0.2rem whitesmoke;
+    box-shadow: 0 0rem 0.2rem #5a5a5a94;
     border-radius: .3rem;
   }
 
@@ -207,7 +207,7 @@
     text-align: center;
     background: var(--custom-dark-mode-primary);
     color: var(--custom-light-gray);
-    box-shadow: 0 0 .1rem 0 whitesmoke;
+    box-shadow: 0 0 .1rem 0 #5a5a5a94;
     border: 2px solid black;
     border-radius: 2rem;
     padding: .2rem;
@@ -572,7 +572,7 @@
     background: var(--custom-dark-mode-primary);
     color: var(--custom-light-gray);
     border: 2px solid var(--custom-dark-mode-background);
-    box-shadow: 0 0rem 0.2rem whitesmoke;
+    box-shadow: 0 0rem 0.2rem #5a5a5a94;
   }
 
   #custom_transaction_inner {
@@ -695,7 +695,7 @@
     border-radius:.5rem;
     max-height: 45rem;
     border: 2px solid var(--custom-dark-mode-background);
-    box-shadow: 0 0rem 0.2rem whitesmoke;
+    box-shadow: 0 0rem 0.2rem #5a5a5a94;
   }
 
   .custom-carousel-item:hover {

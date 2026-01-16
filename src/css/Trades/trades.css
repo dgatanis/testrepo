@@ -94,19 +94,18 @@ a.page-link {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    word-spacing: .1rem;
+    word-spacing: .05rem;
 }
 
 .custom-waiver-budget {
     font-size: small;
     border-radius: .5rem;
     height: 2rem;
-    background: var(--custom-dark-mode-secondary);
     position: relative;
     color: var(--custom-light-gray);
     padding: .2rem;
     padding-top: .3rem;
-    border: 1px solid black;
+    border: 2px inset #35353533;
     margin-bottom: .5rem;
 }
 
@@ -175,16 +174,16 @@ a.page-link {
     position: relative;
     border-radius: .5rem;
     height: fit-content;
-    background: var(--custom-dark-mode-secondary);
-    color: var(--custom-light-gray);;
+    color: var(--custom-light-gray);
     align-items: center;
     justify-content: center;
     background-image: url(/src/static/images/add-sign.png);
-    border: 1px solid black;
+    border: 2px inset #35353533;
     margin-bottom: .5rem;
     display: flex;
     padding-left: .2rem;
     padding-right: .2rem;
+    min-height: 3rem;
 }
 
 img.custom-team-logo {
@@ -201,15 +200,15 @@ img.custom-team-logo {
     padding: .2rem;
     border-radius: .5rem;
     height: fit-content;
-    background: var(--custom-dark-mode-secondary);
     position: relative;
-    color: var(--custom-light-gray);;
+    color: var(--custom-light-gray);
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
-    border: 1px solid black;
+    border: 2px inset #35353533;
     margin-bottom: .5rem;
+    min-height: 3rem;
 }
 
 .custom-draft-pick .custom-trade-from-icon {
@@ -234,7 +233,7 @@ img.custom-team-logo {
 
 .custom-team-group {
     display: grid;
-    box-shadow: 0 0rem 0.2rem whitesmoke;
+    box-shadow: 0 0rem 0.2rem #5a5a5a94;
     border-radius: 1rem;
     margin: auto;
     margin-top: unset;
@@ -489,11 +488,11 @@ button#custom-team-selector-input {
     }
 
     .custom-playername-large {
-        font-size: .65rem;
+        font-size: .75rem;
     }
 
     .custom-player-position, .custom-player-number {
-        font-size: .4rem;
+        font-size: .5rem;
     }
 
     .custom-draft-pick-round {
@@ -538,7 +537,7 @@ button#custom-team-selector-input {
     }
 
     .custom-player-details {
-        margin-left: -1rem;
+        margin-left: -.5rem;
     }
 
     #team {
@@ -551,14 +550,14 @@ button#custom-team-selector-input {
     }
 
     .custom-add-icon{
-        top: .4rem;
+        top: .5rem;
         max-width: .7rem;
     }
 
     .custom-player-avatar {
-        height: 25px;
-        width: 25px;
-        background-size: auto 30px;
+        height: 30px;
+        width: 30px;
+        background-size: auto 35px;
         border-radius: 1rem;
         margin-bottom: .07rem;
     }
@@ -590,7 +589,7 @@ button#custom-team-selector-input {
     }
 
     .custom-team-group {
-        padding: .1rem;
+        padding: .4rem;
         min-width: 10rem;
         height: revert;
     }

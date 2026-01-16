@@ -335,7 +335,7 @@ tr#postseasonStartSitAcc, tr#overallTrades, tr#record, tr#overallAvgPtsFor, tr#o
 
 .custom-all-time-stats table {
     background: var(--custom-dark-mode-primary);
-    box-shadow: 0 0 .2rem 0 var(--custom-light-gray);
+    box-shadow: 0 0 .2rem 0 #5a5a5a94;
 }
 
 td.custom-score {
