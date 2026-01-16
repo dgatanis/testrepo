@@ -132,7 +132,6 @@ async function loadTradeTransactions() {
 
                             if (rosterid == draftPick.owner_id) { //owner_id = rosterId that owns the pick now
 
-                                var formattedRound;
                                 var roundPlainText;
                                 var originalOwner = rosterData.find(x => x.roster_id === draftPick.roster_id);
                                 var draftPickDiv = document.createElement('div');
@@ -144,27 +143,23 @@ async function loadTradeTransactions() {
 
                                 if (draftPick.round == 1) {
                                     draftPicksCount["1"]++;
-                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">st</sup>';
-                                    roundPlainText = draftPick.round + "st rd"
+                                    roundPlainText = draftPick.round + "st Round Pick"
 
                                 }
                                 else if (draftPick.round == 2) {
                                     draftPicksCount["2"]++;
-                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">nd</sup>';
-                                    roundPlainText = draftPick.round + "nd rd"
+                                    roundPlainText = draftPick.round + "nd Round Pick"
                                 }
                                 else if (draftPick.round == 3) {
-                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">rd</sup>';
-                                    roundPlainText = draftPick.round + "rd rd"
+                                    roundPlainText = draftPick.round + "rd Round Pick"
                                 }
                                 else {
-                                    formattedRound = draftPick.round + '<sup style="font-size: .5rem;">th</sup>';
-                                    roundPlainText = draftPick.round + "th rd"
+                                    roundPlainText = draftPick.round + "th Round Pick"
                                 }
 
                                 draftPickDiv.setAttribute('title', roundPlainText + ' pick via ' + getTeamName(originalOwner.owner_id));
 
-                                round.innerHTML = formattedRound;
+                                round.innerHTML = roundPlainText;
                                 season.innerText = draftPick.season;
 
                                 draftPickDiv.appendChild(round);
@@ -202,10 +197,13 @@ async function loadTradeTransactions() {
                         for (let faab of trade.waiver_budget) {
                             if (faab.receiver == rosterid) {
                                 var waiverBudgDiv = document.createElement('div');
+                                var waiverBudgetContainer = document.createElement("div");
                                 waiverBudgDiv.setAttribute('class', 'custom-waiver-budget');
-                                waiverBudgDiv.innerText = "$" + faab.amount + " - FAAB";
-                                
-                                teamGroup.appendChild(waiverBudgDiv);
+                                waiverBudgDiv.innerText = "$" + faab.amount + " FAAB";
+                                waiverBudgetContainer.setAttribute('class', 'custom-waiver-budget-container');
+
+                                waiverBudgetContainer.appendChild(waiverBudgDiv)
+                                teamGroup.appendChild(waiverBudgetContainer);
                             }
                         }
 
