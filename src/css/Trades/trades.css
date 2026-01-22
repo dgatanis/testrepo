@@ -546,6 +546,7 @@ button#custom-team-selector-input {
     }
 
     .custom-player-details {
+        height: revert;
         height: fit-content;
         margin-left: 35px;
     }
