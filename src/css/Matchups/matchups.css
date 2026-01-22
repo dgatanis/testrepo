@@ -10,7 +10,7 @@
     background: var(--custom-dark-mode-primary);
     border-radius: 1rem;
     padding: 1rem;
-    border: 3px solid black;
+    border: 3px solid #161616f5;
     padding-left: unset;
     padding-right: unset;
     padding-bottom: 2rem;
@@ -187,11 +187,11 @@
 }
 
 .custom-winning-score {
-    color: green;
+    color: #006800;
 }
 
 .custom-losing-score {
-    color: red;
+    color: #870000;
 }
 
 .custom-matchups {
@@ -213,7 +213,7 @@
     border: 3px black solid;
     text-align: center;
     border-radius: .3rem;
-    background: #313131;
+    background: #161616;
     height: 100%;
     width: 100%;
     position: relative;
@@ -326,7 +326,7 @@
     font-size: 1.2rem;
     grid-row: 2;
     grid-column: 1 / -1;
-    color: whitesmoke;
+    color: var(--custom-dark-mode-text-color);
     text-shadow: 1px 1px 1px black;
 }
 
