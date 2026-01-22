@@ -4442,7 +4442,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
-  color: var(--custom-light-gray);
+  color: #ffffffa6;
   text-align: left;
   background-color: var(--custom-dark-mode-primary);
   border: 0;
@@ -4492,7 +4492,7 @@ textarea.form-control-lg {
 
 .accordion-item {
   background-color: var(--custom-light-gray);
-  border: 1px solid var(--custom-light-gray);
+  border: 1px solid #cecece96;
 }
 .accordion-item:first-of-type {
   border-top-left-radius: 0.25rem;
@@ -11160,6 +11160,7 @@ ul.nav.nav-tabs {
   border-top-left-radius: .5rem;
   border: 1px solid black;
   border-bottom: unset;
+  z-index: 999;
 }
 
 .custom-footer-links {
@@ -11193,8 +11194,8 @@ ul.nav.nav-tabs {
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--custom-dark-mode-text-color);
-  background-color: var(--custom-dark-mode-transparent);
+  color: #cececea3;
+  background-color: var(--custom-dark-mode-background);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 
